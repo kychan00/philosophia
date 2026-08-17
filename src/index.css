@@ -1,3 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
+
+:root {
+  --paper: #eee9dd;
+  --paper-light: #f6f1e6;
+  --ink: #171612;
+  --ink-soft: #514e46;
+  --muted: #777267;
+  --line: rgba(45, 41, 34, 0.22);
+  --line-soft: rgba(45, 41, 34, 0.11);
+  --dark: #171713;
+  --gold: #9d8553;
+
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -10,6 +30,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background: var(--paper);
 }
 
 button,
@@ -22,4 +43,767 @@ select {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+::selection {
+  color: var(--paper-light);
+  background: var(--dark);
+}
+
+/* -------------------------------------------------
+   SITE
+-------------------------------------------------- */
+
+.site-shell {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* -------------------------------------------------
+   HERO
+-------------------------------------------------- */
+
+.hero {
+  min-height: 100svh;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  padding: 5rem 2rem;
+
+  background:
+    radial-gradient(
+      circle at 50% 22%,
+      rgba(255, 255, 255, 0.76),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      #f5f0e5 0%,
+      var(--paper) 70%
+    );
+
+  border-bottom: 1px solid var(--line);
+}
+
+.hero::before {
+  content: '';
+
+  position: absolute;
+  inset: 20px;
+
+  border: 1px solid var(--line-soft);
+
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+
+  position: absolute;
+
+  width: 1px;
+  height: 100%;
+
+  top: 0;
+  left: 50%;
+
+  background: linear-gradient(
+    transparent,
+    var(--line-soft) 25%,
+    var(--line-soft) 75%,
+    transparent
+  );
+
+  pointer-events: none;
+}
+
+.ambient-field {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.ambient-particle {
+  position: absolute;
+  top: var(--top);
+  left: var(--left);
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: var(--size);
+  line-height: 1;
+
+  color: rgba(157, 133, 83, 0.58);
+  opacity: 0.14;
+
+  text-shadow: 0 0 10px rgba(157, 133, 83, 0.12);
+
+  animation: floatDrift var(--duration) ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+.hero-glow {
+  position: absolute;
+  z-index: 0;
+
+  left: 50%;
+  top: 38%;
+
+  width: min(25vw, 280px);
+  aspect-ratio: 1;
+
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(243, 214, 145, 0.42) 0%,
+      rgba(243, 214, 145, 0.22) 26%,
+      rgba(243, 214, 145, 0.10) 50%,
+      rgba(243, 214, 145, 0.04) 68%,
+      rgba(243, 214, 145, 0.00) 100%
+    );
+
+  filter: blur(6px);
+
+  animation: pulseSun 10s ease-in-out infinite;
+}
+
+.hero-orbit {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%);
+
+  pointer-events: none;
+}
+
+.hero-orbit--outer {
+  width: min(76vw, 900px);
+  aspect-ratio: 1;
+
+  border: 1px solid var(--line-soft);
+
+  animation: breathe 12s ease-in-out infinite;
+}
+
+.hero-orbit--inner {
+  width: min(52vw, 610px);
+  aspect-ratio: 1;
+
+  border: 1px solid rgba(45, 41, 34, 0.07);
+
+  animation: breathe 9s ease-in-out infinite reverse;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: 1000px;
+
+  text-align: center;
+}
+
+.institution {
+  margin: 0 0 2.2rem;
+
+  font-size: 0.68rem;
+  font-weight: 500;
+
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+
+  color: var(--muted);
+}
+
+.phi-mark {
+  width: 66px;
+  height: 66px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 2.2rem;
+
+  border: 1px solid var(--line);
+  border-radius: 50%;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.35rem;
+  font-weight: 500;
+
+  background: rgba(246, 241, 230, 0.45);
+  backdrop-filter: blur(6px);
+
+  animation: floatPhi 8s ease-in-out infinite;
+}
+
+.greek-title {
+  margin: 0 0 0.8rem;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.82rem;
+
+  letter-spacing: 0.5em;
+
+  color: var(--gold);
+}
+
+.hero h1 {
+  margin: 0;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: clamp(5rem, 13vw, 11.5rem);
+  font-weight: 400;
+
+  line-height: 0.76;
+
+  letter-spacing: -0.065em;
+}
+
+.hero-description {
+  max-width: 580px;
+
+  margin: 2.8rem 0 0;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+  line-height: 1.45;
+
+  color: var(--ink-soft);
+}
+
+.ornament {
+  width: min(320px, 75vw);
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+
+  gap: 1rem;
+
+  margin: 3rem 0 2.3rem;
+
+  color: var(--gold);
+}
+
+.ornament span {
+  height: 1px;
+  background: var(--line);
+}
+
+.ornament b {
+  font-size: 0.72rem;
+  font-weight: 400;
+}
+
+.hero blockquote {
+  margin: 0;
+
+  max-width: 700px;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: clamp(1.35rem, 2.7vw, 2rem);
+  font-style: italic;
+  font-weight: 400;
+
+  line-height: 1.4;
+}
+
+.hero cite {
+  margin-top: 1rem;
+
+  font-style: normal;
+  font-size: 0.63rem;
+  font-weight: 500;
+
+  letter-spacing: 0.23em;
+  text-transform: uppercase;
+
+  color: var(--muted);
+}
+
+.scroll-cue {
+  position: absolute;
+  z-index: 3;
+
+  bottom: 2.6rem;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 0.65rem;
+
+  font-size: 0.61rem;
+  font-weight: 500;
+
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+
+  color: var(--muted);
+
+  animation: cueBreathe 3.5s ease-in-out infinite;
+}
+
+.scroll-arrow {
+  font-size: 1rem;
+
+  transition: transform 200ms ease;
+}
+
+.scroll-cue:hover .scroll-arrow {
+  transform: translateY(5px);
+}
+
+/* -------------------------------------------------
+   SEMESTERS
+-------------------------------------------------- */
+
+.semesters-section {
+  max-width: 1380px;
+
+  margin: 0 auto;
+
+  padding: 10rem 4rem 11rem;
+}
+
+.section-header {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 760px);
+
+  gap: 3rem;
+
+  margin-bottom: 7rem;
+}
+
+.section-number {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 6.5rem;
+  font-weight: 400;
+
+  line-height: 0.8;
+
+  color: rgba(23, 22, 18, 0.17);
+}
+
+.section-kicker {
+  margin: 0;
+
+  font-size: 0.65rem;
+  font-weight: 500;
+
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+
+  color: var(--gold);
+}
+
+.section-copy h2 {
+  margin: 0.5rem 0 1.3rem;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: clamp(4.5rem, 8vw, 7.7rem);
+  font-weight: 400;
+
+  line-height: 0.85;
+
+  letter-spacing: -0.055em;
+}
+
+.section-description {
+  max-width: 610px;
+
+  margin: 0;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.35rem;
+  line-height: 1.65;
+
+  color: var(--ink-soft);
+}
+
+/* -------------------------------------------------
+   SEMESTER GRID
+-------------------------------------------------- */
+
+.semester-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.semester-card {
+  min-height: 360px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  position: relative;
+
+  padding: 2.1rem;
+
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+
+  background: transparent;
+
+  transition:
+    transform 250ms ease,
+    background 250ms ease,
+    color 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.semester-card::after {
+  content: '';
+
+  position: absolute;
+
+  inset: 14px;
+
+  border: 1px solid transparent;
+
+  transition: border-color 250ms ease;
+}
+
+.semester-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 1rem;
+}
+
+.semester-roman {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 5.2rem;
+  font-weight: 400;
+
+  line-height: 0.8;
+}
+
+.semester-status {
+  font-size: 0.57rem;
+  font-weight: 500;
+
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+
+  color: var(--muted);
+}
+
+.semester-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 0.65rem;
+
+  position: relative;
+  z-index: 2;
+}
+
+.semester-title {
+  margin: 0;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.65rem;
+  font-weight: 500;
+}
+
+.semester-period,
+.semester-muted {
+  font-size: 0.6rem;
+  font-weight: 500;
+
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+
+  color: var(--muted);
+}
+
+.semester-enter {
+  display: flex;
+  align-items: center;
+
+  gap: 0.6rem;
+
+  margin-top: 1rem;
+
+  font-size: 0.62rem;
+  font-weight: 500;
+
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.semester-enter span {
+  font-size: 0.9rem;
+
+  transition: transform 200ms ease;
+}
+
+.semester-card--active {
+  z-index: 3;
+
+  color: var(--paper-light);
+
+  background:
+    linear-gradient(
+      145deg,
+      #1b1b17,
+      #11110e
+    );
+
+  box-shadow:
+    0 26px 70px rgba(16, 15, 12, 0.18);
+
+  cursor: pointer;
+}
+
+.semester-card--active::after {
+  border-color: rgba(238, 233, 221, 0.14);
+}
+
+.semester-card--active .semester-status,
+.semester-card--active .semester-period {
+  color: rgba(246, 241, 230, 0.53);
+}
+
+.semester-card--active:hover {
+  transform: translateY(-10px);
+}
+
+.semester-card--active:hover .semester-enter span {
+  transform: translate(4px, -4px);
+}
+
+/* -------------------------------------------------
+   FOOTER
+-------------------------------------------------- */
+
+.site-footer {
+  min-height: 190px;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: end;
+
+  gap: 2rem;
+
+  padding: 3rem 4rem;
+
+  border-top: 1px solid var(--line);
+}
+
+.footer-monogram,
+.footer-phi {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 2rem;
+}
+
+.footer-phi {
+  justify-self: end;
+}
+
+.footer-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  gap: 0.8rem;
+
+  font-size: 0.58rem;
+  font-weight: 500;
+
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+
+  color: var(--muted);
+}
+
+.footer-dot {
+  color: var(--gold);
+}
+
+/* -------------------------------------------------
+   ANIMATIONS
+-------------------------------------------------- */
+
+@keyframes pulseSun {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(0.96);
+    opacity: 0.72;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.08);
+    opacity: 0.98;
+  }
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(0.995);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.01);
+    opacity: 1;
+  }
+}
+
+@keyframes floatPhi {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes cueBreathe {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0px);
+    opacity: 0.72;
+  }
+  50% {
+    transform: translateX(-50%) translateY(4px);
+    opacity: 1;
+  }
+}
+
+@keyframes floatDrift {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0.10;
+  }
+  25% {
+    transform: translate3d(8px, -14px, 0) rotate(5deg);
+    opacity: 0.24;
+  }
+  50% {
+    transform: translate3d(-10px, -28px, 0) rotate(-6deg);
+    opacity: 0.14;
+  }
+  75% {
+    transform: translate3d(6px, -12px, 0) rotate(3deg);
+    opacity: 0.22;
+  }
+}
+
+/* -------------------------------------------------
+   RESPONSIVE
+-------------------------------------------------- */
+
+@media (max-width: 1050px) {
+  .semester-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    min-height: 100svh;
+    padding: 4rem 1.5rem 7rem;
+  }
+
+  .hero::before {
+    inset: 10px;
+  }
+
+  .hero-orbit--outer {
+    width: 110vw;
+  }
+
+  .hero-orbit--inner {
+    width: 76vw;
+  }
+
+  .hero-glow {
+    width: min(54vw, 240px);
+    top: 37%;
+  }
+
+  .hero h1 {
+    font-size: clamp(4.4rem, 22vw, 7rem);
+  }
+
+  .institution {
+    letter-spacing: 0.23em;
+  }
+
+  .semesters-section {
+    padding: 7rem 1.4rem;
+  }
+
+  .section-header {
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+
+    margin-bottom: 4.5rem;
+  }
+
+  .section-number {
+    font-size: 4rem;
+  }
+
+  .section-copy h2 {
+    font-size: clamp(4rem, 20vw, 6rem);
+  }
+
+  .semester-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .semester-card {
+    min-height: 270px;
+  }
+
+  .site-footer {
+    grid-template-columns: 1fr;
+
+    padding: 2.5rem 1.5rem;
+
+    text-align: left;
+  }
+
+  .footer-center {
+    justify-content: flex-start;
+  }
+
+  .footer-phi {
+    justify-self: start;
+  }
 }
