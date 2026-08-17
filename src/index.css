@@ -807,3 +807,796 @@ a {
     justify-self: start;
   }
 }
+
+/* ===== BAROQUE AMBIENT LAYER START ===== */
+
+/* -------------------------------------------------
+   RICHER PAPER / LIGHT
+-------------------------------------------------- */
+
+.hero {
+  isolation: isolate;
+
+  background:
+    radial-gradient(
+      circle at 50% 34%,
+      rgba(255, 230, 165, 0.20),
+      transparent 17%
+    ),
+    radial-gradient(
+      ellipse at 50% 20%,
+      rgba(255, 255, 255, 0.85),
+      transparent 39%
+    ),
+    radial-gradient(
+      circle at 20% 65%,
+      rgba(157, 133, 83, 0.055),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(157, 133, 83, 0.045),
+      transparent 26%
+    ),
+    linear-gradient(
+      180deg,
+      #f7f2e7 0%,
+      #eee8da 74%,
+      #eae3d4 100%
+    );
+}
+
+/* -------------------------------------------------
+   BAROQUE FRAME
+-------------------------------------------------- */
+
+.baroque-frame {
+  position: absolute;
+  z-index: 3;
+
+  inset: 32px;
+
+  pointer-events: none;
+
+  border:
+    1px solid
+    rgba(126, 99, 47, 0.22);
+}
+
+.baroque-frame::before,
+.baroque-frame::after {
+  content: '';
+
+  position: absolute;
+
+  left: 50%;
+
+  width: min(500px, 55vw);
+  height: 9px;
+
+  transform: translateX(-50%);
+
+  border-top: 1px solid rgba(126, 99, 47, 0.24);
+  border-bottom: 1px solid rgba(126, 99, 47, 0.11);
+}
+
+.baroque-frame::before {
+  top: 8px;
+}
+
+.baroque-frame::after {
+  bottom: 8px;
+}
+
+.baroque-corner {
+  position: absolute;
+
+  width: 55px;
+  height: 55px;
+
+  display: grid;
+  place-items: center;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 2.5rem;
+
+  color: rgba(132, 103, 49, 0.53);
+
+  text-shadow:
+    0 0 18px rgba(183, 145, 73, 0.14);
+}
+
+.baroque-corner--tl {
+  top: -23px;
+  left: -23px;
+
+  transform: rotate(-45deg);
+}
+
+.baroque-corner--tr {
+  top: -23px;
+  right: -23px;
+
+  transform: rotate(45deg);
+}
+
+.baroque-corner--bl {
+  bottom: -23px;
+  left: -23px;
+
+  transform: rotate(-135deg);
+}
+
+.baroque-corner--br {
+  bottom: -23px;
+  right: -23px;
+
+  transform: rotate(135deg);
+}
+
+.baroque-side {
+  position: absolute;
+
+  top: 50%;
+
+  font-size: 0.65rem;
+
+  color: rgba(132, 103, 49, 0.45);
+}
+
+.baroque-side--left {
+  left: -5px;
+}
+
+.baroque-side--right {
+  right: -5px;
+}
+
+/* -------------------------------------------------
+   LIBRARY DUST
+-------------------------------------------------- */
+
+.dust-field {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.dust-mote {
+  position: absolute;
+
+  top: var(--dust-top);
+  left: var(--dust-left);
+
+  width: var(--dust-size);
+  height: var(--dust-size);
+
+  border-radius: 50%;
+
+  background: rgba(178, 143, 76, 0.95);
+
+  opacity: var(--dust-opacity);
+
+  filter: blur(0.25px);
+
+  box-shadow:
+    0 0 7px rgba(209, 170, 92, 0.36),
+    0 0 18px rgba(209, 170, 92, 0.12);
+
+  animation:
+    libraryDust
+    var(--dust-duration)
+    linear
+    infinite;
+
+  animation-delay: var(--dust-delay);
+}
+
+/* -------------------------------------------------
+   GREEK GHOST WORDS
+-------------------------------------------------- */
+
+.greek-constellation {
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.greek-ghost {
+  position: absolute;
+
+  top: var(--ghost-top);
+  left: var(--ghost-left);
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: var(--ghost-size);
+  font-style: italic;
+
+  white-space: nowrap;
+
+  color: rgba(105, 83, 44, 0.065);
+
+  transform:
+    rotate(var(--ghost-rotate));
+
+  animation:
+    ghostDrift
+    var(--ghost-duration)
+    ease-in-out
+    infinite;
+
+  animation-delay: var(--ghost-delay);
+}
+
+/* -------------------------------------------------
+   FLOATING SYMBOLS
+-------------------------------------------------- */
+
+.ambient-particle {
+  z-index: 1;
+
+  color: rgba(137, 105, 48, 0.75);
+
+  opacity: 0.20;
+
+  text-shadow:
+    0 0 9px rgba(158, 123, 61, 0.22),
+    0 0 25px rgba(158, 123, 61, 0.09);
+
+  animation-name: baroqueDrift;
+}
+
+/* -------------------------------------------------
+   SUN / HALO
+-------------------------------------------------- */
+
+.hero-glow {
+  top: 41%;
+
+  width: min(39vw, 470px);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(251, 217, 132, 0.44) 0%,
+      rgba(224, 178, 83, 0.24) 24%,
+      rgba(199, 146, 52, 0.13) 43%,
+      rgba(176, 120, 34, 0.055) 61%,
+      transparent 76%
+    );
+
+  filter: blur(9px);
+
+  animation:
+    baroqueSunPulse
+    11s
+    ease-in-out
+    infinite;
+}
+
+.hero-glow::before,
+.hero-glow::after {
+  content: '';
+
+  position: absolute;
+
+  inset: 18%;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    rgba(175, 130, 50, 0.09);
+}
+
+.hero-glow::after {
+  inset: 4%;
+
+  border-color:
+    rgba(175, 130, 50, 0.045);
+}
+
+/* -------------------------------------------------
+   PHI SANCTUM
+-------------------------------------------------- */
+
+.phi-sanctum {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1.25rem;
+
+  margin-bottom: 2.2rem;
+}
+
+.phi-flourish {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 2.1rem;
+
+  color: rgba(132, 103, 49, 0.68);
+
+  animation:
+    flourishBreathe
+    7s
+    ease-in-out
+    infinite;
+}
+
+.phi-flourish--right {
+  animation-delay: -3.5s;
+}
+
+.phi-mark {
+  position: relative;
+
+  width: 76px;
+  height: 76px;
+
+  margin-bottom: 0;
+
+  border:
+    1px solid
+    rgba(125, 95, 42, 0.40);
+
+  box-shadow:
+    inset 0 0 0 5px rgba(247, 241, 228, 0.66),
+    inset 0 0 0 6px rgba(125, 95, 42, 0.12),
+    0 0 0 8px rgba(125, 95, 42, 0.035),
+    0 12px 35px rgba(104, 80, 34, 0.10);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 249, 232, 0.91),
+      rgba(236, 224, 195, 0.48)
+    );
+
+  animation:
+    floatPhi 8s ease-in-out infinite,
+    phiHalo 9s ease-in-out infinite;
+}
+
+.phi-mark::before,
+.phi-mark::after {
+  content: '✦';
+
+  position: absolute;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  font-size: 0.38rem;
+
+  color: rgba(132, 103, 49, 0.68);
+}
+
+.phi-mark::before {
+  left: -18px;
+}
+
+.phi-mark::after {
+  right: -18px;
+}
+
+/* -------------------------------------------------
+   HERO CENTER ORNAMENTATION
+-------------------------------------------------- */
+
+.hero-content::before,
+.hero-content::after {
+  position: absolute;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  color: rgba(125, 95, 42, 0.15);
+
+  pointer-events: none;
+}
+
+.hero-content::before {
+  content: '☙';
+
+  left: -10vw;
+  top: 49%;
+
+  font-size: clamp(3rem, 6vw, 6rem);
+
+  transform: rotate(-18deg);
+}
+
+.hero-content::after {
+  content: '❧';
+
+  right: -10vw;
+  top: 49%;
+
+  font-size: clamp(3rem, 6vw, 6rem);
+
+  transform: rotate(18deg);
+}
+
+.greek-title {
+  text-shadow:
+    0 0 20px rgba(157, 133, 83, 0.20);
+}
+
+.hero h1 {
+  text-shadow:
+    0 3px 35px rgba(120, 90, 35, 0.055);
+}
+
+.ornament {
+  position: relative;
+
+  width: min(420px, 78vw);
+
+  gap: 0.9rem;
+}
+
+.ornament::before,
+.ornament::after {
+  content: '❦';
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.1rem;
+
+  color: rgba(132, 103, 49, 0.52);
+}
+
+.ornament span {
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(100, 80, 43, 0.42),
+      transparent
+    );
+}
+
+/* -------------------------------------------------
+   SEMESTERS — MORE ORNATE
+-------------------------------------------------- */
+
+.semesters-section {
+  position: relative;
+
+  isolation: isolate;
+}
+
+.semesters-section::before {
+  content: 'Ω';
+
+  position: absolute;
+
+  z-index: -1;
+
+  top: 3rem;
+  right: -2rem;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: clamp(15rem, 28vw, 30rem);
+
+  line-height: 1;
+
+  color: rgba(107, 85, 47, 0.025);
+
+  pointer-events: none;
+}
+
+.semesters-section::after {
+  content: 'Α';
+
+  position: absolute;
+
+  z-index: -1;
+
+  bottom: 1rem;
+  left: -3rem;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: clamp(13rem, 25vw, 27rem);
+
+  color: rgba(107, 85, 47, 0.02);
+
+  pointer-events: none;
+}
+
+.section-header {
+  position: relative;
+}
+
+.section-header::after {
+  content: '✦  ❦  ✦';
+
+  position: absolute;
+
+  right: 0;
+  bottom: -2.6rem;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  letter-spacing: 1.1rem;
+
+  color: rgba(132, 103, 49, 0.34);
+}
+
+.semester-grid {
+  position: relative;
+
+  outline:
+    1px solid
+    rgba(126, 99, 47, 0.10);
+
+  outline-offset: 9px;
+
+  box-shadow:
+    0 22px 70px rgba(64, 48, 21, 0.045);
+}
+
+.semester-card {
+  overflow: hidden;
+}
+
+.semester-card::before {
+  content: '✦';
+
+  position: absolute;
+
+  top: 1rem;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  font-size: 0.38rem;
+
+  color: rgba(125, 95, 42, 0.25);
+}
+
+.semester-card--active::before {
+  color: rgba(241, 220, 174, 0.40);
+}
+
+.site-footer {
+  position: relative;
+
+  border-top:
+    3px double
+    rgba(103, 80, 40, 0.25);
+}
+
+.site-footer::before {
+  content: '❦';
+
+  position: absolute;
+
+  top: -1.25rem;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  padding: 0 1rem;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.8rem;
+
+  color: rgba(120, 91, 41, 0.45);
+
+  background: var(--paper);
+}
+
+/* -------------------------------------------------
+   BAROQUE ANIMATIONS
+-------------------------------------------------- */
+
+@keyframes libraryDust {
+  0% {
+    transform:
+      translate3d(0, 35px, 0)
+      scale(0.75);
+
+    opacity: 0;
+  }
+
+  12% {
+    opacity: var(--dust-opacity);
+  }
+
+  55% {
+    transform:
+      translate3d(18px, -35px, 0)
+      scale(1);
+
+    opacity: var(--dust-opacity);
+  }
+
+  88% {
+    opacity: calc(var(--dust-opacity) * 0.55);
+  }
+
+  100% {
+    transform:
+      translate3d(-10px, -105px, 0)
+      scale(0.7);
+
+    opacity: 0;
+  }
+}
+
+@keyframes ghostDrift {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      rotate(var(--ghost-rotate));
+
+    opacity: 0.55;
+  }
+
+  50% {
+    transform:
+      translate3d(18px, -16px, 0)
+      rotate(var(--ghost-rotate));
+
+    opacity: 1;
+  }
+}
+
+@keyframes baroqueDrift {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      rotate(-2deg);
+
+    opacity: 0.14;
+  }
+
+  25% {
+    transform:
+      translate3d(14px, -18px, 0)
+      rotate(5deg);
+
+    opacity: 0.30;
+  }
+
+  50% {
+    transform:
+      translate3d(-11px, -37px, 0)
+      rotate(-5deg);
+
+    opacity: 0.20;
+  }
+
+  75% {
+    transform:
+      translate3d(9px, -14px, 0)
+      rotate(3deg);
+
+    opacity: 0.28;
+  }
+}
+
+@keyframes baroqueSunPulse {
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      scale(0.91);
+
+    opacity: 0.62;
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      scale(1.13);
+
+    opacity: 1;
+  }
+}
+
+@keyframes phiHalo {
+  0%,
+  100% {
+    box-shadow:
+      inset 0 0 0 5px rgba(247, 241, 228, 0.66),
+      inset 0 0 0 6px rgba(125, 95, 42, 0.12),
+      0 0 0 8px rgba(125, 95, 42, 0.035),
+      0 12px 35px rgba(104, 80, 34, 0.10);
+  }
+
+  50% {
+    box-shadow:
+      inset 0 0 0 5px rgba(247, 241, 228, 0.78),
+      inset 0 0 0 6px rgba(125, 95, 42, 0.17),
+      0 0 0 12px rgba(125, 95, 42, 0.055),
+      0 14px 55px rgba(188, 141, 54, 0.18);
+  }
+}
+
+@keyframes flourishBreathe {
+  0%,
+  100% {
+    transform: scale(0.96);
+    opacity: 0.46;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 0.85;
+  }
+}
+
+/* -------------------------------------------------
+   MOBILE
+-------------------------------------------------- */
+
+@media (max-width: 720px) {
+  .baroque-frame {
+    inset: 16px;
+  }
+
+  .greek-ghost {
+    opacity: 0.55;
+  }
+
+  .greek-ghost:nth-child(2),
+  .greek-ghost:nth-child(4) {
+    display: none;
+  }
+
+  .hero-content::before,
+  .hero-content::after {
+    display: none;
+  }
+
+  .phi-sanctum {
+    gap: 0.65rem;
+  }
+
+  .phi-flourish {
+    font-size: 1.4rem;
+  }
+
+  .section-header::after {
+    right: auto;
+    left: 0;
+
+    letter-spacing: 0.7rem;
+  }
+}
+
+/* Respect accessibility preferences */
+@media (prefers-reduced-motion: reduce) {
+  .dust-mote,
+  .greek-ghost,
+  .ambient-particle,
+  .hero-glow,
+  .hero-orbit,
+  .phi-mark,
+  .phi-flourish,
+  .scroll-cue {
+    animation: none !important;
+  }
+}
+
+/* ===== BAROQUE AMBIENT LAYER END ===== */
