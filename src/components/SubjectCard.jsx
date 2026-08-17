@@ -3,7 +3,12 @@ import { Link } from 'react-router'
 export default function SubjectCard({
   number,
   title,
-  latin,
+  subtitle,
+  code,
+  days,
+  time,
+  room,
+  professor,
   active = false,
 }) {
   const content = (
@@ -16,7 +21,7 @@ export default function SubjectCard({
         <span className="subject-number">{number}</span>
 
         <span className="subject-state">
-          {active ? 'Primera materia' : 'Archivo'}
+          {active ? 'Disponible' : '2026 · B'}
         </span>
       </div>
 
@@ -25,9 +30,36 @@ export default function SubjectCard({
       </div>
 
       <div className="subject-card-bottom">
-        <span className="subject-latin">{latin}</span>
+        <span className="subject-latin">{code}</span>
 
         <h3>{title}</h3>
+
+        {subtitle && (
+          <span className="subject-subtitle">
+            {subtitle}
+          </span>
+        )}
+
+        <div className="subject-schedule">
+          <div>
+            <span>Días</span>
+            <strong>{days}</strong>
+          </div>
+
+          <div>
+            <span>Hora</span>
+            <strong>{time}</strong>
+          </div>
+
+          <div>
+            <span>Aula</span>
+            <strong>{room}</strong>
+          </div>
+        </div>
+
+        <p className="subject-professor">
+          {professor}
+        </p>
 
         {active ? (
           <span className="subject-action">

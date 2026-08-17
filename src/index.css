@@ -3621,3 +3621,95 @@ a {
 }
 
 /* ===== CLASS INDEX FINAL STYLE END ===== */
+
+/* ===== SUBJECT SCHEDULE START ===== */
+
+.subject-subtitle {
+  display: block;
+  margin-top: -0.25rem;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-style: italic;
+
+  color: var(--muted);
+}
+
+.subject-card--active .subject-subtitle {
+  color: rgba(246, 241, 230, 0.55);
+}
+
+.subject-schedule {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+
+  gap: 0.9rem;
+
+  margin-top: 1.4rem;
+  padding-top: 1.2rem;
+
+  border-top: 1px solid var(--line-soft);
+}
+
+.subject-schedule div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+}
+
+.subject-schedule span {
+  font-size: 0.52rem;
+  font-weight: 500;
+
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+
+  color: var(--muted);
+}
+
+.subject-schedule strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 500;
+
+  line-height: 1.15;
+}
+
+.subject-professor {
+  margin: 1rem 0 0;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.94rem;
+  font-style: italic;
+
+  line-height: 1.3;
+
+  color: var(--muted);
+}
+
+.subject-card--active .subject-schedule {
+  border-top-color: rgba(246, 241, 230, 0.13);
+}
+
+.subject-card--active .subject-schedule span,
+.subject-card--active .subject-professor {
+  color: rgba(246, 241, 230, 0.5);
+}
+
+.subject-card--active .subject-schedule strong {
+  color: var(--paper-light);
+}
+
+@media (max-width: 520px) {
+  .subject-schedule {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .subject-schedule div:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ===== SUBJECT SCHEDULE END ===== */
