@@ -1,15 +1,13 @@
-export default function SemesterCard({
+import { Link } from 'react-router'
+
+function SemesterContent({
   roman,
   title,
   period,
-  active = false,
+  active,
 }) {
   return (
-    <article
-      className={`semester-card ${
-        active ? 'semester-card--active' : ''
-      }`}
-    >
+    <>
       <div className="semester-top">
         <span className="semester-roman">{roman}</span>
 
@@ -36,6 +34,41 @@ export default function SemesterCard({
           </span>
         )}
       </div>
+    </>
+  )
+}
+
+export default function SemesterCard({
+  roman,
+  title,
+  period,
+  active = false,
+}) {
+  if (active) {
+    return (
+      <Link
+        to="/semestre/5"
+        className="semester-card semester-card--active"
+        aria-label="Entrar al Quinto semestre"
+      >
+        <SemesterContent
+          roman={roman}
+          title={title}
+          period={period}
+          active
+        />
+      </Link>
+    )
+  }
+
+  return (
+    <article className="semester-card">
+      <SemesterContent
+        roman={roman}
+        title={title}
+        period={period}
+        active={false}
+      />
     </article>
   )
 }
