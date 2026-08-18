@@ -2,276 +2,262 @@ import { Link } from 'react-router'
 import transcript from '../content/ontologia-2026-08-17.md?raw'
 
 const sections = [
-  { id: 'panorama', number: '00', label: 'Panorama' },
-  { id: 'logica', number: '01', label: 'Lógica y ontología' },
-  { id: 'ser', number: '02', label: 'Los sentidos del ser' },
-  { id: 'modernidad', number: '03', label: 'Ciencia y modernidad' },
-  { id: 'descartes', number: '04', label: 'Descartes' },
-  { id: 'spinoza', number: '05', label: 'Spinoza' },
-  { id: 'leibniz', number: '06', label: 'Leibniz y teleología' },
-  { id: 'mal', number: '07', label: 'Mal, libertad y voluntad' },
-  { id: 'curso', number: '08', label: 'Mapa del curso' },
-  { id: 'evaluacion', number: '09', label: 'Información del curso' },
-  { id: 'transcripcion', number: '10', label: 'Transcripción' },
+  ['00', 'panorama', 'Panorama'],
+  ['01', 'logica', 'Lógica y ontología'],
+  ['02', 'ser', 'Los sentidos del ser'],
+  ['03', 'modernidad', 'Ciencia y modernidad'],
+  ['04', 'descartes', 'Descartes'],
+  ['05', 'spinoza', 'Spinoza'],
+  ['06', 'leibniz', 'Leibniz y teleología'],
+  ['07', 'mal', 'Mal, libertad y voluntad'],
+  ['08', 'programa', 'Programa oficial'],
+  ['09', 'evaluacion', 'Evaluación'],
+  ['10', 'tarea', 'Tarea'],
+  ['11', 'transcripcion', 'Transcripción'],
 ]
 
-function SectionHeading({ number, eyebrow, title }) {
-  return (
-    <div className="class-section-heading">
-      <span>{number}</span>
-      <div>
-        <p>{eyebrow}</p>
-        <h2>{title}</h2>
-      </div>
-    </div>
-  )
+const goToSection = (id) => {
+  const element = document.getElementById(id)
+
+  if (element) {
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+  }
 }
 
 export default function OntologiaClass17Aug() {
-  const goToSection = (id) => {
-    const element = document.getElementById(id)
-
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      })
-    }
-  }
-
   return (
-    <main className="class-page">
-      <nav className="class-topbar">
+    <main className="ontology-class-v2">
+      <nav className="ontology-class-v2-nav">
         <Link to="/semestre/5/ontologia-ii">
           ← Ontología II
         </Link>
 
-        <Link to="/" className="class-brand">
+        <Link to="/" className="ontology-class-v2-brand">
           Φ · Philosophia
         </Link>
 
         <span>XVII · VIII · MMXXVI</span>
       </nav>
 
-      <header className="class-header">
-        <div className="class-header-glyph" aria-hidden="true">
+      <header className="ontology-class-v2-hero">
+        <div className="ontology-class-v2-glyph" aria-hidden="true">
           ὄν
         </div>
 
-        <p className="class-header-kicker">
-          Ontología II · Primera clase
-        </p>
+        <p>Ontología II · Primera clase</p>
 
         <h1>
-          Clase del
-          <em>17 de agosto</em>
+          Del principio de
+          <em>no contradicción al ser moderno</em>
         </h1>
 
-        <p className="class-header-subtitle">
-          Panorama del curso: del principio de no contradicción
-          a la ontología moderna y contemporánea.
+        <p className="ontology-class-v2-lead">
+          La primera sesión funciona como un mapa intelectual:
+          comienza preguntando por la relación entre lógica y realidad,
+          recupera los sentidos aristotélicos del ser y abre el
+          recorrido moderno a través de Descartes, Spinoza y Leibniz.
         </p>
 
-        <div className="class-header-ornament">
-          ☙ ───── ✦ ───── ❧
+        <div className="ontology-class-v2-axis">
+          <span>λόγος</span>
+          <b>→</b>
+          <span>ὄν</span>
+          <b>→</b>
+          <span>substantia</span>
+          <b>→</b>
+          <span>modernitas</span>
         </div>
       </header>
 
-      <div className="class-layout">
-        <aside className="class-index">
+      <div className="ontology-class-v2-layout">
+        <aside className="ontology-class-v2-index">
           <p>Index lectionis</p>
 
-          <nav>
-            {sections.map((section) => (
-              <button
-                key={section.id}
-                type="button"
-                onClick={() => goToSection(section.id)}
-              >
-                <span>{section.number}</span>
-                {section.label}
-              </button>
-            ))}
-          </nav>
+          {sections.map(([number, id, label]) => (
+            <button
+              key={id}
+              type="button"
+              onClick={() => goToSection(id)}
+            >
+              <span>{number}</span>
+              {label}
+            </button>
+          ))}
         </aside>
 
-        <article className="class-article">
-          <section id="panorama" className="class-section class-panorama">
-            <SectionHeading
-              number="00"
-              eyebrow="Quaestiones"
-              title="Las preguntas de la clase"
-            />
+        <article className="ontology-class-v2-article">
+          <section id="panorama">
+            <span className="ontology-class-v2-number">00</span>
+            <p className="ontology-class-v2-eyebrow">
+              Quaestiones
+            </p>
+            <h2>Las preguntas que abren el curso</h2>
 
-            <div className="class-big-questions">
+            <div className="ontology-class-v2-big-questions">
               <p>¿Qué es lo que hay?</p>
               <p>¿Qué es lo que existe?</p>
               <p>¿Cuál es la estructura de la realidad?</p>
             </div>
 
-            <p className="class-lead">
-              La primera sesión funciona como un gran mapa del curso.
-              El profesor parte de Aristóteles y de los principios
-              lógicos fundamentales para abrir las preguntas que
-              acompañarán el recorrido por la filosofía moderna y
-              contemporánea.
+            <p>
+              El curso parte de preguntas ontológicas fundamentales
+              y las hace atravesar por la historia de la filosofía:
+              ser y pensar, lenguaje y realidad, sustancia y mundo,
+              fenómeno y existencia.
             </p>
           </section>
 
-          <section id="logica" className="class-section">
-            <SectionHeading
-              number="01"
-              eyebrow="Principia"
-              title="Lógica y ontología"
-            />
+          <section id="logica">
+            <span className="ontology-class-v2-number">01</span>
+            <p className="ontology-class-v2-eyebrow">
+              Principia
+            </p>
+            <h2>Lógica y ontología</h2>
 
             <p>
-              La clase comienza con los principios de identidad,
-              tercero excluso y no contradicción. La cuestión
-              decisiva no es solamente reconocerlos como reglas
-              lógicas, sino preguntar si poseen una base en la
-              realidad misma.
+              La sesión comienza con identidad, tercero excluso y
+              no contradicción. El punto ontológicamente importante
+              es preguntar si estos principios son solamente reglas
+              del pensamiento o si expresan también algo de la
+              estructura de lo real.
             </p>
 
-            <div className="class-callout">
+            <div className="ontology-class-v2-callout">
               <span>Problema</span>
               <strong>
-                ¿El principio de no contradicción describe solamente
-                nuestro pensamiento o también la estructura de lo real?
+                ¿El principio de no contradicción regula únicamente
+                nuestro pensar o también pertenece al modo de ser de
+                la realidad?
               </strong>
             </div>
 
             <p>
-              Aristóteles aparece como referencia principal: el
-              principio de no contradicción no puede demostrarse
-              mediante algo anterior, porque funciona como condición
-              de las demostraciones. Sin embargo, su negación puede
-              refutarse mostrando las contradicciones a las que conduce.
+              Aristóteles aparece como referencia: el principio no se
+              demuestra a partir de uno más fundamental, pero su
+              negación puede conducir a consecuencias contradictorias.
             </p>
           </section>
 
-          <section id="ser" className="class-section">
-            <SectionHeading
-              number="02"
-              eyebrow="Aristoteles"
-              title="Los sentidos del ser"
-            />
+          <section id="ser">
+            <span className="ontology-class-v2-number">02</span>
+            <p className="ontology-class-v2-eyebrow">
+              Aristoteles
+            </p>
+            <h2>Los sentidos del ser</h2>
 
             <p>
-              El profesor introduce la teoría analógica del ser:
-              el ser se dice de múltiples maneras, pero sus distintos
-              sentidos se organizan alrededor de la sustancia.
+              El ser se dice de diversas maneras. La clase repasa
+              ser accidental, ser lógico, potencia y acto, y el ser
+              según las categorías.
             </p>
 
-            <div className="class-concept-grid">
-              <div>
+            <div className="ontology-class-v2-concepts">
+              <article>
                 <span>I</span>
-                <strong>Ser accidental</strong>
-              </div>
-              <div>
+                <strong>Accidente</strong>
+              </article>
+
+              <article>
                 <span>II</span>
                 <strong>Ser lógico</strong>
-              </div>
-              <div>
+              </article>
+
+              <article>
                 <span>III</span>
-                <strong>Potencia y acto</strong>
-              </div>
-              <div>
+                <strong>Potencia / acto</strong>
+              </article>
+
+              <article>
                 <span>IV</span>
                 <strong>Categorías</strong>
-              </div>
+              </article>
             </div>
 
-            <div className="class-center-note">
-              Todos estos sentidos giran alrededor de la
+            <div className="ontology-class-v2-center">
+              Los sentidos del ser se articulan alrededor de la
               <strong> sustancia</strong>.
             </div>
           </section>
 
-          <section id="modernidad" className="class-section">
-            <SectionHeading
-              number="03"
-              eyebrow="Scientia nova"
-              title="Ciencia moderna y ontología"
-            />
+          <section id="modernidad">
+            <span className="ontology-class-v2-number">03</span>
+            <p className="ontology-class-v2-eyebrow">
+              Scientia nova
+            </p>
+            <h2>Ciencia moderna y transformación del mundo</h2>
 
             <p>
-              La continuidad de Platón y Aristóteles durante la Edad
-              Media se transforma con el surgimiento de la ciencia
-              moderna. Copérnico, Kepler, Galileo y Newton modifican
-              progresivamente la imagen física del mundo.
+              Copérnico, Kepler, Galileo y Newton modifican la imagen
+              física heredada. Ese cambio no cancela la ontología:
+              obliga a reformular qué existe y cómo se organiza la
+              realidad.
             </p>
 
-            <div className="class-timeline">
-              <div><span>Copérnico</span><p>Heliocentrismo</p></div>
-              <div><span>Kepler</span><p>Órbitas elípticas</p></div>
-              <div><span>Galileo</span><p>Observación telescópica</p></div>
-              <div><span>Newton</span><p>Ciencia físico-matemática</p></div>
+            <div className="ontology-class-v2-timeline">
+              <div><span>Copérnico</span><small>Heliocentrismo</small></div>
+              <b>→</b>
+              <div><span>Kepler</span><small>Órbitas</small></div>
+              <b>→</b>
+              <div><span>Galileo</span><small>Observación</small></div>
+              <b>→</b>
+              <div><span>Newton</span><small>Matematización</small></div>
             </div>
-
-            <p>
-              El cambio científico no elimina la ontología: obliga a
-              reformular qué existe y cómo está estructurada la realidad.
-            </p>
           </section>
 
-          <section id="descartes" className="class-section">
-            <SectionHeading
-              number="04"
-              eyebrow="Cartesius"
-              title="Descartes y las sustancias"
-            />
+          <section id="descartes">
+            <span className="ontology-class-v2-number">04</span>
+            <p className="ontology-class-v2-eyebrow">
+              Cartesius
+            </p>
+            <h2>Descartes y las sustancias</h2>
 
             <p>
-              Descartes inaugura la filosofía moderna dando prioridad
-              epistemológica al sujeto, pero conserva una ontología de
-              sustancias.
+              Descartes inaugura un giro hacia el sujeto sin abandonar
+              una ontología sustancial. La clase ordena el panorama
+              mediante tres expresiones clásicas.
             </p>
 
-            <div className="class-cartesian">
-              <div className="class-cartesian-god">
+            <div className="ontology-class-v2-cartesian">
+              <div>
                 <span>res infinita</span>
                 <strong>Dios</strong>
               </div>
 
-              <div className="class-cartesian-line" />
+              <div>
+                <span>res cogitans</span>
+                <strong>pensamiento</strong>
+              </div>
 
-              <div className="class-cartesian-pair">
-                <div>
-                  <span>res cogitans</span>
-                  <strong>alma · pensamiento</strong>
-                </div>
-                <div>
-                  <span>res extensa</span>
-                  <strong>cuerpo · extensión</strong>
-                </div>
+              <div>
+                <span>res extensa</span>
+                <strong>extensión</strong>
               </div>
             </div>
 
             <p>
-              Desde aquí la clase introduce también el argumento
-              ontológico: Descartes intenta vincular perfección y
-              existencia necesaria en Dios; Kant cuestionará que la
-              existencia pueda obtenerse simplemente del análisis de
-              un concepto.
+              Aparece también el argumento ontológico y la futura
+              crítica kantiana: no es evidente que la existencia pueda
+              extraerse simplemente del análisis de un concepto.
             </p>
           </section>
 
-          <section id="spinoza" className="class-section">
-            <SectionHeading
-              number="05"
-              eyebrow="Rationalismus"
-              title="Spinoza"
-            />
+          <section id="spinoza">
+            <span className="ontology-class-v2-number">05</span>
+            <p className="ontology-class-v2-eyebrow">
+              More geometrico
+            </p>
+            <h2>Spinoza: sustancia, Dios y naturaleza</h2>
 
             <p>
-              Descartes, Spinoza y Leibniz son presentados como los
-              grandes racionalistas. En Spinoza aparece el método
-              geométrico de la Ética: definiciones, axiomas,
-              proposiciones y demostraciones.
+              La Ética es presentada mediante su forma geométrica:
+              definiciones, axiomas, proposiciones y demostraciones.
+              La discusión abre la relación entre Dios y naturaleza.
             </p>
 
-            <div className="class-paired-terms">
+            <div className="ontology-class-v2-pair">
               <div>
                 <span>natura naturans</span>
               </div>
@@ -282,72 +268,64 @@ export default function OntologiaClass17Aug() {
             </div>
 
             <p>
-              La discusión abre la cuestión sobre panteísmo,
-              panenteísmo y la relación entre Dios y naturaleza,
-              asuntos que el profesor anuncia para una revisión posterior.
+              La sesión deja abiertas las distinciones entre panteísmo,
+              panenteísmo y otras maneras de comprender esa relación.
             </p>
           </section>
 
-          <section id="leibniz" className="class-section">
-            <SectionHeading
-              number="06"
-              eyebrow="Monadologia"
-              title="Leibniz y la recuperación de la teleología"
-            />
+          <section id="leibniz">
+            <span className="ontology-class-v2-number">06</span>
+            <p className="ontology-class-v2-eyebrow">
+              Monadologia
+            </p>
+            <h2>Leibniz y la recuperación de la finalidad</h2>
 
-            <div className="class-books">
-              <div>
+            <div className="ontology-class-v2-books">
+              <article>
                 <span>I</span>
                 <strong>Discurso de metafísica</strong>
-              </div>
-              <div>
+              </article>
+
+              <article>
                 <span>II</span>
                 <strong>Monadología</strong>
-              </div>
-              <div>
+              </article>
+
+              <article>
                 <span>III</span>
                 <strong>Teodicea</strong>
-              </div>
+              </article>
             </div>
 
             <p>
-              Las mónadas son presentadas como unidades simples o,
-              pedagógicamente, como “átomos formales”: principios
-              básicos de la realidad dotados de forma, esencia y
-              orientación teleológica.
+              Las mónadas se introducen como unidades simples de la
+              realidad. La clase recupera además la teleología y las
+              cuatro causas aristotélicas, especialmente la causa final.
             </p>
 
-            <div className="class-contrast">
+            <div className="ontology-class-v2-contrast">
               <div>
-                <small>Demócrito</small>
-                <strong>Átomos</strong>
-                <p>materialismo · azar</p>
+                <span>Demócrito</span>
+                <strong>átomos · materialidad</strong>
               </div>
 
-              <span>versus</span>
+              <b>vs.</b>
 
               <div>
-                <small>Aristóteles / Leibniz</small>
-                <strong>Forma y finalidad</strong>
-                <p>causalidad · teleología</p>
+                <span>Aristóteles / Leibniz</span>
+                <strong>forma · finalidad</strong>
               </div>
             </div>
-
-            <p>
-              El repaso de Aristóteles incluye las cuatro causas:
-              material, formal, eficiente y final. La causa final
-              permite explicar teleológicamente la naturaleza.
-            </p>
           </section>
 
-          <section id="mal" className="class-section">
-            <SectionHeading
-              number="07"
-              eyebrow="Libertas"
-              title="El mal, la libertad y la voluntad"
-            />
+          <section id="mal">
+            <span className="ontology-class-v2-number">07</span>
+            <p className="ontology-class-v2-eyebrow">
+              Libertas
+            </p>
+            <h2>Mal, libertad y voluntad</h2>
 
-            <div className="class-callout class-callout--question">
+            <div className="ontology-class-v2-callout">
               <span>Quaestio</span>
               <strong>
                 Si Dios es bueno y omnipotente, ¿por qué existe el mal?
@@ -355,136 +333,151 @@ export default function OntologiaClass17Aug() {
             </div>
 
             <p>
-              Desde la Teodicea de Leibniz, la clase se desplaza al
-              problema del mal y conecta a Epicuro, San Agustín,
-              Spinoza y Schelling.
+              Desde la Teodicea, la sesión conecta el problema del mal
+              con Epicuro, Agustín, Spinoza, Schelling y Kant. La
+              libertad y la voluntad se vuelven categorías centrales
+              para pensar responsabilidad, acción y finalidad.
             </p>
 
-            <p>
-              En San Agustín, la libertad de la voluntad permite
-              explicar la posibilidad moral del bien y del mal.
-              Schelling recupera la centralidad de la voluntad,
-              mientras Kant aparece mediante el imperativo categórico
-              y la exigencia de tratar a cada persona como un fin en sí.
-            </p>
-
-            <div className="class-maxim">
-              “Tratar a cada persona como un fin en sí misma
-              y nunca meramente como un medio.”
-            </div>
-
-            <p>
-              El cierre de esta sección muestra además que la razón
-              puede convertirse en instrumento de una voluntad:
-              la tecnología y la racionalidad pueden ponerse al servicio
-              tanto de fines buenos como destructivos.
-            </p>
-          </section>
-
-          <section id="curso" className="class-section">
-            <SectionHeading
-              number="08"
-              eyebrow="Itinerarium"
-              title="Mapa del curso"
-            />
-
-            <div className="class-course-map">
-              {[
-                'Racionalistas',
-                'Empiristas',
-                'Kant',
-                'Hegel',
-                'Marx',
-                'Comte',
-                'Nietzsche',
-                'Husserl',
-                'Heidegger',
-                'Russell',
-                'Wittgenstein',
-                'Gadamer',
-              ].map((item, index, array) => (
-                <div key={item}>
-                  <span>{item}</span>
-                  {index < array.length - 1 && <b>→</b>}
-                </div>
-              ))}
+            <div className="ontology-class-v2-maxim">
+              Tratar a cada persona como un fin en sí misma y nunca
+              meramente como un medio.
             </div>
           </section>
 
-          <section id="evaluacion" className="class-section">
-            <SectionHeading
-              number="09"
-              eyebrow="De cursu"
-              title="Información del curso"
-            />
+          <section id="programa">
+            <span className="ontology-class-v2-number">08</span>
+            <p className="ontology-class-v2-eyebrow">
+              Programma 2026-B
+            </p>
+            <h2>El recorrido oficial del semestre</h2>
 
-            <div className="class-info-cards">
+            <div className="ontology-class-v2-program-grid">
+              <article><span>01</span><strong>Racionalismo y empirismo</strong></article>
+              <article><span>02</span><strong>Kant y la metafísica</strong></article>
+              <article><span>03</span><strong>La cosa-en-sí</strong></article>
+              <article><span>04</span><strong>Hegel</strong></article>
+              <article><span>05</span><strong>Marx</strong></article>
+              <article><span>06</span><strong>Positivismo</strong></article>
+              <article><span>07</span><strong>Nietzsche</strong></article>
+              <article><span>08</span><strong>Husserl</strong></article>
+              <article><span>09</span><strong>Heidegger</strong></article>
+              <article><span>10</span><strong>Russell · Wittgenstein · lenguaje</strong></article>
+            </div>
+
+            <p>
+              El programa formula como saber teórico central la
+              relación entre ser y pensar, y la interrelación entre
+              lenguaje, pensamiento y realidad. El trabajo práctico
+              consiste en leer, contextualizar, distinguir problemas,
+              identificar categorías y reconstruir argumentos.
+            </p>
+          </section>
+
+          <section id="evaluacion">
+            <span className="ontology-class-v2-number">09</span>
+            <p className="ontology-class-v2-eyebrow">
+              Evaluatio
+            </p>
+            <h2>Evaluación: programa oficial</h2>
+
+            <div className="ontology-class-v2-eval">
               <div>
+                <strong>40%</strong>
+                <span>Examen parcial</span>
+              </div>
+
+              <div>
+                <strong>40%</strong>
+                <span>Cuestionarios</span>
+              </div>
+
+              <div>
+                <strong>20%</strong>
                 <span>Participación</span>
-                <strong>≈ 20 %</strong>
-                <p>Leer, preguntar y comentar.</p>
-              </div>
-
-              <div>
-                <span>Trabajo</span>
-                <strong>≈ 40 %</strong>
-                <p>
-                  Porcentaje marcado como dudoso en la transcripción.
-                </p>
-              </div>
-
-              <div>
-                <span>Trabajo final</span>
-                <strong>Una pregunta</strong>
-                <p>
-                  Plantear un problema, confrontar posiciones y
-                  argumentar una postura propia.
-                </p>
               </div>
             </div>
-
-            <div className="class-ai-note">
-              <span>Sobre IA</span>
-              <p>
-                El profesor permite utilizar herramientas de inteligencia
-                artificial como apoyo para comprender, pero no para
-                sustituir el trabajo intelectual del estudiante.
-              </p>
-            </div>
-          </section>
-
-          <section id="transcripcion" className="class-section">
-            <SectionHeading
-              number="10"
-              eyebrow="Transcriptio"
-              title="Transcripción original"
-            />
 
             <p>
-              Se conserva íntegra como fuente de la organización
-              anterior, incluyendo las marcas de pasajes dudosos,
-              inaudibles o reconstruidos.
+              La transcripción de esta primera clase contiene referencias
+              a porcentajes y a un posible trabajo final que quedaron
+              parcialmente dudosas. Para no mezclarlas con datos
+              reconstruidos, esta sección usa como fuente principal el
+              programa oficial elaborado en agosto de 2026.
             </p>
 
-            <details className="class-transcript">
-              <summary>
-                Ver transcripción completa
-                <span>+</span>
-              </summary>
+            <aside className="ontology-class-v2-note">
+              <strong>Participación</strong>
+              <p>
+                El programa la define como aportación positiva mediante
+                preguntas, comentarios, críticas constructivas y actitud
+                de atención.
+              </p>
+            </aside>
+          </section>
 
+          <section id="tarea">
+            <span className="ontology-class-v2-number">10</span>
+            <p className="ontology-class-v2-eyebrow">
+              Lectio
+            </p>
+            <h2>Leer el Discurso del método</h2>
+
+            <div className="ontology-class-v2-homework">
+              <div>
+                <span>Autor</span>
+                <strong>René Descartes</strong>
+              </div>
+
+              <div>
+                <span>Texto</span>
+                <strong>Discurso del método</strong>
+              </div>
+
+              <div>
+                <span>Extensión</span>
+                <strong>Por lo menos 15 páginas</strong>
+              </div>
+
+              <div>
+                <span>Entrega</span>
+                <strong>Por definir</strong>
+              </div>
+            </div>
+
+            <Link to="/tareas" className="ontology-class-v2-task-link">
+              Ver en tablero de tareas
+              <span>↗</span>
+            </Link>
+          </section>
+
+          <section id="transcripcion">
+            <span className="ontology-class-v2-number">11</span>
+            <p className="ontology-class-v2-eyebrow">
+              Transcriptio
+            </p>
+            <h2>Transcripción de la clase</h2>
+
+            <p>
+              Se conserva completa como fuente del resumen anterior,
+              incluidas las marcas de duda, formulación aproximada
+              o fragmentos inaudibles.
+            </p>
+
+            <details className="ontology-class-v2-transcript">
+              <summary>Ver transcripción completa</summary>
               <pre>{transcript}</pre>
             </details>
           </section>
         </article>
       </div>
 
-      <footer className="class-footer">
+      <footer className="ontology-class-v2-footer">
         <Link to="/semestre/5/ontologia-ii">
           ← Ontología II
         </Link>
 
         <span>☙ &nbsp; ὄν &nbsp; ❧</span>
-
         <span>17 · VIII · 2026</span>
       </footer>
     </main>
