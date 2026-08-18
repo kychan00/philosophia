@@ -81,7 +81,7 @@ export default function CriticalTheory() {
               Revisar también los anuncios previos y “Trabajo de clase”.
             </p>
           </div>
-          <Link to="/tareas">Ver tablero ↗</Link>
+          <Link to="/tareas/teoria-critica/tarea-1">Abrir Tarea 1 ↗</Link>
         </div>
       </section>
 

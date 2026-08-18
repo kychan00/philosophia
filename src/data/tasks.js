@@ -69,7 +69,7 @@ export const tasks = [
     description:
       'Leer el programa y la lectura de Reale y Antiseri. Identificar los elementos histórico-sociales en el surgimiento de la Teoría Crítica y sus principales planteamientos teóricos. Revisar también los anuncios previos y “Trabajo de clase” en Classroom.',
     sourceClass: 'Classroom · Tarea 1',
-    sourceRoute: '/semestre/5/teoria-critica',
+    sourceRoute: '/tareas/teoria-critica/tarea-1',
   },
 ]
 
