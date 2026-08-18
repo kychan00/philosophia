@@ -42,6 +42,7 @@ const subjects = [
     time: '16:00 – 17:25',
     room: 'FD 20',
     professor: 'Dinora Hernández López',
+    route: '/semestre/5/teoria-critica',
   },
   {
     number: '05',

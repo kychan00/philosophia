@@ -57,6 +57,20 @@ export const tasks = [
     sourceRoute:
       '/semestre/5/filosofia-analitica/clase/17-agosto',
   },
+  {
+    id: 'teoria-critica-2026-08-18-tarea-1',
+    subject: 'Teoría Crítica',
+    subjectCode: 'FI265',
+    assignedDate: '2026-08-17',
+    dueDate: '2026-08-18',
+    title: 'Tarea 1: La Teoría Crítica de la Escuela de Frankfurt',
+    type: 'Lectura y análisis',
+    weight: '100 pts',
+    description:
+      'Leer el programa y la lectura de Reale y Antiseri. Identificar los elementos histórico-sociales en el surgimiento de la Teoría Crítica y sus principales planteamientos teóricos. Revisar también los anuncios previos y “Trabajo de clase” en Classroom.',
+    sourceClass: 'Classroom · Tarea 1',
+    sourceRoute: '/semestre/5/teoria-critica',
+  },
 ]
 
 export default tasks
