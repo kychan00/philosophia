@@ -9,6 +9,8 @@ import Home from './pages/Home'
 import FifthSemester from './pages/FifthSemester'
 import OntologiaII from './pages/OntologiaII'
 import OntologiaClass17Aug from './pages/OntologiaClass17Aug'
+import MethodsResearch from './pages/MethodsResearch'
+import MethodsClass17Aug from './pages/MethodsClass17Aug'
 import ScrollToTop from './components/ScrollToTop'
 
 function App() {
@@ -26,6 +28,14 @@ function App() {
         <Route
           path="/semestre/5/ontologia-ii/clase/17-agosto"
           element={<OntologiaClass17Aug />}
+        />
+        <Route
+          path="/semestre/5/metodos-de-investigacion"
+          element={<MethodsResearch />}
+        />
+        <Route
+          path="/semestre/5/metodos-de-investigacion/clase/17-agosto"
+          element={<MethodsClass17Aug />}
         />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

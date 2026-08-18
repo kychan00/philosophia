@@ -11,7 +11,7 @@ const subjects = [
     time: '11:30 – 12:55',
     room: 'FH-23',
     professor: 'José Alejandro Fuerte',
-    active: true,
+    route: '/semestre/5/ontologia-ii',
   },
   {
     number: '02',
@@ -21,6 +21,7 @@ const subjects = [
     time: '16:00 – 17:25',
     room: 'FH-24',
     professor: 'Marlon Omar Navarro Torres',
+    route: '/semestre/5/metodos-de-investigacion',
   },
   {
     number: '03',
