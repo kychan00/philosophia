@@ -66,6 +66,41 @@ export default function CriticalTheory() {
 
       <section className="ct-section">
         <header className="ct-heading">
+          <span>I</span>
+          <div>
+            <p>Archivum lectionum</p>
+            <h2>Clases</h2>
+          </div>
+        </header>
+
+        <Link
+          to="/semestre/5/teoria-critica/clase/18-agosto"
+          className="ct-class-card"
+        >
+          <div className="ct-class-card-date">
+            <strong>XVIII</strong>
+            <span>VIII · MMXXVI</span>
+          </div>
+
+          <div className="ct-class-card-copy">
+            <span>Primera clase · Encuadre</span>
+            <h3>Clase del 18 de agosto</h3>
+            <p>
+              Presentación del curso, pluralidad filosófica,
+              pensamiento dialéctico, transdisciplina, evaluación,
+              uso de IA y preparación de la primera lectura.
+            </p>
+          </div>
+
+          <div className="ct-class-card-enter">
+            <span>Abrir clase</span>
+            <b>↗</b>
+          </div>
+        </Link>
+      </section>
+
+      <section className="ct-section">
+        <header className="ct-heading">
           <span>I</span><div><p>Agenda inmediata</p><h2>Tarea 1 · 18 de agosto</h2></div>
         </header>
 

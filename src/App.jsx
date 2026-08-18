@@ -15,6 +15,7 @@ import AnalyticPhilosophy from './pages/AnalyticPhilosophy'
 import AnalyticClass17Aug from './pages/AnalyticClass17Aug'
 import CriticalTheory from './pages/CriticalTheory'
 import CriticalTheoryTask1 from './pages/CriticalTheoryTask1'
+import CriticalTheoryClass18Aug from './pages/CriticalTheoryClass18Aug'
 import TasksBoard from './pages/TasksBoard'
 import ScrollToTop from './components/ScrollToTop'
 
@@ -61,6 +62,10 @@ function App() {
         <Route
           path="/tareas/teoria-critica/tarea-1"
           element={<CriticalTheoryTask1 />}
+        />
+        <Route
+          path="/semestre/5/teoria-critica/clase/18-agosto"
+          element={<CriticalTheoryClass18Aug />}
         />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
