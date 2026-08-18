@@ -11,6 +11,9 @@ import OntologiaII from './pages/OntologiaII'
 import OntologiaClass17Aug from './pages/OntologiaClass17Aug'
 import MethodsResearch from './pages/MethodsResearch'
 import MethodsClass17Aug from './pages/MethodsClass17Aug'
+import AnalyticPhilosophy from './pages/AnalyticPhilosophy'
+import AnalyticClass17Aug from './pages/AnalyticClass17Aug'
+import TasksBoard from './pages/TasksBoard'
 import ScrollToTop from './components/ScrollToTop'
 
 function App() {
@@ -36,6 +39,18 @@ function App() {
         <Route
           path="/semestre/5/metodos-de-investigacion/clase/17-agosto"
           element={<MethodsClass17Aug />}
+        />
+        <Route
+          path="/tareas"
+          element={<TasksBoard />}
+        />
+        <Route
+          path="/semestre/5/filosofia-analitica"
+          element={<AnalyticPhilosophy />}
+        />
+        <Route
+          path="/semestre/5/filosofia-analitica/clase/17-agosto"
+          element={<AnalyticClass17Aug />}
         />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

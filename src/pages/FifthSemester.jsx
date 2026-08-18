@@ -1,5 +1,6 @@
 import { Link } from 'react-router'
 import SubjectCard from '../components/SubjectCard'
+import tasks from '../data/tasks'
 
 const subjects = [
   {
@@ -31,6 +32,7 @@ const subjects = [
     time: '19:00 – 20:25',
     room: 'FH-25',
     professor: 'Alonso Nava Amezcua',
+    route: '/semestre/5/filosofia-analitica',
   },
   {
     number: '04',
@@ -103,6 +105,8 @@ const dust = Array.from(
 )
 
 export default function FifthSemester() {
+  const pendingTasks = tasks.length
+
   return (
     <main className="fifth-page">
       <div
@@ -236,6 +240,33 @@ export default function FifthSemester() {
           </p>
         </div>
       </header>
+
+      <section className="semester-tasks-strip">
+        <div className="semester-tasks-mark">
+          III
+        </div>
+
+        <div className="semester-tasks-copy">
+          <p>Agenda academica</p>
+
+          <h2>Tablero de tareas</h2>
+
+          <span>
+            Tareas y entregas registradas desde cada clase,
+            reunidas por fecha y materia.
+          </span>
+        </div>
+
+        <div className="semester-tasks-status">
+          <strong>{pendingTasks}</strong>
+          <span>registradas</span>
+        </div>
+
+        <Link to="/tareas" className="semester-tasks-enter">
+          Abrir tablero
+          <span>↗</span>
+        </Link>
+      </section>
 
       <section className="subjects-section">
         <div className="subjects-heading">
