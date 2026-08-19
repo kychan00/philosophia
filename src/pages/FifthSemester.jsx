@@ -53,6 +53,7 @@ const subjects = [
     time: '19:00 – 20:25',
     room: 'FH-7',
     professor: 'Aldo Carbajal Rodríguez',
+    route: '/semestre/5/etica',
   },
 ]
 
