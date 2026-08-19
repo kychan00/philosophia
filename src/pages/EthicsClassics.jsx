@@ -141,6 +141,32 @@ export default function EthicsClassics() {
         </div>
       </header>
 
+      <section className="ethicsx-section">
+        <header className="ethicsx-heading">
+          <span>I</span>
+          <div><p>Archivum lectionum</p><h2>Clases</h2></div>
+        </header>
+
+        <Link
+          to="/semestre/5/etica/clase/18-agosto"
+          className="ethicsx-class-card"
+        >
+          <div className="ethicsx-class-card-date">
+            <strong>XVIII</strong>
+            <span>VIII · MMXXVI</span>
+          </div>
+          <div className="ethicsx-class-card-copy">
+            <span>Primera clase · Sabiduría griega antigua</span>
+            <h3>Del destino a la responsabilidad</h3>
+            <p>Religión, tragedia, Homero, responsabilidad, omisión, alteridad y fundamentos éticos.</p>
+          </div>
+          <div className="ethicsx-class-card-enter">
+            <span>Abrir clase</span>
+            <b>↗</b>
+          </div>
+        </Link>
+      </section>
+
       <section className="ethicsx-section ethicsx-note">
         <div className="ethicsx-note-mark">!</div>
         <div>
@@ -157,7 +183,7 @@ export default function EthicsClassics() {
 
       <section className="ethicsx-section">
         <header className="ethicsx-heading">
-          <span>I</span>
+          <span>II</span>
           <div><p>Origo</p><h2>De la sabiduría a la filosofía</h2></div>
         </header>
 
@@ -174,7 +200,7 @@ export default function EthicsClassics() {
 
       <section className="ethicsx-section">
         <header className="ethicsx-heading">
-          <span>II</span>
+          <span>III</span>
           <div><p>Ordo cursus</p><h2>Estructura del curso</h2></div>
         </header>
 
@@ -196,7 +222,7 @@ export default function EthicsClassics() {
 
       <section className="ethicsx-section">
         <header className="ethicsx-heading">
-          <span>III</span>
+          <span>IV</span>
           <div><p>Lexicon</p><h2>Constelación conceptual</h2></div>
         </header>
 
@@ -213,7 +239,7 @@ export default function EthicsClassics() {
 
       <section className="ethicsx-section">
         <header className="ethicsx-heading">
-          <span>IV</span>
+          <span>V</span>
           <div><p>Prosopa</p><h2>Galería de autores y escuelas</h2></div>
         </header>
 
@@ -229,7 +255,7 @@ export default function EthicsClassics() {
 
       <section className="ethicsx-section">
         <header className="ethicsx-heading">
-          <span>V</span>
+          <span>VI</span>
           <div><p>Praxis academica</p><h2>Cómo se trabajará</h2></div>
         </header>
 
@@ -268,7 +294,7 @@ export default function EthicsClassics() {
 
       <section className="ethicsx-section">
         <header className="ethicsx-heading">
-          <span>VI</span>
+          <span>VII</span>
           <div><p>Bibliotheca</p><h2>Bibliografía de referencia</h2></div>
         </header>
 
@@ -288,31 +314,7 @@ export default function EthicsClassics() {
         </p>
       </section>
 
-      <section className="ethicsx-section">
-        <header className="ethicsx-heading">
-          <span>VII</span>
-          <div><p>Archivum lectionum</p><h2>Clases</h2></div>
-        </header>
-
-        <Link
-          to="/semestre/5/etica/clase/18-agosto"
-          className="ethicsx-class-card"
-        >
-          <div className="ethicsx-class-card-date">
-            <strong>XVIII</strong>
-            <span>VIII · MMXXVI</span>
-          </div>
-          <div className="ethicsx-class-card-copy">
-            <span>Primera clase · Sabiduría griega antigua</span>
-            <h3>Del destino a la responsabilidad</h3>
-            <p>Religión, tragedia, Homero, responsabilidad, omisión, alteridad y fundamentos éticos.</p>
-          </div>
-          <div className="ethicsx-class-card-enter">
-            <span>Abrir clase</span>
-            <b>↗</b>
-          </div>
-        </Link>
-      </section>
+      
 
       <footer className="ethicsx-footer">
         <Link to="/semestre/5">← Quinto semestre</Link>
