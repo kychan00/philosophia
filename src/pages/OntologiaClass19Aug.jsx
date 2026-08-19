@@ -14,7 +14,6 @@ const sections = [
   ['09', 'mente-cuerpo', 'Mente y cuerpo'],
   ['10', 'spinoza', 'Respuesta de Spinoza'],
   ['11', 'tarea', 'Tarea'],
-  ['12', 'notas', 'Notas completas'],
 ]
 
 const goToSection = (id) => {
@@ -516,24 +515,7 @@ export default function OntologiaClass19Aug() {
             </p>
           </section>
 
-          <section id="notas">
-            <span className="ontology-class-v2-number">12</span>
-            <p className="ontology-class-v2-eyebrow">
-              Notae
-            </p>
-            <h2>Notas completas de la sesión</h2>
-
-            <p>
-              Se conserva el documento completo de notas del 19 de agosto como
-              fuente de consulta. La página anterior reorganiza su contenido
-              para estudiar la secuencia argumentativa de la clase.
-            </p>
-
-            <details className="ontology-class-v2-transcript">
-              <summary>Ver notas completas</summary>
-              <pre>{notes}</pre>
-            </details>
-          </section>
+          
         </article>
       </div>
 

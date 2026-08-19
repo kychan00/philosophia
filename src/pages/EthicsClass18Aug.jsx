@@ -10,7 +10,6 @@ const sections = [
   ['05', 'alteridad', 'Alteridad y tolerancia'],
   ['06', 'metodo', 'Método del curso'],
   ['07', 'siguiente', 'Próxima sesión'],
-  ['08', 'transcripcion', 'Transcripción'],
 ]
 
 const goToSection = (id) => {
@@ -296,22 +295,7 @@ export default function EthicsClass18Aug() {
             </div>
           </section>
 
-          <section id="transcripcion">
-            <span className="ethclass-number">08</span>
-            <p className="ethclass-eyebrow">Transcriptio</p>
-            <h2>Transcripción completa</h2>
-
-            <p>
-              Se conserva el texto recibido íntegro, incluidos errores del
-              reconocimiento de voz. La síntesis anterior sólo reconstruye
-              aquello que puede establecerse con suficiente claridad.
-            </p>
-
-            <details className="ethclass-transcript">
-              <summary>Ver transcripción completa</summary>
-              <pre>{transcript}</pre>
-            </details>
-          </section>
+          
         </article>
       </div>
 

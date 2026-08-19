@@ -13,7 +13,6 @@ const sections = [
   ['08', 'lectura', 'Cómo trabajar las lecturas'],
   ['09', 'frankfurt', 'Primer acercamiento a Frankfurt'],
   ['10', 'proxima', 'Próxima sesión'],
-  ['11', 'transcripcion', 'Transcripción'],
 ]
 
 const goToSection = (id) => {
@@ -478,22 +477,7 @@ export default function CriticalTheoryClass18Aug() {
             </div>
           </section>
 
-          <section id="transcripcion">
-            <span className="ct-class-number">11</span>
-            <p className="ct-class-eyebrow">Transcriptio</p>
-            <h2>Transcripción de la clase</h2>
-
-            <p>
-              Se conserva el texto completo de la grabación tal como fue
-              proporcionado, con sus errores, fragmentos deformados y
-              pasajes de reconocimiento imperfecto.
-            </p>
-
-            <details className="ct-class-transcript">
-              <summary>Ver transcripción completa</summary>
-              <pre>{transcript}</pre>
-            </details>
-          </section>
+          
         </article>
       </div>
 

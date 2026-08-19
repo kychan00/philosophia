@@ -15,7 +15,6 @@ const sections = [
   ['10', 'lecturas', 'Lecturas'],
   ['11', 'evaluacion', 'Evaluación'],
   ['12', 'tarea', 'Tarea'],
-  ['13', 'transcripcion', 'Transcripción'],
 ]
 
 const goToSection = (id) => {
@@ -542,22 +541,7 @@ export default function AnalyticClass17Aug() {
             </Link>
           </section>
 
-          <section id="transcripcion">
-            <span className="analytic-section-number">13</span>
-            <p className="analytic-eyebrow">Archivo</p>
-            <h2>Transcripción depurada</h2>
-
-            <p>
-              Se conserva el texto completo de la grabación depurada,
-              incluidas las marcas de incertidumbre cuando una frase
-              no pudo reconstruirse con seguridad.
-            </p>
-
-            <details className="analytic-transcript">
-              <summary>Ver transcripción completa</summary>
-              <pre>{transcript}</pre>
-            </details>
-          </section>
+          
         </article>
       </div>
 

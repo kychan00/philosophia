@@ -13,7 +13,6 @@ const sections = [
   ['08', 'programa', 'Programa oficial'],
   ['09', 'evaluacion', 'Evaluación'],
   ['10', 'tarea', 'Tarea'],
-  ['11', 'transcripcion', 'Transcripción'],
 ]
 
 const goToSection = (id) => {
@@ -451,24 +450,7 @@ export default function OntologiaClass17Aug() {
             </Link>
           </section>
 
-          <section id="transcripcion">
-            <span className="ontology-class-v2-number">11</span>
-            <p className="ontology-class-v2-eyebrow">
-              Transcriptio
-            </p>
-            <h2>Transcripción de la clase</h2>
-
-            <p>
-              Se conserva completa como fuente del resumen anterior,
-              incluidas las marcas de duda, formulación aproximada
-              o fragmentos inaudibles.
-            </p>
-
-            <details className="ontology-class-v2-transcript">
-              <summary>Ver transcripción completa</summary>
-              <pre>{transcript}</pre>
-            </details>
-          </section>
+          
         </article>
       </div>
 

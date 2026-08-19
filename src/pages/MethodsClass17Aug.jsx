@@ -13,7 +13,6 @@ const sections = [
   ['programa', '08', 'Programa de la materia'],
   ['evaluacion', '09', 'Evaluación y asistencia'],
   ['conceptos', '10', 'Conceptos fundamentales'],
-  ['fuente', '11', 'Apuntes originales'],
 ]
 
 function Heading({ number, eyebrow, children }) {
@@ -190,11 +189,7 @@ export default function MethodsClass17Aug() {
             </dl>
           </section>
 
-          <section id="fuente" className="methods-section">
-            <Heading number="11" eyebrow="Fons">Apuntes originales</Heading>
-            <p>Se conserva íntegro el documento base de la clase. Las marcas de incertidumbre y reconstrucción permanecen visibles para distinguir lo confirmado de aquello que el audio no permitió recuperar con seguridad.</p>
-            <details className="methods-source-notes"><summary>Ver documento completo <span>+</span></summary><pre>{notes}</pre></details>
-          </section>
+          
         </article>
       </div>
 
