@@ -52,7 +52,12 @@ export const tasks = [
     type: 'Lectura',
     weight: null,
     description:
-      'Tener preparada la lectura “Filosofía analítica: ¿qué es y por qué uno debería involucrarse?”, en El surgimiento de la filosofía analítica, pp. 19–40 aprox.',
+      'Leer completo el ensayo “Filosofía analítica: ¿qué es y por qué uno debería involucrarse?”, de Dagfinn Føllesdal, en El surgimiento de la filosofía analítica.',
+    readingScope:
+      'Dagfinn Føllesdal · “Filosofía analítica: ¿qué es y por qué uno debería involucrarse?”',
+    readingPages: 'pp. 19–42',
+    readingEdition:
+      'Hans-Johann Glock (ed.) · El surgimiento de la filosofía analítica · Círculo Ometeotl, 2013',
     sourceClass: 'Clase del 17 de agosto',
     sourceRoute:
       '/semestre/5/filosofia-analitica/clase/17-agosto',

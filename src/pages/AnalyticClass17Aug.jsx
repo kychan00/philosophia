@@ -521,7 +521,7 @@ export default function AnalyticClass17Aug() {
 
               <div>
                 <span>Lectura</span>
-                <strong>pp. 19–40 aprox.</strong>
+                <strong>pp. 19–42</strong>
               </div>
 
               <div>
