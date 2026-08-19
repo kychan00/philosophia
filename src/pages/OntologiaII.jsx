@@ -242,6 +242,31 @@ export default function OntologiaII() {
             <b>↗</b>
           </div>
         </Link>
+
+        <Link
+          to="/semestre/5/ontologia-ii/clase/19-agosto"
+          className="ontology-program-class-card"
+        >
+          <div className="ontology-program-date">
+            <strong>XIX</strong>
+            <span>VIII · MMXXVI</span>
+          </div>
+
+          <div className="ontology-program-class-copy">
+            <span>Segunda clase · Descartes y Spinoza</span>
+            <h3>Del cogito a la sustancia</h3>
+            <p>
+              Duda metódica, cogito, res cogitans, res extensa,
+              res infinita, solipsismo, mente-cuerpo y la respuesta
+              monista de Spinoza.
+            </p>
+          </div>
+
+          <div className="ontology-program-enter">
+            <span>Abrir folio</span>
+            <b>↗</b>
+          </div>
+        </Link>
       </section>
 
       <section className="ontology-program-route">

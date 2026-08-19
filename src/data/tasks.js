@@ -71,6 +71,25 @@ export const tasks = [
     sourceClass: 'Classroom · Tarea 1',
     sourceRoute: '/tareas/teoria-critica/tarea-1',
   },
+  {
+    id: 'ontologia-2026-08-19-spinoza-etica-parte-1',
+    subject: 'Ontología II',
+    subjectCode: 'FI190',
+    assignedDate: '2026-08-19',
+    dueDate: '2026-08-24',
+    title: 'Spinoza · Ética, Parte I: De Dios',
+    type: 'Lectura',
+    weight: null,
+    description:
+      'Leer las primeras 25 páginas de la Parte I, “De Dios”. En la edición de Fondo de Cultura Económica traducida por Óscar Cohan, la lectura queda en pp. 11–35.',
+    readingScope: 'Parte I · De Dios · primeras 25 páginas',
+    readingPages: 'pp. 11–35',
+    readingEdition:
+      'Fondo de Cultura Económica · traducción de Óscar Cohan · edición de 273 páginas',
+    readingFullPart: 'La Parte I completa abarca pp. 11–49; la Parte II comienza en p. 50.',
+    sourceClass: 'Clase del 19 de agosto',
+    sourceRoute: '/semestre/5/ontologia-ii/clase/19-agosto',
+  },
 ]
 
 export default tasks

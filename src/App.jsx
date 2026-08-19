@@ -9,6 +9,7 @@ import Home from './pages/Home'
 import FifthSemester from './pages/FifthSemester'
 import OntologiaII from './pages/OntologiaII'
 import OntologiaClass17Aug from './pages/OntologiaClass17Aug'
+import OntologiaClass19Aug from './pages/OntologiaClass19Aug'
 import MethodsResearch from './pages/MethodsResearch'
 import MethodsClass17Aug from './pages/MethodsClass17Aug'
 import AnalyticPhilosophy from './pages/AnalyticPhilosophy'
@@ -36,6 +37,10 @@ function App() {
         <Route
           path="/semestre/5/ontologia-ii/clase/17-agosto"
           element={<OntologiaClass17Aug />}
+        />
+        <Route
+          path="/semestre/5/ontologia-ii/clase/19-agosto"
+          element={<OntologiaClass19Aug />}
         />
         <Route
           path="/semestre/5/metodos-de-investigacion"
