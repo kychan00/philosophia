@@ -12,6 +12,7 @@ import OntologiaClass17Aug from './pages/OntologiaClass17Aug'
 import OntologiaClass19Aug from './pages/OntologiaClass19Aug'
 import MethodsResearch from './pages/MethodsResearch'
 import MethodsClass17Aug from './pages/MethodsClass17Aug'
+import MethodsClass19Aug from './pages/MethodsClass19Aug'
 import AnalyticPhilosophy from './pages/AnalyticPhilosophy'
 import AnalyticClass17Aug from './pages/AnalyticClass17Aug'
 import CriticalTheory from './pages/CriticalTheory'
@@ -53,6 +54,10 @@ function App() {
         <Route
           path="/tareas"
           element={<TasksBoard />}
+        />
+        <Route
+          path="/semestre/5/metodos-de-investigacion/clase/19-agosto"
+          element={<MethodsClass19Aug />}
         />
         <Route
           path="/semestre/5/filosofia-analitica"

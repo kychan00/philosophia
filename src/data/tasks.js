@@ -95,6 +95,29 @@ export const tasks = [
     sourceClass: 'Clase del 19 de agosto',
     sourceRoute: '/semestre/5/ontologia-ii/clase/19-agosto',
   },
+  {
+    id: 'metodos-2026-08-19-barcelo-introduccion',
+    subject: 'Métodos de Investigación',
+    subjectCode: 'FI104',
+    assignedDate: '2026-08-19',
+    dueDate: '2026-08-24',
+    title: 'Leer a Axel Arturo Barceló Aspeitia',
+    type: 'Lectura',
+    weight: null,
+    description:
+      'Leer completa la sección “Introducción: Conocimiento e Investigación en Filosofía”, pp. 6–22. Si es posible, continuar con “I. Elementos de la Investigación Filosófica” hasta la p. 31.',
+    readingScope:
+      'Introducción: Conocimiento e Investigación en Filosofía',
+    readingPages:
+      'pp. 6–22 obligatorias; pp. 23–31 opcionales',
+    readingEdition:
+      'Axel Arturo Barceló Aspeitia · Introducción a la Investigación Filosófica · Borrador de verano de 2018',
+    readingFullPart:
+      'La p. 23 inicia “I. Elementos de la Investigación Filosófica”; la p. 31 inicia “ii. Claridad”.',
+    sourceClass: 'Clase del 19 de agosto',
+    sourceRoute:
+      '/semestre/5/metodos-de-investigacion/clase/19-agosto',
+  },
 ]
 
 export default tasks

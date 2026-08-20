@@ -96,6 +96,31 @@ export default function MethodsResearch() {
           </div>
           <div className="methods-enter"><span>Abrir folio</span><b>↗</b></div>
         </Link>
+      
+
+        <Link
+          to="/semestre/5/metodos-de-investigacion/clase/19-agosto"
+          className="methods-class-card"
+        >
+          <div className="methods-date">
+            <strong>XIX</strong>
+            <span>VIII · MMXXVI</span>
+          </div>
+
+          <div className="methods-class-copy">
+            <span>Segunda clase · Investigación filosófica</span>
+            <h3>Del objeto al conocimiento comunicable</h3>
+            <p>
+              Piaget, Zubiri, Molyneux, la espiral de la investigación,
+              Fernando Leal, teoría y experiencia, y Bacon.
+            </p>
+          </div>
+
+          <div className="methods-enter">
+            <span>Abrir folio</span>
+            <b>↗</b>
+          </div>
+        </Link>
       </section>
 
       <footer className="methods-footer">
