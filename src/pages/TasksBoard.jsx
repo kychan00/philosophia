@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import tasks from '../data/tasks'
 
 const MONTHS = [
@@ -273,6 +273,7 @@ function buildCalendar(year, month) {
 }
 
 export default function TasksBoard() {
+  const navigate = useNavigate()
   const [subject, setSubject] = useState('Todas')
   const [view, setView] = useState('Pendientes')
   const [completed, setCompleted] = useState(loadCompleted)
@@ -357,6 +358,15 @@ export default function TasksBoard() {
       return map
     }, {})
   }, [decoratedTasks])
+
+  const openTask = (task) => {
+    if (task.studyRoute) {
+      navigate(task.studyRoute)
+      return
+    }
+
+    setSelectedTask(task)
+  }
 
   const toggleTask = (id) => {
     setCompleted((current) => {
@@ -541,7 +551,7 @@ export default function TasksBoard() {
                         key={task.id}
                         type="button"
                         className={`calendar-task calendar-task--${task.status.key}`}
-                        onClick={() => setSelectedTask(task)}
+                        onClick={() => openTask(task)}
                       >
                         <span>◆</span>
                         {task.title}
@@ -625,11 +635,11 @@ export default function TasksBoard() {
                     className={`task-priority-row task-priority-row--${task.status.key}`}
                     role="button"
                     tabIndex={0}
-                    onClick={() => setSelectedTask(task)}
+                    onClick={() => openTask(task)}
                     onKeyDown={(event) => {
                       if (event.key === 'Enter' || event.key === ' ') {
                         event.preventDefault()
-                        setSelectedTask(task)
+                        openTask(task)
                       }
                     }}
                   >

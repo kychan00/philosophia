@@ -96,6 +96,7 @@ export const tasks = [
       'En este PDF, la Parte Primera comienza en p. 27 y la Parte Segunda en p. 56. La Parte Primera completa ocupa pp. 27–55. La tarea termina en p. 51, dentro del Apéndice.',
     sourceClass: 'Clase del 19 de agosto',
     sourceRoute: '/semestre/5/ontologia-ii/clase/19-agosto',
+    studyRoute: '/tareas/ontologia-ii/spinoza-etica-parte-i',
   },
   {
     id: 'metodos-2026-08-19-barcelo-introduccion',

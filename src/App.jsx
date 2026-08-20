@@ -22,6 +22,7 @@ import CriticalTheoryClass18Aug from './pages/CriticalTheoryClass18Aug'
 import EthicsClassics from './pages/EthicsClassics'
 import EthicsClass18Aug from './pages/EthicsClass18Aug'
 import TasksBoard from './pages/TasksBoard'
+import SpinozaEthicsStudy from './pages/SpinozaEthicsStudy'
 import ScrollToTop from './components/ScrollToTop'
 
 function App() {
@@ -91,6 +92,10 @@ function App() {
         <Route
           path="/semestre/5/etica/clase/18-agosto"
           element={<EthicsClass18Aug />}
+        />
+        <Route
+          path="/tareas/ontologia-ii/spinoza-etica-parte-i"
+          element={<SpinozaEthicsStudy />}
         />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
