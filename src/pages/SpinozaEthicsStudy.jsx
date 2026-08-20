@@ -84,24 +84,67 @@ function StudyCanvas() {
 
         const sourceNode = spinozaNodeById(edge.source)
         const targetNode = spinozaNodeById(edge.target)
+        const sourceInRoute =
+          route !== 'all' && sourceNode?.data.branch.includes(route)
+        const targetInRoute =
+          route !== 'all' && targetNode?.data.branch.includes(route)
+
         const routeVisible =
-          route === 'all' ||
-          sourceNode?.data.branch.includes(route) ||
-          targetNode?.data.branch.includes(route)
+          route === 'all' || sourceInRoute || targetInRoute
+
+        const routeActive =
+          route !== 'all' && sourceInRoute && targetInRoute
+
+        const stroke =
+          active
+            ? '#704840'
+            : routeActive
+              ? '#a37b24'
+              : edge.relation === 'critical'
+                ? 'rgba(112, 72, 64, .72)'
+                : edge.relation === 'definition'
+                  ? 'rgba(64, 86, 107, .55)'
+                  : edge.relation === 'axiom'
+                    ? 'rgba(163, 123, 36, .58)'
+                    : 'rgba(50, 43, 35, .34)'
+
+        const strokeWidth =
+          active
+            ? 4.2
+            : routeActive
+              ? 3.2
+              : edge.relation === 'critical'
+                ? 2
+                : 1.15
+
+        const opacity =
+          !routeVisible
+            ? 0.05
+            : active || routeActive
+              ? 1
+              : 0.34
 
         return {
           ...edge,
           type: 'smoothstep',
-          animated: edge.relation === 'critical' && active,
+          animated: false,
+          style: {
+            stroke,
+            strokeWidth,
+            opacity,
+            filter: undefined,
+          },
           markerEnd: {
             type: MarkerType.ArrowClosed,
-            width: 16,
-            height: 16,
+            width: active ? 15 : routeActive ? 14 : 11,
+            height: active ? 15 : routeActive ? 14 : 11,
+            color: stroke,
           },
           className: [
             'spinoza-flow-edge',
             `spinoza-flow-edge--${edge.relation}`,
             active ? 'is-active' : '',
+            routeActive ? 'is-route-active' : '',
             !routeVisible ? 'is-dimmed' : '',
           ].filter(Boolean).join(' '),
         }
