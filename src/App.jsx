@@ -15,6 +15,7 @@ import MethodsClass17Aug from './pages/MethodsClass17Aug'
 import MethodsClass19Aug from './pages/MethodsClass19Aug'
 import AnalyticPhilosophy from './pages/AnalyticPhilosophy'
 import AnalyticClass17Aug from './pages/AnalyticClass17Aug'
+import AnalyticClass19Aug from './pages/AnalyticClass19Aug'
 import CriticalTheory from './pages/CriticalTheory'
 import CriticalTheoryTask1 from './pages/CriticalTheoryTask1'
 import CriticalTheoryClass18Aug from './pages/CriticalTheoryClass18Aug'
@@ -66,6 +67,10 @@ function App() {
         <Route
           path="/semestre/5/filosofia-analitica/clase/17-agosto"
           element={<AnalyticClass17Aug />}
+        />
+        <Route
+          path="/semestre/5/filosofia-analitica/clase/19-agosto"
+          element={<AnalyticClass19Aug />}
         />
         <Route
           path="/semestre/5/teoria-critica"

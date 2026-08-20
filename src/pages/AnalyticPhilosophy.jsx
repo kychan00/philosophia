@@ -5,19 +5,19 @@ const readings = [
     number: 'I',
     author: 'Dagfinn Føllesdal',
     title: 'Filosofía analítica: ¿qué es y por qué uno debería involucrarse?',
-    note: 'El surgimiento de la filosofía analítica · pp. 19–40',
+    note: 'El surgimiento de la filosofía analítica · pp. 19–42',
   },
   {
     number: 'II',
     author: 'Peter M. S. Hacker',
     title: 'El surgimiento de la filosofía analítica del siglo XX',
-    note: 'El surgimiento de la filosofía analítica',
+    note: 'El surgimiento de la filosofía analítica · pp. 95–132',
   },
   {
     number: 'III',
     author: 'Hans-Johann Glock',
     title: 'Breve panorama histórico',
-    note: '¿Qué es la filosofía analítica? · capítulo II',
+    note: '¿Qué es la filosofía analítica? · capítulo II · pp. 40–86',
   },
   {
     number: 'IV',
@@ -138,6 +138,31 @@ export default function AnalyticPhilosophy() {
             <p>
               Mitos, filosofía analítica frente a filosofía continental,
               criterios de clasificación y el problema de la demarcación.
+            </p>
+          </div>
+
+          <div className="analytic-enter">
+            <span>Abrir análisis</span>
+            <b>↗</b>
+          </div>
+        </Link>
+      
+
+        <Link
+          to="/semestre/5/filosofia-analitica/clase/19-agosto"
+          className="analytic-class-card"
+        >
+          <div className="analytic-date">
+            <strong>XIX</strong>
+            <span>VIII · MMXXVI</span>
+          </div>
+
+          <div className="analytic-class-copy">
+            <span>Segunda clase · Análisis y lenguaje</span>
+            <h3>Clase del 19 de agosto</h3>
+            <p>
+              Taxonomía filosófica, análisis lingüístico, etapas de la
+              tradición, Waismann y formalización lógica.
             </p>
           </div>
 

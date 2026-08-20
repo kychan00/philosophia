@@ -11321,3 +11321,658 @@ a {
 }
 
 /* ===== METHODS 19 SCHEMAS END ===== */
+
+/* ===== ANALYTIC CLASS 19 DIAGRAMS START ===== */
+
+.analytic19-roadmap {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  gap: .8rem;
+  align-items: stretch;
+  margin: 2.6rem 0;
+}
+
+.analytic19-roadmap > div {
+  padding: 1.25rem;
+  border: 1px solid var(--analytic-line);
+  background: rgba(250, 247, 240, .42);
+}
+
+.analytic19-roadmap > div span {
+  display: block;
+  margin-bottom: .6rem;
+  color: var(--analytic-accent);
+  font-size: .58rem;
+  letter-spacing: .15em;
+}
+
+.analytic19-roadmap > div strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.analytic19-roadmap > b {
+  display: grid;
+  place-items: center;
+  color: var(--analytic-accent);
+  font-weight: 400;
+}
+
+.analytic19-reading-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  margin: 2.4rem 0 1.4rem;
+  background: var(--analytic-line);
+  border: 1px solid var(--analytic-line);
+}
+
+.analytic19-reading-cards article {
+  display: grid;
+  grid-template-columns: 55px 1fr;
+  gap: 1rem;
+  padding: 1.6rem;
+  background: var(--analytic-paper);
+}
+
+.analytic19-reading-cards article > span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  color: var(--analytic-accent);
+}
+
+.analytic19-reading-cards small {
+  display: block;
+  margin-bottom: .45rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .58rem;
+  color: var(--analytic-soft);
+}
+
+.analytic19-reading-cards h3 {
+  margin: 0 0 .45rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.55rem;
+  font-weight: 500;
+}
+
+.analytic19-reading-cards p {
+  margin: 0 0 1rem;
+}
+
+.analytic19-reading-cards strong {
+  display: block;
+  margin-bottom: .4rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--analytic-accent);
+}
+
+.analytic19-reading-cards em {
+  display: block;
+  font-size: .82rem;
+  line-height: 1.5;
+  color: var(--analytic-soft);
+}
+
+.analytic19-borges {
+  margin: 2.5rem 0;
+  padding: 2rem;
+  border: 3px double var(--analytic-line);
+  background: rgba(250,247,240,.35);
+}
+
+.analytic19-borges-title span {
+  display: block;
+  margin-bottom: .4rem;
+  font-size: .58rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--analytic-accent);
+}
+
+.analytic19-borges-title strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.analytic19-borges-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: 1.5rem 0;
+}
+
+.analytic19-borges-tags span {
+  padding: .55rem .7rem;
+  border: 1px dashed var(--analytic-line);
+  font-size: .72rem;
+  background: rgba(255,255,255,.2);
+}
+
+.analytic19-taxonomy-table {
+  margin: 2.5rem 0;
+  border: 1px solid var(--analytic-line);
+}
+
+.analytic19-taxonomy-head,
+.analytic19-taxonomy-table > div:not(.analytic19-taxonomy-head) {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+}
+
+.analytic19-taxonomy-head {
+  background: var(--analytic-ink);
+  color: var(--analytic-light);
+}
+
+.analytic19-taxonomy-head span,
+.analytic19-taxonomy-table > div:not(.analytic19-taxonomy-head) > * {
+  padding: 1rem 1.2rem;
+}
+
+.analytic19-taxonomy-head span {
+  font-size: .62rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.analytic19-taxonomy-table > div:not(.analytic19-taxonomy-head) {
+  border-top: 1px solid var(--analytic-line);
+}
+
+.analytic19-taxonomy-table strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.analytic19-taxonomy-table p {
+  margin: 0;
+  border-left: 1px solid var(--analytic-line);
+}
+
+.analytic19-four-failures {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  margin: 2.5rem 0;
+  background: var(--analytic-line);
+  border: 1px solid var(--analytic-line);
+}
+
+.analytic19-four-failures article {
+  position: relative;
+  min-height: 210px;
+  padding: 1.5rem;
+  background: var(--analytic-paper);
+}
+
+.analytic19-four-failures article > span {
+  color: var(--analytic-accent);
+  font-size: .6rem;
+  letter-spacing: .12em;
+}
+
+.analytic19-four-failures h3 {
+  margin: 1rem 0 .7rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.65rem;
+  font-weight: 500;
+}
+
+.analytic19-four-failures article > b {
+  position: absolute;
+  right: 1rem;
+  top: .8rem;
+  font-size: 1.35rem;
+  color: var(--analytic-accent);
+}
+
+.analytic19-necessary {
+  margin: 2.7rem 0;
+  display: grid;
+  gap: .7rem;
+}
+
+.analytic19-necessary > div {
+  display: grid;
+  grid-template-columns: 1fr 90px 1fr;
+  align-items: center;
+  text-align: center;
+  border: 1px solid var(--analytic-line);
+  background: rgba(250,247,240,.38);
+}
+
+.analytic19-necessary span {
+  padding: 1.3rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+}
+
+.analytic19-necessary strong {
+  color: var(--analytic-accent);
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.analytic19-not-converse {
+  opacity: .72;
+}
+
+.analytic19-counterexample {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 1.4rem;
+  align-items: center;
+  margin: 2rem 0;
+  padding: 1.3rem;
+  border-left: 3px solid var(--analytic-accent);
+  background: rgba(65,78,103,.04);
+}
+
+.analytic19-counterexample span {
+  display: block;
+  font-size: .58rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--analytic-accent);
+}
+
+.analytic19-counterexample strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.analytic19-counterexample p {
+  margin: 0;
+}
+
+.analytic19-analysis-split {
+  display: grid;
+  grid-template-columns: 1fr 150px 1fr;
+  gap: 1rem;
+  align-items: stretch;
+  margin: 2.7rem 0;
+}
+
+.analytic19-analysis-split article {
+  padding: 1.7rem;
+  border: 1px solid var(--analytic-line);
+  background: rgba(250,247,240,.38);
+}
+
+.analytic19-analysis-split article > span {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--analytic-line);
+  border-radius: 50%;
+  color: var(--analytic-accent);
+}
+
+.analytic19-analysis-split small {
+  display: block;
+  margin: 1rem 0 .35rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--analytic-soft);
+}
+
+.analytic19-analysis-split h3 {
+  margin: 0 0 1.2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+.analytic19-analysis-split article > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+}
+
+.analytic19-analysis-split article > div b {
+  padding: .4rem .6rem;
+  border: 1px solid var(--analytic-line);
+  font-weight: 400;
+  font-size: .72rem;
+}
+
+.analytic19-analysis-divider {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: var(--analytic-accent);
+  font-size: .63rem;
+  letter-spacing: .12em;
+  line-height: 1.7;
+}
+
+.analytic19-history {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  gap: .6rem;
+  align-items: stretch;
+  margin: 2.7rem 0;
+}
+
+.analytic19-history > div {
+  padding: 1.2rem;
+  border: 1px solid var(--analytic-line);
+  background: rgba(250,247,240,.4);
+}
+
+.analytic19-history > div span {
+  display: block;
+  margin-bottom: .7rem;
+  color: var(--analytic-accent);
+  font-size: .58rem;
+}
+
+.analytic19-history > div strong {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.analytic19-history > div small {
+  display: block;
+  margin-top: .5rem;
+  line-height: 1.45;
+  color: var(--analytic-soft);
+}
+
+.analytic19-history > b {
+  display: grid;
+  place-items: center;
+  color: var(--analytic-accent);
+  font-weight: 400;
+}
+
+.analytic19-chemical {
+  display: grid;
+  grid-template-columns: 1fr 180px 1fr;
+  gap: 1.2rem;
+  align-items: center;
+  margin: 2.8rem 0;
+}
+
+.analytic19-chemical-source,
+.analytic19-chemical-result {
+  min-height: 230px;
+  padding: 1.6rem;
+  border: 3px double var(--analytic-line);
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+  background: rgba(250,247,240,.4);
+}
+
+.analytic19-chemical-source span,
+.analytic19-chemical-result span {
+  margin-bottom: .7rem;
+  font-size: .58rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--analytic-accent);
+}
+
+.analytic19-chemical-source strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.analytic19-chemical-result strong {
+  display: block;
+  padding: .25rem 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.analytic19-chemical-process {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: .4rem;
+  color: var(--analytic-accent);
+}
+
+.analytic19-chemical-process span {
+  font-size: .62rem;
+  letter-spacing: .15em;
+}
+
+.analytic19-chemical-process b {
+  font-size: 4rem;
+  font-weight: 400;
+}
+
+.analytic19-chemical-process small {
+  color: var(--analytic-soft);
+  line-height: 1.4;
+}
+
+.analytic19-natural-sentence {
+  margin: 2.4rem 0 1.2rem;
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid var(--analytic-line);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  font-style: italic;
+}
+
+.analytic19-dictionary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin: 1.2rem 0;
+  background: var(--analytic-line);
+  border: 1px solid var(--analytic-line);
+}
+
+.analytic19-dictionary > div {
+  padding: 1.3rem;
+  background: var(--analytic-paper);
+}
+
+.analytic19-dictionary code {
+  display: block;
+  margin-bottom: .65rem;
+  font-size: 1.1rem;
+  color: var(--analytic-accent);
+}
+
+.analytic19-dictionary span {
+  line-height: 1.45;
+}
+
+.analytic19-formula {
+  margin: 2.5rem 0 1rem;
+  padding: 2.2rem 1rem;
+  border-top: 3px double var(--analytic-line);
+  border-bottom: 3px double var(--analytic-line);
+  text-align: center;
+}
+
+.analytic19-formula span {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: .6rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--analytic-soft);
+}
+
+.analytic19-formula code {
+  font-size: clamp(1.15rem, 3vw, 2rem);
+  color: var(--analytic-ink);
+}
+
+.analytic19-formula-parts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  justify-content: center;
+  margin-bottom: 2.2rem;
+}
+
+.analytic19-formula-parts span {
+  padding: .45rem .65rem;
+  border: 1px solid var(--analytic-line);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .68rem;
+}
+
+.analytic19-analysis-vs-synthesis {
+  display: grid;
+  grid-template-columns: 1fr 90px 1fr;
+  gap: 1rem;
+  align-items: center;
+  margin: 2.6rem 0;
+}
+
+.analytic19-analysis-vs-synthesis > div {
+  min-height: 210px;
+  padding: 1.7rem;
+  border: 1px solid var(--analytic-line);
+  background: rgba(250,247,240,.4);
+}
+
+.analytic19-analysis-vs-synthesis > div > span {
+  display: block;
+  margin-bottom: 1.3rem;
+  font-size: .58rem;
+  letter-spacing: .14em;
+  color: var(--analytic-accent);
+}
+
+.analytic19-analysis-vs-synthesis > div > strong {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.1rem;
+  font-weight: 500;
+}
+
+.analytic19-analysis-vs-synthesis > div > small {
+  color: var(--analytic-soft);
+}
+
+.analytic19-analysis-vs-synthesis > b {
+  text-align: center;
+  color: var(--analytic-accent);
+  font-size: .7rem;
+  letter-spacing: .15em;
+}
+
+.analytic19-definition {
+  margin: 2.6rem 0;
+  padding: 2rem;
+  border: 3px double var(--analytic-line);
+  text-align: center;
+}
+
+.analytic19-definition > span {
+  display: block;
+  margin-bottom: 1.3rem;
+  font-size: .62rem;
+  letter-spacing: .16em;
+  color: var(--analytic-accent);
+}
+
+.analytic19-definition > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: .8rem;
+}
+
+.analytic19-definition > div strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.analytic19-definition > div b {
+  color: var(--analytic-accent);
+  font-weight: 400;
+}
+
+.analytic19-definition > p {
+  max-width: 720px;
+  margin: 1.7rem auto 0;
+}
+
+.analytic-question-box {
+  margin: 2.5rem 0 0;
+  padding: 2rem;
+  border-left: 3px solid var(--analytic-accent);
+  background: rgba(65,78,103,.04);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-style: italic;
+  line-height: 1.35;
+}
+
+@media (max-width: 960px) {
+  .analytic19-roadmap,
+  .analytic19-history {
+    grid-template-columns: 1fr;
+  }
+
+  .analytic19-roadmap > b,
+  .analytic19-history > b {
+    transform: rotate(90deg);
+    min-height: 20px;
+  }
+
+  .analytic19-analysis-split,
+  .analytic19-chemical,
+  .analytic19-analysis-vs-synthesis {
+    grid-template-columns: 1fr;
+  }
+
+  .analytic19-analysis-divider,
+  .analytic19-analysis-vs-synthesis > b {
+    min-height: 45px;
+  }
+
+  .analytic19-reading-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .analytic19-four-failures,
+  .analytic19-dictionary {
+    grid-template-columns: 1fr;
+  }
+
+  .analytic19-taxonomy-head,
+  .analytic19-taxonomy-table > div:not(.analytic19-taxonomy-head),
+  .analytic19-necessary > div,
+  .analytic19-counterexample {
+    grid-template-columns: 1fr;
+  }
+
+  .analytic19-taxonomy-table p {
+    border-left: 0;
+    border-top: 1px solid var(--analytic-line);
+  }
+
+  .analytic19-necessary strong {
+    transform: rotate(90deg);
+  }
+}
+
+/* ===== ANALYTIC CLASS 19 DIAGRAMS END ===== */

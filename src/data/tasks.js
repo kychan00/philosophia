@@ -118,6 +118,50 @@ export const tasks = [
     sourceRoute:
       '/semestre/5/metodos-de-investigacion/clase/19-agosto',
   },
+  {
+    id: 'analitica-2026-08-19-hacker',
+    subject: 'Filosofía Analítica',
+    subjectCode: 'FI264',
+    assignedDate: '2026-08-19',
+    dueDate: '2026-08-24',
+    title: 'Leer a Peter M. S. Hacker',
+    type: 'Lectura',
+    weight: null,
+    description:
+      'Leer completo “El surgimiento de la filosofía analítica del siglo XX”, de Peter M. S. Hacker.',
+    readingScope:
+      'Peter M. S. Hacker · “El surgimiento de la filosofía analítica del siglo XX”',
+    readingPages: 'pp. 95–132',
+    readingEdition:
+      'Hans-Johann Glock (ed.) · El surgimiento de la filosofía analítica · Círculo Ometeotl, 2013',
+    readingFullPart:
+      'El ensayo comienza en p. 95 y termina en p. 132; en p. 133 comienza el texto de John Skorupski.',
+    sourceClass: 'Clase del 19 de agosto',
+    sourceRoute:
+      '/semestre/5/filosofia-analitica/clase/19-agosto',
+  },
+  {
+    id: 'analitica-2026-08-19-glock-cap2',
+    subject: 'Filosofía Analítica',
+    subjectCode: 'FI264',
+    assignedDate: '2026-08-19',
+    dueDate: '2026-08-24',
+    title: 'Leer a Hans-Johann Glock · capítulo II',
+    type: 'Lectura',
+    weight: null,
+    description:
+      'Leer el capítulo II, “Breve panorama histórico”, de ¿Qué es la filosofía analítica?, de Hans-Johann Glock.',
+    readingScope:
+      'Capítulo II · “Breve panorama histórico”',
+    readingPages: 'pp. 40–86',
+    readingEdition:
+      'Hans-Johann Glock · ¿Qué es la filosofía analítica? · Tecnos, 2012',
+    readingFullPart:
+      'El capítulo II comienza en p. 40 y termina en p. 86; el capítulo III, “Geografía y lenguaje”, comienza en p. 87.',
+    sourceClass: 'Clase del 19 de agosto',
+    sourceRoute:
+      '/semestre/5/filosofia-analitica/clase/19-agosto',
+  },
 ]
 
 export default tasks
