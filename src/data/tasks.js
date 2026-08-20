@@ -86,12 +86,14 @@ export const tasks = [
     type: 'Lectura',
     weight: null,
     description:
-      'Leer las primeras 25 páginas de la Parte I, “De Dios”. En la edición de Fondo de Cultura Económica traducida por Óscar Cohan, la lectura queda en pp. 11–35.',
-    readingScope: 'Parte I · De Dios · primeras 25 páginas',
-    readingPages: 'pp. 11–35',
+      'Leer las primeras 25 páginas de la Parte Primera, “De Dios”, en el PDF de la traducción de Vidal Peña. En este archivo, la lectura corresponde a las páginas 27–51 del PDF.',
+    readingScope:
+      'Parte Primera · De Dios · primeras 25 páginas',
+    readingPages: 'PDF pp. 27–51',
     readingEdition:
-      'Fondo de Cultura Económica · traducción de Óscar Cohan · edición de 273 páginas',
-    readingFullPart: 'La Parte I completa abarca pp. 11–49; la Parte II comienza en p. 50.',
+      'Baruch Spinoza · Ética demostrada según el orden geométrico · traducción, introducción y notas de Vidal Peña · versión digital ePUB r1.0 (2013)',
+    readingFullPart:
+      'En este PDF, la Parte Primera comienza en p. 27 y la Parte Segunda en p. 56. La Parte Primera completa ocupa pp. 27–55. La tarea termina en p. 51, dentro del Apéndice.',
     sourceClass: 'Clase del 19 de agosto',
     sourceRoute: '/semestre/5/ontologia-ii/clase/19-agosto',
   },

@@ -489,21 +489,22 @@ export default function OntologiaClass19Aug() {
               </div>
               <div>
                 <span>Extensión</span>
-                <strong>pp. 11–35 · Parte I, “De Dios”</strong>
+                <strong>PDF pp. 27–51 · Parte Primera, “De Dios”</strong>
               </div>
               <div>
                 <span>Para</span>
-                <strong>Siguiente clase</strong>
+                <strong>Lunes 24 de agosto</strong>
               </div>
             </div>
 
             <aside className="ontology-class-v2-note">
               <strong>Paginación de la lectura</strong>
               <p>
-                Para la edición de Fondo de Cultura Económica traducida por
-                Óscar Cohan, la Parte I, “De Dios”, va de la p. 11 a la p. 49.
-                La tarea del 24 de agosto queda fijada en pp. 11–35, es decir,
-                las primeras 25 páginas indicadas por el profesor.
+                En el PDF de la traducción de Vidal Peña, la Parte Primera,
+                “De Dios”, comienza en la p. 27 del archivo. Las primeras
+                25 páginas corresponden a las pp. 27–51 del PDF. La Parte
+                Primera completa llega hasta la p. 55 y la Parte Segunda
+                comienza en la p. 56.
               </p>
             </aside>
 
