@@ -636,3 +636,78 @@ export const spinozaEdges = propositions
 export function spinozaNodeById(id) {
   return spinozaNodes.find((node) => node.id === id) || null
 }
+
+export const spinozaGuidedRoute = [
+  { id: 'E1D1', phase: 'Fundamentos', why: 'Comenzamos por la causa de s\xed porque toda la arquitectura de la existencia necesaria depende de esta idea.', nextQuestion: '\xbfQu\xe9 significa que algo sea limitado?' },
+  { id: 'E1D2', phase: 'Fundamentos', why: 'La finitud se define por limitaci\xf3n dentro de un mismo g\xe9nero.', nextQuestion: '\xbfQu\xe9 ser\xeda entonces algo que no depende de otra cosa para ser concebido?' },
+  { id: 'E1D3', phase: 'Fundamentos', why: 'La sustancia introduce la independencia ontol\xf3gica y conceptual.', nextQuestion: '\xbfC\xf3mo expresa su esencia una sustancia?' },
+  { id: 'E1D4', phase: 'Fundamentos', why: 'El atributo expresa la esencia de la sustancia.', nextQuestion: '\xbfQu\xe9 existe en otra cosa y depende de ella?' },
+  { id: 'E1D5', phase: 'Fundamentos', why: 'El modo es lo que existe en otro; es la contraparte estructural de la sustancia.', nextQuestion: '\xbfC\xf3mo define Spinoza a Dios?' },
+  { id: 'E1D6', phase: 'Fundamentos', why: 'Dios aparece definido como sustancia absolutamente infinita.', nextQuestion: '\xbfQu\xe9 significan libertad y necesidad en este sistema?' },
+  { id: 'E1D7', phase: 'Fundamentos', why: 'Spinoza redefine la libertad como actuar por la necesidad de la propia naturaleza.', nextQuestion: '\xbfC\xf3mo debe entenderse la eternidad?' },
+  { id: 'E1D8', phase: 'Fundamentos', why: 'La eternidad no es duraci\xf3n infinita, sino necesidad de existencia.', nextQuestion: 'Ahora necesitamos las reglas del razonamiento.' },
+
+  { id: 'E1A1', phase: 'Axiomas', why: 'Todo lo que es, o es en s\xed o es en otro: sustancia o modo.', nextQuestion: '\xbfQu\xe9 ocurre con lo que no puede concebirse mediante otra cosa?' },
+  { id: 'E1A2', phase: 'Axiomas', why: 'Lo independiente conceptualmente debe concebirse por s\xed.', nextQuestion: '\xbfC\xf3mo funciona una causa determinada?' },
+  { id: 'E1A3', phase: 'Axiomas', why: 'Una causa determinada produce necesariamente un efecto.', nextQuestion: '\xbfC\xf3mo se relacionan causa y conocimiento?' },
+  { id: 'E1A4', phase: 'Axiomas', why: 'Conocer el efecto requiere conocer la causa.', nextQuestion: '\xbfPuede haber relaci\xf3n causal sin algo en com\xfan?' },
+  { id: 'E1A5', phase: 'Axiomas', why: 'Sin comunidad conceptual no hay inteligibilidad causal.', nextQuestion: '\xbfQu\xe9 exige una idea verdadera?' },
+  { id: 'E1A6', phase: 'Axiomas', why: 'La verdad exige conformidad entre idea y objeto.', nextQuestion: '\xbfC\xf3mo distinguir esencia y existencia?' },
+  { id: 'E1A7', phase: 'Axiomas', why: 'Si algo puede pensarse como no existente, su esencia no implica existir.', nextQuestion: 'Ya podemos comenzar a construir la sustancia.' },
+
+  { id: 'E1P1', phase: 'Sustancia', why: 'La sustancia es anterior a sus afecciones.', nextQuestion: '\xbfPueden dos sustancias de atributos distintos compartir algo?' },
+  { id: 'E1P2', phase: 'Sustancia', why: 'Dos sustancias de atributos distintos no tienen nada en com\xfan.', nextQuestion: '\xbfPuede entonces una causar a la otra?' },
+  { id: 'E1P3', phase: 'Sustancia', why: 'Sin algo en com\xfan no hay causalidad entre ellas.', nextQuestion: '\xbfC\xf3mo se distinguen realmente las cosas?' },
+  { id: 'E1P4', phase: 'Sustancia', why: 'Las diferencias se explican por atributos o afecciones.', nextQuestion: '\xbfPuede haber dos sustancias del mismo atributo?' },
+  { id: 'E1P5', phase: 'Sustancia', why: 'No pueden darse dos sustancias de la misma naturaleza o atributo.', nextQuestion: '\xbfPuede una sustancia ser producida por otra?' },
+  { id: 'E1P6', phase: 'Sustancia', why: 'Una sustancia no puede ser producida por otra.', nextQuestion: 'Entonces, \xbfde d\xf3nde obtiene su existencia?' },
+  { id: 'E1P7', phase: 'Sustancia', why: 'A la naturaleza de la sustancia pertenece existir: es causa de s\xed.', nextQuestion: '\xbfPuede una sustancia estar limitada?' },
+  { id: 'E1P8', phase: 'Sustancia', why: 'Toda sustancia es necesariamente infinita.', nextQuestion: '\xbfQu\xe9 relaci\xf3n hay entre realidad y atributos?' },
+  { id: 'E1P9', phase: 'Sustancia', why: 'M\xe1s realidad implica m\xe1s atributos.', nextQuestion: '\xbfPuede cada atributo concebirse por s\xed?' },
+  { id: 'E1P10', phase: 'Sustancia', why: 'Cada atributo de una misma sustancia se concibe por s\xed.', nextQuestion: 'Ya podemos preguntar: \xbfexiste necesariamente Dios?' },
+
+  { id: 'E1P11', phase: 'Dios', why: 'Dios existe necesariamente.', nextQuestion: '\xbfPuede la sustancia divina dividirse?' },
+  { id: 'E1P12', phase: 'Dios', why: 'Ning\xfan atributo puede implicar divisi\xf3n de la sustancia.', nextQuestion: '\xbfY la sustancia absolutamente infinita?' },
+  { id: 'E1P13', phase: 'Dios', why: 'La sustancia absolutamente infinita es indivisible.', nextQuestion: '\xbfQueda lugar para otra sustancia adem\xe1s de Dios?' },
+  { id: 'E1P14', phase: 'Dios', why: 'No existe ni puede concebirse otra sustancia excepto Dios.', nextQuestion: 'Si s\xf3lo Dios es sustancia, \xbfd\xf3nde est\xe1 todo lo dem\xe1s?' },
+  { id: 'E1P15', phase: 'Dios', why: 'Todo cuanto es, es en Dios. Este es el centro del sistema.', nextQuestion: '\xbfQu\xe9 se sigue de la naturaleza divina?' },
+
+  { id: 'E1P16', phase: 'Causalidad', why: 'De la naturaleza divina se siguen infinitas cosas de infinitos modos.', nextQuestion: '\xbfDios act\xfaa por algo externo?' },
+  { id: 'E1P17', phase: 'Causalidad', why: 'Dios act\xfaa por la sola necesidad de su naturaleza.', nextQuestion: '\xbfSu causalidad es externa o inmanente?' },
+  { id: 'E1P18', phase: 'Causalidad', why: 'Dios es causa inmanente, no transitiva, de todas las cosas.', nextQuestion: '\xbfQu\xe9 ocurre con la eternidad de Dios y sus atributos?' },
+
+  { id: 'E1P19', phase: 'Modos', why: 'Dios y sus atributos son eternos.', nextQuestion: '\xbfC\xf3mo se relacionan esencia y existencia en Dios?' },
+  { id: 'E1P20', phase: 'Modos', why: 'La existencia de Dios y su esencia son una y la misma cosa.', nextQuestion: '\xbfQu\xe9 se sigue inmediatamente de un atributo infinito?' },
+  { id: 'E1P21', phase: 'Modos', why: 'Lo que se sigue inmediatamente de un atributo infinito es eterno e infinito.', nextQuestion: '\xbfQu\xe9 pasa con consecuencias mediadas por modos infinitos?' },
+  { id: 'E1P22', phase: 'Modos', why: 'La necesidad se propaga a trav\xe9s de modos infinitos.', nextQuestion: '\xbfDe d\xf3nde proceden los modos necesarios e infinitos?' },
+  { id: 'E1P23', phase: 'Modos', why: 'Los modos infinitos proceden de un atributo absoluto o de un modo infinito.', nextQuestion: '\xbfLa esencia de las cosas producidas implica existir?' },
+  { id: 'E1P24', phase: 'Modos', why: 'La esencia de las cosas producidas no implica existencia.', nextQuestion: 'Entonces, \xbfqui\xe9n causa su esencia y existencia?' },
+  { id: 'E1P25', phase: 'Modos', why: 'Dios es causa eficiente de la esencia y de la existencia de las cosas.', nextQuestion: '\xbfC\xf3mo queda determinada cada cosa a obrar?' },
+
+  { id: 'E1P26', phase: 'Necesidad', why: 'Todo lo determinado a obrar ha sido determinado por Dios.', nextQuestion: '\xbfPuede una cosa determinada volverse indeterminada?' },
+  { id: 'E1P27', phase: 'Necesidad', why: 'Lo determinado por Dios no puede volverse indeterminado por s\xed.', nextQuestion: '\xbfC\xf3mo se encadenan las causas finitas?' },
+  { id: 'E1P28', phase: 'Necesidad', why: 'Cada cosa finita depende de otra causa finita, y as\xed al infinito.', nextQuestion: '\xbfQueda alg\xfan espacio para la contingencia?' },
+  { id: 'E1P29', phase: 'Necesidad', why: 'En la naturaleza no hay nada contingente.', nextQuestion: '\xbfQu\xe9 puede comprender un entendimiento en acto?' },
+  { id: 'E1P30', phase: 'Necesidad', why: 'El entendimiento comprende atributos y afecciones de Dios, y nada m\xe1s.', nextQuestion: '\xbfD\xf3nde quedan entendimiento y voluntad?' },
+  { id: 'E1P31', phase: 'Necesidad', why: 'Entendimiento y voluntad pertenecen a la Naturaleza naturada.', nextQuestion: '\xbfPuede la voluntad ser causa libre?' },
+  { id: 'E1P32', phase: 'Necesidad', why: 'La voluntad no es causa libre, sino necesaria.', nextQuestion: '\xbfPodr\xeda haber existido otro orden del mundo?' },
+  { id: 'E1P33', phase: 'Necesidad', why: 'Las cosas no pudieron ser producidas de otra manera ni en otro orden.', nextQuestion: '\xbfC\xf3mo se relaciona la potencia de Dios con su esencia?' },
+
+  { id: 'E1P34', phase: 'Potencia', why: 'La potencia de Dios es su esencia misma.', nextQuestion: '\xbfQu\xe9 ocurre con todo lo concebido como posible para Dios?' },
+  { id: 'E1P35', phase: 'Potencia', why: 'Todo lo que est\xe1 en la potestad de Dios existe necesariamente.', nextQuestion: '\xbfExiste algo sin producir efectos?' },
+  { id: 'E1P36', phase: 'Potencia', why: 'Nada existe de cuya naturaleza no se siga alg\xfan efecto.', nextQuestion: 'Entonces, \xbfpor qu\xe9 imaginamos fines y libertad absoluta?' },
+
+  { id: 'E1APP', phase: 'Ap\xe9ndice', why: 'El Ap\xe9ndice comienza a explicar el origen del finalismo, la ilusi\xf3n de libertad y la superstici\xf3n.', nextQuestion: 'Fin de la lectura asignada.' },
+]
+
+export const spinozaGuidedPhases = [
+  'Fundamentos',
+  'Axiomas',
+  'Sustancia',
+  'Dios',
+  'Causalidad',
+  'Modos',
+  'Necesidad',
+  'Potencia',
+  'Ap\xe9ndice',
+]
