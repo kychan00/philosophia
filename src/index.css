@@ -18717,3 +18717,187 @@ a {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ONTOLOGIA 24 · PUENTE AL TRABAJO DE SPINOZA */
+.ontology24-spinoza-bridge {
+  position: relative;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr) minmax(15rem, 19rem);
+  gap: 1.6rem;
+  align-items: stretch;
+  width: min(92rem, calc(100% - 2rem));
+  margin: -1.65rem auto 2.8rem;
+  padding: 1.45rem;
+  border: 1px solid rgba(112, 72, 64, 0.23);
+  background:
+    linear-gradient(120deg, rgba(255, 250, 242, 0.97), rgba(235, 225, 208, 0.96));
+  box-shadow: 0 18px 45px rgba(69, 51, 38, 0.12);
+  overflow: hidden;
+}
+
+.ontology24-spinoza-bridge::before {
+  content: "DEUS · SUBSTANTIA · NATURA";
+  position: absolute;
+  right: 1rem;
+  bottom: -0.45rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 4vw, 4.2rem);
+  letter-spacing: 0.08em;
+  color: rgba(112, 72, 64, 0.035);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.ontology24-spinoza-bridge-mark {
+  display: grid;
+  place-items: center;
+  min-height: 100%;
+  border: 1px solid rgba(163, 123, 36, 0.35);
+  background: rgba(163, 123, 36, 0.07);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.7rem;
+  color: #8a6728;
+}
+
+.ontology24-spinoza-bridge-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.ontology24-spinoza-bridge-copy > span {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: #8a6728;
+}
+
+.ontology24-spinoza-bridge-copy h2 {
+  margin: 0 0 0.8rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.55rem, 2.8vw, 2.45rem);
+  line-height: 1.04;
+  font-weight: 400;
+  color: #352d28;
+}
+
+.ontology24-spinoza-bridge-copy h2 em {
+  font-weight: 400;
+  color: #704840;
+}
+
+.ontology24-spinoza-bridge-copy h2 small {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.48em;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(53, 45, 40, 0.68);
+}
+
+.ontology24-spinoza-bridge-copy p {
+  max-width: 58rem;
+  margin: 0.45rem 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.91rem;
+  line-height: 1.58;
+  color: #493b32;
+}
+
+.ontology24-spinoza-bridge-route {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.42rem;
+  margin-top: 0.9rem;
+  font-size: 0.59rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #704840;
+}
+
+.ontology24-spinoza-bridge-route b {
+  color: #a37b24;
+}
+
+.ontology24-spinoza-bridge-actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.65rem;
+  padding-left: 1.25rem;
+  border-left: 1px solid rgba(112, 72, 64, 0.15);
+}
+
+.ontology24-spinoza-bridge-primary,
+.ontology24-spinoza-bridge-secondary {
+  text-decoration: none;
+}
+
+.ontology24-spinoza-bridge-primary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid #704840;
+  background: #704840;
+  color: #f7efe3;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ontology24-spinoza-bridge-primary b {
+  font-size: 1rem;
+  color: #e8c77f;
+}
+
+.ontology24-spinoza-bridge-secondary {
+  padding: 0.68rem 0.85rem;
+  border: 1px solid rgba(112, 72, 64, 0.22);
+  color: #704840;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.83rem;
+  text-align: center;
+}
+
+.ontology24-spinoza-bridge-actions small {
+  font-size: 0.64rem;
+  line-height: 1.4;
+  color: rgba(53, 45, 40, 0.62);
+}
+
+.ontology24-spinoza-bridge-primary:hover,
+.ontology24-spinoza-bridge-secondary:hover {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 980px) {
+  .ontology24-spinoza-bridge {
+    grid-template-columns: 4rem minmax(0, 1fr);
+  }
+
+  .ontology24-spinoza-bridge-actions {
+    grid-column: 1 / -1;
+    padding: 1rem 0 0;
+    border-left: 0;
+    border-top: 1px solid rgba(112, 72, 64, 0.15);
+  }
+}
+
+@media (max-width: 640px) {
+  .ontology24-spinoza-bridge {
+    grid-template-columns: 1fr;
+    margin-top: -0.7rem;
+  }
+
+  .ontology24-spinoza-bridge-mark {
+    min-height: 3.2rem;
+  }
+}

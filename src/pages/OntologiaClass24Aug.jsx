@@ -1017,6 +1017,68 @@ export default function OntologiaClass24Aug() {
         </div>
       </header>
 
+      <section className="ontology24-spinoza-bridge">
+        <div className="ontology24-spinoza-bridge-mark" aria-hidden="true">
+          I
+        </div>
+
+        <div className="ontology24-spinoza-bridge-copy">
+          <span>TRABAJO PREVIO · ETHICA · PARS I</span>
+
+          <h2>
+            De la lectura de <em>De Dios</em>
+            <small>a la clase del 24 de agosto</small>
+          </h2>
+
+          <p>
+            Esta sesión parte directamente del trabajo realizado sobre la
+            <em> Ética demostrada según el orden geométrico</em>. Allí se
+            reconstruyeron definiciones, axiomas y proposiciones de la Parte I
+            como una red de dependencias: sustancia, atributos, modos,
+            causalidad, necesidad y Dios.
+          </p>
+
+          <p>
+            Puede volver a ese trabajo para consultar el mapa completo,
+            recorrer las conexiones D/A/P y revisar visualmente cómo se
+            fundamentan las tesis que el profesor desarrolla en esta clase.
+          </p>
+
+          <div className="ontology24-spinoza-bridge-route">
+            <span>D / A / P</span>
+            <b>→</b>
+            <span>SUSTANCIA</span>
+            <b>→</b>
+            <span>DIOS</span>
+            <b>→</b>
+            <span>NECESIDAD</span>
+            <b>→</b>
+            <span>CLASE</span>
+          </div>
+        </div>
+
+        <div className="ontology24-spinoza-bridge-actions">
+          <Link
+            to="/tareas/ontologia-ii/spinoza-etica-parte-i"
+            className="ontology24-spinoza-bridge-primary"
+          >
+            <span>Abrir trabajo de Spinoza</span>
+            <b>↗</b>
+          </Link>
+
+          <Link
+            to="/tareas/ontologia-ii/spinoza-etica-parte-i/figuras/3d"
+            className="ontology24-spinoza-bridge-secondary"
+          >
+            Explorar sistema 3D →
+          </Link>
+
+          <small>
+            Tarea asignada el 19 de agosto · lectura para esta sesión
+          </small>
+        </div>
+      </section>
+
       <div className="ontology24-layout">
         <aside className="ontology24-index">
           <p>Index lectionis · 50 puncta</p>
