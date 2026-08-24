@@ -19,10 +19,14 @@ import AnalyticClass19Aug from './pages/AnalyticClass19Aug'
 import CriticalTheory from './pages/CriticalTheory'
 import CriticalTheoryTask1 from './pages/CriticalTheoryTask1'
 import CriticalTheoryClass18Aug from './pages/CriticalTheoryClass18Aug'
+import CriticalTheoryClass20Aug from './pages/CriticalTheoryClass20Aug'
 import EthicsClassics from './pages/EthicsClassics'
 import EthicsClass18Aug from './pages/EthicsClass18Aug'
+import EthicsClass20Aug from './pages/EthicsClass20Aug'
 import TasksBoard from './pages/TasksBoard'
 import SpinozaEthicsStudy from './pages/SpinozaEthicsStudy'
+import SpinozaFigures from './pages/SpinozaFigures'
+import SpinozaFigures3D from './pages/SpinozaFigures3D'
 import ScrollToTop from './components/ScrollToTop'
 
 function App() {
@@ -86,6 +90,10 @@ function App() {
           element={<CriticalTheoryClass18Aug />}
         />
         <Route
+          path="/semestre/5/teoria-critica/clase/20-agosto"
+          element={<CriticalTheoryClass20Aug />}
+        />
+        <Route
           path="/semestre/5/etica"
           element={<EthicsClassics />}
         />
@@ -94,8 +102,20 @@ function App() {
           element={<EthicsClass18Aug />}
         />
         <Route
+          path="/semestre/5/etica/clase/20-agosto"
+          element={<EthicsClass20Aug />}
+        />
+        <Route
           path="/tareas/ontologia-ii/spinoza-etica-parte-i"
           element={<SpinozaEthicsStudy />}
+        />
+        <Route
+          path="/tareas/ontologia-ii/spinoza-etica-parte-i/figuras"
+          element={<SpinozaFigures />}
+        />
+        <Route
+          path="/tareas/ontologia-ii/spinoza-etica-parte-i/figuras/3d"
+          element={<SpinozaFigures3D />}
         />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

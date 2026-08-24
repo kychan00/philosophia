@@ -1,0 +1,3807 @@
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { Canvas } from '@react-three/fiber'
+import {
+  Billboard,
+  Line,
+  OrbitControls,
+  Text,
+} from '@react-three/drei'
+
+import SpinozaSphere3D from './SpinozaSphere3D'
+import SpinozaProofSphere3D from './SpinozaProofSphere3D'
+import {
+  spinozaFigures3DEdges,
+  spinozaFigures3DEdgeStyles,
+  spinozaFigures3DNodeById,
+  spinozaFigures3DNodes,
+} from '../../data/spinozaFigures3D'
+import {
+  spinozaDemonstrative3DCardinals,
+  spinozaDemonstrative3DConfig,
+  spinozaDemonstrative3DConfigById,
+  spinozaDemonstrative3DIds,
+} from '../../data/spinozaDemonstrative3D'
+import { spinozaNodeById } from '../../data/spinozaEthics1Prototype'
+import {
+  spinozaGuided3DRoutes,
+  spinozaGuided3DRouteById,
+} from '../../data/spinozaGuided3D'
+import {
+  spinozaBridge3DEndpoints,
+  spinozaBridge3DPresets,
+} from '../../data/spinozaBridges3D'
+import {
+  spinozaCompare3DEndpoints,
+  spinozaCompare3DPresets,
+} from '../../data/spinozaCompare3D'
+
+function FieldLabel({
+  position,
+  color,
+  children,
+}) {
+  return (
+    <Billboard position={position} follow>
+      <Text
+        fontSize={0.19}
+        color={color}
+        anchorX="center"
+        anchorY="middle"
+        letterSpacing={0.08}
+      >
+        {children}
+      </Text>
+    </Billboard>
+  )
+}
+
+function OntologicalFields() {
+  return (
+    <>
+      <mesh>
+        <sphereGeometry args={[5.15, 18, 12]} />
+        <meshBasicMaterial
+          color="#6e8793"
+          wireframe
+          transparent
+          opacity={0.105}
+        />
+      </mesh>
+
+      <mesh>
+        <sphereGeometry args={[3.55, 16, 10]} />
+        <meshBasicMaterial
+          color="#59745c"
+          wireframe
+          transparent
+          opacity={0.115}
+        />
+      </mesh>
+
+      <mesh rotation={[Math.PI / 2.45, 0.25, 0]}>
+        <torusGeometry args={[2.45, 0.012, 10, 96]} />
+        <meshBasicMaterial
+          color="#a37b24"
+          transparent
+          opacity={0.30}
+        />
+      </mesh>
+
+      <mesh rotation={[Math.PI / 2.45, -0.25, Math.PI / 2]}>
+        <torusGeometry args={[2.45, 0.012, 10, 96]} />
+        <meshBasicMaterial
+          color="#a37b24"
+          transparent
+          opacity={0.30}
+        />
+      </mesh>
+
+      <FieldLabel position={[0, 5.35, 0]} color="#49687d">
+        NATURA NATURATA
+      </FieldLabel>
+
+      <FieldLabel position={[0, -3.7, 0]} color="#59745c">
+        NATURA NATURANS
+      </FieldLabel>
+    </>
+  )
+}
+
+function DemonstrativeFields() {
+  return (
+    <>
+      <mesh position={[0, 2.45, -2.1]} rotation={[Math.PI / 2, 0, 0]}>
+        <ringGeometry args={[4.3, 4.32, 96]} />
+        <meshBasicMaterial color="#49687d" transparent opacity={0.11} side={2} />
+      </mesh>
+
+      <mesh position={[0, 0.55, -0.7]} rotation={[Math.PI / 2, 0, 0]}>
+        <ringGeometry args={[3.15, 3.17, 96]} />
+        <meshBasicMaterial color="#704840" transparent opacity={0.10} side={2} />
+      </mesh>
+
+      <mesh position={[0, -1.75, 1.25]} rotation={[Math.PI / 2, 0, 0]}>
+        <ringGeometry args={[3.75, 3.77, 96]} />
+        <meshBasicMaterial color="#59745c" transparent opacity={0.10} side={2} />
+      </mesh>
+
+      <FieldLabel position={[-4.55, 3.55, -2.0]} color="#49687d">
+        FUNDAMENTA · D / A
+      </FieldLabel>
+      <FieldLabel position={[0, 2.05, -0.65]} color="#704840">
+        CONVERGENTIA · P11–P16
+      </FieldLabel>
+      <FieldLabel position={[3.25, -3.25, 1.55]} color="#59745c">
+        NECESSITAS · MODI · POTENTIA
+      </FieldLabel>
+    </>
+  )
+}
+
+function RelationFocusFields({ mode, selectedLabel }) {
+  return (
+    <>
+      <mesh rotation={[Math.PI / 2, 0, 0]}>
+        <torusGeometry args={[1.35, 0.014, 10, 96]} />
+        <meshBasicMaterial color="#a37b24" transparent opacity={0.35} />
+      </mesh>
+
+      <mesh rotation={[Math.PI / 2.2, 0.2, Math.PI / 3]}>
+        <torusGeometry args={[3.55, 0.012, 10, 120]} />
+        <meshBasicMaterial color="#6e8793" transparent opacity={0.20} />
+      </mesh>
+
+      <FieldLabel position={[0, 3.55, 0]} color="#704840">
+        RELATIONES EXPANSAE · {selectedLabel}
+      </FieldLabel>
+
+      {mode === 'proof' ? (
+        <>
+          <FieldLabel position={[-3.4, 2.75, 0]} color="#49687d">
+            FUNDAMENTA
+          </FieldLabel>
+          <FieldLabel position={[3.4, 2.75, 0]} color="#59745c">
+            PRODUCIT · APERIT
+          </FieldLabel>
+        </>
+      ) : (
+        <>
+          <FieldLabel position={[-3.4, 2.75, 0]} color="#49687d">
+            RELATIONES AD
+          </FieldLabel>
+          <FieldLabel position={[3.4, 2.75, 0]} color="#59745c">
+            RELATIONES AB
+          </FieldLabel>
+        </>
+      )}
+    </>
+  )
+}
+
+function orbitPosition(index, count, radius = 5.0) {
+  const safeCount = Math.max(count, 1)
+  const angle = (Math.PI * 2 * index) / safeCount
+  return [
+    Math.cos(angle) * radius,
+    Math.sin(angle) * radius * 0.72,
+    Math.sin(angle * 1.7) * 1.9,
+  ]
+}
+
+function sidePosition(index, count, side = -1) {
+  const safeCount = Math.max(count, 1)
+  const center = (safeCount - 1) / 2
+  const y = (center - index) * Math.min(1.35, 4.6 / safeCount + 0.45)
+  const z = Math.sin((index + 1) * 1.75) * 1.25
+  return [side * 3.25, y, z]
+}
+
+function buildOntologyFocusPositions(selectedId, focusActive) {
+  const positions = new Map(
+    spinozaFigures3DNodes.map((node) => [node.id, node.position]),
+  )
+
+  if (!focusActive) return positions
+
+  const incoming = spinozaFigures3DEdges
+    .filter((edge) => edge.target === selectedId)
+    .map((edge) => edge.source)
+
+  const outgoing = spinozaFigures3DEdges
+    .filter((edge) => edge.source === selectedId)
+    .map((edge) => edge.target)
+
+  const related = new Set([selectedId, ...incoming, ...outgoing])
+  positions.set(selectedId, [0, 0, 0])
+
+  incoming.forEach((id, index) => {
+    positions.set(id, sidePosition(index, incoming.length, -1))
+  })
+
+  outgoing.forEach((id, index) => {
+    if (incoming.includes(id)) {
+      positions.set(id, [0, -3.0 - index * 0.7, Math.sin(index * 1.4) * 1.2])
+    } else {
+      positions.set(id, sidePosition(index, outgoing.length, 1))
+    }
+  })
+
+  const others = spinozaFigures3DNodes.filter((node) => !related.has(node.id))
+  others.forEach((node, index) => {
+    positions.set(node.id, orbitPosition(index, others.length, 5.5))
+  })
+
+  return positions
+}
+
+function buildProofFocusPositions(selectedId, focusActive) {
+  const positions = new Map(
+    spinozaDemonstrative3DConfig.map((config) => [config.id, config.position]),
+  )
+
+  if (!focusActive) return positions
+
+  const selected = spinozaNodeById(selectedId)
+  if (!selected) return positions
+
+  const supports = selected.data.dependsOn.filter((id) =>
+    spinozaDemonstrative3DIds.has(id),
+  )
+
+  const produces = selected.data.produces.filter((id) =>
+    spinozaDemonstrative3DIds.has(id),
+  )
+
+  const related = new Set([selectedId, ...supports, ...produces])
+  positions.set(selectedId, [0, 0, 0])
+
+  supports.forEach((id, index) => {
+    positions.set(id, sidePosition(index, supports.length, -1))
+  })
+
+  produces.forEach((id, index) => {
+    if (supports.includes(id)) {
+      positions.set(id, [0, -3.1 - index * 0.65, Math.sin(index * 1.3) * 1.1])
+    } else {
+      positions.set(id, sidePosition(index, produces.length, 1))
+    }
+  })
+
+  const others = spinozaDemonstrative3DConfig.filter(
+    (config) => !related.has(config.id),
+  )
+
+  others.forEach((config, index) => {
+    positions.set(config.id, orbitPosition(index, others.length, 5.65))
+  })
+
+  return positions
+}
+
+function OntologicalRelationLines({ selectedId, showAllRelations, positions }) {
+  const selectedEdges = useMemo(
+    () =>
+      spinozaFigures3DEdges.filter(
+        (edge) =>
+          showAllRelations || edge.source === selectedId || edge.target === selectedId,
+      ),
+    [selectedId, showAllRelations],
+  )
+
+  return selectedEdges.map((edge) => {
+    const source = spinozaFigures3DNodeById(edge.source)
+    const target = spinozaFigures3DNodeById(edge.target)
+    if (!source || !target) return null
+
+    const style =
+      spinozaFigures3DEdgeStyles[edge.type] || spinozaFigures3DEdgeStyles.internal
+
+    const touchesSelected = edge.source === selectedId || edge.target === selectedId
+
+    return (
+      <group key={edge.id}>
+        <Line
+          points={[positions.get(edge.source) || source.position, positions.get(edge.target) || target.position]}
+          color={touchesSelected ? '#fbf4ea' : '#f3eadb'}
+          lineWidth={touchesSelected ? 4.8 : 2.4}
+          dashed={style.dash}
+          dashSize={0.14}
+          gapSize={0.09}
+          transparent
+          opacity={touchesSelected ? 0.68 : 0.30}
+          renderOrder={3}
+          depthTest={false}
+        />
+        <Line
+          points={[positions.get(edge.source) || source.position, positions.get(edge.target) || target.position]}
+          color={style.color}
+          lineWidth={touchesSelected ? 2.8 : 1.55}
+          dashed={style.dash}
+          dashSize={0.14}
+          gapSize={0.09}
+          transparent
+          opacity={touchesSelected ? 0.98 : 0.54}
+          renderOrder={4}
+          depthTest={false}
+        />
+      </group>
+    )
+  })
+}
+
+function DemonstrativeRelationLines({ selectedId, showAllRelations, onlyCardinals, positions }) {
+  const edges = useMemo(() => {
+    const result = []
+
+    spinozaDemonstrative3DConfig.forEach((config) => {
+      const node = spinozaNodeById(config.id)
+      if (!node) return
+
+      node.data.dependsOn.forEach((sourceId) => {
+        if (!spinozaDemonstrative3DIds.has(sourceId)) return
+
+        if (
+          onlyCardinals &&
+          !spinozaDemonstrative3DCardinals.has(sourceId) &&
+          !spinozaDemonstrative3DCardinals.has(config.id) &&
+          sourceId !== selectedId &&
+          config.id !== selectedId
+        ) {
+          return
+        }
+
+        const touchesSelected = sourceId === selectedId || config.id === selectedId
+        if (!showAllRelations && !touchesSelected) return
+
+        result.push({
+          id: `${sourceId}-${config.id}`,
+          sourceId,
+          targetId: config.id,
+          touchesSelected,
+        })
+      })
+    })
+
+    return result
+  }, [selectedId, showAllRelations, onlyCardinals])
+
+  return edges.map((edge) => {
+    const source = spinozaDemonstrative3DConfigById(edge.sourceId)
+    const target = spinozaDemonstrative3DConfigById(edge.targetId)
+    if (!source || !target) return null
+
+    return (
+      <group key={edge.id}>
+        <Line
+          points={[positions.get(edge.sourceId) || source.position, positions.get(edge.targetId) || target.position]}
+          color={edge.touchesSelected ? '#fff8ee' : '#f0e6d8'}
+          lineWidth={edge.touchesSelected ? 5.0 : 2.7}
+          transparent
+          opacity={edge.touchesSelected ? 0.70 : 0.26}
+          renderOrder={3}
+          depthTest={false}
+        />
+        <Line
+          points={[positions.get(edge.sourceId) || source.position, positions.get(edge.targetId) || target.position]}
+          color={edge.touchesSelected ? '#704840' : '#8f7f73'}
+          lineWidth={edge.touchesSelected ? 3.05 : 1.7}
+          transparent
+          opacity={edge.touchesSelected ? 0.99 : 0.56}
+          renderOrder={4}
+          depthTest={false}
+        />
+      </group>
+    )
+  })
+}
+
+function proofKindLabel(node) {
+  if (!node) return ''
+  if (node.data.kind === 'Definición' || node.data.kind === 'definition') return 'Definición'
+  if (node.data.kind === 'Axioma' || node.data.kind === 'axiom') return 'Axioma'
+  return 'Proposición'
+}
+
+
+function proofNeighbors(id) {
+  const node = spinozaNodeById(id)
+  if (!node) return []
+
+  const ids = new Set()
+
+  node.data.dependsOn.forEach((depId) => {
+    if (spinozaDemonstrative3DIds.has(depId)) ids.add(depId)
+  })
+
+  node.data.produces.forEach((producedId) => {
+    if (spinozaDemonstrative3DIds.has(producedId)) ids.add(producedId)
+  })
+
+  spinozaDemonstrative3DConfig.forEach((config) => {
+    const candidate = spinozaNodeById(config.id)
+    if (!candidate) return
+
+    if (
+      candidate.data.dependsOn.includes(id) ||
+      candidate.data.produces.includes(id)
+    ) {
+      ids.add(config.id)
+    }
+  })
+
+  return [...ids]
+}
+
+function shortestProofBridge(fromId, toId) {
+  if (!fromId || !toId) return []
+  if (fromId === toId) return [fromId]
+
+  const queue = [[fromId]]
+  const visited = new Set([fromId])
+
+  while (queue.length) {
+    const path = queue.shift()
+    const current = path[path.length - 1]
+
+    for (const next of proofNeighbors(current)) {
+      if (visited.has(next)) continue
+
+      const nextPath = [...path, next]
+      if (next === toId) return nextPath
+
+      visited.add(next)
+      queue.push(nextPath)
+    }
+  }
+
+  return []
+}
+
+function bridgeRelationLabel(fromId, toId) {
+  const from = spinozaNodeById(fromId)
+  const to = spinozaNodeById(toId)
+
+  if (!from || !to) return 'conexión'
+
+  if (to.data.dependsOn.includes(fromId)) return 'fundamenta'
+  if (from.data.produces.includes(toId)) return 'abre'
+  if (from.data.dependsOn.includes(toId)) return 'retrocede a fundamento'
+  if (to.data.produces.includes(fromId)) return 'vuelve desde consecuencia'
+
+  return 'conecta'
+}
+
+function buildBridgePositions(pathIds, active) {
+  const positions = new Map(
+    spinozaDemonstrative3DConfig.map((config) => [config.id, config.position]),
+  )
+
+  if (!active || !pathIds.length) return positions
+
+  const pathSet = new Set(pathIds)
+  const count = pathIds.length
+
+  pathIds.forEach((id, index) => {
+    const t = count <= 1 ? 0.5 : index / (count - 1)
+    const x = -4.2 + t * 8.4
+    const y = Math.sin(t * Math.PI) * 1.7 - 0.15
+    const z = Math.sin(t * Math.PI * 2) * 1.35
+
+    positions.set(id, [x, y, z])
+  })
+
+  const others = spinozaDemonstrative3DConfig.filter(
+    (config) => !pathSet.has(config.id),
+  )
+
+  others.forEach((config, index) => {
+    const angle = (Math.PI * 2 * index) / Math.max(others.length, 1)
+    positions.set(config.id, [
+      Math.cos(angle) * 6.2,
+      Math.sin(angle) * 4.2,
+      -3.0 + Math.sin(angle * 2) * 0.75,
+    ])
+  })
+
+  return positions
+}
+
+function BridgeRelationLines({ pathIds, positions }) {
+  if (pathIds.length < 2) return null
+
+  return pathIds.slice(0, -1).map((id, index) => {
+    const nextId = pathIds[index + 1]
+    const source = positions.get(id)
+    const target = positions.get(nextId)
+    if (!source || !target) return null
+
+    return (
+      <group key={`bridge-${id}-${nextId}`}>
+        <Line
+          points={[source, target]}
+          color="#fff8ee"
+          lineWidth={6.0}
+          transparent
+          opacity={0.78}
+          renderOrder={20}
+          depthTest={false}
+        />
+        <Line
+          points={[source, target]}
+          color="#4f7a4f"
+          lineWidth={3.45}
+          transparent
+          opacity={1}
+          renderOrder={21}
+          depthTest={false}
+        />
+      </group>
+    )
+  })
+}
+
+
+function proofIncomingIds(id) {
+  const node = spinozaNodeById(id)
+  if (!node) return []
+
+  return node.data.dependsOn.filter((depId) =>
+    spinozaDemonstrative3DIds.has(depId),
+  )
+}
+
+function proofOutgoingIds(id) {
+  const result = []
+
+  spinozaDemonstrative3DConfig.forEach((config) => {
+    const candidate = spinozaNodeById(config.id)
+    if (!candidate) return
+
+    if (candidate.data.dependsOn.includes(id)) {
+      result.push(config.id)
+    }
+  })
+
+  return result
+}
+
+function collectProofDirection(startId, maxDepth, direction) {
+  const distance = new Map()
+  const queue = [{ id: startId, depth: 0 }]
+  distance.set(startId, 0)
+
+  while (queue.length) {
+    const current = queue.shift()
+
+    if (current.depth >= maxDepth) continue
+
+    const neighbors =
+      direction === 'incoming'
+        ? proofIncomingIds(current.id)
+        : proofOutgoingIds(current.id)
+
+    neighbors.forEach((id) => {
+      const nextDepth = current.depth + 1
+      const previous = distance.get(id)
+
+      if (previous === undefined || nextDepth < previous) {
+        distance.set(id, nextDepth)
+        queue.push({ id, depth: nextDepth })
+      }
+    })
+  }
+
+  distance.delete(startId)
+  return distance
+}
+
+function distributeFractalLayer(ids, depth, side) {
+  const count = Math.max(ids.length, 1)
+  const x = side * (2.55 + (depth - 1) * 1.72)
+  const spread = Math.min(1.55, 5.6 / count + 0.35)
+
+  return ids.map((id, index) => {
+    const centered = index - (count - 1) / 2
+    const y = -centered * spread
+    const z =
+      Math.sin((index + 1) * 1.73 + depth * 0.9) *
+      (0.8 + depth * 0.32)
+
+    return [id, [x, y, z]]
+  })
+}
+
+function buildProofFractal(selectedId, depth) {
+  const incomingDistance = collectProofDirection(
+    selectedId,
+    depth,
+    'incoming',
+  )
+  const outgoingDistance = collectProofDirection(
+    selectedId,
+    depth,
+    'outgoing',
+  )
+
+  const visibleIds = new Set([
+    selectedId,
+    ...incomingDistance.keys(),
+    ...outgoingDistance.keys(),
+  ])
+
+  const positions = new Map(
+    spinozaDemonstrative3DConfig.map((config) => [
+      config.id,
+      config.position,
+    ]),
+  )
+
+  positions.set(selectedId, [0, 0, 0])
+
+  for (let currentDepth = 1; currentDepth <= depth; currentDepth += 1) {
+    const incomingIds = [...incomingDistance.entries()]
+      .filter(([, value]) => value === currentDepth)
+      .map(([id]) => id)
+      .sort()
+
+    const outgoingIds = [...outgoingDistance.entries()]
+      .filter(([, value]) => value === currentDepth)
+      .map(([id]) => id)
+      .filter((id) => !incomingDistance.has(id))
+      .sort()
+
+    distributeFractalLayer(
+      incomingIds,
+      currentDepth,
+      -1,
+    ).forEach(([id, position]) => {
+      positions.set(id, position)
+    })
+
+    distributeFractalLayer(
+      outgoingIds,
+      currentDepth,
+      1,
+    ).forEach(([id, position]) => {
+      positions.set(id, position)
+    })
+  }
+
+  const outer = spinozaDemonstrative3DConfig.filter(
+    (config) => !visibleIds.has(config.id),
+  )
+
+  outer.forEach((config, index) => {
+    const angle =
+      (Math.PI * 2 * index) /
+      Math.max(outer.length, 1)
+
+    positions.set(config.id, [
+      Math.cos(angle) * 7.0,
+      Math.sin(angle) * 4.7,
+      -3.6 + Math.sin(angle * 2.2) * 0.7,
+    ])
+  })
+
+  const incomingLayers = Array.from(
+    { length: depth },
+    (_, index) => {
+      const layerDepth = index + 1
+      return [...incomingDistance.entries()]
+        .filter(([, value]) => value === layerDepth)
+        .map(([id]) => id)
+    },
+  )
+
+  const outgoingLayers = Array.from(
+    { length: depth },
+    (_, index) => {
+      const layerDepth = index + 1
+      return [...outgoingDistance.entries()]
+        .filter(([, value]) => value === layerDepth)
+        .map(([id]) => id)
+        .filter((id) => !incomingDistance.has(id))
+    },
+  )
+
+  return {
+    positions,
+    visibleIds,
+    incomingDistance,
+    outgoingDistance,
+    incomingLayers,
+    outgoingLayers,
+  }
+}
+
+function FractalFields({ selectedLabel, depth }) {
+  return (
+    <>
+      {[1, 2, 3].slice(0, depth).map((layer) => (
+        <mesh
+          key={layer}
+          rotation={[Math.PI / 2, 0, 0]}
+        >
+          <torusGeometry
+            args={[
+              1.5 + layer * 1.72,
+              0.012,
+              10,
+              120,
+            ]}
+          />
+          <meshBasicMaterial
+            color={
+              layer === 1
+                ? '#a37b24'
+                : layer === 2
+                  ? '#6e8793'
+                  : '#59745c'
+            }
+            transparent
+            opacity={0.18 - layer * 0.025}
+          />
+        </mesh>
+      ))}
+
+      <FieldLabel
+        position={[0, 3.85, 0]}
+        color="#704840"
+      >
+        EXPANSIO FRACTALIS · {selectedLabel}
+      </FieldLabel>
+
+      <FieldLabel
+        position={[-4.5, 3.05, 0]}
+        color="#49687d"
+      >
+        FUNDAMENTA RECURSIVA
+      </FieldLabel>
+
+      <FieldLabel
+        position={[4.5, 3.05, 0]}
+        color="#59745c"
+      >
+        CONSEQUENTIA RECURSIVA
+      </FieldLabel>
+    </>
+  )
+}
+
+function FractalRelationLines({
+  selectedId,
+  fractal,
+}) {
+  const visible = fractal.visibleIds
+  const edges = []
+
+  spinozaDemonstrative3DConfig.forEach((targetConfig) => {
+    const targetNode = spinozaNodeById(targetConfig.id)
+    if (!targetNode || !visible.has(targetConfig.id)) return
+
+    targetNode.data.dependsOn.forEach((sourceId) => {
+      if (
+        !spinozaDemonstrative3DIds.has(sourceId) ||
+        !visible.has(sourceId)
+      ) {
+        return
+      }
+
+      edges.push({
+        sourceId,
+        targetId: targetConfig.id,
+      })
+    })
+  })
+
+  return edges.map((edge) => {
+    const sourcePosition = fractal.positions.get(edge.sourceId)
+    const targetPosition = fractal.positions.get(edge.targetId)
+
+    if (!sourcePosition || !targetPosition) return null
+
+    const sourceIncoming = fractal.incomingDistance.get(edge.sourceId)
+    const targetIncoming = fractal.incomingDistance.get(edge.targetId)
+    const sourceOutgoing = fractal.outgoingDistance.get(edge.sourceId)
+    const targetOutgoing = fractal.outgoingDistance.get(edge.targetId)
+
+    const touchesSelected =
+      edge.sourceId === selectedId ||
+      edge.targetId === selectedId
+
+    const incomingEdge =
+      targetIncoming !== undefined ||
+      edge.targetId === selectedId
+
+    const outgoingEdge =
+      sourceOutgoing !== undefined ||
+      edge.sourceId === selectedId
+
+    const color = touchesSelected
+      ? '#704840'
+      : incomingEdge && !outgoingEdge
+        ? '#49687d'
+        : outgoingEdge && !incomingEdge
+          ? '#4f7a4f'
+          : '#a37b24'
+
+    const distanceCandidates = [
+      sourceIncoming,
+      targetIncoming,
+      sourceOutgoing,
+      targetOutgoing,
+    ].filter((value) => value !== undefined)
+
+    const nearestDepth = distanceCandidates.length
+      ? Math.min(...distanceCandidates)
+      : 3
+
+    const mainWidth = touchesSelected
+      ? 3.4
+      : Math.max(1.55, 2.7 - nearestDepth * 0.38)
+
+    return (
+      <group
+        key={`fractal-${edge.sourceId}-${edge.targetId}`}
+      >
+        <Line
+          points={[sourcePosition, targetPosition]}
+          color="#fff8ee"
+          lineWidth={mainWidth + 2.5}
+          transparent
+          opacity={touchesSelected ? 0.78 : 0.48}
+          renderOrder={30}
+          depthTest={false}
+        />
+
+        <Line
+          points={[sourcePosition, targetPosition]}
+          color={color}
+          lineWidth={mainWidth}
+          transparent
+          opacity={touchesSelected ? 1 : 0.88}
+          renderOrder={31}
+          depthTest={false}
+        />
+      </group>
+    )
+  })
+}
+
+function collectProofNeighborhood(startId, maxDepth, direction) {
+  const distance = new Map()
+  const queue = [{ id: startId, depth: 0 }]
+  distance.set(startId, 0)
+
+  while (queue.length) {
+    const current = queue.shift()
+    if (current.depth >= maxDepth) continue
+
+    const neighbors =
+      direction === 'incoming'
+        ? proofIncomingIds(current.id)
+        : proofOutgoingIds(current.id)
+
+    neighbors.forEach((id) => {
+      const nextDepth = current.depth + 1
+      const previous = distance.get(id)
+
+      if (previous === undefined || nextDepth < previous) {
+        distance.set(id, nextDepth)
+        queue.push({ id, depth: nextDepth })
+      }
+    })
+  }
+
+  distance.delete(startId)
+  return distance
+}
+
+function setIntersection(a, b) {
+  return new Set([...a].filter((id) => b.has(id)))
+}
+
+function setDifference(a, b) {
+  return new Set([...a].filter((id) => !b.has(id)))
+}
+
+function buildComparisonGraph(aId, bId, depth = 2) {
+  const aIncomingMap = collectProofNeighborhood(aId, depth, 'incoming')
+  const bIncomingMap = collectProofNeighborhood(bId, depth, 'incoming')
+  const aOutgoingMap = collectProofNeighborhood(aId, depth, 'outgoing')
+  const bOutgoingMap = collectProofNeighborhood(bId, depth, 'outgoing')
+
+  const aIncoming = new Set(aIncomingMap.keys())
+  const bIncoming = new Set(bIncomingMap.keys())
+  const aOutgoing = new Set(aOutgoingMap.keys())
+  const bOutgoing = new Set(bOutgoingMap.keys())
+
+  const sharedIncoming = setIntersection(aIncoming, bIncoming)
+  const sharedOutgoing = setIntersection(aOutgoing, bOutgoing)
+
+  const uniqueIncomingA = setDifference(aIncoming, bIncoming)
+  const uniqueIncomingB = setDifference(bIncoming, aIncoming)
+  const uniqueOutgoingA = setDifference(aOutgoing, bOutgoing)
+  const uniqueOutgoingB = setDifference(bOutgoing, aOutgoing)
+
+  const visibleIds = new Set([
+    aId,
+    bId,
+    ...sharedIncoming,
+    ...sharedOutgoing,
+    ...uniqueIncomingA,
+    ...uniqueIncomingB,
+    ...uniqueOutgoingA,
+    ...uniqueOutgoingB,
+  ])
+
+  const positions = new Map(
+    spinozaDemonstrative3DConfig.map((config) => [
+      config.id,
+      config.position,
+    ]),
+  )
+
+  positions.set(aId, [-2.25, 0, 0])
+  positions.set(bId, [2.25, 0, 0])
+
+  const distributeVertical = (ids, x, yBase, yDirection, zBase = 0) => {
+    const list = [...ids].sort()
+    const count = Math.max(list.length, 1)
+
+    list.forEach((id, index) => {
+      const centered = index - (count - 1) / 2
+      positions.set(id, [
+        x + centered * 0.56,
+        yBase + Math.abs(centered) * 0.42 * yDirection,
+        zBase + Math.sin((index + 1) * 1.65) * 1.15,
+      ])
+    })
+  }
+
+  distributeVertical(sharedIncoming, 0, 2.75, 1, 0)
+  distributeVertical(sharedOutgoing, 0, -2.75, -1, 0)
+
+  distributeVertical(uniqueIncomingA, -4.35, 1.95, 1, -0.7)
+  distributeVertical(uniqueIncomingB, 4.35, 1.95, 1, 0.7)
+
+  distributeVertical(uniqueOutgoingA, -4.35, -1.95, -1, 0.7)
+  distributeVertical(uniqueOutgoingB, 4.35, -1.95, -1, -0.7)
+
+  const outer = spinozaDemonstrative3DConfig.filter(
+    (config) => !visibleIds.has(config.id),
+  )
+
+  outer.forEach((config, index) => {
+    const angle =
+      (Math.PI * 2 * index) /
+      Math.max(outer.length, 1)
+
+    positions.set(config.id, [
+      Math.cos(angle) * 7.25,
+      Math.sin(angle) * 4.8,
+      -3.7 + Math.sin(angle * 2.1) * 0.65,
+    ])
+  })
+
+  const bridgePath = shortestProofBridge(aId, bId)
+
+  return {
+    positions,
+    visibleIds,
+    sharedIncoming,
+    sharedOutgoing,
+    uniqueIncomingA,
+    uniqueIncomingB,
+    uniqueOutgoingA,
+    uniqueOutgoingB,
+    bridgePath,
+  }
+}
+
+function ComparisonFields({ aLabel, bLabel }) {
+  return (
+    <>
+      <mesh position={[-2.25, 0, 0]} rotation={[Math.PI / 2, 0, 0]}>
+        <torusGeometry args={[1.2, 0.014, 10, 96]} />
+        <meshBasicMaterial color="#704840" transparent opacity={0.38} />
+      </mesh>
+
+      <mesh position={[2.25, 0, 0]} rotation={[Math.PI / 2, 0, 0]}>
+        <torusGeometry args={[1.2, 0.014, 10, 96]} />
+        <meshBasicMaterial color="#49687d" transparent opacity={0.38} />
+      </mesh>
+
+      <FieldLabel position={[0, 4.05, 0]} color="#a37b24">
+        CONCORDIA · DISTINCTIO
+      </FieldLabel>
+
+      <FieldLabel position={[-2.25, 3.25, 0]} color="#704840">
+        A · {aLabel}
+      </FieldLabel>
+
+      <FieldLabel position={[2.25, 3.25, 0]} color="#49687d">
+        B · {bLabel}
+      </FieldLabel>
+
+      <FieldLabel position={[0, 2.35, 0]} color="#a37b24">
+        FUNDAMENTA COMMUNIA
+      </FieldLabel>
+
+      <FieldLabel position={[0, -2.35, 0]} color="#4f7a4f">
+        CONSEQUENTIA COMMUNIA
+      </FieldLabel>
+    </>
+  )
+}
+
+function ComparisonRelationLines({
+  aId,
+  bId,
+  comparison,
+}) {
+  const visible = comparison.visibleIds
+  const edges = []
+
+  spinozaDemonstrative3DConfig.forEach((targetConfig) => {
+    const targetNode = spinozaNodeById(targetConfig.id)
+    if (!targetNode || !visible.has(targetConfig.id)) return
+
+    targetNode.data.dependsOn.forEach((sourceId) => {
+      if (
+        !spinozaDemonstrative3DIds.has(sourceId) ||
+        !visible.has(sourceId)
+      ) {
+        return
+      }
+
+      edges.push({
+        sourceId,
+        targetId: targetConfig.id,
+      })
+    })
+  })
+
+  return edges.map((edge) => {
+    const sourcePosition = comparison.positions.get(edge.sourceId)
+    const targetPosition = comparison.positions.get(edge.targetId)
+    if (!sourcePosition || !targetPosition) return null
+
+    const touchesA =
+      edge.sourceId === aId ||
+      edge.targetId === aId
+
+    const touchesB =
+      edge.sourceId === bId ||
+      edge.targetId === bId
+
+    const sharedNode =
+      comparison.sharedIncoming.has(edge.sourceId) ||
+      comparison.sharedIncoming.has(edge.targetId) ||
+      comparison.sharedOutgoing.has(edge.sourceId) ||
+      comparison.sharedOutgoing.has(edge.targetId)
+
+    const color = touchesA
+      ? '#704840'
+      : touchesB
+        ? '#49687d'
+        : sharedNode
+          ? '#a37b24'
+          : '#6f776e'
+
+    const width =
+      touchesA || touchesB
+        ? 3.15
+        : sharedNode
+          ? 2.55
+          : 1.65
+
+    return (
+      <group key={`compare-${edge.sourceId}-${edge.targetId}`}>
+        <Line
+          points={[sourcePosition, targetPosition]}
+          color="#fff8ee"
+          lineWidth={width + 2.45}
+          transparent
+          opacity={0.56}
+          renderOrder={40}
+          depthTest={false}
+        />
+
+        <Line
+          points={[sourcePosition, targetPosition]}
+          color={color}
+          lineWidth={width}
+          transparent
+          opacity={0.94}
+          renderOrder={41}
+          depthTest={false}
+        />
+      </group>
+    )
+  })
+}
+
+function studyDirectSupports(id) {
+  const node = spinozaNodeById(id)
+  if (!node) return []
+
+  return node.data.dependsOn.filter((depId) =>
+    spinozaDemonstrative3DIds.has(depId),
+  )
+}
+
+function studyDirectConsequences(id) {
+  return spinozaDemonstrative3DConfig
+    .filter((config) => {
+      const node = spinozaNodeById(config.id)
+      return node?.data.dependsOn.includes(id)
+    })
+    .map((config) => config.id)
+}
+
+function studyQuestionCandidates() {
+  const result = []
+
+  spinozaDemonstrative3DConfig.forEach((config) => {
+    if (studyDirectSupports(config.id).length) {
+      result.push({ targetId: config.id, type: 'support' })
+    }
+
+    if (studyDirectConsequences(config.id).length) {
+      result.push({ targetId: config.id, type: 'consequence' })
+    }
+  })
+
+  return result
+}
+
+function rotateArray(items, offset) {
+  if (!items.length) return items
+  const normalized = ((offset % items.length) + items.length) % items.length
+  return [...items.slice(normalized), ...items.slice(0, normalized)]
+}
+
+function buildStudyQuestion(index) {
+  const candidates = studyQuestionCandidates()
+  if (!candidates.length) return null
+
+  const base = candidates[index % candidates.length]
+  const target = spinozaNodeById(base.targetId)
+  if (!target) return null
+
+  const correctPool =
+    base.type === 'support'
+      ? studyDirectSupports(base.targetId)
+      : studyDirectConsequences(base.targetId)
+
+  if (!correctPool.length) return null
+
+  const correctId = correctPool[index % correctPool.length]
+
+  const distractorIds = spinozaDemonstrative3DConfig
+    .map((config) => config.id)
+    .filter(
+      (id) =>
+        id !== base.targetId &&
+        id !== correctId &&
+        !correctPool.includes(id),
+    )
+
+  const options = rotateArray(
+    [
+      correctId,
+      ...rotateArray(distractorIds, index * 3 + 1).slice(0, 3),
+    ],
+    index % 4,
+  )
+
+  return {
+    id: `study-${index}-${base.targetId}-${base.type}`,
+    index,
+    type: base.type,
+    targetId: base.targetId,
+    correctId,
+    optionIds: options,
+    prompt:
+      base.type === 'support'
+        ? `¿Qué nodo fundamenta directamente ${target.data.code} · ${target.data.title}?`
+        : `¿Qué nodo se sigue directamente de ${target.data.code} · ${target.data.title}?`,
+    relationLabel:
+      base.type === 'support'
+        ? 'fundamenta directamente'
+        : 'se sigue directamente de',
+  }
+}
+
+function buildStudyPositions(question) {
+  const positions = new Map(
+    spinozaDemonstrative3DConfig.map((config) => [
+      config.id,
+      config.position,
+    ]),
+  )
+
+  if (!question) return positions
+
+  positions.set(question.targetId, [0, 0, 0])
+
+  const optionPositions = [
+    [-3.35, 1.8, 0.8],
+    [3.35, 1.8, -0.8],
+    [-3.35, -1.85, -0.6],
+    [3.35, -1.85, 0.6],
+  ]
+
+  question.optionIds.forEach((id, index) => {
+    positions.set(id, optionPositions[index] || [0, -3.2, 0])
+  })
+
+  const visible = new Set([
+    question.targetId,
+    ...question.optionIds,
+  ])
+
+  const outer = spinozaDemonstrative3DConfig.filter(
+    (config) => !visible.has(config.id),
+  )
+
+  outer.forEach((config, index) => {
+    const angle =
+      (Math.PI * 2 * index) /
+      Math.max(outer.length, 1)
+
+    positions.set(config.id, [
+      Math.cos(angle) * 7.2,
+      Math.sin(angle) * 4.85,
+      -3.8 + Math.sin(angle * 2.2) * 0.55,
+    ])
+  })
+
+  return positions
+}
+
+function StudyFields({ question, answered }) {
+  const target = question
+    ? spinozaNodeById(question.targetId)
+    : null
+
+  return (
+    <>
+      <mesh rotation={[Math.PI / 2, 0, 0]}>
+        <torusGeometry args={[1.35, 0.014, 10, 96]} />
+        <meshBasicMaterial
+          color="#704840"
+          transparent
+          opacity={0.34}
+        />
+      </mesh>
+
+      <FieldLabel position={[0, 3.9, 0]} color="#704840">
+        STUDIUM · RESPONDE CON EL MAPA
+      </FieldLabel>
+
+      <FieldLabel position={[0, 2.95, 0]} color="#a37b24">
+        {target?.data.code || ''} · NODUS QUAESTIONIS
+      </FieldLabel>
+
+      {!answered && (
+        <FieldLabel position={[0, -3.35, 0]} color="#49687d">
+          ELIGE UNA SPHAERA
+        </FieldLabel>
+      )}
+    </>
+  )
+}
+
+function StudyFeedbackLines({
+  question,
+  positions,
+  selectedAnswerId,
+  answered,
+}) {
+  if (
+    !question ||
+    !answered ||
+    question.lineMode === 'none'
+  ) {
+    return null
+  }
+
+  const targetPosition = positions.get(question.targetId)
+  const correctPosition = positions.get(question.correctId)
+  if (!targetPosition || !correctPosition) return null
+
+  const correctPoints =
+    question.lineMode === 'support'
+      ? [correctPosition, targetPosition]
+      : [targetPosition, correctPosition]
+
+  const wrongPosition =
+    selectedAnswerId && selectedAnswerId !== question.correctId
+      ? positions.get(selectedAnswerId)
+      : null
+
+  return (
+    <>
+      <Line
+        points={correctPoints}
+        color="#fff8ee"
+        lineWidth={6.2}
+        transparent
+        opacity={0.78}
+        renderOrder={50}
+        depthTest={false}
+      />
+      <Line
+        points={correctPoints}
+        color="#4f7a4f"
+        lineWidth={3.6}
+        transparent
+        opacity={1}
+        renderOrder={51}
+        depthTest={false}
+      />
+
+      {wrongPosition && (
+        <>
+          <Line
+            points={[targetPosition, wrongPosition]}
+            color="#fff8ee"
+            lineWidth={5.4}
+            transparent
+            opacity={0.68}
+            renderOrder={48}
+            depthTest={false}
+          />
+          <Line
+            points={[targetPosition, wrongPosition]}
+            color="#8e4f49"
+            lineWidth={2.8}
+            dashed
+            dashSize={0.14}
+            gapSize={0.09}
+            transparent
+            opacity={0.96}
+            renderOrder={49}
+            depthTest={false}
+          />
+        </>
+      )}
+    </>
+  )
+}
+
+function studyUnique(items) {
+  return [...new Set(items)]
+}
+
+function studyShuffle(items) {
+  const copy = [...items]
+
+  for (let index = copy.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1))
+    ;[copy[index], copy[randomIndex]] = [
+      copy[randomIndex],
+      copy[index],
+    ]
+  }
+
+  return copy
+}
+
+function studyRandomToken() {
+  return Math.random()
+    .toString(36)
+    .slice(2, 7)
+    .toUpperCase()
+}
+
+function studyMakeOptions(correctId, distractorIds, size = 4) {
+  const clean = studyShuffle(
+    studyUnique(distractorIds).filter(
+      (id) =>
+        id !== correctId &&
+        spinozaDemonstrative3DIds.has(id),
+    ),
+  )
+
+  return studyShuffle([
+    correctId,
+    ...clean.slice(0, Math.max(0, size - 1)),
+  ]).slice(0, size)
+}
+
+function studyDirectNeighbors(id) {
+  return studyUnique([
+    ...studyDirectSupports(id),
+    ...studyDirectConsequences(id),
+  ])
+}
+
+function studyTwoStepsForward(id) {
+  const direct = new Set(studyDirectConsequences(id))
+  const result = new Set()
+
+  direct.forEach((middleId) => {
+    studyDirectConsequences(middleId).forEach((targetId) => {
+      if (targetId !== id && !direct.has(targetId)) {
+        result.add(targetId)
+      }
+    })
+  })
+
+  return [...result]
+}
+
+function studyTwoStepsBackward(id) {
+  const direct = new Set(studyDirectSupports(id))
+  const result = new Set()
+
+  direct.forEach((middleId) => {
+    studyDirectSupports(middleId).forEach((sourceId) => {
+      if (sourceId !== id && !direct.has(sourceId)) {
+        result.add(sourceId)
+      }
+    })
+  })
+
+  return [...result]
+}
+
+function studySharedSupports(aId, bId) {
+  const a = new Set(studyDirectSupports(aId))
+  return studyDirectSupports(bId).filter((id) => a.has(id))
+}
+
+function studySharedConsequences(aId, bId) {
+  const a = new Set(studyDirectConsequences(aId))
+  return studyDirectConsequences(bId).filter((id) => a.has(id))
+}
+
+function buildStudyQuestionBank() {
+  const ids = spinozaDemonstrative3DConfig.map(
+    (config) => config.id,
+  )
+  const questions = []
+
+  ids.forEach((id) => {
+    const node = spinozaNodeById(id)
+    if (!node) return
+
+    const supports = studyDirectSupports(id)
+    const consequences = studyDirectConsequences(id)
+    const neighbors = studyDirectNeighbors(id)
+    const unrelated = ids.filter(
+      (candidateId) =>
+        candidateId !== id &&
+        !neighbors.includes(candidateId),
+    )
+
+    // A. Fundamento directo.
+    supports.forEach((correctId) => {
+      questions.push({
+        id: `support-${id}-${correctId}`,
+        type: 'support',
+        typeLabel: 'Fundamento directo',
+        targetId: id,
+        correctId,
+        optionIds: studyMakeOptions(
+          correctId,
+          ids.filter(
+            (candidateId) =>
+              candidateId !== id &&
+              !supports.includes(candidateId),
+          ),
+        ),
+        prompt:
+          `¿Qué nodo fundamenta directamente ${node.data.code} · ${node.data.title}?`,
+        explanation:
+          `${spinozaNodeById(correctId)?.data.code} aparece entre las dependencias demostrativas directas de ${node.data.code}.`,
+        lineMode: 'support',
+      })
+    })
+
+    // B. Consecuencia directa.
+    consequences.forEach((correctId) => {
+      questions.push({
+        id: `consequence-${id}-${correctId}`,
+        type: 'consequence',
+        typeLabel: 'Consecuencia directa',
+        targetId: id,
+        correctId,
+        optionIds: studyMakeOptions(
+          correctId,
+          ids.filter(
+            (candidateId) =>
+              candidateId !== id &&
+              !consequences.includes(candidateId),
+          ),
+        ),
+        prompt:
+          `¿Qué nodo se sigue directamente de ${node.data.code} · ${node.data.title}?`,
+        explanation:
+          `${spinozaNodeById(correctId)?.data.code} depende directamente de ${node.data.code} en la red demostrativa.`,
+        lineMode: 'consequence',
+      })
+    })
+
+    // C. Nodo directamente conectado (en cualquiera de los dos sentidos).
+    neighbors.forEach((correctId) => {
+      if (unrelated.length < 3) return
+
+      questions.push({
+        id: `connected-${id}-${correctId}`,
+        type: 'connected',
+        typeLabel: 'Conexión directa',
+        targetId: id,
+        correctId,
+        optionIds: studyMakeOptions(
+          correctId,
+          unrelated,
+        ),
+        prompt:
+          `¿Cuál de estos nodos está conectado directamente con ${node.data.code}?`,
+        explanation:
+          `${spinozaNodeById(correctId)?.data.code} mantiene una relación demostrativa inmediata con ${node.data.code}.`,
+        lineMode: supports.includes(correctId)
+          ? 'support'
+          : 'consequence',
+      })
+    })
+
+    // D. Nodo NO conectado directamente.
+    if (neighbors.length >= 3 && unrelated.length) {
+      const correctId = studyShuffle(unrelated)[0]
+
+      questions.push({
+        id: `not-connected-${id}-${correctId}`,
+        type: 'not-connected',
+        typeLabel: 'Distinción',
+        targetId: id,
+        correctId,
+        optionIds: studyShuffle([
+          correctId,
+          ...studyShuffle(neighbors).slice(0, 3),
+        ]),
+        prompt:
+          `¿Cuál de estos nodos NO está conectado directamente con ${node.data.code}?`,
+        explanation:
+          `${spinozaNodeById(correctId)?.data.code} no figura entre los fundamentos ni las consecuencias directas de ${node.data.code}.`,
+        lineMode: 'none',
+      })
+    }
+
+    // E. Dos pasos hacia adelante.
+    studyTwoStepsForward(id).forEach((correctId) => {
+      const forbidden = new Set([
+        id,
+        ...studyDirectConsequences(id),
+        ...studyTwoStepsForward(id),
+      ])
+      const distractors = ids.filter(
+        (candidateId) => !forbidden.has(candidateId),
+      )
+
+      if (distractors.length < 3) return
+
+      questions.push({
+        id: `two-forward-${id}-${correctId}`,
+        type: 'two-forward',
+        typeLabel: 'Dos pasos · consecuencia',
+        targetId: id,
+        correctId,
+        optionIds: studyMakeOptions(
+          correctId,
+          distractors,
+        ),
+        prompt:
+          `¿Qué nodo puede alcanzarse desde ${node.data.code} en exactamente dos pasos demostrativos, pero no en uno?`,
+        explanation:
+          `${spinozaNodeById(correctId)?.data.code} pertenece al segundo nivel de consecuencias de ${node.data.code}.`,
+        lineMode: 'none',
+      })
+    })
+
+    // F. Dos pasos hacia atrás.
+    studyTwoStepsBackward(id).forEach((correctId) => {
+      const forbidden = new Set([
+        id,
+        ...studyDirectSupports(id),
+        ...studyTwoStepsBackward(id),
+      ])
+      const distractors = ids.filter(
+        (candidateId) => !forbidden.has(candidateId),
+      )
+
+      if (distractors.length < 3) return
+
+      questions.push({
+        id: `two-back-${id}-${correctId}`,
+        type: 'two-back',
+        typeLabel: 'Dos pasos · fundamento',
+        targetId: id,
+        correctId,
+        optionIds: studyMakeOptions(
+          correctId,
+          distractors,
+        ),
+        prompt:
+          `¿Qué nodo está a exactamente dos pasos de fundamento de ${node.data.code}, pero no lo fundamenta directamente?`,
+        explanation:
+          `${spinozaNodeById(correctId)?.data.code} pertenece al segundo nivel de fundamentos de ${node.data.code}.`,
+        lineMode: 'none',
+      })
+    })
+
+    // G. Comparte al menos un fundamento directo con X.
+    ids.forEach((candidateId) => {
+      if (candidateId === id) return
+
+      const shared = studySharedSupports(id, candidateId)
+      if (!shared.length) return
+
+      const distractors = ids.filter(
+        (otherId) =>
+          otherId !== id &&
+          otherId !== candidateId &&
+          studySharedSupports(id, otherId).length === 0,
+      )
+
+      if (distractors.length < 3) return
+
+      questions.push({
+        id: `shared-support-${id}-${candidateId}`,
+        type: 'shared-support',
+        typeLabel: 'Fundamento compartido',
+        targetId: id,
+        correctId: candidateId,
+        optionIds: studyMakeOptions(
+          candidateId,
+          distractors,
+        ),
+        prompt:
+          `¿Qué nodo comparte al menos un fundamento directo con ${node.data.code}?`,
+        explanation:
+          `${spinozaNodeById(candidateId)?.data.code} comparte ${shared.map((sharedId) => spinozaNodeById(sharedId)?.data.code).join(', ')} como fundamento directo con ${node.data.code}.`,
+        lineMode: 'none',
+      })
+    })
+
+    // H. Comparte al menos una consecuencia directa con X.
+    ids.forEach((candidateId) => {
+      if (candidateId === id) return
+
+      const shared = studySharedConsequences(id, candidateId)
+      if (!shared.length) return
+
+      const distractors = ids.filter(
+        (otherId) =>
+          otherId !== id &&
+          otherId !== candidateId &&
+          studySharedConsequences(id, otherId).length === 0,
+      )
+
+      if (distractors.length < 3) return
+
+      questions.push({
+        id: `shared-consequence-${id}-${candidateId}`,
+        type: 'shared-consequence',
+        typeLabel: 'Consecuencia compartida',
+        targetId: id,
+        correctId: candidateId,
+        optionIds: studyMakeOptions(
+          candidateId,
+          distractors,
+        ),
+        prompt:
+          `¿Qué nodo comparte al menos una consecuencia directa con ${node.data.code}?`,
+        explanation:
+          `${spinozaNodeById(candidateId)?.data.code} comparte ${shared.map((sharedId) => spinozaNodeById(sharedId)?.data.code).join(', ')} como consecuencia directa con ${node.data.code}.`,
+        lineMode: 'none',
+      })
+    })
+  })
+
+  const uniqueQuestions = new Map()
+  questions.forEach((question) => {
+    if (
+      question.optionIds.length === 4 &&
+      !uniqueQuestions.has(question.id)
+    ) {
+      uniqueQuestions.set(question.id, question)
+    }
+  })
+
+  return [...uniqueQuestions.values()]
+}
+
+function buildRandomStudySession(
+  bank,
+  amount = 10,
+  seenQuestionIds = [],
+) {
+  const seen = new Set(seenQuestionIds)
+  const fresh = bank.filter(
+    (question) => !seen.has(question.id),
+  )
+
+  const source =
+    fresh.length >= amount
+      ? fresh
+      : bank
+
+  return studyShuffle(source).slice(
+    0,
+    Math.min(amount, source.length),
+  )
+}
+export default function SpinozaScene3D() {
+  const layoutRef = useRef(null)
+  const controlsRef = useRef(null)
+  const [sceneKey, setSceneKey] = useState(0)
+  const [mode, setMode] = useState('ontology')
+  const [ontologySelectedId, setOntologySelectedId] = useState('substance')
+  const [proofSelectedId, setProofSelectedId] = useState('E1P15')
+  const [showLabels, setShowLabels] = useState(false)
+  const [showAllRelations, setShowAllRelations] = useState(false)
+  const [onlyCardinals, setOnlyCardinals] = useState(false)
+  const [isFullscreen, setIsFullscreen] = useState(false)
+  const [focusActive, setFocusActive] = useState(false)
+  const [guidedActive, setGuidedActive] = useState(false)
+  const [guidedRouteId, setGuidedRouteId] = useState('sustancia')
+  const [guidedStepIndex, setGuidedStepIndex] = useState(0)
+  const [bridgeActive, setBridgeActive] = useState(false)
+  const [bridgeFromId, setBridgeFromId] = useState('E1D1')
+  const [bridgeToId, setBridgeToId] = useState('E1P29')
+  const [bridgeStepIndex, setBridgeStepIndex] = useState(0)
+  const [fractalActive, setFractalActive] = useState(false)
+  const [fractalDepth, setFractalDepth] = useState(2)
+  const [compareActive, setCompareActive] = useState(false)
+  const [compareAId, setCompareAId] = useState('E1P14')
+  const [compareBId, setCompareBId] = useState('E1P15')
+  const [comparePanelMinimized, setComparePanelMinimized] = useState(false)
+  const [inspectorMinimized, setInspectorMinimized] = useState(false)
+  const [navBackStack, setNavBackStack] = useState([])
+  const [navForwardStack, setNavForwardStack] = useState([])
+  const navRestoringRef = useRef(false)
+  const [studyActive, setStudyActive] = useState(false)
+  const [studyRound, setStudyRound] = useState(0)
+  const [studyScore, setStudyScore] = useState(0)
+  const [studyAnswered, setStudyAnswered] = useState(false)
+  const [studySelectedAnswerId, setStudySelectedAnswerId] = useState(null)
+  const [studyFinished, setStudyFinished] = useState(false)
+  const [studyQuestions, setStudyQuestions] = useState([])
+  const [studyQuizToken, setStudyQuizToken] = useState('')
+  const [studySeenQuestionIds, setStudySeenQuestionIds] = useState([])
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(Boolean(document.fullscreenElement))
+    }
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange)
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange)
+  }, [])
+
+  const toggleFullscreen = async () => {
+    try {
+      if (!document.fullscreenElement && layoutRef.current) {
+        await layoutRef.current.requestFullscreen()
+      } else if (document.fullscreenElement) {
+        await document.exitFullscreen()
+      }
+    } catch (error) {
+      console.error('No se pudo cambiar a pantalla completa:', error)
+    }
+  }
+
+  const ontologySelected =
+    spinozaFigures3DNodeById(ontologySelectedId) || spinozaFigures3DNodes[0]
+
+  const ontologyRelatedIds = useMemo(() => {
+    const ids = new Set([ontologySelectedId])
+    spinozaFigures3DEdges.forEach((edge) => {
+      if (edge.source === ontologySelectedId) ids.add(edge.target)
+      if (edge.target === ontologySelectedId) ids.add(edge.source)
+    })
+    return ids
+  }, [ontologySelectedId])
+
+  const ontologySelectedRelations = useMemo(
+    () =>
+      spinozaFigures3DEdges.filter(
+        (edge) => edge.source === ontologySelectedId || edge.target === ontologySelectedId,
+      ),
+    [ontologySelectedId],
+  )
+
+  const proofSelected = spinozaNodeById(proofSelectedId) || spinozaNodeById('E1P15')
+  const proofSelectedConfig = spinozaDemonstrative3DConfigById(proofSelected?.id)
+
+  const proofRelatedIds = useMemo(() => {
+    const ids = new Set([proofSelectedId])
+    if (!proofSelected) return ids
+
+    proofSelected.data.dependsOn.forEach((id) => {
+      if (spinozaDemonstrative3DIds.has(id)) ids.add(id)
+    })
+
+    proofSelected.data.produces.forEach((id) => {
+      if (spinozaDemonstrative3DIds.has(id)) ids.add(id)
+    })
+
+    return ids
+  }, [proofSelected, proofSelectedId])
+
+  const proofSupports = proofSelected
+    ? proofSelected.data.dependsOn
+        .filter((id) => spinozaDemonstrative3DIds.has(id))
+        .map((id) => spinozaNodeById(id))
+        .filter(Boolean)
+    : []
+
+  const proofProduces = proofSelected
+    ? proofSelected.data.produces
+        .filter((id) => spinozaDemonstrative3DIds.has(id))
+        .map((id) => spinozaNodeById(id))
+        .filter(Boolean)
+    : []
+
+  const ontologyPositions = useMemo(
+    () => buildOntologyFocusPositions(
+      ontologySelectedId,
+      focusActive && mode === 'ontology',
+    ),
+    [ontologySelectedId, focusActive, mode],
+  )
+
+  const proofPositions = useMemo(
+    () => buildProofFocusPositions(
+      proofSelectedId,
+      focusActive && mode === 'proof',
+    ),
+    [proofSelectedId, focusActive, mode],
+  )
+
+  const navigationSnapshotLabel = (snapshot) => {
+    if (!snapshot) return ''
+
+    if (snapshot.mode === 'ontology') {
+      const node = spinozaFigures3DNodeById(snapshot.ontologySelectedId)
+      return node ? `${node.code} · ${node.label}` : snapshot.ontologySelectedId
+    }
+
+    const node = spinozaNodeById(snapshot.proofSelectedId)
+    return node
+      ? `${node.data.code} · ${node.data.title}`
+      : snapshot.proofSelectedId
+  }
+
+  const captureCameraSnapshot = () => {
+    const controls = controlsRef.current
+    const camera = controls?.object
+
+    return {
+      position: camera?.position?.toArray?.() || null,
+      target: controls?.target?.toArray?.() || null,
+      zoom: typeof camera?.zoom === 'number' ? camera.zoom : null,
+    }
+  }
+
+  const captureNavigationSnapshot = () => ({
+    mode,
+    ontologySelectedId,
+    proofSelectedId,
+    focusActive,
+    showLabels,
+    showAllRelations,
+    onlyCardinals,
+    guidedActive,
+    guidedRouteId,
+    guidedStepIndex,
+    bridgeActive,
+    bridgeFromId,
+    bridgeToId,
+    bridgeStepIndex,
+    fractalActive,
+    fractalDepth,
+    compareActive,
+    compareAId,
+    compareBId,
+    comparePanelMinimized:
+      typeof comparePanelMinimized === 'boolean'
+        ? comparePanelMinimized
+        : false,
+    inspectorMinimized:
+      typeof inspectorMinimized === 'boolean'
+        ? inspectorMinimized
+        : false,
+    studyActive,
+    studyRound,
+    studyScore,
+    studyAnswered,
+    studySelectedAnswerId,
+    studyFinished,
+    camera: captureCameraSnapshot(),
+  })
+
+  const rememberNavigationPoint = () => {
+    if (navRestoringRef.current) return
+
+    const snapshot = captureNavigationSnapshot()
+
+    setNavBackStack((previous) => [
+      ...previous.slice(-29),
+      snapshot,
+    ])
+    setNavForwardStack([])
+  }
+
+  const restoreCameraSnapshot = (cameraSnapshot) => {
+    if (!cameraSnapshot) return
+
+    const apply = () => {
+      const controls = controlsRef.current
+      const camera = controls?.object
+      if (!controls || !camera) return
+
+      if (cameraSnapshot.position?.length === 3) {
+        camera.position.fromArray(cameraSnapshot.position)
+      }
+
+      if (cameraSnapshot.target?.length === 3) {
+        controls.target.fromArray(cameraSnapshot.target)
+      }
+
+      if (
+        typeof cameraSnapshot.zoom === 'number' &&
+        Number.isFinite(cameraSnapshot.zoom)
+      ) {
+        camera.zoom = cameraSnapshot.zoom
+        camera.updateProjectionMatrix?.()
+      }
+
+      controls.update?.()
+    }
+
+    if (typeof window !== 'undefined') {
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(apply)
+      })
+      window.setTimeout(apply, 180)
+    } else {
+      apply()
+    }
+  }
+
+  const restoreNavigationSnapshot = (snapshot) => {
+    if (!snapshot) return
+
+    navRestoringRef.current = true
+
+    setMode(snapshot.mode)
+    setOntologySelectedId(snapshot.ontologySelectedId)
+    setProofSelectedId(snapshot.proofSelectedId)
+    setFocusActive(snapshot.focusActive)
+    setShowLabels(snapshot.showLabels)
+    setShowAllRelations(snapshot.showAllRelations)
+    setOnlyCardinals(snapshot.onlyCardinals)
+
+    setGuidedActive(snapshot.guidedActive)
+    setGuidedRouteId(snapshot.guidedRouteId)
+    setGuidedStepIndex(snapshot.guidedStepIndex)
+
+    setBridgeActive(snapshot.bridgeActive)
+    setBridgeFromId(snapshot.bridgeFromId)
+    setBridgeToId(snapshot.bridgeToId)
+    setBridgeStepIndex(snapshot.bridgeStepIndex)
+
+    setFractalActive(snapshot.fractalActive)
+    setFractalDepth(snapshot.fractalDepth)
+
+    setCompareActive(snapshot.compareActive)
+    setCompareAId(snapshot.compareAId)
+    setCompareBId(snapshot.compareBId)
+    setStudyActive(Boolean(snapshot.studyActive))
+    setStudyRound(snapshot.studyRound ?? 0)
+    setStudyScore(snapshot.studyScore ?? 0)
+    setStudyAnswered(Boolean(snapshot.studyAnswered))
+    setStudySelectedAnswerId(snapshot.studySelectedAnswerId ?? null)
+    setStudyFinished(Boolean(snapshot.studyFinished))
+
+    if (typeof setComparePanelMinimized === 'function') {
+      setComparePanelMinimized(Boolean(snapshot.comparePanelMinimized))
+    }
+    if (typeof setInspectorMinimized === 'function') {
+      setInspectorMinimized(Boolean(snapshot.inspectorMinimized))
+    }
+
+    setSceneKey((value) => value + 1)
+    restoreCameraSnapshot(snapshot.camera)
+
+    if (typeof window !== 'undefined') {
+      window.setTimeout(() => {
+        navRestoringRef.current = false
+      }, 240)
+    } else {
+      navRestoringRef.current = false
+    }
+  }
+
+  const goNavigationBack = () => {
+    if (!navBackStack.length) return
+
+    const target = navBackStack[navBackStack.length - 1]
+    const current = captureNavigationSnapshot()
+
+    setNavBackStack((previous) => previous.slice(0, -1))
+    setNavForwardStack((previous) => [
+      current,
+      ...previous.slice(0, 29),
+    ])
+
+    restoreNavigationSnapshot(target)
+  }
+
+  const goNavigationForward = () => {
+    if (!navForwardStack.length) return
+
+    const target = navForwardStack[0]
+    const current = captureNavigationSnapshot()
+
+    setNavForwardStack((previous) => previous.slice(1))
+    setNavBackStack((previous) => [
+      ...previous.slice(-29),
+      current,
+    ])
+
+    restoreNavigationSnapshot(target)
+  }
+
+  const clearNavigationHistory = () => {
+    setNavBackStack([])
+    setNavForwardStack([])
+  }
+
+  const navBackLabel = navigationSnapshotLabel(
+    navBackStack[navBackStack.length - 1],
+  )
+  const navForwardLabel = navigationSnapshotLabel(
+    navForwardStack[0],
+  )
+
+  const selectOntologyNode = (id) => {
+    if (id === ontologySelectedId && focusActive) return
+
+    rememberNavigationPoint()
+    setOntologySelectedId(id)
+    setFocusActive(true)
+  }
+
+  const selectProofNode = (id) => {
+    if (id === proofSelectedId && !compareActive && focusActive) return
+
+    rememberNavigationPoint()
+    setProofSelectedId(id)
+
+    if (compareActive) {
+      if (id !== compareAId) {
+        setCompareBId(id)
+      }
+      setFocusActive(false)
+    } else if (fractalActive) {
+      setFocusActive(false)
+    } else {
+      setFocusActive(true)
+    }
+  }
+
+  const restoreSystem = () => {
+    setFocusActive(false)
+    setShowAllRelations(false)
+    setSceneKey((value) => value + 1)
+  }
+
+  const selectedFocusLabel =
+    mode === 'ontology'
+      ? ontologySelected?.label || ''
+      : proofSelected?.data.code || ''
+
+  const guidedRoute = spinozaGuided3DRouteById(guidedRouteId)
+  const guidedStep = guidedRoute.steps[guidedStepIndex] || guidedRoute.steps[0]
+  const guidedNode = guidedStep ? spinozaNodeById(guidedStep.id) : null
+
+  const startGuidedRoute = (routeId = guidedRouteId) => {
+    const nextRoute = spinozaGuided3DRouteById(routeId)
+    const firstStep = nextRoute.steps[0]
+
+    setGuidedRouteId(routeId)
+    setGuidedStepIndex(0)
+    setGuidedActive(true)
+    setStudyActive(false)
+    setCompareActive(false)
+    setBridgeActive(false)
+    setFractalActive(false)
+    setMode('proof')
+    setProofSelectedId(firstStep.id)
+    setFocusActive(true)
+    setShowAllRelations(false)
+    setShowLabels(false)
+    setOnlyCardinals(false)
+    setSceneKey((value) => value + 1)
+  }
+
+  const goGuidedStep = (index) => {
+    const nextIndex = Math.max(
+      0,
+      Math.min(index, guidedRoute.steps.length - 1),
+    )
+    const step = guidedRoute.steps[nextIndex]
+    if (!step) return
+
+    setGuidedStepIndex(nextIndex)
+    setProofSelectedId(step.id)
+    setFocusActive(true)
+  }
+
+  const stopGuidedRoute = () => {
+    setGuidedActive(false)
+    setFocusActive(false)
+    setSceneKey((value) => value + 1)
+  }
+
+  const bridgePathIds = useMemo(
+    () => shortestProofBridge(bridgeFromId, bridgeToId),
+    [bridgeFromId, bridgeToId],
+  )
+
+  const bridgePositions = useMemo(
+    () => buildBridgePositions(bridgePathIds, bridgeActive),
+    [bridgePathIds, bridgeActive],
+  )
+
+  const bridgeCurrentId =
+    bridgePathIds[bridgeStepIndex] ||
+    bridgePathIds[0] ||
+    null
+
+  const bridgeCurrentNode = bridgeCurrentId
+    ? spinozaNodeById(bridgeCurrentId)
+    : null
+
+  const bridgeSegments = useMemo(
+    () =>
+      bridgePathIds.slice(0, -1).map((id, index) => ({
+        fromId: id,
+        toId: bridgePathIds[index + 1],
+        label: bridgeRelationLabel(id, bridgePathIds[index + 1]),
+      })),
+    [bridgePathIds],
+  )
+
+  const fractalGraph = useMemo(
+    () =>
+      buildProofFractal(
+        proofSelectedId,
+        fractalDepth,
+      ),
+    [proofSelectedId, fractalDepth],
+  )
+
+  const comparisonGraph = useMemo(
+    () =>
+      buildComparisonGraph(
+        compareAId,
+        compareBId,
+        2,
+      ),
+    [compareAId, compareBId],
+  )
+
+  const compareANode = spinozaNodeById(compareAId)
+  const compareBNode = spinozaNodeById(compareBId)
+
+  const startComparison = (
+    aId = compareAId,
+    bId = compareBId,
+  ) => {
+    setCompareAId(aId)
+    setCompareBId(bId)
+    setComparePanelMinimized(false)
+    setInspectorMinimized(false)
+    setCompareActive(true)
+    setStudyActive(false)
+    setFractalActive(false)
+    setBridgeActive(false)
+    setGuidedActive(false)
+    setFocusActive(false)
+    setMode('proof')
+    setShowAllRelations(false)
+    setShowLabels(false)
+    setOnlyCardinals(false)
+    setProofSelectedId(aId)
+    setSceneKey((value) => value + 1)
+  }
+
+  const stopComparison = () => {
+    setCompareActive(false)
+    setComparePanelMinimized(false)
+    setSceneKey((value) => value + 1)
+  }
+
+  const startFractal = () => {
+    setFractalActive(true)
+    setStudyActive(false)
+    setCompareActive(false)
+    setBridgeActive(false)
+    setGuidedActive(false)
+    setMode('proof')
+    setFocusActive(false)
+    setShowAllRelations(false)
+    setShowLabels(false)
+    setOnlyCardinals(false)
+    setSceneKey((value) => value + 1)
+  }
+
+  const stopFractal = () => {
+    setFractalActive(false)
+    setSceneKey((value) => value + 1)
+  }
+
+  const changeFractalDepth = (depth) => {
+    setFractalDepth(depth)
+    setFractalActive(true)
+    setSceneKey((value) => value + 1)
+  }
+
+  const startBridge = (fromId = bridgeFromId, toId = bridgeToId) => {
+    const nextPath = shortestProofBridge(fromId, toId)
+
+    setBridgeFromId(fromId)
+    setBridgeToId(toId)
+    setBridgeStepIndex(0)
+    setBridgeActive(true)
+    setStudyActive(false)
+    setCompareActive(false)
+    setGuidedActive(false)
+    setFractalActive(false)
+    setMode('proof')
+    setFocusActive(false)
+    setShowAllRelations(false)
+    setShowLabels(false)
+    setOnlyCardinals(false)
+
+    if (nextPath[0]) {
+      setProofSelectedId(nextPath[0])
+    }
+
+    setSceneKey((value) => value + 1)
+  }
+
+  const stopBridge = () => {
+    setBridgeActive(false)
+    setBridgeStepIndex(0)
+    setSceneKey((value) => value + 1)
+  }
+
+  const goBridgeStep = (index) => {
+    if (!bridgePathIds.length) return
+
+    const nextIndex = Math.max(
+      0,
+      Math.min(index, bridgePathIds.length - 1),
+    )
+    const id = bridgePathIds[nextIndex]
+
+    setBridgeStepIndex(nextIndex)
+    setProofSelectedId(id)
+  }
+
+  const studyQuestionBank = useMemo(
+    () => buildStudyQuestionBank(),
+    [],
+  )
+
+  const studyTotalRounds = studyQuestions.length || 10
+  const studyQuestion = studyQuestions[studyRound] || null
+
+  const studyPositions = useMemo(
+    () => buildStudyPositions(studyQuestion),
+    [studyQuestion],
+  )
+
+  const studyVisibleIds = useMemo(() => {
+    if (!studyQuestion) return new Set()
+
+    return new Set([
+      studyQuestion.targetId,
+      ...studyQuestion.optionIds,
+    ])
+  }, [studyQuestion])
+
+  const createRandomStudySession = () => {
+    const nextQuestions = buildRandomStudySession(
+      studyQuestionBank,
+      10,
+      studySeenQuestionIds,
+    )
+
+    const nextSeen = [
+      ...studySeenQuestionIds,
+      ...nextQuestions.map((question) => question.id),
+    ]
+
+    setStudyQuestions(nextQuestions)
+    setStudyQuizToken(studyRandomToken())
+    setStudyRound(0)
+    setStudyScore(0)
+    setStudyAnswered(false)
+    setStudySelectedAnswerId(null)
+    setStudyFinished(false)
+
+    setStudySeenQuestionIds(
+      nextSeen.length > studyQuestionBank.length * 0.85
+        ? []
+        : nextSeen,
+    )
+
+    if (nextQuestions[0]?.targetId) {
+      setProofSelectedId(nextQuestions[0].targetId)
+    }
+  }
+
+  const startStudy = () => {
+    rememberNavigationPoint()
+    setStudyActive(true)
+
+    setCompareActive(false)
+    setFractalActive(false)
+    setBridgeActive(false)
+    setGuidedActive(false)
+    setFocusActive(false)
+    setMode('proof')
+    setShowAllRelations(false)
+    setShowLabels(false)
+    setOnlyCardinals(false)
+
+    createRandomStudySession()
+    setSceneKey((value) => value + 1)
+  }
+
+  const stopStudy = () => {
+    setStudyActive(false)
+    setStudyAnswered(false)
+    setStudySelectedAnswerId(null)
+    setStudyFinished(false)
+    setSceneKey((value) => value + 1)
+  }
+
+  const restartStudy = () => {
+    createRandomStudySession()
+  }
+
+  const answerStudyQuestion = (id) => {
+    if (!studyActive || !studyQuestion || studyAnswered || studyFinished) {
+      return
+    }
+
+    const validOption =
+      id === null || studyQuestion.optionIds.includes(id)
+
+    if (!validOption) return
+
+    setStudySelectedAnswerId(id)
+    setStudyAnswered(true)
+
+    if (id === studyQuestion.correctId) {
+      setStudyScore((value) => value + 1)
+    }
+  }
+
+  const nextStudyQuestion = () => {
+    if (!studyAnswered) return
+
+    if (studyRound >= studyTotalRounds - 1) {
+      setStudyFinished(true)
+      return
+    }
+
+    const nextRound = studyRound + 1
+    const nextQuestion = studyQuestions[nextRound]
+
+    setStudyRound(nextRound)
+    setStudyAnswered(false)
+    setStudySelectedAnswerId(null)
+
+    if (nextQuestion?.targetId) {
+      setProofSelectedId(nextQuestion.targetId)
+    }
+  }
+
+  const setSceneMode = (nextMode) => {
+    setMode(nextMode)
+    setShowAllRelations(false)
+    setShowLabels(false)
+    setOnlyCardinals(false)
+    setFocusActive(false)
+    setGuidedActive(false)
+    setBridgeActive(false)
+    setFractalActive(false)
+    setCompareActive(false)
+    setStudyActive(false)
+    setSceneKey((value) => value + 1)
+  }
+
+  return (
+    <div
+      ref={layoutRef}
+      className={`sf3d-layout ${isFullscreen ? 'sf3d-layout--fullscreen' : ''}`}
+    >
+      <section className="sf3d-stage-shell">
+        <div className={`sf3d-toolbar ${isFullscreen ? 'sf3d-toolbar--floating' : ''}`}>
+          <div>
+            <span>NAVEGACIÓN</span>
+            <small>arrastre · rote · zoom</small>
+          </div>
+
+          <div className="sf3d-mode-switch">
+            <button
+              type="button"
+              className={mode === 'ontology' ? 'is-active' : ''}
+              onClick={() => setSceneMode('ontology')}
+            >
+              Ontología
+            </button>
+            <button
+              type="button"
+              className={mode === 'proof' ? 'is-active' : ''}
+              onClick={() => setSceneMode('proof')}
+            >
+              Demostración D/A/P
+            </button>
+          </div>
+
+          <div>
+            <button
+              type="button"
+              className={studyActive ? 'is-active sf3d-study-toggle' : 'sf3d-study-toggle'}
+              onClick={() => {
+                if (studyActive) {
+                  stopStudy()
+                } else {
+                  startStudy()
+                }
+              }}
+            >
+              {studyActive ? 'Cerrar Studium' : 'Studium 3D'}
+            </button>
+
+            <button
+              type="button"
+              className={compareActive ? 'is-active sf3d-compare-toggle' : 'sf3d-compare-toggle'}
+              onClick={() => {
+                if (compareActive) {
+                  stopComparison()
+                } else {
+                  startComparison()
+                }
+              }}
+            >
+              {compareActive ? 'Cerrar comparación' : 'Comparar 3D'}
+            </button>
+
+            <button
+              type="button"
+              className={fractalActive ? 'is-active sf3d-fractal-toggle' : 'sf3d-fractal-toggle'}
+              onClick={() => {
+                if (fractalActive) {
+                  stopFractal()
+                } else {
+                  startFractal()
+                }
+              }}
+            >
+              {fractalActive ? 'Cerrar fractal' : 'Fractal 3D'}
+            </button>
+
+            <button
+              type="button"
+              className={bridgeActive ? 'is-active sf3d-bridge-toggle' : 'sf3d-bridge-toggle'}
+              onClick={() => {
+                if (bridgeActive) {
+                  stopBridge()
+                } else {
+                  startBridge()
+                }
+              }}
+            >
+              {bridgeActive ? 'Cerrar puente' : 'Puentes 3D'}
+            </button>
+
+            <button
+              type="button"
+              className={guidedActive ? 'is-active sf3d-guide-toggle' : 'sf3d-guide-toggle'}
+              onClick={() => {
+                if (guidedActive) {
+                  stopGuidedRoute()
+                } else {
+                  startGuidedRoute()
+                }
+              }}
+            >
+              {guidedActive ? 'Cerrar ruta guiada' : 'Ruta guiada 3D'}
+            </button>
+
+            <button
+              type="button"
+              className={showLabels ? 'is-active' : ''}
+              onClick={() => setShowLabels((value) => !value)}
+            >
+              Todas las etiquetas
+            </button>
+
+            <button
+              type="button"
+              className={showAllRelations ? 'is-active' : ''}
+              onClick={() => setShowAllRelations((value) => !value)}
+            >
+              Todas las relaciones
+            </button>
+
+            {mode === 'proof' && (
+              <button
+                type="button"
+                className={onlyCardinals ? 'is-active' : ''}
+                onClick={() => setOnlyCardinals((value) => !value)}
+              >
+                Sólo nodos cardinales
+              </button>
+            )}
+
+            {focusActive && (
+              <button
+                type="button"
+                className="sf3d-focus-reset is-active"
+                onClick={restoreSystem}
+              >
+                Vista sistema
+              </button>
+            )}
+
+            <div className="sf3d-history-nav">
+              <button
+                type="button"
+                className="sf3d-history-btn"
+                disabled={!navBackStack.length}
+                title={
+                  navBackLabel
+                    ? `Regresar a ${navBackLabel}`
+                    : 'No hay una vista anterior'
+                }
+                onClick={goNavigationBack}
+              >
+                ← Regresar
+              </button>
+
+              <button
+                type="button"
+                className="sf3d-history-btn"
+                disabled={!navForwardStack.length}
+                title={
+                  navForwardLabel
+                    ? `Adelantar a ${navForwardLabel}`
+                    : 'No hay una vista siguiente'
+                }
+                onClick={goNavigationForward}
+              >
+                Adelante →
+              </button>
+
+              {(navBackStack.length > 0 || navForwardStack.length > 0) && (
+                <button
+                  type="button"
+                  className="sf3d-history-clear"
+                  title="Vaciar el historial de navegación"
+                  onClick={clearNavigationHistory}
+                >
+                  ×
+                </button>
+              )}
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setSceneKey((value) => value + 1)}
+            >
+              Recentrar
+            </button>
+
+            <button
+              type="button"
+              className={isFullscreen ? 'is-active' : ''}
+              onClick={toggleFullscreen}
+            >
+              {isFullscreen ? 'Salir de pantalla completa' : 'Pantalla completa'}
+            </button>
+          </div>
+        </div>
+
+        <div className="sf3d-canvas-shell">
+          <Canvas
+            key={`${sceneKey}-${mode}`}
+            camera={{ position: [0, 0.7, 11.8], fov: 43 }}
+            dpr={[1, 1.7]}
+            onPointerMissed={() => {
+              if (focusActive) {
+                restoreSystem()
+              } else if (mode === 'ontology') {
+                setOntologySelectedId('substance')
+              } else {
+                setProofSelectedId('E1P15')
+              }
+            }}
+          >
+            <fog attach="fog" args={['#efe6d7', 80, 160]} />
+            <ambientLight intensity={1.55} />
+            <directionalLight position={[5, 7, 6]} intensity={1.8} />
+            <directionalLight position={[-5, -2, 4]} intensity={0.65} />
+
+            {focusActive ? (
+              <RelationFocusFields mode={mode} selectedLabel={selectedFocusLabel} />
+            ) : mode === 'ontology' ? (
+              <OntologicalFields />
+            ) : (
+              <DemonstrativeFields />
+            )}
+
+            {mode === 'ontology' ? (
+              <>
+                <OntologicalRelationLines
+                  selectedId={ontologySelectedId}
+                  showAllRelations={showAllRelations}
+                  positions={ontologyPositions}
+                />
+
+                {spinozaFigures3DNodes.map((node) => (
+                  <SpinozaSphere3D
+                    key={node.id}
+                    node={node}
+                    selected={ontologySelectedId === node.id}
+                    related={ontologyRelatedIds.has(node.id)}
+                    showLabels={showLabels}
+                    focusActive={focusActive}
+                    displayPosition={ontologyPositions.get(node.id) || node.position}
+                    onSelect={selectOntologyNode}
+                  />
+                ))}
+              </>
+            ) : (
+              <>
+                {studyActive ? (
+                  <StudyFeedbackLines
+                    question={studyQuestion}
+                    positions={studyPositions}
+                    selectedAnswerId={studySelectedAnswerId}
+                    answered={studyAnswered}
+                  />
+                ) : compareActive ? (
+                  <ComparisonRelationLines
+                    aId={compareAId}
+                    bId={compareBId}
+                    comparison={comparisonGraph}
+                  />
+                ) : fractalActive ? (
+                  <FractalRelationLines
+                    selectedId={proofSelectedId}
+                    fractal={fractalGraph}
+                  />
+                ) : bridgeActive ? (
+                  <BridgeRelationLines
+                    pathIds={bridgePathIds}
+                    positions={bridgePositions}
+                  />
+                ) : (
+                  <DemonstrativeRelationLines
+                    selectedId={proofSelectedId}
+                    showAllRelations={showAllRelations}
+                    onlyCardinals={onlyCardinals}
+                    positions={proofPositions}
+                  />
+                )}
+
+                {spinozaDemonstrative3DConfig.map((config) => {
+                  const node = spinozaNodeById(config.id)
+                  if (!node) return null
+
+                  return (
+                    <SpinozaProofSphere3D
+                      key={config.id}
+                      node={node}
+                      config={config}
+                      selected={proofSelectedId === config.id}
+                      related={
+                        studyActive
+                          ? studyVisibleIds.has(config.id)
+                          : compareActive
+                            ? comparisonGraph.visibleIds.has(config.id)
+                          : fractalActive
+                            ? fractalGraph.visibleIds.has(config.id)
+                            : proofRelatedIds.has(config.id)
+                      }
+                      showLabels={showLabels}
+                      onlyCardinals={onlyCardinals}
+                      focusActive={studyActive || compareActive || fractalActive || bridgeActive || focusActive}
+                      displayPosition={
+                        studyActive
+                          ? studyPositions.get(config.id) || config.position
+                          : compareActive
+                          ? comparisonGraph.positions.get(config.id) || config.position
+                          : fractalActive
+                            ? fractalGraph.positions.get(config.id) || config.position
+                            : bridgeActive
+                              ? bridgePositions.get(config.id) || config.position
+                              : proofPositions.get(config.id) || config.position
+                      }
+                      onSelect={
+                        studyActive
+                          ? answerStudyQuestion
+                          : selectProofNode
+                      }
+                    />
+                  )
+                })}
+              </>
+            )}
+
+            <OrbitControls
+              ref={controlsRef}
+              makeDefault
+              enablePan
+              enableRotate
+              enableZoom
+              minDistance={5.6}
+              maxDistance={19}
+              target={[0, -0.15, 0]}
+            />
+          </Canvas>
+        </div>
+
+        {studyActive && studyQuestion && (
+          <section
+            className={`sf3d-study-panel ${isFullscreen ? 'sf3d-study-panel--floating' : ''}`}
+          >
+            <header>
+              <div>
+                <span>STUDIUM · EXERCITIUM GEOMETRICUM</span>
+                <strong>Modo de estudio 3D</strong>
+                <small>
+                  Responda haciendo clic en una esfera o usando las opciones del panel.
+                </small>
+              </div>
+
+              <button type="button" onClick={stopStudy}>×</button>
+            </header>
+
+            <div className="sf3d-study-randombar">
+              <div>
+                <span>BANCO ALEATORIO D/A/P</span>
+                <strong>{studyQuestionBank.length} preguntas posibles</strong>
+                <small>
+                  Cada quiz toma 10 al azar. El sistema intenta evitar preguntas ya vistas.
+                </small>
+              </div>
+
+              <div className="sf3d-study-random-actions">
+                <span>QUIZ · {studyQuizToken || '—'}</span>
+                <button
+                  type="button"
+                  onClick={createRandomStudySession}
+                >
+                  ↻ RANDOM 10
+                </button>
+              </div>
+            </div>
+
+            {studyFinished ? (
+              <div className="sf3d-study-finish">
+                <span>SESSIO COMPLETA</span>
+                <strong>{studyScore} / {studyTotalRounds}</strong>
+                <p>
+                  Ha terminado este bloque de 10. Genere otro quiz aleatorio para continuar con una combinación distinta.
+                </p>
+                <button type="button" onClick={restartStudy}>
+                  Reiniciar Studium
+                </button>
+              </div>
+            ) : (
+              <>
+                <div className="sf3d-study-status">
+                  <div>
+                    <span>PREGUNTA</span>
+                    <strong>{studyRound + 1} / {studyTotalRounds}</strong>
+                  </div>
+                  <div>
+                    <span>PUNTUACIÓN</span>
+                    <strong>{studyScore}</strong>
+                  </div>
+                  <div>
+                    <span>TIPO</span>
+                    <strong>
+                      {studyQuestion.typeLabel || studyQuestion.type}
+                    </strong>
+                  </div>
+                  <div className="sf3d-study-progress">
+                    <span>PROGRESO</span>
+                    <div>
+                      <i
+                        style={{
+                          width: `${((studyRound + (studyAnswered ? 1 : 0)) / studyTotalRounds) * 100}%`,
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="sf3d-study-question">
+                  <span>QUAESTIO</span>
+                  <h3>{studyQuestion.prompt}</h3>
+                </div>
+
+                <div className="sf3d-study-options">
+                  {studyQuestion.optionIds.map((id) => {
+                    const node = spinozaNodeById(id)
+                    if (!node) return null
+
+                    const isCorrect = id === studyQuestion.correctId
+                    const isChosen = id === studySelectedAnswerId
+
+                    let className = ''
+                    if (studyAnswered && isCorrect) className = 'is-correct'
+                    else if (studyAnswered && isChosen) className = 'is-wrong'
+
+                    return (
+                      <button
+                        key={id}
+                        type="button"
+                        className={className}
+                        disabled={studyAnswered}
+                        onClick={() => answerStudyQuestion(id)}
+                      >
+                        <b>{node.data.code}</b>
+                        <strong>{node.data.title}</strong>
+                        <small>{node.data.kind}</small>
+                      </button>
+                    )
+                  })}
+                </div>
+
+                {studyAnswered ? (
+                  <div
+                    className={`sf3d-study-feedback ${
+                      studySelectedAnswerId === studyQuestion.correctId
+                        ? 'is-correct'
+                        : 'is-wrong'
+                    }`}
+                  >
+                    <span>
+                      {studySelectedAnswerId === studyQuestion.correctId
+                        ? 'RECTE'
+                        : 'RESPONSUM NON RECTUM'}
+                    </span>
+                    <strong>
+                      {spinozaNodeById(studyQuestion.correctId)?.data.code}
+                      {' · '}
+                      {spinozaNodeById(studyQuestion.correctId)?.data.title}
+                    </strong>
+                    <p>
+                      {studyQuestion.explanation}
+                      {studyQuestion.lineMode !== 'none'
+                        ? ' La línea verde revela la relación directa.'
+                        : ''}
+                    </p>
+                  </div>
+                ) : (
+                  <div className="sf3d-study-hint">
+                    <span>INSTRUCCIÓN</span>
+                    <p>
+                      Observe primero la geometría: las cuatro esferas candidatas rodean al nodo central.
+                    </p>
+                    <button type="button" onClick={() => answerStudyQuestion(null)}>
+                      No lo sé · revelar
+                    </button>
+                  </div>
+                )}
+
+                <footer>
+                  <button type="button" onClick={restartStudy}>
+                    Reiniciar sesión
+                  </button>
+                  <button
+                    type="button"
+                    disabled={!studyAnswered}
+                    onClick={nextStudyQuestion}
+                  >
+                    {studyRound >= studyTotalRounds - 1
+                      ? 'Ver resultado'
+                      : 'Siguiente pregunta →'}
+                  </button>
+                </footer>
+              </>
+            )}
+          </section>
+        )}
+
+        {compareActive && compareANode && compareBNode && isFullscreen && comparePanelMinimized && (
+          <button
+            type="button"
+            className="sf3d-compare-minibar"
+            onClick={() => setComparePanelMinimized(false)}
+          >
+            <span>COMPARATIO 3D</span>
+            <strong>{compareANode.data.code} ↔ {compareBNode.data.code}</strong>
+          </button>
+        )}
+
+        {compareActive && compareANode && compareBNode && (!isFullscreen || !comparePanelMinimized) && (
+          <section
+            className={`sf3d-compare-panel ${isFullscreen ? 'sf3d-compare-panel--floating' : ''}`}
+          >
+            <header>
+              <div>
+                <span>CONCORDIA · DISTINCTIO · COMPARATIO 3D</span>
+                <strong>
+                  {compareANode.data.code} ↔ {compareBNode.data.code}
+                </strong>
+                <small>
+                  Compare fundamentos, consecuencias y el puente demostrativo entre dos nodos.
+                </small>
+              </div>
+
+              <div className="sf3d-compare-head-actions">
+                <button
+                  type="button"
+                  className="sf3d-compare-mini"
+                  onClick={() => setComparePanelMinimized((value) => !value)}
+                >
+                  {comparePanelMinimized ? 'Expandir' : 'Minimizar'}
+                </button>
+
+                <button type="button" onClick={stopComparison}>
+                  ×
+                </button>
+              </div>
+            </header>
+
+            {comparePanelMinimized ? (
+              <div className="sf3d-compare-collapsed">
+                <span>Panel minimizado</span>
+                <strong>
+                  {compareANode.data.code} ↔ {compareBNode.data.code}
+                </strong>
+                <small>
+                  Presione “Expandir” para volver a ver presets, intersecciones y el puente argumentativo.
+                </small>
+              </div>
+            ) : (
+              <>
+                <div className="sf3d-compare-presets">
+                  {spinozaCompare3DPresets.map((preset) => (
+                    <button
+                      key={preset.id}
+                      type="button"
+                      className={
+                        preset.a === compareAId && preset.b === compareBId
+                          ? 'is-active'
+                          : ''
+                      }
+                      onClick={() => startComparison(preset.a, preset.b)}
+                    >
+                      <b>{preset.label}</b>
+                      <small>{preset.question}</small>
+                    </button>
+                  ))}
+                </div>
+
+                <div className="sf3d-compare-builder">
+                  <label>
+                    <span>NODO A</span>
+                    <select
+                      value={compareAId}
+                      onChange={(event) => {
+                        const id = event.target.value
+                        startComparison(id, compareBId)
+                      }}
+                    >
+                      {spinozaCompare3DEndpoints.map(([id, label]) => (
+                        <option key={id} value={id}>{label}</option>
+                      ))}
+                    </select>
+                  </label>
+
+                  <button
+                    type="button"
+                    className="sf3d-compare-swap"
+                    onClick={() => startComparison(compareBId, compareAId)}
+                  >
+                    ⇄
+                  </button>
+
+                  <label>
+                    <span>NODO B</span>
+                    <select
+                      value={compareBId}
+                      onChange={(event) => {
+                        const id = event.target.value
+                        startComparison(compareAId, id)
+                      }}
+                    >
+                      {spinozaCompare3DEndpoints.map(([id, label]) => (
+                        <option key={id} value={id}>{label}</option>
+                      ))}
+                    </select>
+                  </label>
+                </div>
+
+                <div className="sf3d-compare-summary">
+                  <article className="is-a">
+                    <span>A</span>
+                    <b>{compareANode.data.code}</b>
+                    <strong>{compareANode.data.title}</strong>
+                    <small>{compareANode.data.short}</small>
+                  </article>
+
+                  <article className="is-shared">
+                    <span>INTERSECCIÓN</span>
+                    <b>
+                      {comparisonGraph.sharedIncoming.size} fundamentos ·{' '}
+                      {comparisonGraph.sharedOutgoing.size} consecuencias
+                    </b>
+                    <small>
+                      Lo compartido aparece en el eje central de la escena.
+                    </small>
+                  </article>
+
+                  <article className="is-b">
+                    <span>B</span>
+                    <b>{compareBNode.data.code}</b>
+                    <strong>{compareBNode.data.title}</strong>
+                    <small>{compareBNode.data.short}</small>
+                  </article>
+                </div>
+
+                <div className="sf3d-compare-lists">
+                  <section>
+                    <span>FUNDAMENTOS COMUNES</span>
+                    <div>
+                      {[...comparisonGraph.sharedIncoming].length ? (
+                        [...comparisonGraph.sharedIncoming].map((id) => {
+                          const node = spinozaNodeById(id)
+                          if (!node) return null
+
+                          return (
+                            <button
+                              key={id}
+                              type="button"
+                              onClick={() => startComparison(id, compareBId)}
+                            >
+                              <b>{node.data.code}</b>
+                              <small>{node.data.title}</small>
+                            </button>
+                          )
+                        })
+                      ) : (
+                        <em>Sin fundamento común visible en profundidad 2.</em>
+                      )}
+                    </div>
+                  </section>
+
+                  <section>
+                    <span>CONSECUENCIAS COMUNES</span>
+                    <div>
+                      {[...comparisonGraph.sharedOutgoing].length ? (
+                        [...comparisonGraph.sharedOutgoing].map((id) => {
+                          const node = spinozaNodeById(id)
+                          if (!node) return null
+
+                          return (
+                            <button
+                              key={id}
+                              type="button"
+                              onClick={() => startComparison(compareAId, id)}
+                            >
+                              <b>{node.data.code}</b>
+                              <small>{node.data.title}</small>
+                            </button>
+                          )
+                        })
+                      ) : (
+                        <em>Sin consecuencia común visible en profundidad 2.</em>
+                      )}
+                    </div>
+                  </section>
+                </div>
+
+                <footer>
+                  <div>
+                    <span>PUENTE A → B</span>
+                    {comparisonGraph.bridgePath.length ? (
+                      <p>
+                        {comparisonGraph.bridgePath
+                          .map((id) => spinozaNodeById(id)?.data.code || id)
+                          .join(' → ')}
+                      </p>
+                    ) : (
+                      <p>No hay puente corto visible en la red seleccionada.</p>
+                    )}
+                  </div>
+
+                  <div className="sf3d-compare-actions">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setProofSelectedId(compareAId)
+                        setCompareActive(false)
+                        setFractalActive(true)
+                        setSceneKey((value) => value + 1)
+                      }}
+                    >
+                      Fractal de A
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setProofSelectedId(compareBId)
+                        setCompareActive(false)
+                        setFractalActive(true)
+                        setSceneKey((value) => value + 1)
+                      }}
+                    >
+                      Fractal de B
+                    </button>
+
+                    <button type="button" onClick={stopComparison}>
+                      Volver al sistema
+                    </button>
+                  </div>
+                </footer>
+              </>
+            )}
+          </section>
+        )}
+
+        {fractalActive && proofSelected && (
+          <section
+            className={`sf3d-fractal-panel ${isFullscreen ? 'sf3d-fractal-panel--floating' : ''}`}
+          >
+            <header>
+              <div>
+                <span>EXPANSIO FRACTALIS · ORDO GEOMETRICUS</span>
+                <strong>
+                  {proofSelected.data.code} · {proofSelected.data.title}
+                </strong>
+                <small>
+                  Cada nivel añade los fundamentos de los fundamentos
+                  y las consecuencias de las consecuencias.
+                </small>
+              </div>
+
+              <button
+                type="button"
+                onClick={stopFractal}
+              >
+                ×
+              </button>
+            </header>
+
+            <div className="sf3d-fractal-depth">
+              <span>PROFUNDIDAD</span>
+
+              {[1, 2, 3].map((depth) => (
+                <button
+                  key={depth}
+                  type="button"
+                  className={fractalDepth === depth ? 'is-active' : ''}
+                  onClick={() => changeFractalDepth(depth)}
+                >
+                  Nivel {depth}
+                </button>
+              ))}
+
+              <small>
+                {fractalGraph.visibleIds.size} nodos visibles
+              </small>
+            </div>
+
+            <div className="sf3d-fractal-columns">
+              <div>
+                <span>← FUNDAMENTA RECURSIVA</span>
+
+                {fractalGraph.incomingLayers.map((layer, index) => (
+                  <section key={`incoming-${index + 1}`}>
+                    <b>Nivel {index + 1}</b>
+
+                    <div>
+                      {layer.length ? (
+                        layer.map((id) => {
+                          const node = spinozaNodeById(id)
+                          if (!node) return null
+
+                          return (
+                            <button
+                              key={id}
+                              type="button"
+                              onClick={() => selectProofNode(id)}
+                            >
+                              <strong>{node.data.code}</strong>
+                              <small>{node.data.title}</small>
+                            </button>
+                          )
+                        })
+                      ) : (
+                        <em>sin nodos</em>
+                      )}
+                    </div>
+                  </section>
+                ))}
+              </div>
+
+              <div className="sf3d-fractal-center-card">
+                <span>NÚCLEO ACTUAL</span>
+                <b>{proofSelected.data.code}</b>
+                <strong>{proofSelected.data.title}</strong>
+                <small>{proofKindLabel(proofSelected)}</small>
+
+                <p>{proofSelected.data.short}</p>
+              </div>
+
+              <div>
+                <span>CONSEQUENTIA RECURSIVA →</span>
+
+                {fractalGraph.outgoingLayers.map((layer, index) => (
+                  <section key={`outgoing-${index + 1}`}>
+                    <b>Nivel {index + 1}</b>
+
+                    <div>
+                      {layer.length ? (
+                        layer.map((id) => {
+                          const node = spinozaNodeById(id)
+                          if (!node) return null
+
+                          return (
+                            <button
+                              key={id}
+                              type="button"
+                              onClick={() => selectProofNode(id)}
+                            >
+                              <strong>{node.data.code}</strong>
+                              <small>{node.data.title}</small>
+                            </button>
+                          )
+                        })
+                      ) : (
+                        <em>sin nodos</em>
+                      )}
+                    </div>
+                  </section>
+                ))}
+              </div>
+            </div>
+
+            <footer>
+              <span>LECTURA FRACTAL</span>
+              <p>
+                Seleccione cualquiera de los nodos visibles:
+                se convertirá en el nuevo centro y toda la red
+                volverá a desplegarse recursivamente a su alrededor.
+              </p>
+
+              <button
+                type="button"
+                onClick={stopFractal}
+              >
+                Volver al sistema completo
+              </button>
+            </footer>
+          </section>
+        )}
+
+        {bridgeActive && (
+          <section
+            className={`sf3d-bridge-panel ${isFullscreen ? 'sf3d-bridge-panel--floating' : ''}`}
+          >
+            <header>
+              <div>
+                <span>PONS CONCEPTUALIS · PUENTE 3D</span>
+                <strong>¿Cómo se conecta un concepto con otro?</strong>
+                <small>
+                  El camino usa únicamente dependencias/consecuencias registradas en la red demostrativa.
+                </small>
+              </div>
+
+              <button type="button" onClick={stopBridge}>×</button>
+            </header>
+
+            <div className="sf3d-bridge-presets">
+              {spinozaBridge3DPresets.map((preset) => (
+                <button
+                  key={preset.id}
+                  type="button"
+                  className={
+                    preset.from === bridgeFromId && preset.to === bridgeToId
+                      ? 'is-active'
+                      : ''
+                  }
+                  onClick={() => startBridge(preset.from, preset.to)}
+                >
+                  <b>{preset.label}</b>
+                  <small>{preset.question}</small>
+                </button>
+              ))}
+            </div>
+
+            <div className="sf3d-bridge-builder">
+              <label>
+                <span>ORIGEN</span>
+                <select
+                  value={bridgeFromId}
+                  onChange={(event) => {
+                    const id = event.target.value
+                    setBridgeFromId(id)
+                    startBridge(id, bridgeToId)
+                  }}
+                >
+                  {spinozaBridge3DEndpoints.map(([id, label]) => (
+                    <option key={id} value={id}>{label}</option>
+                  ))}
+                </select>
+              </label>
+
+              <b>→</b>
+
+              <label>
+                <span>DESTINO</span>
+                <select
+                  value={bridgeToId}
+                  onChange={(event) => {
+                    const id = event.target.value
+                    setBridgeToId(id)
+                    startBridge(bridgeFromId, id)
+                  }}
+                >
+                  {spinozaBridge3DEndpoints.map(([id, label]) => (
+                    <option key={id} value={id}>{label}</option>
+                  ))}
+                </select>
+              </label>
+            </div>
+
+            {bridgePathIds.length ? (
+              <>
+                <div className="sf3d-bridge-path">
+                  {bridgePathIds.map((id, index) => {
+                    const node = spinozaNodeById(id)
+                    if (!node) return null
+
+                    return (
+                      <span key={id}>
+                        {index > 0 && <i>→</i>}
+                        <button
+                          type="button"
+                          className={index === bridgeStepIndex ? 'is-active' : ''}
+                          onClick={() => goBridgeStep(index)}
+                        >
+                          <b>{node.data.code}</b>
+                          <small>{node.data.title}</small>
+                        </button>
+                      </span>
+                    )
+                  })}
+                </div>
+
+                <div className="sf3d-bridge-reading">
+                  <div>
+                    <span>PASO ACTUAL</span>
+                    <strong>
+                      {bridgeCurrentNode?.data.code} · {bridgeCurrentNode?.data.title}
+                    </strong>
+                  </div>
+
+                  {bridgeStepIndex < bridgeSegments.length ? (
+                    <div>
+                      <span>TIPO DE PASO</span>
+                      <strong>{bridgeSegments[bridgeStepIndex]?.label}</strong>
+                      <small>
+                        {spinozaNodeById(bridgeSegments[bridgeStepIndex]?.toId)?.data.code}
+                         es el siguiente nodo conectado.
+                      </small>
+                    </div>
+                  ) : (
+                    <div>
+                      <span>DESTINO ALCANZADO</span>
+                      <strong>El puente conceptual está completo.</strong>
+                    </div>
+                  )}
+                </div>
+
+                <footer>
+                  <button
+                    type="button"
+                    disabled={bridgeStepIndex === 0}
+                    onClick={() => goBridgeStep(bridgeStepIndex - 1)}
+                  >
+                    ← Anterior
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => goBridgeStep(0)}
+                  >
+                    Reiniciar
+                  </button>
+
+                  <button
+                    type="button"
+                    disabled={bridgeStepIndex >= bridgePathIds.length - 1}
+                    onClick={() => goBridgeStep(bridgeStepIndex + 1)}
+                  >
+                    Siguiente →
+                  </button>
+                </footer>
+              </>
+            ) : (
+              <div className="sf3d-bridge-empty">
+                No se encontró un puente dentro de la selección D/A/P actual.
+              </div>
+            )}
+          </section>
+        )}
+
+        {guidedActive && guidedNode && (
+          <section
+            className={`sf3d-guide-panel ${isFullscreen ? 'sf3d-guide-panel--floating' : ''}`}
+          >
+            <header>
+              <div>
+                <span>ITER INTELLIGENDI · RUTA GUIADA 3D</span>
+                <strong>{guidedRoute.label}</strong>
+                <small>{guidedRoute.subtitle}</small>
+              </div>
+
+              <button
+                type="button"
+                onClick={stopGuidedRoute}
+              >
+                ×
+              </button>
+            </header>
+
+            <div className="sf3d-guide-routes">
+              {spinozaGuided3DRoutes.map((routeItem) => (
+                <button
+                  key={routeItem.id}
+                  type="button"
+                  className={routeItem.id === guidedRouteId ? 'is-active' : ''}
+                  onClick={() => startGuidedRoute(routeItem.id)}
+                >
+                  {routeItem.label}
+                </button>
+              ))}
+            </div>
+
+            <div className="sf3d-guide-body">
+              <div className="sf3d-guide-progress">
+                <span>
+                  PASO {guidedStepIndex + 1} / {guidedRoute.steps.length}
+                </span>
+                <div>
+                  <i
+                    style={{
+                      width: `${((guidedStepIndex + 1) / guidedRoute.steps.length) * 100}%`,
+                    }}
+                  />
+                </div>
+              </div>
+
+              <div className="sf3d-guide-current">
+                <b>{guidedNode.data.code}</b>
+                <strong>{guidedNode.data.title}</strong>
+                <small>{guidedNode.data.kind}</small>
+              </div>
+
+              <div className="sf3d-guide-explanation">
+                <span>POR QUÉ ESTAMOS AQUÍ</span>
+                <p>{guidedStep.why}</p>
+              </div>
+
+              <div className="sf3d-guide-next-question">
+                <span>PREGUNTA QUE FUERZA EL SIGUIENTE PASO</span>
+                <p>{guidedStep.next}</p>
+              </div>
+            </div>
+
+            <footer>
+              <div>
+                <span>PREGUNTA DE LA RUTA</span>
+                <p>{guidedRoute.question}</p>
+              </div>
+
+              <div className="sf3d-guide-actions">
+                <button
+                  type="button"
+                  disabled={guidedStepIndex === 0}
+                  onClick={() => goGuidedStep(guidedStepIndex - 1)}
+                >
+                  ← Anterior
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => goGuidedStep(0)}
+                >
+                  Reiniciar
+                </button>
+
+                <button
+                  type="button"
+                  disabled={guidedStepIndex >= guidedRoute.steps.length - 1}
+                  onClick={() => goGuidedStep(guidedStepIndex + 1)}
+                >
+                  Siguiente →
+                </button>
+              </div>
+            </footer>
+          </section>
+        )}
+
+        <div className={`sf3d-scene-legend ${isFullscreen ? 'sf3d-scene-legend--floating' : ''}`}>
+          {mode === 'ontology' ? (
+            <>
+              <span><i className="internal" /> núcleo / condición interna</span>
+              <span><i className="expression" /> expresión</span>
+              <span><i className="immanent" /> causalidad inmanente</span>
+              <span><i className="inherence" /> orden modal / ser-en</span>
+              <span><i className="determination" /> determinación</span>
+            </>
+          ) : (
+            <>
+              <span><b className="sf3d-dot definition" /> definición</span>
+              <span><b className="sf3d-dot axiom" /> axioma</span>
+              <span><b className="sf3d-dot proposition" /> proposición</span>
+              <span><b className="sf3d-dot cardinal" /> nodo cardinal / convergencia</span>
+              <span><i className="logical" /> dependencia demostrativa</span>
+            </>
+          )}
+        </div>
+        {(navBackStack.length > 0 || navForwardStack.length > 0) && (
+          <div className={`sf3d-history-trail ${isFullscreen ? 'sf3d-history-trail--floating' : ''}`}>
+            <span>ITER VISUM</span>
+            <div>
+              {navBackStack.slice(-4).map((snapshot, index) => (
+                <button
+                  key={`history-${index}-${navigationSnapshotLabel(snapshot)}`}
+                  type="button"
+                  tabIndex={-1}
+                  title={navigationSnapshotLabel(snapshot)}
+                  disabled
+                >
+                  {navigationSnapshotLabel(snapshot)}
+                </button>
+              ))}
+
+              <b>→</b>
+
+              <button type="button" className="is-current" disabled>
+                {mode === 'ontology'
+                  ? `${ontologySelected?.code || ''} · ${ontologySelected?.label || ''}`
+                  : `${proofSelected?.data.code || ''} · ${proofSelected?.data.title || ''}`}
+              </button>
+            </div>
+          </div>
+        )}
+
+      </section>
+
+      {studyActive ? null : isFullscreen && inspectorMinimized ? (
+          <button
+            type="button"
+            className="sf3d-inspector-minibar"
+            onClick={() => setInspectorMinimized(false)}
+          >
+            <span>SPHAERA SELECTA</span>
+            <strong>Abrir panel</strong>
+          </button>
+        ) : (
+<aside className={`sf3d-inspector ${studyActive ? 'sf3d-inspector--studium-hidden' : ''} ${isFullscreen ? 'sf3d-inspector--floating' : ''}`}>
+            <div className={`sf3d-inspector-topbar ${isFullscreen ? 'sf3d-inspector-topbar--floating' : ''}`}>
+              <button
+                type="button"
+                className="sf3d-inspector-minimize"
+                onClick={() => setInspectorMinimized((value) => !value)}
+              >
+                {isFullscreen ? 'Minimizar panel' : 'Ocultar detalles'}
+              </button>
+            </div>
+        {studyActive && studyQuestion && (
+          <div className="sf3d-study-inspector-note">
+            <span>STUDIUM ACTIVO</span>
+            <strong>Pregunta {studyRound + 1} / {studyTotalRounds}</strong>
+            <small>
+              Responda tocando una de las cuatro esferas candidatas.
+              La relación correcta se revela después de responder.
+            </small>
+          </div>
+        )}
+
+        {compareActive && compareANode && compareBNode && (
+          <div className="sf3d-compare-inspector-note">
+            <span>COMPARACIÓN ACTIVA</span>
+            <strong>
+              {compareANode.data.code} ↔ {compareBNode.data.code}
+            </strong>
+            <small>
+              Vino = A · azul = B · dorado = intersecciones argumentativas compartidas.
+            </small>
+          </div>
+        )}
+
+        {fractalActive && (
+          <div className="sf3d-fractal-inspector-note">
+            <span>EXPANSIÓN FRACTAL ACTIVA</span>
+            <strong>
+              {proofSelected?.data.code} · profundidad {fractalDepth}
+            </strong>
+            <small>
+              Azul = fundamentos recursivos · verde = consecuencias
+              recursivas · vino = relaciones inmediatas al núcleo.
+            </small>
+          </div>
+        )}
+
+        {bridgeActive && bridgePathIds.length > 0 && (
+          <div className="sf3d-bridge-inspector-note">
+            <span>PUENTE CONCEPTUAL ACTIVO</span>
+            <strong>
+              {spinozaNodeById(bridgeFromId)?.data.code}
+               → 
+              {spinozaNodeById(bridgeToId)?.data.code}
+            </strong>
+            <small>
+              {bridgePathIds.length} nodos forman el camino más corto encontrado en la red demostrativa.
+            </small>
+          </div>
+        )}
+
+        {guidedActive && (
+          <div className="sf3d-guide-inspector-note">
+            <span>RUTA GUIADA ACTIVA</span>
+            <strong>{guidedRoute.label}</strong>
+            <small>
+              La esfera actual se expande con Fase 7B; use Siguiente para recorrer el argumento.
+            </small>
+          </div>
+        )}
+
+        {focusActive && (
+          <div className="sf3d-focus-status">
+            <span>RELATIONES EXPANSAE</span>
+            <strong>
+              {mode === 'ontology'
+                ? ontologySelected.label
+                : `${proofSelected?.data.code} · ${proofSelected?.data.title}`}
+            </strong>
+            <small>
+              El nodo seleccionado ocupa ahora el centro; sus fundamentos y consecuencias se redistribuyen a su alrededor.
+            </small>
+          </div>
+        )}
+
+        {mode === 'ontology' ? (
+          <>
+            <p className="sf3d-inspector-kicker">SPHAERA SELECTA · 3D</p>
+            <span className="sf3d-code">{ontologySelected.code}</span>
+            <h2>{ontologySelected.label}</h2>
+            <p className="sf3d-kind">{ontologySelected.kind}</p>
+            <p className="sf3d-description">{ontologySelected.description}</p>
+
+            <section>
+              <span>Capa ontológica</span>
+              <strong>{ontologySelected.layer}</strong>
+            </section>
+
+            <section>
+              <span>Ruta textual</span>
+              <strong>{ontologySelected.route}</strong>
+            </section>
+
+            <section>
+              <span>Relaciones inmediatas</span>
+              <div className="sf3d-relations-list">
+                {ontologySelectedRelations.map((edge) => {
+                  const otherId = edge.source === ontologySelectedId ? edge.target : edge.source
+                  const other = spinozaFigures3DNodeById(otherId)
+                  return (
+                    <button key={edge.id} type="button" onClick={() => selectOntologyNode(otherId)}>
+                      <small>{edge.label}</small>
+                      <strong>{other?.label || otherId}</strong>
+                    </button>
+                  )
+                })}
+              </div>
+            </section>
+
+            <div className="sf3d-warning">
+              <span>Cómo leer el espacio</span>
+              <p>
+                La profundidad no representa distancia física. Funciona como una ayuda para separar niveles, expresiones y relaciones de una única Naturaleza.
+              </p>
+            </div>
+          </>
+        ) : (
+          <>
+            <p className="sf3d-inspector-kicker">NODUS SELECTUS · ORDO GEOMETRICUS</p>
+            <span className="sf3d-code">{proofSelected?.data.code}</span>
+            <h2>{proofSelected?.data.title}</h2>
+            <p className="sf3d-kind">
+              {proofKindLabel(proofSelected)}
+              {proofSelectedConfig?.cardinal ? ' · nodo cardinal' : ''}
+            </p>
+            <p className="sf3d-description">{proofSelected?.data.short}</p>
+
+            <section>
+              <span>Qué significa</span>
+              <p className="sf3d-proof-copy">{proofSelected?.data.explanation}</p>
+            </section>
+
+            <section>
+              <span>Función en el argumento</span>
+              <p className="sf3d-proof-copy">{proofSelected?.data.role}</p>
+            </section>
+
+            <section>
+              <span>Se apoya en</span>
+              <div className="sf3d-relations-list">
+                {proofSupports.length ? proofSupports.map((support) => (
+                  <button key={support.id} type="button" onClick={() => selectProofNode(support.id)}>
+                    <small>fundamento</small>
+                    <strong>{support.data.code} · {support.data.title}</strong>
+                  </button>
+                )) : <em>Fundamento inicial dentro de esta vista.</em>}
+              </div>
+            </section>
+
+            <section>
+              <span>Produce / abre</span>
+              <div className="sf3d-relations-list">
+                {proofProduces.length ? proofProduces.map((produced) => (
+                  <button key={produced.id} type="button" onClick={() => selectProofNode(produced.id)}>
+                    <small>consecuencia</small>
+                    <strong>{produced.data.code} · {produced.data.title}</strong>
+                  </button>
+                )) : <em>Sin consecuencia directa visible en esta selección 3D.</em>}
+              </div>
+            </section>
+
+            <section>
+              <span>Conceptos</span>
+              <div className="sf3d-concepts">
+                {proofSelected?.data.concepts.map((concept) => (
+                  <small key={concept}>{concept}</small>
+                ))}
+              </div>
+            </section>
+
+            <div className="sf3d-warning">
+              <span>Cómo leer la demostración</span>
+              <p>
+                La posición espacial agrupa fundamentos, convergencias y despliegues. Las líneas representan dependencias registradas; no una sucesión temporal.
+              </p>
+            </div>
+          </>
+        )}
+      </aside>
+        )}
+    </div>
+  )
+}

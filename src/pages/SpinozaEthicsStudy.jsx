@@ -1119,6 +1119,17 @@ function StudyCanvas() {
         </div>
       </section>
 
+      <Link
+        to="/tareas/ontologia-ii/spinoza-etica-parte-i/figuras"
+        className="spinoza-figures-entry"
+      >
+        <b>◎</b>
+        <span>
+          Figuras Espinoza
+          <small>arquitectura 2D / 3D</small>
+        </span>
+      </Link>
+
       <footer className="spinoza-study-footer">
         <Link to="/tareas">← Volver al tablero</Link>
         <span>substantia · Deus · necessitas</span>

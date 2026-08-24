@@ -1,0 +1,258 @@
+export const spinozaFigures3DNodes = [
+  {
+    id: 'causa',
+    label: 'Causa sui',
+    code: 'D1',
+    kind: 'núcleo conceptual',
+    color: '#704840',
+    position: [0, 0.05, 0.55],
+    size: 0.58,
+    layer: 'Núcleo',
+    description:
+      'Aquello cuya esencia implica la existencia. En la figura no aparece como una causa temporal anterior a Dios, sino como un carácter interno de la sustancia.',
+    route: 'D1 · P6 · P7 · P11',
+  },
+  {
+    id: 'substance',
+    label: 'Sustancia única · Dios',
+    code: 'D3 · D6',
+    kind: 'centro ontológico',
+    color: '#d8c1a3',
+    position: [0, 0, 0],
+    size: 1.42,
+    layer: 'Sustancia',
+    description:
+      'Lo que es en sí y se concibe por sí. La Parte I converge hacia una única sustancia absolutamente infinita: Dios.',
+    route: 'D3 · D6 · P7 · P11 · P14 · P15',
+  },
+  {
+    id: 'attributes',
+    label: 'Atributos infinitos',
+    code: 'D4',
+    kind: 'expresión de esencia',
+    color: '#a37b24',
+    position: [0, 2.85, 0],
+    size: 0.74,
+    layer: 'Atributos',
+    description:
+      'Los atributos expresan la esencia de la sustancia. Pensamiento y Extensión son los dos atributos que conocemos explícitamente.',
+    route: 'D4 · P9 · P10 · P19 · P20',
+  },
+  {
+    id: 'thought',
+    label: 'Pensamiento',
+    code: 'ATR.',
+    kind: 'atributo conocido',
+    color: '#b69250',
+    position: [-3.0, 1.15, 1.15],
+    size: 0.68,
+    layer: 'Atributos',
+    description:
+      'Atributo bajo el cual se comprenderá el orden de las ideas. Su desarrollo pleno corresponde a la Parte II.',
+    route: 'D4 · puente hacia Parte II',
+  },
+  {
+    id: 'extension',
+    label: 'Extensión',
+    code: 'ATR.',
+    kind: 'atributo conocido',
+    color: '#b69250',
+    position: [3.0, 1.15, -1.15],
+    size: 0.68,
+    layer: 'Atributos',
+    description:
+      'Atributo bajo el cual se comprenderá el orden de los cuerpos. Su desarrollo pleno corresponde a la Parte II.',
+    route: 'D4 · puente hacia Parte II',
+  },
+  {
+    id: 'naturans',
+    label: 'Natura naturans',
+    code: 'P16–P18',
+    kind: 'campo activo',
+    color: '#59745c',
+    position: [0, -2.7, 0],
+    size: 0.82,
+    layer: 'Naturans',
+    description:
+      'La Naturaleza considerada en cuanto activa, productiva y causal: Dios y sus atributos en cuanto causa inmanente.',
+    route: 'P16 · P17 · P18 · P34–P36',
+  },
+  {
+    id: 'modes',
+    label: 'Modos infinitos',
+    code: 'P21–P23',
+    kind: 'mediación modal',
+    color: '#75866f',
+    position: [3.25, -0.7, 1.25],
+    size: 0.78,
+    layer: 'Modos infinitos',
+    description:
+      'Zona de mediación entre la infinitud de los atributos y el orden de las cosas finitas.',
+    route: 'P21 · P22 · P23',
+  },
+  {
+    id: 'naturata',
+    label: 'Natura naturata',
+    code: 'P24–P29',
+    kind: 'campo de los modos',
+    color: '#6e8793',
+    position: [3.0, -3.0, -0.45],
+    size: 0.82,
+    layer: 'Naturata',
+    description:
+      'Todo aquello que se sigue necesariamente de la naturaleza divina: el orden de los modos, no una creación exterior.',
+    route: 'P24 · P25 · P26 · P27 · P28 · P29',
+  },
+  {
+    id: 'world',
+    label: 'Mundo · cosas singulares',
+    code: 'D5',
+    kind: 'modos finitos',
+    color: '#9aa9ae',
+    position: [-3.0, -3.05, 0.6],
+    size: 0.84,
+    layer: 'Naturata',
+    description:
+      'El mundo de las cosas singulares se sitúa dentro de Natura naturata. No constituye una sustancia fuera de Dios/Naturaleza.',
+    route: 'D5 · P15 · P25 · P28 · P29 · P33',
+  },
+  {
+    id: 'necessity',
+    label: 'Necesidad',
+    code: 'D7',
+    kind: 'condición transversal',
+    color: '#6b5a78',
+    position: [-3.25, -0.8, -1.2],
+    size: 0.66,
+    layer: 'Necesidad',
+    description:
+      'Nada rompe arbitrariamente el orden de la Naturaleza. La libertad spinozista debe pensarse desde la necesidad de la propia naturaleza.',
+    route: 'D7 · P17 · P29 · P33',
+  },
+  {
+    id: 'will',
+    label: 'Voluntad',
+    code: 'P31–P33',
+    kind: 'modo del Pensamiento',
+    color: '#9a5a42',
+    position: [-3.05, 2.35, 0.2],
+    size: 0.66,
+    layer: 'Pensamiento',
+    description:
+      'La voluntad no funciona como una facultad soberana capaz de interrumpir el orden necesario.',
+    route: 'P31 · P32 · P33',
+  },
+]
+
+export const spinozaFigures3DEdges = [
+  {
+    id: 'causa-substance',
+    source: 'causa',
+    target: 'substance',
+    type: 'internal',
+    label: 'carácter interno',
+  },
+  {
+    id: 'substance-attributes',
+    source: 'substance',
+    target: 'attributes',
+    type: 'expression',
+    label: 'expresión',
+  },
+  {
+    id: 'attributes-thought',
+    source: 'attributes',
+    target: 'thought',
+    type: 'expression',
+    label: 'atributo conocido',
+  },
+  {
+    id: 'attributes-extension',
+    source: 'attributes',
+    target: 'extension',
+    type: 'expression',
+    label: 'atributo conocido',
+  },
+  {
+    id: 'substance-naturans',
+    source: 'substance',
+    target: 'naturans',
+    type: 'immanent',
+    label: 'causalidad inmanente',
+  },
+  {
+    id: 'naturans-modes',
+    source: 'naturans',
+    target: 'modes',
+    type: 'immanent',
+    label: 'despliegue necesario',
+  },
+  {
+    id: 'naturans-naturata',
+    source: 'naturans',
+    target: 'naturata',
+    type: 'immanent',
+    label: 'se sigue de',
+  },
+  {
+    id: 'modes-naturata',
+    source: 'modes',
+    target: 'naturata',
+    type: 'inherence',
+    label: 'orden modal',
+  },
+  {
+    id: 'naturata-world',
+    source: 'naturata',
+    target: 'world',
+    type: 'inherence',
+    label: 'cosas singulares',
+  },
+  {
+    id: 'substance-necessity',
+    source: 'substance',
+    target: 'necessity',
+    type: 'internal',
+    label: 'necesidad',
+  },
+  {
+    id: 'thought-will',
+    source: 'thought',
+    target: 'will',
+    type: 'determination',
+    label: 'orden del Pensamiento',
+  },
+  {
+    id: 'necessity-will',
+    source: 'necessity',
+    target: 'will',
+    type: 'determination',
+    label: 'determinación',
+  },
+]
+
+export const spinozaFigures3DNodeById = (id) =>
+  spinozaFigures3DNodes.find((node) => node.id === id) || null
+
+export const spinozaFigures3DEdgeStyles = {
+  internal: {
+    color: '#704840',
+    dash: false,
+  },
+  expression: {
+    color: '#a37b24',
+    dash: false,
+  },
+  immanent: {
+    color: '#59745c',
+    dash: false,
+  },
+  inherence: {
+    color: '#607d8b',
+    dash: true,
+  },
+  determination: {
+    color: '#6b5a78',
+    dash: true,
+  },
+}

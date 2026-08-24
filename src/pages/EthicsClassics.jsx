@@ -165,6 +165,28 @@ export default function EthicsClassics() {
             <b>↗</b>
           </div>
         </Link>
+
+        <Link
+          to="/semestre/5/etica/clase/20-agosto"
+          className="ethicsx-class-card"
+        >
+          <div className="ethicsx-class-card-date">
+            <strong>XX</strong>
+            <span>VIII · MMXXVI</span>
+          </div>
+          <div className="ethicsx-class-card-copy">
+            <span>Segunda clase · Conciencia de sí</span>
+            <h3>Responsabilidad y vida examinada</h3>
+            <p>
+              Justicia y reparación, responsabilidad individual y estructural,
+              sacrificio, Ifigenia, Patroclo, los nóstoi y el giro hacia el examen de sí.
+            </p>
+          </div>
+          <div className="ethicsx-class-card-enter">
+            <span>Abrir clase</span>
+            <b>↗</b>
+          </div>
+        </Link>
       </section>
 
       <section className="ethicsx-section ethicsx-note">

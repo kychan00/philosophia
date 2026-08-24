@@ -18466,3 +18466,89 @@ a {
 }
 /* ===== FIGURAS SPINOZA PHASE 12B STUDIUM RANDOM END ===== */
 
+/* ===== FIGURAS SPINOZA PHASE 12C DEFINITION ONLY START ===== */
+
+.sf3d-studium-definition{
+  margin:.8rem;
+  padding:.9rem 1rem 1rem;
+  border:1px solid rgba(112,72,64,.18);
+  border-left:3px solid #a37b24;
+  background:rgba(245,236,222,.96);
+  box-shadow:0 10px 26px rgba(61,44,34,.08);
+}
+
+.sf3d-studium-definition-kicker{
+  display:block;
+  color:#a37b24;
+  font-size:.48rem;
+  letter-spacing:.13em;
+}
+
+.sf3d-studium-definition-code{
+  display:inline-block;
+  margin-top:.65rem;
+  padding:.2rem .34rem;
+  border:1px solid rgba(112,72,64,.16);
+  color:#704840;
+  font-size:.58rem;
+}
+
+.sf3d-studium-definition h3{
+  margin:.55rem 0 .08rem;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem;
+  line-height:1;
+  font-weight:600;
+}
+
+.sf3d-studium-definition>small{
+  color:var(--sf-muted);
+  font-size:.56rem;
+}
+
+.sf3d-studium-definition-rule{
+  height:1px;
+  margin:.75rem 0;
+  background:rgba(112,72,64,.13);
+}
+
+.sf3d-studium-definition p{
+  margin:0;
+  color:#4d463f;
+  font-family:'Cormorant Garamond',serif;
+  font-size:.86rem;
+  line-height:1.42;
+}
+
+.sf3d-studium-definition--floating{
+  position:fixed;
+  top:5.4rem;
+  right:1rem;
+  z-index:43;
+  width:min(18rem,26vw);
+  margin:0;
+  backdrop-filter:blur(9px);
+}
+
+.sf3d-inspector--studium-hidden{
+  display:none !important;
+}
+
+@media(max-width:900px){
+  .sf3d-studium-definition--floating{
+    width:15rem;
+  }
+}
+
+@media(max-width:700px){
+  .sf3d-studium-definition--floating{
+    top:auto;
+    right:.7rem;
+    bottom:.7rem;
+    left:.7rem;
+    width:auto;
+  }
+}
+
+/* ===== FIGURAS SPINOZA PHASE 12C DEFINITION ONLY END ===== */
+

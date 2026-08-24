@@ -97,6 +97,27 @@ export default function CriticalTheory() {
             <b>↗</b>
           </div>
         </Link>
+        <Link
+          to="/semestre/5/teoria-critica/clase/20-agosto"
+          className="ct-class-card"
+        >
+          <div className="ct-class-card-date">
+            <strong>XX</strong>
+            <span>VIII · MMXXVI</span>
+          </div>
+          <div className="ct-class-card-copy">
+            <span>Segunda clase · Fundamentos</span>
+            <h3>Clase del 20 de agosto</h3>
+            <p>
+              Delimitación de la Teoría Crítica, teoría tradicional frente a
+              teoría crítica, genealogía Hegel–Marx–Lukács–Freud, historia de
+              los conceptos e investigación interdisciplinaria.
+            </p>
+          </div>
+          <div className="ct-class-card-enter">
+            <span>Abrir clase</span><b>↗</b>
+          </div>
+        </Link>
       </section>
 
       <section className="ct-section">
