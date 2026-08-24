@@ -267,6 +267,21 @@ export default function OntologiaII() {
             <b>↗</b>
           </div>
         </Link>
+        <Link
+          to="/semestre/5/ontologia-ii/clase/24-agosto"
+          className="ontology-program-class-card"
+        >
+          <div className="ontology-program-date">
+            <strong>XXIV</strong>
+            <span>VIII · MMXXVI</span>
+          </div>
+          <div className="ontology-program-class-copy">
+            <span>Tercera clase · Spinoza</span>
+            <h3>Una sustancia: necesidad y libertad</h3>
+            <p>Sustancia, atributos y modos; Deus sive Natura; causa inmanente, necesidad, pasiones, libertad como conocimiento de las causas y tránsito hacia Leibniz.</p>
+          </div>
+          <div className="ontology-program-enter"><span>Abrir folio</span><b>↗</b></div>
+        </Link>
       </section>
 
       <section className="ontology-program-route">

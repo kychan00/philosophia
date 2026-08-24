@@ -14,6 +14,7 @@ const FifthSemester = lazy(() => import('./pages/FifthSemester'))
 const OntologiaII = lazy(() => import('./pages/OntologiaII'))
 const OntologiaClass17Aug = lazy(() => import('./pages/OntologiaClass17Aug'))
 const OntologiaClass19Aug = lazy(() => import('./pages/OntologiaClass19Aug'))
+const OntologiaClass24Aug = lazy(() => import('./pages/OntologiaClass24Aug'))
 const MethodsResearch = lazy(() => import('./pages/MethodsResearch'))
 const MethodsClass17Aug = lazy(() => import('./pages/MethodsClass17Aug'))
 const MethodsClass19Aug = lazy(() => import('./pages/MethodsClass19Aug'))
@@ -59,6 +60,10 @@ function App() {
         <Route
           path="/semestre/5/ontologia-ii/clase/19-agosto"
           element={<OntologiaClass19Aug />}
+        />
+        <Route
+          path="/semestre/5/ontologia-ii/clase/24-agosto"
+          element={<OntologiaClass24Aug />}
         />
         <Route
           path="/semestre/5/metodos-de-investigacion"

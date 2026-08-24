@@ -18607,3 +18607,113 @@ a {
 }
 
 /* ===== FIGURAS SPINOZA PHASE 12C V3 DEFINITION ONLY END ===== */
+
+/* ONTOLOGIA II · 24 AGOSTO · SPINOZA */
+.ontology24-page{min-height:100vh;background:#eee6d8;color:#302b27}
+.ontology24-hero{padding:6rem clamp(1.4rem,6vw,7rem) 4.5rem;text-align:center;background:radial-gradient(circle at 50% 35%,rgba(163,123,36,.16),transparent 36%),linear-gradient(180deg,#e8decc,#f3ecdf)}
+.ontology24-hero>p:first-child,.ontology24-eyebrow{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:#8a6728}
+.ontology24-hero h1{margin:1rem 0;font-family:Georgia,serif;font-size:clamp(3rem,8vw,7rem);font-weight:400;line-height:.9}
+.ontology24-hero h1 em{display:block;margin-top:.7rem;font-size:.24em;letter-spacing:.18em;text-transform:uppercase;font-weight:400;color:#704840}
+.ontology24-lead{max-width:58rem;margin:1.7rem auto;font-family:Georgia,serif;font-size:clamp(1rem,1.6vw,1.25rem);line-height:1.7}
+.ontology24-axis{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.65rem;margin-top:2rem;font-size:.7rem;letter-spacing:.11em;text-transform:uppercase}.ontology24-axis b{color:#a37b24}
+.ontology24-layout{display:grid;grid-template-columns:15rem minmax(0,1fr);max-width:92rem;margin:auto}
+.ontology24-index{position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto;padding:2rem 1rem;border-right:1px solid rgba(80,60,45,.16)}
+.ontology24-index p{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:#8a6728}
+.ontology24-index button{width:100%;display:grid;grid-template-columns:2rem 1fr;gap:.5rem;padding:.7rem .3rem;border:0;border-bottom:1px solid rgba(80,60,45,.1);background:none;text-align:left;color:inherit;cursor:pointer}
+.ontology24-index button span{color:#9a702e;font-family:Georgia,serif}
+.ontology24-article{padding:1rem clamp(1.3rem,5vw,5rem) 5rem}
+.ontology24-article>section{scroll-margin-top:1rem;padding:4rem 0;border-bottom:1px solid rgba(80,60,45,.14)}
+.ontology24-number{display:block;font-family:Georgia,serif;font-size:3rem;color:rgba(112,72,64,.22)}
+.ontology24-article h2{margin:.4rem 0 1.7rem;font-family:Georgia,serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:400}
+.ontology24-points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin-top:1.5rem}
+.ontology24-point{display:grid;grid-template-columns:2.7rem 1fr;gap:.8rem;padding:1rem;border:1px solid rgba(80,60,45,.13);background:rgba(255,250,242,.38)}
+.ontology24-point>span{font-family:Georgia,serif;font-size:1.25rem;color:#a37b24}.ontology24-point h3{margin:0 0 .35rem;font-family:Georgia,serif;font-size:1.05rem;font-weight:500}.ontology24-point p{margin:0;font-size:.88rem;line-height:1.55}
+.ontology24-schema,.ontology24-architecture{display:grid;justify-items:center;gap:.65rem;margin:2rem 0;padding:2rem;border:1px solid rgba(112,72,64,.18);background:rgba(255,250,242,.45);font-family:Georgia,serif}.ontology24-schema>div{display:flex;gap:3rem}.ontology24-schema i{font-style:normal;color:#a37b24}
+.ontology24-callout{margin:1.5rem 0;padding:1.3rem 1.5rem;border-left:3px solid #a37b24;background:rgba(112,72,64,.055)}.ontology24-callout span{display:block;margin-bottom:.35rem;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:#8a6728}.ontology24-callout strong{font-family:Georgia,serif;font-size:1.1rem;font-weight:500;line-height:1.5}
+.ontology24-dual,.ontology24-triad{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1.5rem 0}.ontology24-dual article,.ontology24-triad div{padding:1.2rem;border:1px solid rgba(80,60,45,.14);background:rgba(255,250,242,.38)}.ontology24-dual span,.ontology24-triad span{display:block;font-size:.63rem;letter-spacing:.15em;color:#8a6728}.ontology24-dual b,.ontology24-triad b{display:block;margin-top:.4rem;font-family:Georgia,serif}.ontology24-triad{grid-template-columns:repeat(3,1fr)}
+.ontology24-architecture span{display:grid;justify-items:center;gap:.4rem;font-family:Georgia,serif;font-size:1.05rem}.ontology24-architecture b{color:#a37b24}
+.ontology24-homework{background:linear-gradient(135deg,rgba(163,123,36,.08),rgba(112,72,64,.05));padding-left:clamp(1rem,3vw,2rem)!important;padding-right:clamp(1rem,3vw,2rem)!important}
+.ontology24-books{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1.5rem 0}.ontology24-books article{display:flex;gap:1rem;padding:1.3rem;border:1px solid rgba(112,72,64,.18);background:rgba(255,250,242,.5)}.ontology24-books article>span{font-family:Georgia,serif;font-size:1.5rem;color:#a37b24}.ontology24-books b,.ontology24-books small{display:block}.ontology24-books b{font-family:Georgia,serif;font-size:1.1rem}.ontology24-task-note{opacity:.7}
+@media(max-width:900px){.ontology24-layout{grid-template-columns:1fr}.ontology24-index{position:relative;max-height:none;border-right:0;border-bottom:1px solid rgba(80,60,45,.16)}.ontology24-points{grid-template-columns:1fr}}
+@media(max-width:620px){.ontology24-dual,.ontology24-triad,.ontology24-books{grid-template-columns:1fr}.ontology24-schema>div{gap:1rem;flex-direction:column}}
+
+
+/* ONTOLOGIA II · 24 AGOSTO · VERSION EXTENSA */
+.ontology24-long-points {
+  display: grid;
+  gap: 1.35rem;
+  margin-top: 2rem;
+}
+
+.ontology24-long-point {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  gap: 1.25rem;
+  padding: 1.6rem 1.7rem;
+  border: 1px solid rgba(80,60,45,.14);
+  background: rgba(255,250,242,.42);
+}
+
+.ontology24-long-point-number {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.7rem;
+  line-height: 1;
+  color: #a37b24;
+}
+
+.ontology24-long-point h3 {
+  margin: 0 0 .8rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+}
+
+.ontology24-long-point p {
+  margin: 0 0 .85rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  line-height: 1.72;
+}
+
+.ontology24-long-point p:last-child {
+  margin-bottom: 0;
+}
+
+.ontology24-mini-chain {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .55rem;
+  margin: 1rem 0;
+  padding: .9rem 1rem;
+  border: 1px solid rgba(112,72,64,.14);
+  background: rgba(163,123,36,.055);
+  font-size: .75rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.ontology24-mini-chain b {
+  color: #a37b24;
+}
+
+.ontology24-homework-lead {
+  max-width: 60rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+.ontology24-books article p {
+  margin: .55rem 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: .9rem;
+  line-height: 1.55;
+  opacity: .82;
+}
+
+@media (max-width: 700px) {
+  .ontology24-long-point {
+    grid-template-columns: 1fr;
+  }
+}

@@ -165,6 +165,23 @@ export const tasks = [
     sourceRoute:
       '/semestre/5/filosofia-analitica/clase/19-agosto',
   },
+  {
+    id: 'ontologia-2026-08-24-leibniz',
+    subject: 'Ontología II',
+    subjectCode: 'FI190',
+    assignedDate: '2026-08-24',
+    dueDate: '2026-08-26',
+    title: 'Estudiar a Leibniz',
+    type: 'Lectura / estudio',
+    weight: null,
+    description:
+      'Estudiar a Gottfried Wilhelm Leibniz para la próxima clase, el 26 de agosto de 2026. La clase señaló como textos el Discurso de metafísica y la Monadología. No quedó fijado un número de páginas específico.',
+    readingScope: 'Introducción al pensamiento de Leibniz',
+    readingPages: 'Sin páginas específicas indicadas en clase',
+    readingEdition: 'G. W. Leibniz · Discurso de metafísica / Monadología',
+    sourceClass: 'Clase del 24 de agosto',
+    sourceRoute: '/semestre/5/ontologia-ii/clase/24-agosto',
+  },
 ]
 
 export default tasks
