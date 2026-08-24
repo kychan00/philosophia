@@ -2871,6 +2871,9 @@ export default function SpinozaScene3D() {
                         <b>{node.data.code}</b>
                         <strong>{node.data.title}</strong>
                         <small>{node.data.kind}</small>
+                        <p className="sf3d-study-definition">
+                          {node.data.short}
+                        </p>
                       </button>
                     )
                   })}
@@ -2900,6 +2903,19 @@ export default function SpinozaScene3D() {
                         ? ' La línea verde revela la relación directa.'
                         : ''}
                     </p>
+
+                    {spinozaNodeById(studyQuestion.correctId)?.data.short && (
+                      <div className="sf3d-study-definition-reveal">
+                        <span>
+                          {proofKindLabel(
+                            spinozaNodeById(studyQuestion.correctId),
+                          ).toUpperCase()}
+                        </span>
+                        <p>
+                          {spinozaNodeById(studyQuestion.correctId)?.data.short}
+                        </p>
+                      </div>
+                    )}
                   </div>
                 ) : (
                   <div className="sf3d-study-hint">
@@ -3603,7 +3619,33 @@ export default function SpinozaScene3D() {
 
       </section>
 
-      {studyActive ? null : isFullscreen && inspectorMinimized ? (
+      {studyActive ? (
+          <aside
+            className={`sf3d-study-definition-only ${
+              isFullscreen ? 'sf3d-study-definition-only--floating' : ''
+            }`}
+          >
+            <p className="sf3d-inspector-kicker">
+              DEFINITIO · SPHAERA SELECTA
+            </p>
+
+            <span className="sf3d-code">
+              {proofSelected?.data.code}
+            </span>
+
+            <h2>
+              {proofSelected?.data.title}
+            </h2>
+
+            <p className="sf3d-kind">
+              {proofKindLabel(proofSelected)}
+            </p>
+
+            <p className="sf3d-description">
+              {proofSelected?.data.short}
+            </p>
+          </aside>
+        ) : isFullscreen && inspectorMinimized ? (
           <button
             type="button"
             className="sf3d-inspector-minibar"
