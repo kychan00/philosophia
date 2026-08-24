@@ -18466,3 +18466,36 @@ a {
 }
 /* ===== FIGURAS SPINOZA PHASE 12B STUDIUM RANDOM END ===== */
 
+
+
+/* ROUTE LAZY LOADING · PHILOSOPHIA */
+.route-loading {
+  min-height: 45vh;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0.7rem;
+  padding: 4rem 1.5rem;
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.78;
+}
+
+.route-loading-mark {
+  display: block;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1;
+  animation: philosophia-route-pulse 1.35s ease-in-out infinite alternate;
+}
+
+@keyframes philosophia-route-pulse {
+  from {
+    transform: scale(0.96);
+    opacity: 0.48;
+  }
+  to {
+    transform: scale(1.04);
+    opacity: 0.95;
+  }
+}

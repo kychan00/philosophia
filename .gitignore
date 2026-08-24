@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local patch/rollback backups
+*.bak-*
+*.before-*

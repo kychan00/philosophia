@@ -1,3 +1,5 @@
+import { lazy, Suspense } from 'react'
+
 import {
   HashRouter,
   Navigate,
@@ -5,36 +7,45 @@ import {
   Routes,
 } from 'react-router'
 
-import Home from './pages/Home'
-import FifthSemester from './pages/FifthSemester'
-import OntologiaII from './pages/OntologiaII'
-import OntologiaClass17Aug from './pages/OntologiaClass17Aug'
-import OntologiaClass19Aug from './pages/OntologiaClass19Aug'
-import MethodsResearch from './pages/MethodsResearch'
-import MethodsClass17Aug from './pages/MethodsClass17Aug'
-import MethodsClass19Aug from './pages/MethodsClass19Aug'
-import AnalyticPhilosophy from './pages/AnalyticPhilosophy'
-import AnalyticClass17Aug from './pages/AnalyticClass17Aug'
-import AnalyticClass19Aug from './pages/AnalyticClass19Aug'
-import CriticalTheory from './pages/CriticalTheory'
-import CriticalTheoryTask1 from './pages/CriticalTheoryTask1'
-import CriticalTheoryClass18Aug from './pages/CriticalTheoryClass18Aug'
-import CriticalTheoryClass20Aug from './pages/CriticalTheoryClass20Aug'
-import EthicsClassics from './pages/EthicsClassics'
-import EthicsClass18Aug from './pages/EthicsClass18Aug'
-import EthicsClass20Aug from './pages/EthicsClass20Aug'
-import TasksBoard from './pages/TasksBoard'
-import SpinozaEthicsStudy from './pages/SpinozaEthicsStudy'
-import SpinozaFigures from './pages/SpinozaFigures'
-import SpinozaFigures3D from './pages/SpinozaFigures3D'
 import ScrollToTop from './components/ScrollToTop'
+
+const Home = lazy(() => import('./pages/Home'))
+const FifthSemester = lazy(() => import('./pages/FifthSemester'))
+const OntologiaII = lazy(() => import('./pages/OntologiaII'))
+const OntologiaClass17Aug = lazy(() => import('./pages/OntologiaClass17Aug'))
+const OntologiaClass19Aug = lazy(() => import('./pages/OntologiaClass19Aug'))
+const MethodsResearch = lazy(() => import('./pages/MethodsResearch'))
+const MethodsClass17Aug = lazy(() => import('./pages/MethodsClass17Aug'))
+const MethodsClass19Aug = lazy(() => import('./pages/MethodsClass19Aug'))
+const AnalyticPhilosophy = lazy(() => import('./pages/AnalyticPhilosophy'))
+const AnalyticClass17Aug = lazy(() => import('./pages/AnalyticClass17Aug'))
+const AnalyticClass19Aug = lazy(() => import('./pages/AnalyticClass19Aug'))
+const CriticalTheory = lazy(() => import('./pages/CriticalTheory'))
+const CriticalTheoryTask1 = lazy(() => import('./pages/CriticalTheoryTask1'))
+const CriticalTheoryClass18Aug = lazy(() => import('./pages/CriticalTheoryClass18Aug'))
+const CriticalTheoryClass20Aug = lazy(() => import('./pages/CriticalTheoryClass20Aug'))
+const EthicsClassics = lazy(() => import('./pages/EthicsClassics'))
+const EthicsClass18Aug = lazy(() => import('./pages/EthicsClass18Aug'))
+const EthicsClass20Aug = lazy(() => import('./pages/EthicsClass20Aug'))
+const TasksBoard = lazy(() => import('./pages/TasksBoard'))
+const SpinozaEthicsStudy = lazy(() => import('./pages/SpinozaEthicsStudy'))
+const SpinozaFigures = lazy(() => import('./pages/SpinozaFigures'))
+const SpinozaFigures3D = lazy(() => import('./pages/SpinozaFigures3D'))
 
 function App() {
   return (
     <HashRouter>
       <ScrollToTop />
 
-      <Routes>
+      <Suspense
+        fallback={
+          <div className="route-loading" role="status" aria-live="polite">
+            <span className="route-loading-mark">Φ</span>
+            <span>Cargando Philosophia…</span>
+          </div>
+        }
+      >
+        <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/semestre/5" element={<FifthSemester />} />
         <Route
@@ -118,7 +129,8 @@ function App() {
           element={<SpinozaFigures3D />}
         />
         <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
+        </Routes>
+      </Suspense>
     </HashRouter>
   )
 }
