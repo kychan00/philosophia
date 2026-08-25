@@ -167,21 +167,28 @@ export const tasks = [
   },
   {
     id: 'ontologia-2026-08-24-leibniz',
-    subject: 'Ontología II',
+    subject: 'Ontologia II',
     subjectCode: 'FI190',
     assignedDate: '2026-08-24',
     dueDate: '2026-08-26',
-    title: 'Estudiar a Leibniz',
+    title: 'Leibniz - Discurso de metafisica + Monadologia',
     type: 'Lectura / estudio',
     weight: null,
     description:
-      'Estudiar a Gottfried Wilhelm Leibniz para la próxima clase, el 26 de agosto de 2026. La clase señaló como textos el Discurso de metafísica y la Monadología. No quedó fijado un número de páginas específico.',
-    readingScope: 'Introducción al pensamiento de Leibniz',
-    readingPages: 'Sin páginas específicas indicadas en clase',
-    readingEdition: 'G. W. Leibniz · Discurso de metafísica / Monadología',
+      'Estudiar a Gottfried Wilhelm Leibniz para la clase del 26 de agosto. La clase indico Discurso de metafisica y Monadologia; el plan personal de estudio propone leer completas ambas obras en los rangos indicados.',
+    readingScope:
+      'Discurso de metafisica, secs.1-37, seguido de Monadologia, secs.1-90',
+    readingPages:
+      'Plan de estudio: Discurso PDF pp. 27-51; Monadologia PDF pp. 570-588',
+    readingEdition:
+      'Discurso: Alianza Editorial, traduccion y notas de Julian Marias. Monadologia: Escritos filosoficos, ed. Ezequiel de Olaso / Antonio Machado Libros.',
+    readingFullPart:
+      'Discurso: la obra comienza en PDF p. 27 con sec.1 y termina en p. 51 con sec.37; desde p. 52 comienzan las notas de Julian Marias. Monadologia: PDF pp. 570-588, secs.1-90.',
     sourceClass: 'Clase del 24 de agosto',
     sourceRoute: '/semestre/5/ontologia-ii/clase/24-agosto',
+    studyRoute: '/tareas/ontologia-ii/leibniz-discurso-monadologia',
   },
+
 ]
 
 export default tasks

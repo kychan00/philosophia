@@ -32,6 +32,9 @@ const EthicsClass18Aug = lazy(() => import('./pages/EthicsClass18Aug'))
 const EthicsClass20Aug = lazy(() => import('./pages/EthicsClass20Aug'))
 const TasksBoard = lazy(() => import('./pages/TasksBoard'))
 const SpinozaEthicsStudy = lazy(() => import('./pages/SpinozaEthicsStudy'))
+const LeibnizStudy = lazy(() => import('./pages/LeibnizStudy'))
+const LeibnizTaskHub = lazy(() => import('./pages/LeibnizTaskHub'))
+const LeibnizMaps = lazy(() => import('./pages/LeibnizMaps'))
 const SpinozaFigures = lazy(() => import('./pages/SpinozaFigures'))
 const SpinozaFigures3D = lazy(() => import('./pages/SpinozaFigures3D'))
 
@@ -134,6 +137,18 @@ function App() {
         <Route
           path="/tareas/ontologia-ii/spinoza-etica-parte-i"
           element={<SpinozaEthicsStudy />}
+        />
+        <Route
+          path="/tareas/ontologia-ii/leibniz-discurso-monadologia"
+          element={<LeibnizTaskHub />}
+        />
+        <Route
+          path="/tareas/ontologia-ii/leibniz-discurso-monadologia/mapas"
+          element={<LeibnizMaps />}
+        />
+        <Route
+          path="/tareas/ontologia-ii/leibniz-discurso-monadologia/studium"
+          element={<LeibnizStudy />}
         />
         <Route
           path="/tareas/ontologia-ii/spinoza-etica-parte-i/figuras"
