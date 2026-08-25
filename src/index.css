@@ -19323,3 +19323,514 @@ a {
 .leibniz-maps-completion p,.leibniz-studium-completion-note p{max-width:68rem;font-family:Georgia,serif;line-height:1.55}
 .leibniz-maps-completion a,.leibniz-studium-completion-note a{color:#654b27}
 @media(max-width:760px){.leibniz-polish-books,.leibniz-polish-tools{grid-template-columns:1fr}}
+
+
+/* FRANKFURT PHASE 1 · TASK ARCHITECTURE */
+.frankfurt-hub-page{min-height:100vh;background:#e8e0d4;color:#211d1b}
+.frankfurt-hub-nav{position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 2rem;border-bottom:1px solid rgba(44,35,31,.18);background:rgba(232,224,212,.95);backdrop-filter:blur(12px);font-size:.68rem;letter-spacing:.09em;text-transform:uppercase}
+.frankfurt-hub-nav a{text-decoration:none;color:inherit}.frankfurt-hub-brand{font-family:Georgia,serif}
+.frankfurt-hub-hero{position:relative;overflow:hidden;padding:6rem clamp(1.3rem,7vw,8rem) 4.5rem;background:linear-gradient(135deg,#211b1b 0%,#312326 52%,#4c2429 100%);color:#eee6db}
+.frankfurt-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(to bottom,black,transparent 85%);pointer-events:none}
+.frankfurt-hub-kicker{position:relative;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:#cbbdaf}
+.frankfurt-hub-hero h1{position:relative;max-width:75rem;margin:1rem 0;font-family:Georgia,serif;font-size:clamp(3.5rem,7vw,7.2rem);font-weight:400;line-height:.9}
+.frankfurt-hub-hero h1 em{display:block;margin-top:.65rem;font-size:.34em;font-weight:400;color:#cdb7ad}
+.frankfurt-hub-lead{position:relative;max-width:68rem;font-family:Georgia,serif;font-size:1.05rem;line-height:1.72;color:#dfd5ca}
+.frankfurt-hub-hero blockquote{position:relative;max-width:67rem;margin:1.8rem 0 0;padding:1.1rem 1.2rem;border-left:4px solid #9b4a52;background:rgba(255,255,255,.045);font-family:Georgia,serif;font-size:1.13rem;line-height:1.62}
+.frankfurt-hub-actions{position:relative;display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.4rem}.frankfurt-hub-actions span{padding:.65rem .8rem;border:1px solid rgba(238,230,219,.24);font-size:.63rem;letter-spacing:.08em;text-transform:uppercase}.frankfurt-hub-actions span.primary{background:#8c3f47;border-color:#8c3f47}
+.frankfurt-hub-section{max-width:92rem;margin:auto;padding:4rem 1rem}
+.frankfurt-hub-heading{display:grid;grid-template-columns:4rem 1fr;gap:1rem;align-items:start}.frankfurt-hub-heading>span{font-family:Georgia,serif;font-size:2.7rem;color:rgba(92,47,52,.32)}.frankfurt-hub-heading p{margin:0;font-size:.59rem;letter-spacing:.14em;text-transform:uppercase;color:#813b44}.frankfurt-hub-heading h2{margin:.25rem 0;font-family:Georgia,serif;font-size:clamp(2rem,4vw,3.3rem);font-weight:400}
+.frankfurt-pillars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.75rem;margin-top:1.3rem}.frankfurt-pillars article{padding:1rem;border:1px solid rgba(44,35,31,.16);background:rgba(247,241,232,.5)}.frankfurt-pillars article>span{font-family:Georgia,serif;font-size:1.6rem;color:#8a3d46}.frankfurt-pillars small{display:block;margin-top:.45rem;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:#6c5b54}.frankfurt-pillars h3{margin:.45rem 0;font-family:Georgia,serif;font-size:1.4rem;font-weight:500}.frankfurt-pillars p{font-family:Georgia,serif;line-height:1.55}.frankfurt-pillars article>div{padding-top:.65rem;border-top:1px solid rgba(44,35,31,.1);font-size:.68rem;color:#72373f}
+.frankfurt-matrix{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1.1fr);gap:.6rem;align-items:stretch;margin-top:1.2rem}.frankfurt-matrix article{display:grid;align-content:start;gap:.35rem;padding:1rem;border:1px solid rgba(44,35,31,.15);background:rgba(247,241,232,.46)}.frankfurt-matrix article.result{border-color:#8a3d46;background:rgba(138,61,70,.07)}.frankfurt-matrix article span{font-size:.57rem;letter-spacing:.12em;color:#813b44}.frankfurt-matrix article strong{font-family:Georgia,serif;font-weight:500}.frankfurt-matrix article p{margin:.25rem 0 0;font-family:Georgia,serif;line-height:1.5}.frankfurt-matrix>b{display:grid;place-items:center;color:#8a3d46}
+.frankfurt-history{display:flex;align-items:stretch;gap:.45rem;overflow-x:auto;margin-top:1.2rem;padding-bottom:.4rem}.frankfurt-history>div{display:grid;gap:.3rem;min-width:10rem;padding:.85rem;border:1px solid rgba(44,35,31,.14);background:rgba(247,241,232,.48)}.frankfurt-history span{font-size:.56rem;letter-spacing:.1em;color:#813b44}.frankfurt-history strong{font-family:Georgia,serif;font-size:.88rem;font-weight:500}.frankfurt-history>b{display:grid;place-items:center;color:#8a3d46}.frankfurt-history-note{max-width:72rem;margin:1rem 0 0;font-family:Georgia,serif;line-height:1.62}
+.frankfurt-route{display:grid;gap:.35rem;margin-top:1.2rem}.frankfurt-route article{display:grid;grid-template-columns:3rem minmax(0,1fr);gap:.8rem;position:relative;padding:.8rem 1rem;border:1px solid rgba(44,35,31,.13);background:rgba(247,241,232,.42)}.frankfurt-route article>span{font-family:Georgia,serif;font-size:1.3rem;color:#8a3d46}.frankfurt-route h3{margin:0;font-family:Georgia,serif;font-size:1.05rem;font-weight:500}.frankfurt-route p{margin:.15rem 0 0;font-size:.67rem;color:#6c5b54}.frankfurt-route article>b{position:absolute;left:1.85rem;bottom:-.65rem;z-index:2;color:#8a3d46}
+.frankfurt-rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin-top:1.2rem}.frankfurt-rules blockquote{margin:0;padding:1rem 1.1rem;border-left:4px solid #8a3d46;background:rgba(138,61,70,.06);font-family:Georgia,serif;line-height:1.58}.frankfurt-rules strong{display:block;margin-bottom:.35rem}
+@media(max-width:1050px){.frankfurt-pillars{grid-template-columns:repeat(2,minmax(0,1fr))}.frankfurt-matrix{grid-template-columns:1fr}.frankfurt-matrix>b{transform:rotate(90deg)}}
+@media(max-width:700px){.frankfurt-pillars,.frankfurt-rules{grid-template-columns:1fr}.frankfurt-hub-heading{grid-template-columns:1fr}.frankfurt-hub-nav{padding:1rem}.frankfurt-hub-nav span{display:none}}
+
+/* FRANKFURT PHASE 2 · MAP I */
+.frankfurt-maps-page{min-height:100vh;background:#e8e0d4;color:#211d1b}
+.frankfurt-maps-nav{position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 2rem;border-bottom:1px solid rgba(44,35,31,.18);background:rgba(232,224,212,.96);backdrop-filter:blur(12px);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase}.frankfurt-maps-nav a{text-decoration:none;color:inherit}.frankfurt-maps-brand{font-family:Georgia,serif}
+.frankfurt-maps-hero{padding:4.5rem clamp(1.2rem,6vw,7rem) 3.2rem;background:linear-gradient(135deg,#201b1b,#3b2428);color:#eee5db}.frankfurt-maps-hero>p{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:#cbb9b5}.frankfurt-maps-hero h1{margin:.7rem 0;font-family:Georgia,serif;font-size:clamp(3rem,6.5vw,6.4rem);font-weight:400;line-height:.9}.frankfurt-maps-hero h1 em{display:block;font-size:.5em;font-weight:400;color:#c59ea2}.frankfurt-maps-hero blockquote{max-width:64rem;margin:1.3rem 0 0;padding-left:1rem;border-left:3px solid #9b4a52;font-family:Georgia,serif;font-size:1.05rem;line-height:1.6}
+.frankfurt-map-main{max-width:100rem;margin:auto;padding:2.5rem 1rem 5rem}.frankfurt-map-title{display:grid;grid-template-columns:4rem 1fr;gap:1rem}.frankfurt-map-title>span{font-family:Georgia,serif;font-size:3rem;color:rgba(131,59,68,.35)}.frankfurt-map-title p{margin:0;font-size:.58rem;letter-spacing:.11em;text-transform:uppercase;color:#823b44}.frankfurt-map-title h2{margin:.25rem 0;font-family:Georgia,serif;font-size:clamp(2rem,4vw,3.3rem);font-weight:400}.frankfurt-map-thesis{max-width:72rem;font-family:Georgia,serif;line-height:1.62}
+.frankfurt-guide{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1rem;align-items:center;margin:1.2rem 0;padding:1rem;border:1px solid rgba(44,35,31,.14);background:rgba(247,241,232,.46)}.frankfurt-guide span{font-size:.56rem;letter-spacing:.11em;text-transform:uppercase;color:#823b44}.frankfurt-guide strong{display:block;margin:.25rem 0;font-family:Georgia,serif;font-weight:500}.frankfurt-guide p{margin:.2rem 0 0;font-family:Georgia,serif}.frankfurt-guide-controls{display:flex;align-items:center;gap:.5rem}.frankfurt-guide-controls>div{display:flex;gap:.28rem}.frankfurt-guide-controls button{padding:.5rem .6rem;border:1px solid rgba(44,35,31,.14);background:transparent;color:inherit;cursor:pointer}.frankfurt-guide-controls>div button{width:1.9rem;height:1.9rem;padding:0;border-radius:50%}.frankfurt-guide-controls button.active{background:#823b44;color:#fff;border-color:#823b44}.frankfurt-guide-controls button:disabled{opacity:.3}
+.frankfurt-workspace{display:grid;grid-template-columns:minmax(0,1fr) 22rem;gap:1rem}.frankfurt-canvas-shell{min-width:0;border:1px solid rgba(44,35,31,.14);background:rgba(247,241,232,.35)}.frankfurt-canvas-tools{display:flex;justify-content:space-between;gap:.7rem;padding:.65rem .8rem;border-bottom:1px solid rgba(44,35,31,.12);font-size:.61rem;color:#665650}.frankfurt-canvas-tools button{border:0;background:transparent;color:#71353d;cursor:pointer}.frankfurt-canvas{height:620px}.frankfurt-node-label{display:grid;gap:.3rem;padding:.8rem .9rem}.frankfurt-node-label span{font-size:.53rem;letter-spacing:.11em;color:#823b44}.frankfurt-node-label strong{font-family:Georgia,serif;font-size:.92rem;font-weight:500}.frankfurt-node-selected{outline:2px solid #823b44;outline-offset:2px}.frankfurt-edge-selected path{stroke-width:2.6!important}
+.frankfurt-node-detail{padding:1rem;border:1px solid rgba(44,35,31,.14);background:#f4ede3}.frankfurt-node-detail>p:first-child{margin:0;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:#823b44}.frankfurt-node-detail h3{margin:.4rem 0 .2rem;font-family:Georgia,serif;font-size:1.65rem;font-weight:400}.frankfurt-node-detail>span{font-size:.6rem;color:#823b44}.frankfurt-node-detail p.body{font-family:Georgia,serif;line-height:1.58}.frankfurt-node-detail>div{margin-top:.7rem;padding:.65rem;border-top:1px solid rgba(44,35,31,.1)}.frankfurt-node-detail small{display:block;font-size:.54rem;letter-spacing:.1em;color:#823b44}.frankfurt-node-detail strong{font-family:Georgia,serif;font-size:.82rem;font-weight:500}.frankfurt-node-detail section{display:grid;gap:.35rem;margin-top:.8rem}.frankfurt-node-detail section button{display:grid;gap:.18rem;padding:.55rem;border:1px solid rgba(44,35,31,.1);background:transparent;text-align:left;color:inherit;cursor:pointer}.frankfurt-node-detail section button span{font-size:.54rem;color:#823b44}.frankfurt-node-question{background:rgba(130,59,68,.05)}.frankfurt-return-node{margin-top:.8rem;padding:.55rem .65rem;border:1px solid rgba(44,35,31,.14);background:transparent;color:inherit;cursor:pointer}
+.frankfurt-critical-logic{margin-top:1rem;padding:1.1rem;border:1px solid rgba(44,35,31,.14);background:rgba(247,241,232,.46)}.frankfurt-critical-logic-head>span{font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:#823b44}.frankfurt-critical-logic-head h3{margin:.3rem 0;font-family:Georgia,serif;font-size:1.5rem;font-weight:400}.frankfurt-critical-columns{display:grid;grid-template-columns:1fr auto 1fr;gap:.8rem;align-items:center;margin-top:1rem}.frankfurt-critical-columns>div{display:grid;gap:.35rem;padding:1rem;border-top:3px solid #823b44;background:rgba(255,252,247,.36)}.frankfurt-critical-columns button{padding:.55rem;border:1px solid rgba(44,35,31,.11);background:transparent;color:inherit;text-align:left;cursor:pointer;font-family:Georgia,serif}.frankfurt-critical-columns>strong{font-family:Georgia,serif;font-size:1.6rem;color:#8a3d46}.frankfurt-critical-question{margin-top:1rem;padding:1rem;border-left:3px solid #823b44;background:rgba(130,59,68,.05)}
+@media(max-width:950px){.frankfurt-workspace,.frankfurt-guide,.frankfurt-critical-columns{grid-template-columns:1fr}.frankfurt-critical-columns>strong{transform:rotate(90deg);justify-self:center}}
+@media(max-width:700px){.frankfurt-maps-nav{padding:1rem}.frankfurt-maps-nav span{display:none}.frankfurt-map-title{grid-template-columns:1fr}.frankfurt-canvas{height:560px}.frankfurt-guide-controls{flex-wrap:wrap}}
+
+
+/* FRANKFURT PHASE 3 · MAP II NEGATIVE DIALECTICS */
+.frankfurt-map-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem;max-width:100rem;margin:1rem auto 0;padding:0 1rem}
+.frankfurt-map-tabs button{display:grid;grid-template-columns:2.5rem minmax(0,1fr);gap:.15rem .7rem;padding:.85rem;border:1px solid rgba(44,35,31,.14);background:rgba(247,241,232,.42);text-align:left;color:inherit;cursor:pointer}
+.frankfurt-map-tabs button.active{border-color:#823b44;background:rgba(130,59,68,.075)}
+.frankfurt-map-tabs button>span{grid-row:1/3;font-family:Georgia,serif;font-size:1.6rem;color:#823b44}
+.frankfurt-map-tabs button>strong{font-family:Georgia,serif;font-weight:500}
+.frankfurt-map-tabs button>small{font-size:.61rem;color:#6b5a54}
+.frankfurt-negative-logic{margin-top:1rem;padding:1.1rem;border:1px solid rgba(44,35,31,.14);background:rgba(247,241,232,.48)}
+.frankfurt-negative-head>span{font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:#823b44}
+.frankfurt-negative-head h3{margin:.3rem 0;font-family:Georgia,serif;font-size:1.55rem;font-weight:400}
+.frankfurt-negative-head p{max-width:68rem;font-family:Georgia,serif;line-height:1.55}
+.frankfurt-negative-columns{display:grid;grid-template-columns:1fr auto 1fr;gap:.8rem;align-items:center;margin-top:1rem}
+.frankfurt-negative-columns>div{display:grid;gap:.35rem;padding:1rem;background:rgba(255,252,247,.35)}
+.frankfurt-negative-columns>div.closed{border-top:3px solid #5e5752}
+.frankfurt-negative-columns>div.negative{border-top:3px solid #823b44}
+.frankfurt-negative-columns span{font-size:.56rem;letter-spacing:.11em;color:#823b44}
+.frankfurt-negative-columns button{padding:.58rem;border:1px solid rgba(44,35,31,.11);background:transparent;color:inherit;text-align:left;cursor:pointer;font-family:Georgia,serif}
+.frankfurt-negative-columns b{color:#8a3d46}
+.frankfurt-negative-columns>strong{font-family:Georgia,serif;font-size:1.7rem;color:#8a3d46}
+.frankfurt-negative-formula{margin-top:1rem;padding:1rem;border-left:4px solid #823b44;background:rgba(130,59,68,.055)}
+.frankfurt-negative-formula span{display:block;font-size:.56rem;letter-spacing:.11em;text-transform:uppercase;color:#823b44}
+.frankfurt-negative-formula strong{display:block;margin:.35rem 0;font-family:Georgia,serif;font-size:1.15rem;font-weight:500}
+.frankfurt-negative-formula p{margin:.3rem 0 0;font-family:Georgia,serif;line-height:1.55}
+@media(max-width:800px){.frankfurt-map-tabs{grid-template-columns:1fr}.frankfurt-negative-columns{grid-template-columns:1fr}.frankfurt-negative-columns>strong{transform:rotate(90deg);justify-self:center}}
+
+
+/* FRANKFURT PHASE 4 · MAP III DIALECTIC OF ENLIGHTENMENT */
+.frankfurt-map-tabs{grid-template-columns:repeat(3,minmax(0,1fr))}
+.frankfurt-enlightenment-panel{margin-top:1rem;padding:1.1rem;border:1px solid rgba(44,35,31,.14);background:rgba(247,241,232,.48)}
+.frankfurt-enlightenment-head>span{font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:#823b44}
+.frankfurt-enlightenment-head h3{margin:.3rem 0;font-family:Georgia,serif;font-size:1.55rem;font-weight:400}
+.frankfurt-enlightenment-head p{max-width:72rem;font-family:Georgia,serif;line-height:1.58}
+.frankfurt-enlightenment-core{display:grid;grid-template-columns:1fr auto 1fr;gap:.8rem;align-items:center;margin-top:1rem}
+.frankfurt-enlightenment-core>div{display:grid;gap:.35rem;padding:1rem;border-top:3px solid #823b44;background:rgba(255,252,247,.35)}
+.frankfurt-enlightenment-core span,.frankfurt-progress-paradox span,.frankfurt-culture-chain>span{font-size:.56rem;letter-spacing:.11em;color:#823b44}
+.frankfurt-enlightenment-core button,.frankfurt-culture-chain button{padding:.58rem;border:1px solid rgba(44,35,31,.11);background:transparent;color:inherit;text-align:left;cursor:pointer;font-family:Georgia,serif}
+.frankfurt-enlightenment-core b,.frankfurt-culture-chain b{color:#8a3d46}
+.frankfurt-enlightenment-core>strong{font-family:Georgia,serif;font-size:2rem;color:#8a3d46}
+.frankfurt-progress-paradox{display:grid;grid-template-columns:1fr auto 1fr;gap:.7rem;align-items:stretch;margin-top:1rem}
+.frankfurt-progress-paradox article{display:grid;gap:.4rem;padding:1rem;border:1px solid rgba(44,35,31,.13);background:rgba(255,252,247,.32)}
+.frankfurt-progress-paradox article strong{font-family:Georgia,serif;font-weight:500}
+.frankfurt-progress-paradox article button{justify-self:start;padding:.5rem .6rem;border:1px solid rgba(44,35,31,.12);background:transparent;color:inherit;cursor:pointer}
+.frankfurt-progress-paradox>b{display:grid;place-items:center;max-width:7rem;text-align:center;font-size:.57rem;letter-spacing:.08em;color:#823b44}
+.frankfurt-culture-chain{margin-top:1rem;padding:1rem;border-left:4px solid #823b44;background:rgba(130,59,68,.05)}
+.frankfurt-culture-chain>div{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin-top:.55rem}
+@media(max-width:1000px){.frankfurt-map-tabs{grid-template-columns:1fr}.frankfurt-enlightenment-core,.frankfurt-progress-paradox{grid-template-columns:1fr}.frankfurt-enlightenment-core>strong,.frankfurt-progress-paradox>b{transform:rotate(90deg);justify-self:center}}
+
+
+/* FRANKFURT RECOVERY · PHASES IV-V-VI */
+.frankfurt-map-tabs{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))!important}
+.frankfurt-late-panel{margin-top:1rem;padding:1.1rem;border:1px solid rgba(44,35,31,.14);background:rgba(247,241,232,.48)}
+.frankfurt-late-head>span{font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:#823b44}
+.frankfurt-late-head h3{margin:.3rem 0;font-family:Georgia,serif;font-size:1.55rem;font-weight:400}
+.frankfurt-late-head p{max-width:72rem;font-family:Georgia,serif;line-height:1.56}
+.frankfurt-late-contrast{display:grid;grid-template-columns:1fr auto 1fr;gap:.75rem;align-items:stretch;margin-top:1rem}
+.frankfurt-late-contrast button,.frankfurt-late-chain button,.frankfurt-late-closing{border:1px solid rgba(44,35,31,.13);background:rgba(255,252,247,.34);color:inherit;cursor:pointer}
+.frankfurt-late-contrast button{display:grid;gap:.3rem;padding:1rem;text-align:left;border-top:3px solid #823b44}
+.frankfurt-late-contrast button span,.frankfurt-late-closing span{font-size:.56rem;letter-spacing:.11em;color:#823b44}
+.frankfurt-late-contrast button strong,.frankfurt-late-closing strong{font-family:Georgia,serif;font-weight:500}
+.frankfurt-late-contrast>b{display:grid;place-items:center;font-family:Georgia,serif;font-size:1.6rem;color:#823b44}
+.frankfurt-late-chain{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;margin-top:1rem;padding:1rem;border-left:4px solid #823b44;background:rgba(130,59,68,.05)}
+.frankfurt-late-chain>div{display:flex;align-items:center;gap:.35rem}
+.frankfurt-late-chain button{padding:.5rem .6rem}
+.frankfurt-late-chain b{color:#823b44}
+.frankfurt-late-closing{display:grid;gap:.25rem;width:100%;margin-top:1rem;padding:1rem;text-align:left}
+@media(max-width:760px){.frankfurt-late-contrast{grid-template-columns:1fr}.frankfurt-late-contrast>b{transform:rotate(90deg)}}
+
+
+/* FRANKFURT PHASE 8 · TRANSVERSAL SYSTEM */
+.frankfurt-system-page{min-height:100vh;background:#e8e0d4;color:#211d1b}
+.frankfurt-system-nav{position:sticky;top:0;z-index:45;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 2rem;border-bottom:1px solid rgba(44,35,31,.18);background:rgba(232,224,212,.96);backdrop-filter:blur(12px);font-size:.64rem;letter-spacing:.09em;text-transform:uppercase}.frankfurt-system-nav a{text-decoration:none;color:inherit}.frankfurt-system-brand{font-family:Georgia,serif}
+.frankfurt-system-hero{padding:4.6rem clamp(1.2rem,6vw,7rem) 3.5rem;background:linear-gradient(135deg,#1d1919,#3b2328 70%,#4d252a);color:#eee5db}.frankfurt-system-hero>p{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:#cfb9b8}.frankfurt-system-hero h1{margin:.7rem 0;font-family:Georgia,serif;font-size:clamp(3.3rem,7vw,7rem);font-weight:400;line-height:.9}.frankfurt-system-hero h1 em{display:block;font-size:.48em;font-weight:400;color:#c99fa5}.frankfurt-system-hero blockquote{max-width:70rem;margin:1.3rem 0 0;padding-left:1rem;border-left:3px solid #9b4a52;font-family:Georgia,serif;font-size:1.05rem;line-height:1.6}
+.frankfurt-system-intro{max-width:100rem;margin:auto;padding:2.5rem 1rem 1rem}.frankfurt-system-intro>span,.frankfurt-system-spine>div:first-child>span,.frankfurt-system-final>span{font-size:.57rem;letter-spacing:.12em;text-transform:uppercase;color:#823b44}.frankfurt-system-intro h2,.frankfurt-system-spine h2,.frankfurt-system-final h2{max-width:80rem;margin:.4rem 0;font-family:Georgia,serif;font-size:clamp(1.8rem,3.2vw,3rem);font-weight:400}.frankfurt-system-intro p,.frankfurt-system-final p{max-width:74rem;font-family:Georgia,serif;line-height:1.55}
+.frankfurt-system-workspace{display:grid;grid-template-columns:minmax(0,1fr) 22rem;gap:1rem;max-width:100rem;margin:auto;padding:1rem}.frankfurt-system-canvas{height:690px;border:1px solid rgba(44,35,31,.14);background:rgba(247,241,232,.34)}.frankfurt-system-node{display:grid;gap:.28rem;padding:.8rem .9rem;text-align:left}.frankfurt-system-node span{font-size:.51rem;letter-spacing:.08em;color:#823b44}.frankfurt-system-node strong{font-family:Georgia,serif;font-size:.93rem;font-weight:500}.frankfurt-system-node small{font-family:Georgia,serif;font-size:.7rem;line-height:1.35;color:#66534d}.frankfurt-system-selected{outline:2px solid #823b44;outline-offset:2px}.frankfurt-system-edge-selected path{stroke-width:2.8!important}
+.frankfurt-system-detail{padding:1rem;border:1px solid rgba(44,35,31,.14);background:#f4ede3}.frankfurt-system-detail>p:first-child{margin:0;font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:#823b44}.frankfurt-system-detail h3{margin:.4rem 0 .2rem;font-family:Georgia,serif;font-size:1.6rem;font-weight:400}.frankfurt-system-detail>span{font-size:.58rem;color:#823b44}.frankfurt-system-detail p.body{font-family:Georgia,serif;line-height:1.58}.frankfurt-system-detail>button{padding:.55rem .65rem;border:1px solid rgba(44,35,31,.14);background:transparent;color:inherit;cursor:pointer}
+.frankfurt-system-direct{display:grid;gap:.35rem;margin-top:1rem}.frankfurt-system-direct small{font-size:.53rem;letter-spacing:.1em;color:#823b44}.frankfurt-system-direct button{display:grid;gap:.17rem;padding:.55rem;border:1px solid rgba(44,35,31,.1);background:transparent;text-align:left;color:inherit;cursor:pointer}.frankfurt-system-direct button span{font-size:.52rem;color:#823b44}.frankfurt-system-direct button strong{font-family:Georgia,serif;font-weight:500}
+.frankfurt-system-spine{max-width:100rem;margin:1rem auto;padding:1.2rem;border:1px solid rgba(44,35,31,.14);background:rgba(247,241,232,.48)}.frankfurt-system-spine-flow{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin-top:1rem}.frankfurt-system-spine-flow>div{display:flex;align-items:center;gap:.4rem}.frankfurt-system-spine-flow button{padding:.58rem .7rem;border:1px solid rgba(44,35,31,.12);background:transparent;color:inherit;cursor:pointer;font-family:Georgia,serif}.frankfurt-system-spine-flow b{color:#823b44}
+.frankfurt-system-reading{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.7rem;max-width:100rem;margin:1rem auto;padding:0 1rem}.frankfurt-system-reading article{padding:1rem;border-top:3px solid #823b44;background:rgba(247,241,232,.45)}.frankfurt-system-reading span{font-size:.56rem;letter-spacing:.1em;color:#823b44}.frankfurt-system-reading strong{display:block;margin:.35rem 0;font-family:Georgia,serif;font-weight:500}.frankfurt-system-reading p{margin:.2rem 0 0;font-family:Georgia,serif;line-height:1.48}
+.frankfurt-system-final{max-width:100rem;margin:1rem auto 0;padding:3rem 1rem 5rem}
+@media(max-width:1050px){.frankfurt-system-workspace{grid-template-columns:1fr}.frankfurt-system-reading{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.frankfurt-system-nav{padding:1rem}.frankfurt-system-nav span{display:none}.frankfurt-system-canvas{height:600px}.frankfurt-system-reading{grid-template-columns:1fr}}
+
+
+/* FRANKFURT PHASE 9 · STUDIUM */
+.frankfurt-study-page{min-height:100vh;background:#e8e0d4;color:#211d1b}
+.frankfurt-study-nav{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 2rem;border-bottom:1px solid rgba(44,35,31,.18);background:rgba(232,224,212,.96);backdrop-filter:blur(12px);font-size:.64rem;letter-spacing:.09em;text-transform:uppercase}.frankfurt-study-nav a{text-decoration:none;color:inherit}.frankfurt-study-brand{font-family:Georgia,serif}
+.frankfurt-study-hero{padding:4.8rem clamp(1.2rem,6vw,7rem) 3.6rem;background:linear-gradient(135deg,#1d1919,#392228 70%,#4c252a);color:#eee5db}.frankfurt-study-hero>p{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:#ceb6b7}.frankfurt-study-hero h1{margin:.7rem 0;font-family:Georgia,serif;font-size:clamp(3.2rem,7vw,7rem);font-weight:400;line-height:.9}.frankfurt-study-hero h1 em{display:block;font-size:.45em;font-weight:400;color:#c99da3}.frankfurt-study-hero blockquote{max-width:72rem;margin:1.3rem 0 0;padding-left:1rem;border-left:3px solid #9b4a52;font-family:Georgia,serif;font-size:1.05rem;line-height:1.6}
+.frankfurt-study-dashboard{display:grid;grid-template-columns:1fr 1fr auto;gap:.75rem;max-width:100rem;margin:1rem auto;padding:0 1rem}.frankfurt-study-dashboard>div,.frankfurt-study-dashboard>button{padding:1rem;border:1px solid rgba(44,35,31,.14);background:rgba(247,241,232,.48);color:inherit}.frankfurt-study-dashboard span{display:block;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:#823b44}.frankfurt-study-dashboard strong{display:block;margin:.25rem 0;font-family:Georgia,serif;font-size:1.35rem;font-weight:500}.frankfurt-study-dashboard small{font-size:.62rem;color:#66554f}.frankfurt-study-dashboard>button{cursor:pointer;align-self:stretch}.frankfurt-study-progress{height:6px;margin:.5rem 0;background:rgba(44,35,31,.1);overflow:hidden}.frankfurt-study-progress i{display:block;height:100%;background:#823b44}
+.frankfurt-study-layout{display:grid;grid-template-columns:21rem minmax(0,1fr);gap:1rem;max-width:100rem;margin:auto;padding:1rem}.frankfurt-study-modules{display:grid;align-content:start;gap:.35rem}.frankfurt-study-modules>span{margin-bottom:.3rem;font-size:.55rem;letter-spacing:.11em;text-transform:uppercase;color:#823b44}.frankfurt-study-modules>button{display:grid;grid-template-columns:2rem minmax(0,1fr) auto;gap:.55rem;align-items:center;padding:.72rem;border:1px solid rgba(44,35,31,.12);background:rgba(247,241,232,.4);text-align:left;color:inherit;cursor:pointer}.frankfurt-study-modules>button.active{border-color:#823b44;background:rgba(130,59,68,.07)}.frankfurt-study-modules>button.done{border-left:4px solid #5b755f}.frankfurt-study-modules>button>b{font-family:Georgia,serif;color:#823b44}.frankfurt-study-modules>button strong{display:block;font-family:Georgia,serif;font-weight:500}.frankfurt-study-modules>button small{font-size:.58rem;color:#6d5a54}.frankfurt-study-modules>button>i{font-style:normal;color:#5b755f}
+.frankfurt-study-module{padding:1.2rem;border:1px solid rgba(44,35,31,.14);background:rgba(247,241,232,.5)}.frankfurt-study-module-head>span,.frankfurt-study-relation>span,.frankfurt-study-remember>span,.frankfurt-study-question>span,.frankfurt-study-eval-head>span,.frankfurt-study-bridge>span,.frankfurt-study-final>span{font-size:.56rem;letter-spacing:.11em;text-transform:uppercase;color:#823b44}.frankfurt-study-module-head h2,.frankfurt-study-eval-head h2,.frankfurt-study-bridge h2,.frankfurt-study-final h2{margin:.35rem 0;font-family:Georgia,serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:400}.frankfurt-study-module-head p,.frankfurt-study-eval-head p{max-width:72rem;font-family:Georgia,serif;line-height:1.58}
+.frankfurt-study-relation{margin:1rem 0;padding:1rem;border-left:4px solid #823b44;background:rgba(130,59,68,.05)}.frankfurt-study-relation strong{display:block;margin-top:.35rem;font-family:Georgia,serif;font-size:1.05rem;font-weight:500}
+.frankfurt-study-remember{display:grid;gap:.4rem;margin-top:1rem}.frankfurt-study-remember>div{display:grid;grid-template-columns:2.4rem 1fr;gap:.6rem;padding:.7rem;border-top:1px solid rgba(44,35,31,.1)}.frankfurt-study-remember b{font-family:Georgia,serif;color:#823b44}.frankfurt-study-remember p{margin:0;font-family:Georgia,serif;line-height:1.48}
+.frankfurt-study-question{margin-top:1rem;padding:1rem;background:#eee5d9}.frankfurt-study-question h3{font-family:Georgia,serif;font-size:1.15rem;font-weight:500;line-height:1.45}.frankfurt-study-question button,.frankfurt-study-complete{padding:.58rem .7rem;border:1px solid rgba(44,35,31,.15);background:transparent;color:inherit;cursor:pointer}.frankfurt-study-question>div p{font-family:Georgia,serif;line-height:1.55}.frankfurt-study-complete{width:100%;margin-top:1rem;border-color:#823b44}.frankfurt-study-complete.done{background:rgba(91,117,95,.12);border-color:#5b755f}
+.frankfurt-study-bridge{max-width:100rem;margin:1rem auto;padding:1.2rem;border:1px solid rgba(44,35,31,.14);background:rgba(247,241,232,.48)}.frankfurt-study-bridge>div{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;margin-top:1rem}.frankfurt-study-bridge>div>div{display:flex;align-items:center;gap:.35rem}.frankfurt-study-bridge strong{padding:.5rem .6rem;border:1px solid rgba(44,35,31,.12);font-family:Georgia,serif;font-size:.75rem;font-weight:500}.frankfurt-study-bridge b{color:#823b44}
+.frankfurt-study-evaluation{max-width:100rem;margin:1rem auto;padding:1rem}.frankfurt-study-quiz{display:grid;gap:.8rem;margin-top:1rem}.frankfurt-study-quiz article{padding:1rem;border:1px solid rgba(44,35,31,.14);background:rgba(247,241,232,.5)}.frankfurt-study-quiz article>span{font-size:.54rem;letter-spacing:.1em;color:#823b44}.frankfurt-study-quiz h3{font-family:Georgia,serif;font-size:1.08rem;font-weight:500;line-height:1.45}.frankfurt-study-quiz article>div{display:grid;gap:.35rem}.frankfurt-study-quiz article>div button{display:grid;grid-template-columns:2rem 1fr;gap:.5rem;align-items:start;padding:.65rem;border:1px solid rgba(44,35,31,.12);background:transparent;text-align:left;color:inherit;cursor:pointer}.frankfurt-study-quiz button.picked{border-color:#823b44}.frankfurt-study-quiz button.correct{background:rgba(91,117,95,.1);border-color:#5b755f}.frankfurt-study-quiz button.wrong{background:rgba(153,63,62,.08);border-color:#993f3e}.frankfurt-study-quiz button b{font-family:Georgia,serif;color:#823b44}.frankfurt-study-quiz article>p{padding:.7rem;font-family:Georgia,serif;line-height:1.5}.frankfurt-study-quiz article>p.ok{border-left:3px solid #5b755f}.frankfurt-study-quiz article>p.review{border-left:3px solid #993f3e}
+.frankfurt-study-final{max-width:100rem;margin:1rem auto 0;padding:3rem 1rem 5rem}.frankfurt-study-final>p{max-width:74rem;font-family:Georgia,serif;font-size:1.1rem;line-height:1.6}.frankfurt-study-final>div{max-width:74rem;padding:1rem;border-left:4px solid #823b44;background:rgba(130,59,68,.05)}.frankfurt-study-final>div strong{display:block;font-family:Georgia,serif;font-weight:500}.frankfurt-study-final>div span{font-family:Georgia,serif;line-height:1.5}
+@media(max-width:950px){.frankfurt-study-layout{grid-template-columns:1fr}.frankfurt-study-dashboard{grid-template-columns:1fr}}
+@media(max-width:700px){.frankfurt-study-nav{padding:1rem}.frankfurt-study-nav span{display:none}}
+
+.frankfurt-study-entry,.frankfurt-studium-entry{margin-top:1rem}
+.frankfurt-study-entry a,.frankfurt-studium-entry a{display:inline-block;padding:.68rem .85rem;border:1px solid #823b44;color:inherit;text-decoration:none;font-size:.68rem;letter-spacing:.07em;text-transform:uppercase}
+
+
+/* FRANKFURT TRANSVERSAL · MORE SPACING */
+.frankfurt-system-canvas{
+  height:760px;
+}
+.frankfurt-system-node{
+  padding:.95rem 1rem;
+}
+@media(max-width:700px){
+  .frankfurt-system-canvas{
+    height:640px;
+  }
+}
+
+
+
+
+/* FRANKFURT MAPS · STUDY GATEWAY */
+.frankfurt-study-gateway{
+  max-width:100rem;
+  margin:1.2rem auto 0;
+  padding:1.15rem;
+  border:1px solid rgba(64,42,38,.14);
+  background:
+    linear-gradient(135deg,rgba(255,252,247,.55),rgba(238,226,213,.65)),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 26px,
+      rgba(95,58,52,.025) 27px
+    );
+  box-shadow:0 12px 34px rgba(41,25,23,.06);
+}
+
+.frankfurt-study-gateway-head{
+  display:grid;
+  grid-template-columns:8rem minmax(0,1fr);
+  gap:1rem;
+  align-items:start;
+  padding-bottom:1rem;
+  border-bottom:1px solid rgba(64,42,38,.12);
+}
+
+.frankfurt-study-gateway-head>span{
+  font-size:.58rem;
+  letter-spacing:.14em;
+  color:#823b44;
+}
+
+.frankfurt-study-gateway-head h2{
+  margin:0;
+  font-family:Georgia,serif;
+  font-size:clamp(1.55rem,2.5vw,2.35rem);
+  font-weight:400;
+}
+
+.frankfurt-study-gateway-head p{
+  max-width:70rem;
+  margin:.4rem 0 0;
+  font-family:Georgia,serif;
+  line-height:1.55;
+  color:#5d4d47;
+}
+
+.frankfurt-study-gateway-cards{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1rem;
+  margin-top:1rem;
+}
+
+.frankfurt-study-gateway-card{
+  position:relative;
+  display:grid;
+  align-content:start;
+  gap:.75rem;
+  min-height:18rem;
+  padding:1.25rem;
+  border:1px solid rgba(66,42,40,.16);
+  color:inherit;
+  text-decoration:none;
+  overflow:hidden;
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    border-color .18s ease;
+}
+
+.frankfurt-study-gateway-card::after{
+  content:"";
+  position:absolute;
+  width:10rem;
+  height:10rem;
+  border:1px solid currentColor;
+  border-radius:50%;
+  right:-4rem;
+  top:-4rem;
+  opacity:.06;
+  pointer-events:none;
+}
+
+.frankfurt-study-gateway-card.nexus{
+  background:
+    linear-gradient(145deg,rgba(127,58,67,.09),rgba(255,250,243,.72));
+}
+
+.frankfurt-study-gateway-card.studium{
+  background:
+    linear-gradient(145deg,rgba(77,101,88,.09),rgba(255,250,243,.72));
+}
+
+.frankfurt-study-gateway-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 16px 34px rgba(41,25,23,.1);
+  border-color:#823b44;
+}
+
+.frankfurt-study-gateway-card-top{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+}
+
+.frankfurt-study-gateway-card-top>span{
+  display:grid;
+  place-items:center;
+  width:2.3rem;
+  height:2.3rem;
+  border:1px solid rgba(130,59,68,.28);
+  font-family:Georgia,serif;
+  color:#823b44;
+}
+
+.frankfurt-study-gateway-card-top>small{
+  font-size:.55rem;
+  letter-spacing:.14em;
+  color:#823b44;
+}
+
+.frankfurt-study-gateway-card h3{
+  margin:0;
+  font-family:Georgia,serif;
+  font-size:clamp(1.6rem,2.5vw,2.3rem);
+  font-weight:400;
+}
+
+.frankfurt-study-gateway-card>p{
+  max-width:42rem;
+  margin:0;
+  font-family:Georgia,serif;
+  line-height:1.55;
+  color:#5e4f49;
+}
+
+.frankfurt-study-gateway-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.4rem;
+}
+
+.frankfurt-study-gateway-tags span{
+  padding:.35rem .5rem;
+  border:1px solid rgba(66,42,40,.13);
+  background:rgba(255,255,255,.28);
+  font-size:.54rem;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+
+.frankfurt-study-gateway-card>strong{
+  margin-top:auto;
+  padding-top:.75rem;
+  border-top:1px solid rgba(66,42,40,.12);
+  font-size:.67rem;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  color:#823b44;
+}
+
+@media(max-width:850px){
+  .frankfurt-study-gateway-head{
+    grid-template-columns:1fr;
+  }
+
+  .frankfurt-study-gateway-cards{
+    grid-template-columns:1fr;
+  }
+
+  .frankfurt-study-gateway-card{
+    min-height:auto;
+  }
+}
+
+/* FRANKFURT PHASE 10 · ADVANCED EVALUATION */
+.frankfurt-study-advanced,
+.frankfurt-study-master{
+  max-width:100rem;
+  margin:1rem auto;
+  padding:1rem;
+}
+.frankfurt-study-advanced-head>span,
+.frankfurt-study-master>div:first-child>span,
+.frankfurt-study-master-formula>span{
+  font-size:.56rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#823b44;
+}
+.frankfurt-study-advanced-head h2,
+.frankfurt-study-master h2{
+  margin:.35rem 0;
+  font-family:Georgia,serif;
+  font-size:clamp(1.9rem,3vw,2.8rem);
+  font-weight:400;
+}
+.frankfurt-study-advanced-head p,
+.frankfurt-study-master>div:first-child>p{
+  max-width:72rem;
+  font-family:Georgia,serif;
+  line-height:1.58;
+}
+.frankfurt-study-advanced-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.8rem;
+  margin-top:1rem;
+}
+.frankfurt-study-advanced-grid article{
+  display:grid;
+  align-content:start;
+  gap:.7rem;
+  padding:1rem;
+  border:1px solid rgba(44,35,31,.14);
+  background:linear-gradient(145deg,rgba(255,252,247,.52),rgba(238,229,217,.5));
+}
+.frankfurt-study-advanced-card-head{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+}
+.frankfurt-study-advanced-card-head>span{
+  display:grid;
+  place-items:center;
+  width:2.15rem;
+  height:2.15rem;
+  border:1px solid rgba(130,59,68,.25);
+  font-family:Georgia,serif;
+  color:#823b44;
+}
+.frankfurt-study-advanced-card-head>small{
+  font-size:.55rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:#823b44;
+}
+.frankfurt-study-advanced-grid h3{
+  margin:0;
+  font-family:Georgia,serif;
+  font-size:1.05rem;
+  font-weight:500;
+  line-height:1.48;
+}
+.frankfurt-study-advanced-grid article>button{
+  justify-self:start;
+  padding:.55rem .65rem;
+  border:1px solid rgba(44,35,31,.14);
+  background:transparent;
+  color:inherit;
+  cursor:pointer;
+}
+.frankfurt-study-advanced-key{
+  padding:.8rem;
+  border-left:4px solid #823b44;
+  background:rgba(130,59,68,.05);
+}
+.frankfurt-study-advanced-key span{
+  font-size:.53rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:#823b44;
+}
+.frankfurt-study-advanced-key p{
+  margin:.35rem 0 0;
+  font-family:Georgia,serif;
+  line-height:1.55;
+}
+.frankfurt-study-master{
+  border-top:1px solid rgba(44,35,31,.14);
+  border-bottom:1px solid rgba(44,35,31,.14);
+}
+.frankfurt-study-master-questions{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:.55rem;
+  margin-top:1rem;
+}
+.frankfurt-study-master-questions article{
+  min-height:10rem;
+  padding:.9rem;
+  border-top:3px solid #823b44;
+  background:rgba(247,241,232,.48);
+}
+.frankfurt-study-master-questions span{
+  display:block;
+  margin-bottom:.5rem;
+  font-family:Georgia,serif;
+  font-size:1.4rem;
+  color:#823b44;
+}
+.frankfurt-study-master-questions strong{
+  font-family:Georgia,serif;
+  font-size:.9rem;
+  font-weight:500;
+  line-height:1.45;
+}
+.frankfurt-study-master-formula{
+  margin-top:1rem;
+  padding:1rem;
+  border-left:4px solid #823b44;
+  background:rgba(130,59,68,.05);
+}
+.frankfurt-study-master-formula strong{
+  display:block;
+  margin-top:.35rem;
+  font-family:Georgia,serif;
+  font-size:.95rem;
+  font-weight:500;
+  line-height:1.55;
+}
+@media(max-width:1050px){
+  .frankfurt-study-master-questions{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+@media(max-width:760px){
+  .frankfurt-study-advanced-grid,
+  .frankfurt-study-master-questions{
+    grid-template-columns:1fr;
+  }
+  .frankfurt-study-master-questions article{
+    min-height:auto;
+  }
+}
+
+/* FRANKFURT PHASE 11 · GENERAL POLISH */
+.frankfurt-route-overview{max-width:92rem;margin:1.2rem auto 0;padding:1.15rem;border:1px solid rgba(44,35,31,.14);background:linear-gradient(145deg,rgba(255,252,247,.55),rgba(238,229,217,.55))}
+.frankfurt-route-overview-head{display:grid;grid-template-columns:9rem minmax(0,1fr);gap:1rem;padding-bottom:1rem;border-bottom:1px solid rgba(44,35,31,.12)}
+.frankfurt-route-overview-head>span{font-size:.56rem;letter-spacing:.13em;color:#823b44}
+.frankfurt-route-overview-head h2{margin:0;font-family:Georgia,serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:400}
+.frankfurt-route-overview-head p{max-width:70rem;margin:.4rem 0 0;font-family:Georgia,serif;line-height:1.55}
+.frankfurt-route-overview-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin-top:1rem}
+.frankfurt-route-overview-card{display:grid;grid-template-columns:auto 1fr;gap:.35rem .7rem;min-height:15rem;padding:1rem;border:1px solid rgba(44,35,31,.13);background:rgba(255,252,247,.34);color:inherit;text-decoration:none;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.frankfurt-route-overview-card:hover{transform:translateY(-3px);border-color:#823b44;box-shadow:0 14px 28px rgba(41,25,23,.08)}
+.frankfurt-route-overview-card>span{grid-row:1/3;display:grid;place-items:center;width:2.3rem;height:2.3rem;border:1px solid rgba(130,59,68,.24);font-family:Georgia,serif;color:#823b44}
+.frankfurt-route-overview-card>small{align-self:end;font-size:.52rem;letter-spacing:.12em;color:#823b44}
+.frankfurt-route-overview-card>strong{font-family:Georgia,serif;font-size:1.2rem;font-weight:500}
+.frankfurt-route-overview-card>p{grid-column:1/-1;margin:.45rem 0;font-family:Georgia,serif;line-height:1.5;color:#62524c}
+.frankfurt-route-overview-card>b{grid-column:1/-1;align-self:end;padding-top:.7rem;border-top:1px solid rgba(44,35,31,.1);font-size:.6rem;letter-spacing:.07em;text-transform:uppercase;font-weight:500;color:#823b44}
+.frankfurt-route-footer{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:1.5rem;padding:1rem;border-top:1px solid rgba(44,35,31,.14);border-bottom:1px solid rgba(44,35,31,.14);background:rgba(247,241,232,.42)}
+.frankfurt-route-footer>div:first-child>span{display:block;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:#823b44}
+.frankfurt-route-footer>div:first-child>strong{display:block;margin-top:.25rem;font-family:Georgia,serif;font-weight:500}
+.frankfurt-route-footer-links{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:.45rem}
+.frankfurt-route-footer-links a{padding:.55rem .65rem;border:1px solid rgba(44,35,31,.13);color:inherit;text-decoration:none;font-size:.61rem;letter-spacing:.05em;text-transform:uppercase}
+.frankfurt-study-context-nav{display:flex;justify-content:space-between;gap:1rem;max-width:100rem;margin:1rem auto 0;padding:1rem;border:1px solid rgba(44,35,31,.13);background:rgba(247,241,232,.45)}
+.frankfurt-study-context-nav>div:first-child>span{display:block;font-size:.52rem;letter-spacing:.11em;color:#823b44}
+.frankfurt-study-context-nav>div:first-child>strong{display:block;margin-top:.2rem;font-family:Georgia,serif;font-weight:500}
+.frankfurt-study-context-nav>div:last-child{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:.4rem;font-size:.61rem}
+.frankfurt-study-context-nav a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(130,59,68,.38)}
+.frankfurt-map-tabs button{min-height:6rem}
+.frankfurt-map-tabs button strong{line-height:1.2}
+@media(max-width:1000px){.frankfurt-route-overview-cards{grid-template-columns:1fr}.frankfurt-route-overview-card{min-height:auto}.frankfurt-study-context-nav,.frankfurt-route-footer{align-items:flex-start;flex-direction:column}.frankfurt-route-footer-links,.frankfurt-study-context-nav>div:last-child{justify-content:flex-start}}
+@media(max-width:700px){.frankfurt-route-overview-head{grid-template-columns:1fr}.frankfurt-route-overview,.frankfurt-study-context-nav{margin-left:1rem;margin-right:1rem}}

@@ -38,6 +38,10 @@ const LeibnizMaps = lazy(() => import('./pages/LeibnizMaps'))
 const SpinozaFigures = lazy(() => import('./pages/SpinozaFigures'))
 const SpinozaFigures3D = lazy(() => import('./pages/SpinozaFigures3D'))
 
+const FrankfurtTaskHub = lazy(() => import('./pages/FrankfurtTaskHub'))
+const FrankfurtMaps = lazy(() => import('./pages/FrankfurtMaps'))
+const FrankfurtSystem = lazy(() => import('./pages/FrankfurtSystem'))
+const FrankfurtStudy = lazy(() => import('./pages/FrankfurtStudy'))
 function App() {
   return (
     <HashRouter>
@@ -158,7 +162,23 @@ function App() {
           path="/tareas/ontologia-ii/spinoza-etica-parte-i/figuras/3d"
           element={<SpinozaFigures3D />}
         />
-        <Route path="*" element={<Navigate to="/" replace />} />
+                <Route
+          path="/tareas/teoria-critica/escuela-de-frankfurt"
+          element={<FrankfurtTaskHub />}
+        />
+        <Route
+          path="/tareas/teoria-critica/escuela-de-frankfurt/mapas"
+          element={<FrankfurtMaps />}
+        />
+        <Route
+          path="/tareas/teoria-critica/escuela-de-frankfurt/sistema"
+          element={<FrankfurtSystem />}
+        />
+        <Route
+          path="/tareas/teoria-critica/escuela-de-frankfurt/studium"
+          element={<FrankfurtStudy />}
+        />
+<Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>
     </HashRouter>
