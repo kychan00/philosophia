@@ -121,6 +121,30 @@ export default function MethodsResearch() {
             <b>↗</b>
           </div>
         </Link>
+        <Link
+          to="/semestre/5/metodos-de-investigacion/clase/24-agosto"
+          className="methods-class-card"
+        >
+          <div className="methods-date">
+            <strong>XXIV</strong>
+            <span>VIII · MMXXVI</span>
+          </div>
+
+          <div className="methods-class-copy">
+            <span>Tercera clase · Conocimiento y estado del arte</span>
+            <h3>Del pensamiento justificable al estado de la cuestión</h3>
+            <p>
+              Pensar y pensamiento, lógica, lectura filosófica, escritura,
+              objetividad, revisión, formación, bases de datos y construcción
+              del estado del arte.
+            </p>
+          </div>
+
+          <div className="methods-enter">
+            <span>Abrir folio</span>
+            <b>↗</b>
+          </div>
+        </Link>
       </section>
 
       <footer className="methods-footer">
