@@ -171,6 +171,29 @@ export default function AnalyticPhilosophy() {
             <b>↗</b>
           </div>
         </Link>
+        <Link
+          to="/semestre/5/filosofia-analitica/clase/24-agosto"
+          className="analytic-class-card"
+        >
+          <div className="analytic-date">
+            <strong>XXIV</strong>
+            <span>VIII · MMXXVI</span>
+          </div>
+
+          <div className="analytic-class-copy">
+            <span>Tercera clase · Frege, lenguaje y positivismo lógico</span>
+            <h3>De la lógica al giro lingüístico</h3>
+            <p>
+              Logicismo, paradoja de Russell, sentido y referencia,
+              Wittgenstein, positivismo lógico, verificacionismo y Popper.
+            </p>
+          </div>
+
+          <div className="analytic-enter">
+            <span>Abrir análisis</span>
+            <b>↗</b>
+          </div>
+        </Link>
       </section>
 
       <section className="analytic-course-map">
