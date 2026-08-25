@@ -189,6 +189,20 @@ export const tasks = [
     studyRoute: '/tareas/ontologia-ii/leibniz-discurso-monadologia',
   },
 
+  {
+    id: 'teoria-critica-2026-08-25-programa-reale-antiseri',
+    subject: 'Teoría Crítica',
+    code: 'FI265',
+    assigned: '2026-08-25',
+    due: '2026-08-25',
+    title: 'La Teoría Crítica de la Escuela de Frankfurt',
+    type: 'Lectura / estudio',
+    weight: null,
+    description:
+      'Leer el programa de la materia y la lectura de Reale y Antiseri sobre la Teoría Crítica de la Escuela de Frankfurt.',
+    sourceRoute: '/semestre/5/teoria-critica',
+    deadline: '17:25',
+  },
 ]
 
 export default tasks
