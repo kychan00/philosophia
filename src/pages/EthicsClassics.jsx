@@ -1,4 +1,5 @@
 import { Link } from 'react-router'
+import SubjectTasksPanel from '../components/SubjectTasksPanel'
 
 const modules = [
   {
@@ -140,6 +141,8 @@ export default function EthicsClassics() {
           </div>
         </div>
       </header>
+
+      <SubjectTasksPanel subjectCode="FI194" />
 
       <section className="ethicsx-section">
         <header className="ethicsx-heading">

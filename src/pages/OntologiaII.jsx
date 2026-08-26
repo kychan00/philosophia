@@ -1,4 +1,5 @@
 import { Link } from 'react-router'
+import SubjectTasksPanel from '../components/SubjectTasksPanel'
 
 const coursePath = [
   {
@@ -208,6 +209,8 @@ export default function OntologiaII() {
           </div>
         </div>
       </header>
+
+      <SubjectTasksPanel subjectCode="FI190" />
 
       <section className="ontology-program-classes">
         <div className="ontology-program-heading">

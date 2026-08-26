@@ -1,4 +1,5 @@
 import { Link } from 'react-router'
+import SubjectTasksPanel from '../components/SubjectTasksPanel'
 
 const readings = [
   {
@@ -113,6 +114,8 @@ export default function AnalyticPhilosophy() {
           </div>
         </div>
       </header>
+
+      <SubjectTasksPanel subjectCode="FI264" />
 
       <section className="analytic-classes">
         <div className="analytic-section-heading">

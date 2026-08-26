@@ -1,4 +1,5 @@
 import { Link } from 'react-router'
+import SubjectTasksPanel from '../components/SubjectTasksPanel'
 
 const marks = [
   ['§', '10%', '8%', '-4s'],
@@ -80,6 +81,8 @@ export default function MethodsResearch() {
           </p>
         </div>
       </header>
+
+      <SubjectTasksPanel subjectCode="FI104" />
 
       <section className="methods-classes">
         <div className="methods-section-heading">

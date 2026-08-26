@@ -1,4 +1,5 @@
 import { Link } from 'react-router'
+import SubjectTasksPanel from '../components/SubjectTasksPanel'
 
 const blocks = [
   ['I', 'Panorama general', '2 sesiones', 'Surgimiento histórico-social · planteamientos teóricos'],
@@ -63,6 +64,8 @@ export default function CriticalTheory() {
           </div>
         </div>
       </header>
+
+      <SubjectTasksPanel subjectCode="FI265" />
 
       <section className="ct-section">
         <header className="ct-heading">
