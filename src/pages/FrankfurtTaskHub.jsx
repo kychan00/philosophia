@@ -1,290 +1,319 @@
 import { Link } from 'react-router'
 
-const pillars = [
+const maps = [
   {
-    n: 'I',
-    title: 'Totalidad',
-    subtitle: 'La sociedad no se entiende por fragmentos aislados',
-    body:
-      'La teoría crítica parte de la sociedad como un todo: economía, historia, psicología y cultura se implican mutuamente.',
-    chain: 'economía ↔ historia ↔ psicología ↔ cultura',
+    roman: 'I',
+    title: '¿Qué es Teoría Crítica?',
+    subtitle: 'totalidad · contradicción · crítica · transformación',
+    desc:
+      'La sociedad como totalidad histórica y la crítica como posibilidad de transformación.',
   },
   {
-    n: 'II',
-    title: 'Contradicción',
-    subtitle: 'El orden existente contiene tensiones reales',
-    body:
-      'La tarea crítica no consiste sólo en describir hechos, sino en descubrir las contradicciones que el orden social normaliza o vuelve invisibles.',
-    chain: 'sociedad existente → contradicciones → crítica',
+    roman: 'II',
+    title: 'Adorno y la dialéctica negativa',
+    subtitle: 'no-identidad · singular · primacía del objeto',
+    desc:
+      'El concepto no agota al objeto; la crítica debe mantener visible lo que los sistemas reprimen.',
   },
   {
-    n: 'III',
-    title: 'Dominación',
-    subtitle: 'La razón puede convertirse en instrumento del sistema',
-    body:
-      'La modernidad promete emancipación, pero la racionalización técnica puede producir administración, homogeneización y pérdida de autonomía.',
-    chain: 'razón → técnica → administración → dominio',
+    roman: 'III',
+    title: 'Dialéctica de la Ilustración',
+    subtitle: 'razón · técnica · administración · industria cultural',
+    desc:
+      'Cómo la racionalización puede invertir su promesa emancipadora y convertirse en dominio.',
   },
   {
-    n: 'IV',
-    title: 'Emancipación',
-    subtitle: 'Criticar implica pensar que lo existente puede ser distinto',
-    body:
-      'La teoría crítica mantiene una orientación práctica: comprender el presente para abrir posibilidades de transformación racional y libertad.',
-    chain: 'crítica → negación → posibilidad → transformación',
+    roman: 'IV',
+    title: 'Horkheimer: eclipse de la razón',
+    subtitle: 'razón objetiva · razón subjetiva · medios · fines',
+    desc:
+      'Una razón que calcula perfectamente los medios pero ya no puede discutir los fines.',
+  },
+  {
+    roman: 'V',
+    title: 'Marcuse + Fromm',
+    subtitle: 'represión · unidimensionalidad · desobediencia · ser',
+    desc:
+      'Cómo la dominación entra en el sujeto y cómo se conserva la capacidad de decir no.',
+  },
+  {
+    roman: 'VI',
+    title: 'Adorno–Popper / Habermas–Albert',
+    subtitle: 'ciencia · totalidad · hechos · normas · fines',
+    desc:
+      'Qué significa crítica en las ciencias sociales y si la razón puede discutir también los fines.',
   },
 ]
 
-const route = [
-  ['I', '¿Qué es Teoría Crítica?', 'totalidad · contradicción · emancipación'],
-  ['II', 'Adorno', 'dialéctica negativa · no-identidad'],
-  ['III', 'Adorno + Horkheimer', 'Ilustración · razón instrumental · industria cultural'],
-  ['IV', 'Horkheimer', 'eclipse de la razón · medios y fines'],
-  ['V', 'Marcuse + Fromm', 'represión · Gran Rechazo · tener/ser'],
-  ['VI', 'Adorno / Popper / Habermas / Albert', 'ciencia social · totalidad · normatividad'],
+const spine = [
+  'TOTALIDAD',
+  'CONTRADICCIÓN',
+  'NO-IDENTIDAD',
+  'RAZÓN INSTRUMENTAL',
+  'ADMINISTRACIÓN',
+  'SUJETO',
+  'NEGACIÓN',
+  'CIENCIA',
+  'FINES',
+  'EMANCIPACIÓN',
 ]
 
 export default function FrankfurtTaskHub() {
   return (
-    <main className="frankfurt-hub-page">
+    <main className="frankfurt-hub-page frankfurt-hub-v2">
       <nav className="frankfurt-hub-nav">
         <Link to="/tareas">← Tareas</Link>
-        <Link to="/" className="frankfurt-hub-brand">Φ · Philosophia</Link>
+        <Link to="/" className="frankfurt-hub-brand">
+          Φ · Philosophia
+        </Link>
         <span>FI265 · Teoría Crítica</span>
       </nav>
 
-      <header className="frankfurt-hub-hero">
+      <header className="frankfurt-hub-hero frankfurt-hub-hero-v2">
         <div className="frankfurt-grid" aria-hidden="true" />
-        <div className="frankfurt-hub-kicker">
-          Reale y Antiseri · Escuela de Francfort
+
+        <div className="frankfurt-hub-hero-copy">
+          <div className="frankfurt-hub-kicker">
+            Reale y Antiseri · Escuela de Francfort
+          </div>
+
+          <h1>
+            La Teoría Crítica
+            <em>de la Escuela de Frankfurt</em>
+          </h1>
+
+          <p className="frankfurt-hub-lead">
+            Este trabajo ya no es sólo una lectura del capítulo. Es una
+            reconstrucción completa del sistema crítico frankfurtiano: desde
+            la sociedad como totalidad hasta la pregunta por la emancipación.
+          </p>
+
+          <blockquote>
+            ¿Cómo puede una sociedad que promete razón, progreso y libertad
+            producir dominación, conformismo y pérdida de autonomía; y qué
+            significa criticarla sin cerrar de antemano la posibilidad de otra
+            forma de vida?
+          </blockquote>
         </div>
 
-        <h1>
-          La Teoría Crítica
-          <em>de la Escuela de Frankfurt</em>
-        </h1>
-
-        <p className="frankfurt-hub-lead">
-          No vamos a estudiar este capítulo como una lista de autores. Vamos a
-          reconstruir el problema que los conecta: cómo una sociedad que promete
-          razón, progreso y libertad puede producir al mismo tiempo dominación,
-          conformismo y pérdida de autonomía.
-        </p>
-
-        <blockquote>
-          ¿Cómo puede la razón convertirse en instrumento de dominación y, aun
-          así, conservar una capacidad crítica capaz de orientar la emancipación?
-        </blockquote>
-
-        <div className="frankfurt-hub-actions">
-          <Link
-            className="primary"
-            to="/tareas/teoria-critica/escuela-de-frankfurt/mapas"
-          >
-            Abrir Mapa I →
-          </Link>
-          <span>Mapas 2D · próximos</span>
-          <span>Studium · al final</span>
-        </div>
-              <div className="frankfurt-system-entry">
-          <Link to="/tareas/teoria-critica/escuela-de-frankfurt/sistema">
-            Abrir sistema transversal →
-          </Link>
-        </div>
-        <div className="frankfurt-studium-entry">
-          <Link to="/tareas/teoria-critica/escuela-de-frankfurt/studium">
-            Abrir Studium →
-          </Link>
-        </div>
-</header>
-
-      {/* FRANKFURT PHASE 11 · ROUTE OVERVIEW */}
-      <section className="frankfurt-route-overview">
-        <div className="frankfurt-route-overview-head">
-          <span>ARCHITECTURA COMPLETA</span>
+        <aside className="frankfurt-hub-status">
+          <span>SISTEMA COMPLETO</span>
+          <strong>6 mapas + transversal + Studium</strong>
           <div>
-            <h2>Del texto al sistema crítico</h2>
+            <b>6</b>
+            <small>mapas 2D</small>
+          </div>
+          <div>
+            <b>1</b>
+            <small>sistema transversal</small>
+          </div>
+          <div>
+            <b>1</b>
+            <small>Studium guiado</small>
+          </div>
+        </aside>
+      </header>
+
+      <section className="frankfurt-hub-entry">
+        <div className="frankfurt-hub-entry-head">
+          <span>ENTRAR AL SISTEMA</span>
+          <div>
+            <h2>Tres niveles de lectura</h2>
             <p>
-              El trabajo quedó organizado en tres niveles: seis mapas analíticos,
-              un sistema transversal y un Studium para reconstruir las relaciones
-              sin depender del esquema visual.
+              Puede recorrer Frankfurt por autores y problemas, verlo como una
+              sola arquitectura transversal o pasar directamente al estudio y
+              la evaluación.
             </p>
           </div>
         </div>
 
-        <div className="frankfurt-route-overview-cards">
-          <Link to="/tareas/teoria-critica/escuela-de-frankfurt/mapas" className="frankfurt-route-overview-card">
-            <span>01</span>
-            <small>CARTOGRAPHIA</small>
-            <strong>Seis mapas 2D</strong>
-            <p>Totalidad, Adorno, Ilustración, Horkheimer, Marcuse–Fromm y ciencias sociales.</p>
-            <b>Abrir mapas →</b>
+        <div className="frankfurt-hub-entry-cards">
+          <Link
+            to="/tareas/teoria-critica/escuela-de-frankfurt/mapas"
+            className="frankfurt-hub-entry-card maps"
+          >
+            <div>
+              <span>01</span>
+              <small>CARTOGRAPHIA</small>
+            </div>
+            <h3>Seis mapas 2D</h3>
+            <p>
+              Los seis núcleos del capítulo, con nodos móviles, rutas guiadas
+              y flechas cuya relación se explica una por una.
+            </p>
+            <ul>
+              <li>6 mapas temáticos</li>
+              <li>nodos interactivos</li>
+              <li>relaciones explicadas</li>
+            </ul>
+            <strong>Abrir mapas →</strong>
           </Link>
 
-          <Link to="/tareas/teoria-critica/escuela-de-frankfurt/sistema" className="frankfurt-route-overview-card">
-            <span>02</span>
-            <small>NEXUS CRITICUS</small>
-            <strong>Sistema transversal</strong>
-            <p>Cruce de conceptos entre mapas para ver Frankfurt como una sola arquitectura crítica.</p>
-            <b>Abrir sistema →</b>
+          <Link
+            to="/tareas/teoria-critica/escuela-de-frankfurt/sistema"
+            className="frankfurt-hub-entry-card system"
+          >
+            <div>
+              <span>02</span>
+              <small>NEXUS CRITICUS</small>
+            </div>
+            <h3>Sistema transversal</h3>
+            <p>
+              Conecta conceptos que atraviesan varios autores para leer
+              Frankfurt como una sola estructura crítica.
+            </p>
+            <ul>
+              <li>cruces entre mapas</li>
+              <li>columna vertebral común</li>
+              <li>navegación conceptual</li>
+            </ul>
+            <strong>Abrir sistema →</strong>
           </Link>
 
-          <Link to="/tareas/teoria-critica/escuela-de-frankfurt/studium" className="frankfurt-route-overview-card">
-            <span>03</span>
-            <small>STUDIUM CRITICUM</small>
-            <strong>Estudio y evaluación</strong>
-            <p>Progreso, comprensión, preguntas relacionales, claves y reconstrucción oral.</p>
-            <b>Abrir Studium →</b>
+          <Link
+            to="/tareas/teoria-critica/escuela-de-frankfurt/studium"
+            className="frankfurt-hub-entry-card studium"
+          >
+            <div>
+              <span>03</span>
+              <small>STUDIUM CRITICUM</small>
+            </div>
+            <h3>Studium</h3>
+            <p>
+              Pasa del reconocimiento visual a la comprensión: módulos,
+              progreso, preguntas relacionales y reconstrucción oral.
+            </p>
+            <ul>
+              <li>6 módulos guiados</li>
+              <li>evaluación relacional</li>
+              <li>prueba avanzada</li>
+            </ul>
+            <strong>Abrir Studium →</strong>
           </Link>
         </div>
       </section>
 
-      <section className="frankfurt-hub-section">
-        <div className="frankfurt-hub-heading">
+      <section className="frankfurt-hub-spine">
+        <div className="frankfurt-hub-section-title">
           <span>01</span>
           <div>
-            <p>Programma criticum</p>
-            <h2>El núcleo común de Frankfurt</h2>
+            <p>Structura communis</p>
+            <h2>La columna vertebral del capítulo</h2>
           </div>
         </div>
 
-        <div className="frankfurt-pillars">
-          {pillars.map((pillar) => (
-            <article key={pillar.n}>
-              <span>{pillar.n}</span>
-              <small>{pillar.subtitle}</small>
-              <h3>{pillar.title}</h3>
-              <p>{pillar.body}</p>
-              <div>{pillar.chain}</div>
-            </article>
+        <div className="frankfurt-hub-spine-flow">
+          {spine.map((item, index) => (
+            <div key={item}>
+              <span>{item}</span>
+              {index < spine.length - 1 && <b>→</b>}
+            </div>
+          ))}
+        </div>
+
+        <p>
+          Esta cadena no sustituye los seis mapas: los conecta. La teoría
+          comienza interrogando la sociedad como totalidad, atraviesa la
+          crítica de la identidad y de la razón instrumental, llega a la
+          formación del sujeto y termina preguntando por ciencia, fines y
+          emancipación.
+        </p>
+      </section>
+
+      <section className="frankfurt-hub-maps">
+        <div className="frankfurt-hub-section-title">
+          <span>02</span>
+          <div>
+            <p>Cartographia critica</p>
+            <h2>Los seis mapas del sistema</h2>
+          </div>
+        </div>
+
+        <div className="frankfurt-hub-map-grid">
+          {maps.map((map) => (
+            <Link
+              key={map.roman}
+              to="/tareas/teoria-critica/escuela-de-frankfurt/mapas"
+              className="frankfurt-hub-map-card"
+            >
+              <span>{map.roman}</span>
+              <div>
+                <small>{map.subtitle}</small>
+                <h3>{map.title}</h3>
+                <p>{map.desc}</p>
+              </div>
+            </Link>
           ))}
         </div>
       </section>
 
-      <section className="frankfurt-hub-section">
-        <div className="frankfurt-hub-heading">
-          <span>02</span>
+      <section className="frankfurt-hub-matrix">
+        <div className="frankfurt-hub-section-title">
+          <span>03</span>
           <div>
             <p>Genealogia</p>
-            <h2>La matriz de la Teoría Crítica</h2>
+            <h2>La matriz teórica</h2>
           </div>
         </div>
 
-        <div className="frankfurt-matrix">
+        <div className="frankfurt-hub-matrix-grid">
           <article>
             <span>HEGEL</span>
             <strong>dialéctica · totalidad · contradicción</strong>
             <p>
-              Aporta la idea de que la realidad social debe pensarse como una
-              totalidad histórica atravesada por contradicciones.
+              Aporta la forma de pensar una realidad histórica atravesada por
+              contradicciones.
             </p>
           </article>
-
-          <b>+</b>
 
           <article>
             <span>MARX</span>
             <strong>capitalismo · explotación · ideología</strong>
             <p>
-              Aporta el análisis material de las estructuras económicas y la
-              orientación hacia la transformación social.
+              Aporta la crítica material de las estructuras económicas y de
+              las formas de dominación social.
             </p>
           </article>
-
-          <b>+</b>
 
           <article>
             <span>FREUD</span>
             <strong>represión · deseo · autoridad</strong>
             <p>
-              Aporta una dimensión psíquica: la dominación social también se
-              interioriza y reproduce en sujetos concretos.
+              Aporta la dimensión subjetiva: cómo la sociedad entra también en
+              la formación psíquica del individuo.
             </p>
           </article>
-
-          <b>=</b>
 
           <article className="result">
             <span>TEORÍA CRÍTICA</span>
-            <strong>sociedad como totalidad histórica</strong>
+            <strong>sociedad · razón · cultura · sujeto · emancipación</strong>
             <p>
-              Una crítica simultáneamente económica, política, cultural y
-              psicológica del orden contemporáneo.
+              La crítica reúne estos planos para reconstruir el orden social
+              como totalidad histórica.
             </p>
           </article>
         </div>
       </section>
 
-      <section className="frankfurt-hub-section">
-        <div className="frankfurt-hub-heading">
-          <span>03</span>
-          <div>
-            <p>Contextus historicus</p>
-            <h2>Por qué esta filosofía surge en este momento</h2>
-          </div>
-        </div>
-
-        <div className="frankfurt-history">
-          <div><span>1920s</span><strong>Instituto para la Investigación Social</strong></div>
-          <b>→</b>
-          <div><span>1931</span><strong>Horkheimer dirige el Instituto</strong></div>
-          <b>→</b>
-          <div><span>1933+</span><strong>nazismo · exilio</strong></div>
-          <b>→</b>
-          <div><span>1940s</span><strong>guerra · fascismo · estalinismo</strong></div>
-          <b>→</b>
-          <div><span>posguerra</span><strong>sociedad tecnológica avanzada</strong></div>
-        </div>
-
-        <p className="frankfurt-history-note">
-          El diagnóstico frankfurtiano no nace en abstracto: intenta comprender
-          por qué formas modernas de racionalidad, organización y progreso
-          pueden coexistir con violencia política, administración masiva y
-          pérdida de autonomía individual.
-        </p>
-      </section>
-
-      <section className="frankfurt-hub-section">
-        <div className="frankfurt-hub-heading">
+      <section className="frankfurt-hub-rules">
+        <div className="frankfurt-hub-section-title">
           <span>04</span>
           <div>
-            <p>Ordo mapparum</p>
-            <h2>Los seis mapas que construiremos</h2>
-          </div>
-        </div>
-
-        <div className="frankfurt-route">
-          {route.map(([n, title, subtitle], index) => (
-            <article key={n}>
-              <span>{n}</span>
-              <div>
-                <h3>{title}</h3>
-                <p>{subtitle}</p>
-              </div>
-              {index < route.length - 1 && <b>↓</b>}
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="frankfurt-hub-section frankfurt-rule">
-        <div className="frankfurt-hub-heading">
-          <span>05</span>
-          <div>
             <p>Regula laboris</p>
-            <h2>Dos reglas para todos los mapas</h2>
+            <h2>Las dos reglas de lectura</h2>
           </div>
         </div>
 
-        <div className="frankfurt-rules">
+        <div>
           <blockquote>
             <strong>Ninguna flecha sin explicación.</strong>
-            Cada relación debe poder responder por qué una idea conduce a otra.
+            Cada conexión del sistema debe poder justificarse.
           </blockquote>
+
           <blockquote>
-            <strong>Diagnóstico + posibilidad de emancipación.</strong>
-            No basta con mostrar dominación; hay que mostrar qué función crítica
-            cumple cada autor frente a ella.
+            <strong>Diagnóstico + emancipación.</strong>
+            No basta con mostrar dominación: hay que entender qué función
+            crítica cumple cada autor frente a ella.
           </blockquote>
         </div>
       </section>
