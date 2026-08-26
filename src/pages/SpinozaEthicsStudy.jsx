@@ -680,6 +680,18 @@ function StudyCanvas() {
       </nav>
 
       <header className="spinoza-study-hero">
+        <figure className="ph-book-cover ph-book-cover-spinoza">
+          <img
+            src="/philosophia/images/books/spinoza-etica-alianza.jpg"
+            alt="Portada de Ética demostrada según el orden geométrico, de Baruch Spinoza"
+          />
+          <figcaption>
+            <span>BARUCH SPINOZA</span>
+            <strong>Ética demostrada según el orden geométrico</strong>
+            <small>Alianza Editorial · trad. Vidal Peña</small>
+          </figcaption>
+        </figure>
+
         <div>
           <p>Ontología II · Laboratorium philosophicum</p>
           <h1>El orden de <em>las razones</em></h1>

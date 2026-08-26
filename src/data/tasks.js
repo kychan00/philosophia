@@ -207,6 +207,26 @@ export const tasks = [
     sourceRoute: '/semestre/5/teoria-critica',
     studyRoute: '/tareas/teoria-critica/escuela-de-frankfurt',
   },
+
+  {
+    id: 'etica-2026-08-25-mondolfo-conciencia-moral',
+    subject: 'Ética',
+    subjectCode: 'FI194',
+    assignedDate: '2026-08-25',
+    dueDate: '2026-08-25',
+    dueTime: '20:25',
+    title: 'El desarrollo de la conciencia moral en la Grecia arcaica',
+    type: 'Lectura / sistematización',
+    weight: null,
+    description:
+      'Primera lectura del curso. Sistematizar el ensayo de Rodolfo Mondolfo sobre el desarrollo de la responsabilidad y la conciencia moral desde Homero hasta Demócrito.',
+    readingScope:
+      'Rodolfo Mondolfo · Responsabilidad y conciencia moral de Homero a Demócrito',
+    sourceClass: 'Ética · lectura del 25 de agosto',
+    sourceRoute: '/semestre/5/etica',
+      studyRoute: '/tareas/etica/mondolfo-conciencia-moral',
+},
+
 ]
 
 export default tasks

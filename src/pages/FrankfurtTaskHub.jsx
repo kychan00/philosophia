@@ -72,6 +72,18 @@ export default function FrankfurtTaskHub() {
       <header className="frankfurt-hub-hero frankfurt-hub-hero-v2">
         <div className="frankfurt-grid" aria-hidden="true" />
 
+        <figure className="ph-book-cover ph-book-cover-frankfurt">
+          <img
+            src="/philosophia/images/books/reale-antiseri-tomo-iii.jpg"
+            alt="Portada de Historia del pensamiento filosófico y científico III, de Giovanni Reale y Dario Antiseri"
+          />
+          <figcaption>
+            <span>REALE · ANTISERI</span>
+            <strong>Historia del pensamiento filosófico y científico III</strong>
+            <small>Herder · Del Romanticismo hasta hoy</small>
+          </figcaption>
+        </figure>
+
         <div className="frankfurt-hub-hero-copy">
           <div className="frankfurt-hub-kicker">
             Reale y Antiseri · Escuela de Francfort

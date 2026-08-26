@@ -42,6 +42,7 @@ const FrankfurtTaskHub = lazy(() => import('./pages/FrankfurtTaskHub'))
 const FrankfurtMaps = lazy(() => import('./pages/FrankfurtMaps'))
 const FrankfurtSystem = lazy(() => import('./pages/FrankfurtSystem'))
 const FrankfurtStudy = lazy(() => import('./pages/FrankfurtStudy'))
+const MondolfoEthicsTask = lazy(() => import('./pages/MondolfoEthicsTask'))
 function App() {
   return (
     <HashRouter>
@@ -177,6 +178,10 @@ function App() {
         <Route
           path="/tareas/teoria-critica/escuela-de-frankfurt/studium"
           element={<FrankfurtStudy />}
+        />
+        <Route
+          path="/tareas/etica/mondolfo-conciencia-moral"
+          element={<MondolfoEthicsTask />}
         />
 <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

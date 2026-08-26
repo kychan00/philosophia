@@ -49,6 +49,18 @@ export default function LeibnizTaskHub() {
           MONAS · RATIO · HARMONIA
         </div>
 
+        <figure className="ph-book-cover ph-book-cover-leibniz">
+          <img
+            src="/philosophia/images/books/leibniz-escritos-filosoficos.jpg"
+            alt="Portada de Escritos filosóficos, de Gottfried Wilhelm Leibniz"
+          />
+          <figcaption>
+            <span>G. W. LEIBNIZ</span>
+            <strong>Escritos filosóficos</strong>
+            <small>Machado Libros · Mínimo Tránsito</small>
+          </figcaption>
+        </figure>
+
         <p>Lectura para el 26 de agosto · Gottfried Wilhelm Leibniz</p>
         <h1>
           Discurso de metafísica
