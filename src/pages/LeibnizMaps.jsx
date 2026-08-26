@@ -168,6 +168,37 @@ const makeNodes = (map) =>
         <div className="leibniz-node-label">
           <span>{node.tag}</span>
           <strong>{node.title}</strong>
+          {node.classNote ? (
+            <div className="leibniz-node-chip-row">
+              <small
+                className={`leibniz-node-source-badge ${
+                  ['world', 'caesar'].includes(map.id)
+                    ? 'hybrid-discourse'
+                    : 'hybrid-monadology'
+                }`}
+              >
+                {['world', 'caesar'].includes(map.id)
+                  ? 'Clase + Discurso'
+                  : 'Clase + Monadología'}
+              </small>
+
+              <small className="leibniz-node-source-badge class-only">
+                Dicho en clase
+              </small>
+            </div>
+          ) : (
+            <small
+              className={`leibniz-node-source-badge ${
+                ['world', 'caesar'].includes(map.id)
+                  ? 'discourse'
+                  : 'monadology'
+              }`}
+            >
+              {['world', 'caesar'].includes(map.id)
+                ? 'Discurso'
+                : 'Monadología'}
+            </small>
+          )}
         </div>
       ),
     },
@@ -221,7 +252,16 @@ function Canvas({ map, selectedId, setSelectedId, selectedEdge, setSelectedEdge 
         <ReactFlow
           nodes={nodes.map((node) => ({
             ...node,
-            className: node.id === selectedId ? 'leibniz-node-selected' : '',
+            className: [
+              node.id === selectedId ? 'leibniz-node-selected' : '',
+              node.data.detail.classNote
+                ? ['world', 'caesar'].includes(map.id)
+                  ? 'leibniz-hybrid-class-discourse'
+                  : 'leibniz-hybrid-class-monadology'
+                : ['world', 'caesar'].includes(map.id)
+                  ? 'leibniz-source-discourse'
+                  : 'leibniz-source-monadology',
+            ].filter(Boolean).join(' '),
           }))}
           edges={edges.map((edge) => ({
             ...edge,
@@ -599,6 +639,31 @@ function Content() {
       </div>
 
 
+      {/* LEIBNIZ · DICHO EN CLASE 26 AGO */}
+      <section className="leibniz-class26-banner">
+        <div>
+          <span>DICHO EN CLASE · 26 AGO</span>
+          <h2>La clase añadió el contexto histórico que faltaba al sistema</h2>
+          <p>
+            Descartes explica el punto de partida mecanicista; Spinoza radicaliza
+            la necesidad; Leibniz intenta conservar orden racional, contingencia,
+            finalidad y libertad. Los nodos azules del mapa son ampliaciones de
+            esta sesión de Ontología II.
+          </p>
+        </div>
+        <Link to="/semestre/5/ontologia-ii/clase/26-agosto">
+          Abrir clase completa →
+        </Link>
+      </section>
+
+
+      <div className="leibniz-source-legend" aria-label="Leyenda de procedencia">
+        <span className="discourse"><i /> Discurso de metafísica</span>
+        <span className="monadology"><i /> Monadología</span>
+        <span className="hybrid-discourse"><i /> Clase + Discurso</span>
+        <span className="hybrid-monadology"><i /> Clase + Monadología</span>
+      </div>
+
       <SystemNavigator
         currentMapId={map.id}
         onJump={(targetMapId) => {
@@ -664,6 +729,12 @@ function Content() {
                 <h3>{selected.title}</h3>
                 <span>{selected.tag}</span>
                 <p className="body">{selected.detail}</p>
+                {selected.classNote && (
+                  <div className="leibniz-node-class-note">
+                    <span>DICHO EN CLASE · 26 AGO</span>
+                    <p>{selected.classNote}</p>
+                  </div>
+                )}
                 <div><small>DISCURSO DE METAFÍSICA</small><strong>{selected.discourse}</strong></div>
                 <div><small>MONADOLOGÍA</small><strong>{selected.monadology}</strong></div>
                 {guide && (

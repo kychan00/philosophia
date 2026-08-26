@@ -190,6 +190,29 @@ export default function EthicsClassics() {
             <b>↗</b>
           </div>
         </Link>
+      
+        <Link
+          to="/semestre/5/etica/clase/25-agosto"
+          className="ethicsx-class-card"
+        >
+          <div className="ethicsx-class-card-date">
+            <strong>XXV</strong>
+            <span>VIII · MMXXVI</span>
+          </div>
+          <div className="ethicsx-class-card-copy">
+            <span>Tercera clase · Religión arcaica y responsabilidad</span>
+            <h3>De la purificación a la ética humana</h3>
+            <p>
+              Orfismo, sacrificio, sueños, oráculos, manía, destino, examen de
+              conciencia y transformación filosófica de la responsabilidad.
+            </p>
+          </div>
+          <div className="ethicsx-class-card-enter">
+            <span>Abrir clase</span>
+            <b>↗</b>
+          </div>
+        </Link>
+
       </section>
 
       <section className="ethicsx-section ethicsx-note">

@@ -285,6 +285,30 @@ export default function OntologiaII() {
           </div>
           <div className="ontology-program-enter"><span>Abrir folio</span><b>↗</b></div>
         </Link>
+      
+        <Link
+          to="/semestre/5/ontologia-ii/clase/26-agosto"
+          className="ontology-class-card"
+        >
+          <div className="ontology-class-date">
+            <strong>XXVI</strong>
+            <span>VIII · MMXXVI</span>
+          </div>
+          <div className="ontology-class-copy">
+            <span>Cuarta clase · Leibniz</span>
+            <h3>Contingencia, mónadas y armonía</h3>
+            <p>
+              Descartes y Spinoza como antecedentes; verdades de razón y de
+              hecho, razón suficiente, mundos posibles, Teodicea, fuerza,
+              mónadas, armonía preestablecida y libertad humana.
+            </p>
+          </div>
+          <div className="ontology-class-enter">
+            <span>Abrir folio</span>
+            <b>↗</b>
+          </div>
+        </Link>
+
       </section>
 
       <section className="ontology-program-route">

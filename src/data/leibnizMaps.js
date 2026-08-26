@@ -16,7 +16,8 @@ export const leibnizMaps = [
         "tag": "perfección",
         "detail": "Dios es pensado como ser absolutamente perfecto. Su entendimiento contiene los posibles y su voluntad no elige sin razón.",
         "discourse": "§§1–7 · PDF pp. 27–31",
-        "monadology": "§§38–48 · PDF pp. 577–579"
+        "monadology": "§§38–48 · PDF pp. 577–579",
+        "classNote": "Dicho en clase: frente a Spinoza, Dios no produce este mundo por necesidad absoluta; conoce posibilidades y elige con razón."
       },
       {
         "id": "possibles",
@@ -28,7 +29,8 @@ export const leibnizMaps = [
         "tag": "posibilidad",
         "detail": "No todo lo posible llega a existir. En el entendimiento divino hay múltiples órdenes posibles.",
         "discourse": "§§1–7; §§30–31",
-        "monadology": "§§53–54 · PDF p. 580"
+        "monadology": "§§53–54 · PDF p. 580",
+        "classNote": "Dicho en clase: la contingencia se recupera porque este mundo es uno entre diversos mundos posibles."
       },
       {
         "id": "choice",
@@ -40,7 +42,8 @@ export const leibnizMaps = [
         "tag": "razón suficiente",
         "detail": "Si sólo un mundo existe, debe haber una razón de por qué Dios elige uno y no otro: conveniencia y grados de perfección.",
         "discourse": "§§3–6",
-        "monadology": "§§53–55 · PDF p. 580"
+        "monadology": "§§53–55 · PDF p. 580",
+        "classNote": "Dicho en clase: razón suficiente no equivale a necesidad lógica; explica por qué éste y no otro."
       },
       {
         "id": "best",
@@ -52,7 +55,8 @@ export const leibnizMaps = [
         "tag": "perfección",
         "detail": "La sabiduría conoce, la bondad elige y el poder produce. La elección divina se orienta hacia el mejor orden posible.",
         "discourse": "§§3–7",
-        "monadology": "§55 · PDF p. 580"
+        "monadology": "§55 · PDF p. 580",
+        "classNote": "Dicho en clase: “mejor mundo posible” significa elección del orden total de mayor conveniencia, no ausencia de todo mal."
       },
       {
         "id": "order",
@@ -88,7 +92,60 @@ export const leibnizMaps = [
         "tag": "pregunta",
         "detail": "¿Cómo puede un orden completo elegido por Dios coexistir con individuos contingentes y libres?",
         "discourse": "§13; §§30–32",
-        "monadology": "§§31–36"
+        "monadology": "§§31–36",
+        "classNote": "Dicho en clase: Leibniz quiere conservar simultáneamente conocimiento divino, contingencia y libertad humana."
+      },
+      {
+        "id": "spinoza-necessity",
+        "position": {
+          "x": 40,
+          "y": 620
+        },
+        "title": "Spinoza: necesidad",
+        "tag": "dicho en clase",
+        "detail": "La clase usa a Spinoza como contraste: si todo se sigue necesariamente, la contingencia queda excluida.",
+        "discourse": "contexto histórico de la clase",
+        "monadology": "prepara §§31–36",
+        "classNote": "Dicho en clase: Leibniz necesita mundos posibles precisamente para no aceptar que el mundo sea el único orden posible."
+      },
+      {
+        "id": "convenience",
+        "position": {
+          "x": 990,
+          "y": 380
+        },
+        "title": "Principio de conveniencia",
+        "tag": "dicho en clase",
+        "detail": "Entre varios órdenes posibles hay grados de perfección. La elección divina se comprende como selección racional del mejor conjunto.",
+        "discourse": "§§3–7",
+        "monadology": "§§53–55",
+        "classNote": "Dicho en clase: Dios considera posibilidades y actualiza la combinación óptima."
+      },
+      {
+        "id": "theodicy",
+        "position": {
+          "x": 1320,
+          "y": 190
+        },
+        "title": "Teodicea",
+        "tag": "dicho en clase",
+        "detail": "La tesis del mejor mundo abre inmediatamente la objeción del mal: ¿cómo conciliar bondad divina, omnipotencia y sufrimiento?",
+        "discourse": "prolongación del problema del mejor mundo",
+        "monadology": "contexto teológico del sistema",
+        "classNote": "Dicho en clase: la Teodicea intenta justificar racionalmente la bondad y justicia de Dios frente a la existencia del mal."
+      },
+      {
+        "id": "evil-three",
+        "position": {
+          "x": 1320,
+          "y": 430
+        },
+        "title": "Tres formas de mal",
+        "tag": "dicho en clase",
+        "detail": "Mal metafísico: finitud. Mal físico: dolor y sufrimiento. Mal moral: uso defectuoso de la libertad.",
+        "discourse": "contexto de Teodicea",
+        "monadology": "orden físico y moral",
+        "classNote": "Dicho en clase: el mal moral es especialmente importante porque remite al uso libre de la voluntad."
       }
     ],
     "edges": [
@@ -126,6 +183,31 @@ export const leibnizMaps = [
         "god",
         "order",
         "fundamenta"
+      ],
+      [
+        "spinoza-necessity",
+        "possibles",
+        "Leibniz responde con"
+      ],
+      [
+        "choice",
+        "convenience",
+        "se regula por"
+      ],
+      [
+        "convenience",
+        "best",
+        "selecciona"
+      ],
+      [
+        "best",
+        "theodicy",
+        "abre la objeción"
+      ],
+      [
+        "theodicy",
+        "evil-three",
+        "distingue"
       ]
     ]
   },
@@ -194,7 +276,8 @@ export const leibnizMaps = [
         "tag": "certeza",
         "detail": "Dios puede conocerlos desde la noción completa, pero que sean ciertos no significa que sean absolutamente necesarios.",
         "discourse": "§13",
-        "monadology": "§33 · verdades de hecho"
+        "monadology": "§33 · verdades de hecho",
+        "classNote": "Dicho en clase: que Dios conozca completamente una verdad futura no la convierte en una verdad necesaria por contradicción."
       },
       {
         "id": "necessary",
@@ -206,7 +289,8 @@ export const leibnizMaps = [
         "tag": "contradicción",
         "detail": "Su contrario implica contradicción y, por tanto, es imposible.",
         "discourse": "§13",
-        "monadology": "§§31, 33–35"
+        "monadology": "§§31, 33–35",
+        "classNote": "Dicho en clase: verdad de razón = necesaria; negar “todo triángulo tiene tres lados” destruye el concepto."
       },
       {
         "id": "contingent",
@@ -218,7 +302,8 @@ export const leibnizMaps = [
         "tag": "opuesto posible",
         "detail": "Es verdadera y tiene razón, pero su contrario sigue siendo posible considerado en sí mismo. Certeza no equivale a necesidad absoluta.",
         "discourse": "§13 · PDF pp. 34–35",
-        "monadology": "§§32–36"
+        "monadology": "§§32–36",
+        "classNote": "Dicho en clase: verdad de hecho = contingente; su contrario sigue siendo posible aunque exista razón suficiente."
       },
       {
         "id": "freedom",
@@ -230,7 +315,21 @@ export const leibnizMaps = [
         "tag": "inclina sin obligar",
         "detail": "Las razones pueden inclinar la voluntad sin convertir la elección en necesidad absoluta.",
         "discourse": "§§30–32 · PDF pp. 45–48",
-        "monadology": "conecta con verdades de hecho"
+        "monadology": "conecta con verdades de hecho",
+        "classNote": "Dicho en clase: la voluntad y la deliberación sostienen la responsabilidad moral incluso dentro de un orden conocido por Dios."
+      },
+      {
+        "id": "human-divine",
+        "position": {
+          "x": 1040,
+          "y": 520
+        },
+        "title": "Intelecto humano / divino",
+        "tag": "dicho en clase",
+        "detail": "Nosotros no reconstruimos la serie infinita de razones; Dios conoce completamente la noción y todas sus conexiones.",
+        "discourse": "§13",
+        "monadology": "§§32–36",
+        "classNote": "Dicho en clase: nuestra ignorancia explica parte de cómo se nos presentan las verdades de hecho, pero contingencia no es simple ignorancia."
       }
     ],
     "edges": [
@@ -268,6 +367,16 @@ export const leibnizMaps = [
         "contingent",
         "freedom",
         "hace posible"
+      ],
+      [
+        "future",
+        "human-divine",
+        "se conoce de modo distinto"
+      ],
+      [
+        "human-divine",
+        "contingent",
+        "no elimina"
       ]
     ]
   },
@@ -300,7 +409,8 @@ export const leibnizMaps = [
         "tag": "sin partes",
         "detail": "La mónada es una sustancia simple que entra en los compuestos; simple significa sin partes.",
         "discourse": "no formulado todavía así",
-        "monadology": "§§1–3 · PDF p. 570"
+        "monadology": "§§1–3 · PDF p. 570",
+        "classNote": "Dicho en clase: la simplicidad significa ausencia de partes; por eso una mónada no es una partícula física."
       },
       {
         "id": "monad",
@@ -312,7 +422,8 @@ export const leibnizMaps = [
         "tag": "átomo metafísico",
         "detail": "Las mónadas son los verdaderos átomos de la naturaleza: unidades metafísicas simples, no partículas materiales.",
         "discourse": "preparación conceptual",
-        "monadology": "§§1–3"
+        "monadology": "§§1–3",
+        "classNote": "Dicho en clase: fórmula pedagógica del profesor: la mónada es una especie de “átomo formal”, una unidad metafísica activa."
       },
       {
         "id": "windows",
@@ -324,7 +435,8 @@ export const leibnizMaps = [
         "tag": "no interacción física",
         "detail": "Nada puede entrar ni salir de una mónada; ninguna criatura exterior modifica físicamente su interior.",
         "discourse": "anticipado en §§26–29, 33",
-        "monadology": "§7 · PDF pp. 570–571"
+        "monadology": "§7 · PDF pp. 570–571",
+        "classNote": "Dicho en clase: “sin ventanas” significa que ningún estado entra causalmente desde otra mónada."
       },
       {
         "id": "qualities",
@@ -348,7 +460,8 @@ export const leibnizMaps = [
         "tag": "cambio",
         "detail": "Si nada entra desde fuera y la mónada cambia, la fuente de ese cambio debe estar en su interior.",
         "discourse": "espontaneidad",
-        "monadology": "§§10–12 · PDF pp. 571–572"
+        "monadology": "§§10–12 · PDF pp. 571–572",
+        "classNote": "Dicho en clase: la noción de fuerza permite pensar un principio interno de actividad y desarrollo."
       },
       {
         "id": "inside",
@@ -361,6 +474,45 @@ export const leibnizMaps = [
         "detail": "Percepción y apetición explicarán cómo una unidad simple puede representar multiplicidad y cambiar internamente.",
         "discourse": "expresión del universo",
         "monadology": "§§13–17"
+      },
+      {
+        "id": "mechanicism",
+        "position": {
+          "x": 40,
+          "y": 620
+        },
+        "title": "Mecanicismo cartesiano",
+        "tag": "dicho en clase",
+        "detail": "Materia, extensión, movimiento y causas eficientes explican el mecanismo físico, pero Leibniz juzga insuficiente reducir ahí toda realidad.",
+        "discourse": "contexto cartesiano",
+        "monadology": "antecedente crítico",
+        "classNote": "Dicho en clase: Descartes sirve de punto de partida para entender por qué Leibniz introduce fuerza y actividad interna."
+      },
+      {
+        "id": "force-class",
+        "position": {
+          "x": 360,
+          "y": 620
+        },
+        "title": "Fuerza",
+        "tag": "dicho en clase",
+        "detail": "La fuerza expresa un principio interno de actividad que no puede reducirse a mera extensión o movimiento.",
+        "discourse": "dinámica leibniziana",
+        "monadology": "entelequia / actividad interna",
+        "classNote": "Dicho en clase: fuerza conecta la crítica al mecanicismo con potencia, acto y entelequia."
+      },
+      {
+        "id": "aristotle-return",
+        "position": {
+          "x": 690,
+          "y": 620
+        },
+        "title": "Retorno de Aristóteles",
+        "tag": "dicho en clase",
+        "detail": "Leibniz recupera forma, fuerza, finalidad, potencia, acto y entelequia para complementar la explicación mecánica.",
+        "discourse": "trasfondo aristotélico",
+        "monadology": "sustancia simple activa",
+        "classNote": "Dicho en clase: Leibniz intenta reconciliar mecanismo moderno y estructura metafísica aristotélica."
       }
     ],
     "edges": [
@@ -398,6 +550,26 @@ export const leibnizMaps = [
         "internal",
         "inside",
         "abre"
+      ],
+      [
+        "mechanicism",
+        "force-class",
+        "resulta insuficiente sin"
+      ],
+      [
+        "force-class",
+        "aristotle-return",
+        "reactiva"
+      ],
+      [
+        "force-class",
+        "internal",
+        "explica"
+      ],
+      [
+        "aristotle-return",
+        "simple",
+        "prepara"
       ]
     ]
   },
@@ -673,7 +845,8 @@ export const leibnizMaps = [
         "tag": "problema",
         "detail": "Una mónada creada no puede introducir físicamente un estado en otra. Hay que explicar por qué sus estados parecen corresponder.",
         "discourse": "§§14–15; §33",
-        "monadology": "§§7, 51–52"
+        "monadology": "§§7, 51–52",
+        "classNote": "Dicho en clase: no hay causalidad directa mónada → mónada; la concordancia no se explica por intercambio físico."
       },
       {
         "id": "god",
@@ -697,7 +870,8 @@ export const leibnizMaps = [
         "tag": "correspondencia",
         "detail": "Cada sustancia sigue su propia ley interna y, sin embargo, sus estados concuerdan con los de las demás.",
         "discourse": "§33",
-        "monadology": "§78 · PDF p. 585"
+        "monadology": "§78 · PDF p. 585",
+        "classNote": "Dicho en clase: Dios sincroniza originariamente las series internas de las mónadas: ésa es la armonía preestablecida."
       },
       {
         "id": "soul",
@@ -733,7 +907,8 @@ export const leibnizMaps = [
         "tag": "dos órdenes",
         "detail": "Alma y cuerpo actúan según sus propias leyes como si se influyeran, aunque la correspondencia proviene de la armonía.",
         "discourse": "§33",
-        "monadology": "§§78–81 · PDF pp. 585–586"
+        "monadology": "§§78–81 · PDF pp. 585–586",
+        "classNote": "Dicho en clase: alma y cuerpo pertenecen a órdenes coordinados, no a una interacción mecánica simple."
       },
       {
         "id": "physical",
@@ -757,7 +932,8 @@ export const leibnizMaps = [
         "tag": "gracia",
         "detail": "Los espíritus constituyen la ciudad de Dios: un mundo moral dentro del mundo natural.",
         "discourse": "§§35–37",
-        "monadology": "§§83–90 · PDF pp. 586–588"
+        "monadology": "§§83–90 · PDF pp. 586–588",
+        "classNote": "Dicho en clase: el orden del mundo debe dejar espacio a voluntad, responsabilidad y mal moral."
       },
       {
         "id": "city",
@@ -770,6 +946,32 @@ export const leibnizMaps = [
         "detail": "Naturaleza y moral resultan compatibles: Dios es arquitecto del universo y monarca de la ciudad de los espíritus.",
         "discourse": "§§35–37 · PDF pp. 50–51",
         "monadology": "§§85–90"
+      },
+      {
+        "id": "programming-analogy",
+        "position": {
+          "x": 40,
+          "y": 650
+        },
+        "title": "“Programación”",
+        "tag": "analogía de clase",
+        "detail": "La clase usa “programación” como analogía: cada mónada despliega una serie interna coordinada con las demás.",
+        "discourse": "analogía pedagógica",
+        "monadology": "principio interno + armonía",
+        "classNote": "Dicho en clase: no significa software literal; sirve para imaginar ley interna, secuencia de estados y coordinación originaria."
+      },
+      {
+        "id": "freedom-order",
+        "position": {
+          "x": 390,
+          "y": 650
+        },
+        "title": "Orden + libertad",
+        "tag": "dicho en clase",
+        "detail": "La armonía no pretende convertir al ser humano en una máquina sin elección moral; Leibniz intenta preservar voluntad y responsabilidad.",
+        "discourse": "libertad y contingencia",
+        "monadology": "orden moral",
+        "classNote": "Dicho en clase: el mejor mundo posible incluye criaturas libres y, con ello, la posibilidad del mal moral."
       }
     ],
     "edges": [
@@ -822,6 +1024,21 @@ export const leibnizMaps = [
         "moral",
         "city",
         "culmina"
+      ],
+      [
+        "programming-analogy",
+        "harmony",
+        "ilustra"
+      ],
+      [
+        "harmony",
+        "freedom-order",
+        "debe compatibilizarse con"
+      ],
+      [
+        "freedom-order",
+        "moral",
+        "fundamenta"
       ]
     ]
   }
