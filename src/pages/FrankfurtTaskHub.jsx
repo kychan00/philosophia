@@ -202,6 +202,27 @@ export default function FrankfurtTaskHub() {
             </ul>
             <strong>Abrir Studium →</strong>
           </Link>
+          <Link
+            to="/tareas/teoria-critica/escuela-de-frankfurt/conceptos"
+            className="frankfurt-hub-entry-card concepts"
+          >
+            <div>
+              <span>04</span>
+              <small>LEXICON CRITICUM</small>
+            </div>
+            <h3>Conceptos</h3>
+            <p>
+              Vocabulario de la lectura de Reale y Antiseri: definición,
+              autor y función de cada concepto dentro del sistema.
+            </p>
+            <ul>
+              <li>24 conceptos centrales</li>
+              <li>filtros por autor</li>
+              <li>relaciones conceptuales</li>
+            </ul>
+            <strong>Abrir conceptos →</strong>
+          </Link>
+
         </div>
       </section>
 

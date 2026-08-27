@@ -227,6 +227,28 @@ export const tasks = [
       studyRoute: '/tareas/etica/mondolfo-conciencia-moral',
 },
 
+  {
+    id: 'teoria-critica-2026-08-27-conceptos-reale-antiseri',
+    subject: 'Teoría Crítica',
+    subjectCode: 'FI265',
+    assignedDate: '2026-08-27',
+    dueDate: '2026-08-27',
+    dueTime: '17:25',
+    title: 'Conceptos · La Teoría Crítica de la Escuela de Frankfurt',
+    type: 'Conceptos / sistematización',
+    weight: null,
+    description:
+      'Extraer y sistematizar los conceptos filosóficos centrales de la lectura de Reale y Antiseri sobre la Escuela de Frankfurt, identificando autor, definición y relación con el sistema de la Teoría Crítica.',
+    readingScope:
+      'Reale y Antiseri · Escuela de Francfort · conceptos fundamentales',
+    readingEdition:
+      'Giovanni Reale y Dario Antiseri · Historia del pensamiento filosófico y científico III · Herder',
+    sourceClass: 'Tarea del 27 de agosto',
+    sourceRoute: '/semestre/5/teoria-critica',
+    studyRoute:
+      '/tareas/teoria-critica/escuela-de-frankfurt/conceptos',
+  },
+
 ]
 
 export default tasks
