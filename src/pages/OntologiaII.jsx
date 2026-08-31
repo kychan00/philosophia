@@ -288,13 +288,13 @@ export default function OntologiaII() {
       
         <Link
           to="/semestre/5/ontologia-ii/clase/26-agosto"
-          className="ontology-class-card"
+          className="ontology-program-class-card"
         >
-          <div className="ontology-class-date">
+          <div className="ontology-program-date">
             <strong>XXVI</strong>
             <span>VIII · MMXXVI</span>
           </div>
-          <div className="ontology-class-copy">
+          <div className="ontology-program-class-copy">
             <span>Cuarta clase · Leibniz</span>
             <h3>Contingencia, mónadas y armonía</h3>
             <p>
@@ -303,7 +303,7 @@ export default function OntologiaII() {
               mónadas, armonía preestablecida y libertad humana.
             </p>
           </div>
-          <div className="ontology-class-enter">
+          <div className="ontology-program-enter">
             <span>Abrir folio</span>
             <b>↗</b>
           </div>
