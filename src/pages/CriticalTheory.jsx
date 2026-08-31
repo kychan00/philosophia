@@ -121,6 +121,49 @@ export default function CriticalTheory() {
             <span>Abrir clase</span><b>↗</b>
           </div>
         </Link>
+        <Link
+          to="/semestre/5/teoria-critica/clase/25-agosto"
+          className="ct-class-card"
+        >
+          <div className="ct-class-card-date">
+            <strong>XXV</strong>
+            <span>VIII · MMXXVI</span>
+          </div>
+          <div className="ct-class-card-copy">
+            <span>Tercera clase · Instituto y totalidad social</span>
+            <h3>Clase del 25 de agosto</h3>
+            <p>
+              Conciencia de clase, fascismo, exilio, generaciones de Frankfurt,
+              totalidad, transdisciplina, astrología, ideología, sociedad no
+              reconciliada y paso hacia los conceptos centrales del curso.
+            </p>
+          </div>
+          <div className="ct-class-card-enter">
+            <span>Abrir clase</span><b>↗</b>
+          </div>
+        </Link>
+        <Link
+          to="/semestre/5/teoria-critica/clase/27-agosto"
+          className="ct-class-card"
+        >
+          <div className="ct-class-card-date">
+            <strong>XXVII</strong>
+            <span>VIII · MMXXVI</span>
+          </div>
+          <div className="ct-class-card-copy">
+            <span>Cuarta clase · Negatividad y razón</span>
+            <h3>Clase del 27 de agosto</h3>
+            <p>
+              Dialéctica negativa, no-identidad, Hegel y reconciliación,
+              contradicción social, propuesta negativa, Auschwitz, Dialéctica
+              de la Ilustración, razón instrumental, industria cultural y
+              sociedad unidimensional.
+            </p>
+          </div>
+          <div className="ct-class-card-enter">
+            <span>Abrir clase</span><b>↗</b>
+          </div>
+        </Link>
       </section>
 
       <section className="ct-section">

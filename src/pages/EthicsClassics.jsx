@@ -212,6 +212,27 @@ export default function EthicsClassics() {
             <b>↗</b>
           </div>
         </Link>
+        <Link
+          to="/semestre/5/etica/clase/27-agosto"
+          className="ethicsx-class-card"
+        >
+          <div className="ethicsx-class-card-date">
+            <strong>XXVII</strong>
+            <span>VIII · MMXXVI</span>
+          </div>
+          <div className="ethicsx-class-card-copy">
+            <span>Cuarta clase · Vergüenza y conciencia moral</span>
+            <h3>Máximas para aprender a deliberar</h3>
+            <p>
+              Emoción y razón, Demócrito, sentencias morales, vergüenza ante uno
+              mismo, dignidad, vulnerabilidad, reparación y autonomía moral.
+            </p>
+          </div>
+          <div className="ethicsx-class-card-enter">
+            <span>Abrir clase</span>
+            <b>↗</b>
+          </div>
+        </Link>
 
       </section>
 

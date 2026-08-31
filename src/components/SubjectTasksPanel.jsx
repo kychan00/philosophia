@@ -44,7 +44,7 @@ export default function SubjectTasksPanel({ subjectCode }) {
   )
 
   const completedCount = subjectTasks.filter(
-    (task) => completed[task.id],
+    (task) => task.completed || completed[task.id],
   ).length
 
   const pendingCount = Math.max(subjectTasks.length - completedCount, 0)
@@ -128,7 +128,7 @@ export default function SubjectTasksPanel({ subjectCode }) {
           {subjectTasks.length ? (
             <div className="subject-tasks-list">
               {subjectTasks.map((task, index) => {
-                const isCompleted = Boolean(completed[task.id])
+                const isCompleted = Boolean(task.completed || completed[task.id])
                 const route = task.studyRoute || task.sourceRoute || '/tareas'
 
                 return (

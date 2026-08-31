@@ -172,7 +172,7 @@ function calendarDayDiff(from, to) {
 }
 
 function getTaskStatus(task, completed) {
-  if (completed[task.id]) {
+  if (task.completed || completed[task.id]) {
     return {
       key: 'completed',
       label: 'Completada',

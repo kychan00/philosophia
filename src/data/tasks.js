@@ -231,22 +231,59 @@ export const tasks = [
     id: 'teoria-critica-2026-08-27-conceptos-reale-antiseri',
     subject: 'Teoría Crítica',
     subjectCode: 'FI265',
-    assignedDate: '2026-08-27',
+    assignedDate: '2026-08-25',
     dueDate: '2026-08-27',
     dueTime: '17:25',
     title: 'Conceptos · La Teoría Crítica de la Escuela de Frankfurt',
     type: 'Conceptos / sistematización',
     weight: null,
+    completed: true,
     description:
       'Extraer y sistematizar los conceptos filosóficos centrales de la lectura de Reale y Antiseri sobre la Escuela de Frankfurt, identificando autor, definición y relación con el sistema de la Teoría Crítica.',
     readingScope:
       'Reale y Antiseri · Escuela de Francfort · conceptos fundamentales',
     readingEdition:
       'Giovanni Reale y Dario Antiseri · Historia del pensamiento filosófico y científico III · Herder',
-    sourceClass: 'Tarea del 27 de agosto',
-    sourceRoute: '/semestre/5/teoria-critica',
+    sourceClass: 'Clase del 25 de agosto · tarea para la siguiente sesión',
+    sourceRoute: '/semestre/5/teoria-critica/clase/25-agosto',
     studyRoute:
       '/tareas/teoria-critica/escuela-de-frankfurt/conceptos',
+  },
+
+  {
+    id: 'teoria-critica-2026-09-01-hegel-prologo-fenomenologia',
+    subject: 'Teoría Crítica',
+    subjectCode: 'FI265',
+    assignedDate: '2026-08-27',
+    dueDate: '2026-09-01',
+    dueTime: '17:25',
+    title: 'Leer el prólogo de Fenomenología del espíritu',
+    type: 'Lectura',
+    weight: null,
+    description:
+      'Leer el prólogo de la Fenomenología del espíritu de G. W. F. Hegel como preparación para comprender la dialéctica hegeliana y regresar después a la dialéctica negativa de Adorno.',
+    readingScope:
+      'G. W. F. Hegel · Fenomenología del espíritu · Prólogo',
+    sourceClass: 'Clase del 27 de agosto · lectura para la próxima sesión',
+    sourceRoute: '/semestre/5/teoria-critica/clase/27-agosto',
+  },
+
+  {
+    id: 'etica-2026-09-01-maxima-moral-caso-concreto',
+    subject: 'Ética',
+    subjectCode: 'FI194',
+    assignedDate: '2026-08-27',
+    dueDate: '2026-09-01',
+    dueTime: '20:25',
+    title: 'Aplicar una máxima moral a un caso concreto',
+    type: 'Ejercicio / aplicación',
+    weight: null,
+    description:
+      'Escoger una sentencia o máxima trabajada en clase —por el contexto, una de las de Demócrito— y construir un ejemplo concreto de una acción en la que sirva para deliberar y tomar una decisión.',
+    readingScope:
+      'Máxima elegida + situación concreta + problema moral + aplicación + decisión + justificación',
+    sourceClass: 'Clase del 27 de agosto · vergüenza, conciencia moral y máximas de acción',
+    sourceRoute: '/semestre/5/etica/clase/27-agosto',
   },
 
 ]
