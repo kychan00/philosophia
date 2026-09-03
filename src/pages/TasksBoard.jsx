@@ -842,19 +842,39 @@ export default function TasksBoard() {
                 <span>↗</span>
               </Link>
 
-              <button
-                type="button"
-                className={
-                  selectedTask.status.key === 'completed'
-                    ? 'is-completed'
-                    : ''
-                }
-                onClick={() => toggleTask(selectedTask.id)}
-              >
-                {selectedTask.status.key === 'completed'
-                  ? '✓ Completada'
-                  : 'Marcar como hecha'}
-              </button>
+              <div className="task-modal-footer-actions">
+                <button
+                  type="button"
+                  className={
+                    selectedTask.status.key === 'completed'
+                      ? 'is-completed'
+                      : ''
+                  }
+                  onClick={() => toggleTask(selectedTask.id)}
+                >
+                  {selectedTask.status.key === 'completed'
+                    ? '✓ Completada'
+                    : 'Marcar como hecha'}
+                </button>
+
+                {selectedTask.isLocal && (
+                  <button
+                    type="button"
+                    className="task-delete-local task-delete-local--modal"
+                    onClick={() => {
+                      if (
+                        window.confirm(
+                          `¿Eliminar “${selectedTask.title}” de este navegador?`,
+                        )
+                      ) {
+                        deleteCustomTask(selectedTask.id)
+                      }
+                    }}
+                  >
+                    Eliminar tarea
+                  </button>
+                )}
+              </div>
             </div>
           </section>
         </div>

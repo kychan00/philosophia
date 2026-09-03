@@ -22159,3 +22159,35 @@ a {
     flex-direction: column;
   }
 }
+
+
+/* CUSTOM SUBJECT + DELETE TASK MODAL */
+.task-modal-footer-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: .55rem;
+  flex-wrap: wrap;
+}
+
+.task-delete-local--modal {
+  border-color: rgba(139, 48, 56, .34) !important;
+  color: #84313a !important;
+  background: rgba(139, 48, 56, .055) !important;
+}
+
+.task-delete-local--modal:hover {
+  background: rgba(139, 48, 56, .11) !important;
+}
+
+@media (max-width: 720px) {
+  .task-modal-footer-actions {
+    width: 100%;
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .task-modal-footer-actions button {
+    width: 100%;
+  }
+}

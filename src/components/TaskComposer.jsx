@@ -53,6 +53,7 @@ function openWhatsAppForTask(task) {
 function emptyForm() {
   return {
     subject: CLASS_SCHEDULE[0]?.subject || '',
+    customSubject: '',
     title: '',
     type: 'Lectura',
     priority: 'Media',
@@ -78,11 +79,16 @@ export default function TaskComposer({ onCreate }) {
 
   const buildTask = () => {
     const title = form.title.trim()
-    if (!title || !form.subject) return null
+    const resolvedSubject =
+      form.subject === '__other__'
+        ? form.customSubject.trim()
+        : form.subject
+
+    if (!title || !resolvedSubject) return null
 
     return {
       id: makeCustomTaskId(),
-      subject: form.subject,
+      subject: resolvedSubject,
       subjectCode: selectedCourse?.code || '—',
       assignedDate: todayKey(),
       dueDate: form.dueDate || null,
@@ -96,7 +102,7 @@ export default function TaskComposer({ onCreate }) {
         'Tarea agregada manualmente desde Philosophia.',
       sourceClass:
         form.sourceClass.trim() ||
-        `Registro personal · ${form.subject}`,
+        `Registro personal · ${resolvedSubject}`,
       sourceRoute: selectedCourse?.route || '/tareas',
       custom: true,
     }
@@ -161,8 +167,22 @@ export default function TaskComposer({ onCreate }) {
                   {course.subject} · {course.code}
                 </option>
               ))}
+              <option value="__other__">Otra…</option>
             </select>
           </label>
+
+          {form.subject === '__other__' && (
+            <label>
+              <span>¿Cuál materia?</span>
+              <input
+                value={form.customSubject}
+                onChange={(event) => update('customSubject', event.target.value)}
+                placeholder="Ej. Filosofía política"
+                autoFocus
+                required
+              />
+            </label>
+          )}
 
           <label className="task-composer-wide">
             <span>Tarea</span>
@@ -238,7 +258,11 @@ export default function TaskComposer({ onCreate }) {
 
           <div className="task-composer-meta">
             <span>
-              {selectedCourse?.time} · {selectedCourse?.room}
+              {selectedCourse
+                ? `${selectedCourse.time} · ${selectedCourse.room}`
+                : form.customSubject.trim()
+                  ? `Materia personalizada · ${form.customSubject.trim()}`
+                  : 'Materia personalizada'}
             </span>
             <span>Prioridad: {form.priority}</span>
           </div>
