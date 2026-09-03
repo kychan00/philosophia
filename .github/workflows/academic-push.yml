@@ -1,0 +1,46 @@
+name: Philosophia Academic Push
+
+on:
+  schedule:
+    - cron: '3,8,13,18,23,28,33,38,43,48,53,58 * * * *'
+  workflow_dispatch:
+    inputs:
+      test:
+        description: 'Enviar una notificación de prueba'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: philosophia-academic-push
+  cancel-in-progress: false
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    env:
+      ONESIGNAL_APP_ID: ${{ vars.ONESIGNAL_APP_ID }}
+      ONESIGNAL_API_KEY: ${{ secrets.ONESIGNAL_API_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+
+      - name: Send academic reminders
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.test }}" = "true" ]; then
+            node scripts/send-academic-push.mjs --test
+          else
+            node scripts/send-academic-push.mjs
+          fi

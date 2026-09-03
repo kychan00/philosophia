@@ -37,6 +37,8 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+          VITE_ONESIGNAL_APP_ID: ${{ vars.ONESIGNAL_APP_ID }}
         run: npm run build
 
       - name: Configure GitHub Pages

@@ -8,6 +8,7 @@ import {
 } from 'react-router'
 
 import ScrollToTop from './components/ScrollToTop'
+import AcademicNotifications from './components/AcademicNotifications'
 
 const Home = lazy(() => import('./pages/Home'))
 const FifthSemester = lazy(() => import('./pages/FifthSemester'))
@@ -58,6 +59,7 @@ function App() {
   return (
     <HashRouter>
       <ScrollToTop />
+      <AcademicNotifications />
 
       <Suspense
         fallback={
