@@ -28,6 +28,7 @@ const AnalyticClass17Aug = lazy(() => import('./pages/AnalyticClass17Aug'))
 const AnalyticClass19Aug = lazy(() => import('./pages/AnalyticClass19Aug'))
 const AnalyticClass24Aug = lazy(() => import('./pages/AnalyticClass24Aug'))
 const AnalyticClass31Aug = lazy(() => import('./pages/AnalyticClass31Aug'))
+const AnalyticClass02Sep = lazy(() => import('./pages/AnalyticClass02Sep'))
 const CriticalTheory = lazy(() => import('./pages/CriticalTheory'))
 const CriticalTheoryTask1 = lazy(() => import('./pages/CriticalTheoryTask1'))
 const CriticalTheoryClass18Aug = lazy(() => import('./pages/CriticalTheoryClass18Aug'))
@@ -139,6 +140,10 @@ function App() {
         <Route
           path="/semestre/5/filosofia-analitica/clase/31-agosto"
           element={<AnalyticClass31Aug />}
+        />
+        <Route
+          path="/semestre/5/filosofia-analitica/clase/2-septiembre"
+          element={<AnalyticClass02Sep />}
         />
         <Route
           path="/semestre/5/teoria-critica"

@@ -343,7 +343,22 @@ export const tasks = [
     sourceRoute:
       '/semestre/5/ontologia-ii/clase/2-septiembre',
   },
-
+,
+  {
+    id: 'analitica-2026-09-09-reporte-proxima-lectura',
+    subject: 'Filosofía Analítica',
+    subjectCode: 'FI264',
+    assignedDate: '2026-09-02',
+    dueDate: '2026-09-09',
+    title: 'Reporte de la próxima lectura',
+    type: 'Reporte de lectura',
+    weight: null,
+    description:
+      'Preparar el reporte de la lectura para la siguiente sesión. No se fija una extensión rígida: usar las páginas necesarias para explicar el texto con comprensión, desarrollo y suficiente detalle. La transcripción remite tentativamente a Peter Hacker, pero conviene confirmar el texto exacto.',
+    sourceClass: 'Clase del 2 de septiembre',
+    sourceRoute:
+      '/semestre/5/filosofia-analitica/clase/2-septiembre',
+  }
 ]
 
 export default tasks

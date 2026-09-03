@@ -217,6 +217,27 @@ export default function AnalyticPhilosophy() {
             <span>Abrir análisis</span><b>↗</b>
           </div>
         </Link>
+        <Link
+          to="/semestre/5/filosofia-analitica/clase/2-septiembre"
+          className="analytic-class-card"
+        >
+          <div className="analytic-date">
+            <strong>II</strong>
+            <span>IX · MMXXVI</span>
+          </div>
+          <div className="analytic-class-copy">
+            <span>Quinta clase · Hermenéutica, positivismo y demarcación</span>
+            <h3>¿Qué hace analítica a la filosofía analítica?</h3>
+            <p>
+              Ciencia unificada, Comte, positivismo lógico, realismo,
+              dependencia teórica de las leyes, anacronismo y cuatro
+              criterios provisionales de la tradición.
+            </p>
+          </div>
+          <div className="analytic-enter">
+            <span>Abrir análisis</span><b>↗</b>
+          </div>
+        </Link>
       </section>
 
       <section className="analytic-course-map">
