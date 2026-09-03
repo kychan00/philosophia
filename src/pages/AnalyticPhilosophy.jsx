@@ -197,6 +197,26 @@ export default function AnalyticPhilosophy() {
             <b>↗</b>
           </div>
         </Link>
+        <Link
+          to="/semestre/5/filosofia-analitica/clase/31-agosto"
+          className="analytic-class-card"
+        >
+          <div className="analytic-date">
+            <strong>XXXI</strong>
+            <span>VIII · MMXXVI</span>
+          </div>
+          <div className="analytic-class-copy">
+            <span>Cuarta clase · Lenguaje, justificación y conocimiento</span>
+            <h3>Wittgenstein contra Wittgenstein</h3>
+            <p>
+              Argumentación racional, equilibrio reflexivo, giro lingüístico,
+              juegos de lenguaje, epistemología, intuición y retórica.
+            </p>
+          </div>
+          <div className="analytic-enter">
+            <span>Abrir análisis</span><b>↗</b>
+          </div>
+        </Link>
       </section>
 
       <section className="analytic-course-map">

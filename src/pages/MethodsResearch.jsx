@@ -148,6 +148,30 @@ export default function MethodsResearch() {
             <b>↗</b>
           </div>
         </Link>
+        <Link
+          to="/semestre/5/metodos-de-investigacion/clase/31-agosto"
+          className="methods-class-card"
+        >
+          <div className="methods-date">
+            <strong>XXXI</strong>
+            <span>VIII · MMXXVI</span>
+          </div>
+
+          <div className="methods-class-copy">
+            <span>Cuarta clase · Construcción del objeto</span>
+            <h3>Disciplina, problema y diseño metodológico</h3>
+            <p>
+              Cuatro dominios, circularidad de las ciencias, multi/inter/transdisciplina,
+              problema y problemática, trabajo académico, estado del arte,
+              capacidades y construcción progresiva del protocolo.
+            </p>
+          </div>
+
+          <div className="methods-enter">
+            <span>Abrir folio</span>
+            <b>↗</b>
+          </div>
+        </Link>
       </section>
 
       <footer className="methods-footer">

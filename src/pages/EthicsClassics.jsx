@@ -233,6 +233,27 @@ export default function EthicsClassics() {
             <b>↗</b>
           </div>
         </Link>
+        <Link
+          to="/semestre/5/etica/clase/1-septiembre"
+          className="ethicsx-class-card"
+        >
+          <div className="ethicsx-class-card-date">
+            <strong>I</strong>
+            <span>IX · MMXXVI</span>
+          </div>
+          <div className="ethicsx-class-card-copy">
+            <span>Quinta clase · Pasiones y dominio de sí</span>
+            <h3>Safo, Platón y el estoicismo</h3>
+            <p>
+              Responsabilidad y destino, pasión y posesión, amor corporal,
+              patologización de emociones, logos, autocontrol y educación de Eros.
+            </p>
+          </div>
+          <div className="ethicsx-class-card-enter">
+            <span>Abrir clase</span>
+            <b>↗</b>
+          </div>
+        </Link>
 
       </section>
 

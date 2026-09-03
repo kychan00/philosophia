@@ -308,6 +308,27 @@ export default function OntologiaII() {
             <b>↗</b>
           </div>
         </Link>
+        <Link
+          to="/semestre/5/ontologia-ii/clase/2-septiembre"
+          className="ontologia-class-card"
+        >
+          <div className="ontologia-date">
+            <strong>II</strong>
+            <span>IX · MMXXVI</span>
+          </div>
+          <div className="ontologia-class-copy">
+            <span>Sexta clase · Empirismo y problema del conocimiento</span>
+            <h3>Locke → Berkeley → Hume → Kant</h3>
+            <p>
+              Experiencia, cualidades, esse est percipi, mundo exterior,
+              solipsismo, causalidad, inducción, ciencia y juicios sintéticos a priori.
+            </p>
+          </div>
+          <div className="ontologia-enter">
+            <span>Abrir clase</span>
+            <b>↗</b>
+          </div>
+        </Link>
 
       </section>
 

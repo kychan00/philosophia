@@ -286,6 +286,64 @@ export const tasks = [
     sourceRoute: '/semestre/5/etica/clase/27-agosto',
   },
 
+  {
+    id: 'metodos-2026-09-02-capitulos-1-3-problema-problematica',
+    subject: 'Métodos de Investigación',
+    subjectCode: 'FI104',
+    assignedDate: '2026-08-31',
+    dueDate: '2026-09-02',
+    dueTime: '17:25',
+    title: 'Capítulos 1–3 · problema y problemática',
+    type: 'Lectura / preparación',
+    weight: null,
+    description:
+      'Leer los capítulos 1, 2 y 3 del texto indicado por el profesor e identificar qué se entiende por problema y por problemática, así como la diferencia entre ambos. No hay reporte de lectura.',
+    readingScope:
+      'Capítulos 1–3 + presentación “Estructura de trabajo”',
+    sourceClass: 'Clase del 31 de agosto · construcción del objeto de estudio',
+    sourceRoute: '/semestre/5/metodos-de-investigacion/clase/31-agosto',
+  },
+
+  {
+    id: 'teoria-critica-2026-09-03-releer-hegel-prologo',
+    subject: 'Teoría Crítica',
+    subjectCode: 'FI265',
+    assignedDate: '2026-09-01',
+    dueDate: '2026-09-03',
+    dueTime: '17:25',
+    title: 'Releer el prólogo de Fenomenología del espíritu',
+    type: 'Lectura / relectura',
+    weight: null,
+    description:
+      'Volver a leer el prólogo de la Fenomenología del espíritu después de aclarar idealismo absoluto, espíritu, fenómeno, sujeto y objeto, devenir, movimiento y dialéctica.',
+    readingScope:
+      'G. W. F. Hegel · Prólogo de la Fenomenología del espíritu · segunda lectura',
+    sourceClass:
+      'Clase del 1 de septiembre · Fromm, Hegel y dialéctica',
+    sourceRoute:
+      '/semestre/5/teoria-critica/clase/1-septiembre',
+  },
+
+  {
+    id: 'ontologia-2026-09-07-kant-dos-prologos-critica-razon-pura',
+    subject: 'Ontología II',
+    subjectCode: 'FI190',
+    assignedDate: '2026-09-02',
+    dueDate: '2026-09-07',
+    dueTime: '12:55',
+    title: 'Kant · Crítica de la razón pura · dos prólogos',
+    type: 'Lectura',
+    weight: null,
+    description:
+      'Leer para el lunes los dos prólogos o prefacios de la Crítica de la razón pura. Después continuar con la Introducción, aproximadamente unas diez páginas según la edición.',
+    readingScope:
+      'Immanuel Kant · Crítica de la razón pura · prólogo A + prólogo B; después Introducción',
+    sourceClass:
+      'Clase del 2 de septiembre · Locke, Berkeley, Hume y Kant',
+    sourceRoute:
+      '/semestre/5/ontologia-ii/clase/2-septiembre',
+  },
+
 ]
 
 export default tasks

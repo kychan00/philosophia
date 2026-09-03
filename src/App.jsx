@@ -16,25 +16,30 @@ const OntologiaClass17Aug = lazy(() => import('./pages/OntologiaClass17Aug'))
 const OntologiaClass19Aug = lazy(() => import('./pages/OntologiaClass19Aug'))
 const OntologiaClass24Aug = lazy(() => import('./pages/OntologiaClass24Aug'))
 const OntologiaClass26Aug = lazy(() => import('./pages/OntologiaClass26Aug'))
+const OntologiaClass02Sep = lazy(() => import('./pages/OntologiaClass02Sep'))
 const MethodsResearch = lazy(() => import('./pages/MethodsResearch'))
 const MethodsClass17Aug = lazy(() => import('./pages/MethodsClass17Aug'))
 const MethodsClass19Aug = lazy(() => import('./pages/MethodsClass19Aug'))
 const MethodsClass24Aug = lazy(() => import('./pages/MethodsClass24Aug'))
+const MethodsClass31Aug = lazy(() => import('./pages/MethodsClass31Aug'))
 const AnalyticPhilosophy = lazy(() => import('./pages/AnalyticPhilosophy'))
 const AnalyticClass17Aug = lazy(() => import('./pages/AnalyticClass17Aug'))
 const AnalyticClass19Aug = lazy(() => import('./pages/AnalyticClass19Aug'))
 const AnalyticClass24Aug = lazy(() => import('./pages/AnalyticClass24Aug'))
+const AnalyticClass31Aug = lazy(() => import('./pages/AnalyticClass31Aug'))
 const CriticalTheory = lazy(() => import('./pages/CriticalTheory'))
 const CriticalTheoryTask1 = lazy(() => import('./pages/CriticalTheoryTask1'))
 const CriticalTheoryClass18Aug = lazy(() => import('./pages/CriticalTheoryClass18Aug'))
 const CriticalTheoryClass20Aug = lazy(() => import('./pages/CriticalTheoryClass20Aug'))
 const CriticalTheoryClass25Aug = lazy(() => import('./pages/CriticalTheoryClass25Aug'))
 const CriticalTheoryClass27Aug = lazy(() => import('./pages/CriticalTheoryClass27Aug'))
+const CriticalTheoryClass01Sep = lazy(() => import('./pages/CriticalTheoryClass01Sep'))
 const EthicsClassics = lazy(() => import('./pages/EthicsClassics'))
 const EthicsClass18Aug = lazy(() => import('./pages/EthicsClass18Aug'))
 const EthicsClass20Aug = lazy(() => import('./pages/EthicsClass20Aug'))
 const EthicsClass25Aug = lazy(() => import('./pages/EthicsClass25Aug'))
 const EthicsClass27Aug = lazy(() => import('./pages/EthicsClass27Aug'))
+const EthicsClass01Sep = lazy(() => import('./pages/EthicsClass01Sep'))
 const TasksBoard = lazy(() => import('./pages/TasksBoard'))
 const SpinozaEthicsStudy = lazy(() => import('./pages/SpinozaEthicsStudy'))
 const LeibnizStudy = lazy(() => import('./pages/LeibnizStudy'))
@@ -86,6 +91,10 @@ function App() {
           element={<OntologiaClass26Aug />}
         />
         <Route
+          path="/semestre/5/ontologia-ii/clase/2-septiembre"
+          element={<OntologiaClass02Sep />}
+        />
+        <Route
           path="/semestre/5/metodos-de-investigacion"
           element={<MethodsResearch />}
         />
@@ -106,6 +115,10 @@ function App() {
           element={<MethodsClass24Aug />}
         />
         <Route
+          path="/semestre/5/metodos-de-investigacion/clase/31-agosto"
+          element={<MethodsClass31Aug />}
+        />
+        <Route
           path="/semestre/5/filosofia-analitica"
           element={<AnalyticPhilosophy />}
         />
@@ -120,6 +133,10 @@ function App() {
         <Route
           path="/semestre/5/filosofia-analitica/clase/24-agosto"
           element={<AnalyticClass24Aug />}
+        />
+        <Route
+          path="/semestre/5/filosofia-analitica/clase/31-agosto"
+          element={<AnalyticClass31Aug />}
         />
         <Route
           path="/semestre/5/teoria-critica"
@@ -146,6 +163,10 @@ function App() {
           element={<CriticalTheoryClass27Aug />}
         />
         <Route
+          path="/semestre/5/teoria-critica/clase/1-septiembre"
+          element={<CriticalTheoryClass01Sep />}
+        />
+        <Route
           path="/semestre/5/etica"
           element={<EthicsClassics />}
         />
@@ -164,6 +185,10 @@ function App() {
         <Route
           path="/semestre/5/etica/clase/27-agosto"
           element={<EthicsClass27Aug />}
+        />
+        <Route
+          path="/semestre/5/etica/clase/1-septiembre"
+          element={<EthicsClass01Sep />}
         />
         <Route
           path="/tareas/ontologia-ii/spinoza-etica-parte-i"

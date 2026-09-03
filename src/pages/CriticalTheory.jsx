@@ -164,6 +164,27 @@ export default function CriticalTheory() {
             <span>Abrir clase</span><b>↗</b>
           </div>
         </Link>
+        <Link
+          to="/semestre/5/teoria-critica/clase/1-septiembre"
+          className="ct-class-card"
+        >
+          <div className="ct-class-card-date">
+            <strong>I</strong>
+            <span>IX · MMXXVI</span>
+          </div>
+          <div className="ct-class-card-copy">
+            <span>Quinta clase · Fromm y entrada a Hegel</span>
+            <h3>Negatividad, devenir y dialéctica</h3>
+            <p>
+              Fromm, autoritarismo, tener y ser, desobediencia, disputa del
+              positivismo, idealismo absoluto, espíritu, verdad como proceso y
+              dialéctica como racionalidad del movimiento.
+            </p>
+          </div>
+          <div className="ct-class-card-enter">
+            <span>Abrir clase</span><b>↗</b>
+          </div>
+        </Link>
       </section>
 
       <section className="ct-section">
