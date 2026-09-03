@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 import tasks from '../data/tasks'
 import CLASS_SCHEDULE from '../data/academicSchedule'
+import TaskComposer from '../components/TaskComposer'
+import { loadCustomTasks, saveCustomTasks } from '../data/localTasks'
 
 const MONTHS = [
   'enero',
@@ -19,6 +21,12 @@ const MONTHS = [
 ]
 
 const WEEKDAYS = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom']
+
+const PRIORITY_ORDER = {
+  Alta: 0,
+  Media: 1,
+  Baja: 2,
+}
 
 const STATUS_ORDER = {
   overdue: 0,
@@ -230,6 +238,7 @@ export default function TasksBoard() {
   const [subject, setSubject] = useState('Todas')
   const [view, setView] = useState('Pendientes')
   const [completed, setCompleted] = useState(loadCompleted)
+  const [customTasks, setCustomTasks] = useState(loadCustomTasks)
   const [selectedTask, setSelectedTask] = useState(null)
   const [calendarCursor, setCalendarCursor] = useState(() => {
     const now = new Date()
@@ -239,18 +248,29 @@ export default function TasksBoard() {
     }
   })
 
+  const allTasks = useMemo(
+    () => [
+      ...tasks,
+      ...customTasks.map((task) => ({
+        ...task,
+        isLocal: true,
+      })),
+    ],
+    [customTasks],
+  )
+
   const subjects = useMemo(
-    () => ['Todas', ...new Set(tasks.map((task) => task.subject))],
-    [],
+    () => ['Todas', ...new Set(allTasks.map((task) => task.subject))],
+    [allTasks],
   )
 
   const decoratedTasks = useMemo(
     () =>
-      tasks.map((task) => ({
+      allTasks.map((task) => ({
         ...task,
         status: getTaskStatus(task, completed),
       })),
-    [completed],
+    [allTasks, completed],
   )
 
   const visibleTasks = useMemo(() => {
@@ -268,6 +288,12 @@ export default function TasksBoard() {
           STATUS_ORDER[a.status.key] - STATUS_ORDER[b.status.key]
 
         if (statusDiff !== 0) return statusDiff
+
+        const priorityDiff =
+          (PRIORITY_ORDER[a.priority] ?? 9) -
+          (PRIORITY_ORDER[b.priority] ?? 9)
+
+        if (priorityDiff !== 0) return priorityDiff
 
         if (a.dueDate && b.dueDate) {
           return a.dueDate.localeCompare(b.dueDate)
@@ -319,6 +345,36 @@ export default function TasksBoard() {
     }
 
     setSelectedTask(task)
+  }
+
+  const addCustomTask = (task) => {
+    setCustomTasks((current) => {
+      const next = [...current, task]
+      saveCustomTasks(next)
+      return next
+    })
+  }
+
+  const deleteCustomTask = (id) => {
+    setCustomTasks((current) => {
+      const next = current.filter((task) => task.id !== id)
+      saveCustomTasks(next)
+      return next
+    })
+
+    setCompleted((current) => {
+      if (!Object.prototype.hasOwnProperty.call(current, id)) return current
+
+      const next = { ...current }
+      delete next[id]
+      window.localStorage.setItem(
+        'philosophia-task-status',
+        JSON.stringify(next),
+      )
+      return next
+    })
+
+    if (selectedTask?.id === id) setSelectedTask(null)
   }
 
   const toggleTask = (id) => {
@@ -431,6 +487,8 @@ export default function TasksBoard() {
           <span className="legend-future">Programada</span>
           <span className="legend-completed">Completada</span>
         </div>
+
+        <TaskComposer onCreate={addCustomTask} />
 
         <section className="tasks-calendar-shell">
           <div className="tasks-calendar-heading">
@@ -611,12 +669,27 @@ export default function TasksBoard() {
                     </div>
 
                     <div>
-                      <span className={`task-status task-status--${task.status.key}`}>
-                        {task.status.label}
-                      </span>
-                      <small className="task-status-detail">
-                        {task.status.detail}
-                      </small>
+                      {task.priority ? (
+                        <>
+                          <span
+                            className={`task-manual-priority task-manual-priority--${task.priority.toLowerCase()}`}
+                          >
+                            {task.priority}
+                          </span>
+                          <small className="task-status-detail">
+                            {task.status.label} · {task.status.detail}
+                          </small>
+                        </>
+                      ) : (
+                        <>
+                          <span className={`task-status task-status--${task.status.key}`}>
+                            {task.status.label}
+                          </span>
+                          <small className="task-status-detail">
+                            {task.status.detail}
+                          </small>
+                        </>
+                      )}
                     </div>
 
                     <div className="task-priority-date">
@@ -636,6 +709,21 @@ export default function TasksBoard() {
                         <span>{isCompleted ? '✓' : ''}</span>
                         {isCompleted ? 'Hecha' : 'Marcar hecha'}
                       </button>
+
+                      {task.isLocal && (
+                        <button
+                          type="button"
+                          className="task-delete-local"
+                          onClick={(event) => {
+                            event.stopPropagation()
+                            if (window.confirm('¿Eliminar esta tarea guardada en el navegador?')) {
+                              deleteCustomTask(task.id)
+                            }
+                          }}
+                        >
+                          Eliminar
+                        </button>
+                      )}
                     </div>
                   </article>
                 )
@@ -645,8 +733,10 @@ export default function TasksBoard() {
         </section>
 
         <p className="tasks-local-note">
-          El estado “completada” se guarda únicamente en este navegador.
-          Las prioridades se recalculan automáticamente según la fecha.
+          El estado “completada” y las tareas agregadas manualmente se guardan
+          únicamente en este navegador. La urgencia por fecha se recalcula
+          automáticamente; las tareas manuales también conservan la prioridad
+          Alta, Media o Baja que usted les asigne.
         </p>
       </section>
 

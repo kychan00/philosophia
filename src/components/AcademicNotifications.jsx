@@ -4,6 +4,11 @@ import PwaInstallCard from './PwaInstallCard'
 import PushSubscriptionCard from './PushSubscriptionCard'
 import tasks from '../data/tasks'
 import CLASS_SCHEDULE from '../data/academicSchedule'
+import {
+  CUSTOM_TASKS_EVENT,
+  CUSTOM_TASKS_KEY,
+  loadCustomTasks,
+} from '../data/localTasks'
 
 const SETTINGS_KEY = 'philosophia-notification-settings-v1'
 const SENT_KEY = 'philosophia-notification-sent-v1'
@@ -94,10 +99,10 @@ function classEvents(now, horizonDays = 8) {
   return events.sort((a, b) => a.date - b.date)
 }
 
-function taskEvents(now) {
+function taskEvents(now, taskList) {
   const completed = loadJson(TASK_STATUS_KEY, {})
 
-  return tasks
+  return taskList
     .filter((task) => task.dueDate && !task.completed && !completed[task.id])
     .map((task) => {
       const time = endTimeForTask(task)
@@ -173,6 +178,7 @@ export default function AcademicNotifications() {
     ...DEFAULT_SETTINGS,
     ...loadJson(SETTINGS_KEY, {}),
   }))
+  const [customTasks, setCustomTasks] = useState(loadCustomTasks)
 
   useEffect(() => {
     const tick = () => setNow(new Date())
@@ -193,6 +199,21 @@ export default function AcademicNotifications() {
   }, [])
 
   useEffect(() => {
+    const refreshCustomTasks = () => setCustomTasks(loadCustomTasks())
+    const onStorage = (event) => {
+      if (event.key === CUSTOM_TASKS_KEY) refreshCustomTasks()
+    }
+
+    window.addEventListener(CUSTOM_TASKS_EVENT, refreshCustomTasks)
+    window.addEventListener('storage', onStorage)
+
+    return () => {
+      window.removeEventListener(CUSTOM_TASKS_EVENT, refreshCustomTasks)
+      window.removeEventListener('storage', onStorage)
+    }
+  }, [])
+
+  useEffect(() => {
     const onKey = (event) => {
       if (event.key === 'Escape') setOpen(false)
     }
@@ -201,7 +222,14 @@ export default function AcademicNotifications() {
   }, [])
 
   const classes = useMemo(() => classEvents(now), [now])
-  const pendingTasks = useMemo(() => taskEvents(now), [now])
+  const notificationTasks = useMemo(
+    () => [...tasks, ...customTasks],
+    [customTasks],
+  )
+  const pendingTasks = useMemo(
+    () => taskEvents(now, notificationTasks),
+    [now, notificationTasks],
+  )
 
   const upcomingClasses = classes
     .filter((event) => event.date >= new Date(now.getTime() - 5 * MINUTE_MS))

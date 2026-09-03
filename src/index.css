@@ -21981,3 +21981,181 @@ a {
 /* WEB PUSH · PHASE 3 */
 .academic-push-card{padding:1rem 0;border-bottom:1px solid rgba(91,67,37,.11)}.academic-push-card>small{display:block;margin-bottom:.5rem;font-size:.44rem;letter-spacing:.13em;color:#80643f}.academic-push-state{display:grid;grid-template-columns:2rem 1fr auto;gap:.7rem;align-items:center;padding:.85rem;border:1px solid rgba(91,67,37,.14);background:rgba(255,255,255,.45)}.academic-push-state.ready{border-left:4px solid #486849;background:rgba(72,104,73,.045)}.academic-push-state.muted{grid-template-columns:2rem 1fr;color:rgba(27,23,18,.7)}.academic-push-state>span{display:grid;place-items:center;width:2rem;height:2rem;border:1px solid rgba(91,67,37,.14);border-radius:50%;color:#80643f}.academic-push-state.ready>span{color:#486849}.academic-push-state strong{display:block;font-family:Georgia,serif;font-weight:500}.academic-push-state p{margin:.12rem 0 0;font-family:Georgia,serif;font-size:.68rem;line-height:1.45;opacity:.68}.academic-push-state button{padding:.55rem .7rem;border:1px solid #80643f;background:#80643f;color:#fff;cursor:pointer}.academic-push-state button:disabled{opacity:.55;cursor:wait}.academic-push-id{display:flex;justify-content:space-between;gap:1rem;margin-top:.45rem;padding:.45rem .65rem;background:rgba(79,111,145,.04);font-size:.48rem}.academic-push-id span{letter-spacing:.09em;color:#4f6f91}.academic-push-id code{font-size:.48rem}.academic-push-message{margin:.45rem 0 0;padding:.55rem;border-left:3px solid #4f6f91;background:rgba(79,111,145,.045);font-family:Georgia,serif;font-size:.7rem}@media(max-width:600px){.academic-push-state{grid-template-columns:2rem 1fr}.academic-push-state button{grid-column:1/-1}}
 
+
+
+/* USER TASK COMPOSER · LOCAL STORAGE */
+.task-composer {
+  margin: 1.6rem 0 2rem;
+  border: 1px solid rgba(112, 87, 48, 0.24);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.55), rgba(239,231,211,0.36)),
+    rgba(247, 243, 232, 0.72);
+  box-shadow: 0 18px 48px rgba(71, 55, 31, 0.08);
+}
+
+.task-composer-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.4rem;
+  padding: 1.3rem 1.45rem;
+}
+
+.task-composer-heading p {
+  margin: 0 0 .25rem;
+  color: #8b6a3d;
+  font-size: .72rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.task-composer-heading h2 {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.35rem, 2vw, 1.9rem);
+  font-weight: 500;
+}
+
+.task-composer-heading span {
+  display: block;
+  margin-top: .3rem;
+  color: #756e63;
+  font-size: .88rem;
+}
+
+.task-composer-toggle,
+.task-composer-actions button {
+  border: 1px solid rgba(99, 73, 38, .28);
+  background: #f6f0e2;
+  color: #332a20;
+  padding: .7rem 1rem;
+  cursor: pointer;
+  font: inherit;
+}
+
+.task-composer-toggle:hover,
+.task-composer-actions button:hover {
+  background: #eee3cc;
+}
+
+.task-composer-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 1.3rem 1.45rem 1.5rem;
+  border-top: 1px solid rgba(112, 87, 48, 0.18);
+}
+
+.task-composer-form label {
+  display: flex;
+  flex-direction: column;
+  gap: .42rem;
+}
+
+.task-composer-form label > span {
+  color: #765b36;
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.task-composer-form input,
+.task-composer-form select,
+.task-composer-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(91, 71, 45, .25);
+  background: rgba(255,255,255,.62);
+  color: #262019;
+  padding: .78rem .82rem;
+  font: inherit;
+  border-radius: 0;
+}
+
+.task-composer-form textarea {
+  resize: vertical;
+  min-height: 6.5rem;
+}
+
+.task-composer-wide {
+  grid-column: 1 / -1;
+}
+
+.task-composer-meta {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .75rem 0 0;
+  color: #7c7367;
+  font-size: .8rem;
+}
+
+.task-composer-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: .65rem;
+}
+
+.task-composer-actions .is-primary {
+  background: #5f4930;
+  color: #fffaf0;
+}
+
+.task-manual-priority {
+  display: inline-flex;
+  width: fit-content;
+  padding: .34rem .62rem;
+  border: 1px solid currentColor;
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.task-manual-priority--alta {
+  color: #8f3038;
+  background: rgba(143, 48, 56, .07);
+}
+
+.task-manual-priority--media {
+  color: #8a682d;
+  background: rgba(138, 104, 45, .08);
+}
+
+.task-manual-priority--baja {
+  color: #53705b;
+  background: rgba(83, 112, 91, .08);
+}
+
+.task-priority-actions {
+  display: flex;
+  flex-direction: column;
+  gap: .38rem;
+}
+
+.task-delete-local {
+  opacity: .72;
+  font-size: .76rem;
+}
+
+@media (max-width: 720px) {
+  .task-composer-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .task-composer-form {
+    grid-template-columns: 1fr;
+  }
+
+  .task-composer-wide,
+  .task-composer-meta,
+  .task-composer-actions {
+    grid-column: 1;
+  }
+
+  .task-composer-meta {
+    flex-direction: column;
+  }
+}
