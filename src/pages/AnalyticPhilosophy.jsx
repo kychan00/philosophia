@@ -117,6 +117,29 @@ export default function AnalyticPhilosophy() {
 
       <SubjectTasksPanel subjectCode="FI264" />
 
+      <section className="analytic-report-spotlight">
+        <div className="analytic-report-copy">
+          <span>Reportum · studio visuali</span>
+          <h2>Esquema 2D del reporte de Føllesdal</h2>
+          <p>
+            Mapa por fases para reconstruir la idea completa del ensayo,
+            desde el problema de clasificación hasta la conclusión ética y democrática.
+          </p>
+        </div>
+
+        <Link
+          to="/semestre/5/filosofia-analitica/reporte/follesdal"
+          className="analytic-report-link"
+        >
+          <div>
+            <small>Mapa argumental</small>
+            <strong>Abrir esquema 2D</strong>
+          </div>
+          <b>↗</b>
+        </Link>
+      </section>
+
+
       <section className="analytic-classes">
         <div className="analytic-section-heading">
           <span>I</span>
