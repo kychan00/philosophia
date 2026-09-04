@@ -172,6 +172,30 @@ export default function MethodsResearch() {
             <b>↗</b>
           </div>
         </Link>
+        <Link
+          to="/semestre/5/metodos-de-investigacion/clase/2-septiembre"
+          className="methods-class-card"
+        >
+          <div className="methods-date">
+            <strong>II</strong>
+            <span>IX · MMXXVI</span>
+          </div>
+
+          <div className="methods-class-copy">
+            <span>Quinta clase · Delimitación del objeto de estudio</span>
+            <h3>De la curiosidad a una pregunta investigable</h3>
+            <p>
+              Tema y objeto de estudio, originalidad, pertinencia y utilidad,
+              variables de delimitación, selección bibliográfica y el ejemplo
+              de libertad, ley y voluntad general en Rousseau.
+            </p>
+          </div>
+
+          <div className="methods-enter">
+            <span>Abrir folio</span>
+            <b>↗</b>
+          </div>
+        </Link>
       </section>
 
       <footer className="methods-footer">
