@@ -353,10 +353,17 @@ export const tasks = [
     type: 'Reporte de lectura',
     weight: null,
     description:
-      'Preparar el reporte de la lectura para la siguiente sesión. No se fija una extensión rígida: usar las páginas necesarias para explicar el texto con comprensión, desarrollo y suficiente detalle. La transcripción remite tentativamente a Peter Hacker, pero conviene confirmar el texto exacto.',
+      'Preparar el reporte de lectura sobre el ensayo de Dagfinn Føllesdal “Filosofía analítica: ¿qué es y por qué uno debería involucrarse?”. El esquema 2D funciona como herramienta de comprensión y desarrollo del reporte.',
+    readingScope:
+      'Dagfinn Føllesdal · “Filosofía analítica: ¿qué es y por qué uno debería involucrarse?”',
+    readingPages: 'pp. 19–42',
+    readingEdition:
+      'Hans-Johann Glock (ed.) · El surgimiento de la filosofía analítica · Círculo Ometeotl, 2013',
     sourceClass: 'Clase del 2 de septiembre',
     sourceRoute:
       '/semestre/5/filosofia-analitica/clase/2-septiembre',
+    studyRoute:
+      '/semestre/5/filosofia-analitica/reporte/follesdal',
   }
 ]
 

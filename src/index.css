@@ -24325,3 +24325,2287 @@ a {
     justify-content: space-between;
   }
 }
+
+/* -------------------------------------------------
+   FOLLESDAL · BOOK / CLASS OVERLAY
+-------------------------------------------------- */
+
+/*
+  Convención estable:
+  - el fondo del nodo sigue siendo el código semántico DEL LIBRO;
+  - las clases aparecen únicamente como badges de fecha;
+  - no se cambia posición, opacidad, tamaño de red ni conexiones.
+*/
+
+.afm-node.has-class-links .afm-node-card {
+  position: relative;
+  padding-bottom: 1.15rem;
+}
+
+.afm-node-class-badges {
+  position: absolute;
+  right: 7px;
+  bottom: 7px;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  max-width: calc(100% - 14px);
+  pointer-events: none;
+}
+
+.afm-node-class-badges > span {
+  margin-right: 0.1rem;
+  color: rgba(54, 50, 44, 0.62);
+  font-size: 0.44rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.afm-node-class-badges i {
+  padding: 0.19rem 0.33rem;
+  border-radius: 999px;
+  background: var(--class-color);
+  box-shadow: 0 2px 6px rgba(30, 27, 24, 0.12);
+  color: #fff;
+  font-size: 0.46rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.035em;
+  white-space: nowrap;
+}
+
+.afm-class-legend {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line-soft);
+}
+
+.afm-class-legend > strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.afm-class-legend > p {
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+  font-size: 0.74rem;
+  line-height: 1.45;
+}
+
+.afm-class-legend-list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.afm-class-legend-item {
+  display: grid;
+  grid-template-columns: 12px 50px minmax(0, 1fr);
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.afm-class-legend-item i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--class-color);
+}
+
+.afm-class-legend-item b {
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+}
+
+.afm-class-legend-item span {
+  color: var(--muted);
+  font-size: 0.67rem;
+  line-height: 1.3;
+}
+
+.afm-book-reference {
+  margin-top: 0.85rem;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.afm-book-reference > span {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--gold);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.afm-book-reference small {
+  margin: 0;
+}
+
+.afm-class-connections {
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line-soft);
+}
+
+.afm-class-connections > span {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: var(--ink-soft);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.afm-class-connection-list {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.afm-class-connection {
+  padding: 0.72rem 0.78rem;
+  border: 1px solid var(--line-soft);
+  border-left: 4px solid var(--class-color);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.48);
+}
+
+.afm-class-connection header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-bottom: 0.35rem;
+}
+
+.afm-class-connection header strong {
+  color: var(--class-color);
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+}
+
+.afm-class-connection header em {
+  color: var(--muted);
+  font-size: 0.63rem;
+  font-style: normal;
+}
+
+.afm-class-connection > b {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.82rem;
+}
+
+.afm-class-connection p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.76rem;
+  line-height: 1.52;
+}
+
+.afm-class-connection a {
+  display: inline-block;
+  margin-top: 0.45rem;
+  color: var(--class-color);
+  font-size: 0.69rem;
+  font-weight: 800;
+}
+
+@media (max-width: 760px) {
+  .afm-node-class-badges > span {
+    display: none;
+  }
+
+  .afm-node-class-badges i {
+    font-size: 0.42rem;
+  }
+}
+
+/* -------------------------------------------------
+   FOLLESDAL · SAFE GUIDE MODE
+-------------------------------------------------- */
+
+/*
+  Esta capa NO cambia posiciones, opacity, display, transform
+  ni ninguna propiedad geométrica de nodos/edges.
+*/
+
+.afm-map-header-actions {
+  max-width: 470px;
+  display: grid;
+  justify-items: end;
+  gap: 0.65rem;
+}
+
+.afm-map-header-actions > p {
+  margin: 0;
+  text-align: right;
+}
+
+.afm-study-mode-toggle {
+  display: inline-flex;
+  padding: 0.2rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.afm-study-mode-toggle button {
+  padding: 0.52rem 0.85rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.afm-study-mode-toggle button.is-active {
+  background: #efe0b4;
+  color: var(--ink);
+}
+
+.afm-map-panel--guide .afm-node.is-active {
+  border-color: rgba(177, 135, 43, 0.94);
+  box-shadow:
+    0 0 0 3px rgba(214, 177, 87, 0.22),
+    0 14px 34px rgba(22, 20, 18, 0.13);
+}
+
+.afm-guide-panel {
+  padding: 1.2rem 1.3rem;
+  border: 1px solid rgba(177, 135, 43, 0.34);
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(249, 244, 230, 0.96), rgba(242, 233, 208, 0.8));
+  box-shadow: 0 18px 42px rgba(22, 20, 18, 0.06);
+}
+
+.afm-guide-topline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  margin-bottom: 0.75rem;
+}
+
+.afm-guide-topline span {
+  color: var(--gold);
+  font-size: 0.64rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.afm-guide-progress {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.afm-guide-progress i {
+  width: 110px;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(55, 51, 43, 0.1);
+}
+
+.afm-guide-progress i::after {
+  content: '';
+  display: block;
+  width: var(--guide-progress);
+  height: 100%;
+  border-radius: inherit;
+  background: var(--gold);
+}
+
+.afm-guide-panel h3 {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3vw, 2.55rem);
+  font-weight: 550;
+  line-height: 1.05;
+}
+
+.afm-guide-explanation {
+  margin: 0.75rem 0 0;
+  max-width: 1050px;
+  color: var(--ink-soft);
+  line-height: 1.68;
+}
+
+.afm-guide-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.85rem;
+}
+
+.afm-guide-box {
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.52);
+}
+
+.afm-guide-box > span {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--gold);
+  font-size: 0.6rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.afm-guide-box p {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.58;
+}
+
+.afm-guide-question-actions {
+  margin-top: 0.7rem;
+}
+
+.afm-guide-question-actions button {
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.76);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.afm-guide-answer {
+  margin-top: 0.7rem !important;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--line-soft);
+  color: #514a3f !important;
+}
+
+.afm-guide-class-links {
+  margin-top: 0.9rem;
+}
+
+.afm-guide-class-links > span {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--ink-soft);
+  font-size: 0.61rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.afm-guide-class-links-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.65rem;
+}
+
+.afm-guide-class-link {
+  padding: 0.72rem 0.8rem;
+  border: 1px solid var(--line-soft);
+  border-left: 4px solid var(--class-color);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.afm-guide-class-link header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.4rem;
+}
+
+.afm-guide-class-link header b {
+  color: var(--class-color);
+  font-size: 0.64rem;
+}
+
+.afm-guide-class-link header span {
+  color: var(--muted);
+  font-size: 0.62rem;
+}
+
+.afm-guide-class-link > strong {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+}
+
+.afm-guide-class-link p {
+  margin: 0.35rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.74rem;
+  line-height: 1.5;
+}
+
+.afm-guide-class-link a {
+  display: inline-block;
+  margin-top: 0.45rem;
+  color: var(--class-color);
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.afm-guide-nav {
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: center;
+  border-top: 1px solid rgba(177, 135, 43, 0.2);
+}
+
+.afm-guide-nav > span {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.afm-guide-nav button {
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.afm-guide-nav button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.afm-phase-list button:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+}
+
+@media (max-width: 900px) {
+  .afm-map-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .afm-map-header-actions {
+    max-width: none;
+    justify-items: start;
+  }
+
+  .afm-map-header-actions > p {
+    text-align: left;
+  }
+
+  .afm-guide-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .afm-guide-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .afm-guide-nav > span {
+    order: -1;
+  }
+}
+
+/* -------------------------------------------------
+   FOLLESDAL · GUIDE MAP REFLECTION
+-------------------------------------------------- */
+
+/*
+  La guía sólo añade señalización visual:
+  - NO cambia posiciones;
+  - NO oculta nodos;
+  - NO atenúa edges;
+  - NO modifica la geometría del grafo.
+*/
+
+.afm-node.is-guide-target {
+  z-index: 8 !important;
+  border-color: rgba(167, 124, 29, 0.96) !important;
+  box-shadow:
+    0 0 0 4px rgba(214, 174, 76, 0.28),
+    0 0 0 9px rgba(214, 174, 76, 0.1),
+    0 18px 38px rgba(80, 59, 14, 0.18) !important;
+}
+
+.afm-node.is-guide-target .afm-node-card {
+  position: relative;
+}
+
+.afm-guide-node-step {
+  position: absolute;
+  top: -11px;
+  right: -10px;
+  z-index: 10;
+  padding: 0.28rem 0.48rem;
+  border: 1px solid rgba(133, 96, 18, 0.32);
+  border-radius: 999px;
+  background: #d9b557;
+  color: #292116;
+  box-shadow: 0 5px 14px rgba(70, 50, 10, 0.18);
+  font-size: 0.5rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.afm-map-panel--guide .react-flow__edge.is-guide-edge path {
+  filter: drop-shadow(0 1px 2px rgba(126, 91, 18, 0.15));
+}
+
+.afm-guide-map-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--muted);
+  font-size: 0.67rem;
+}
+
+.afm-guide-map-key i {
+  width: 22px;
+  height: 3px;
+  border-radius: 999px;
+  background: #b58b2e;
+}
+
+@media (max-width: 760px) {
+  .afm-guide-node-step {
+    top: -9px;
+    right: -7px;
+    font-size: 0.44rem;
+  }
+}
+/* -------------------------------------------------
+   FOLLESDAL · GENERAL DRAGGABLE MAP
+-------------------------------------------------- */
+
+.afm-map-view-toggle {
+  display: inline-flex;
+  padding: 0.2rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.afm-map-view-toggle button {
+  padding: 0.52rem 0.82rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.afm-map-view-toggle button.is-active {
+  background: rgba(221, 205, 166, 0.78);
+  color: var(--ink);
+}
+
+.afm-map-view-toggle button:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.afm-overview-reset {
+  padding: 0.56rem 0.82rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.68);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 0.68rem;
+}
+
+.afm-overview-flow-shell {
+  height: 82vh;
+  min-height: 900px;
+}
+
+.afm-overview-node {
+  cursor: grab;
+}
+
+.afm-overview-node:active {
+  cursor: grabbing;
+}
+
+.afm-overview-node .afm-node-card {
+  min-width: 168px;
+}
+
+.afm-overview-phase {
+  display: block;
+  margin-bottom: 0.28rem;
+  color: rgba(62, 57, 49, 0.58);
+  font-size: 0.48rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.afm-node.is-guide-target {
+  z-index: 9 !important;
+  border-color: rgba(167, 124, 29, 0.96) !important;
+  box-shadow:
+    0 0 0 4px rgba(214, 174, 76, 0.3),
+    0 0 0 10px rgba(214, 174, 76, 0.11),
+    0 20px 42px rgba(80, 59, 14, 0.2) !important;
+}
+
+.afm-node.is-guide-target .afm-node-card {
+  position: relative;
+}
+
+.afm-guide-node-step {
+  position: absolute;
+  top: -12px;
+  right: -10px;
+  z-index: 10;
+  padding: 0.28rem 0.48rem;
+  border: 1px solid rgba(133, 96, 18, 0.32);
+  border-radius: 999px;
+  background: #d9b557;
+  color: #292116;
+  box-shadow: 0 5px 14px rgba(70, 50, 10, 0.18);
+  font-size: 0.5rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.afm-map-panel--overview .react-flow__edge.is-guide-edge path {
+  filter: drop-shadow(0 1px 2px rgba(126, 91, 18, 0.16));
+}
+
+@media (max-width: 900px) {
+  .afm-overview-flow-shell {
+    height: 76vh;
+    min-height: 680px;
+  }
+}
+
+/* -------------------------------------------------
+   FOLLESDAL · GUIDE INSIDE MAP
+-------------------------------------------------- */
+
+.afm-overview-stage {
+  position: relative;
+}
+
+.afm-overview-node.is-guide-muted {
+  opacity: 0.11;
+  filter: blur(0.75px) saturate(0.55);
+  transition:
+    opacity 180ms ease,
+    filter 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.afm-overview-node.is-guide-target {
+  opacity: 1;
+  filter: none;
+}
+
+.afm-map-panel--overview .react-flow__edge.is-guide-muted-edge {
+  opacity: 0.055;
+}
+
+.afm-map-panel--overview .react-flow__edge.is-guide-edge {
+  opacity: 0.58;
+}
+
+.afm-map-panel--overview .react-flow__edge.is-guide-edge path {
+  filter: drop-shadow(0 1px 2px rgba(126, 91, 18, 0.18));
+}
+
+.afm-overview-guide-card {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 30;
+  width: min(460px, calc(100% - 36px));
+  max-height: 48%;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 1rem 1.05rem;
+  border: 1px solid rgba(177, 135, 43, 0.42);
+  border-radius: 20px;
+  background: rgba(249, 246, 237, 0.97);
+  box-shadow: 0 18px 42px rgba(32, 27, 19, 0.18);
+  backdrop-filter: blur(10px);
+}
+
+.afm-overview-guide-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  margin-bottom: 0.55rem;
+}
+
+.afm-overview-guide-top > span {
+  color: var(--gold);
+  font-size: 0.62rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.afm-overview-guide-top > b {
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+.afm-overview-guide-card h4 {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  font-weight: 560;
+  line-height: 1.04;
+}
+
+.afm-overview-guide-explanation {
+  margin: 0.65rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.91rem;
+  line-height: 1.58;
+}
+
+.afm-overview-guide-key {
+  margin-top: 0.75rem;
+  padding: 0.7rem 0.75rem;
+  border: 1px solid rgba(177, 135, 43, 0.22);
+  border-radius: 13px;
+  background: rgba(239, 224, 180, 0.32);
+}
+
+.afm-overview-guide-key > span,
+.afm-overview-guide-question > span,
+.afm-overview-guide-classes > span {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--gold);
+  font-size: 0.56rem;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.afm-overview-guide-key p,
+.afm-overview-guide-question p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.82rem;
+  line-height: 1.48;
+}
+
+.afm-overview-guide-question {
+  margin-top: 0.65rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line-soft);
+}
+
+.afm-overview-guide-answer {
+  margin-top: 0.55rem !important;
+  padding: 0.58rem 0.65rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.66);
+  color: var(--ink-soft) !important;
+}
+
+.afm-overview-guide-question button {
+  margin-top: 0.55rem;
+  padding: 0.5rem 0.72rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 0.72rem;
+}
+
+.afm-overview-guide-classes {
+  margin-top: 0.72rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line-soft);
+}
+
+.afm-overview-guide-class-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.afm-overview-guide-class-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+  padding: 0.34rem 0.48rem;
+  border: 1px solid color-mix(in srgb, var(--class-color) 42%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--class-color) 10%, white);
+  color: var(--ink);
+  font-size: 0.65rem;
+}
+
+.afm-overview-guide-class-chip i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--class-color);
+}
+
+.afm-overview-guide-class-chip b {
+  color: var(--class-color);
+}
+
+.afm-overview-guide-nav {
+  margin-top: 0.8rem;
+  padding-top: 0.7rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  border-top: 1px solid rgba(177, 135, 43, 0.2);
+}
+
+.afm-overview-guide-nav button {
+  min-height: 40px;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.84);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.afm-overview-guide-nav button:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+@media (max-width: 820px) {
+  .afm-overview-guide-card {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    width: auto;
+    max-height: 44%;
+  }
+
+  .afm-overview-guide-card h4 {
+    font-size: 1.42rem;
+  }
+
+  .afm-overview-guide-explanation {
+    font-size: 0.84rem;
+  }
+}
+
+/* -------------------------------------------------
+   FOLLESDAL · MAP FULLSCREEN
+-------------------------------------------------- */
+
+.afm-fullscreen-button {
+  padding: 0.56rem 0.84rem;
+  border: 1px solid rgba(177, 135, 43, 0.42);
+  border-radius: 999px;
+  background: rgba(239, 224, 180, 0.52);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.afm-fullscreen-button:hover {
+  background: rgba(239, 224, 180, 0.78);
+}
+
+.afm-map-panel:fullscreen,
+.afm-map-panel:-webkit-full-screen {
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background:
+    radial-gradient(
+      circle at 50% 10%,
+      rgba(255, 252, 243, 0.96),
+      rgba(242, 236, 222, 0.98) 58%,
+      rgba(234, 226, 210, 1)
+    );
+}
+
+.afm-map-panel:fullscreen .afm-map-header,
+.afm-map-panel:-webkit-full-screen .afm-map-header {
+  flex: 0 0 auto;
+  padding: 0.85rem 1.15rem;
+  background: rgba(248, 244, 234, 0.96);
+  backdrop-filter: blur(10px);
+}
+
+.afm-map-panel:fullscreen .afm-overview-stage,
+.afm-map-panel:-webkit-full-screen .afm-overview-stage {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.afm-map-panel:fullscreen .afm-flow-shell,
+.afm-map-panel:-webkit-full-screen .afm-flow-shell {
+  height: 100%;
+  min-height: 0;
+}
+
+.afm-map-panel:fullscreen .afm-overview-flow-shell,
+.afm-map-panel:-webkit-full-screen .afm-overview-flow-shell {
+  height: 100%;
+  min-height: 0;
+}
+
+.afm-map-panel:fullscreen .afm-overview-guide-card,
+.afm-map-panel:-webkit-full-screen .afm-overview-guide-card {
+  top: 16px;
+  right: 16px;
+  max-height: calc(100% - 32px);
+}
+
+.afm-map-panel:fullscreen .react-flow,
+.afm-map-panel:-webkit-full-screen .react-flow {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 760px) {
+  .afm-fullscreen-button {
+    width: 100%;
+  }
+
+  .afm-map-panel:fullscreen .afm-map-header,
+  .afm-map-panel:-webkit-full-screen .afm-map-header {
+    padding: 0.7rem;
+  }
+}
+
+/* -------------------------------------------------
+   FOLLESDAL · REAL GUIDE FOCUS
+-------------------------------------------------- */
+
+/*
+  El nodo actual es el foco principal.
+  Sus vecinos directos siguen legibles.
+  Sólo el resto del sistema se difumina.
+*/
+.afm-overview-node.is-guide-target {
+  opacity: 1 !important;
+  filter: none !important;
+  z-index: 20 !important;
+}
+
+.afm-overview-node.is-guide-related {
+  opacity: 0.94 !important;
+  filter: none !important;
+  z-index: 11 !important;
+  box-shadow:
+    0 0 0 2px rgba(181, 139, 46, 0.20),
+    0 12px 28px rgba(43, 34, 16, 0.10) !important;
+}
+
+.afm-overview-node.is-guide-muted {
+  opacity: 0.035 !important;
+  filter: blur(1.1px) saturate(0.28) !important;
+}
+
+.afm-map-panel--overview .react-flow__edge.is-guide-edge {
+  opacity: 1 !important;
+}
+
+.afm-map-panel--overview .react-flow__edge.is-guide-muted-edge {
+  opacity: 0.022 !important;
+}
+
+.afm-map-panel--overview
+.react-flow__edge.is-guide-edge
+.react-flow__edge-text {
+  opacity: 1 !important;
+}
+
+.afm-map-panel--overview
+.react-flow__edge.is-guide-edge
+.react-flow__edge-textbg {
+  opacity: 1 !important;
+}
+
+/* -------------------------------------------------
+   FOLLESDAL · OVERVIEW CARD NODES
+-------------------------------------------------- */
+
+/*
+  Sólo apariencia del mapa general.
+  No se modifica transform, position de React Flow,
+  coordenadas, edges ni datos.
+*/
+
+.afm-overview-node {
+  box-sizing: border-box;
+  width: 224px !important;
+  min-width: 224px !important;
+  max-width: 224px !important;
+  min-height: 118px;
+  overflow: visible;
+  border-width: 1px !important;
+  border-radius: 18px !important;
+  box-shadow:
+    0 10px 28px rgba(35, 29, 19, 0.10),
+    0 2px 5px rgba(35, 29, 19, 0.06);
+  transition:
+    box-shadow 160ms ease,
+    border-color 160ms ease,
+    opacity 160ms ease,
+    filter 160ms ease;
+}
+
+.afm-overview-node:hover {
+  box-shadow:
+    0 15px 34px rgba(35, 29, 19, 0.14),
+    0 3px 7px rgba(35, 29, 19, 0.07);
+}
+
+.afm-overview-node .afm-node-card {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 116px;
+  padding: 0.82rem 0.9rem 0.78rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.34rem;
+  overflow: hidden;
+  border-radius: 17px;
+}
+
+/* Sutil franja editorial dentro de la card. */
+.afm-overview-node .afm-node-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(66, 57, 42, 0.16);
+  pointer-events: none;
+}
+
+.afm-overview-node .afm-overview-phase {
+  display: block;
+  margin: 0;
+  padding: 0;
+  color: rgba(56, 50, 42, 0.52);
+  font-size: 0.49rem;
+  font-weight: 850;
+  line-height: 1.2;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.afm-overview-node .afm-node-tag {
+  align-self: flex-start;
+  max-width: 100%;
+  margin: 0;
+  padding: 0.22rem 0.42rem;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  font-size: 0.52rem;
+  font-weight: 850;
+  line-height: 1.12;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+}
+
+.afm-overview-node .afm-node-card > strong {
+  display: block;
+  width: 100%;
+  margin: 0.06rem 0 0;
+  color: var(--ink);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.08rem;
+  font-weight: 650;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  white-space: normal !important;
+  overflow: visible;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
+}
+
+/*
+  PASO N deja de flotar fuera del nodo.
+  Se integra como un chip dentro de la card.
+*/
+.afm-overview-node .afm-guide-node-step {
+  position: static !important;
+  top: auto !important;
+  right: auto !important;
+  align-self: flex-start;
+  margin: 0.18rem 0 0;
+  padding: 0.24rem 0.45rem;
+  display: inline-flex;
+  max-width: 100%;
+  border-radius: 999px;
+  font-size: 0.49rem;
+  line-height: 1;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/*
+  Los badges de clase ya no se posicionan absolutamente.
+  Forman parte natural del contenido de la card.
+*/
+.afm-overview-node .afm-node-class-badges {
+  position: static !important;
+  inset: auto !important;
+  width: 100%;
+  max-width: 100%;
+  margin: auto 0 0;
+  padding-top: 0.36rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.26rem;
+  border-top: 1px solid rgba(69, 61, 49, 0.10);
+  pointer-events: none;
+}
+
+.afm-overview-node .afm-node-class-badges > span {
+  display: inline-block !important;
+  margin: 0 0.08rem 0 0;
+  color: rgba(60, 53, 44, 0.52);
+  font-size: 0.45rem;
+  font-weight: 850;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.afm-overview-node .afm-node-class-badges i {
+  box-sizing: border-box;
+  max-width: 100%;
+  margin: 0;
+  padding: 0.23rem 0.37rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.46);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.46rem;
+  font-style: normal;
+  font-weight: 850;
+  line-height: 1;
+  letter-spacing: 0.035em;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(35, 29, 19, 0.10);
+}
+
+/* El nodo enfocado conserva el estilo card sin salirse del cuadro. */
+.afm-overview-node.is-guide-target {
+  border-radius: 18px !important;
+}
+
+.afm-overview-node.is-guide-target .afm-node-card {
+  border-radius: 17px;
+}
+
+/*
+  Mantener handlers y puntos de conexión visibles,
+  pero discretos respecto de la card.
+*/
+.afm-overview-node .react-flow__handle {
+  width: 7px;
+  height: 7px;
+  border: 1px solid rgba(55, 48, 38, 0.46);
+  background: rgba(248, 244, 234, 0.94);
+}
+
+/* En pantallas pequeñas, un poco más compactas. */
+@media (max-width: 760px) {
+  .afm-overview-node {
+    width: 204px !important;
+    min-width: 204px !important;
+    max-width: 204px !important;
+  }
+
+  .afm-overview-node .afm-node-card {
+    padding: 0.74rem 0.78rem 0.7rem;
+  }
+
+  .afm-overview-node .afm-node-card > strong {
+    font-size: 1rem;
+  }
+}
+
+/* -------------------------------------------------
+   FOLLESDAL · MASSIVE GUIDE CLASS DETAILS
+-------------------------------------------------- */
+
+.afm-overview-guide-book {
+  margin-top: 0.62rem;
+  padding: 0.58rem 0.68rem;
+  display: grid;
+  gap: 0.2rem;
+  border: 1px solid rgba(177, 135, 43, 0.20);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.46);
+}
+
+.afm-overview-guide-book > span {
+  color: var(--gold);
+  font-size: 0.55rem;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.afm-overview-guide-book strong {
+  font-size: 0.74rem;
+}
+
+.afm-overview-guide-book small {
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.afm-overview-guide-relations {
+  margin-top: 0.55rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.afm-overview-guide-class-details {
+  display: grid;
+  gap: 0.42rem;
+}
+
+.afm-overview-guide-class-detail {
+  overflow: hidden;
+  border: 1px solid color-mix(
+    in srgb,
+    var(--class-color) 38%,
+    rgba(70, 64, 54, 0.12)
+  );
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.afm-overview-guide-class-detail summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.afm-overview-guide-class-detail summary::-webkit-details-marker {
+  display: none;
+}
+
+.afm-overview-guide-class-summary {
+  padding: 0.58rem 0.64rem;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.afm-overview-guide-class-summary > i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--class-color);
+}
+
+.afm-overview-guide-class-summary > div {
+  min-width: 0;
+}
+
+.afm-overview-guide-class-summary b,
+.afm-overview-guide-class-summary span {
+  display: block;
+}
+
+.afm-overview-guide-class-summary b {
+  color: var(--class-color);
+  font-size: 0.67rem;
+}
+
+.afm-overview-guide-class-summary span {
+  margin-top: 0.1rem;
+  overflow: hidden;
+  color: var(--ink-soft);
+  font-size: 0.68rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.afm-overview-guide-class-summary em {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-style: normal;
+}
+
+.afm-overview-guide-class-detail[open]
+.afm-overview-guide-class-summary em {
+  transform: rotate(180deg);
+}
+
+.afm-overview-guide-class-body {
+  padding: 0.68rem;
+  border-top: 1px solid rgba(70, 64, 54, 0.10);
+  background: rgba(251, 249, 243, 0.78);
+}
+
+.afm-overview-guide-class-location {
+  margin: 0 0 0.55rem;
+  padding: 0.42rem 0.5rem;
+  border-radius: 9px;
+  background: color-mix(
+    in srgb,
+    var(--class-color) 9%,
+    white
+  );
+  color: var(--ink-soft);
+  font-size: 0.69rem;
+}
+
+.afm-overview-guide-class-body h5 {
+  margin: 0.56rem 0 0.18rem;
+  color: var(--gold);
+  font-size: 0.56rem;
+  font-weight: 850;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.afm-overview-guide-class-body p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.afm-overview-guide-class-body a {
+  display: inline-flex;
+  margin-top: 0.66rem;
+  color: var(--class-color);
+  font-size: 0.71rem;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.afm-overview-guide-class-body a:hover {
+  text-decoration: underline;
+}
+
+.afm-overview-guide-no-class {
+  margin: 0;
+  padding: 0.6rem 0.68rem;
+  border: 1px dashed rgba(78, 71, 60, 0.18);
+  border-radius: 11px;
+  color: var(--muted);
+  font-size: 0.7rem;
+  line-height: 1.45;
+}
+
+/* -------------------------------------------------
+   FOLLESDAL · RECOVERED STUDY WORKBENCH
+-------------------------------------------------- */
+
+.afm-overview-stage--workbench {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(390px, 31vw, 500px);
+  align-items: stretch;
+  min-width: 0;
+}
+
+.afm-overview-stage--workbench .afm-overview-flow-shell {
+  grid-column: 1;
+  min-width: 0;
+}
+
+.afm-study-inspector {
+  grid-column: 2;
+  min-width: 0;
+  height: calc(100% - 24px);
+  margin: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 1px solid rgba(177, 135, 43, 0.26);
+  border-radius: 20px;
+  background: rgba(249, 246, 237, 0.98);
+  box-shadow: 0 16px 38px rgba(32, 27, 19, 0.11);
+}
+
+.afm-inspector-header {
+  padding: 0.86rem 0.9rem 0.65rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  align-items: flex-start;
+}
+
+.afm-inspector-header > div:first-child {
+  min-width: 0;
+}
+
+.afm-inspector-header span {
+  display: block;
+  color: var(--gold);
+  font-size: 0.56rem;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.afm-inspector-header h4 {
+  margin: 0.16rem 0 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  line-height: 1.04;
+}
+
+.afm-inspector-progress {
+  flex: 0 0 auto;
+  text-align: right;
+}
+
+.afm-inspector-progress strong {
+  display: block;
+  font-size: 1.05rem;
+}
+
+.afm-inspector-progress span {
+  color: var(--muted);
+  font-size: 0.52rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.afm-progress-track {
+  height: 5px;
+  margin: 0 0.9rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(68, 59, 45, 0.10);
+}
+
+.afm-progress-track i {
+  display: block;
+  width: var(--progress);
+  height: 100%;
+  border-radius: inherit;
+  background: var(--gold);
+  transition: width 180ms ease;
+}
+
+.afm-progress-meta {
+  padding: 0.38rem 0.9rem 0.58rem;
+  display: flex;
+  gap: 0.55rem;
+  color: var(--muted);
+  font-size: 0.6rem;
+}
+
+.afm-progress-meta b {
+  margin-left: auto;
+  color: var(--ink);
+}
+
+.afm-inspector-tabs {
+  padding: 0.25rem 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.22rem;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+  background: rgba(255, 255, 255, 0.34);
+}
+
+.afm-inspector-tabs button {
+  min-width: 0;
+  padding: 0.5rem 0.35rem;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.64rem;
+  font-weight: 750;
+}
+
+.afm-inspector-tabs button.is-active {
+  background: rgba(239, 224, 180, 0.62);
+  color: var(--ink);
+}
+
+.afm-inspector-tabs small {
+  margin-left: 0.25rem;
+  padding: 0.08rem 0.25rem;
+  border-radius: 999px;
+  background: rgba(60, 53, 43, 0.08);
+  font-size: 0.52rem;
+}
+
+.afm-inspector-content {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 0.85rem 0.9rem;
+}
+
+.afm-inspector-section {
+  display: grid;
+  gap: 0.72rem;
+}
+
+.afm-evidence-row {
+  display: flex;
+  align-items: center;
+  gap: 0.48rem;
+  color: var(--muted);
+  font-size: 0.66rem;
+}
+
+.afm-evidence-badge {
+  flex: 0 0 auto;
+  padding: 0.22rem 0.38rem;
+  border-radius: 999px;
+  font-size: 0.5rem;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+}
+
+.afm-evidence-badge--book {
+  background: rgba(181, 139, 46, 0.14);
+  color: #8a6618;
+}
+
+.afm-evidence-badge--class {
+  background: rgba(64, 108, 155, 0.13);
+  color: #315d89;
+}
+
+.afm-evidence-badge--map {
+  background: rgba(90, 73, 120, 0.12);
+  color: #654f84;
+}
+
+.afm-inspector-main-text {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  line-height: 1.62;
+}
+
+.afm-inspector-box,
+.afm-inspector-question {
+  padding: 0.7rem 0.74rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.48);
+}
+
+.afm-inspector-box > span,
+.afm-inspector-question > span,
+.afm-mastery-block > span,
+.afm-note-editor > span {
+  display: block;
+  margin-bottom: 0.32rem;
+  color: var(--gold);
+  font-size: 0.55rem;
+  font-weight: 850;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.afm-inspector-box p,
+.afm-inspector-question p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.76rem;
+  line-height: 1.52;
+}
+
+.afm-inspector-question button {
+  margin-top: 0.55rem;
+  padding: 0.46rem 0.66rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  cursor: pointer;
+}
+
+.afm-inspector-question > div {
+  margin-top: 0.58rem;
+  padding-top: 0.58rem;
+  border-top: 1px solid var(--line-soft);
+}
+
+.afm-inspector-class-list {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.afm-inspector-class-detail {
+  overflow: hidden;
+  border: 1px solid color-mix(
+    in srgb,
+    var(--class-color) 36%,
+    rgba(65, 57, 47, 0.12)
+  );
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.52);
+}
+
+.afm-inspector-class-detail summary {
+  padding: 0.56rem 0.62rem;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.45rem;
+  align-items: center;
+  cursor: pointer;
+  list-style: none;
+}
+
+.afm-inspector-class-detail summary::-webkit-details-marker {
+  display: none;
+}
+
+.afm-inspector-class-detail summary > i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--class-color);
+}
+
+.afm-inspector-class-detail summary b,
+.afm-inspector-class-detail summary span {
+  display: block;
+}
+
+.afm-inspector-class-detail summary b {
+  color: var(--class-color);
+  font-size: 0.63rem;
+}
+
+.afm-inspector-class-detail summary span {
+  margin-top: 0.08rem;
+  color: var(--ink-soft);
+  font-size: 0.67rem;
+}
+
+.afm-inspector-class-detail summary em {
+  color: var(--muted);
+  font-style: normal;
+}
+
+.afm-inspector-class-body {
+  padding: 0.68rem;
+  border-top: 1px solid var(--line-soft);
+  background: rgba(251, 249, 243, 0.76);
+}
+
+.afm-inspector-class-body h5 {
+  margin: 0.5rem 0 0.18rem;
+  color: var(--gold);
+  font-size: 0.53rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.afm-inspector-class-body h5:first-child {
+  margin-top: 0;
+}
+
+.afm-inspector-class-body p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.afm-inspector-class-body a {
+  display: inline-block;
+  margin-top: 0.55rem;
+  color: var(--class-color);
+  font-size: 0.69rem;
+  font-weight: 850;
+}
+
+.afm-inspector-empty {
+  margin: 0;
+  padding: 0.75rem;
+  border: 1px dashed rgba(73, 65, 53, 0.18);
+  border-radius: 11px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.afm-relation-list {
+  display: grid;
+  gap: 0.48rem;
+}
+
+.afm-relation-card {
+  padding: 0.65rem 0.7rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.47);
+  cursor: pointer;
+}
+
+.afm-relation-card.is-selected {
+  border-color: rgba(181, 139, 46, 0.48);
+  box-shadow: 0 0 0 2px rgba(181, 139, 46, 0.10);
+}
+
+.afm-relation-card header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.4rem;
+  color: var(--muted);
+  font-size: 0.58rem;
+}
+
+.afm-relation-card header b {
+  color: var(--gold);
+}
+
+.afm-relation-card h5 {
+  margin: 0.36rem 0 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+}
+
+.afm-relation-card p {
+  margin: 0.35rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.7rem;
+  line-height: 1.48;
+}
+
+.afm-relation-card button {
+  margin-top: 0.45rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--gold);
+  cursor: pointer;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.afm-mastery-block {
+  padding: 0.7rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.47);
+}
+
+.afm-mastery-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.36rem;
+}
+
+.afm-mastery-buttons button {
+  padding: 0.55rem 0.35rem;
+  display: grid;
+  gap: 0.12rem;
+  justify-items: center;
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.68);
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.62rem;
+}
+
+.afm-mastery-buttons button b {
+  font-size: 0.95rem;
+}
+
+.afm-mastery-buttons button.is-active {
+  border-color: rgba(181, 139, 46, 0.46);
+  background: rgba(239, 224, 180, 0.56);
+  color: var(--ink);
+}
+
+.afm-note-editor {
+  display: grid;
+}
+
+.afm-note-editor textarea {
+  box-sizing: border-box;
+  width: 100%;
+  resize: vertical;
+  padding: 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.afm-note-editor small {
+  margin-top: 0.3rem;
+  color: var(--muted);
+  font-size: 0.6rem;
+}
+
+.afm-inspector-footer {
+  flex: 0 0 auto;
+  padding: 0.65rem 0.8rem 0.75rem;
+  border-top: 1px solid var(--line-soft);
+  background: rgba(247, 243, 233, 0.94);
+}
+
+.afm-inspector-guide-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+}
+
+.afm-inspector-guide-nav button {
+  padding: 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  cursor: pointer;
+}
+
+.afm-inspector-guide-nav button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.afm-inspector-history {
+  margin-top: 0.58rem;
+}
+
+.afm-inspector-history > span {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--muted);
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.afm-inspector-history > div {
+  display: flex;
+  gap: 0.28rem;
+  overflow-x: auto;
+  padding-bottom: 0.15rem;
+}
+
+.afm-inspector-history button {
+  flex: 0 0 auto;
+  max-width: 125px;
+  overflow: hidden;
+  padding: 0.32rem 0.46rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.62);
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.56rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.afm-inspector-storage {
+  display: block;
+  margin-top: 0.48rem;
+  color: rgba(77, 68, 55, 0.54);
+  font-size: 0.54rem;
+  text-align: center;
+}
+
+.afm-map-panel:fullscreen .afm-overview-stage--workbench,
+.afm-map-panel:-webkit-full-screen .afm-overview-stage--workbench {
+  height: 100%;
+  min-height: 0;
+}
+
+.afm-map-panel:fullscreen
+.afm-overview-stage--workbench
+.afm-overview-flow-shell,
+.afm-map-panel:-webkit-full-screen
+.afm-overview-stage--workbench
+.afm-overview-flow-shell {
+  height: 100%;
+  min-height: 0;
+}
+
+.afm-map-panel:fullscreen .afm-study-inspector,
+.afm-map-panel:-webkit-full-screen .afm-study-inspector {
+  height: calc(100% - 24px);
+  min-height: 0;
+}
+
+@media (max-width: 1120px) {
+  .afm-overview-stage--workbench {
+    grid-template-columns: 1fr;
+  }
+
+  .afm-overview-stage--workbench .afm-overview-flow-shell {
+    grid-column: 1;
+  }
+
+  .afm-study-inspector {
+    grid-column: 1;
+    height: auto;
+    max-height: 70vh;
+    margin: 10px 0 0;
+  }
+
+  .afm-map-panel:fullscreen .afm-overview-stage--workbench,
+  .afm-map-panel:-webkit-full-screen .afm-overview-stage--workbench {
+    grid-template-rows: minmax(0, 1fr) minmax(280px, 42vh);
+  }
+
+  .afm-map-panel:fullscreen .afm-study-inspector,
+  .afm-map-panel:-webkit-full-screen .afm-study-inspector {
+    height: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+}
+
+/* -------------------------------------------------
+   FOLLESDAL · RESPONSIVE STUDY PANEL
+-------------------------------------------------- */
+
+/*
+  Pantalla normal:
+  mapa a todo lo ancho + inspector debajo.
+  Fullscreen:
+  vuelve al split view lateral.
+*/
+
+.afm-overview-stage--workbench {
+  display: block !important;
+}
+
+.afm-overview-stage--workbench .afm-overview-flow-shell {
+  width: 100%;
+  min-width: 0;
+}
+
+.afm-study-inspector {
+  width: 100%;
+  height: auto !important;
+  max-height: none !important;
+  margin: 12px 0 0 !important;
+  border-radius: 18px;
+}
+
+/* Header compacto del panel */
+.afm-inspector-header {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto
+    auto;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.afm-inspector-collapse-button {
+  padding: 0.46rem 0.66rem;
+  border: 1px solid rgba(177, 135, 43, 0.30);
+  border-radius: 999px;
+  background: rgba(239, 224, 180, 0.52);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 0.62rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/*
+  Cerrado = sólo resumen.
+  Esto evita saturación en escritorio normal y móvil.
+*/
+.afm-study-inspector.is-collapsed
+.afm-progress-track,
+.afm-study-inspector.is-collapsed
+.afm-progress-meta,
+.afm-study-inspector.is-collapsed
+.afm-inspector-tabs,
+.afm-study-inspector.is-collapsed
+.afm-inspector-content,
+.afm-study-inspector.is-collapsed
+.afm-inspector-footer {
+  display: none;
+}
+
+/*
+  Cuando se abre en pantalla normal, el contenido
+  no crece infinitamente: tiene su propio scroll.
+*/
+.afm-study-inspector.is-open
+.afm-inspector-content {
+  max-height: min(62vh, 720px);
+  overflow: auto;
+}
+
+/*
+  Fullscreen recupera el workbench de dos columnas.
+*/
+.afm-map-panel:fullscreen
+.afm-overview-stage--workbench,
+.afm-map-panel:-webkit-full-screen
+.afm-overview-stage--workbench {
+  display: grid !important;
+  grid-template-columns:
+    minmax(0, 1fr)
+    clamp(390px, 31vw, 500px);
+  height: 100%;
+  min-height: 0;
+}
+
+.afm-map-panel:fullscreen
+.afm-overview-stage--workbench
+.afm-overview-flow-shell,
+.afm-map-panel:-webkit-full-screen
+.afm-overview-stage--workbench
+.afm-overview-flow-shell {
+  grid-column: 1;
+  width: auto;
+  height: 100%;
+  min-height: 0;
+}
+
+.afm-map-panel:fullscreen
+.afm-study-inspector,
+.afm-map-panel:-webkit-full-screen
+.afm-study-inspector {
+  grid-column: 2;
+  width: auto;
+  height: calc(100% - 24px) !important;
+  max-height: none !important;
+  margin: 12px !important;
+}
+
+/*
+  En fullscreen siempre se muestra todo,
+  aunque el panel estuviera colapsado antes.
+*/
+.afm-map-panel:fullscreen
+.afm-study-inspector.is-collapsed
+.afm-progress-track,
+.afm-map-panel:fullscreen
+.afm-study-inspector.is-collapsed
+.afm-progress-meta,
+.afm-map-panel:fullscreen
+.afm-study-inspector.is-collapsed
+.afm-inspector-tabs,
+.afm-map-panel:fullscreen
+.afm-study-inspector.is-collapsed
+.afm-inspector-content,
+.afm-map-panel:fullscreen
+.afm-study-inspector.is-collapsed
+.afm-inspector-footer,
+.afm-map-panel:-webkit-full-screen
+.afm-study-inspector.is-collapsed
+.afm-progress-track,
+.afm-map-panel:-webkit-full-screen
+.afm-study-inspector.is-collapsed
+.afm-progress-meta,
+.afm-map-panel:-webkit-full-screen
+.afm-study-inspector.is-collapsed
+.afm-inspector-tabs,
+.afm-map-panel:-webkit-full-screen
+.afm-study-inspector.is-collapsed
+.afm-inspector-content,
+.afm-map-panel:-webkit-full-screen
+.afm-study-inspector.is-collapsed
+.afm-inspector-footer {
+  display: initial;
+}
+
+.afm-map-panel:fullscreen
+.afm-study-inspector.is-collapsed
+.afm-inspector-tabs,
+.afm-map-panel:-webkit-full-screen
+.afm-study-inspector.is-collapsed
+.afm-inspector-tabs {
+  display: grid;
+}
+
+.afm-map-panel:fullscreen
+.afm-study-inspector.is-collapsed
+.afm-inspector-footer,
+.afm-map-panel:-webkit-full-screen
+.afm-study-inspector.is-collapsed
+.afm-inspector-footer {
+  display: block;
+}
+
+.afm-map-panel:fullscreen
+.afm-study-inspector.is-collapsed
+.afm-inspector-content,
+.afm-map-panel:-webkit-full-screen
+.afm-study-inspector.is-collapsed
+.afm-inspector-content {
+  display: block;
+  max-height: none;
+}
+
+.afm-map-panel:fullscreen
+.afm-inspector-collapse-button,
+.afm-map-panel:-webkit-full-screen
+.afm-inspector-collapse-button {
+  display: none;
+}
+
+/* Tablet */
+@media (max-width: 980px) {
+  .afm-overview-flow-shell,
+  .afm-overview-stage--workbench
+  .afm-overview-flow-shell {
+    height: 72vh;
+    min-height: 560px;
+  }
+
+  .afm-study-inspector {
+    margin-top: 8px !important;
+  }
+
+  .afm-inspector-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .afm-inspector-progress {
+    display: none;
+  }
+
+  .afm-study-inspector.is-open
+  .afm-inspector-content {
+    max-height: 56vh;
+  }
+}
+
+/* Celular */
+@media (max-width: 620px) {
+  .afm-overview-flow-shell,
+  .afm-overview-stage--workbench
+  .afm-overview-flow-shell {
+    height: 66vh;
+    min-height: 440px;
+  }
+
+  .afm-study-inspector {
+    margin-top: 6px !important;
+    border-radius: 14px;
+  }
+
+  .afm-inspector-header {
+    padding: 0.7rem 0.72rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.5rem;
+  }
+
+  .afm-inspector-header h4 {
+    font-size: 1.18rem;
+  }
+
+  .afm-inspector-header > div:first-child > span {
+    font-size: 0.49rem;
+  }
+
+  .afm-inspector-collapse-button {
+    padding: 0.42rem 0.54rem;
+    font-size: 0.56rem;
+  }
+
+  .afm-inspector-tabs {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.25rem;
+  }
+
+  .afm-inspector-content {
+    padding: 0.68rem;
+  }
+
+  .afm-study-inspector.is-open
+  .afm-inspector-content {
+    max-height: 52vh;
+  }
+
+  .afm-mastery-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .afm-inspector-guide-nav {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .afm-inspector-history > div {
+    max-width: 100%;
+  }
+}

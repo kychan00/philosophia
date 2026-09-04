@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState, useRef } from 'react'
 import { Link } from 'react-router'
 import {
   Background,
@@ -11,6 +11,12 @@ import {
 } from '@xyflow/react'
 import '@xyflow/react/dist/style.css'
 import { analyticFollesdalMaps } from '../data/analyticFollesdalMaps'
+import {
+  analyticClassSessions,
+  getAnalyticFollesdalClassLinks,
+} from '../data/analyticFollesdalClassLinks'
+import { analyticFollesdalGuide } from '../data/analyticFollesdalGuide'
+import AnalyticFollesdalOverview from '../components/AnalyticFollesdalOverview'
 
 const legend = [
   ['claim', 'Tesis / giro conceptual'],
@@ -38,34 +44,76 @@ function edgeStyle(kind) {
   }
 }
 
-function mapNode(phaseNode, activeNodeId) {
+function mapNode(
+  phaseNode,
+  activeNodeId,
+  guideMode,
+  guideStepNumber,
+) {
+  const classLinks = getAnalyticFollesdalClassLinks(phaseNode.id)
+  const isGuideTarget =
+    guideMode && activeNodeId === phaseNode.id
+
   return {
     id: phaseNode.id,
     position: phaseNode.position,
     draggable: false,
     selectable: true,
-    className: `afm-node afm-node--${phaseNode.category} ${activeNodeId === phaseNode.id ? 'is-active' : ''}`,
+    className: `afm-node afm-node--${phaseNode.category} ${classLinks.length ? 'has-class-links' : ''} ${activeNodeId === phaseNode.id ? 'is-active' : ''} ${isGuideTarget ? 'is-guide-target' : ''}`,
     data: {
       label: (
         <div className="afm-node-card">
           <span className="afm-node-tag">{phaseNode.tag}</span>
           <strong>{phaseNode.title}</strong>
+
+          {isGuideTarget && (
+            <span className="afm-guide-node-step">
+              Paso {guideStepNumber}
+            </span>
+          )}
+
+          {classLinks.length > 0 && (
+            <div className="afm-node-class-badges">
+              <span>clase</span>
+              {classLinks.map((link) => (
+                <i
+                  key={`${phaseNode.id}-${link.date}`}
+                  style={{ '--class-color': link.session.color }}
+                >
+                  {link.session.shortDate}
+                </i>
+              ))}
+            </div>
+          )}
         </div>
       ),
     },
   }
 }
 
-function mapEdge(item) {
+function mapEdge(item, activeNodeId, guideMode) {
+  const isGuideEdge =
+    guideMode &&
+    (
+      item.source === activeNodeId ||
+      item.target === activeNodeId
+    )
+
+  const baseStyle = edgeStyle(item.kind)
+  const guideColor = 'rgba(181, 139, 46, 0.98)'
+
   return {
     id: item.id,
     source: item.source,
     target: item.target,
+    className: isGuideEdge ? 'is-guide-edge' : '',
     label: item.label || '',
     labelStyle: {
-      fill: 'rgba(45, 40, 34, 0.88)',
+      fill: isGuideEdge
+        ? 'rgba(103, 76, 19, 0.98)'
+        : 'rgba(45, 40, 34, 0.88)',
       fontSize: 11,
-      fontWeight: 600,
+      fontWeight: isGuideEdge ? 800 : 600,
     },
     labelBgStyle: {
       fill: 'rgba(246, 241, 230, 0.96)',
@@ -73,28 +121,60 @@ function mapEdge(item) {
       rx: 4,
       ry: 4,
     },
-    style: edgeStyle(item.kind),
+    style: isGuideEdge
+      ? {
+          ...baseStyle,
+          stroke: guideColor,
+          strokeWidth: 3.4,
+        }
+      : baseStyle,
     markerEnd: {
       type: MarkerType.ArrowClosed,
-      width: 18,
-      height: 18,
-      color: item.kind === 'contrast'
-        ? 'rgba(135, 78, 70, 0.95)'
-        : 'rgba(55, 51, 43, 0.88)',
+      width: isGuideEdge ? 22 : 18,
+      height: isGuideEdge ? 22 : 18,
+      color: isGuideEdge
+        ? guideColor
+        : item.kind === 'contrast'
+          ? 'rgba(135, 78, 70, 0.95)'
+          : 'rgba(55, 51, 43, 0.88)',
     },
   }
 }
 
-function FlowViewport({ phase, activeNodeId, onNodeSelect }) {
+function FlowViewport({
+  phase,
+  activeNodeId,
+  onNodeSelect,
+  studyMode,
+  guideStepNumber,
+}) {
   const { fitView } = useReactFlow()
+  const guideMode = studyMode === 'guide'
 
   const nodes = useMemo(
-    () => phase.nodes.map((node) => mapNode(node, activeNodeId)),
-    [phase, activeNodeId],
+    () =>
+      phase.nodes.map((node) =>
+        mapNode(
+          node,
+          activeNodeId,
+          guideMode,
+          guideStepNumber,
+        ),
+      ),
+    [
+      phase,
+      activeNodeId,
+      guideMode,
+      guideStepNumber,
+    ],
   )
+
   const edges = useMemo(
-    () => phase.edges.map(mapEdge),
-    [phase],
+    () =>
+      phase.edges.map((edge) =>
+        mapEdge(edge, activeNodeId, guideMode),
+      ),
+    [phase, activeNodeId, guideMode],
   )
 
   useEffect(() => {
@@ -132,16 +212,193 @@ export default function AnalyticFollesdalMap() {
     [phaseId],
   )
 
+  const [studyMode, setStudyMode] = useState('manual')
+  const mapPanelRef = useRef(null)
+  const [isMapFullscreen, setIsMapFullscreen] = useState(false)
+  const [mapView, setMapView] = useState('overview')
+  const [overviewResetKey, setOverviewResetKey] = useState(0)
+  const [guideIndex, setGuideIndex] = useState(0)
+  const [showGuideAnswer, setShowGuideAnswer] = useState(false)
   const [activeNodeId, setActiveNodeId] = useState(phase.nodes[0]?.id || '')
 
-  useEffect(() => {
-    setActiveNodeId(phase.nodes[0]?.id || '')
-  }, [phase])
+  const currentGuideStep =
+    analyticFollesdalGuide[guideIndex] || analyticFollesdalGuide[0]
 
-  const activeNode = useMemo(
-    () => phase.nodes.find((node) => node.id === activeNodeId) || phase.nodes[0],
-    [phase, activeNodeId],
+  useEffect(() => {
+    if (studyMode === 'manual') {
+      setActiveNodeId(phase.nodes[0]?.id || '')
+    }
+  }, [phase, studyMode])
+
+  useEffect(() => {
+    if (studyMode !== 'guide') return
+
+    if (phaseId !== currentGuideStep.phaseId) {
+      setPhaseId(currentGuideStep.phaseId)
+      return
+    }
+
+    setActiveNodeId(currentGuideStep.nodeId)
+  }, [
+    currentGuideStep.nodeId,
+    currentGuideStep.phaseId,
+    phaseId,
+    studyMode,
+  ])
+
+  const allFollesdalNodes = useMemo(
+    () =>
+      analyticFollesdalMaps.flatMap((item) =>
+        item.nodes.map((node) => ({
+          ...node,
+          phaseId: item.id,
+        })),
+      ),
+    [],
   )
+
+  const activeNode = useMemo(() => {
+    if (mapView === 'overview') {
+      return (
+        allFollesdalNodes.find(
+          (node) => node.id === activeNodeId,
+        ) || phase.nodes[0]
+      )
+    }
+
+    return (
+      phase.nodes.find((node) => node.id === activeNodeId) ||
+      phase.nodes[0]
+    )
+  }, [
+    activeNodeId,
+    allFollesdalNodes,
+    mapView,
+    phase,
+  ])
+
+  const activeClassLinks = useMemo(
+    () => getAnalyticFollesdalClassLinks(activeNode?.id),
+    [activeNode],
+  )
+
+  const guideClassLinks = useMemo(
+    () => getAnalyticFollesdalClassLinks(currentGuideStep.nodeId),
+    [currentGuideStep.nodeId],
+  )
+
+  const guideProgress =
+    ((guideIndex + 1) / analyticFollesdalGuide.length) * 100
+
+  const handleOverviewNodeSelect = (nodeId) => {
+    setActiveNodeId(nodeId)
+
+    const ownerPhase = analyticFollesdalMaps.find((item) =>
+      item.nodes.some((node) => node.id === nodeId),
+    )
+
+    if (ownerPhase) {
+      setPhaseId(ownerPhase.id)
+    }
+  }
+
+  const enterGuide = () => {
+    setStudyMode('guide')
+    setMapView('overview')
+    setGuideIndex(0)
+    setShowGuideAnswer(false)
+
+    const firstStep = analyticFollesdalGuide[0]
+    setPhaseId(firstStep.phaseId)
+    setActiveNodeId(firstStep.nodeId)
+  }
+
+  const exitGuide = () => {
+    setStudyMode('manual')
+    setShowGuideAnswer(false)
+    setActiveNodeId(phase.nodes[0]?.id || '')
+  }
+
+  const goToGuideStep = (nextIndex) => {
+    if (
+      nextIndex < 0 ||
+      nextIndex >= analyticFollesdalGuide.length
+    ) {
+      return
+    }
+
+    const nextStep = analyticFollesdalGuide[nextIndex]
+
+    setGuideIndex(nextIndex)
+    setShowGuideAnswer(false)
+    setPhaseId(nextStep.phaseId)
+    setActiveNodeId(nextStep.nodeId)
+  }
+
+  useEffect(() => {
+    const syncFullscreenState = () => {
+      const fullscreenElement =
+        document.fullscreenElement ||
+        document.webkitFullscreenElement
+
+      setIsMapFullscreen(fullscreenElement === mapPanelRef.current)
+
+      window.setTimeout(() => {
+        window.dispatchEvent(new Event('resize'))
+      }, 120)
+    }
+
+    document.addEventListener(
+      'fullscreenchange',
+      syncFullscreenState,
+    )
+    document.addEventListener(
+      'webkitfullscreenchange',
+      syncFullscreenState,
+    )
+
+    return () => {
+      document.removeEventListener(
+        'fullscreenchange',
+        syncFullscreenState,
+      )
+      document.removeEventListener(
+        'webkitfullscreenchange',
+        syncFullscreenState,
+      )
+    }
+  }, [])
+
+  const toggleMapFullscreen = async () => {
+    const element = mapPanelRef.current
+    if (!element) return
+
+    const fullscreenElement =
+      document.fullscreenElement ||
+      document.webkitFullscreenElement
+
+    try {
+      if (fullscreenElement) {
+        if (document.exitFullscreen) {
+          await document.exitFullscreen()
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen()
+        }
+        return
+      }
+
+      if (element.requestFullscreen) {
+        await element.requestFullscreen()
+      } else if (element.webkitRequestFullscreen) {
+        element.webkitRequestFullscreen()
+      }
+    } catch (error) {
+      console.error(
+        'No se pudo cambiar el modo de pantalla completa:',
+        error,
+      )
+    }
+  }
 
   const currentIndex = analyticFollesdalMaps.findIndex((item) => item.id === phase.id)
   const previousPhase = analyticFollesdalMaps[currentIndex - 1] || null
@@ -189,7 +446,16 @@ export default function AnalyticFollesdalMap() {
                   type="button"
                   key={item.id}
                   className={item.id === phase.id ? 'is-active' : ''}
-                  onClick={() => setPhaseId(item.id)}
+                  disabled={studyMode === 'guide'}
+                  title={
+                    studyMode === 'guide'
+                      ? 'Salga del modo Guía para cambiar de fase manualmente'
+                      : undefined
+                  }
+                  onClick={() => {
+                    setPhaseId(item.id)
+                    setMapView('phase')
+                  }}
                 >
                   <b>{item.roman}</b>
                   <div>
@@ -212,6 +478,28 @@ export default function AnalyticFollesdalMap() {
                 </li>
               ))}
             </ul>
+
+            <div className="afm-class-legend">
+              <strong>Libro ↔ clases</strong>
+              <p>
+                El color de fondo sigue indicando la función de la idea en
+                Føllesdal. Los badges de fecha indican en qué clase se trabajó.
+              </p>
+
+              <div className="afm-class-legend-list">
+                {Object.values(analyticClassSessions).map((session) => (
+                  <div
+                    key={session.shortDate}
+                    className="afm-class-legend-item"
+                    style={{ '--class-color': session.color }}
+                  >
+                    <i />
+                    <b>{session.shortDate}</b>
+                    <span>{session.title}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </aside>
 
@@ -239,25 +527,256 @@ export default function AnalyticFollesdalMap() {
             ))}
           </section>
 
-          <section className="afm-map-panel">
+          <section
+            ref={mapPanelRef}
+            className={[
+              'afm-map-panel',
+              studyMode === 'guide'
+                ? 'afm-map-panel--guide'
+                : '',
+              mapView === 'overview'
+                ? 'afm-map-panel--overview'
+                : '',
+            ].join(' ')}
+          >
             <div className="afm-map-header">
               <div>
-                <span>Mapa 2D</span>
-                <h3>Arquitectura argumental de la fase</h3>
+                <span>
+                  {mapView === 'overview'
+                    ? 'Mapa general'
+                    : 'Mapa 2D'}
+                </span>
+                <h3>
+                  {mapView === 'overview'
+                    ? 'Red completa de ideas conectadas'
+                    : 'Arquitectura argumental de la fase'}
+                </h3>
               </div>
-              <p>
-                Toque un nodo para leer su función dentro del argumento.
-              </p>
+              <div className="afm-map-header-actions">
+                <p>
+                  {studyMode === 'guide'
+                    ? 'Todo el sistema permanece visible: la guía ilumina únicamente el nodo que toca estudiar.'
+                    : mapView === 'overview'
+                      ? 'Arrastre los nodos libremente por el plano; las conexiones los seguirán.'
+                      : 'Toque un nodo para leer su función dentro del argumento.'}
+                </p>
+
+                <div className="afm-map-view-toggle">
+                  <button
+                    type="button"
+                    className={mapView === 'overview' ? 'is-active' : ''}
+                    onClick={() => setMapView('overview')}
+                  >
+                    Mapa general
+                  </button>
+
+                  <button
+                    type="button"
+                    className={mapView === 'phase' ? 'is-active' : ''}
+                    disabled={studyMode === 'guide'}
+                    onClick={() => setMapView('phase')}
+                  >
+                    Fase actual
+                  </button>
+                </div>
+
+                {mapView === 'overview' && (
+                  <button
+                    type="button"
+                    className="afm-overview-reset"
+                    onClick={() =>
+                      setOverviewResetKey((current) => current + 1)
+                    }
+                  >
+                    Restablecer posiciones
+                  </button>
+                )}
+
+                                <button
+                  type="button"
+                  className="afm-fullscreen-button"
+                  onClick={toggleMapFullscreen}
+                  title={
+                    isMapFullscreen
+                      ? 'Salir de pantalla completa'
+                      : 'Expandir el mapa a toda la pantalla'
+                  }
+                >
+                  {isMapFullscreen
+                    ? 'Salir de pantalla completa'
+                    : 'Pantalla completa'}
+                </button>
+
+<div
+                  className="afm-study-mode-toggle"
+                  aria-label="Modo de estudio"
+                >
+                  <button
+                    type="button"
+                    className={studyMode === 'manual' ? 'is-active' : ''}
+                    onClick={exitGuide}
+                  >
+                    Manual
+                  </button>
+
+                  <button
+                    type="button"
+                    className={studyMode === 'guide' ? 'is-active' : ''}
+                    onClick={enterGuide}
+                  >
+                    Guía
+                  </button>
+                </div>
+
+                {studyMode === 'guide' && (
+                  <div className="afm-guide-map-key">
+                    <i />
+                    <span>
+                      Nodo y relaciones del paso actual
+                    </span>
+                  </div>
+                )}
+              </div>
             </div>
 
-            <ReactFlowProvider>
-              <FlowViewport
-                phase={phase}
+            {mapView === 'overview' ? (
+              <AnalyticFollesdalOverview
                 activeNodeId={activeNodeId}
-                onNodeSelect={setActiveNodeId}
+                onNodeSelect={handleOverviewNodeSelect}
+                studyMode={studyMode}
+                guideStepNumber={guideIndex + 1}
+                guideTotal={analyticFollesdalGuide.length}
+                guideStep={currentGuideStep}
+                guideClassLinks={guideClassLinks}
+                onPreviousGuideStep={() =>
+                  goToGuideStep(guideIndex - 1)
+                }
+                onNextGuideStep={() =>
+                  goToGuideStep(guideIndex + 1)
+                }
+                resetKey={overviewResetKey}
               />
-            </ReactFlowProvider>
+            ) : (
+              <ReactFlowProvider>
+                <FlowViewport
+                  phase={phase}
+                  activeNodeId={activeNodeId}
+                  onNodeSelect={
+                    studyMode === 'guide'
+                      ? () => {}
+                      : setActiveNodeId
+                  }
+                />
+              </ReactFlowProvider>
+            )}
           </section>
+
+          {studyMode === 'guide' && mapView !== 'overview' && (
+            <section className="afm-guide-panel">
+              <div className="afm-guide-topline">
+                <span>Modo Guía · lectura integral</span>
+
+                <div
+                  className="afm-guide-progress"
+                  style={{ '--guide-progress': `${guideProgress}%` }}
+                >
+                  <i />
+                  <b>
+                    Paso {guideIndex + 1} de {analyticFollesdalGuide.length}
+                  </b>
+                </div>
+              </div>
+
+              <h3>{currentGuideStep.title}</h3>
+              <p className="afm-guide-explanation">
+                {currentGuideStep.explanation}
+              </p>
+
+              <div className="afm-guide-grid">
+                <article className="afm-guide-box">
+                  <span>Idea que debe quedar clara</span>
+                  <p>{currentGuideStep.keyIdea}</p>
+                </article>
+
+                <article className="afm-guide-box">
+                  <span>Compruebe si lo entendió</span>
+                  <p>{currentGuideStep.question}</p>
+
+                  <div className="afm-guide-question-actions">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setShowGuideAnswer((current) => !current)
+                      }
+                    >
+                      {showGuideAnswer
+                        ? 'Ocultar respuesta'
+                        : 'Ver respuesta'}
+                    </button>
+                  </div>
+
+                  {showGuideAnswer && (
+                    <p className="afm-guide-answer">
+                      {currentGuideStep.answer}
+                    </p>
+                  )}
+                </article>
+              </div>
+
+              {guideClassLinks.length > 0 && (
+                <div className="afm-guide-class-links">
+                  <span>Conexión con las clases</span>
+
+                  <div className="afm-guide-class-links-list">
+                    {guideClassLinks.map((link) => (
+                      <article
+                        key={`${currentGuideStep.nodeId}-${link.date}`}
+                        className="afm-guide-class-link"
+                        style={{ '--class-color': link.session.color }}
+                      >
+                        <header>
+                          <b>CLASE · {link.session.shortDate}</b>
+                          <span>{link.stance}</span>
+                        </header>
+
+                        <strong>{link.session.title}</strong>
+                        <p>{link.relation}</p>
+
+                        <Link to={link.session.route}>
+                          Abrir clase →
+                        </Link>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <div className="afm-guide-nav">
+                <button
+                  type="button"
+                  disabled={guideIndex === 0}
+                  onClick={() => goToGuideStep(guideIndex - 1)}
+                >
+                  ← Anterior
+                </button>
+
+                <span>
+                  La geometría del mapa permanece intacta durante todo
+                  el recorrido.
+                </span>
+
+                <button
+                  type="button"
+                  disabled={
+                    guideIndex === analyticFollesdalGuide.length - 1
+                  }
+                  onClick={() => goToGuideStep(guideIndex + 1)}
+                >
+                  Siguiente →
+                </button>
+              </div>
+            </section>
+          )}
 
           <section className="afm-detail-grid">
             <article className="afm-detail-card afm-detail-card--active">
@@ -267,7 +786,39 @@ export default function AnalyticFollesdalMap() {
                 {activeNode?.tag}
               </div>
               <p>{activeNode?.detail}</p>
-              <small>{activeNode?.source}</small>
+
+              <div className="afm-book-reference">
+                <span>Libro · Føllesdal</span>
+                <small>{activeNode?.source}</small>
+              </div>
+
+              {activeClassLinks.length > 0 && (
+                <div className="afm-class-connections">
+                  <span>Cómo se trabajó en clase</span>
+
+                  <div className="afm-class-connection-list">
+                    {activeClassLinks.map((link) => (
+                      <article
+                        key={`${activeNode.id}-${link.date}`}
+                        className="afm-class-connection"
+                        style={{ '--class-color': link.session.color }}
+                      >
+                        <header>
+                          <strong>CLASE · {link.session.shortDate}</strong>
+                          <em>{link.stance}</em>
+                        </header>
+
+                        <b>{link.session.title}</b>
+                        <p>{link.relation}</p>
+
+                        <Link to={link.session.route}>
+                          Abrir clase →
+                        </Link>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              )}
             </article>
 
             <article className="afm-detail-card">
@@ -284,7 +835,7 @@ export default function AnalyticFollesdalMap() {
           <footer className="afm-phase-footer">
             <button
               type="button"
-              disabled={!previousPhase}
+              disabled={studyMode === 'guide' || !previousPhase}
               onClick={() => previousPhase && setPhaseId(previousPhase.id)}
             >
               ← Fase anterior
@@ -296,7 +847,7 @@ export default function AnalyticFollesdalMap() {
 
             <button
               type="button"
-              disabled={!nextPhase}
+              disabled={studyMode === 'guide' || !nextPhase}
               onClick={() => nextPhase && setPhaseId(nextPhase.id)}
             >
               Siguiente fase →
