@@ -343,7 +343,6 @@ export const tasks = [
     sourceRoute:
       '/semestre/5/ontologia-ii/clase/2-septiembre',
   },
-,
   {
     id: 'analitica-2026-09-09-reporte-proxima-lectura',
     subject: 'Filosofía Analítica',
