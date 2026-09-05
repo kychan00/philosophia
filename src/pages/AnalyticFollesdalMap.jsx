@@ -215,7 +215,6 @@ export default function AnalyticFollesdalMap() {
   const [studyMode, setStudyMode] = useState('manual')
   const mapPanelRef = useRef(null)
   const [isMapFullscreen, setIsMapFullscreen] = useState(false)
-  const [isMapFocusMode, setIsMapFocusMode] = useState(false)
   const [mapView, setMapView] = useState('overview')
   const [overviewResetKey, setOverviewResetKey] = useState(0)
   const [guideIndex, setGuideIndex] = useState(0)
@@ -342,14 +341,7 @@ export default function AnalyticFollesdalMap() {
         document.fullscreenElement ||
         document.webkitFullscreenElement
 
-      const isNativeFullscreen =
-        fullscreenElement === mapPanelRef.current
-
-      setIsMapFullscreen(isNativeFullscreen)
-
-      if (isNativeFullscreen) {
-        setIsMapFocusMode(false)
-      }
+      setIsMapFullscreen(fullscreenElement === mapPanelRef.current)
 
       window.setTimeout(() => {
         window.dispatchEvent(new Event('resize'))
@@ -377,56 +369,9 @@ export default function AnalyticFollesdalMap() {
     }
   }, [])
 
-  useEffect(() => {
-    if (!isMapFocusMode) {
-      document.documentElement.classList.remove(
-        'afm-focus-active',
-      )
-      return undefined
-    }
-
-    document.documentElement.classList.add(
-      'afm-focus-active',
-    )
-
-    const previousOverflow = document.body.style.overflow
-    const previousOverscroll =
-      document.body.style.overscrollBehavior
-
-    document.body.style.overflow = 'hidden'
-    document.body.style.overscrollBehavior = 'none'
-
-    const resizeId = window.setTimeout(() => {
-      window.dispatchEvent(new Event('resize'))
-    }, 120)
-
-    return () => {
-      window.clearTimeout(resizeId)
-      document.documentElement.classList.remove(
-        'afm-focus-active',
-      )
-      document.body.style.overflow = previousOverflow
-      document.body.style.overscrollBehavior =
-        previousOverscroll
-
-      window.setTimeout(() => {
-        window.dispatchEvent(new Event('resize'))
-      }, 120)
-    }
-  }, [isMapFocusMode])
-
-  const enterMapFocusMode = () => {
-    setIsMapFocusMode(true)
-  }
-
   const toggleMapFullscreen = async () => {
     const element = mapPanelRef.current
     if (!element) return
-
-    if (isMapFocusMode) {
-      setIsMapFocusMode(false)
-      return
-    }
 
     const fullscreenElement =
       document.fullscreenElement ||
@@ -442,40 +387,16 @@ export default function AnalyticFollesdalMap() {
         return
       }
 
-      const nativeFullscreenEnabled =
-        document.fullscreenEnabled === true ||
-        document.webkitFullscreenEnabled === true
-
-      const requestNativeFullscreen =
-        element.requestFullscreen
-          ? () => element.requestFullscreen()
-          : element.webkitRequestFullscreen
-            ? () => element.webkitRequestFullscreen()
-            : null
-
-      if (
-        !nativeFullscreenEnabled ||
-        !requestNativeFullscreen
-      ) {
-        enterMapFocusMode()
-        return
-      }
-
-      try {
-        await requestNativeFullscreen()
-      } catch (error) {
-        console.warn(
-          'Fullscreen nativo no disponible; usando modo enfoque.',
-          error,
-        )
-        enterMapFocusMode()
+      if (element.requestFullscreen) {
+        await element.requestFullscreen()
+      } else if (element.webkitRequestFullscreen) {
+        element.webkitRequestFullscreen()
       }
     } catch (error) {
-      console.warn(
-        'No se pudo usar fullscreen nativo; usando modo enfoque.',
+      console.error(
+        'No se pudo cambiar el modo de pantalla completa:',
         error,
       )
-      enterMapFocusMode()
     }
   }
 
@@ -616,9 +537,6 @@ export default function AnalyticFollesdalMap() {
               mapView === 'overview'
                 ? 'afm-map-panel--overview'
                 : '',
-              isMapFocusMode
-                ? 'is-focus-mode'
-                : '',
             ].join(' ')}
           >
             <div className="afm-map-header">
@@ -679,12 +597,12 @@ export default function AnalyticFollesdalMap() {
                   className="afm-fullscreen-button"
                   onClick={toggleMapFullscreen}
                   title={
-                    isMapFullscreen || isMapFocusMode
+                    isMapFullscreen
                       ? 'Salir de pantalla completa'
                       : 'Expandir el mapa a toda la pantalla'
                   }
                 >
-                  {isMapFullscreen || isMapFocusMode
+                  {isMapFullscreen
                     ? 'Salir de pantalla completa'
                     : 'Pantalla completa'}
                 </button>
