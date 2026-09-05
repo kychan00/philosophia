@@ -300,7 +300,7 @@ function OverviewCanvas({
   const {
     fitView,
     getNode,
-    setViewport,
+    setCenter,
   } = useReactFlow()
 
   const graph = useMemo(() => buildGraph(), [])
@@ -417,19 +417,17 @@ function OverviewCanvas({
       return undefined
     }
 
+    /*
+      React Flow conoce el tamaño REAL de su viewport.
+      No usamos el tamaño del stage porque ahí también vive
+      el inspector y eso desplazaba el centro visual.
+    */
     const timer = window.setTimeout(() => {
-      const stage = stageRef.current
-      const guideCard = guideCardRef.current
       const target = getNode(activeNodeId)
 
-      if (!stage || !target) {
+      if (!target) {
         return
       }
-
-      const stageRect = stage.getBoundingClientRect()
-      const cardRect = guideCard
-        ? guideCard.getBoundingClientRect()
-        : null
 
       const targetPosition =
         target.positionAbsolute || target.position
@@ -437,12 +435,12 @@ function OverviewCanvas({
       const targetWidth =
         target.measured?.width ||
         target.width ||
-        180
+        224
 
       const targetHeight =
         target.measured?.height ||
         target.height ||
-        90
+        118
 
       const targetCenterX =
         targetPosition.x + targetWidth / 2
@@ -450,98 +448,15 @@ function OverviewCanvas({
       const targetCenterY =
         targetPosition.y + targetHeight / 2
 
-      /*
-        El área útil excluye la tarjeta flotante cuando ésta
-        ocupa la zona derecha.
-      */
-      let usableWidth = stageRect.width
-
-      if (
-        cardRect &&
-        cardRect.left >
-          stageRect.left + stageRect.width * 0.45
-      ) {
-        usableWidth = Math.max(
-          cardRect.left - stageRect.left - 28,
-          stageRect.width * 0.42,
-        )
-      }
-
-      const usableHeight = stageRect.height
-
-      /*
-        Calculamos qué tan lejos están TODOS los vecinos directos
-        respecto del nodo actual. El zoom se ajusta para intentar
-        conservarlos visibles sin dejar de centrar el nodo actual.
-      */
-      let maxDx = 220
-      let maxDy = 160
-
-      relatedNodeIds.forEach((nodeId) => {
-        const related = getNode(nodeId)
-        if (!related) return
-
-        const position =
-          related.positionAbsolute || related.position
-
-        const width =
-          related.measured?.width ||
-          related.width ||
-          180
-
-        const height =
-          related.measured?.height ||
-          related.height ||
-          90
-
-        const centerX =
-          position.x + width / 2
-
-        const centerY =
-          position.y + height / 2
-
-        maxDx = Math.max(
-          maxDx,
-          Math.abs(centerX - targetCenterX) +
-            width / 2,
-        )
-
-        maxDy = Math.max(
-          maxDy,
-          Math.abs(centerY - targetCenterY) +
-            height / 2,
-        )
-      })
-
-      const zoomX =
-        (usableWidth * 0.86) / (maxDx * 2)
-
-      const zoomY =
-        (usableHeight * 0.82) / (maxDy * 2)
-
-      const zoom = Math.max(
-        0.42,
-        Math.min(
-          1.05,
-          zoomX,
-          zoomY,
-        ),
-      )
-
-      const desiredX = usableWidth / 2
-      const desiredY = usableHeight / 2
-
-      setViewport(
+      setCenter(
+        targetCenterX,
+        targetCenterY,
         {
-          x: desiredX - targetCenterX * zoom,
-          y: desiredY - targetCenterY * zoom,
-          zoom,
-        },
-        {
-          duration: 560,
+          zoom: 0.82,
+          duration: 520,
         },
       )
-    }, 120)
+    }, 180)
 
     return () => window.clearTimeout(timer)
   }, [
@@ -549,8 +464,7 @@ function OverviewCanvas({
     getNode,
     guideMode,
     guideStepNumber,
-    relatedNodeIds,
-    setViewport,
+    setCenter,
   ])
 
   useEffect(() => {
