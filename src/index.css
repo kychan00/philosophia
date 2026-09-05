@@ -26817,3 +26817,29 @@ a {
     display: none !important;
   }
 }
+
+/* -------------------------------------------------
+   FOLLESDAL · HIDE FULLSCREEN BUTTON ON PHONES
+-------------------------------------------------- */
+
+@media (max-width: 820px) {
+  .afm-map-panel .afm-fullscreen-button {
+    display: none !important;
+  }
+}
+
+/*
+  También cubre iPhone en horizontal, donde el ancho
+  puede superar 820px.
+*/
+@media (
+  orientation: landscape
+) and (
+  max-height: 520px
+) and (
+  pointer: coarse
+) {
+  .afm-map-panel .afm-fullscreen-button {
+    display: none !important;
+  }
+}
