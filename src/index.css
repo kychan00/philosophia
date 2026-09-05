@@ -26609,3 +26609,167 @@ a {
     max-width: 100%;
   }
 }
+
+/* -------------------------------------------------
+   FOLLESDAL · IOS FULLSCREEN FALLBACK
+-------------------------------------------------- */
+
+/*
+  iPhone Safari no ofrece fullscreen de elementos HTML normales
+  de la misma forma que desktop/iPad. "is-focus-mode" reproduce
+  la experiencia ocupando todo el viewport sin superponer paneles.
+*/
+
+html.afm-focus-active,
+html.afm-focus-active body {
+  overflow: hidden !important;
+  overscroll-behavior: none;
+}
+
+.afm-map-panel.is-focus-mode {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 2147483000 !important;
+  box-sizing: border-box;
+  width: 100vw !important;
+  max-width: none !important;
+  height: 100dvh !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding:
+    env(safe-area-inset-top)
+    env(safe-area-inset-right)
+    env(safe-area-inset-bottom)
+    env(safe-area-inset-left);
+  display: flex !important;
+  flex-direction: column;
+  overflow: hidden !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: #f7f2e7;
+}
+
+.afm-map-panel.is-focus-mode .afm-map-header {
+  flex: 0 0 auto;
+}
+
+.afm-map-panel.is-focus-mode .afm-overview-stage--workbench {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid !important;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+
+.afm-map-panel.is-focus-mode .afm-overview-flow-shell {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+}
+
+.afm-map-panel.is-focus-mode .afm-study-inspector {
+  grid-column: 1 !important;
+  grid-row: 2 !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: 46dvh !important;
+  margin: 6px 0 0 !important;
+  border-radius: 14px 14px 0 0;
+}
+
+.afm-map-panel.is-focus-mode
+.afm-study-inspector.is-open
+.afm-inspector-content {
+  max-height: 32dvh;
+}
+
+.afm-map-panel.is-focus-mode .afm-position-saved-note {
+  display: none;
+}
+
+/*
+  En iPhone vertical reducimos el encabezado para dedicar
+  casi todo el viewport al mapa.
+*/
+@media (max-width: 620px) {
+  .afm-map-panel.is-focus-mode .afm-map-header {
+    padding: 0.48rem 0.58rem !important;
+    gap: 0.38rem !important;
+  }
+
+  .afm-map-panel.is-focus-mode .afm-map-header h3 {
+    margin-top: 0.08rem;
+    font-size: 0.94rem;
+    line-height: 1.05;
+  }
+
+  .afm-map-panel.is-focus-mode
+  .afm-map-header > div:first-child > span {
+    font-size: 0.48rem;
+  }
+
+  .afm-map-panel.is-focus-mode
+  .afm-map-header-actions > p {
+    display: none;
+  }
+
+  .afm-map-panel.is-focus-mode
+  .afm-map-header-actions {
+    gap: 0.28rem;
+  }
+
+  .afm-map-panel.is-focus-mode
+  .afm-map-view-toggle button,
+  .afm-map-panel.is-focus-mode
+  .afm-overview-reset,
+  .afm-map-panel.is-focus-mode
+  .afm-fullscreen-button,
+  .afm-map-panel.is-focus-mode
+  .afm-study-mode-toggle button {
+    padding: 0.36rem 0.48rem;
+    font-size: 0.53rem;
+  }
+
+  .afm-map-panel.is-focus-mode
+  .afm-study-inspector {
+    max-height: 48dvh !important;
+  }
+}
+
+/*
+  En horizontal sí hay suficiente ancho para recuperar un split
+  lateral compacto, sin colocar el inspector encima del mapa.
+*/
+@media (orientation: landscape) and (min-width: 700px) {
+  .afm-map-panel.is-focus-mode
+  .afm-overview-stage--workbench {
+    grid-template-columns:
+      minmax(0, 1fr)
+      clamp(300px, 35vw, 410px);
+    grid-template-rows: 1fr;
+  }
+
+  .afm-map-panel.is-focus-mode
+  .afm-overview-flow-shell {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+
+  .afm-map-panel.is-focus-mode
+  .afm-study-inspector {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    height: calc(100% - 12px) !important;
+    max-height: none !important;
+    margin: 6px !important;
+    border-radius: 14px;
+  }
+
+  .afm-map-panel.is-focus-mode
+  .afm-study-inspector.is-open
+  .afm-inspector-content {
+    max-height: none;
+  }
+}
