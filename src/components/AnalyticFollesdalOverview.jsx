@@ -316,6 +316,7 @@ function OverviewCanvas({
   const guideCardRef = useRef(null)
   const [showGuideAnswer, setShowGuideAnswer] = useState(false)
   const [selectedEdgeId, setSelectedEdgeId] = useState('')
+  const [peekNodeId, setPeekNodeId] = useState('')
 
   const relatedNodeIds = useMemo(() => {
     const related = new Set()
@@ -360,8 +361,28 @@ function OverviewCanvas({
     [inspectorNode?.id],
   )
 
+  const peekNode = useMemo(
+    () =>
+      graph.nodes.find(
+        (item) => item.id === peekNodeId,
+      ) || null,
+    [
+      graph.nodes,
+      peekNodeId,
+    ],
+  )
+
+  const peekClassLinks = useMemo(
+    () =>
+      peekNode
+        ? getAnalyticFollesdalClassLinks(peekNode.id)
+        : [],
+    [peekNode],
+  )
+
   useEffect(() => {
     setShowGuideAnswer(false)
+    setPeekNodeId('')
   }, [guideStepNumber])
 
   const [nodes, setNodes, onNodesChange] = useNodesState(
@@ -389,15 +410,29 @@ function OverviewCanvas({
 
   useEffect(() => {
     setNodes((current) =>
-      current.map((node) =>
-        decorateNode(
+      current.map((node) => {
+        const decorated = decorateNode(
           node,
           activeNodeId,
           guideMode,
           guideStepNumber,
           relatedNodeIds,
-        ),
-      ),
+        )
+
+        const isPeekNode =
+          guideMode &&
+          peekNodeId &&
+          node.id === peekNodeId &&
+          node.id !== activeNodeId
+
+        return {
+          ...decorated,
+          className: [
+            decorated.className,
+            isPeekNode ? 'is-guide-peek' : '',
+          ].join(' '),
+        }
+      }),
     )
 
     setEdges(
@@ -410,6 +445,7 @@ function OverviewCanvas({
     graph.edges,
     guideMode,
     guideStepNumber,
+    peekNodeId,
     relatedNodeIds,
     setEdges,
     setNodes,
@@ -628,7 +664,16 @@ function OverviewCanvas({
           setSelectedEdgeId(edge.id)
         }}
           onNodeClick={(_, node) => {
-            if (guideMode) return
+            if (guideMode) {
+              setPeekNodeId(
+                node.id === activeNodeId
+                  ? ''
+                  : node.id,
+              )
+              return
+            }
+
+            setPeekNodeId('')
             onNodeSelect(node.id)
           }}
           proOptions={{ hideAttribution: true }}
@@ -662,6 +707,9 @@ function OverviewCanvas({
         onNodeSelect={onNodeSelect}
         selectedEdgeId={selectedEdgeId}
         onSelectEdge={setSelectedEdgeId}
+        peekNode={peekNode}
+        peekClassLinks={peekClassLinks}
+        onClearPeek={() => setPeekNodeId('')}
       />
     </div>
   )

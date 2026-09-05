@@ -72,6 +72,9 @@ export default function AnalyticFollesdalInspector({
   onNodeSelect,
   selectedEdgeId,
   onSelectEdge,
+  peekNode,
+  peekClassLinks = [],
+  onClearPeek,
 }) {
   const [tab, setTab] = useState('book')
   const [collapsed, setCollapsed] = useState(true)
@@ -277,6 +280,66 @@ export default function AnalyticFollesdalInspector({
         <span>↺ {reviews}</span>
         <b>{progress}%</b>
       </div>
+
+      {guideMode && peekNode && peekNode.id !== nodeId && (
+        <section className="afm-guide-peek-card">
+          <div className="afm-guide-peek-head">
+            <div>
+              <span className="afm-guide-peek-kicker">
+                Exploración temporal · no cambia la guía
+              </span>
+
+              <div className="afm-guide-peek-legend">
+                <span>{peekNode.tag}</span>
+                <span>Fase {peekNode.phaseRoman}</span>
+                <span>{peekNode.category}</span>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              className="afm-guide-peek-close"
+              onClick={onClearPeek}
+            >
+              Cerrar consulta
+            </button>
+          </div>
+
+          <h5>{peekNode.title}</h5>
+          <p>{peekNode.detail}</p>
+
+          <div className="afm-guide-peek-source">
+            <EvidenceBadge kind="book">
+              LIBRO
+            </EvidenceBadge>
+            <span>{peekNode.source}</span>
+          </div>
+
+          {peekClassLinks.length > 0 && (
+            <div className="afm-guide-peek-classes">
+              <span>También aparece en clase</span>
+
+              {peekClassLinks.map((link) => (
+                <i
+                  key={`${peekNode.id}-${link.date}-${link.sectionId}`}
+                  style={{
+                    '--class-color': link.session.color,
+                  }}
+                  title={`${link.session.shortDate} · ${link.sectionTitle}`}
+                >
+                  {link.session.shortDate}
+                </i>
+              ))}
+            </div>
+          )}
+
+          <small className="afm-guide-peek-anchor">
+            El paso actual de la guía sigue siendo
+            {' “'}{node.title}{'”. '}
+            Puede cerrar esta consulta o tocar otro nodo.
+          </small>
+        </section>
+      )}
 
       <div className="afm-inspector-tabs">
         {tabs.map(([key, label]) => (
