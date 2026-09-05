@@ -300,7 +300,9 @@ function OverviewCanvas({
   const {
     fitView,
     getNode,
+    getViewport,
     setCenter,
+    setViewport,
   } = useReactFlow()
 
   const graph = useMemo(() => buildGraph(), [])
@@ -310,6 +312,7 @@ function OverviewCanvas({
     [],
   )
   const stageRef = useRef(null)
+  const flowShellRef = useRef(null)
   const guideCardRef = useRef(null)
   const [showGuideAnswer, setShowGuideAnswer] = useState(false)
   const [selectedEdgeId, setSelectedEdgeId] = useState('')
@@ -417,10 +420,19 @@ function OverviewCanvas({
       return undefined
     }
 
+    let rafOne = 0
+    let rafTwo = 0
+
     /*
-      React Flow conoce el tamaño REAL de su viewport.
-      No usamos el tamaño del stage porque ahí también vive
-      el inspector y eso desplazaba el centro visual.
+      Safari móvil puede terminar de medir el canvas DESPUÉS
+      del primer cálculo de viewport. Hacemos dos pasos:
+
+      1. React Flow centra por coordenadas del grafo.
+      2. Dos frames después corregimos por píxeles usando
+         el nodo y el canvas realmente renderizados.
+
+      El segundo paso hace que el centro visual sea exacto
+      incluso si cambió el viewport disponible.
     */
     const timer = window.setTimeout(() => {
       const target = getNode(activeNodeId)
@@ -448,23 +460,112 @@ function OverviewCanvas({
       const targetCenterY =
         targetPosition.y + targetHeight / 2
 
+      const mobileViewport = window.matchMedia(
+        '(max-width: 820px)',
+      ).matches
+
+      const targetZoom = mobileViewport
+        ? 0.72
+        : 0.82
+
+      /*
+        Primer posicionamiento sin animación para cancelar
+        cualquier vista general anterior.
+      */
       setCenter(
         targetCenterX,
         targetCenterY,
         {
-          zoom: 0.82,
-          duration: 520,
+          zoom: targetZoom,
+          duration: 0,
         },
       )
-    }, 180)
 
-    return () => window.clearTimeout(timer)
+      rafOne = window.requestAnimationFrame(() => {
+        rafTwo = window.requestAnimationFrame(() => {
+          const shell = flowShellRef.current
+
+          if (!shell) {
+            return
+          }
+
+          const nodeElement = shell.querySelector(
+            `.react-flow__node[data-id="${activeNodeId}"]`,
+          )
+
+          if (!nodeElement) {
+            return
+          }
+
+          const shellRect =
+            shell.getBoundingClientRect()
+
+          const nodeRect =
+            nodeElement.getBoundingClientRect()
+
+          if (
+            shellRect.width <= 0 ||
+            shellRect.height <= 0 ||
+            nodeRect.width <= 0 ||
+            nodeRect.height <= 0
+          ) {
+            return
+          }
+
+          const desiredCenterX =
+            shellRect.left + shellRect.width / 2
+
+          const desiredCenterY =
+            shellRect.top + shellRect.height / 2
+
+          const actualCenterX =
+            nodeRect.left + nodeRect.width / 2
+
+          const actualCenterY =
+            nodeRect.top + nodeRect.height / 2
+
+          const deltaX =
+            desiredCenterX - actualCenterX
+
+          const deltaY =
+            desiredCenterY - actualCenterY
+
+          const viewport = getViewport()
+
+          setViewport(
+            {
+              x: viewport.x + deltaX,
+              y: viewport.y + deltaY,
+              zoom: viewport.zoom,
+            },
+            {
+              duration: 360,
+            },
+          )
+        })
+      })
+    }, 220)
+
+    return () => {
+      window.clearTimeout(timer)
+
+      if (rafOne) {
+        window.cancelAnimationFrame(rafOne)
+      }
+
+      if (rafTwo) {
+        window.cancelAnimationFrame(rafTwo)
+      }
+    }
   }, [
     activeNodeId,
     getNode,
+    getViewport,
     guideMode,
     guideStepNumber,
+    resetKey,
     setCenter,
+    setViewport,
   ])
 
   useEffect(() => {
@@ -479,12 +580,15 @@ function OverviewCanvas({
           activeNodeId,
           guideMode,
           guideStepNumber,
+          relatedNodeIds,
         ),
       ),
     )
 
     const id = window.requestAnimationFrame(() => {
-      fitView({ padding: 0.07, duration: 500 })
+      if (!guideMode) {
+        fitView({ padding: 0.07, duration: 500 })
+      }
     })
 
     return () => window.cancelAnimationFrame(id)
@@ -506,7 +610,10 @@ function OverviewCanvas({
           : 'afm-overview-stage afm-overview-stage--workbench'
       }
     >
-      <div className="afm-flow-shell afm-overview-flow-shell">
+      <div
+        ref={flowShellRef}
+        className="afm-flow-shell afm-overview-flow-shell"
+      >
         <ReactFlow
           nodes={nodes}
           edges={edges}
