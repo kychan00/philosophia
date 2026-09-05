@@ -26773,3 +26773,28 @@ html.afm-focus-active body {
     max-height: none;
   }
 }
+
+/* -------------------------------------------------
+   FOLLESDAL · MOBILE MINIMAP CLEANUP
+-------------------------------------------------- */
+
+/*
+  El MiniMap funciona bien en escritorio, pero en iPhone
+  dentro del modo enfoque roba demasiado espacio útil.
+  Los controles de zoom permanecen disponibles.
+*/
+@media (max-width: 820px) {
+  .afm-map-panel.is-focus-mode .react-flow__minimap {
+    display: none !important;
+  }
+}
+
+/*
+  También evitamos que reaparezca al girar el iPhone
+  a horizontal dentro del fallback de fullscreen.
+*/
+@media (orientation: landscape) and (max-height: 620px) {
+  .afm-map-panel.is-focus-mode .react-flow__minimap {
+    display: none !important;
+  }
+}
