@@ -342,6 +342,8 @@ export const tasks = [
       'Clase del 2 de septiembre · Locke, Berkeley, Hume y Kant',
     sourceRoute:
       '/semestre/5/ontologia-ii/clase/2-septiembre',
+    studyRoute:
+      '/tareas/ontologia-ii/kant-critica-razon-pura-prologos',
   },
   {
     id: 'analitica-2026-09-09-reporte-proxima-lectura',

@@ -18,6 +18,7 @@ const OntologiaClass19Aug = lazy(() => import('./pages/OntologiaClass19Aug'))
 const OntologiaClass24Aug = lazy(() => import('./pages/OntologiaClass24Aug'))
 const OntologiaClass26Aug = lazy(() => import('./pages/OntologiaClass26Aug'))
 const OntologiaClass02Sep = lazy(() => import('./pages/OntologiaClass02Sep'))
+const KantPrefacesMap = lazy(() => import('./pages/KantPrefacesMap'))
 const MethodsResearch = lazy(() => import('./pages/MethodsResearch'))
 const MethodsClass17Aug = lazy(() => import('./pages/MethodsClass17Aug'))
 const MethodsClass19Aug = lazy(() => import('./pages/MethodsClass19Aug'))
@@ -98,6 +99,10 @@ function App() {
         <Route
           path="/semestre/5/ontologia-ii/clase/2-septiembre"
           element={<OntologiaClass02Sep />}
+        />
+        <Route
+          path="/tareas/ontologia-ii/kant-critica-razon-pura-prologos"
+          element={<KantPrefacesMap />}
         />
         <Route
           path="/semestre/5/metodos-de-investigacion"
