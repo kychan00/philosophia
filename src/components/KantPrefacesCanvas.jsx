@@ -321,8 +321,11 @@ function CanvasInner({
         nodes={nodes}
         edges={edges}
         fitView
-        panOnScroll
+        panOnScroll={false}
+        zoomOnScroll={false}
         zoomOnPinch
+        preventScrolling={false}
+        panOnDrag
         selectionOnDrag={false}
         nodesDraggable={!guideMode}
         onNodesChange={onNodesChange}

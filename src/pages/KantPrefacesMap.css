@@ -1144,9 +1144,14 @@
 }
 
 .kpm-inspector-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 6;
+  flex: 0 0 auto;
   padding: 12px 14px;
   border-top: 1px solid var(--kpm-line);
   background: #f3ede2;
+  box-shadow: 0 -8px 20px rgba(48, 43, 36, 0.08);
 }
 
 .kpm-guide-nav {
