@@ -659,9 +659,14 @@ export default function KantPrefacesMap() {
               </button>
               <button
                 type="button"
-                className={studyMode === 'guide' ? 'is-active' : ''}
+                className={[
+                  'kpm-guide-button',
+                  studyMode === 'guide' ? 'is-active' : '',
+                ].join(' ')}
                 onClick={enterGuide}
+                title="Iniciar recorrido guiado"
               >
+                <span aria-hidden="true">✦</span>
                 Guía
               </button>
             </div>

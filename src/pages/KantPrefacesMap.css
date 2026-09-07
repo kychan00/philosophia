@@ -517,20 +517,94 @@
 
 .kpm-mode-toggle {
   display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .kpm-mode-toggle button {
-  border-radius: 0;
-}
-
-.kpm-mode-toggle button + button {
-  margin-left: -1px;
+  border-radius: 3px;
 }
 
 .kpm-mode-toggle button.is-active {
   color: #fffaf0;
   background: #302b24;
   border-color: #302b24;
+}
+
+.kpm-mode-toggle .kpm-guide-button {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 92px;
+  color: #21472d;
+  border: 1px solid rgba(64, 118, 77, 0.62);
+  background:
+    linear-gradient(180deg, rgba(239, 249, 239, 0.98), rgba(217, 238, 219, 0.98));
+  box-shadow:
+    0 0 0 3px rgba(91, 151, 103, 0.10),
+    0 5px 14px rgba(48, 99, 61, 0.16);
+  transition:
+    transform 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease,
+    background 150ms ease;
+  animation: kpm-guide-invite 2.4s ease-in-out infinite;
+}
+
+.kpm-mode-toggle .kpm-guide-button > span {
+  font-size: 0.92rem;
+  line-height: 1;
+  color: #4f8d5d;
+}
+
+.kpm-mode-toggle .kpm-guide-button:hover {
+  transform: translateY(-1px);
+  color: #173c23;
+  border-color: rgba(47, 111, 64, 0.86);
+  background:
+    linear-gradient(180deg, rgba(240, 251, 241, 1), rgba(204, 232, 208, 1));
+  box-shadow:
+    0 0 0 4px rgba(91, 151, 103, 0.14),
+    0 8px 20px rgba(48, 99, 61, 0.22);
+}
+
+.kpm-mode-toggle .kpm-guide-button.is-active {
+  color: #f7fff8;
+  border-color: #315d3c;
+  background:
+    linear-gradient(180deg, #4f805b, #365f41);
+  box-shadow:
+    0 0 0 4px rgba(75, 132, 88, 0.16),
+    0 8px 22px rgba(39, 82, 50, 0.26);
+  animation: none;
+}
+
+.kpm-mode-toggle .kpm-guide-button.is-active > span {
+  color: #dff4e3;
+}
+
+@keyframes kpm-guide-invite {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 3px rgba(91, 151, 103, 0.08),
+      0 5px 14px rgba(48, 99, 61, 0.14);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 6px rgba(91, 151, 103, 0.15),
+      0 7px 18px rgba(48, 99, 61, 0.20);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kpm-mode-toggle .kpm-guide-button {
+    animation: none;
+  }
 }
 
 .kpm-legend {
