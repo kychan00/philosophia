@@ -310,13 +310,13 @@ export default function OntologiaII() {
         </Link>
         <Link
           to="/semestre/5/ontologia-ii/clase/2-septiembre"
-          className="ontologia-class-card"
+          className="ontology-program-class-card"
         >
-          <div className="ontologia-date">
+          <div className="ontology-program-date">
             <strong>II</strong>
             <span>IX · MMXXVI</span>
           </div>
-          <div className="ontologia-class-copy">
+          <div className="ontology-program-class-copy">
             <span>Sexta clase · Empirismo y problema del conocimiento</span>
             <h3>Locke → Berkeley → Hume → Kant</h3>
             <p>
@@ -324,7 +324,7 @@ export default function OntologiaII() {
               solipsismo, causalidad, inducción, ciencia y juicios sintéticos a priori.
             </p>
           </div>
-          <div className="ontologia-enter">
+          <div className="ontology-program-enter">
             <span>Abrir clase</span>
             <b>↗</b>
           </div>
