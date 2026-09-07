@@ -74,6 +74,7 @@ function makeNode(rawNode, activeNodeId, guideMode, nextGuideNodeId, peekNodeId)
       rawNode.emphasis ? `kpm-node--emphasis-${rawNode.emphasis}` : '',
       rawNode.sourceBadge ? 'has-source-badge' : '',
       rawNode.pathStep ? 'has-path-step' : '',
+      rawNode.classNotes?.length ? 'has-class-note' : '',
       isActive ? 'is-active' : '',
       guideMode && isActive ? 'is-guide-target' : '',
       isNext ? 'is-guide-next' : '',
@@ -99,6 +100,18 @@ function makeNode(rawNode, activeNodeId, guideMode, nextGuideNodeId, peekNodeId)
           <strong>{rawNode.title}</strong>
           {rawNode.sourceBadge && (
             <span className="kpm-node-source">{rawNode.sourceBadge}</span>
+          )}
+          {rawNode.classNotes?.length > 0 && (
+            <span
+              className="kpm-node-class-chip"
+              style={{
+                '--kpm-class-accent': rawNode.classNotes[0].source.accent,
+                '--kpm-class-soft': rawNode.classNotes[0].source.soft,
+              }}
+              title={`${rawNode.classNotes[0].source.label} · §${rawNode.classNotes[0].section} ${rawNode.classNotes[0].sectionTitle}`}
+            >
+              {rawNode.classNotes[0].source.shortLabel} · §{rawNode.classNotes[0].section}
+            </span>
           )}
           {guideMode && isActive && (
             <span className="kpm-guide-marker">ahora</span>

@@ -330,6 +330,29 @@ export default function OntologiaII() {
           </div>
         </Link>
 
+        <Link
+          to="/semestre/5/ontologia-ii/clase/7-septiembre"
+          className="ontology-program-class-card"
+        >
+          <div className="ontology-program-date">
+            <strong>VII</strong>
+            <span>IX · MMXXVI</span>
+          </div>
+          <div className="ontology-program-class-copy">
+            <span>Séptima clase · Kant y el giro trascendental</span>
+            <h3>Condiciones, fenómeno y cosa en sí</h3>
+            <p>
+              Crisis de la metafísica, Hume y Newton, juicios sintéticos a priori,
+              sensibilidad y entendimiento, sujeto trascendental, revolución
+              copernicana, fenómeno, cosa en sí y límites del conocimiento.
+            </p>
+          </div>
+          <div className="ontology-program-enter">
+            <span>Abrir clase</span>
+            <b>↗</b>
+          </div>
+        </Link>
+
       </section>
 
       <section className="ontology-program-route">

@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { Link } from 'react-router'
 
 const tabs = [
   ['book', 'Libro'],
@@ -194,6 +195,37 @@ export default function KantPrefacesInspector({
             )}
 
             <p className="kpm-main-explanation">{node.detail}</p>
+
+            {node.classNotes?.length > 0 && (
+              <div className="kpm-class-notes">
+                {node.classNotes.map((classNote, index) => (
+                  <article
+                    key={`${classNote.source.id}-${classNote.section}-${index}`}
+                    className="kpm-class-note-card"
+                    style={{
+                      '--kpm-class-accent': classNote.source.accent,
+                      '--kpm-class-soft': classNote.source.soft,
+                    }}
+                  >
+                    <header>
+                      <span className="kpm-class-note-chip">
+                        {classNote.source.shortLabel}
+                      </span>
+                      <small>
+                        §{classNote.section} · {classNote.sectionTitle}
+                      </small>
+                    </header>
+
+                    <p>{classNote.comment}</p>
+
+                    <footer>
+                      <span>Momento: {classNote.moment}</span>
+                      <Link to={classNote.source.route}>Abrir clase ↗</Link>
+                    </footer>
+                  </article>
+                ))}
+              </div>
+            )}
 
             {contextualStep?.showKeyIdea !== false && (
               <div className="kpm-inspector-box">

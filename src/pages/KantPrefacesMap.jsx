@@ -13,6 +13,10 @@ import {
 } from '../data/kantPrefacesMaps'
 import { buildKantDetailedGuideSteps } from '../data/kantPrefacesGuideCuration'
 import {
+  KANT_PREFACES_CLASS_SOURCE,
+  getKantPrefacesClassNotes,
+} from '../data/kantPrefacesClassAnnotations'
+import {
   clearKantPrefacesPositions,
   loadKantPrefacesHistory,
   loadKantPrefacesMastery,
@@ -39,6 +43,7 @@ function enrichPhaseNode(node, phase) {
     phaseRoman: phase.roman,
     phaseTitle: phase.title,
     preface: phase.preface,
+    classNotes: getKantPrefacesClassNotes(node.id),
   }
 }
 
@@ -126,7 +131,10 @@ export default function KantPrefacesMap() {
         phaseId: 'overview',
         phaseRoman: node.tag,
       })),
-      ...kantPrefacesAllDetailNodes,
+      ...kantPrefacesAllDetailNodes.map((node) => ({
+        ...node,
+        classNotes: getKantPrefacesClassNotes(node.id),
+      })),
     ],
     [],
   )
@@ -212,6 +220,11 @@ export default function KantPrefacesMap() {
             node.keyIdea,
             node.phaseTitle,
             `prólogo ${node.preface}`,
+            ...getKantPrefacesClassNotes(node.id).flatMap((item) => [
+              item.sectionTitle,
+              item.moment,
+              item.comment,
+            ]),
           ].join(' '),
         )
 
@@ -453,7 +466,9 @@ export default function KantPrefacesMap() {
         <div className="kpm-hero-grid" aria-hidden="true" />
         <div className="kpm-hero-mark" aria-hidden="true">K</div>
         <div>
-          <p className="kpm-kicker">Sistema 2D de estudio · fuente única: el libro</p>
+          <p className="kpm-kicker">
+            Sistema 2D de estudio · base textual + capa de clase diferenciada
+          </p>
           <h1>
             Kant
             <em> · los prólogos de la Crítica de la razón pura</em>
@@ -467,6 +482,20 @@ export default function KantPrefacesMap() {
             <span>EDICIÓN DE TRABAJO</span>
             <strong>{KANT_PREFACES_SOURCE.edition}</strong>
             <small>{KANT_PREFACES_SOURCE.scope} · {KANT_PREFACES_SOURCE.pages}</small>
+
+            <div
+              className="kpm-class-source-inline"
+              style={{
+                '--kpm-class-accent': KANT_PREFACES_CLASS_SOURCE.accent,
+                '--kpm-class-soft': KANT_PREFACES_CLASS_SOURCE.soft,
+              }}
+            >
+              <b>{KANT_PREFACES_CLASS_SOURCE.shortLabel}</b>
+              <div>
+                <strong>{KANT_PREFACES_CLASS_SOURCE.label}</strong>
+                <small>{KANT_PREFACES_CLASS_SOURCE.scopeNote}</small>
+              </div>
+            </div>
           </div>
         </div>
       </header>
@@ -678,6 +707,10 @@ export default function KantPrefacesMap() {
                     <span>{label}</span>
                   </li>
                 ))}
+                <li>
+                  <i className="kpm-swatch kpm-swatch--class" />
+                  <span>Comentario de clase · 7 sep</span>
+                </li>
               </ul>
             </details>
           </header>
@@ -857,12 +890,21 @@ export default function KantPrefacesMap() {
         </footer>
 
         <section className="kpm-bibliography">
-          <span>Fuente única de este sistema</span>
+          <span>Fuentes diferenciadas de este sistema</span>
           <p>
             <strong>Kant, Immanuel.</strong> <em>Crítica de la razón pura.</em>{' '}
             Prólogo, traducción, notas e índices de Pedro Ribas. Taurus.
-            Mapa construido exclusivamente a partir de los prólogos A y B de la
-            edición de trabajo.
+            La arquitectura, los nodos y las referencias de página siguen
+            construidos a partir de los prólogos A y B de la edición de trabajo.
+          </p>
+          <p>
+            <strong>{KANT_PREFACES_CLASS_SOURCE.label}.</strong>{' '}
+            Los comentarios señalados con el chip{' '}
+            <b className="kpm-bibliography-class-chip">
+              {KANT_PREFACES_CLASS_SOURCE.shortLabel}
+            </b>{' '}
+            complementan la lectura con la explicación del profesor y mantienen
+            visible la sección de la clase en la que apareció cada idea.
           </p>
         </section>
       </section>

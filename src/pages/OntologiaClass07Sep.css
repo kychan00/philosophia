@@ -1,0 +1,244 @@
+.ontsep7-page {
+  --sep7-paper: #f2ede1;
+  --sep7-paper-2: #faf7ef;
+  --sep7-ink: #181714;
+  --sep7-muted: #706b62;
+  --sep7-line: rgba(24, 23, 20, 0.16);
+  --sep7-blue: #29475c;
+  --sep7-blue-soft: #dce5e8;
+  --sep7-gold: #9b7b39;
+  --sep7-red: #7c3f3f;
+  min-height: 100vh;
+  color: var(--sep7-ink);
+  background: linear-gradient(rgba(41,71,92,.028) 1px, transparent 1px), linear-gradient(90deg, rgba(41,71,92,.028) 1px, transparent 1px), var(--sep7-paper);
+  background-size: 32px 32px;
+}
+
+.ontsep7-page button,.ontsep7-page a{-webkit-tap-highlight-color:transparent}
+.ontsep7-nav{min-height:64px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;padding:0 3rem;border-bottom:1px solid var(--sep7-line);background:rgba(242,237,225,.94);backdrop-filter:blur(12px);position:sticky;top:0;z-index:40;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase}
+.ontsep7-nav>:last-child{justify-self:end;color:var(--sep7-muted)}
+.ontsep7-brand{font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:.08em;text-transform:none}
+.ontsep7-hero{position:relative;overflow:hidden;min-height:620px;border-bottom:1px solid var(--sep7-line);background:radial-gradient(circle at 78% 26%,rgba(41,71,92,.13),transparent 26%),linear-gradient(145deg,#f9f5eb 0%,#ede6d8 100%)}
+.ontsep7-grid{position:absolute;inset:0;background:linear-gradient(rgba(41,71,92,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(41,71,92,.07) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(to bottom,black,transparent 88%);pointer-events:none}
+.ontsep7-ghost{position:absolute;right:-.02em;bottom:-.22em;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(8rem,20vw,18rem);color:rgba(41,71,92,.055);line-height:.8;pointer-events:none}
+.ontsep7-hero-inner{width:min(1360px,calc(100% - 6rem));margin:0 auto;padding:7.5rem 0 6rem;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(320px,.72fr);gap:7rem;position:relative;z-index:2}
+.ontsep7-kicker,.ontsep7-heading p,.ontsep7-question span,.ontsep7-thesis span,.ontsep7-callout span,.ontsep7-equation span,.ontsep7-final span{margin:0;font-size:.62rem;font-weight:600;letter-spacing:.21em;text-transform:uppercase;color:var(--sep7-gold)}
+.ontsep7-hero h1{max-width:850px;margin:1.1rem 0 1.8rem;font-family:'Cormorant Garamond',serif;font-size:clamp(4.6rem,8vw,8.6rem);font-weight:500;letter-spacing:-.055em;line-height:.78}
+.ontsep7-hero h1 em{display:block;margin-left:.34em;color:var(--sep7-blue);font-weight:400}
+.ontsep7-lead{max-width:760px;margin:0;font-family:'Cormorant Garamond',serif;font-size:clamp(1.35rem,2vw,1.7rem);line-height:1.5;color:#45433e}
+.ontsep7-question{max-width:760px;margin-top:2.4rem;padding:1.4rem 1.6rem;border-left:3px solid var(--sep7-blue);background:rgba(255,255,255,.43)}
+.ontsep7-question strong{display:block;margin-top:.55rem;font-family:'Cormorant Garamond',serif;font-size:1.3rem;line-height:1.35}
+.ontsep7-hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.ontsep7-hero-actions button,.ontsep7-hero-actions a,.ontsep7-kant-link{border:1px solid rgba(41,71,92,.42);padding:.85rem 1rem;background:transparent;color:var(--sep7-blue);cursor:pointer;font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.ontsep7-hero-actions button:hover,.ontsep7-hero-actions a:hover,.ontsep7-kant-link:hover{background:var(--sep7-blue);color:#f8f4e9}
+.ontsep7-hero-schema{align-self:center;padding:1.5rem;border:1px solid var(--sep7-line);background:rgba(250,247,239,.76);box-shadow:0 22px 65px rgba(24,23,20,.08)}
+.ontsep7-hero-schema>span{font-size:.6rem;letter-spacing:.18em;color:var(--sep7-gold)}
+.ontsep7-hero-schema>div{margin-top:1.2rem;padding:1.15rem;border:1px solid var(--sep7-line)}
+.ontsep7-hero-schema>b{display:block;margin:.8rem auto -.35rem;text-align:center;color:var(--sep7-gold)}
+.ontsep7-hero-schema .active{border-color:rgba(41,71,92,.5);background:var(--sep7-blue-soft)}
+.ontsep7-hero-schema small,.ontsep7-hero-schema strong{display:block}
+.ontsep7-hero-schema small{margin-bottom:.4rem;font-size:.56rem;letter-spacing:.16em;color:var(--sep7-muted)}
+.ontsep7-hero-schema strong{font-family:'Cormorant Garamond',serif;font-size:1.2rem}
+.ontsep7-hero-schema p{margin:.5rem 0 0;color:var(--sep7-muted);line-height:1.5;font-size:.78rem}
+.ontsep7-layout{width:min(1420px,calc(100% - 5rem));margin:0 auto;display:grid;grid-template-columns:250px minmax(0,1fr);gap:4.5rem;align-items:start}
+.ontsep7-index{position:sticky;top:90px;padding:4.5rem 0;max-height:calc(100vh - 90px);overflow-y:auto}
+.ontsep7-index>p{margin:0 0 1rem;font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--sep7-blue)}
+.ontsep7-index button{width:100%;display:grid;grid-template-columns:2.1rem 1fr;gap:.5rem;padding:.72rem .25rem;border:0;border-top:1px solid var(--sep7-line);color:#555149;background:transparent;cursor:pointer;text-align:left;font-size:.68rem;line-height:1.35}
+.ontsep7-index button:last-child{border-bottom:1px solid var(--sep7-line)}
+.ontsep7-index button span{color:var(--sep7-gold);font-variant-numeric:tabular-nums}
+.ontsep7-index button:hover{color:var(--sep7-blue);padding-left:.6rem}
+.ontsep7-article{min-width:0;padding-bottom:8rem}
+.ontsep7-article>section{scroll-margin-top:90px;padding:6rem 0;border-bottom:1px solid var(--sep7-line)}
+.ontsep7-heading{display:grid;grid-template-columns:72px minmax(0,760px);gap:1.5rem;align-items:start;margin-bottom:3.2rem}
+.ontsep7-heading>span{font-family:'Cormorant Garamond',serif;font-size:4.5rem;line-height:.8;color:rgba(41,71,92,.2)}
+.ontsep7-heading h2{max-width:850px;margin:.45rem 0 0;font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,4.5vw,4.5rem);font-weight:500;line-height:.95;letter-spacing:-.035em}
+.ontsep7-sequence{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border:1px solid var(--sep7-line)}
+.ontsep7-sequence>div{min-height:155px;padding:1.1rem;position:relative;border-right:1px solid var(--sep7-line)}
+.ontsep7-sequence>div:last-child{border-right:0}
+.ontsep7-sequence span,.ontsep7-three span,.ontsep7-focus>span,.ontsep7-judgment>span,.ontsep7-architecture-focus>span,.ontsep7-faculties span,.ontsep7-subject span,.ontsep7-definitions span,.ontsep7-copernicus span,.ontsep7-object>span,.ontsep7-berkeley span,.ontsep7-dialectic span,.ontsep7-ontology span,.ontsep7-nature span,.ontsep7-piaget span{font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sep7-gold)}
+.ontsep7-sequence strong{display:block;margin-top:1.4rem;font-family:'Cormorant Garamond',serif;font-size:1.12rem;line-height:1.15}
+.ontsep7-sequence b{position:absolute;right:-.55rem;top:50%;z-index:2;color:var(--sep7-blue)}
+.ontsep7-thesis,.ontsep7-callout,.ontsep7-final{margin-top:2rem;padding:1.6rem 1.8rem;border-left:3px solid var(--sep7-gold);background:rgba(255,255,255,.42)}
+.ontsep7-thesis strong,.ontsep7-callout strong,.ontsep7-final strong{display:block;margin-top:.55rem;max-width:900px;font-family:'Cormorant Garamond',serif;font-size:1.35rem;line-height:1.4}
+.ontsep7-three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--sep7-line)}
+.ontsep7-three article{min-height:190px;padding:1.5rem;border-right:1px solid var(--sep7-line)}
+.ontsep7-three article:last-child{border-right:0}
+.ontsep7-three p{margin:2rem 0 0;font-family:'Cormorant Garamond',serif;font-size:1.35rem;line-height:1.35}
+.ontsep7-tabs{display:flex;flex-wrap:wrap;gap:.65rem;margin-bottom:1rem}
+.ontsep7-tabs button{padding:.8rem 1rem;border:1px solid var(--sep7-line);background:rgba(255,255,255,.25);color:var(--sep7-muted);cursor:pointer;font-size:.66rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.ontsep7-tabs button.active,.ontsep7-tabs button:hover{border-color:var(--sep7-blue);background:var(--sep7-blue);color:#f7f3e8}
+.ontsep7-focus,.ontsep7-judgment,.ontsep7-architecture-focus,.ontsep7-object{padding:2rem;border:1px solid rgba(41,71,92,.28);background:linear-gradient(135deg,rgba(41,71,92,.09),rgba(255,255,255,.35))}
+.ontsep7-focus h3,.ontsep7-judgment h3,.ontsep7-architecture-focus h3,.ontsep7-object h3{max-width:900px;margin:.7rem 0 0;font-family:'Cormorant Garamond',serif;font-size:clamp(1.75rem,3vw,2.8rem);font-weight:500;line-height:1.08}
+.ontsep7-focus p,.ontsep7-architecture-focus p,.ontsep7-object p{max-width:780px;margin:1.1rem 0 0;color:var(--sep7-muted);line-height:1.65}
+.ontsep7-triad,.ontsep7-definitions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:1rem;border:1px solid var(--sep7-line)}
+.ontsep7-triad>div,.ontsep7-definitions article{min-height:155px;padding:1.25rem;border-right:1px solid var(--sep7-line)}
+.ontsep7-triad>div:last-child,.ontsep7-definitions article:last-child{border-right:0}
+.ontsep7-triad span{color:var(--sep7-gold);font-size:.6rem}
+.ontsep7-triad strong{display:block;margin-top:.65rem;font-family:'Cormorant Garamond',serif;font-size:1.35rem}
+.ontsep7-triad p,.ontsep7-definitions p{margin:.5rem 0 0;color:var(--sep7-muted);line-height:1.5;font-size:.78rem}
+.ontsep7-versus,.ontsep7-faculties,.ontsep7-subject,.ontsep7-copernicus,.ontsep7-ontology,.ontsep7-piaget{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:stretch}
+.ontsep7-versus article,.ontsep7-faculties article,.ontsep7-subject>div,.ontsep7-copernicus>div,.ontsep7-ontology article,.ontsep7-piaget article{padding:1.6rem;border:1px solid var(--sep7-line);background:rgba(255,255,255,.25)}
+.ontsep7-versus article.active,.ontsep7-subject .active,.ontsep7-definitions .active,.ontsep7-copernicus .active,.ontsep7-ontology .active{border-color:rgba(41,71,92,.48);background:var(--sep7-blue-soft)}
+.ontsep7-versus>b,.ontsep7-subject>b,.ontsep7-copernicus>b,.ontsep7-ontology>b,.ontsep7-piaget>b,.ontsep7-plus{align-self:center;color:var(--sep7-gold);font-family:'Cormorant Garamond',serif;font-size:1.8rem}
+.ontsep7-versus h3,.ontsep7-faculties h3,.ontsep7-subject strong,.ontsep7-copernicus strong,.ontsep7-ontology h3,.ontsep7-piaget h3{display:block;margin:.8rem 0 0;font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:500;line-height:1.2}
+.ontsep7-versus p,.ontsep7-faculties p,.ontsep7-subject p,.ontsep7-piaget p{color:var(--sep7-muted);line-height:1.6}
+.ontsep7-equation{margin-top:1.4rem;padding:1.4rem;text-align:center;border:1px solid var(--sep7-line)}
+.ontsep7-equation strong{display:block;margin-top:.8rem;font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.5rem)}
+.ontsep7-equation b{padding:0 .4rem;color:var(--sep7-red)}
+.ontsep7-judgment>div{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin-top:1.8rem;background:var(--sep7-line);border:1px solid var(--sep7-line)}
+.ontsep7-judgment p{margin:0;padding:1rem;background:rgba(250,247,239,.82)}
+.ontsep7-judgment small,.ontsep7-judgment strong{display:block}
+.ontsep7-judgment small{margin-bottom:.4rem;color:var(--sep7-muted);letter-spacing:.12em}
+.ontsep7-sap{display:grid;grid-template-columns:1fr auto 1fr auto 1.25fr;gap:.8rem;align-items:stretch}
+.ontsep7-sap>div{padding:1.5rem;border:1px solid var(--sep7-line);text-align:center}
+.ontsep7-sap>b{align-self:center;color:var(--sep7-gold);font-size:1.5rem}
+.ontsep7-sap span,.ontsep7-sap strong{display:block}
+.ontsep7-sap span{font-size:.58rem;letter-spacing:.15em;color:var(--sep7-gold)}
+.ontsep7-sap strong{margin-top:.8rem;font-family:'Cormorant Garamond',serif;font-size:1.35rem}
+.ontsep7-sap .result{color:#f6f2e8;background:var(--sep7-blue)}
+.ontsep7-architecture-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--sep7-line)}
+.ontsep7-architecture-tabs button{min-height:145px;padding:1.1rem;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;border:0;border-right:1px solid var(--sep7-line);background:rgba(255,255,255,.18);cursor:pointer;text-align:left}
+.ontsep7-architecture-tabs button:last-child{border-right:0}
+.ontsep7-architecture-tabs button.active{color:#f7f3e8;background:var(--sep7-blue)}
+.ontsep7-architecture-tabs span{color:var(--sep7-gold);font-family:'Cormorant Garamond',serif;font-size:2rem}
+.ontsep7-architecture-tabs strong{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:500}
+.ontsep7-architecture-tabs small{color:var(--sep7-muted)}
+.ontsep7-architecture-tabs button.active small{color:rgba(247,243,232,.65)}
+.ontsep7-architecture-focus{margin-top:1rem}
+.ontsep7-architecture-focus>strong{display:block;margin-top:1rem;color:var(--sep7-blue);font-size:.78rem;letter-spacing:.08em}
+.ontsep7-quote{margin:1.3rem 0 0;padding:1.5rem;border:1px solid var(--sep7-line);text-align:center;background:rgba(255,255,255,.32)}
+.ontsep7-quote span,.ontsep7-quote strong{display:block}
+.ontsep7-quote span{font-size:.58rem;letter-spacing:.16em;color:var(--sep7-gold)}
+.ontsep7-quote strong{margin-top:.7rem;font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:500}
+.ontsep7-definitions .active{box-shadow:inset 0 3px 0 var(--sep7-blue)}
+.ontsep7-object{min-height:230px}
+.ontsep7-berkeley,.ontsep7-nature{margin-top:1rem;padding:1.3rem 1.5rem;border:1px dashed rgba(124,63,63,.45);background:rgba(124,63,63,.045)}
+.ontsep7-berkeley strong,.ontsep7-nature strong{display:block;margin-top:.6rem;font-family:'Cormorant Garamond',serif;font-size:1.2rem;line-height:1.4}
+.ontsep7-dialectic{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:.7rem}
+.ontsep7-dialectic>div{padding:1.4rem;border:1px solid var(--sep7-line)}
+.ontsep7-dialectic>b{align-self:center;color:var(--sep7-gold)}
+.ontsep7-dialectic strong{display:block;margin-top:.7rem;font-family:'Cormorant Garamond',serif;font-size:1.25rem}
+.ontsep7-dialectic .danger{border-color:rgba(124,63,63,.45);background:rgba(124,63,63,.06)}
+.ontsep7-long-copy{max-width:900px;margin:2rem 0 0;font-family:'Cormorant Garamond',serif;font-size:1.35rem;line-height:1.6}
+.ontsep7-nature p{margin:.7rem 0 0;color:var(--sep7-muted);line-height:1.5}
+.ontsep7-final{margin-top:2rem;border-left-color:var(--sep7-blue)}
+.ontsep7-kant-link{margin-top:1.2rem;display:inline-flex;align-items:center;gap:1rem}
+@media(max-width:1080px){.ontsep7-hero-inner{width:min(900px,calc(100% - 3rem));grid-template-columns:1fr;gap:3rem;padding-top:5rem}.ontsep7-layout{width:min(900px,calc(100% - 3rem));grid-template-columns:1fr;gap:0}.ontsep7-index{position:relative;top:auto;max-height:none;padding:2rem 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.ontsep7-index>p{grid-column:1/-1}.ontsep7-sequence{grid-template-columns:repeat(3,minmax(0,1fr))}.ontsep7-sequence>div:nth-child(3){border-right:0}.ontsep7-sequence>div:nth-child(-n+3){border-bottom:1px solid var(--sep7-line)}}
+@media(max-width:720px){.ontsep7-nav{grid-template-columns:1fr auto;padding:0 1rem}.ontsep7-nav>:last-child{display:none}.ontsep7-hero{min-height:auto}.ontsep7-hero-inner,.ontsep7-layout{width:min(100% - 2rem,680px)}.ontsep7-hero-inner{padding:4rem 0 3rem}.ontsep7-hero h1{font-size:clamp(3.5rem,19vw,5.7rem)}.ontsep7-hero h1 em{margin-left:0}.ontsep7-index{grid-template-columns:1fr}.ontsep7-article>section{padding:4.5rem 0}.ontsep7-heading{grid-template-columns:52px 1fr;gap:.8rem}.ontsep7-heading>span{font-size:3.2rem}.ontsep7-heading h2{font-size:clamp(2.1rem,11vw,3.4rem)}.ontsep7-sequence,.ontsep7-three,.ontsep7-triad,.ontsep7-definitions,.ontsep7-architecture-tabs,.ontsep7-judgment>div{grid-template-columns:1fr}.ontsep7-sequence>div,.ontsep7-three article,.ontsep7-triad>div,.ontsep7-definitions article,.ontsep7-architecture-tabs button{border-right:0;border-bottom:1px solid var(--sep7-line)}.ontsep7-sequence>div:last-child,.ontsep7-three article:last-child,.ontsep7-triad>div:last-child,.ontsep7-definitions article:last-child,.ontsep7-architecture-tabs button:last-child{border-bottom:0}.ontsep7-sequence b{display:none}.ontsep7-versus,.ontsep7-faculties,.ontsep7-subject,.ontsep7-copernicus,.ontsep7-ontology,.ontsep7-piaget{grid-template-columns:1fr}.ontsep7-versus>b,.ontsep7-subject>b,.ontsep7-copernicus>b,.ontsep7-ontology>b,.ontsep7-piaget>b,.ontsep7-plus{justify-self:center;transform:rotate(90deg)}.ontsep7-sap,.ontsep7-dialectic{grid-template-columns:1fr}.ontsep7-sap>b,.ontsep7-dialectic>b{justify-self:center}.ontsep7-hero-actions{flex-direction:column;align-items:stretch}.ontsep7-hero-actions button,.ontsep7-hero-actions a,.ontsep7-kant-link{text-align:center;justify-content:center}}
+@media(prefers-reduced-motion:reduce){.ontsep7-page *{transition:none!important}}
+
+.ontsep7-dictation,
+.ontsep7-genealogy {
+  margin-top: 1.4rem;
+  padding: 1.4rem 1.5rem;
+  border: 1px solid rgba(43, 122, 120, 0.36);
+  border-left: 4px solid #2b7a78;
+  background: linear-gradient(135deg, #dcefed, rgba(255,255,255,.42));
+}
+
+.ontsep7-dictation > span,
+.ontsep7-genealogy header > span {
+  color: #2b7a78;
+  font-size: .6rem;
+  font-weight: 800;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.ontsep7-dictation h3,
+.ontsep7-genealogy h3 {
+  margin: .55rem 0 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.55rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.ontsep7-dictation p {
+  margin: .75rem 0 0;
+  line-height: 1.6;
+}
+
+.ontsep7-dictation--questions ol {
+  margin: 1rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.ontsep7-dictation--questions li {
+  margin: .55rem 0;
+  line-height: 1.45;
+}
+
+.ontsep7-genealogy > div,
+.ontsep7-dictation--architecture > div {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1rem;
+  border: 1px solid rgba(43, 122, 120, 0.22);
+}
+
+.ontsep7-genealogy article,
+.ontsep7-dictation--architecture article {
+  min-height: 145px;
+  padding: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+  border-right: 1px solid rgba(43, 122, 120, 0.22);
+  background: rgba(255,255,255,.28);
+}
+
+.ontsep7-genealogy article:last-child,
+.ontsep7-dictation--architecture article:last-child {
+  border-right: 0;
+}
+
+.ontsep7-genealogy article.active {
+  color: #efffff;
+  background: #2b7a78;
+}
+
+.ontsep7-genealogy small,
+.ontsep7-dictation--architecture small {
+  color: #52706e;
+  font-size: .57rem;
+  letter-spacing: .12em;
+}
+
+.ontsep7-genealogy article.active small {
+  color: rgba(239,255,255,.65);
+}
+
+.ontsep7-genealogy strong,
+.ontsep7-dictation--architecture strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.ontsep7-genealogy b {
+  color: var(--sep7-gold);
+}
+
+.ontsep7-dictation--architecture p {
+  margin: 0;
+  color: #315e5d;
+}
+
+@media (max-width: 720px) {
+  .ontsep7-genealogy > div,
+  .ontsep7-dictation--architecture > div {
+    grid-template-columns: 1fr;
+  }
+
+  .ontsep7-genealogy article,
+  .ontsep7-dictation--architecture article {
+    border-right: 0;
+    border-bottom: 1px solid rgba(43, 122, 120, 0.22);
+  }
+
+  .ontsep7-genealogy article:last-child,
+  .ontsep7-dictation--architecture article:last-child {
+    border-bottom: 0;
+  }
+}
