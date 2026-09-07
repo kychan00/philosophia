@@ -710,6 +710,133 @@
   font-weight: 600;
 }
 
+
+/* KANT PHASE I VISUAL CLARITY */
+.kpm-node-eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 7px;
+}
+
+.kpm-node-eyebrow .kpm-node-tag,
+.kpm-node-eyebrow .kpm-node-phase {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 3px 7px;
+  border-radius: 999px;
+  border: 1px solid rgba(83, 74, 58, 0.14);
+  background: rgba(246, 239, 226, 0.92);
+}
+
+.kpm-node-step {
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+  padding: 3px 8px;
+  border-radius: 999px;
+  color: #4f3d16;
+  font-size: 0.61rem;
+  letter-spacing: 0.08em;
+  font-weight: 900;
+  text-transform: uppercase;
+  background: rgba(234, 211, 143, 0.92);
+  box-shadow: inset 0 0 0 1px rgba(163, 121, 28, 0.18);
+}
+
+.kpm-node-role {
+  display: inline-block;
+  width: fit-content;
+  margin-bottom: 6px;
+  color: #7d6950;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.kpm-node-source {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-top: 8px;
+  padding: 4px 8px;
+  border-radius: 10px;
+  color: #5c4d2e;
+  font-size: 0.66rem;
+  font-weight: 780;
+  background: rgba(238, 230, 210, 0.96);
+  box-shadow: inset 0 0 0 1px rgba(130, 110, 73, 0.18);
+}
+
+.kpm-node--emphasis-origin .kpm-node-card {
+  border-top-color: #d19d25;
+  background:
+    radial-gradient(circle at top left, rgba(236, 207, 126, 0.22), transparent 44%),
+    rgba(251, 248, 240, 0.985);
+  box-shadow:
+    0 0 0 1px rgba(193, 148, 44, 0.12),
+    0 16px 34px rgba(111, 83, 19, 0.18);
+}
+
+.kpm-node--emphasis-main .kpm-node-card {
+  border-top-color: #aa7e27;
+  background:
+    radial-gradient(circle at top left, rgba(224, 196, 127, 0.18), transparent 42%),
+    linear-gradient(180deg, rgba(251, 248, 240, 0.99), rgba(246, 242, 232, 0.985));
+  box-shadow:
+    0 0 0 1px rgba(181, 139, 46, 0.1),
+    0 12px 28px rgba(76, 63, 30, 0.14);
+}
+
+.kpm-node--emphasis-example .kpm-node-card {
+  border-top-color: #7f98a6;
+  background:
+    radial-gradient(circle at top left, rgba(151, 178, 196, 0.16), transparent 42%),
+    rgba(249, 247, 242, 0.985);
+  box-shadow:
+    0 10px 24px rgba(47, 65, 80, 0.11);
+}
+
+.kpm-node--emphasis-limit .kpm-node-card {
+  border-top-color: #8e6a7c;
+  background:
+    radial-gradient(circle at top left, rgba(164, 131, 148, 0.15), transparent 44%),
+    rgba(248, 244, 239, 0.985);
+  box-shadow:
+    0 10px 24px rgba(94, 69, 82, 0.12);
+}
+
+.kpm-node--emphasis-result .kpm-node-card {
+  border-top-color: #8c4e54;
+  background:
+    radial-gradient(circle at top left, rgba(165, 97, 108, 0.14), transparent 44%),
+    rgba(250, 245, 239, 0.985);
+  box-shadow:
+    0 10px 26px rgba(95, 54, 58, 0.13);
+}
+
+.kpm-node.is-active .kpm-node-card {
+  border-color: rgba(181, 139, 46, 0.94);
+  box-shadow:
+    0 0 0 5px rgba(181, 139, 46, 0.18),
+    0 16px 36px rgba(65, 49, 17, 0.24);
+}
+
+.kpm-flow-shell .react-flow__edge.kpm-edge--primary {
+  opacity: 0.98;
+}
+
+.kpm-flow-shell .react-flow__edge.kpm-edge--support {
+  opacity: 0.74;
+}
+
+.kpm-flow-shell .react-flow__edge-textwrapper {
+  filter: drop-shadow(0 1px 1px rgba(248, 243, 233, 0.9));
+}
+
 .kpm-node--claim .kpm-node-card { border-top-color: #bd9738; }
 .kpm-node--problem .kpm-node-card { border-top-color: var(--kpm-wine); }
 .kpm-node--method .kpm-node-card { border-top-color: var(--kpm-blue); }
@@ -1536,4 +1663,206 @@
     height: calc(100vh - 160px);
     min-height: 360px;
   }
+}
+
+/* KANT PHASE I EMPHASIS OVERRIDES */
+.kpm-node--emphasis-origin .kpm-node-card {
+  border-top-color: #d19d25;
+}
+
+.kpm-node--emphasis-main .kpm-node-card {
+  border-top-color: #aa7e27;
+}
+
+.kpm-node--emphasis-example .kpm-node-card {
+  border-top-color: #7f98a6;
+}
+
+.kpm-node--emphasis-limit .kpm-node-card {
+  border-top-color: #8e6a7c;
+}
+
+.kpm-node--emphasis-result .kpm-node-card {
+  border-top-color: #8c4e54;
+}
+
+/* KANT COLOR SYSTEM V2 */
+
+.kpm-node.is-guide-muted {
+  opacity: 0.58;
+  filter: saturate(0.82);
+}
+
+.kpm-node.is-guide-next {
+  opacity: 0.94;
+}
+
+.kpm-flow-shell .react-flow__edge.is-guide-muted-edge {
+  opacity: 0.34;
+}
+
+.kpm-node--claim .kpm-node-card {
+  color: #2d2414;
+  border-color: rgba(171, 126, 32, 0.30);
+  border-top-color: #c89a33;
+  background:
+    radial-gradient(circle at 14% 8%, rgba(239, 205, 118, 0.34), transparent 48%),
+    linear-gradient(180deg, #fffaf0 0%, #f8efd8 100%);
+}
+
+.kpm-node--method .kpm-node-card {
+  color: #1d3141;
+  border-color: rgba(54, 91, 120, 0.28);
+  border-top-color: #4d7898;
+  background:
+    radial-gradient(circle at 14% 8%, rgba(120, 166, 198, 0.24), transparent 48%),
+    linear-gradient(180deg, #f7fbfe 0%, #e8f1f7 100%);
+}
+
+.kpm-node--problem .kpm-node-card {
+  color: #432326;
+  border-color: rgba(126, 62, 67, 0.28);
+  border-top-color: #9d5960;
+  background:
+    radial-gradient(circle at 14% 8%, rgba(190, 113, 122, 0.22), transparent 48%),
+    linear-gradient(180deg, #fff8f7 0%, #f5e5e6 100%);
+}
+
+.kpm-node--evidence .kpm-node-card {
+  color: #3c2f19;
+  border-color: rgba(154, 115, 56, 0.30);
+  border-top-color: #b7863f;
+  background:
+    radial-gradient(circle at 14% 8%, rgba(224, 182, 101, 0.27), transparent 48%),
+    linear-gradient(180deg, #fffaf2 0%, #f3e8cf 100%);
+}
+
+.kpm-node--contrast .kpm-node-card {
+  color: #36273a;
+  border-color: rgba(113, 83, 111, 0.30);
+  border-top-color: #806182;
+  background:
+    radial-gradient(circle at 14% 8%, rgba(157, 124, 159, 0.22), transparent 48%),
+    linear-gradient(180deg, #fcf8fd 0%, #eee4f0 100%);
+}
+
+.kpm-node--practical .kpm-node-card {
+  color: #40271d;
+  border-color: rgba(152, 94, 67, 0.30);
+  border-top-color: #ad6e50;
+  background:
+    radial-gradient(circle at 14% 8%, rgba(198, 129, 95, 0.23), transparent 48%),
+    linear-gradient(180deg, #fff9f5 0%, #f2e3da 100%);
+}
+
+.kpm-node--tradition .kpm-node-card {
+  color: #26343d;
+  border-color: rgba(94, 117, 132, 0.28);
+  border-top-color: #718999;
+  background:
+    radial-gradient(circle at 14% 8%, rgba(132, 158, 175, 0.22), transparent 48%),
+    linear-gradient(180deg, #f8fbfc 0%, #e7eef2 100%);
+}
+
+.kpm-node--conclusion .kpm-node-card {
+  color: #fbf4e8;
+  border-color: rgba(77, 65, 77, 0.72);
+  border-top-color: #c7a65c;
+  background:
+    radial-gradient(circle at 16% 8%, rgba(178, 135, 169, 0.24), transparent 46%),
+    linear-gradient(145deg, #62545f 0%, #40383f 100%);
+}
+
+.kpm-node--claim .kpm-node-tag,
+.kpm-node--claim .kpm-node-role,
+.kpm-node--claim .kpm-node-source { color: #684b12; }
+
+.kpm-node--method .kpm-node-tag,
+.kpm-node--method .kpm-node-role,
+.kpm-node--method .kpm-node-source { color: #315b79; }
+
+.kpm-node--problem .kpm-node-tag,
+.kpm-node--problem .kpm-node-role,
+.kpm-node--problem .kpm-node-source { color: #7b3e44; }
+
+.kpm-node--evidence .kpm-node-tag,
+.kpm-node--evidence .kpm-node-role,
+.kpm-node--evidence .kpm-node-source { color: #7e5b25; }
+
+.kpm-node--contrast .kpm-node-tag,
+.kpm-node--contrast .kpm-node-role,
+.kpm-node--contrast .kpm-node-source { color: #654a67; }
+
+.kpm-node--practical .kpm-node-tag,
+.kpm-node--practical .kpm-node-role,
+.kpm-node--practical .kpm-node-source { color: #7a4935; }
+
+.kpm-node--tradition .kpm-node-tag,
+.kpm-node--tradition .kpm-node-role,
+.kpm-node--tradition .kpm-node-source { color: #526c7b; }
+
+.kpm-node--conclusion .kpm-node-tag,
+.kpm-node--conclusion .kpm-node-role,
+.kpm-node--conclusion .kpm-node-source { color: #f0dfb5; }
+
+.kpm-node--conclusion .kpm-node-source,
+.kpm-node--conclusion .kpm-node-eyebrow .kpm-node-tag,
+.kpm-node--conclusion .kpm-node-eyebrow .kpm-node-phase {
+  border-color: rgba(238, 215, 165, 0.22);
+  background: rgba(255, 248, 230, 0.08);
+}
+
+.kpm-node--emphasis-origin .kpm-node-card {
+  box-shadow:
+    0 0 0 2px rgba(64, 116, 160, 0.18),
+    0 0 28px rgba(64, 116, 160, 0.20),
+    0 14px 30px rgba(44, 72, 94, 0.16);
+}
+
+.kpm-node--emphasis-main .kpm-node-card {
+  box-shadow:
+    0 0 0 2px rgba(190, 143, 41, 0.16),
+    0 0 24px rgba(190, 143, 41, 0.16),
+    0 12px 28px rgba(88, 68, 25, 0.13);
+}
+
+.kpm-node--emphasis-example .kpm-node-card {
+  box-shadow:
+    0 0 0 2px rgba(77, 120, 152, 0.14),
+    0 0 22px rgba(77, 120, 152, 0.14),
+    0 10px 24px rgba(48, 75, 94, 0.11);
+}
+
+.kpm-node--emphasis-limit .kpm-node-card {
+  box-shadow:
+    0 0 0 2px rgba(113, 83, 111, 0.16),
+    0 0 24px rgba(113, 83, 111, 0.15),
+    0 10px 24px rgba(82, 56, 80, 0.12);
+}
+
+.kpm-node--emphasis-result .kpm-node-card {
+  box-shadow:
+    0 0 0 2px rgba(126, 62, 67, 0.16),
+    0 0 24px rgba(126, 62, 67, 0.15),
+    0 10px 26px rgba(95, 54, 58, 0.13);
+}
+
+.kpm-node.is-active .kpm-node-card {
+  border-color: rgba(197, 144, 25, 0.95);
+  box-shadow:
+    0 0 0 4px rgba(211, 157, 31, 0.22),
+    0 0 32px rgba(211, 157, 31, 0.28),
+    0 16px 36px rgba(89, 66, 17, 0.22);
+}
+
+.kpm-inspector-tabs button:nth-child(1) {
+  background: linear-gradient(180deg, #fffdf8, #f7ecd0);
+}
+
+.kpm-inspector-tabs button:nth-child(2) {
+  background: linear-gradient(180deg, #fbf9fc, #eee7f1);
+}
+
+.kpm-inspector-tabs button:nth-child(3) {
+  background: linear-gradient(180deg, #fbfdf9, #e9f0e6);
 }

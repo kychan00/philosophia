@@ -50,12 +50,12 @@ export const kantPrefacesPhases = [
     "subtitle": "Prólogo A · 1781",
     "title": "El origen del problema metafísico",
     "question": "¿Por qué la razón humana produce inevitablemente problemas metafísicos?",
-    "thesis": "La metafísica surge de una tendencia natural de la razón: buscar condiciones hasta alcanzar lo incondicionado, incluso cuando para ello termina sobrepasando la experiencia.",
+    "thesis": "La metafísica surge de una tendencia natural de la razón: partir de principios legitimados por la experiencia, ascender a condiciones cada vez más remotas y, al quedar la tarea inacabada, recurrir a principios que sobrepasan todo posible uso empírico.",
     "pages": "6–7",
     "takeaways": [
       "El problema metafísico nace dentro de la razón.",
-      "La búsqueda de condiciones conduce a la exigencia de lo incondicionado.",
-      "El conflicto aparece cuando principios legítimos se extienden más allá de la experiencia."
+      "La búsqueda racional asciende a condiciones cada vez más remotas, pero su tarea permanece inacabada.",
+      "El conflicto aparece cuando la razón recurre a principios que ya no admiten contrastación empírica."
     ],
     "nodes": [
       {
@@ -67,8 +67,12 @@ export const kantPrefacesPhases = [
         "title": "Razón humana",
         "tag": "ORIGEN",
         "category": "claim",
+        "emphasis": "origin",
+        "roleLabel": "Punto de partida",
         "detail": "La razón humana produce preguntas que no puede rechazar porque nacen de su propia naturaleza.",
         "pages": "6–7",
+        "sourceBadge": "A | p. 6",
+        "pathStep": "1",
         "keyIdea": "El problema metafísico no es un accidente externo: nace de la razón misma.",
         "question": "¿Qué función cumple «Razón humana» en esta fase?",
         "answer": "El problema metafísico no es un accidente externo: nace de la razón misma."
@@ -82,8 +86,12 @@ export const kantPrefacesPhases = [
         "title": "Principios dentro de la experiencia",
         "tag": "USO",
         "category": "method",
+        "emphasis": "main",
+        "roleLabel": "Paso central",
         "detail": "La razón comienza empleando principios cuyo uso dentro de la experiencia es legítimo y necesario.",
         "pages": "6",
+        "sourceBadge": "A | p. 6",
+        "pathStep": "2",
         "keyIdea": "El conflicto no empieza con principios absurdos, sino con la extensión indebida de principios útiles.",
         "question": "¿Qué función cumple «Principios dentro de la experiencia» en esta fase?",
         "answer": "El conflicto no empieza con principios absurdos, sino con la extensión indebida de principios útiles."
@@ -97,8 +105,12 @@ export const kantPrefacesPhases = [
         "title": "Búsqueda de condiciones",
         "tag": "IMPULSO",
         "category": "method",
+        "emphasis": "main",
+        "roleLabel": "Paso central",
         "detail": "La razón no se contenta con lo dado y busca las condiciones de aquello que aparece condicionado.",
         "pages": "6",
+        "sourceBadge": "A | p. 6",
+        "pathStep": "3",
         "keyIdea": "Una condición conduce a otra y empuja a la razón hacia explicaciones cada vez más remotas.",
         "question": "¿Qué función cumple «Búsqueda de condiciones» en esta fase?",
         "answer": "Una condición conduce a otra y empuja a la razón hacia explicaciones cada vez más remotas."
@@ -109,14 +121,18 @@ export const kantPrefacesPhases = [
           "x": 690,
           "y": 500
         },
-        "title": "De lo condicionado a su condición",
-        "tag": "LÓGICA",
-        "category": "evidence",
-        "detail": "Lo condicionado remite a aquello de lo que depende; esta estructura hace avanzar la búsqueda racional.",
+        "title": "Condiciones progresivamente más remotas",
+        "tag": "ASCENSO",
+        "category": "method",
+        "emphasis": "main",
+        "roleLabel": "Paso central",
+        "detail": "Con principios legitimados por la experiencia, la razón se eleva a condiciones progresivamente más remotas, tal como exige su propia naturaleza.",
         "pages": "6",
-        "keyIdea": "La serie de condiciones se prolonga porque cada elemento condicionado pide fundamento.",
-        "question": "¿Qué función cumple «De lo condicionado a su condición» en esta fase?",
-        "answer": "La serie de condiciones se prolonga porque cada elemento condicionado pide fundamento."
+        "sourceBadge": "A | p. 6",
+        "pathStep": "4",
+        "keyIdea": "La razón amplía su búsqueda sin abandonar todavía el punto de partida empírico.",
+        "question": "¿Qué ocurre cuando la razón sigue elevándose con principios justificados por la experiencia?",
+        "answer": "Alcanza condiciones cada vez más remotas; el problema surge cuando descubre que así no logra terminar su tarea."
       },
       {
         "id": "a1-totality",
@@ -124,14 +140,18 @@ export const kantPrefacesPhases = [
           "x": 1060,
           "y": 260
         },
-        "title": "La serie debe completarse",
-        "tag": "EXIGENCIA",
-        "category": "claim",
-        "detail": "La razón pretende llevar la serie de condiciones hasta una totalidad y no quedar en una explicación siempre incompleta.",
+        "title": "La tarea queda inacabada",
+        "tag": "LÍMITE",
+        "category": "problem",
+        "emphasis": "main",
+        "roleLabel": "Paso central",
+        "detail": "La razón advierte que, por mucho que ascienda hacia condiciones más remotas, su tarea no termina.",
         "pages": "6",
-        "keyIdea": "La razón exige cierre y totalidad.",
-        "question": "¿Qué función cumple «La serie debe completarse» en esta fase?",
-        "answer": "La razón exige cierre y totalidad."
+        "sourceBadge": "A | p. 6",
+        "pathStep": "5",
+        "keyIdea": "El procedimiento ordinario no consigue cerrar la investigación.",
+        "question": "¿Por qué la razón no se detiene en las condiciones alcanzadas?",
+        "answer": "Porque su tarea sigue inacabada y las cuestiones que la acosan no se agotan."
       },
       {
         "id": "a1-unconditioned",
@@ -139,14 +159,18 @@ export const kantPrefacesPhases = [
           "x": 1410,
           "y": 260
         },
-        "title": "Lo incondicionado",
-        "tag": "META",
-        "category": "claim",
-        "detail": "La razón busca una condición última que ya no dependa de otra y cierre la serie de explicaciones.",
+        "title": "Las cuestiones nunca se agotan",
+        "tag": "PRESIÓN",
+        "category": "problem",
+        "emphasis": "main",
+        "roleLabel": "Paso central",
+        "detail": "La continuidad de las preguntas empuja a la razón a buscar una salida fuera del uso empírico ordinario.",
         "pages": "6",
-        "keyIdea": "Lo incondicionado expresa la exigencia de un fundamento último.",
-        "question": "¿Por qué aparece lo incondicionado en la búsqueda racional?",
-        "answer": "Porque una serie siempre condicionada no satisface la exigencia de totalidad de la razón; ésta busca un cierre que ya no dependa de otra condición."
+        "sourceBadge": "A | p. 6",
+        "pathStep": "6",
+        "keyIdea": "En el Prólogo A el paso decisivo es que las cuestiones no se agotan y la tarea permanece inacabada.",
+        "question": "¿Qué empuja a la razón a recurrir a nuevos principios?",
+        "answer": "El hecho de que la tarea siga inacabada y las cuestiones nunca se agoten."
       },
       {
         "id": "a1-beyond",
@@ -157,8 +181,12 @@ export const kantPrefacesPhases = [
         "title": "Más allá de la experiencia posible",
         "tag": "QUIEBRE",
         "category": "problem",
-        "detail": "Al perseguir lo incondicionado, la razón extiende sus principios a un ámbito donde la experiencia ya no puede ofrecer comprobación ni objeto adecuado.",
+        "emphasis": "main",
+        "roleLabel": "Paso critico",
+        "detail": "Al quedar inacabada la búsqueda y no agotarse las cuestiones, la razón se ve obligada a recurrir a principios que sobrepasan todo posible uso empírico.",
         "pages": "6",
+        "sourceBadge": "A | p. 6",
+        "pathStep": "7",
         "keyIdea": "El salto crítico ocurre cuando un uso válido en la experiencia se prolonga fuera de ella.",
         "question": "¿Qué función cumple «Más allá de la experiencia posible» en esta fase?",
         "answer": "El salto crítico ocurre cuando un uso válido en la experiencia se prolonga fuera de ella."
@@ -169,14 +197,18 @@ export const kantPrefacesPhases = [
           "x": 2110,
           "y": 80
         },
-        "title": "Ilusión natural de la razón",
-        "tag": "RIESGO",
+        "title": "Parecen libres de sospecha",
+        "tag": "APARIENCIA",
         "category": "problem",
-        "detail": "La extensión ilegítima conserva apariencia de legitimidad porque nace de principios que antes funcionaban correctamente.",
-        "pages": "6–7",
-        "keyIdea": "La ilusión metafísica no es una simple torpeza: es una tentación natural de la razón.",
-        "question": "¿Qué función cumple «Ilusión natural de la razón» en esta fase?",
-        "answer": "La ilusión metafísica no es una simple torpeza: es una tentación natural de la razón."
+        "emphasis": "main",
+        "roleLabel": "Riesgo central",
+        "detail": "Los principios que sobrepasan el uso empírico parecen tan libres de sospecha que incluso la razón ordinaria está de acuerdo con ellos.",
+        "pages": "6",
+        "sourceBadge": "A | pp. 6-7",
+        "pathStep": "8",
+        "keyIdea": "La dificultad es engañosa porque el paso ilegítimo conserva apariencia de legitimidad.",
+        "question": "¿Por qué la razón acepta principios que ya exceden la experiencia?",
+        "answer": "Porque parecen libres de sospecha y reciben incluso el asentimiento de la razón ordinaria."
       },
       {
         "id": "a1-soul",
@@ -184,14 +216,17 @@ export const kantPrefacesPhases = [
           "x": 2070,
           "y": 420
         },
-        "title": "Alma",
+        "title": "Simplicidad del alma",
         "tag": "EJEMPLO",
         "category": "evidence",
-        "detail": "La razón busca una unidad última del sujeto; aquí aparece sólo como destino paradigmático de la investigación metafísica.",
-        "pages": "6–7",
-        "keyIdea": "La razón busca una unidad última del sujeto; aquí aparece sólo como destino paradigmático de la investigación metafísica.",
-        "question": "¿Qué función cumple «Alma» en esta fase?",
-        "answer": "La razón busca una unidad última del sujeto; aquí aparece sólo como destino paradigmático de la investigación metafísica."
+        "emphasis": "example",
+        "roleLabel": "Ejemplo del libro",
+        "detail": "Más adelante en el mismo Prólogo A, Kant cita la pretendida demostración de la simplicidad del alma como ejemplo de una ambición metafísica que extiende el conocimiento más allá de la experiencia posible.",
+        "pages": "9",
+        "sourceBadge": "A | p. 9",
+        "keyIdea": "La simplicidad del alma ejemplifica el tipo de pretensión que la Crítica se niega a prometer sin examen previo.",
+        "question": "¿Por qué Kant menciona la simplicidad del alma?",
+        "answer": "Como ejemplo de una pretensión metafísica que promete conocimiento más allá de los límites de la experiencia posible."
       },
       {
         "id": "a1-world",
@@ -199,14 +234,17 @@ export const kantPrefacesPhases = [
           "x": 2310,
           "y": 420
         },
-        "title": "Mundo como totalidad",
+        "title": "Primer comienzo del mundo",
         "tag": "EJEMPLO",
         "category": "evidence",
-        "detail": "La razón pretende pensar el mundo como una totalidad completa; aquí funciona sólo como anticipo de problemas posteriores.",
-        "pages": "6–7",
-        "keyIdea": "La razón pretende pensar el mundo como una totalidad completa; aquí funciona sólo como anticipo de problemas posteriores.",
-        "question": "¿Qué función cumple «Mundo como totalidad» en esta fase?",
-        "answer": "La razón pretende pensar el mundo como una totalidad completa; aquí funciona sólo como anticipo de problemas posteriores."
+        "emphasis": "example",
+        "roleLabel": "Ejemplo del libro",
+        "detail": "Kant menciona también la pretendida demostración de la necesidad de un primer comienzo del mundo como ejemplo de una pretensión que rebasa la experiencia posible.",
+        "pages": "9",
+        "sourceBadge": "A | p. 9",
+        "keyIdea": "El primer comienzo del mundo muestra otra forma de extender dogmáticamente el conocimiento más allá de la experiencia.",
+        "question": "¿Qué ilustra el ejemplo del primer comienzo del mundo?",
+        "answer": "Una pretensión metafísica de conocer algo que rebasa los límites de la experiencia posible."
       },
       {
         "id": "a1-god",
@@ -214,14 +252,17 @@ export const kantPrefacesPhases = [
           "x": 2550,
           "y": 420
         },
-        "title": "Dios",
-        "tag": "EJEMPLO",
-        "category": "evidence",
-        "detail": "La razón busca un fundamento absoluto; el nodo anticipa un destino clásico de la metafísica sin desarrollar todavía la doctrina.",
-        "pages": "6–7",
-        "keyIdea": "La razón busca un fundamento absoluto; el nodo anticipa un destino clásico de la metafísica sin desarrollar todavía la doctrina.",
-        "question": "¿Qué función cumple «Dios» en esta fase?",
-        "answer": "La razón busca un fundamento absoluto; el nodo anticipa un destino clásico de la metafísica sin desarrollar todavía la doctrina."
+        "title": "No prometer conocimiento suprasensible",
+        "tag": "LÍMITE",
+        "category": "contrast",
+        "emphasis": "limit",
+        "roleLabel": "Límite crítico",
+        "detail": "Frente a esas pretensiones, Kant declara que extender el conocimiento humano más allá de todos los límites de la experiencia posible desborda su capacidad; por eso dirige la investigación a la razón misma y a su pensar puro.",
+        "pages": "9",
+        "sourceBadge": "A | p. 9",
+        "keyIdea": "La Crítica no promete demostrar objetos suprasensibles; examina primero la razón que pretende conocerlos.",
+        "question": "¿Qué hace Kant en vez de prometer conocimiento más allá de la experiencia?",
+        "answer": "Se ocupa de la razón misma y de su pensar puro para determinar qué puede esperarse de ella sin apoyo de la experiencia."
       },
       {
         "id": "a1-conflict",
@@ -232,8 +273,12 @@ export const kantPrefacesPhases = [
         "title": "Oscuridad y contradicción",
         "tag": "RESULTADO",
         "category": "problem",
+        "emphasis": "result",
+        "roleLabel": "Consecuencia",
         "detail": "Fuera del terreno de la experiencia, la razón cae en oscuridad y en conflictos que sus procedimientos anteriores no logran resolver.",
         "pages": "6–7",
+        "sourceBadge": "A | pp. 6-7",
+        "pathStep": "9",
         "keyIdea": "La razón termina enfrentándose consigo misma.",
         "question": "¿Qué función cumple «Oscuridad y contradicción» en esta fase?",
         "answer": "La razón termina enfrentándose consigo misma."
@@ -247,8 +292,12 @@ export const kantPrefacesPhases = [
         "title": "Metafísica: campo de batalla",
         "tag": "DESENLACE",
         "category": "conclusion",
+        "emphasis": "result",
+        "roleLabel": "Resultado",
         "detail": "Kant denomina metafísica al campo donde se libran estas controversias de la razón sobre cuestiones inevitables y no resueltas.",
         "pages": "6–7",
+        "sourceBadge": "A | p. 7",
+        "pathStep": "10",
         "keyIdea": "La metafísica aparece como el campo histórico del conflicto producido por la propia razón.",
         "question": "¿Qué función cumple «Metafísica: campo de batalla» en esta fase?",
         "answer": "La metafísica aparece como el campo histórico del conflicto producido por la propia razón."
@@ -260,6 +309,7 @@ export const kantPrefacesPhases = [
         "source": "a1-reason",
         "target": "a1-experience",
         "label": "parte de",
+        "emphasis": "primary",
         "kind": "prepares"
       },
       {
@@ -267,97 +317,111 @@ export const kantPrefacesPhases = [
         "source": "a1-experience",
         "target": "a1-conditions",
         "label": "permite buscar",
+        "emphasis": "primary",
         "kind": "prepares"
       },
       {
         "id": "a1-e3",
         "source": "a1-conditions",
         "target": "a1-conditioned",
-        "label": "remonta de",
+        "label": "asciende hacia",
+        "emphasis": "primary",
         "kind": "supports"
       },
       {
         "id": "a1-e4",
-        "source": "a1-conditions",
+        "source": "a1-conditioned",
         "target": "a1-totality",
-        "label": "tiende hacia",
+        "label": "deja la tarea",
+        "emphasis": "primary",
         "kind": "requires"
       },
       {
         "id": "a1-e5",
         "source": "a1-totality",
         "target": "a1-unconditioned",
-        "label": "exige",
+        "label": "porque",
+        "emphasis": "primary",
         "kind": "requires"
       },
       {
         "id": "a1-e6",
         "source": "a1-unconditioned",
         "target": "a1-beyond",
-        "label": "empuja hacia",
+        "label": "obliga a recurrir a",
+        "emphasis": "primary",
         "kind": "causes"
       },
       {
         "id": "a1-e7",
         "source": "a1-beyond",
         "target": "a1-illusion",
-        "label": "produce",
+        "label": "parece apoyarse en principios que",
+        "emphasis": "primary",
         "kind": "causes"
       },
       {
         "id": "a1-e8",
         "source": "a1-beyond",
         "target": "a1-soul",
-        "label": "se dirige también a",
+        "label": "se ejemplifica después en",
+        "emphasis": "support",
         "kind": "illustrates"
       },
       {
         "id": "a1-e9",
         "source": "a1-beyond",
         "target": "a1-world",
-        "label": "se dirige también a",
+        "label": "se ejemplifica después en",
+        "emphasis": "support",
         "kind": "illustrates"
       },
       {
         "id": "a1-e10",
         "source": "a1-beyond",
         "target": "a1-god",
-        "label": "se dirige también a",
+        "label": "Kant se niega a prometer",
+        "emphasis": "support",
         "kind": "illustrates"
       },
       {
         "id": "a1-e11",
         "source": "a1-illusion",
         "target": "a1-conflict",
-        "label": "oculta el error y conduce a",
+        "label": "desemboca en",
+        "emphasis": "primary",
         "kind": "causes"
       },
       {
         "id": "a1-e12",
         "source": "a1-soul",
         "target": "a1-conflict",
-        "label": "alimenta disputas",
-        "kind": "causes"
+        "label": "ejemplifica una pretensión que alimenta",
+        "emphasis": "support",
+        "kind": "illustrates"
       },
       {
         "id": "a1-e13",
         "source": "a1-world",
         "target": "a1-conflict",
-        "label": "alimenta disputas",
-        "kind": "causes"
+        "label": "ejemplifica una pretensión que alimenta",
+        "emphasis": "support",
+        "kind": "illustrates"
       },
       {
         "id": "a1-e14",
         "source": "a1-god",
         "target": "a1-conflict",
-        "label": "alimenta disputas",
-        "kind": "causes"
+        "label": "marca el límite frente al",
+        "emphasis": "support",
+        "kind": "contrasts"
       },
       {
         "id": "a1-e15",
         "source": "a1-conflict",
         "target": "a1-metaphysics",
         "label": "convierte en",
+        "emphasis": "primary",
         "kind": "conclusion"
       }
     ],
@@ -3550,14 +3614,14 @@ export const kantPrefacesPhases = [
           "x": 2420,
           "y": 2160
         },
-        "title": "No inventamos arbitrariamente los objetos",
-        "tag": "ACLARACIÓN",
+        "title": "Objeto en cuanto objeto de los sentidos",
+        "tag": "PRECISIÓN",
         "category": "contrast",
-        "detail": "El giro no significa que la mente fabrique libremente la realidad, sino que todo objeto de experiencia debe ajustarse a condiciones de cognoscibilidad.",
-        "pages": "15–17",
-        "keyIdea": "Condicionar la experiencia no equivale a inventar el mundo.",
-        "question": "¿Qué función cumple «No inventamos arbitrariamente los objetos» en esta fase?",
-        "answer": "Condicionar la experiencia no equivale a inventar el mundo."
+        "detail": "Kant formula el ensayo con una precisión decisiva: es el objeto, en cuanto objeto de los sentidos, el que se rige por la naturaleza de nuestra facultad de intuición.",
+        "pages": "16",
+        "keyIdea": "El nuevo supuesto se refiere al objeto tal como puede ser dado a nuestra sensibilidad.",
+        "question": "¿A qué objeto se refiere el giro cuando Kant habla de conformidad con nuestra intuición?",
+        "answer": "Al objeto en cuanto objeto de los sentidos, que debe poder darse conforme a la naturaleza de nuestra facultad de intuición."
       },
       {
         "id": "b3-intuition",
@@ -4006,7 +4070,7 @@ export const kantPrefacesPhases = [
     "title": "Fenómeno, cosa en sí y límites del conocimiento",
     "question": "¿Qué podemos conocer después del giro copernicano y qué queda fuera del alcance de la razón especulativa?",
     "thesis": "El conocimiento especulativo queda restringido a fenómenos; la cosa en sí no se conoce teóricamente, aunque puede pensarse, y esta distinción permite evitar ciertas contradicciones.",
-    "pages": "18–21",
+    "pages": "17–21",
     "takeaways": [
       "Conocer y pensar no son lo mismo.",
       "Fenómeno y cosa en sí son dos modos de considerar el objeto.",
@@ -4082,11 +4146,11 @@ export const kantPrefacesPhases = [
         "title": "Cosa en sí",
         "tag": "LÍMITE",
         "category": "contrast",
-        "detail": "La cosa en sí es el objeto considerado independientemente del modo bajo el cual puede aparecer para nosotros.",
-        "pages": "18–20",
-        "keyIdea": "No debe imaginarse simplemente como otra cosa escondida detrás del fenómeno.",
-        "question": "¿Qué función cumple «Cosa en sí» en esta fase?",
-        "answer": "No debe imaginarse simplemente como otra cosa escondida detrás del fenómeno."
+        "detail": "La cosa en sí es el objeto considerado independientemente del modo bajo el cual puede aparecer para nosotros; la razón especulativa no la conoce como tal.",
+        "pages": "17–20",
+        "keyIdea": "La cosa en sí queda no conocida por nosotros, aunque debe poder ser pensada.",
+        "question": "¿Qué estatuto tiene la cosa en sí para el conocimiento especulativo?",
+        "answer": "No la conocemos como objeto de experiencia, aunque debe poder ser pensada sin que ello equivalga a conocerla."
       },
       {
         "id": "b4-know",
@@ -4172,11 +4236,11 @@ export const kantPrefacesPhases = [
         "title": "Dos modos de considerar el objeto",
         "tag": "DISTINCIÓN",
         "category": "method",
-        "detail": "La Crítica permite considerar el objeto como fenómeno y también como cosa en sí, sin convertir estas perspectivas en dos objetos físicamente separados.",
-        "pages": "18–20",
-        "keyIdea": "La Crítica permite considerar el objeto como fenómeno y también como cosa en sí, sin convertir estas perspectivas en dos objetos físicamente separados.",
-        "question": "¿Qué función cumple «Dos modos de considerar el objeto» en esta fase?",
-        "answer": "La Crítica permite considerar el objeto como fenómeno y también como cosa en sí, sin convertir estas perspectivas en dos objetos físicamente separados."
+        "detail": "La Crítica enseña a tomar el objeto en dos sentidos: como fenómeno y como cosa en sí.",
+        "pages": "17–20",
+        "keyIdea": "El mismo objeto debe poder considerarse como fenómeno y como cosa en sí.",
+        "question": "¿Qué distinción exige la Crítica para evitar la contradicción?",
+        "answer": "Considerar el objeto en dos sentidos: como fenómeno y como cosa en sí."
       },
       {
         "id": "b4-unconditioned",
@@ -4187,11 +4251,11 @@ export const kantPrefacesPhases = [
         "title": "Lo incondicionado",
         "tag": "EXIGENCIA",
         "category": "claim",
-        "detail": "La razón vuelve a exigir un cierre incondicionado de las series de condiciones y debe reconsiderarlo a la luz de la distinción crítica.",
-        "pages": "19–21",
-        "keyIdea": "La razón vuelve a exigir un cierre incondicionado de las series de condiciones y debe reconsiderarlo a la luz de la distinción crítica.",
-        "question": "¿Qué función cumple «Lo incondicionado» en esta fase?",
-        "answer": "La razón vuelve a exigir un cierre incondicionado de las series de condiciones y debe reconsiderarlo a la luz de la distinción crítica."
+        "detail": "Lo incondicionado impulsa ineludiblemente a la razón a traspasar los límites de la experiencia y exige la serie completa de las condiciones.",
+        "pages": "17",
+        "keyIdea": "La razón exige lo incondicionado respecto de lo condicionado.",
+        "question": "¿Qué impulsa a la razón a traspasar los límites de la experiencia en este punto del Prólogo B?",
+        "answer": "La exigencia de lo incondicionado y de la serie completa de las condiciones."
       },
       {
         "id": "b4-one-view",
@@ -4202,11 +4266,11 @@ export const kantPrefacesPhases = [
         "title": "Un solo punto de vista",
         "tag": "ERROR",
         "category": "problem",
-        "detail": "Si tratamos los fenómenos como cosas en sí, aplicamos indiscriminadamente las mismas condiciones del conocimiento empírico a todo sentido del objeto.",
-        "pages": "19–21",
-        "keyIdea": "Si tratamos los fenómenos como cosas en sí, aplicamos indiscriminadamente las mismas condiciones del conocimiento empírico a todo sentido del objeto.",
-        "question": "¿Qué función cumple «Un solo punto de vista» en esta fase?",
-        "answer": "Si tratamos los fenómenos como cosas en sí, aplicamos indiscriminadamente las mismas condiciones del conocimiento empírico a todo sentido del objeto."
+        "detail": "Si el conocimiento empírico se toma como regido por los objetos en cuanto cosas en sí, lo incondicionado no puede pensarse sin contradicción.",
+        "pages": "17",
+        "keyIdea": "Un solo punto de vista vuelve contradictoria la exigencia de lo incondicionado.",
+        "question": "¿Qué ocurre si tratamos los objetos empíricos simplemente como cosas en sí?",
+        "answer": "La exigencia de lo incondicionado entra en contradicción."
       },
       {
         "id": "b4-contradiction",
@@ -4217,9 +4281,9 @@ export const kantPrefacesPhases = [
         "title": "Conflicto de la razón consigo misma",
         "tag": "RESULTADO",
         "category": "problem",
-        "detail": "Bajo un único punto de vista, las exigencias de lo condicionado y lo incondicionado producen contradicciones.",
-        "pages": "19–21",
-        "keyIdea": "Bajo un único punto de vista, las exigencias de lo condicionado y lo incondicionado producen contradicciones.",
+        "detail": "Bajo el supuesto de que nuestro conocimiento se rige por las cosas en sí, surge un conflicto inevitable de la razón consigo misma.",
+        "pages": "17",
+        "keyIdea": "El antiguo supuesto produce un conflicto interno de la razón.",
         "question": "¿Qué función cumple «Conflicto de la razón consigo misma» en esta fase?",
         "answer": "Bajo un único punto de vista, las exigencias de lo condicionado y lo incondicionado producen contradicciones."
       },
@@ -4232,9 +4296,9 @@ export const kantPrefacesPhases = [
         "title": "Distinción fenómeno / cosa en sí",
         "tag": "SOLUCIÓN",
         "category": "method",
-        "detail": "Distinguir ambos modos de consideración permite evitar que las condiciones del fenómeno se conviertan en condiciones de la cosa en todo sentido.",
-        "pages": "19–21",
-        "keyIdea": "Distinguir ambos modos de consideración permite evitar que las condiciones del fenómeno se conviertan en condiciones de la cosa en todo sentido.",
+        "detail": "Si los objetos, en cuanto fenómenos, se rigen por nuestra forma de representación, la distinción crítica permite pensar de otro modo la relación entre condicionado e incondicionado.",
+        "pages": "17",
+        "keyIdea": "La distinción entre fenómeno y cosa en sí cambia el marco en el que aparecía la contradicción.",
         "question": "¿Qué función cumple «Distinción fenómeno / cosa en sí» en esta fase?",
         "answer": "Distinguir ambos modos de consideración permite evitar que las condiciones del fenómeno se conviertan en condiciones de la cosa en todo sentido."
       },
@@ -4247,9 +4311,9 @@ export const kantPrefacesPhases = [
         "title": "La contradicción desaparece",
         "tag": "RESULTADO",
         "category": "conclusion",
-        "detail": "Lo que resultaba incompatible bajo un solo punto de vista puede dejar de serlo al distinguir correctamente fenómeno y cosa en sí.",
-        "pages": "19–21",
-        "keyIdea": "Lo que resultaba incompatible bajo un solo punto de vista puede dejar de serlo al distinguir correctamente fenómeno y cosa en sí.",
+        "detail": "Cuando los objetos, en cuanto fenómenos, se hacen concordar con nuestra forma de representación, desaparece la contradicción que surgía bajo el supuesto anterior.",
+        "pages": "17",
+        "keyIdea": "El doble punto de vista elimina el conflicto que aparecía bajo un solo punto de vista.",
         "question": "¿Qué función cumple «La contradicción desaparece» en esta fase?",
         "answer": "Lo que resultaba incompatible bajo un solo punto de vista puede dejar de serlo al distinguir correctamente fenómeno y cosa en sí."
       },
@@ -4262,9 +4326,9 @@ export const kantPrefacesPhases = [
         "title": "Experimento de la razón pura",
         "tag": "MÉTODO",
         "category": "evidence",
-        "detail": "Kant compara dos maneras de pensar el objeto y observa cuál logra evitar el conflicto interno de la razón.",
-        "pages": "19–21",
-        "keyIdea": "Kant compara dos maneras de pensar el objeto y observa cuál logra evitar el conflicto interno de la razón.",
+        "detail": "Kant presenta como experimento de la razón pura la comparación entre un solo punto de vista, que produce conflicto, y el doble punto de vista, que produce acuerdo.",
+        "pages": "17",
+        "keyIdea": "El experimento compara qué supuesto produce contradicción y cuál permite resolverla.",
         "question": "¿Qué función cumple «Experimento de la razón pura» en esta fase?",
         "answer": "Kant compara dos maneras de pensar el objeto y observa cuál logra evitar el conflicto interno de la razón."
       },
@@ -4278,7 +4342,7 @@ export const kantPrefacesPhases = [
         "tag": "EJEMPLO",
         "category": "evidence",
         "detail": "La voluntad sirve para mostrar cómo un mismo ser puede ser considerado desde la perspectiva fenoménica y desde otra perspectiva pensable.",
-        "pages": "20–21",
+        "pages": "19–20",
         "keyIdea": "La voluntad sirve para mostrar cómo un mismo ser puede ser considerado desde la perspectiva fenoménica y desde otra perspectiva pensable.",
         "question": "¿Qué función cumple «Voluntad humana» en esta fase?",
         "answer": "La voluntad sirve para mostrar cómo un mismo ser puede ser considerado desde la perspectiva fenoménica y desde otra perspectiva pensable."
@@ -4293,7 +4357,7 @@ export const kantPrefacesPhases = [
         "tag": "FENÓMENO",
         "category": "claim",
         "detail": "Como fenómeno, la acción humana pertenece al orden natural de causas y efectos.",
-        "pages": "20–21",
+        "pages": "19–20",
         "keyIdea": "Como fenómeno, la acción humana pertenece al orden natural de causas y efectos.",
         "question": "¿Qué función cumple «Necesidad natural» en esta fase?",
         "answer": "Como fenómeno, la acción humana pertenece al orden natural de causas y efectos."
@@ -4308,7 +4372,7 @@ export const kantPrefacesPhases = [
         "tag": "PENSABLE",
         "category": "claim",
         "detail": "Considerado de otro modo que como fenómeno, el mismo ser puede pensarse como libre sin contradicción con la necesidad natural.",
-        "pages": "20–21",
+        "pages": "19–20",
         "keyIdea": "La distinción crítica hace pensable la libertad, pero no la demuestra teóricamente.",
         "question": "¿Qué función cumple «Libertad» en esta fase?",
         "answer": "La distinción crítica hace pensable la libertad, pero no la demuestra teóricamente."
@@ -4323,7 +4387,7 @@ export const kantPrefacesPhases = [
         "tag": "LÍMITE",
         "category": "contrast",
         "detail": "La posibilidad de pensar libertad no constituye conocimiento teórico de que la libertad sea una propiedad conocida de la cosa en sí.",
-        "pages": "20–21",
+        "pages": "20",
         "keyIdea": "La posibilidad de pensar libertad no constituye conocimiento teórico de que la libertad sea una propiedad conocida de la cosa en sí.",
         "question": "¿Qué función cumple «Libertad no demostrada especulativamente» en esta fase?",
         "answer": "La posibilidad de pensar libertad no constituye conocimiento teórico de que la libertad sea una propiedad conocida de la cosa en sí."
@@ -4368,7 +4432,7 @@ export const kantPrefacesPhases = [
         "tag": "APERTURA",
         "category": "practical",
         "detail": "La limitación del conocimiento especulativo deja abierta la pregunta por una función distinta de estas ideas en el uso práctico de la razón.",
-        "pages": "20–21",
+        "pages": "17–20",
         "keyIdea": "La limitación del conocimiento especulativo deja abierta la pregunta por una función distinta de estas ideas en el uso práctico de la razón.",
         "question": "¿Qué función cumple «Posible uso práctico» en esta fase?",
         "answer": "La limitación del conocimiento especulativo deja abierta la pregunta por una función distinta de estas ideas en el uso práctico de la razón."
@@ -4383,7 +4447,7 @@ export const kantPrefacesPhases = [
         "tag": "PUENTE",
         "category": "conclusion",
         "detail": "La Crítica cierra la vía del saber especulativo ilimitado y abre la cuestión del significado práctico de lo suprasensible.",
-        "pages": "20–21",
+        "pages": "17–20",
         "keyIdea": "La Crítica cierra la vía del saber especulativo ilimitado y abre la cuestión del significado práctico de lo suprasensible.",
         "question": "¿Qué función cumple «Limitar el conocer abre otra cuestión» en esta fase?",
         "answer": "La Crítica cierra la vía del saber especulativo ilimitado y abre la cuestión del significado práctico de lo suprasensible."
@@ -5285,7 +5349,11 @@ export const kantPrefacesOverview = {
       "title": "Razón humana",
       "tag": "I",
       "category": "claim",
+      "emphasis": "origin",
+      "roleLabel": "Origen del problema",
+      "pathStep": "1",
       "detail": "La razón produce preguntas metafísicas por su propia naturaleza.",
+      "sourceBadge": "A | p. 6",
       "preface": "A",
       "pages": "6–7",
       "keyIdea": "La razón produce preguntas metafísicas por su propia naturaleza.",
@@ -5300,15 +5368,19 @@ export const kantPrefacesOverview = {
         "x": 360,
         "y": 0
       },
-      "title": "Lo incondicionado",
+      "title": "Preguntas que no se agotan",
       "tag": "I",
-      "category": "claim",
-      "detail": "La búsqueda de condiciones empuja a la razón hacia un fundamento último.",
+      "category": "problem",
+      "emphasis": "main",
+      "roleLabel": "Hilo principal",
+      "pathStep": "2",
+      "detail": "Al ascender a condiciones cada vez más remotas, la razón descubre que su tarea sigue inacabada y que las cuestiones no se agotan.",
+      "sourceBadge": "A | p. 6",
       "preface": "A",
-      "pages": "6–7",
-      "keyIdea": "La búsqueda de condiciones empuja a la razón hacia un fundamento último.",
-      "question": "¿Cómo se integra «Lo incondicionado» en el argumento global?",
-      "answer": "La búsqueda de condiciones empuja a la razón hacia un fundamento último.",
+      "pages": "6",
+      "keyIdea": "La tarea inacabada y la continuidad de las preguntas explican por qué la razón termina recurriendo a principios que exceden el uso empírico.",
+      "question": "¿Por qué la razón termina sobrepasando el uso empírico?",
+      "answer": "Porque el ascenso a condiciones cada vez más remotas no cierra la tarea; las cuestiones continúan y la razón recurre a principios que sobrepasan todo posible uso empírico.",
       "targetPhaseId": "phase-1",
       "targetNodeId": "a1-unconditioned"
     },
@@ -5321,7 +5393,11 @@ export const kantPrefacesOverview = {
       "title": "Conflicto de la razón",
       "tag": "I",
       "category": "problem",
+      "emphasis": "result",
+      "roleLabel": "Consecuencia",
+      "pathStep": "3",
       "detail": "Al sobrepasar la experiencia, la razón entra en contradicción consigo misma.",
+      "sourceBadge": "A | pp. 6-7",
       "preface": "A",
       "pages": "6–7",
       "keyIdea": "Al sobrepasar la experiencia, la razón entra en contradicción consigo misma.",
@@ -5339,7 +5415,11 @@ export const kantPrefacesOverview = {
       "title": "Metafísica: campo de batalla",
       "tag": "I",
       "category": "conclusion",
+      "emphasis": "result",
+      "roleLabel": "Resultado",
+      "pathStep": "4",
       "detail": "La metafísica histórica concentra las controversias producidas por estas pretensiones.",
+      "sourceBadge": "A | p. 7",
       "preface": "A",
       "pages": "6–7",
       "keyIdea": "La metafísica histórica concentra las controversias producidas por estas pretensiones.",
@@ -5876,14 +5956,16 @@ export const kantPrefacesOverview = {
       "id": "ov-e1",
       "source": "ov-reason",
       "target": "ov-unconditioned",
-      "label": "busca",
+      "label": "plantea preguntas que",
+      "emphasis": "primary",
       "kind": "requires"
     },
     {
       "id": "ov-e2",
       "source": "ov-unconditioned",
       "target": "ov-conflict",
-      "label": "lleva más allá de la experiencia y produce",
+      "label": "empujan a sobrepasar el uso empírico y producen",
+      "emphasis": "primary",
       "kind": "causes"
     },
     {
@@ -5891,6 +5973,7 @@ export const kantPrefacesOverview = {
       "source": "ov-conflict",
       "target": "ov-battlefield",
       "label": "se expresa históricamente como",
+      "emphasis": "primary",
       "kind": "conclusion"
     },
     {

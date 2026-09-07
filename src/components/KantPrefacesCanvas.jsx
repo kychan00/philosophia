@@ -71,6 +71,9 @@ function makeNode(rawNode, activeNodeId, guideMode, nextGuideNodeId, peekNodeId)
     className: [
       'kpm-node',
       `kpm-node--${rawNode.category}`,
+      rawNode.emphasis ? `kpm-node--emphasis-${rawNode.emphasis}` : '',
+      rawNode.sourceBadge ? 'has-source-badge' : '',
+      rawNode.pathStep ? 'has-path-step' : '',
       isActive ? 'is-active' : '',
       guideMode && isActive ? 'is-guide-target' : '',
       isNext ? 'is-guide-next' : '',
@@ -81,11 +84,22 @@ function makeNode(rawNode, activeNodeId, guideMode, nextGuideNodeId, peekNodeId)
       rawNode,
       label: (
         <div className="kpm-node-card">
-          {rawNode.phaseRoman && (
-            <span className="kpm-node-phase">FASE {rawNode.phaseRoman}</span>
+          <div className="kpm-node-eyebrow">
+            {rawNode.phaseRoman && (
+              <span className="kpm-node-phase">FASE {rawNode.phaseRoman}</span>
+            )}
+            <span className="kpm-node-tag">{rawNode.tag}</span>
+            {rawNode.pathStep && (
+              <span className="kpm-node-step">Paso {rawNode.pathStep}</span>
+            )}
+          </div>
+          {rawNode.roleLabel && (
+            <span className="kpm-node-role">{rawNode.roleLabel}</span>
           )}
-          <span className="kpm-node-tag">{rawNode.tag}</span>
           <strong>{rawNode.title}</strong>
+          {rawNode.sourceBadge && (
+            <span className="kpm-node-source">{rawNode.sourceBadge}</span>
+          )}
           {guideMode && isActive && (
             <span className="kpm-guide-marker">ahora</span>
           )}
@@ -102,24 +116,38 @@ function makeEdge(rawEdge, activeNodeId, guideMode) {
   const touchesActive =
     rawEdge.source === activeNodeId || rawEdge.target === activeNodeId
   const baseStyle = edgeBaseStyle(rawEdge.kind)
+  const isPrimary = rawEdge.emphasis === 'primary'
   const guideColor = 'rgba(183, 139, 40, 0.98)'
+  const restingStyle = isPrimary
+    ? {
+        ...baseStyle,
+        strokeWidth: (baseStyle.strokeWidth || 2) + 1.05,
+        opacity: 1,
+      }
+    : baseStyle
 
   return {
     id: rawEdge.id,
     source: rawEdge.source,
     target: rawEdge.target,
     label: rawEdge.label || '',
-    className: guideMode
-      ? touchesActive
-        ? 'is-guide-edge'
-        : 'is-guide-muted-edge'
-      : '',
+    className: [
+      guideMode
+        ? touchesActive
+          ? 'is-guide-edge'
+          : 'is-guide-muted-edge'
+        : '',
+      isPrimary ? 'kpm-edge--primary' : '',
+      rawEdge.emphasis === 'support' ? 'kpm-edge--support' : '',
+    ].join(' '),
     labelStyle: {
       fill: touchesActive && guideMode
         ? 'rgba(91, 66, 17, 0.98)'
-        : 'rgba(47, 43, 37, 0.82)',
-      fontSize: 10,
-      fontWeight: touchesActive && guideMode ? 800 : 600,
+        : isPrimary
+          ? 'rgba(59, 46, 16, 0.96)'
+          : 'rgba(47, 43, 37, 0.82)',
+      fontSize: isPrimary ? 11 : 10,
+      fontWeight: touchesActive && guideMode ? 800 : isPrimary ? 760 : 600,
     },
     labelBgStyle: {
       fill: 'rgba(247, 243, 233, 0.95)',
@@ -129,18 +157,20 @@ function makeEdge(rawEdge, activeNodeId, guideMode) {
     },
     style: touchesActive && guideMode
       ? {
-          ...baseStyle,
+          ...restingStyle,
           stroke: guideColor,
           strokeWidth: 3.5,
         }
-      : baseStyle,
+      : restingStyle,
     markerEnd: {
       type: MarkerType.ArrowClosed,
-      width: touchesActive && guideMode ? 22 : 18,
-      height: touchesActive && guideMode ? 22 : 18,
+      width: touchesActive && guideMode ? 22 : isPrimary ? 20 : 18,
+      height: touchesActive && guideMode ? 22 : isPrimary ? 20 : 18,
       color: touchesActive && guideMode
         ? guideColor
-        : edgeColor(rawEdge.kind),
+        : isPrimary
+          ? 'rgba(173, 128, 33, 0.98)'
+          : edgeColor(rawEdge.kind),
     },
   }
 }
