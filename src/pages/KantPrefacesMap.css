@@ -1590,10 +1590,32 @@
   .kpm-preface-group {
     padding: 8px;
     overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
   }
 
   .kpm-preface-group > div {
-    min-width: 520px;
+    min-width: 790px;
+    grid-template-columns: repeat(5, minmax(148px, 1fr));
+    gap: 8px;
+  }
+
+  .kpm-preface-group button {
+    min-height: 64px;
+    padding: 10px 11px;
+    scroll-snap-align: start;
+  }
+
+  .kpm-preface-group button b {
+    font-size: 1.06rem;
+  }
+
+  .kpm-preface-group button span {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+    font-size: 0.78rem;
+    line-height: 1.15;
   }
 
   .kpm-main {
