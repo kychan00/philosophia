@@ -709,21 +709,38 @@ export default function KantPrefacesMap() {
             </div>
           )}
 
-          <div className="kpm-mobile-pane-toggle">
+          <div
+            className="kpm-mobile-pane-toggle"
+            aria-label="Cambiar entre mapa e inspector"
+          >
             <button
               type="button"
               className={mobilePane === 'map' ? 'is-active' : ''}
               onClick={() => setMobilePane('map')}
             >
-              Mapa
+              <span className="kpm-mobile-pane-icon" aria-hidden="true">◇</span>
+              <span>
+                <b>Mapa</b>
+                <small>Explorar nodos</small>
+              </span>
             </button>
             <button
               type="button"
               className={mobilePane === 'inspector' ? 'is-active' : ''}
               onClick={() => setMobilePane('inspector')}
             >
-              Inspector
+              <span className="kpm-mobile-pane-icon" aria-hidden="true">≡</span>
+              <span>
+                <b>Inspector</b>
+                <small>Ver toda la información</small>
+              </span>
             </button>
+
+            <p className={`kpm-mobile-pane-help is-${mobilePane}`}>
+              {mobilePane === 'map'
+                ? 'Toque un nodo: se abrirá Inspector con la explicación, relaciones y estudio.'
+                : 'Inspector abierto. Use Mapa para volver a explorar los nodos.'}
+            </p>
           </div>
 
           <div className={`kpm-workbench is-mobile-${mobilePane}`}>
@@ -746,6 +763,7 @@ export default function KantPrefacesMap() {
                     mode: studyMode,
                   }),
                 )
+                setMobilePane('inspector')
               }}
               onPeekNode={setPeekNodeId}
               onEdgeSelect={setSelectedEdgeId}

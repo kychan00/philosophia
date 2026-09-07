@@ -1630,18 +1630,119 @@
   .kpm-mobile-pane-toggle {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 10px;
     border-top: 1px solid var(--kpm-line);
     border-bottom: 1px solid var(--kpm-line);
+    background: #eee8dc;
   }
 
   .kpm-mobile-pane-toggle button {
-    border: 0;
-    border-radius: 0;
+    min-width: 0;
+    min-height: 62px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border: 1px solid rgba(63, 58, 49, 0.17);
+    border-radius: 6px;
+    color: #4e4a43;
+    background: rgba(255, 252, 245, 0.88);
+    cursor: pointer;
+    text-align: left;
+    box-shadow: 0 3px 10px rgba(45, 38, 29, 0.06);
+    transition:
+      transform 140ms ease,
+      border-color 140ms ease,
+      background 140ms ease,
+      box-shadow 140ms ease;
   }
 
-  .kpm-mobile-pane-toggle button.is-active {
-    color: #fffaf0;
-    background: #302b24;
+  .kpm-mobile-pane-toggle button > span:last-child {
+    min-width: 0;
+    display: grid;
+    gap: 2px;
+  }
+
+  .kpm-mobile-pane-toggle button b {
+    font-size: 0.82rem;
+    line-height: 1.1;
+  }
+
+  .kpm-mobile-pane-toggle button small {
+    color: #746d62;
+    font-size: 0.65rem;
+    line-height: 1.15;
+    font-weight: 650;
+  }
+
+  .kpm-mobile-pane-icon {
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 1rem;
+    font-weight: 900;
+    background: rgba(99, 90, 76, 0.08);
+  }
+
+  .kpm-mobile-pane-toggle button:first-child.is-active {
+    color: #f7fbfd;
+    border-color: #365f74;
+    background: linear-gradient(180deg, #51778a, #365d70);
+    box-shadow:
+      0 0 0 3px rgba(65, 105, 124, 0.13),
+      0 6px 15px rgba(42, 74, 90, 0.18);
+  }
+
+  .kpm-mobile-pane-toggle button:first-child.is-active small,
+  .kpm-mobile-pane-toggle button:last-child.is-active small {
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .kpm-mobile-pane-toggle button:first-child.is-active .kpm-mobile-pane-icon,
+  .kpm-mobile-pane-toggle button:last-child.is-active .kpm-mobile-pane-icon {
+    background: rgba(255, 255, 255, 0.14);
+  }
+
+  .kpm-mobile-pane-toggle button:last-child {
+    color: #28513a;
+    border-color: rgba(63, 122, 82, 0.42);
+    background: linear-gradient(180deg, #f0f8f1, #e1efe3);
+    box-shadow:
+      0 0 0 2px rgba(75, 136, 91, 0.07),
+      0 4px 12px rgba(51, 101, 65, 0.10);
+  }
+
+  .kpm-mobile-pane-toggle button:last-child.is-active {
+    color: #f7fff8;
+    border-color: #315d3c;
+    background: linear-gradient(180deg, #4f805b, #365f41);
+    box-shadow:
+      0 0 0 3px rgba(75, 132, 88, 0.14),
+      0 6px 16px rgba(39, 82, 50, 0.20);
+  }
+
+  .kpm-mobile-pane-toggle button:active {
+    transform: translateY(1px);
+  }
+
+  .kpm-mobile-pane-help {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 7px 10px 1px;
+    color: #625b50;
+    font-size: 0.69rem;
+    line-height: 1.35;
+    text-align: center;
+  }
+
+  .kpm-mobile-pane-help.is-map {
+    color: #315c40;
+    font-weight: 720;
   }
 
   .kpm-guide-strip {
