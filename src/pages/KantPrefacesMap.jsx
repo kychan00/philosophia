@@ -190,6 +190,16 @@ export default function KantPrefacesMap() {
       ? kantPrefacesPhases[phaseIndex + 1]
       : null
 
+  const isLastGuideStep =
+    studyMode === 'guide' &&
+    guideSteps.length > 0 &&
+    guideIndex === guideSteps.length - 1
+
+  const guideContinuationPhase =
+    viewId === 'overview'
+      ? kantPrefacesPhases[0] || null
+      : nextPhase
+
   const searchResults = useMemo(() => {
     const needle = normalizeText(search.trim())
     if (!needle) return []
@@ -336,6 +346,52 @@ export default function KantPrefacesMap() {
     )
   }
 
+  const continueGuideInPhase = (phase) => {
+    if (!phase) return
+
+    const nextNodeId =
+      phase.guideNodeIds?.[0] || phase.nodes[0]?.id || ''
+
+    if (!nextNodeId) return
+
+    setStudyMode('guide')
+    setGuideIndex(0)
+    setPeekNodeId('')
+    setSelectedEdgeId('')
+    setViewId(phase.id)
+    setActiveNodeId(nextNodeId)
+    setHistory(
+      recordKantPrefacesHistory({
+        nodeId: nextNodeId,
+        viewId: phase.id,
+        mode: 'guide',
+      }),
+    )
+    setMobilePane('map')
+  }
+
+  const advanceGuide = () => {
+    if (studyMode !== 'guide') return
+
+    if (guideIndex < guideSteps.length - 1) {
+      goToGuideStep(guideIndex + 1)
+      return
+    }
+
+    if (guideContinuationPhase) {
+      continueGuideInPhase(guideContinuationPhase)
+      return
+    }
+
+    exitGuide()
+  }
+
+  const guideNextLabel = isLastGuideStep
+    ? guideContinuationPhase
+      ? 'Siguiente fase →'
+      : 'Finalizar guía'
+    : 'Siguiente →'
+
   const handleMastery = (nodeId, status) => {
     const next = setKantPrefacesMastery(nodeId, status)
     setMastery(next)
@@ -433,16 +489,23 @@ export default function KantPrefacesMap() {
           <div>
             {prefaceA.map((phase) => {
               const status = statusForPhase(phase, mastery)
+              const isGuideContinuation =
+                isLastGuideStep && guideContinuationPhase?.id === phase.id
+
               return (
                 <button
                   type="button"
                   key={phase.id}
-                  disabled={studyMode === 'guide'}
+                  disabled={studyMode === 'guide' && !isGuideContinuation}
                   className={[
                     viewId === phase.id ? 'is-active' : '',
                     status.className,
                   ].join(' ')}
-                  onClick={() => changeView(phase.id, phase.nodes[0].id)}
+                  onClick={() =>
+                    isGuideContinuation
+                      ? continueGuideInPhase(phase)
+                      : changeView(phase.id, phase.nodes[0].id)
+                  }
                   title={phase.title}
                 >
                   <b>{phase.roman}</b>
@@ -459,16 +522,23 @@ export default function KantPrefacesMap() {
           <div>
             {prefaceB.map((phase) => {
               const status = statusForPhase(phase, mastery)
+              const isGuideContinuation =
+                isLastGuideStep && guideContinuationPhase?.id === phase.id
+
               return (
                 <button
                   type="button"
                   key={phase.id}
-                  disabled={studyMode === 'guide'}
+                  disabled={studyMode === 'guide' && !isGuideContinuation}
                   className={[
                     viewId === phase.id ? 'is-active' : '',
                     status.className,
                   ].join(' ')}
-                  onClick={() => changeView(phase.id, phase.nodes[0].id)}
+                  onClick={() =>
+                    isGuideContinuation
+                      ? continueGuideInPhase(phase)
+                      : changeView(phase.id, phase.nodes[0].id)
+                  }
                   title={phase.title}
                 >
                   <b>{phase.roman}</b>
@@ -624,8 +694,9 @@ export default function KantPrefacesMap() {
                 </button>
                 <button
                   type="button"
-                  disabled={guideIndex === guideSteps.length - 1}
-                  onClick={() => goToGuideStep(guideIndex + 1)}
+                  onClick={advanceGuide}
+                  aria-label={guideNextLabel}
+                  title={guideNextLabel}
                 >
                   →
                 </button>
@@ -697,7 +768,8 @@ export default function KantPrefacesMap() {
               guideStepNumber={guideIndex + 1}
               guideTotal={guideSteps.length}
               onPreviousGuideStep={() => goToGuideStep(guideIndex - 1)}
-              onNextGuideStep={() => goToGuideStep(guideIndex + 1)}
+              onNextGuideStep={advanceGuide}
+              guideNextLabel={guideNextLabel}
               peekNode={peekNode}
               onClearPeek={() => setPeekNodeId('')}
             />
@@ -741,11 +813,20 @@ export default function KantPrefacesMap() {
 
               <button
                 type="button"
-                disabled={studyMode === 'guide' || !nextPhase}
-                onClick={() =>
-                  nextPhase &&
-                  changeView(nextPhase.id, nextPhase.nodes[0].id)
+                disabled={
+                  !nextPhase ||
+                  (studyMode === 'guide' && !isLastGuideStep)
                 }
+                onClick={() => {
+                  if (!nextPhase) return
+
+                  if (studyMode === 'guide') {
+                    continueGuideInPhase(nextPhase)
+                    return
+                  }
+
+                  changeView(nextPhase.id, nextPhase.nodes[0].id)
+                }}
               >
                 Siguiente fase →
               </button>

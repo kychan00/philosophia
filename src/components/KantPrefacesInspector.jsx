@@ -55,6 +55,7 @@ export default function KantPrefacesInspector({
   guideTotal,
   onPreviousGuideStep,
   onNextGuideStep,
+  guideNextLabel,
   peekNode,
   onClearPeek,
 }) {
@@ -319,10 +320,9 @@ export default function KantPrefacesInspector({
             <span>{guideStepNumber} / {guideTotal}</span>
             <button
               type="button"
-              disabled={guideStepNumber >= guideTotal}
               onClick={onNextGuideStep}
             >
-              Siguiente →
+              {guideNextLabel || 'Siguiente →'}
             </button>
           </div>
         )}
