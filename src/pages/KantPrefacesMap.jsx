@@ -11,6 +11,7 @@ import {
   kantPrefacesPhases,
   getKantPrefacesPhaseForNode,
 } from '../data/kantPrefacesMaps'
+import { buildKantDetailedGuideSteps } from '../data/kantPrefacesGuideCuration'
 import {
   clearKantPrefacesPositions,
   loadKantPrefacesHistory,
@@ -153,21 +154,18 @@ export default function KantPrefacesMap() {
 
   const guideSteps = useMemo(() => {
     if (viewId === 'overview') return kantPrefacesOverview.guideSteps
-
-    return currentGraph.guideNodeIds
-      .map((nodeId) => currentGraph.nodes.find((node) => node.id === nodeId))
-      .filter(Boolean)
-      .map((node) => ({
-        nodeId: node.id,
-        title: node.title,
-        explanation: node.detail,
-        keyIdea: node.keyIdea,
-        question: node.question,
-        answer: node.answer,
-      }))
+    return buildKantDetailedGuideSteps(currentGraph)
   }, [currentGraph, viewId])
 
   const guideStep = guideSteps[guideIndex] || guideSteps[0] || null
+
+  const activeStudyStep = useMemo(
+    () =>
+      viewId === 'overview'
+        ? null
+        : guideSteps.find((step) => step.nodeId === activeNodeId) || null,
+    [activeNodeId, guideSteps, viewId],
+  )
   const nextGuideNodeId =
     studyMode === 'guide'
       ? guideSteps[guideIndex + 1]?.nodeId || ''
@@ -788,6 +786,7 @@ export default function KantPrefacesMap() {
               onNote={handleNote}
               guideMode={studyMode === 'guide'}
               guideStep={guideStep}
+              studyStep={activeStudyStep}
               guideStepNumber={guideIndex + 1}
               guideTotal={guideSteps.length}
               onPreviousGuideStep={() => goToGuideStep(guideIndex - 1)}

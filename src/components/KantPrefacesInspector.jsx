@@ -51,6 +51,7 @@ export default function KantPrefacesInspector({
   onNote,
   guideMode,
   guideStep,
+  studyStep,
   guideStepNumber,
   guideTotal,
   onPreviousGuideStep,
@@ -118,6 +119,7 @@ export default function KantPrefacesInspector({
 
   const currentMastery = mastery[node.id] || 'new'
   const currentNote = notes[node.id] || ''
+  const contextualStep = guideMode ? guideStep : studyStep
   const progress = totalConcepts
     ? Math.round((masteredConcepts / totalConcepts) * 100)
     : 0
@@ -179,28 +181,37 @@ export default function KantPrefacesInspector({
       <div className="kpm-inspector-content">
         {tab === 'book' && (
           <section className="kpm-inspector-section">
-            <div className="kpm-source-badge">
-              <b>{sourceLabel(node)}</b>
-              <span>Taurus · traducción de Pedro Ribas</span>
-            </div>
+            {contextualStep?.isCurated && contextualStep?.readingCue ? (
+              <div className="kpm-source-badge">
+                <b>CLAVE DE LECTURA</b>
+                <span>{contextualStep.readingCue}</span>
+              </div>
+            ) : (
+              <div className="kpm-source-badge">
+                <b>{sourceLabel(node)}</b>
+                <span>Taurus · traducción de Pedro Ribas</span>
+              </div>
+            )}
 
             <p className="kpm-main-explanation">{node.detail}</p>
 
-            <div className="kpm-inspector-box">
-              <span>Idea que debe quedar clara</span>
-              <p>{guideStep?.keyIdea || node.keyIdea}</p>
-            </div>
-
-            {guideStep && (
+            {contextualStep?.showKeyIdea !== false && (
               <div className="kpm-inspector-box">
-                <span>Recorrido</span>
-                <p>{guideStep.explanation}</p>
+                <span>Por qué importa</span>
+                <p>{contextualStep?.keyIdea || node.keyIdea}</p>
+              </div>
+            )}
+
+            {contextualStep?.isCurated && contextualStep?.explanation && (
+              <div className="kpm-inspector-box">
+                <span>Papel en el argumento</span>
+                <p>{contextualStep.explanation}</p>
               </div>
             )}
 
             <div className="kpm-check-card">
               <span>Compruebe si lo entendió</span>
-              <p>{guideStep?.question || node.question}</p>
+              <p>{contextualStep?.question || node.question}</p>
               <button
                 type="button"
                 onClick={() => setShowAnswer((current) => !current)}
@@ -210,7 +221,7 @@ export default function KantPrefacesInspector({
               {showAnswer && (
                 <div>
                   <b>Respuesta</b>
-                  <p>{guideStep?.answer || node.answer}</p>
+                  <p>{contextualStep?.answer || node.answer}</p>
                 </div>
               )}
             </div>
