@@ -895,3 +895,109 @@ button {
     font-size: .96rem;
   }
 }
+
+/* ============================================================
+   SESSION CARD - DEPTH + ACTION CTA
+   ============================================================ */
+
+.cafe-public-session-card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(244, 237, 224, .88);
+  box-shadow:
+    0 18px 46px rgba(31, 27, 20, .14),
+    0 4px 12px rgba(31, 27, 20, .08);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.cafe-public-open {
+  position: relative;
+  isolation: isolate;
+  gap: 14px;
+  margin-top: 32px;
+  padding: 13px 18px 12px;
+  border: 1px solid #315f46;
+  border-radius: 3px;
+  color: #f7f3e9;
+  background: #315f46;
+  box-shadow: 0 8px 20px rgba(49, 95, 70, .22);
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.cafe-public-open::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -5px;
+  border: 1px solid rgba(49, 95, 70, .26);
+  border-radius: 6px;
+  opacity: 0;
+  transform: scale(.96);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.cafe-public-open span {
+  color: #f7f3e9;
+}
+
+@media (hover: hover) {
+  .cafe-public-session-card:hover {
+    transform: translateY(-3px);
+    box-shadow:
+      0 24px 58px rgba(31, 27, 20, .18),
+      0 6px 16px rgba(31, 27, 20, .1);
+  }
+
+  .cafe-public-open:hover {
+    transform: translateY(-2px);
+    border-color: #264d38;
+    background: #264d38;
+    box-shadow: 0 11px 26px rgba(49, 95, 70, .3);
+  }
+
+  .cafe-public-open:hover::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.cafe-public-open:focus-visible {
+  outline: 3px solid rgba(49, 95, 70, .34);
+  outline-offset: 4px;
+}
+
+.cafe-public-open:active {
+  transform: translateY(0);
+  background: #234633;
+  box-shadow: 0 4px 12px rgba(49, 95, 70, .24);
+}
+
+@media (max-width: 760px) {
+  .cafe-public-session-card {
+    box-shadow:
+      0 14px 34px rgba(31, 27, 20, .14),
+      0 3px 9px rgba(31, 27, 20, .07);
+  }
+
+  .cafe-public-open {
+    min-height: 46px;
+    padding: 13px 17px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cafe-public-session-card,
+  .cafe-public-open,
+  .cafe-public-open::before,
+  .cafe-public-open span {
+    transition: none;
+  }
+}
