@@ -63,11 +63,14 @@ const FrankfurtStudy = lazy(() => import('./pages/FrankfurtStudy'))
 const FrankfurtConcepts = lazy(() => import('./pages/FrankfurtConcepts'))
 const MondolfoEthicsTask = lazy(() => import('./pages/MondolfoEthicsTask'))
 function App() {
+  const isPublicCafeRoute =
+    typeof window !== 'undefined' &&
+    window.location.hash.startsWith('#/cafe-filosofico')
+
   return (
     <HashRouter>
       <ScrollToTop />
-      <AcademicNotifications />
-
+      {!isPublicCafeRoute && (<AcademicNotifications  />)}
       <Suspense
         fallback={
           <div className="route-loading" role="status" aria-live="polite">

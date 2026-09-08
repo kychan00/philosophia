@@ -119,7 +119,7 @@ export default function CafeCapitalismoEvent() {
   return (
     <main className="cafe-paper">
       <header className="cafe-paper-topline">
-        <Link to="/tareas">← Calendario</Link>
+        <Link to="/cafe-filosofico">← Calendario</Link>
         <span>CAFÉ FILOSÓFICO · EDICIÓN 01</span>
         <span>07 · IX · 2026</span>
       </header>
