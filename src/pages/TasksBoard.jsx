@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 import tasks from '../data/tasks'
 import CLASS_SCHEDULE from '../data/academicSchedule'
+import { cafeEvents } from '../data/cafeFilosoficoEvents'
 import TaskComposer from '../components/TaskComposer'
 import { loadCustomTasks, saveCustomTasks } from '../data/localTasks'
 
@@ -532,6 +533,7 @@ export default function TasksBoard() {
               const key = dateKey(date)
               const dayTasks = calendarTasks[key] || []
               const dayClasses = classesForDate(date)
+              const dayCafeEvents = cafeEvents.filter((event) => event.date === key)
               const today = dateKey(new Date()) === key
 
               return (
@@ -554,6 +556,26 @@ export default function TasksBoard() {
                       >
                         <strong>{course.subject}</strong>
                         <span>{course.time}</span>
+                      </Link>
+                    ))}
+
+                    {dayCafeEvents.map((event) => (
+                      <Link
+                        key={event.id}
+                        to={event.route}
+                        className="calendar-cafe-event"
+                        title={`Café filosófico · ${event.title}`}
+                      >
+                        <span className="calendar-cafe-event-mark" aria-hidden="true">
+                          ◉
+                        </span>
+                        <span className="calendar-cafe-event-copy">
+                          <small>Café filosófico</small>
+                          <strong>{event.title}</strong>
+                        </span>
+                        <span className="calendar-cafe-event-arrow" aria-hidden="true">
+                          ↗
+                        </span>
                       </Link>
                     ))}
 

@@ -11,6 +11,8 @@ import ScrollToTop from './components/ScrollToTop'
 import AcademicNotifications from './components/AcademicNotifications'
 
 const Home = lazy(() => import('./pages/Home'))
+const CafeFilosofico = lazy(() => import('./pages/CafeFilosofico'))
+const CafeCapitalismoEvent = lazy(() => import('./pages/CafeCapitalismoEvent'))
 const FifthSemester = lazy(() => import('./pages/FifthSemester'))
 const OntologiaII = lazy(() => import('./pages/OntologiaII'))
 const OntologiaClass17Aug = lazy(() => import('./pages/OntologiaClass17Aug'))
@@ -76,6 +78,11 @@ function App() {
       >
         <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/cafe-filosofico" element={<CafeFilosofico />} />
+        <Route
+          path="/cafe-filosofico/2026/09/07/fin-del-mundo-fin-del-capitalismo"
+          element={<CafeCapitalismoEvent />}
+        />
         <Route path="/semestre/5" element={<FifthSemester />} />
         <Route
           path="/semestre/5/ontologia-ii"

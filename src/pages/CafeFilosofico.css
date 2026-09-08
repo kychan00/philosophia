@@ -1,0 +1,332 @@
+.cafe-hub {
+  --paper: #f2ead9;
+  --paper-2: #e8deca;
+  --ink: #171713;
+  --muted: #70695f;
+  --rule: #b7aa94;
+  --accent: #a64932;
+  min-height: 100vh;
+  padding: clamp(22px, 4vw, 56px);
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255,255,255,.42), transparent 24%),
+    repeating-linear-gradient(0deg, rgba(30,25,18,.018) 0 1px, transparent 1px 4px),
+    var(--paper);
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.cafe-hub a {
+  color: inherit;
+}
+
+.cafe-hub-masthead {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cafe-hub-back {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: Arial, sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.cafe-hub-kicker {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 12px;
+  font-family: Arial, sans-serif;
+  font-size: .62rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+}
+
+.cafe-hub-kicker span + span::before {
+  content: '·';
+  margin-right: 18px;
+  color: var(--accent);
+}
+
+.cafe-hub-masthead h1 {
+  margin: 0;
+  font-size: clamp(3rem, 8vw, 7.6rem);
+  font-weight: 600;
+  line-height: .9;
+  letter-spacing: -.055em;
+}
+
+.cafe-hub-masthead p {
+  margin: 18px auto 0;
+  max-width: 640px;
+  color: var(--muted);
+  font-size: clamp(.95rem, 1.6vw, 1.2rem);
+  font-style: italic;
+}
+
+.cafe-hub-rule {
+  max-width: 1440px;
+  height: 7px;
+  margin: 30px auto 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+}
+
+.cafe-hub-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(320px, .8fr);
+  gap: 0;
+  max-width: 1440px;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--ink);
+}
+
+.cafe-hub-feature {
+  padding: clamp(28px, 5vw, 68px) clamp(24px, 5vw, 72px) 54px 0;
+  border-right: 1px solid var(--ink);
+}
+
+.cafe-hub-issue {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--rule);
+  font-family: Arial, sans-serif;
+  font-size: .62rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+
+.cafe-hub-label {
+  margin: 34px 0 14px;
+  color: var(--accent);
+  font-family: Arial, sans-serif;
+  font-size: .67rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+}
+
+.cafe-hub-feature h2 {
+  max-width: 920px;
+  margin: 0;
+  font-size: clamp(2.65rem, 6vw, 6rem);
+  font-weight: 500;
+  line-height: .93;
+  letter-spacing: -.045em;
+}
+
+.cafe-hub-feature > p:not(.cafe-hub-label) {
+  max-width: 760px;
+  margin: 24px 0 0;
+  color: #3c382f;
+  font-size: clamp(1rem, 1.8vw, 1.28rem);
+  line-height: 1.48;
+}
+
+.cafe-hub-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 30px;
+  padding: 13px 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  font-family: Arial, sans-serif;
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.cafe-hub-open span {
+  color: var(--accent);
+  font-size: 1rem;
+}
+
+.cafe-hub-themes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 40px;
+}
+
+.cafe-hub-themes span {
+  padding: 7px 9px;
+  border: 1px solid var(--rule);
+  font-family: Arial, sans-serif;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.cafe-calendar {
+  padding: clamp(28px, 4vw, 58px) 0 54px clamp(24px, 4vw, 56px);
+}
+
+.cafe-calendar-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding-bottom: 15px;
+  border-bottom: 3px double var(--ink);
+}
+
+.cafe-calendar-head span {
+  color: var(--accent);
+  font-family: Arial, sans-serif;
+  font-size: .63rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+
+.cafe-calendar-head h2 {
+  margin: 4px 0 0;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.cafe-calendar-head strong {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.cafe-calendar-week,
+.cafe-calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.cafe-calendar-week {
+  margin-top: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+  font-family: Arial, sans-serif;
+  font-size: .56rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.cafe-calendar-cell {
+  position: relative;
+  min-height: 62px;
+  padding: 9px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: .9rem;
+}
+
+.cafe-calendar-cell:nth-child(7n) {
+  border-right: 0;
+}
+
+.cafe-calendar-cell.is-muted {
+  color: #aaa08f;
+}
+
+.cafe-calendar-cell.has-event {
+  color: #fff8ed;
+  background: var(--accent);
+}
+
+.cafe-calendar-cell.has-event i {
+  position: absolute;
+  right: 7px;
+  bottom: 7px;
+  font-family: Arial, sans-serif;
+  font-size: .48rem;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+.cafe-calendar-note {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--ink);
+  font-family: Arial, sans-serif;
+  font-size: .72rem;
+  line-height: 1.35;
+}
+
+.cafe-calendar-note p {
+  margin: 0;
+}
+
+.cafe-calendar-dot {
+  width: 9px;
+  height: 9px;
+  margin-top: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.cafe-hub-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-top: 18px;
+  font-family: Arial, sans-serif;
+  font-size: .58rem;
+  font-weight: 800;
+  letter-spacing: .15em;
+}
+
+@media (max-width: 860px) {
+  .cafe-hub-back {
+    position: static;
+    display: inline-block;
+    margin-bottom: 28px;
+  }
+
+  .cafe-hub-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cafe-hub-feature {
+    padding-right: 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .cafe-calendar {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .cafe-hub {
+    padding: 18px;
+  }
+
+  .cafe-hub-kicker {
+    gap: 8px;
+  }
+
+  .cafe-hub-kicker span + span::before {
+    margin-right: 8px;
+  }
+
+  .cafe-calendar-cell {
+    min-height: 48px;
+    padding: 6px;
+  }
+
+  .cafe-hub-footer {
+    flex-direction: column;
+  }
+}
