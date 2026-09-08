@@ -113,6 +113,8 @@ export default function CafeCapitalismoEvent() {
   const image01 = `${import.meta.env.BASE_URL}images/cafe-filosofico/01.png`
   const image02 = `${import.meta.env.BASE_URL}images/cafe-filosofico/02.png`
   const image03 = `${import.meta.env.BASE_URL}images/cafe-filosofico/03.png`
+  const image04 = `${import.meta.env.BASE_URL}images/cafe-filosofico/04.png`
+  const image05 = `${import.meta.env.BASE_URL}images/cafe-filosofico/05.png`
 
   return (
     <main className="cafe-paper">
@@ -383,6 +385,27 @@ export default function CafeCapitalismoEvent() {
           <h3>Deseos, comparación y condiciones materiales</h3>
         </header>
 
+        <figure className="cafe-paper-global-image">
+          <div className="cafe-paper-global-image-shell">
+            <div className="cafe-paper-global-image-kicker" aria-hidden="true">
+              <span>04</span>
+              <i />
+            </div>
+
+            <div className="cafe-paper-global-image-mat">
+              <img
+                src={image04}
+                alt="Ilustración editorial sobre globalización, consumo, redes sociales, comercio y desigualdad material."
+              />
+            </div>
+
+            <figcaption>
+              <span className="cafe-paper-global-image-number">04</span>
+              <p>Globalización · deseo · comparación · condiciones materiales</p>
+            </figcaption>
+          </div>
+        </figure>
+
         <div className="cafe-paper-global-grid">
           <article>
             <small>PARTICIPANTE 9</small>
@@ -492,6 +515,29 @@ export default function CafeCapitalismoEvent() {
           <span>VALORES</span>
           <h3>No sólo se cuestionaron estructuras: también beneficio, bienestar y comodidad</h3>
         </header>
+
+        <figure className="cafe-paper-natural-image">
+          <div className="cafe-paper-natural-image-shell">
+            <div className="cafe-paper-natural-image-index" aria-hidden="true">
+              <span>01</span>
+              <span>02</span>
+              <span>03</span>
+              <span>04</span>
+            </div>
+
+            <div className="cafe-paper-natural-image-mat">
+              <img
+                src={image05}
+                alt="Ilustración editorial sobre jerarquía laboral, riesgo, tiempo de trabajo y automatización."
+              />
+            </div>
+
+            <figcaption>
+              <span className="cafe-paper-natural-image-number">05</span>
+              <p>Patrón y empleado · riesgo · tiempo · automatización</p>
+            </figcaption>
+          </div>
+        </figure>
 
         <div className="cafe-paper-values-grid">
           <article>
