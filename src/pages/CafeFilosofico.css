@@ -678,3 +678,220 @@ button {
     height: 220px;
   }
 }
+
+/* ============================================================
+   CAFE PUBLIC - MOBILE RESCUE
+   ============================================================ */
+
+@media (max-width: 760px) {
+  .cafe-public {
+    padding: 18px 18px 28px;
+    overflow-x: hidden;
+  }
+
+  .cafe-public-hero {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    border-bottom: 1px solid var(--cafe-line);
+  }
+
+  .cafe-public-hero-copy {
+    display: block;
+    min-height: 0;
+    padding: 34px 0 28px;
+  }
+
+  .cafe-public-kicker {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 7px 10px;
+    margin: 0 0 28px;
+    font-size: .52rem;
+    letter-spacing: .13em;
+  }
+
+  .cafe-public-kicker i {
+    width: 4px;
+    height: 4px;
+    flex: 0 0 4px;
+  }
+
+  .cafe-public-hero h1 {
+    display: block;
+    margin: 0;
+    font-size: clamp(4.2rem, 19vw, 6.2rem);
+    line-height: .78;
+    letter-spacing: -.065em;
+  }
+
+  .cafe-public-hero h1 span {
+    display: block;
+    margin: 0 !important;
+  }
+
+  .cafe-public-hero h1 span:last-child {
+    margin-top: .03em !important;
+  }
+
+  .cafe-public-rule {
+    width: 76px;
+    height: 6px;
+    margin: 30px 0 20px;
+  }
+
+  .cafe-public-intro {
+    width: 100%;
+    max-width: 34rem;
+    margin: 0;
+    font-size: 1.06rem;
+    line-height: 1.48;
+  }
+
+  .cafe-public-scroll {
+    margin-top: 26px;
+  }
+
+  .cafe-public-hero-visual {
+    order: 2;
+    width: 100%;
+    min-height: 0;
+    max-height: none;
+    margin: 0 0 30px;
+    overflow: hidden;
+    border: 1px solid var(--cafe-line);
+  }
+
+  .cafe-public-hero-visual img {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .cafe-public-hero-orbit {
+    top: 10%;
+    right: -18%;
+    width: 58vw;
+  }
+
+  .cafe-public-hero-index {
+    right: 14px;
+    bottom: 12px;
+    font-size: .52rem;
+  }
+
+  .cafe-public-hero-caption {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    width: auto;
+    padding: 12px 13px 13px;
+  }
+
+  .cafe-public-hero-caption span {
+    margin-bottom: 6px;
+    font-size: .48rem;
+  }
+
+  .cafe-public-hero-caption p {
+    font-size: 1rem;
+    line-height: 1.22;
+  }
+
+  .cafe-public-sessions {
+    padding-top: 48px;
+  }
+
+  .cafe-public-section-head {
+    display: block;
+  }
+
+  .cafe-public-section-head > div {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .cafe-public-section-head h2 {
+    font-size: 3rem;
+  }
+
+  .cafe-public-section-head p {
+    margin-top: 14px;
+  }
+
+  .cafe-public-session-card {
+    display: block;
+    min-height: 0;
+  }
+
+  .cafe-public-session-image {
+    display: block;
+    width: 100%;
+    min-height: 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--cafe-line);
+  }
+
+  .cafe-public-session-image img {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .cafe-public-session-copy {
+    padding: 26px 18px 30px;
+  }
+
+  .cafe-public-session-card h3 {
+    font-size: clamp(2.1rem, 10.5vw, 3.3rem);
+    line-height: .96;
+  }
+
+  .cafe-public-session-copy > p {
+    margin-top: 18px;
+  }
+
+  .cafe-public-session-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .cafe-public-session-photo img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .cafe-public-footer {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 430px) {
+  .cafe-public {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .cafe-public-hero h1 {
+    font-size: clamp(3.85rem, 18vw, 5.1rem);
+    line-height: .8;
+  }
+
+  .cafe-public-intro {
+    font-size: 1rem;
+  }
+
+  .cafe-public-hero-caption p {
+    font-size: .96rem;
+  }
+}
