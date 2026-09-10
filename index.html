@@ -8,10 +8,7 @@
       content="width=device-width, initial-scale=1.0"
     />
 
-    <meta
-      name="description"
-      content="Philosophia — archivo personal de filosofía, apuntes y lecturas."
-    />
+    <meta name="description" content="Conversaciones, argumentos y problemas abiertos del Café Filosófico." />
 
     <meta
       name="theme-color"
@@ -30,9 +27,33 @@
       href="/favicon.svg"
     />
 
-    <title>Philosophia</title>
+    <title>Café Filosófico</title>
     <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-  </head>
+    <meta property="og:type" content="website" />
+  <meta property="og:title" content="Café Filosófico" />
+  <meta property="og:description" content="Conversaciones, argumentos y problemas abiertos del Café Filosófico." />
+  <meta property="og:image" content="https://kychan00.github.io/philosophia/images/cafe-filosofico/cafe-hero.png" />
+  <meta property="og:image:secure_url" content="https://kychan00.github.io/philosophia/images/cafe-filosofico/cafe-hero.png" />
+  <meta property="og:image:alt" content="Café Filosófico" />
+  <meta property="og:url" content="https://kychan00.github.io/philosophia/" />
+  <meta property="og:site_name" content="Café Filosófico" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Café Filosófico" />
+  <meta name="twitter:description" content="Conversaciones, argumentos y problemas abiertos del Café Filosófico." />
+  <meta name="twitter:image" content="https://kychan00.github.io/philosophia/images/cafe-filosofico/cafe-hero.png" />
+
+  <!-- CAFE_SOCIAL_PREVIEW_RUNTIME_TITLE -->
+  <script>
+    (() => {
+      const syncTitle = () => {
+        const isCafe = window.location.hash.startsWith('#/cafe-filosofico')
+        document.title = isCafe ? 'Café Filosófico' : 'PHILOSOPHIA'
+      }
+      window.addEventListener('hashchange', syncTitle)
+      window.addEventListener('DOMContentLoaded', syncTitle)
+    })()
+  </script>
+</head>
 
   <body>
     <div id="root"></div>
