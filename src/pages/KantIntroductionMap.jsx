@@ -6,7 +6,63 @@ const colors={blue:'#4e6d83',gold:'#9a6d2f',violet:'#7a5269',green:'#3f7664',red
 const clamp=(v,a,b)=>Math.min(b,Math.max(a,v))
 const center=n=>({x:n.x+n.w/2,y:n.y+n.h/2})
 function path(a,b){const A=center(a),B=center(b),dx=B.x-A.x,dy=B.y-A.y;if(Math.abs(dx)>Math.abs(dy)){const d=dx>=0?1:-1,s=A.x+d*a.w/2,e=B.x-d*b.w/2,k=Math.max(60,Math.abs(e-s)*.42);return `M ${s} ${A.y} C ${s+d*k} ${A.y}, ${e-d*k} ${B.y}, ${e} ${B.y}`}const d=dy>=0?1:-1,s=A.y+d*a.h/2,e=B.y-d*b.h/2,k=Math.max(60,Math.abs(e-s)*.42);return `M ${A.x} ${s} C ${A.x} ${s+d*k}, ${B.x} ${e-d*k}, ${B.x} ${e}`}
-function Inspector({n,i,close,prev,next}){if(!n)return null;return <aside className="ki-inspector" style={{'--ki-node':colors[n.tone]}}><div className="ki-inspector-top"><div><span className="ki-inspector-kicker">{n.e}</span><h2>{n.t}</h2></div><button type="button" className="ki-icon-button" onClick={close}>×</button></div><p className="ki-inspector-subtitle">{n.s}</p><p className="ki-inspector-summary">{n.sum}</p>{n.ask&&<div className="ki-inspector-question"><span>PREGUNTA</span><strong>{n.ask}</strong></div>}{n.q&&<blockquote>“{n.q}”</blockquote>}{n.d&&<div className="ki-inspector-block"><span className="ki-inspector-label">DESPLIEGUE</span><ul>{n.d.map(x=><li key={x}>{x}</li>)}</ul></div>}{n.f&&<div className="ki-inspector-formula"><span>FÓRMULA</span><strong>{n.f}</strong></div>}{n.m&&<div className="ki-inspector-remember"><span>PARA RECORDAR</span><p>{n.m}</p></div>}<div className="ki-inspector-nav"><button type="button" onClick={prev} disabled={i<=0}>← Anterior</button><span>{i+1} / {reading.length}</span><button type="button" onClick={next} disabled={i>=reading.length-1}>Siguiente →</button></div></aside>}
+function Inspector({n,i,close,prev,next}){
+  if(!n)return null
+
+  return (
+    <aside className="ki-inspector" style={{'--ki-node':colors[n.tone]}}>
+      <div className="ki-inspector-scroll">
+        <div className="ki-inspector-top">
+          <div>
+            <span className="ki-inspector-kicker">{n.e}</span>
+            <h2>{n.t}</h2>
+          </div>
+          <button type="button" className="ki-icon-button" onClick={close}>×</button>
+        </div>
+
+        <p className="ki-inspector-subtitle">{n.s}</p>
+        <p className="ki-inspector-summary">{n.sum}</p>
+
+        {n.ask&&(
+          <div className="ki-inspector-question">
+            <span>PREGUNTA</span>
+            <strong>{n.ask}</strong>
+          </div>
+        )}
+
+        {n.q&&<blockquote>“{n.q}”</blockquote>}
+
+        {n.d&&(
+          <div className="ki-inspector-block">
+            <span className="ki-inspector-label">DESPLIEGUE</span>
+            <ul>{n.d.map(x=><li key={x}>{x}</li>)}</ul>
+          </div>
+        )}
+
+        {n.f&&(
+          <div className="ki-inspector-formula">
+            <span>FÓRMULA</span>
+            <strong>{n.f}</strong>
+          </div>
+        )}
+
+        {n.m&&(
+          <div className="ki-inspector-remember">
+            <span>PARA RECORDAR</span>
+            <p>{n.m}</p>
+          </div>
+        )}
+      </div>
+
+      <div className="ki-inspector-nav">
+        <button type="button" onClick={prev} disabled={i<=0}>← Anterior</button>
+        <span>{i+1} / {reading.length}</span>
+        <button type="button" onClick={next} disabled={i>=reading.length-1}>Siguiente →</button>
+      </div>
+    </aside>
+  )
+}
+
 export default function KantIntroductionMap(){const ref=useRef(null),drag=useRef(null);const [sel,setSel]=useState('sap'),[z,setZ]=useState(.42),[pan,setPan]=useState({x:12,y:18}),[route,setRoute]=useState(true);const by=useMemo(()=>Object.fromEntries(nodes.map(n=>[n.id,n])),[]),n=sel?by[sel]:null,i=sel?reading.indexOf(sel):-1,set=useMemo(()=>new Set(reading),[])
 const fit=()=>{const e=ref.current;if(!e)return;const nz=clamp(Math.min((e.clientWidth-36)/W,(e.clientHeight-36)/H),MIN,.72);setZ(nz);setPan({x:(e.clientWidth-W*nz)/2,y:(e.clientHeight-H*nz)/2})}
 useEffect(()=>{fit()},[])

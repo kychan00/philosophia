@@ -346,6 +346,28 @@ export const tasks = [
       '/tareas/ontologia-ii/kant-critica-razon-pura-prologos',
   },
   {
+    id: 'ontologia-2026-09-09-kant-introduccion-critica-razon-pura',
+    subject: 'Ontología II',
+    subjectCode: 'FI190',
+    assignedDate: '2026-09-07',
+    dueDate: '2026-09-09',
+    dueTime: '12:55',
+    title: 'Kant · Crítica de la razón pura · Introducción',
+    type: 'Lectura',
+    weight: null,
+    description:
+      'Leer y estudiar la Introducción de la Crítica de la razón pura: experiencia y conocimiento a priori, necesidad y universalidad, juicios analíticos y sintéticos, juicios sintéticos a priori y el problema general de la razón pura.',
+    readingScope:
+      'Immanuel Kant · Crítica de la razón pura · Introducción, secciones I–VII',
+    sourceClass:
+      'Clase del 7 de septiembre · Kant y el giro trascendental',
+    sourceRoute:
+      '/semestre/5/ontologia-ii/clase/7-septiembre',
+    studyRoute:
+      '/tareas/ontologia-ii/kant-critica-razon-pura-introduccion',
+  },
+
+  {
     id: 'analitica-2026-09-09-reporte-proxima-lectura',
     subject: 'Filosofía Analítica',
     subjectCode: 'FI264',
