@@ -45,4 +45,40 @@ export const nodes=[
 ]
 export const edges=[
 ['experience','mix','activa'],['experience','posteriori','depende'],['mix','apriori','abre'],['apriori','pure','precisa'],['apriori','necessity','criterio'],['apriori','universal','criterio'],['universal','metaphysics','excede'],['metaphysics','dogmatism','tradición'],['dogmatism','building','método'],['building','dove','límite'],['dove','judgment','exige examen'],['judgment','analytic','B en A'],['judgment','synthetic','B añade'],['synthetic','sapost','experiencia'],['sapost','causality','aparece necesidad'],['necessity','causality','criterio'],['causality','hume','desafío'],['causality','sap','generaliza'],['analytic','sap','no amplía'],['sapost','sap','sin necesidad'],['sap','math','¿cómo?'],['math','geometry','también'],['sap','physics','¿cómo?'],['sap','metascience','¿cómo?'],['metaphysics','naturalis','disposición'],['naturalis','metascience','≠'],['math','questions','1'],['physics','questions','2'],['metascience','questions','3'],['questions','critique','requiere'],['critique','paths','alternativa'],['critique','reason','examina'],['reason','propedeutic','antes'],['propedeutic','transcendental','investiga'],['transcendental','transphilo','plan'],['transcendental','sensibility','condiciones'],['transcendental','understanding','condiciones'],['sensibility','division','dado'],['understanding','division','pensado']]
+
+export const sources={
+  experience:{pages:'27',pdf:'65',section:'La experiencia como punto de partida del conocimiento.'},
+  mix:{pages:'27–28',pdf:'65–66',section:'La experiencia aporta la materia, pero el sujeto añade formas propias.'},
+  posteriori:{pages:'28',pdf:'66',section:'Conocimiento empírico o a posteriori.'},
+  apriori:{pages:'28–29',pdf:'66–67',section:'Conocimiento a priori: independencia respecto de la experiencia.'},
+  pure:{pages:'28',pdf:'66',section:'Conocimiento a priori puro, sin mezcla empírica.'},
+  necessity:{pages:'29',pdf:'67',section:'La necesidad como signo del conocimiento a priori.'},
+  universal:{pages:'29',pdf:'67',section:'La universalidad estricta como segundo criterio de lo a priori.'},
+  metaphysics:{pages:'29–30',pdf:'67–68',section:'La metafísica y su pretensión de conocimiento más allá de la experiencia.'},
+  dogmatism:{pages:'30',pdf:'68',section:'La razón avanza dogmáticamente sin examinar antes su propia capacidad.'},
+  building:{pages:'30–31',pdf:'68–69',section:'Metáfora del edificio: antes de construir, hay que examinar los fundamentos.'},
+  dove:{pages:'31',pdf:'69',section:'Metáfora de la paloma: la razón imagina que avanzaría mejor sin la resistencia de la experiencia.'},
+  judgment:{pages:'32–33',pdf:'70–71',section:'Distinción de los juicios según la relación entre sujeto y predicado.'},
+  analytic:{pages:'32–33',pdf:'70–71',section:'Juicios analíticos: el predicado está contenido en el concepto del sujeto.'},
+  synthetic:{pages:'32–33',pdf:'70–71',section:'Juicios sintéticos: el predicado añade algo que no estaba contenido en el sujeto.'},
+  sapost:{pages:'33',pdf:'71',section:'Los juicios sintéticos a posteriori amplían el conocimiento mediante la experiencia.'},
+  causality:{pages:'33',pdf:'71',section:'Ejemplo de causalidad: todo lo que sucede tiene su causa.'},
+  hume:{pages:'29, 37',pdf:'67, 75',section:'Hume como antecedente decisivo del problema de la causalidad y de la necesidad.'},
+  sap:{pages:'33–37',pdf:'71–75',section:'Problema de los juicios sintéticos a priori y su función en las ciencias.'},
+  math:{pages:'34–35',pdf:'72–73',section:'La matemática contiene juicios sintéticos a priori.'},
+  geometry:{pages:'35–36',pdf:'73–74',section:'La geometría como conocimiento sintético a priori.'},
+  physics:{pages:'36',pdf:'74',section:'La física pura contiene principios sintéticos a priori.'},
+  naturalis:{pages:'38',pdf:'76',section:'Metaphysica naturalis: disposición natural de la razón hacia preguntas metafísicas.'},
+  metascience:{pages:'36–38',pdf:'74–76',section:'La cuestión de si la metafísica puede constituirse como ciencia.'},
+  questions:{pages:'37–38',pdf:'75–76',section:'Formulación del problema general y de las preguntas sobre matemática, física y metafísica.'},
+  critique:{pages:'38–40',pdf:'76–78',section:'Necesidad de una crítica de la razón pura que examine su facultad y sus límites.'},
+  paths:{pages:'38',pdf:'76',section:'Alternativas ante la metafísica: dogmatismo, escepticismo y crítica.'},
+  reason:{pages:'39',pdf:'77',section:'La razón como facultad que contiene los principios del conocimiento a priori.'},
+  propedeutic:{pages:'39–40',pdf:'77–78',section:'La crítica como propedéutica para un sistema de la razón pura.'},
+  transcendental:{pages:'39–40',pdf:'77–78',section:'Sentido de trascendental: conocimiento de nuestro modo de conocer objetos a priori.'},
+  transphilo:{pages:'40–41',pdf:'78–79',section:'La filosofía trascendental como sistema completo de conceptos a priori.'},
+  sensibility:{pages:'41',pdf:'79',section:'La sensibilidad como una de las dos fuentes fundamentales del conocimiento.'},
+  understanding:{pages:'41',pdf:'79',section:'El entendimiento como segunda fuente fundamental del conocimiento.'},
+  division:{pages:'41',pdf:'79',section:'División de la doctrina trascendental en doctrina de los elementos y del método.'},
+}
 export const reading=['experience','mix','apriori','necessity','universal','metaphysics','dogmatism','building','dove','judgment','analytic','synthetic','sapost','causality','hume','sap','math','geometry','physics','naturalis','metascience','questions','critique','reason','propedeutic','transcendental','transphilo','sensibility','understanding','division']

@@ -1,5 +1,5 @@
 import { useEffect,useMemo,useRef,useState } from 'react'
-import {edges,nodes,reading,regions} from '../data/kantIntroductionMap'
+import {edges,nodes,reading,regions,sources} from '../data/kantIntroductionMap'
 import './KantIntroductionMap.css'
 const W=3600,H=2420,MIN=.22,MAX=1.45
 const colors={blue:'#4e6d83',gold:'#9a6d2f',violet:'#7a5269',green:'#3f7664',red:'#a44532',indigo:'#4d527e'}
@@ -22,6 +22,15 @@ function Inspector({n,i,close,prev,next}){
 
         <p className="ki-inspector-subtitle">{n.s}</p>
         <p className="ki-inspector-summary">{n.sum}</p>
+
+        {sources[n.id] && (
+          <div className="ki-inspector-source">
+            <span className="ki-inspector-label">EN EL TEXTO</span>
+            <strong>Crítica de la razón pura · Ribas · pp. {sources[n.id].pages}</strong>
+            <p>{sources[n.id].section}</p>
+            <small>PDF · pp. {sources[n.id].pdf}</small>
+          </div>
+        )}
 
         {n.ask&&(
           <div className="ki-inspector-question">
