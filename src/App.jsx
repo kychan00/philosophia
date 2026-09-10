@@ -10,6 +10,7 @@ import {
 import ScrollToTop from './components/ScrollToTop'
 import AcademicNotifications from './components/AcademicNotifications'
 
+const AnaliticaClase7Septiembre = lazy(() => import('./pages/AnaliticaClase7Septiembre'))
 const Home = lazy(() => import('./pages/Home'))
 const CafeFilosofico = lazy(() => import('./pages/CafeFilosofico'))
 const CafeCapitalismoEvent = lazy(() => import('./pages/CafeCapitalismoEvent'))
@@ -279,6 +280,7 @@ function App() {
         />
 <Route path="*" element={<Navigate to="/" replace />} />
                   <Route path="/tareas/ontologia-ii/kant-critica-razon-pura-introduccion" element={<KantIntroductionMap />} />
+                  <Route path="/semestre/5/filosofia-analitica/clase/7-septiembre" element={<AnaliticaClase7Septiembre />} />
         </Routes>
       </Suspense>
     </HashRouter>

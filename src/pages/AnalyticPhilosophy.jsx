@@ -238,7 +238,32 @@ export default function AnalyticPhilosophy() {
             <span>Abrir análisis</span><b>↗</b>
           </div>
         </Link>
-      </section>
+              <Link
+          to="/semestre/5/filosofia-analitica/clase/7-septiembre"
+          className="analytic-class-card"
+        >
+          <div className="analytic-date">
+            <strong>VII</strong>
+            <span>IX &middot; MMXXVI</span>
+          </div>
+
+          <div className="analytic-class-copy">
+            <span>Sexta clase &middot; Hacker, Frege y el giro linguistico</span>
+            <h3>Lenguaje, logica y tradicion analitica</h3>
+            <p>
+              Contexto historico de la filosofia analitica, giro linguistico,
+              logica formal, referencia y sentido, los dos Wittgenstein,
+              significado como uso y el problema de definir la tradicion.
+            </p>
+          </div>
+
+          <div className="analytic-enter">
+            <span>Abrir analisis</span>
+            <b>&#8599;</b>
+          </div>
+        </Link>
+
+</section>
 
       <section className="analytic-course-map">
         <div className="analytic-section-heading">
