@@ -22,6 +22,7 @@ const OntologiaClass26Aug = lazy(() => import('./pages/OntologiaClass26Aug'))
 const OntologiaClass02Sep = lazy(() => import('./pages/OntologiaClass02Sep'))
 const OntologiaClass07Sep = lazy(() => import('./pages/OntologiaClass07Sep'))
 const KantPrefacesMap = lazy(() => import('./pages/KantPrefacesMap'))
+const KantIntroductionMap = lazy(() => import('./pages/KantIntroductionMap'))
 const MethodsResearch = lazy(() => import('./pages/MethodsResearch'))
 const MethodsClass17Aug = lazy(() => import('./pages/MethodsClass17Aug'))
 const MethodsClass19Aug = lazy(() => import('./pages/MethodsClass19Aug'))
@@ -277,6 +278,7 @@ function App() {
           element={<MondolfoEthicsTask />}
         />
 <Route path="*" element={<Navigate to="/" replace />} />
+                  <Route path="/tareas/ontologia-ii/kant-critica-razon-pura-introduccion" element={<KantIntroductionMap />} />
         </Routes>
       </Suspense>
     </HashRouter>

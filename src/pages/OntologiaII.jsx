@@ -488,6 +488,19 @@ export default function OntologiaII() {
         <span>☙ &nbsp; τὸ ὄν &nbsp; ❧</span>
         <span>Ontología II · MMXXVI</span>
       </footer>
-    </main>
+    
+      <article className="subject-task-card subject-task-card--kant-intro">
+        <div className="subject-task-card__meta">
+          <span>LECTURA · 09 SEP 2026</span>
+          <span>KANT · CRÍTICA DE LA RAZÓN PURA</span>
+        </div>
+        <h3>Introducción — mapa didáctico 2D</h3>
+        <p>Experiencia, conocimiento a priori, juicios analíticos y sintéticos, juicios sintéticos a priori y el problema general de la razón pura.</p>
+        <button type="button" onClick={() => { window.location.hash = '#/tareas/ontologia-ii/kant-critica-razon-pura-introduccion' }}>
+          ABRIR MAPA DE LA INTRODUCCIÓN →
+        </button>
+      </article>
+
+      </main>
   )
 }
