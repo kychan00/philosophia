@@ -1,0 +1,382 @@
+
+/* Ethics · 3 September 2026
+   Dedicated refinement layer. Scoped so the 1 September class is untouched. */
+
+.ethsep3-page {
+  --eth3-ink: #1b1916;
+  --eth3-muted: #6f6a61;
+  --eth3-line: rgba(27, 25, 22, 0.12);
+  --eth3-blue: #55799a;
+  --eth3-blue-soft: rgba(85, 121, 154, 0.09);
+  --eth3-paper: #f4efe5;
+  --eth3-panel: rgba(255, 255, 255, 0.34);
+}
+
+.ethsep3-page .ethsep1-article > section {
+  padding-block: clamp(4.5rem, 8vw, 8rem);
+}
+
+.ethsep3-page .ethsep1-article > section + section {
+  border-top: 1px solid var(--eth3-line);
+}
+
+.ethsep3-page .ethsep1-heading {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: end;
+  margin-bottom: 2rem;
+}
+
+.ethsep3-page .ethsep1-heading > span {
+  font-size: clamp(3.75rem, 5vw, 6rem);
+  line-height: .82;
+  color: rgba(85, 121, 154, 0.18);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+}
+
+.ethsep3-page .ethsep1-heading p {
+  margin: 0 0 .75rem;
+  color: var(--eth3-blue);
+  font-size: .72rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.ethsep3-page .ethsep1-heading h2 {
+  max-width: 1050px;
+  margin: 0;
+  font-size: clamp(2.6rem, 4.3vw, 5.15rem);
+  line-height: .96;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.ethsep3-page .ethsep1-article section > p {
+  max-width: 1080px;
+  margin: 0 0 2rem;
+  font-size: clamp(1.05rem, 1.25vw, 1.24rem);
+  line-height: 1.65;
+}
+
+.ethsep3-page .ethsep1-master {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .7rem;
+  margin: 2rem 0;
+}
+
+.ethsep3-page .ethsep1-master > span,
+.ethsep3-page .ethsep1-master > strong {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: .72rem 1rem;
+  border: 1px solid var(--eth3-line);
+  border-radius: 999px;
+  background: var(--eth3-panel);
+  line-height: 1.15;
+}
+
+.ethsep3-page .ethsep1-master > strong {
+  color: #fff;
+  background: var(--eth3-blue);
+  border-color: var(--eth3-blue);
+}
+
+.ethsep3-page .ethsep1-master > b {
+  color: var(--eth3-blue);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.ethsep3-page .ethsep1-tradition-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .85rem;
+  margin: 2rem 0 1rem;
+}
+
+.ethsep3-page .ethsep1-tradition-tabs button {
+  min-width: 0;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--eth3-line);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, .28);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .18s ease, background .18s ease, transform .18s ease;
+}
+
+.ethsep3-page .ethsep1-tradition-tabs button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(85, 121, 154, .42);
+}
+
+.ethsep3-page .ethsep1-tradition-tabs button.active {
+  color: #fff;
+  background: var(--eth3-blue);
+  border-color: var(--eth3-blue);
+}
+
+.ethsep3-page .ethsep1-tradition-tabs button span,
+.ethsep3-page .ethsep1-tradition-tabs button strong {
+  display: block;
+}
+
+.ethsep3-page .ethsep1-tradition-tabs button span {
+  margin-bottom: .42rem;
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .75;
+}
+
+.ethsep3-page .ethsep1-tradition-tabs button strong {
+  font-size: .98rem;
+  line-height: 1.25;
+}
+
+.ethsep3-page .ethsep1-focus,
+.ethsep3-page .ethsep1-note,
+.ethsep3-page .ethsep1-warning,
+.ethsep3-page .ethsep1-obedience {
+  margin: 1rem 0 2rem;
+  padding: 1.5rem 1.65rem;
+  border: 1px solid var(--eth3-line);
+  background: var(--eth3-panel);
+}
+
+.ethsep3-page .ethsep1-focus {
+  border-left: 4px solid var(--eth3-blue);
+}
+
+.ethsep3-page .ethsep1-focus > span,
+.ethsep3-page .ethsep1-note > strong,
+.ethsep3-page .ethsep1-warning > span,
+.ethsep3-page .ethsep1-obedience > span {
+  display: block;
+  margin-bottom: .55rem;
+  color: var(--eth3-blue);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.ethsep3-page .ethsep1-focus h3,
+.ethsep3-page .ethsep1-obedience h3 {
+  margin: 0 0 .6rem;
+  font-size: clamp(1.55rem, 2.2vw, 2.35rem);
+  line-height: 1.05;
+  letter-spacing: -.025em;
+}
+
+.ethsep3-page .ethsep1-focus p,
+.ethsep3-page .ethsep1-note p,
+.ethsep3-page .ethsep1-obedience p {
+  max-width: 940px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.ethsep3-page .ethsep1-warning {
+  border-left: 4px solid var(--eth3-blue);
+  background: var(--eth3-blue-soft);
+}
+
+.ethsep3-page .ethsep1-warning > strong {
+  display: block;
+  max-width: 980px;
+  font-size: 1.08rem;
+  line-height: 1.55;
+}
+
+.ethsep3-page .ethsep1-inversion {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 1rem;
+  align-items: stretch;
+  margin: 2rem 0;
+}
+
+.ethsep3-page .ethsep1-inversion article {
+  padding: 1.35rem 1.45rem;
+  border: 1px solid var(--eth3-line);
+  background: var(--eth3-panel);
+}
+
+.ethsep3-page .ethsep1-inversion article.danger {
+  background: var(--eth3-blue-soft);
+  border-color: rgba(85, 121, 154, .28);
+}
+
+.ethsep3-page .ethsep1-inversion article span {
+  display: block;
+  margin-bottom: .55rem;
+  color: var(--eth3-blue);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.ethsep3-page .ethsep1-inversion article strong {
+  display: block;
+  font-size: 1.15rem;
+  line-height: 1.35;
+}
+
+.ethsep3-page .ethsep1-inversion > b {
+  align-self: center;
+  color: var(--eth3-blue);
+  font-size: 1.4rem;
+}
+
+.ethsep3-page .ethsep1-stoic {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: .8rem;
+  margin: 2rem 0;
+}
+
+.ethsep3-page .ethsep1-stoic article,
+.ethsep3-page .ethsep1-stoic button {
+  min-width: 0;
+  padding: 1.15rem;
+  border: 1px solid var(--eth3-line);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, .3);
+  text-align: left;
+}
+
+.ethsep3-page .ethsep1-stoic button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.ethsep3-page .ethsep1-stoic button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(85, 121, 154, .42);
+}
+
+.ethsep3-page .ethsep1-stoic button.active {
+  background: var(--eth3-blue);
+  border-color: var(--eth3-blue);
+  color: #fff;
+}
+
+.ethsep3-page .ethsep1-stoic span,
+.ethsep3-page .ethsep1-stoic strong,
+.ethsep3-page .ethsep1-stoic p,
+.ethsep3-page .ethsep1-stoic small {
+  display: block;
+}
+
+.ethsep3-page .ethsep1-stoic span {
+  margin-bottom: .7rem;
+  color: var(--eth3-blue);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.ethsep3-page .ethsep1-stoic button.active span {
+  color: rgba(255, 255, 255, .72);
+}
+
+.ethsep3-page .ethsep1-stoic strong {
+  margin-bottom: .45rem;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.ethsep3-page .ethsep1-stoic p,
+.ethsep3-page .ethsep1-stoic small {
+  margin: 0;
+  font-size: .88rem;
+  line-height: 1.45;
+  opacity: .8;
+}
+
+.ethsep3-page .ethsep1-toggle {
+  display: inline-flex;
+  gap: .45rem;
+  padding: .35rem;
+  margin: 1.25rem 0 .5rem;
+  border: 1px solid var(--eth3-line);
+  background: rgba(255, 255, 255, .3);
+}
+
+.ethsep3-page .ethsep1-toggle button {
+  padding: .72rem 1rem;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.ethsep3-page .ethsep1-toggle button.active {
+  color: #fff;
+  background: var(--eth3-blue);
+}
+
+@media (max-width: 1100px) {
+  .ethsep3-page .ethsep1-stoic {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ethsep3-page .ethsep1-tradition-tabs {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .ethsep3-page .ethsep1-heading {
+    grid-template-columns: 1fr;
+    gap: .8rem;
+  }
+
+  .ethsep3-page .ethsep1-heading > span {
+    font-size: 3rem;
+  }
+
+  .ethsep3-page .ethsep1-heading h2 {
+    font-size: clamp(2.15rem, 10vw, 3.5rem);
+  }
+
+  .ethsep3-page .ethsep1-inversion {
+    grid-template-columns: 1fr;
+  }
+
+  .ethsep3-page .ethsep1-inversion > b {
+    justify-self: center;
+    transform: rotate(90deg);
+  }
+
+  .ethsep3-page .ethsep1-stoic {
+    grid-template-columns: 1fr;
+  }
+
+  .ethsep3-page .ethsep1-master {
+    align-items: stretch;
+  }
+
+  .ethsep3-page .ethsep1-master > span,
+  .ethsep3-page .ethsep1-master > strong {
+    width: 100%;
+    border-radius: 4px;
+  }
+
+  .ethsep3-page .ethsep1-master > b {
+    width: 100%;
+    text-align: center;
+    transform: rotate(90deg);
+  }
+}
