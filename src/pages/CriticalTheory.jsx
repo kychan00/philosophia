@@ -185,6 +185,28 @@ export default function CriticalTheory() {
             <span>Abrir clase</span><b>↗</b>
           </div>
         </Link>
+        <Link
+          to="/semestre/5/teoria-critica/clase/3-septiembre"
+          className="ct-class-card"
+        >
+          <div className="ct-class-card-date">
+            <strong>III</strong>
+            <span>IX · MMXXVI</span>
+          </div>
+          <div className="ct-class-card-copy">
+            <span>Sexta clase · Hegel y experiencia de la conciencia</span>
+            <h3>Saber absoluto, experiencia y dialéctica</h3>
+            <p>
+              Fenomenología como ciencia de las experiencias de la conciencia,
+              saber frente a conocimiento, figuras, escisión sujeto–objeto,
+              ciencia orgánica, crítica a la fragmentación, en sí / para sí /
+              en sí y para sí, negatividad, superación y absoluto.
+            </p>
+          </div>
+          <div className="ct-class-card-enter">
+            <span>Abrir clase</span><b>↗</b>
+          </div>
+        </Link>
       </section>
 
       <section className="ct-section">

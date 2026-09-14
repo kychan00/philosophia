@@ -269,6 +269,26 @@ export const tasks = [
   },
 
   {
+    id: 'teoria-critica-2026-09-03-indice-fenomenologia',
+    subject: 'Teoría Crítica',
+    subjectCode: 'FI265',
+    assignedDate: '2026-09-03',
+    dueDate: '2026-09-08',
+    dueTime: '17:25',
+    title: 'Revisar el índice de la Fenomenología del espíritu',
+    type: 'Revisión / lectura',
+    weight: null,
+    description:
+      'Revisar el índice de la Fenomenología del espíritu para observar cómo se organizan las figuras, secciones y subdivisiones y reconocer la recurrencia de estructuras de tres momentos.',
+    readingScope:
+      'G. W. F. Hegel · Fenomenología del espíritu · índice general',
+    sourceClass:
+      'Clase del 3 de septiembre · saber absoluto, experiencia y dialéctica',
+    sourceRoute:
+      '/semestre/5/teoria-critica/clase/3-septiembre',
+  },
+
+  {
     id: 'etica-2026-09-01-maxima-moral-caso-concreto',
     subject: 'Ética',
     subjectCode: 'FI194',
