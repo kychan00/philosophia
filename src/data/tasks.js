@@ -368,6 +368,26 @@ export const tasks = [
   },
 
   {
+    id: 'ontologia-2026-09-14-kant-estetica-trascendental',
+    subject: 'Ontología II',
+    subjectCode: 'FI190',
+    assignedDate: '2026-09-14',
+    dueDate: null,
+    title: 'Kant · Crítica de la razón pura · Estética trascendental',
+    type: 'Estudio',
+    weight: null,
+    description:
+      'Estudiar la primera parte de la Doctrina trascendental de los elementos: sensibilidad e intuición; espacio y tiempo como formas puras a priori; realidad empírica e idealidad trascendental; fenómeno y cosa en sí.',
+    readingScope:
+      'Immanuel Kant · Crítica de la razón pura · Estética trascendental · §§1–8 y conclusión',
+    readingPages: 'Ribas · pp. 42–61',
+    sourceClass: 'Estudio de la Estética trascendental',
+    sourceRoute: '/semestre/5/ontologia-ii',
+    studyRoute:
+      '/tareas/ontologia-ii/kant-critica-razon-pura-estetica-trascendental',
+  },
+
+  {
     id: 'analitica-2026-09-09-reporte-proxima-lectura',
     subject: 'Filosofía Analítica',
     subjectCode: 'FI264',
