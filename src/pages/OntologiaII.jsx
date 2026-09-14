@@ -352,6 +352,30 @@ export default function OntologiaII() {
             <b>↗</b>
           </div>
         </Link>
+        <Link
+          to="/semestre/5/ontologia-ii/clase/9-septiembre"
+          className="ontology-program-class-card"
+        >
+          <div className="ontology-program-date">
+            <strong>IX</strong>
+            <span>IX · MMXXVI</span>
+          </div>
+
+          <div className="ontology-program-class-copy">
+            <span>Séptima clase · Introducción a la Crítica</span>
+            <h3>Juicios y condiciones del conocer</h3>
+            <p>
+              Conocimiento empírico y puro, juicios analíticos, sintéticos y
+              sintéticos a priori, 7 + 5 = 12, tiempo y espacio, sensibilidad,
+              entendimiento, causalidad y sujeto trascendental.
+            </p>
+          </div>
+
+          <div className="ontology-program-enter">
+            <span>Abrir folio</span>
+            <b>↗</b>
+          </div>
+        </Link>
 
       </section>
 

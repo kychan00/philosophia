@@ -22,6 +22,7 @@ const OntologiaClass24Aug = lazy(() => import('./pages/OntologiaClass24Aug'))
 const OntologiaClass26Aug = lazy(() => import('./pages/OntologiaClass26Aug'))
 const OntologiaClass02Sep = lazy(() => import('./pages/OntologiaClass02Sep'))
 const OntologiaClass07Sep = lazy(() => import('./pages/OntologiaClass07Sep'))
+const OntologiaClass09Sep = lazy(() => import('./pages/OntologiaClass09Sep'))
 const KantPrefacesMap = lazy(() => import('./pages/KantPrefacesMap'))
 const KantIntroductionMap = lazy(() => import('./pages/KantIntroductionMap'))
 const KantAestheticMap = lazy(() => import('./pages/KantAestheticMap'))
@@ -120,6 +121,10 @@ function App() {
         <Route
           path="/semestre/5/ontologia-ii/clase/7-septiembre"
           element={<OntologiaClass07Sep />}
+        />
+        <Route
+          path="/semestre/5/ontologia-ii/clase/9-septiembre"
+          element={<OntologiaClass09Sep />}
         />
         <Route
           path="/tareas/ontologia-ii/kant-critica-razon-pura-prologos"
