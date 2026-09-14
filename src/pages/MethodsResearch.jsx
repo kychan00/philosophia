@@ -196,6 +196,27 @@ export default function MethodsResearch() {
             <b>↗</b>
           </div>
         </Link>
+        <Link
+          to="/semestre/5/metodos-de-investigacion/clase/7-septiembre"
+          className="methods-class-card"
+        >
+          <div className="methods-date">
+            <strong>VII</strong>
+            <span>IX · MMXXVI</span>
+          </div>
+          <div className="methods-class-copy">
+            <span>Sexta clase · Construcción del problema</span>
+            <h3>Del concepto a una tensión investigable</h3>
+            <p>
+              Campo, área y tema; selección de ramas; libertad natural y civil;
+              Hobbes y Rousseau; capas política, ética, jurídica y ontológica;
+              autonomía, objeto de estudio y estado del arte como matriz.
+            </p>
+          </div>
+          <div className="methods-enter">
+            <span>Abrir folio</span><b>↗</b>
+          </div>
+        </Link>
       </section>
 
       <footer className="methods-footer">
