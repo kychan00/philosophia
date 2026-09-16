@@ -450,6 +450,25 @@ export const tasks = [
     sourceClass: 'Clase del 14 de septiembre',
     sourceRoute: '/semestre/5/ontologia-ii/clase/14-septiembre',
   },
+
+  {
+    id: 'teoria-critica-2026-09-10-marx-enajenacion',
+    subject: 'Teoría Crítica',
+    subjectCode: 'FI265',
+    assignedDate: '2026-09-10',
+    dueDate: '2026-09-17',
+    title: 'Continuar lectura sobre trabajo enajenado',
+    type: 'Lectura',
+    weight: null,
+    description:
+      'Continuar la lectura del primer manuscrito de los Manuscritos económico-filosóficos de 1844, especialmente el apartado sobre trabajo enajenado. La clase menciona aproximadamente 15 páginas y no asigna reporte ni entrega escrita. La fecha del 17 de septiembre corresponde a la siguiente sesión efectiva de Teoría Crítica, dado que el 15 no hubo clase.',
+    readingScope:
+      'Karl Marx · Manuscritos económico-filosóficos de 1844 · primer manuscrito · trabajo enajenado',
+    readingPages:
+      'Aproximadamente 15 páginas; la grabación no permite fijar un rango de páginas exacto.',
+    sourceClass: 'Clase del 10 de septiembre',
+    sourceRoute: '/semestre/5/teoria-critica/clase/10-septiembre',
+  },
 ]
 
 export default tasks

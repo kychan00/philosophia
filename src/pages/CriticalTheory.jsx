@@ -207,6 +207,26 @@ export default function CriticalTheory() {
             <span>Abrir clase</span><b>↗</b>
           </div>
         </Link>
+
+        <Link
+          to="/semestre/5/teoria-critica/clase/10-septiembre"
+          className="ct-class-card"
+        >
+          <div className="ct-class-card-date">
+            <strong>X</strong>
+            <span>IX · MMXXVI</span>
+          </div>
+          <div className="ct-class-card-copy">
+            <span>Séptima clase · Marx y trabajo enajenado</span>
+            <h3>Trabajo, objetivación y enajenación</h3>
+            <p>
+              Marx joven, antropología filosófica, dialéctica materialista,
+              materialismo histórico, modos y relaciones de producción, praxis,
+              ideología, objetivación, relación metabólica y entrada al trabajo enajenado.
+            </p>
+          </div>
+          <div className="ct-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
+        </Link>
       </section>
 
       <section className="ct-section">
