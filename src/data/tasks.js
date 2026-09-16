@@ -469,6 +469,43 @@ export const tasks = [
     sourceClass: 'Clase del 10 de septiembre',
     sourceRoute: '/semestre/5/teoria-critica/clase/10-septiembre',
   },
+
+  {
+    id: 'etica-2026-09-10-educar-voluntad',
+    subject: 'Ética · Escuelas clásicas',
+    subjectCode: 'FI194',
+    assignedDate: '2026-09-10',
+    dueDate: '2026-09-17',
+    title: '¿Cómo educar la voluntad?',
+    type: 'Reflexión / preparación',
+    weight: null,
+    description:
+      'Pensar y trabajar la pregunta “¿Cómo educar la voluntad?”: cómo formar una persona que actúe moralmente por convicción propia, asuma responsabilidad, reconozca el daño y no dependa exclusivamente del miedo al castigo o de la expectativa de recompensa. La fecha del 17 de septiembre corresponde a la siguiente sesión efectiva de Ética, dado que el 15 no hubo clase.',
+    readingScope:
+      'Conciencia moral · responsabilidad · arrepentimiento · reparación · autonomía · educación de la voluntad',
+    readingPages:
+      'En clase se menciona la página 32, pero la grabación no permite confirmar si corresponde a una lectura asignada o sólo al punto del texto que se estaba trabajando.',
+    sourceClass: 'Clase del 10 de septiembre',
+    sourceRoute: '/semestre/5/etica/clase/10-septiembre',
+  },
+  {
+    id: 'metodos-2026-09-14-russ-metodos-filosofia',
+    subject: 'Métodos de Investigación Filosófica',
+    subjectCode: 'FI104',
+    assignedDate: '2026-09-14',
+    dueDate: '2026-09-21',
+    title: 'Primer reporte · Jacqueline Russ',
+    type: 'Reporte de lectura',
+    weight: null,
+    description:
+      'Leer los capítulos 1, 2 y 3 de Jacqueline Russ, Los métodos en filosofía, y elaborar una síntesis / reporte. Recuperar qué es el método en filosofía, si existen reglas del método filosófico, la diferencia entre problemática y problema, y la diferencia entre disertación y comentario. La fecha del 21 de septiembre se infiere de la indicación del profesor de entregar hasta el lunes siguiente a la clase del 14.',
+    readingScope:
+      'Jacqueline Russ · Los métodos en filosofía · capítulos 1, 2 y 3',
+    readingPages:
+      'La grabación no fija un rango de páginas; la indicación segura corresponde a los capítulos 1–3.',
+    sourceClass: 'Clase del 14 de septiembre',
+    sourceRoute: '/semestre/5/metodos-de-investigacion/clase/14-septiembre',
+  },
 ]
 
 export default tasks

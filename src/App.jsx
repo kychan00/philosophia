@@ -35,6 +35,7 @@ const MethodsClass24Aug = lazy(() => import('./pages/MethodsClass24Aug'))
 const MethodsClass31Aug = lazy(() => import('./pages/MethodsClass31Aug'))
 const MethodsClass02Sep = lazy(() => import('./pages/MethodsClass02Sep'))
 const MethodsClass07Sep = lazy(() => import('./pages/MethodsClass07Sep'))
+const MethodsClass14Sep = lazy(() => import('./pages/MethodsClass14Sep'))
 const AnalyticPhilosophy = lazy(() => import('./pages/AnalyticPhilosophy'))
 const AnalyticClass17Aug = lazy(() => import('./pages/AnalyticClass17Aug'))
 const AnalyticClass19Aug = lazy(() => import('./pages/AnalyticClass19Aug'))
@@ -58,6 +59,7 @@ const EthicsClass25Aug = lazy(() => import('./pages/EthicsClass25Aug'))
 const EthicsClass27Aug = lazy(() => import('./pages/EthicsClass27Aug'))
 const EthicsClass01Sep = lazy(() => import('./pages/EthicsClass01Sep'))
 const EthicsClass03Sep = lazy(() => import('./pages/EthicsClass03Sep'))
+const EthicsClass10Sep = lazy(() => import('./pages/EthicsClass10Sep'))
 const TasksBoard = lazy(() => import('./pages/TasksBoard'))
 const SpinozaEthicsStudy = lazy(() => import('./pages/SpinozaEthicsStudy'))
 const LeibnizStudy = lazy(() => import('./pages/LeibnizStudy'))
@@ -170,6 +172,10 @@ function App() {
           element={<MethodsClass07Sep />}
         />
         <Route
+          path="/semestre/5/metodos-de-investigacion/clase/14-septiembre"
+          element={<MethodsClass14Sep />}
+        />
+        <Route
           path="/semestre/5/filosofia-analitica"
           element={<AnalyticPhilosophy />}
         />
@@ -265,6 +271,10 @@ function App() {
         <Route
           path="/semestre/5/etica/clase/3-septiembre"
           element={<EthicsClass03Sep />}
+        />
+        <Route
+          path="/semestre/5/etica/clase/10-septiembre"
+          element={<EthicsClass10Sep />}
         />
         <Route
           path="/tareas/ontologia-ii/spinoza-etica-parte-i"
