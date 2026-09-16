@@ -278,6 +278,26 @@ export default function EthicsClassics() {
           </div>
         </Link>
 
+        <Link
+          to="/semestre/5/etica/clase/10-septiembre"
+          className="ethicsx-class-card"
+        >
+          <div className="ethicsx-class-card-date">
+            <strong>X</strong>
+            <span>IX · MMXXVI</span>
+          </div>
+          <div className="ethicsx-class-card-copy">
+            <span>Séptima clase · Conciencia moral y voluntad</span>
+            <h3>Arrepentimiento, responsabilidad y educación moral</h3>
+            <p>
+              Vida examinada, juicio de los otros, tribunal interior,
+              arrepentimiento, reparación, autonomía moral, motivación,
+              libertad, cambio cultural y educación de la voluntad.
+            </p>
+          </div>
+          <div className="ethicsx-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
+        </Link>
+
       </section>
 
       <section className="ethicsx-section ethicsx-note">
