@@ -428,7 +428,28 @@ export const tasks = [
       '/semestre/5/filosofia-analitica/clase/2-septiembre',
     studyRoute:
       '/semestre/5/filosofia-analitica/reporte/follesdal',
-  }
+  },
+
+  {
+    id: 'ontologia-2026-09-14-categorias-kant',
+    subject: 'Ontologia II',
+    subjectCode: 'FI190',
+    assignedDate: '2026-09-14',
+    dueDate: '2026-09-21',
+    title: 'Preparar las categorías de Kant',
+    type: 'Lectura / preparación',
+    weight: null,
+    description:
+      'Preparar el tema de las categorías de Kant para la siguiente sesión: qué son, su relación con el entendimiento, la deducción metafísica de las categorías y la deducción trascendental de las categorías. La fecha del 21 de septiembre corresponde a la siguiente sesión ordinaria de Ontología II; la grabación no verbaliza una fecha de entrega concreta.',
+    readingScope:
+      'Categorías del entendimiento · deducción metafísica · deducción trascendental',
+    readingEdition:
+      'Referencia mencionada en clase, identificada con bastante probabilidad: Justus Hartnack · La teoría del conocimiento de Kant',
+    readingFullPart:
+      'No se registran páginas específicas porque la grabación no permite confirmarlas con seguridad.',
+    sourceClass: 'Clase del 14 de septiembre',
+    sourceRoute: '/semestre/5/ontologia-ii/clase/14-septiembre',
+  },
 ]
 
 export default tasks
