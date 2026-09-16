@@ -262,6 +262,30 @@ export default function AnalyticPhilosophy() {
             <b>&#8599;</b>
           </div>
         </Link>
+        <Link
+          to="/semestre/5/filosofia-analitica/clase/9-septiembre"
+          className="analytic-class-card"
+        >
+          <div className="analytic-date">
+            <strong>IX</strong>
+            <span>IX · MMXXVI</span>
+          </div>
+
+          <div className="analytic-class-copy">
+            <span>Séptima clase · Frege, Kant y objetividad</span>
+            <h3>Pensamiento, verdad y condiciones del conocer</h3>
+            <p>
+              Pensamiento frente a pensar, forma lógica, platonismo de Frege,
+              concepto y criterio de verdad, fenómeno y noúmeno, correspondencia
+              y adecuación, juicios sintéticos a priori y Frege frente a Kant.
+            </p>
+          </div>
+
+          <div className="analytic-enter">
+            <span>Abrir análisis</span>
+            <b>↗</b>
+          </div>
+        </Link>
 
 </section>
 
