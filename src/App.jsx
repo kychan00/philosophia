@@ -12,6 +12,7 @@ import AcademicNotifications from './components/AcademicNotifications'
 
 const AnaliticaClase7Septiembre = lazy(() => import('./pages/AnaliticaClase7Septiembre'))
 const AnalyticClass09Sep = lazy(() => import('./pages/AnalyticClass09Sep'))
+const AnalyticClass14Sep = lazy(() => import('./pages/AnalyticClass14Sep'))
 const Home = lazy(() => import('./pages/Home'))
 const CafeFilosofico = lazy(() => import('./pages/CafeFilosofico'))
 const CafeCapitalismoEvent = lazy(() => import('./pages/CafeCapitalismoEvent'))
@@ -202,6 +203,10 @@ function App() {
         <Route
           path="/semestre/5/filosofia-analitica/clase/9-septiembre"
           element={<AnalyticClass09Sep />}
+        />
+        <Route
+          path="/semestre/5/filosofia-analitica/clase/14-septiembre"
+          element={<AnalyticClass14Sep />}
         />
 
         <Route

@@ -287,6 +287,32 @@ export default function AnalyticPhilosophy() {
           </div>
         </Link>
 
+        <Link
+          to="/semestre/5/filosofia-analitica/clase/14-septiembre"
+          className="analytic-class-card"
+        >
+          <div className="analytic-date">
+            <strong>XIV</strong>
+            <span>IX · MMXXVI</span>
+          </div>
+
+          <div className="analytic-class-copy">
+            <span>Octava clase · Frege, Russell y Wittgenstein</span>
+            <h3>Pensamiento, lenguaje, representación y límites</h3>
+            <p>
+              Pensamiento objetivo y tercer reino, giro lingüístico,
+              isomorfismo lógico, proposición y representación, decir y mostrar,
+              límites del simbolismo, filosofía como clarificación y paso del
+              primer al segundo Wittgenstein.
+            </p>
+          </div>
+
+          <div className="analytic-enter">
+            <span>Abrir análisis</span>
+            <b>↗</b>
+          </div>
+        </Link>
+
 </section>
 
       <section className="analytic-course-map">
