@@ -436,17 +436,18 @@ export const tasks = [
     subjectCode: 'FI190',
     assignedDate: '2026-09-14',
     dueDate: '2026-09-21',
-    title: 'Preparar las categorías de Kant',
+    title: 'Analítica trascendental y categorías de Kant',
     type: 'Lectura / preparación',
     weight: null,
     description:
-      'Preparar el tema de las categorías de Kant para la siguiente sesión: qué son, su relación con el entendimiento, la deducción metafísica de las categorías y la deducción trascendental de las categorías. La fecha del 21 de septiembre corresponde a la siguiente sesión ordinaria de Ontología II; la grabación no verbaliza una fecha de entrega concreta.',
+      'Leer la Analítica trascendental de la Crítica de la razón pura, con especial atención a las formas del juicio, las categorías, la deducción metafísica y la deducción trascendental. Usar como lectura de apoyo La teoría del conocimiento de Kant, de Justus Hartnack. La fecha del 21 de septiembre corresponde a la siguiente sesión ordinaria de Ontología II.',
     readingScope:
-      'Categorías del entendimiento · deducción metafísica · deducción trascendental',
+      'Immanuel Kant · Crítica de la razón pura · Analítica trascendental · lectura primaria. Justus Hartnack · La teoría del conocimiento de Kant · Analítica Trascendental · lectura de apoyo.',
     readingEdition:
-      'Referencia mencionada en clase, identificada con bastante probabilidad: Justus Hartnack · La teoría del conocimiento de Kant',
+      'Kant: traducción de Pedro Ribas. Hartnack: traducción de Carmen García y J. A. Llorente.',
     readingFullPart:
-      'No se registran páginas específicas porque la grabación no permite confirmarlas con seguridad.',
+      'Recorrido de estudio: Analítica de los conceptos, tabla de juicios, tabla de categorías, deducción trascendental, esquematismo y Analítica de los principios.',
+    studyRoute: '/tareas/ontologia-ii/kant-analitica-trascendental',
     sourceClass: 'Clase del 14 de septiembre',
     sourceRoute: '/semestre/5/ontologia-ii/clase/14-septiembre',
   },

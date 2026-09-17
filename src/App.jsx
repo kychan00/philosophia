@@ -29,6 +29,7 @@ const OntologiaClass14Sep = lazy(() => import('./pages/OntologiaClass14Sep'))
 const KantPrefacesMap = lazy(() => import('./pages/KantPrefacesMap'))
 const KantIntroductionMap = lazy(() => import('./pages/KantIntroductionMap'))
 const KantAestheticMap = lazy(() => import('./pages/KantAestheticMap'))
+const KantAnalyticSystem = lazy(() => import('./pages/KantAnalyticSystem'))
 const MethodsResearch = lazy(() => import('./pages/MethodsResearch'))
 const MethodsClass17Aug = lazy(() => import('./pages/MethodsClass17Aug'))
 const MethodsClass19Aug = lazy(() => import('./pages/MethodsClass19Aug'))
@@ -331,7 +332,14 @@ function App() {
         />
 <Route path="*" element={<Navigate to="/" replace />} />
                   <Route path="/tareas/ontologia-ii/kant-critica-razon-pura-introduccion" element={<KantIntroductionMap />} />
-                  <Route path="/tareas/ontologia-ii/kant-critica-razon-pura-estetica-trascendental" element={<KantAestheticMap />} />
+                  <Route
+                    path="/tareas/ontologia-ii/kant-critica-razon-pura-estetica-trascendental"
+                    element={<KantAestheticMap />}
+                  />
+                  <Route
+                    path="/tareas/ontologia-ii/kant-analitica-trascendental"
+                    element={<KantAnalyticSystem />}
+                  />
                   <Route path="/semestre/5/filosofia-analitica/clase/7-septiembre" element={<AnaliticaClase7Septiembre />} />
         </Routes>
       </Suspense>
