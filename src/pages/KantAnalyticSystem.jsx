@@ -1,18 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
 import {
-  Background,
-  Controls,
-  MarkerType,
-  MiniMap,
-  ReactFlow,
-  ReactFlowProvider,
-  useEdgesState,
-  useNodesState,
-  useReactFlow,
-} from '@xyflow/react'
+  Background, Controls, MarkerType, MiniMap, ReactFlow, ReactFlowProvider, useEdgesState, useNodesState, useReactFlow, } from '@xyflow/react'
 import '@xyflow/react/dist/style.css'
-import { GUIDE_STEPS, MAPS, PHASES, SOURCE_LABELS, STUDY_QUESTIONS, SOURCE_READINGS } from '../data/kantAnalyticSystem'
+import { GUIDE_STEPS, MAPS, PHASES, SOURCE_LABELS, STUDY_QUESTIONS, SOURCE_READINGS, READING_LIBRARY, NODE_READING_PRESETS } from '../data/kantAnalyticSystem'
 import './KantAnalyticSystem.css'
 
 const NODE_WIDTH = 310
@@ -39,6 +30,33 @@ function normalizeSearch(value = '') {
     .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase()
     .trim()
+}
+
+
+function resolveNodeReadings(mapId, item) {
+  if (!item) return null
+
+  const preset = NODE_READING_PRESETS[`${mapId}:${item.id}`] || {}
+  const presetReadings = Object.fromEntries(
+    Object.entries(preset)
+      .map(([source, key]) => [source, READING_LIBRARY[key]])
+      .filter(([, reading]) => Boolean(reading)),
+  )
+
+  const sourceFallback =
+    item.source === 'kant'
+      ? { kant: READING_LIBRARY['kant-sensibility-understanding'] }
+      : item.source === 'hartnack'
+        ? { hartnack: READING_LIBRARY['hartnack-analytic-intro'] }
+        : {
+            kant: READING_LIBRARY['kant-sensibility-understanding'],
+            hartnack: READING_LIBRARY['hartnack-analytic-intro'],
+          }
+
+  const exact = SOURCE_READINGS[item.id] || {}
+  const resolved = { ...sourceFallback, ...presetReadings, ...exact }
+
+  return Object.keys(resolved).length ? resolved : null
 }
 
 function SourceChip({ source }) {
@@ -215,7 +233,13 @@ function Inspector({
       {(!isFullscreen || !minimized) && (
         <>
           <p className="kas-inspector-short">{item.short}</p>
-          <p className="kas-inspector-detail">{item.detail}</p>
+
+                {item.detail && (
+                  <div className="kas-explanation-box">
+                    <span>EXPLICACIÓN</span>
+                    <p className="kas-inspector-detail">{item.detail}</p>
+                  </div>
+                )}
 
           {readings && (
             <div className="kas-readings-box">
@@ -335,7 +359,7 @@ function Workspace() {
     () =>
       Object.entries(MAPS).flatMap(([mapId, map]) =>
         map.nodes.map((item) => {
-          const readings = SOURCE_READINGS[item.id]
+          const readings = resolveNodeReadings(mapId, item)
           const readingText = readings
             ? Object.values(readings)
                 .filter(Boolean)
@@ -422,11 +446,8 @@ function Workspace() {
   }
 
   const selected = useMemo(
-    () =>
-      Object.values(MAPS)
-        .flatMap((map) => map.nodes)
-        .find((item) => item.id === selectedId) || null,
-    [selectedId],
+    () => currentMap.nodes.find((item) => item.id === selectedId) || null,
+    [currentMap, selectedId],
   )
 
   const visibleIds = useMemo(
@@ -984,7 +1005,7 @@ function Workspace() {
             onDragStart={startPanelDrag}
             onDragMove={movePanelDrag}
             onDragEnd={endPanelDrag}
-            readings={selected ? SOURCE_READINGS[selected.id] : null}
+            readings={selected ? resolveNodeReadings(mode, selected) : null}
             onOpenReading={setSourceReader}
           />
 

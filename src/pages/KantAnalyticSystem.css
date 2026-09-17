@@ -1633,3 +1633,49 @@
   .kas-search{width:100%;max-width:none}
   .kas-search-results{width:100%}
 }
+
+/* Universal node explanation + direct-reading treatment */
+.kas-explanation-box{
+  margin-top:1rem;
+  padding:1rem;
+  border:1px solid var(--kas-line);
+  border-left:4px solid var(--kas-blue);
+  background:rgba(255,255,255,.28);
+}
+
+.kas-explanation-box>span{
+  display:block;
+  margin-bottom:.55rem;
+  color:var(--kas-blue);
+  font-size:.58rem;
+  font-weight:900;
+  letter-spacing:.15em;
+}
+
+.kas-explanation-box .kas-inspector-detail{
+  margin:0;
+}
+
+.kas-readings-box{
+  padding-top:.2rem;
+}
+
+.kas-readings-title>span::after{
+  content:" · FUENTE PRIMARIA / COMENTARIO";
+  opacity:.6;
+}
+
+.kas-reading-card blockquote{
+  position:relative;
+}
+
+.kas-reading-card blockquote::before{
+  content:"LECTURA DIRECTA";
+  display:block;
+  margin-bottom:.45rem;
+  color:#776f66;
+  font-family:inherit;
+  font-size:.5rem;
+  font-weight:900;
+  letter-spacing:.13em;
+}

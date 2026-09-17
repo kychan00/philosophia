@@ -264,12 +264,12 @@ export const MAPS = {
 
   categories: {
     label: 'Juicios → categorías',
-    subtitle: 'Atlas 2D de la deducción metafísica',
+    subtitle: 'Tabla canónica: cantidad · cualidad · relación · modalidad',
     nodes: [
       {
         id: 'quantity-judgments',
-        x: 0,
-        y: 0,
+        x: 520,
+        y: 40,
         source: 'both',
         family: 'Cantidad',
         eyebrow: 'FORMAS DEL JUICIO',
@@ -282,8 +282,8 @@ export const MAPS = {
       },
       {
         id: 'quantity-categories',
-        x: 460,
-        y: 0,
+        x: 980,
+        y: 40,
         source: 'both',
         family: 'Cantidad',
         eyebrow: 'CATEGORÍAS',
@@ -297,7 +297,7 @@ export const MAPS = {
       {
         id: 'quality-judgments',
         x: 0,
-        y: 320,
+        y: 390,
         source: 'both',
         family: 'Cualidad',
         eyebrow: 'FORMAS DEL JUICIO',
@@ -311,7 +311,7 @@ export const MAPS = {
       {
         id: 'quality-categories',
         x: 460,
-        y: 320,
+        y: 390,
         source: 'both',
         family: 'Cualidad',
         eyebrow: 'CATEGORÍAS',
@@ -325,7 +325,7 @@ export const MAPS = {
       {
         id: 'relation-judgments',
         x: 1040,
-        y: 0,
+        y: 390,
         source: 'both',
         family: 'Relación',
         eyebrow: 'FORMAS DEL JUICIO',
@@ -339,7 +339,7 @@ export const MAPS = {
       {
         id: 'relation-categories',
         x: 1500,
-        y: 0,
+        y: 390,
         source: 'both',
         family: 'Relación',
         eyebrow: 'CATEGORÍAS',
@@ -352,8 +352,8 @@ export const MAPS = {
       },
       {
         id: 'modality-judgments',
-        x: 1040,
-        y: 320,
+        x: 520,
+        y: 740,
         source: 'both',
         family: 'Modalidad',
         eyebrow: 'FORMAS DEL JUICIO',
@@ -366,8 +366,8 @@ export const MAPS = {
       },
       {
         id: 'modality-categories',
-        x: 1500,
-        y: 320,
+        x: 980,
+        y: 740,
         source: 'both',
         family: 'Modalidad',
         eyebrow: 'CATEGORÍAS',
@@ -380,8 +380,8 @@ export const MAPS = {
       },
       {
         id: 'hartnack-cat',
-        x: 340,
-        y: 680,
+        x: 0,
+        y: 1110,
         source: 'hartnack',
         family: 'Ejemplo',
         eyebrow: 'EJEMPLO DE HARTNACK',
@@ -393,8 +393,8 @@ export const MAPS = {
       },
       {
         id: 'hartnack-table',
-        x: 1380,
-        y: 680,
+        x: 1500,
+        y: 1110,
         source: 'hartnack',
         family: 'Ejemplo',
         eyebrow: 'EJEMPLO DE HARTNACK',
@@ -406,8 +406,8 @@ export const MAPS = {
       },
       {
         id: 'discovery-proof',
-        x: 860,
-        y: 720,
+        x: 750,
+        y: 1190,
         source: 'both',
         family: 'Distinción',
         eyebrow: 'ADVERTENCIA',
@@ -1611,4 +1611,360 @@ export const SOURCE_READINGS = {
         'Hartnack concluye que el conocimiento requiere dos cosas: intuición, es decir, aquello que es dado en espacio y tiempo, y aplicación de las categorías a lo dado en la intuición. Ni la intuición sola ni las categorías solas producen conocimiento. Las categorías son condiciones necesarias del conocimiento empírico, que Kant llama experiencia.',
     },
   },
+}
+
+export const READING_LIBRARY = {
+  'kant-sensibility-understanding': {
+    kind: 'CITA DIRECTA',
+    locator: 'Kant · Crítica de la razón pura · Lógica trascendental · Introducción',
+    quote:
+      'Sin sensibilidad ningún objeto nos sería dado y, sin entendimiento, ninguno sería pensado.',
+    fullText:
+      'La capacidad de pensar el objeto de la intuición es el entendimiento. Ninguna de estas propiedades es preferible a la otra: sin sensibilidad ningún objeto nos sería dado y, sin entendimiento, ninguno sería pensado. Los pensamientos sin contenido son vacíos; las intuiciones sin conceptos son ciegas. El conocimiento únicamente puede surgir de la unión de ambos.',
+  },
+  'hartnack-analytic-intro': {
+    kind: 'EXPLICACIÓN DIRECTA',
+    locator: 'Hartnack · La Analítica Trascendental · p. 43',
+    quote:
+      'Una simple intuición no es lo mismo que la comprensión de lo que es intuido.',
+    fullText:
+      'En la Analítica Trascendental Kant se propone hallar las condiciones para hacer juicios sintéticos a priori en física. La Estética elucida las condiciones de la intuición. Pero una simple intuición no es lo mismo que la comprensión, el pensamiento o la intelección, de lo que es intuido. La condición de pensar lo que es intuido es el empleo de conceptos, y ésta es una actividad del entendimiento.',
+  },
+  'kant-faculty-judging': {
+    kind: 'CITA DIRECTA',
+    locator: 'Kant · Analítica de los conceptos · guía para el descubrimiento',
+    quote:
+      'El entendimiento puede representarse como una facultad de juzgar.',
+    fullText:
+      'Podemos reducir todos los actos del entendimiento a juicios, de modo que el entendimiento puede representarse como una facultad de juzgar, ya que es una facultad de pensar. Pensar es conocer mediante conceptos.',
+  },
+  'kant-judgment-table': {
+    kind: 'CITA DIRECTA',
+    locator: 'Kant · §9 · Función lógica del entendimiento en los juicios',
+    quote:
+      'La función del pensamiento, dentro del juicio, puede reducirse a cuatro títulos.',
+    fullText:
+      'Si hacemos completa abstracción del contenido de un juicio y atendemos tan sólo a su simple forma intelectual, descubrimos que la función del pensamiento, dentro del juicio, puede reducirse a cuatro títulos, cada uno de los cuales incluye tres momentos: cantidad, cualidad, relación y modalidad.',
+  },
+  'hartnack-judgments-categories': {
+    kind: 'EXPLICACIÓN DIRECTA',
+    locator: 'Hartnack · Deducción metafísica · pp. 49–56',
+    quote:
+      'Tras examinar las formas posibles y necesarias de los juicios, Kant piensa que ha descubierto todas las categorías.',
+    fullText:
+      'Hartnack presenta la tabla de categorías en cuatro grupos: cantidad —unidad, pluralidad, totalidad—; cualidad —realidad, negación, limitación—; relación —sustancia, causalidad, comunidad—; y modalidad —posibilidad, existencia, necesidad, con sus correlatos. A las categorías de cantidad y cualidad las llama matemáticas; a las de relación y modalidad, dinámicas.',
+  },
+  'kant-categories-system': {
+    kind: 'CITA DIRECTA',
+    locator: 'Kant · §10 · Tabla de las categorías',
+    quote:
+      'Esta es la lista completa de los conceptos puros originarios de la síntesis contenidos a priori en el entendimiento.',
+    fullText:
+      'La tabla comprende: cantidad —unidad, pluralidad, totalidad—; cualidad —realidad, negación, limitación—; relación —inherencia y subsistencia, causalidad y dependencia, comunidad—; modalidad —posibilidad e imposibilidad, existencia y no-existencia, necesidad y contingencia. La división ha sido hecha sistemáticamente a partir de un principio común, el de la facultad de juzgar, y no ha surgido de forma rapsódica.',
+  },
+  'hartnack-discovery-validity': {
+    kind: 'EXPLICACIÓN DIRECTA',
+    locator: 'Hartnack · Deducción metafísica · p. 56',
+    quote:
+      'Una cosa es haber mostrado que realmente utilizamos categorías, y otra bien distinta haber probado que nuestro empleo de las categorías es legítimo.',
+    fullText:
+      'Hartnack subraya que, tras examinar las formas de los juicios, Kant piensa que ha descubierto todas las categorías, pero no que haya demostrado su validez. La Deducción trascendental aborda precisamente la legitimidad de su empleo.',
+  },
+  'kant-deduction-juris': {
+    kind: 'CITA DIRECTA',
+    locator: 'Kant · §13 · Principios de una deducción trascendental en general',
+    quote:
+      'Los juristas distinguen en un asunto legal la cuestión de derecho (quid juris) de la cuestión de hecho (quid facti).',
+    fullText:
+      'Al hablar de derechos y pretensiones, los juristas distinguen en un asunto legal la cuestión de derecho (quid juris) de la cuestión de hecho (quid facti). De ambas exigen una demostración y llaman a la primera —la que expone el derecho o la pretensión legal— deducción.',
+  },
+  'kant-deduction-definition': {
+    kind: 'CITA DIRECTA',
+    locator: 'Kant · §13 · Deducción trascendental',
+    quote:
+      'La explicación de la forma según la cual los conceptos a priori pueden referirse a objetos la llamo deducción trascendental.',
+    fullText:
+      'El derecho de los conceptos destinados al uso puro a priori necesita siempre una deducción, ya que no bastan para legitimar semejante uso las pruebas extraídas de la experiencia. La explicación de la forma según la cual los conceptos a priori pueden referirse a objetos la llamo deducción trascendental de los mismos.',
+  },
+  'kant-experience-condition': {
+    kind: 'CITA DIRECTA',
+    locator: 'Kant · §14 · Paso a la deducción trascendental',
+    quote:
+      'La validez objetiva de las categorías residirá en el hecho de que sólo gracias a ellas sea posible la experiencia.',
+    fullText:
+      'La validez objetiva de las categorías como conceptos a priori residirá en el hecho de que sólo gracias a ellas sea posible la experiencia, por lo que hace a la forma del pensar. Se refieren de modo necesario y a priori a objetos de la experiencia porque sólo a través de ellas es posible pensar algún objeto de la experiencia.',
+  },
+  'hartnack-experience': {
+    kind: 'EXPLICACIÓN DIRECTA',
+    locator: 'Hartnack · Deducción trascendental · p. 68',
+    quote:
+      'Ni la intuición sola, ni las categorías solas, pueden dar conocimiento.',
+    fullText:
+      'El conocimiento requiere dos cosas: por una parte, intuición, aquello que es dado en el espacio y en el tiempo, y por otra, la aplicación de las categorías a lo que es dado en la intuición. Ni la intuición sola, ni las categorías solas, pueden dar conocimiento. Las categorías son condiciones necesarias del conocimiento empírico.',
+  },
+  'kant-apprehension': {
+    kind: 'CITA DIRECTA',
+    locator: 'Kant · Deducción trascendental (A) · Síntesis de aprehensión',
+    quote:
+      'Hace falta primero recorrer toda esa diversidad y reunirla después.',
+    fullText:
+      'Toda intuición contiene en sí una variedad. Para que surja una unidad intuitiva de esa diversidad hace falta primero recorrer toda esa diversidad y reunirla después. Este acto lo llamo síntesis de aprehensión.',
+  },
+  'kant-reproduction': {
+    kind: 'CITA DIRECTA',
+    locator: 'Kant · Deducción trascendental (A) · Síntesis de reproducción',
+    quote:
+      'Si mi pensamiento dejara escapar siempre las representaciones precedentes, jamás podría surgir una representación completa.',
+    fullText:
+      'Si intento trazar una línea en mi pensamiento, pensar un intervalo de tiempo o representarme un número, mi pensamiento tiene que asumir varias representaciones una tras otra. Si dejara escapar siempre las representaciones precedentes y no las reprodujera al pasar a las siguientes, jamás podría surgir una representación completa.',
+  },
+  'kant-recognition': {
+    kind: 'CITA DIRECTA',
+    locator: 'Kant · Deducción trascendental (A) · Síntesis de reconocimiento',
+    quote:
+      'Sin conciencia no puede haber conceptos ni es, por tanto, posible conocer objetos.',
+    fullText:
+      'Si no fuéramos conscientes de que lo que ahora pensamos es lo mismo que habíamos pensado hace un instante, toda reproducción sería inútil. Lo vario jamás formaría un todo, ya que carecería de una unidad que sólo la conciencia puede suministrar. Sin conciencia no puede haber conceptos ni es posible conocer objetos.',
+  },
+  'hartnack-triple-synthesis': {
+    kind: 'EXPLICACIÓN DIRECTA',
+    locator: 'Hartnack · Deducción trascendental · pp. 66–67',
+    quote:
+      'La intuición es una síntesis de una multiplicidad, constituida por la aprehensión, la reproducción y el reconocimiento.',
+    fullText:
+      'Intuir es intuir en el tiempo. Esto implica que la intuición es una síntesis de una multiplicidad, una síntesis constituida por la aprehensión, la reproducción y el reconocimiento. Sin una tal síntesis no hay autoconciencia y no hay tampoco ningún objeto como síntesis de una multiplicidad de impresiones en el tiempo.',
+  },
+  'kant-imagination': {
+    kind: 'CITA DIRECTA',
+    locator: 'Kant · §24 · Síntesis trascendental de la imaginación',
+    quote:
+      'La imaginación es la facultad de representar un objeto en la intuición incluso cuando éste no se halla presente.',
+    fullText:
+      'La imaginación es la facultad de representar un objeto en la intuición incluso cuando éste no se halla presente. Cuando la síntesis figurada se refiere a la originaria unidad sintética de apercepción tiene que llamarse síntesis trascendental de la imaginación.',
+  },
+  'kant-i-think': {
+    kind: 'CITA DIRECTA',
+    locator: 'Kant · §16 · Unidad sintética originaria de apercepción',
+    quote:
+      'El Yo pienso tiene que poder acompañar todas mis representaciones.',
+    fullText:
+      'El Yo pienso tiene que poder acompañar todas mis representaciones. Toda diversidad de la intuición guarda una necesaria relación con el Yo pienso en el mismo sujeto en el que se halla tal diversidad. Kant llama a esta autoconciencia apercepción pura u originaria.',
+  },
+  'kant-object-unity': {
+    kind: 'CITA DIRECTA',
+    locator: 'Kant · Deducción trascendental (A) · Objeto trascendental = X',
+    quote:
+      'Nuestros conocimientos no se producen al azar o arbitrariamente.',
+    fullText:
+      'Nuestros conocimientos no se producen al azar o arbitrariamente, sino que se hallan determinados de una cierta forma. Al tener que referirse a un objeto, han de concordar necesariamente entre sí con respecto a éste último, es decir, han de poseer la unidad que constituye el concepto de un objeto.',
+  },
+  'hartnack-object-orange': {
+    kind: 'EJEMPLO DIRECTO',
+    locator: 'Hartnack · Deducción trascendental · ejemplo de la naranja',
+    quote:
+      'Llamar a lo que veo una “naranja” es aplicarle el concepto “naranja”.',
+    fullText:
+      'Si digo que veo una naranja, el objeto que veo no se identifica con ninguna experiencia sensible particular de ella. Llamar a lo que veo una naranja es aplicarle el concepto naranja: reunir lo que se ve, se siente, se huele y se saborea bajo este concepto, es decir, ordenar bajo una regla lo dado a los sentidos.',
+  },
+  'kant-schema-time': {
+    kind: 'CITA DIRECTA',
+    locator: 'Kant · Esquematismo de los conceptos puros del entendimiento',
+    quote:
+      'Los esquemas no son, pues, más que determinaciones del tiempo realizadas a priori según unas reglas.',
+    fullText:
+      'Los esquemas se refieren, según el orden de las categorías, a los siguientes aspectos del tiempo: serie, contenido, orden y conjunto. Los esquemas de los conceptos puros del entendimiento constituyen las condiciones que hacen que tales conceptos se refieran a objetos.',
+  },
+  'hartnack-schema-time': {
+    kind: 'EXPLICACIÓN DIRECTA',
+    locator: 'Hartnack · Esquematismo · pp. 70 ss.',
+    quote:
+      'Las categorías fueron esquematizadas al ser puestas en relación con el tiempo puro.',
+    fullText:
+      'Hartnack explica que las categorías fueron esquematizadas al ser puestas en relación con el tiempo puro, es decir, el tiempo como forma a priori de intuición. Esa mediación permite interpretar sustancia como permanencia, causalidad como secuencia objetiva y comunidad como interacción.',
+  },
+  'kant-causality-schema': {
+    kind: 'CITA DIRECTA',
+    locator: 'Kant · Esquematismo · causalidad',
+    quote:
+      'Consiste en la sucesión de lo diverso, en la medida en que tal sucesión se halla sometida a una regla.',
+    fullText:
+      'El esquema de la causa y de la causalidad de una cosa en general es la realidad a la que sigue algo distinto, una vez puesta esa realidad. Consiste en la sucesión de lo diverso, en la medida en que tal sucesión se halla sometida a una regla.',
+  },
+  'hartnack-causality-schema': {
+    kind: 'EXPLICACIÓN DIRECTA',
+    locator: 'Hartnack · Esquematismo · causalidad · p. 76',
+    quote:
+      'El esquema de la categoría de causalidad es una sucesión de eventos.',
+    fullText:
+      'El esquema de la categoría de causalidad es una sucesión de eventos tal que, cuando se produce un cierto evento, éste es seguido por un segundo evento determinado según una regla.',
+  },
+  'kant-schema-limit': {
+    kind: 'CITA DIRECTA',
+    locator: 'Kant · conclusión del Esquematismo',
+    quote:
+      'Los esquemas de la sensibilidad realizan las categorías y también las restringen.',
+    fullText:
+      'Las categorías no tienen otro uso posible que el empírico. Si bien son los esquemas de la sensibilidad los que realizan las categorías, son también ellos los que las restringen. Si prescindimos de los esquemas, las categorías se reducen a simples funciones intelectuales relativas a conceptos, pero no representan ningún objeto.',
+  },
+  'kant-principles-table': {
+    kind: 'CITA DIRECTA',
+    locator: 'Kant · Sistema de todos los principios del entendimiento puro',
+    quote:
+      'La tabla de las categorías nos lleva con la mayor naturalidad a la tabla de los principios.',
+    fullText:
+      'La tabla de las categorías nos lleva con la mayor naturalidad a la tabla de los principios, ya que ésta no es otra cosa que las reglas del uso objetivo de aquéllas. Los principios son: Axiomas de la intuición, Anticipaciones de la percepción, Analogías de la experiencia y Postulados del pensar empírico en general.',
+  },
+  'hartnack-principles-table': {
+    kind: 'EXPLICACIÓN DIRECTA',
+    locator: 'Hartnack · Sistema de todos los principios · pp. 57, 79 ss.',
+    quote:
+      'En correspondencia con los esquemas de cantidad, cualidad, relación y modalidad hay cuatro principios.',
+    fullText:
+      'En correspondencia con los esquemas de cantidad, cualidad, relación y modalidad hay cuatro principios: Axiomas de la intuición, Anticipaciones de la percepción, Analogías de la experiencia y Postulados del pensamiento empírico.',
+  },
+  'kant-axioms': {
+    kind: 'CITA DIRECTA',
+    locator: 'Kant · Axiomas de la intuición',
+    quote:
+      'Todas las intuiciones son magnitudes extensivas.',
+    fullText:
+      'Todos los fenómenos son magnitudes extensivas, ya que, en cuanto intuiciones en el espacio y el tiempo, deben ser representados mediante la misma síntesis que determina el espacio y el tiempo en general.',
+  },
+  'hartnack-axioms': {
+    kind: 'EXPLICACIÓN DIRECTA',
+    locator: 'Hartnack · Axiomas de la intuición · p. 82',
+    quote:
+      'Toda intuición es una magnitud extensiva.',
+    fullText:
+      'Hartnack explica que la Analítica trata de las condiciones para comprender lo intuido. Los Axiomas de la intuición tratan de las condiciones para comprender lo intuido como una magnitud extendida en el espacio y en el tiempo.',
+  },
+  'kant-anticipations': {
+    kind: 'CITA DIRECTA',
+    locator: 'Kant · Anticipaciones de la percepción',
+    quote:
+      'En todos los fenómenos, lo real que sea un objeto de la sensación posee magnitud intensiva, es decir, un grado.',
+    fullText:
+      'En todos los fenómenos, lo real que sea un objeto de la sensación posee magnitud intensiva, es decir, un grado. La sensación puede aumentar gradualmente desde cero hasta una magnitud cualquiera.',
+  },
+  'hartnack-anticipations': {
+    kind: 'EXPLICACIÓN DIRECTA',
+    locator: 'Hartnack · Anticipaciones de la percepción · p. 83',
+    quote:
+      'Toda impresión sensible tiene un cierto grado.',
+    fullText:
+      'Toda impresión sensible tiene un cierto grado. Ésta es una proposición que puede afirmarse a priori. El grado puede ir desde cero hasta cualquier magnitud, pero en cada momento la impresión sensible tiene una intensidad definida.',
+  },
+  'kant-analogies': {
+    kind: 'CITA DIRECTA',
+    locator: 'Kant · Analogías de la experiencia',
+    quote:
+      'La experiencia sólo es posible mediante la representación de una necesaria conexión de las percepciones.',
+    fullText:
+      'La experiencia sólo es posible mediante la representación de una necesaria conexión de las percepciones. Los tres modos del tiempo son permanencia, sucesión y simultaneidad; para las relaciones temporales de los fenómenos habrá, pues, tres reglas.',
+  },
+  'hartnack-analogies': {
+    kind: 'EXPLICACIÓN DIRECTA',
+    locator: 'Hartnack · Analogías de la experiencia · p. 85',
+    quote:
+      'La experiencia es una síntesis de impresiones sensibles.',
+    fullText:
+      'Por experiencia entiende Kant conocimiento empírico de un objeto a través de la percepción sensible. La experiencia es una síntesis de impresiones sensibles y expresa la unidad necesaria de la conciencia. Sustancia, causalidad y comunidad articulan relaciones temporales necesarias.',
+  },
+  'kant-postulates': {
+    kind: 'CITA DIRECTA',
+    locator: 'Kant · Postulados del pensar empírico en general',
+    quote:
+      'Lo que concuerda con las condiciones formales de la experiencia es posible.',
+    fullText:
+      'Lo que concuerda con las condiciones formales de la experiencia, desde el punto de vista de la intuición y de los conceptos, es posible. Lo que se halla en interdependencia con las condiciones materiales de la experiencia es real. Aquello cuya interdependencia con lo real se halla determinada según condiciones universales de la experiencia es necesario.',
+  },
+  'hartnack-postulates': {
+    kind: 'EXPLICACIÓN DIRECTA',
+    locator: 'Hartnack · Postulados del pensamiento empírico · pp. 94 ss.',
+    quote:
+      'Lo real es lo que existe en un tiempo definido, y lo necesario es lo que existe en todo tiempo.',
+    fullText:
+      'Hartnack interpreta los esquemas de modalidad en términos temporales: lo posible puede existir en algún momento; lo real existe en un tiempo definido; lo necesario existe en todo tiempo.',
+  },
+  'kant-not-soul': {
+    kind: 'CITA DIRECTA',
+    locator: 'Kant · Paralogismos de la razón pura',
+    quote:
+      'Fuera de tal significado lógico del yo, no conocemos en sí mismo al sujeto.',
+    fullText:
+      'Aunque el yo se halla en todos los pensamientos, su representación no contiene una intuición que lo distinga como objeto. Fuera del significado lógico del yo, no conocemos en sí mismo al sujeto que sirve de base a él y a todos los pensamientos.',
+  },
+}
+
+export const NODE_READING_PRESETS = {
+  'architecture:sensibility': { kant: 'kant-sensibility-understanding', hartnack: 'hartnack-analytic-intro' },
+  'architecture:space-time': { kant: 'kant-sensibility-understanding', hartnack: 'hartnack-analytic-intro' },
+  'architecture:analytic': { kant: 'kant-sensibility-understanding', hartnack: 'hartnack-analytic-intro' },
+  'architecture:concepts': { kant: 'kant-faculty-judging', hartnack: 'hartnack-analytic-intro' },
+  'architecture:judgment': { kant: 'kant-faculty-judging', hartnack: 'hartnack-judgments-categories' },
+  'architecture:metaphysical-deduction': { kant: 'kant-categories-system', hartnack: 'hartnack-discovery-validity' },
+  'architecture:categories': { kant: 'kant-categories-system', hartnack: 'hartnack-judgments-categories' },
+  'architecture:transcendental-deduction': { kant: 'kant-deduction-definition', hartnack: 'hartnack-discovery-validity' },
+  'architecture:principles': { kant: 'kant-principles-table', hartnack: 'hartnack-principles-table' },
+  'architecture:schematism': { kant: 'kant-schema-time', hartnack: 'hartnack-schema-time' },
+  'architecture:system-principles': { kant: 'kant-principles-table', hartnack: 'hartnack-principles-table' },
+  'architecture:experience': { kant: 'kant-experience-condition', hartnack: 'hartnack-experience' },
+  'architecture:systematicity': { kant: 'kant-categories-system', hartnack: 'hartnack-judgments-categories' },
+
+  'categories:quantity-judgments': { kant: 'kant-judgment-table', hartnack: 'hartnack-judgments-categories' },
+  'categories:quantity-categories': { kant: 'kant-categories-system', hartnack: 'hartnack-judgments-categories' },
+  'categories:quality-judgments': { kant: 'kant-judgment-table', hartnack: 'hartnack-judgments-categories' },
+  'categories:quality-categories': { kant: 'kant-categories-system', hartnack: 'hartnack-judgments-categories' },
+  'categories:relation-judgments': { kant: 'kant-judgment-table', hartnack: 'hartnack-judgments-categories' },
+  'categories:relation-categories': { kant: 'kant-categories-system', hartnack: 'hartnack-judgments-categories' },
+  'categories:modality-judgments': { kant: 'kant-judgment-table', hartnack: 'hartnack-judgments-categories' },
+  'categories:modality-categories': { kant: 'kant-categories-system', hartnack: 'hartnack-judgments-categories' },
+  'categories:hartnack-cat': { hartnack: 'hartnack-judgments-categories' },
+  'categories:hartnack-table': { hartnack: 'hartnack-judgments-categories' },
+  'categories:discovery-proof': { kant: 'kant-deduction-juris', hartnack: 'hartnack-discovery-validity' },
+
+  'deduction:quid-juris': { kant: 'kant-deduction-juris', hartnack: 'hartnack-discovery-validity' },
+  'deduction:a-priori-claim': { kant: 'kant-deduction-definition', hartnack: 'hartnack-discovery-validity' },
+  'deduction:manifold': { kant: 'kant-sensibility-understanding', hartnack: 'hartnack-experience' },
+  'deduction:synthesis': { kant: 'kant-object-unity', hartnack: 'hartnack-triple-synthesis' },
+  'deduction:apperception': { kant: 'kant-i-think', hartnack: 'hartnack-experience' },
+  'deduction:categories-rules': { kant: 'kant-experience-condition', hartnack: 'hartnack-experience' },
+  'deduction:object-unity': { kant: 'kant-object-unity', hartnack: 'hartnack-triple-synthesis' },
+  'deduction:experience': { kant: 'kant-experience-condition', hartnack: 'hartnack-experience' },
+  'deduction:objective-validity': { kant: 'kant-experience-condition', hartnack: 'hartnack-experience' },
+  'deduction:empirical-limit': { kant: 'kant-schema-limit', hartnack: 'hartnack-experience' },
+  'deduction:orange': { hartnack: 'hartnack-object-orange' },
+
+  'apperception:a-route': { kant: 'kant-apprehension', hartnack: 'hartnack-triple-synthesis' },
+  'apperception:time-manifold': { kant: 'kant-apprehension', hartnack: 'hartnack-triple-synthesis' },
+  'apperception:apprehension': { kant: 'kant-apprehension', hartnack: 'hartnack-triple-synthesis' },
+  'apperception:reproduction': { kant: 'kant-reproduction', hartnack: 'hartnack-triple-synthesis' },
+  'apperception:recognition': { kant: 'kant-recognition', hartnack: 'hartnack-triple-synthesis' },
+  'apperception:imagination': { kant: 'kant-imagination', hartnack: 'hartnack-triple-synthesis' },
+  'apperception:b-route': { kant: 'kant-i-think', hartnack: 'hartnack-experience' },
+  'apperception:i-think': { kant: 'kant-i-think', hartnack: 'hartnack-experience' },
+  'apperception:synthetic-unity': { kant: 'kant-i-think', hartnack: 'hartnack-experience' },
+  'apperception:objective-unity': { kant: 'kant-object-unity', hartnack: 'hartnack-experience' },
+  'apperception:object-x': { kant: 'kant-object-unity', hartnack: 'hartnack-triple-synthesis' },
+  'apperception:categories': { kant: 'kant-experience-condition', hartnack: 'hartnack-experience' },
+  'apperception:experience-result': { kant: 'kant-experience-condition', hartnack: 'hartnack-experience' },
+  'apperception:not-soul': { kant: 'kant-not-soul' },
+
+  'schematism:schema-problem': { kant: 'kant-schema-time', hartnack: 'hartnack-schema-time' },
+  'schematism:time-schema': { kant: 'kant-schema-time', hartnack: 'hartnack-schema-time' },
+  'schematism:quantity-schema': { kant: 'kant-schema-time', hartnack: 'hartnack-schema-time' },
+  'schematism:quality-schema': { kant: 'kant-schema-time', hartnack: 'hartnack-anticipations' },
+  'schematism:relation-schema': { kant: 'kant-schema-time', hartnack: 'hartnack-schema-time' },
+  'schematism:modality-schema': { kant: 'kant-postulates', hartnack: 'hartnack-postulates' },
+  'schematism:substance-schema': { kant: 'kant-schema-time', hartnack: 'hartnack-schema-time' },
+  'schematism:causality-schema': { kant: 'kant-causality-schema', hartnack: 'hartnack-causality-schema' },
+  'schematism:community-schema': { kant: 'kant-analogies', hartnack: 'hartnack-schema-time' },
+  'schematism:principles-root': { kant: 'kant-principles-table', hartnack: 'hartnack-principles-table' },
+  'schematism:math-principles': { kant: 'kant-principles-table', hartnack: 'hartnack-principles-table' },
+  'schematism:axioms': { kant: 'kant-axioms', hartnack: 'hartnack-axioms' },
+  'schematism:anticipations': { kant: 'kant-anticipations', hartnack: 'hartnack-anticipations' },
+  'schematism:dynamic-principles': { kant: 'kant-principles-table', hartnack: 'hartnack-principles-table' },
+  'schematism:analogies': { kant: 'kant-analogies', hartnack: 'hartnack-analogies' },
+  'schematism:postulates': { kant: 'kant-postulates', hartnack: 'hartnack-postulates' },
+  'schematism:schema-limit': { kant: 'kant-schema-limit', hartnack: 'hartnack-schema-time' },
 }
