@@ -828,6 +828,113 @@
 }
 .flc1-index-entry__open b { font-size: 26px; }
 
+/* === LOGIC CLICK AFFORDANCE START === */
+
+/*
+ * Affordance compartido para TODOS los <button> de Filosofía de la Lógica.
+ *
+ * Objetivo:
+ *  - que se note que son interactivos incluso antes del hover;
+ *  - que el hover produzca una respuesta visual inequívoca;
+ *  - que el estado activo sea todavía más visible;
+ *  - que keyboard focus siga siendo accesible.
+ */
+.flc1-page button:not(:disabled) {
+  position: relative;
+  isolation: isolate;
+  cursor: pointer;
+  transition:
+    transform .16s ease,
+    box-shadow .16s ease,
+    background-color .16s ease,
+    color .16s ease,
+    border-color .16s ease,
+    filter .16s ease;
+
+  /*
+   * Aura basal.
+   * El inset garantiza que siga siendo visible incluso en grids donde
+   * los botones están pegados entre sí, como las cuatro unidades.
+   */
+  box-shadow:
+    inset 0 0 0 2px rgba(141,109,47,.18),
+    0 0 10px rgba(141,109,47,.07);
+}
+
+/* Estado claramente interactivo al pasar el mouse. */
+.flc1-page button:not(:disabled):hover {
+  z-index: 3;
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 0 0 2px rgba(141,109,47,.48),
+    0 0 0 3px rgba(141,109,47,.15),
+    0 0 24px rgba(141,109,47,.22),
+    0 13px 25px rgba(23,23,19,.10);
+}
+
+/* Feedback inmediato de presión. */
+.flc1-page button:not(:disabled):active {
+  transform: translateY(0) scale(.995);
+  box-shadow:
+    inset 0 0 0 2px rgba(141,109,47,.58),
+    0 0 0 2px rgba(141,109,47,.12),
+    0 5px 12px rgba(23,23,19,.08);
+}
+
+/* Accesibilidad para navegación con teclado. */
+.flc1-page button:not(:disabled):focus-visible {
+  z-index: 4;
+  outline: none;
+  box-shadow:
+    inset 0 0 0 2px rgba(141,109,47,.70),
+    0 0 0 4px rgba(141,109,47,.28),
+    0 0 0 8px rgba(141,109,47,.12),
+    0 0 26px rgba(141,109,47,.20);
+}
+
+/*
+ * Estado seleccionado.
+ * Muchas clases usan .is-active en sus selectores interactivos.
+ */
+.flc1-page button.is-active:not(:disabled) {
+  z-index: 2;
+  box-shadow:
+    inset 0 0 0 2px rgba(242,185,80,.58),
+    0 0 0 3px rgba(141,109,47,.18),
+    0 0 20px rgba(141,109,47,.18);
+}
+
+/*
+ * En los botones oscuros activos, el borde dorado debe seguir siendo
+ * perceptible sin competir con el texto.
+ */
+.flc1-page button.is-active:not(:disabled):hover {
+  box-shadow:
+    inset 0 0 0 2px rgba(242,185,80,.82),
+    0 0 0 4px rgba(141,109,47,.22),
+    0 0 28px rgba(141,109,47,.26),
+    0 13px 25px rgba(23,23,19,.12);
+}
+
+/* Micro-feedback sobre numerales/símbolos internos. */
+.flc1-page button:not(:disabled) > span {
+  transition:
+    opacity .16s ease,
+    transform .16s ease;
+}
+
+.flc1-page button:not(:disabled):hover > span {
+  transform: translateX(2px);
+}
+
+/* No sugerir interacción en controles deshabilitados. */
+.flc1-page button:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+}
+
+/* === LOGIC CLICK AFFORDANCE END === */
+
 @media (max-width: 980px) {
   .flc1-topbar { grid-template-columns: 1fr auto; }
   .flc1-topbar .flc1-brand { display: none; }

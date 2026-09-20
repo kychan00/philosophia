@@ -1,58 +1,238 @@
 .logic-figure-note {
-  margin: 12px 0 30px;
-  border: 1px solid rgba(23, 23, 19, .25);
+  margin: 12px 0 28px;
+  border: 1px solid rgba(23, 23, 19, .22);
   border-left: 4px solid #8d6d2f;
-  background: rgba(141, 109, 47, .055);
+  background: rgba(141, 109, 47, .035);
 }
-.logic-figure-note__head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
+
+.logic-figure-note__summary {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
   gap: 18px;
-  padding: 14px 17px;
-  border-bottom: 1px solid rgba(23, 23, 19, .18);
+  min-height: 70px;
+  padding: 13px 16px 13px 17px;
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color .16s ease,
+    box-shadow .16s ease,
+    transform .16s ease;
 }
-.logic-figure-note__head span,
-.logic-figure-note__grid span {
+
+.logic-figure-note__summary::-webkit-details-marker {
+  display: none;
+}
+
+.logic-figure-note__summary::marker {
+  content: '';
+}
+
+.logic-figure-note__eyebrow,
+.logic-figure-note__intro > span,
+.logic-figure-note__grid span,
+.logic-figure-note__action {
   font: 600 9px 'IBM Plex Mono', monospace;
   letter-spacing: .12em;
   text-transform: uppercase;
 }
-.logic-figure-note__head strong {
-  font: 400 21px/1.1 'Libre Caslon Display', Georgia, serif;
+
+.logic-figure-note__eyebrow {
+  padding: 7px 9px;
+  border: 1px solid rgba(23, 23, 19, .25);
+  white-space: nowrap;
 }
+
+.logic-figure-note__summary-copy {
+  min-width: 0;
+}
+
+.logic-figure-note__summary-copy strong {
+  display: block;
+  font: 400 20px/1.08 'Libre Caslon Display', Georgia, serif;
+}
+
+.logic-figure-note__summary-copy small {
+  display: block;
+  margin-top: 4px;
+  color: rgba(23, 23, 19, .68);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.logic-figure-note__action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 76px;
+  justify-content: flex-end;
+}
+
+.logic-figure-note__action b {
+  display: grid;
+  place-items: center;
+  width: 29px;
+  height: 29px;
+  border: 1px solid rgba(23, 23, 19, .36);
+  font: 400 20px/1 'IBM Plex Mono', monospace;
+  transition:
+    transform .18s ease,
+    color .18s ease,
+    border-color .18s ease,
+    background-color .18s ease;
+}
+
+.logic-figure-note__action-open {
+  display: none;
+}
+
+.logic-figure-note__summary:hover {
+  background: rgba(141, 109, 47, .075);
+  box-shadow:
+    inset 0 0 0 1px rgba(141, 109, 47, .22),
+    0 0 0 3px rgba(141, 109, 47, .08);
+}
+
+.logic-figure-note__summary:hover .logic-figure-note__action b {
+  border-color: rgba(141, 109, 47, .75);
+  color: #8d6d2f;
+}
+
+.logic-figure-note__summary:focus-visible {
+  outline: none;
+  box-shadow:
+    inset 0 0 0 2px rgba(141, 109, 47, .52),
+    0 0 0 4px rgba(141, 109, 47, .16);
+}
+
+.logic-figure-note[open] {
+  background: rgba(141, 109, 47, .052);
+}
+
+.logic-figure-note[open] .logic-figure-note__summary {
+  border-bottom: 1px solid rgba(23, 23, 19, .18);
+  background: rgba(141, 109, 47, .07);
+}
+
+.logic-figure-note[open] .logic-figure-note__action-closed {
+  display: none;
+}
+
+.logic-figure-note[open] .logic-figure-note__action-open {
+  display: inline;
+}
+
+.logic-figure-note[open] .logic-figure-note__action b {
+  transform: rotate(45deg);
+  border-color: rgba(141, 109, 47, .72);
+  color: #8d6d2f;
+}
+
+.logic-figure-note__body {
+  padding: 0;
+}
+
+.logic-figure-note__intro {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 22px;
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(23, 23, 19, .14);
+  background: rgba(255, 255, 255, .18);
+}
+
+.logic-figure-note__intro p {
+  margin: 0;
+  max-width: 880px;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
 .logic-figure-note__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-.logic-figure-note__grid > div {
+
+.logic-figure-note__grid > section {
   min-width: 0;
-  padding: 16px 18px 18px;
+  padding: 17px 18px 19px;
   border-right: 1px solid rgba(23, 23, 19, .14);
   border-bottom: 1px solid rgba(23, 23, 19, .14);
 }
-.logic-figure-note__grid > div:nth-child(2n) { border-right: 0; }
-.logic-figure-note__grid > div:nth-last-child(-n+2) { border-bottom: 0; }
+
+.logic-figure-note__grid > section:nth-child(2n) {
+  border-right: 0;
+}
+
+.logic-figure-note__grid > section:nth-last-child(-n+2) {
+  border-bottom: 0;
+}
+
 .logic-figure-note__grid p {
-  margin: 7px 0 0;
+  margin: 8px 0 0;
   font-size: 14px;
   line-height: 1.62;
 }
+
 .logic-figure-note__takeaway {
-  background: rgba(41, 74, 99, .06);
+  background: rgba(41, 74, 99, .065);
 }
+
 .logic-figure-note__takeaway p {
   font-weight: 600;
 }
+
 @media (max-width: 760px) {
-  .logic-figure-note__head { display: block; }
-  .logic-figure-note__head strong { display: block; margin-top: 7px; }
-  .logic-figure-note__grid { grid-template-columns: 1fr; }
-  .logic-figure-note__grid > div,
-  .logic-figure-note__grid > div:nth-child(2n),
-  .logic-figure-note__grid > div:nth-last-child(-n+2) {
+  .logic-figure-note__summary {
+    grid-template-columns: 1fr auto;
+    gap: 10px 14px;
+    padding: 13px 14px;
+  }
+
+  .logic-figure-note__eyebrow {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  .logic-figure-note__summary-copy small {
+    display: none;
+  }
+
+  .logic-figure-note__action {
+    min-width: auto;
+  }
+
+  .logic-figure-note__action-closed,
+  .logic-figure-note__action-open {
+    display: none !important;
+  }
+
+  .logic-figure-note__intro {
+    grid-template-columns: 1fr;
+    gap: 7px;
+    padding: 15px;
+  }
+
+  .logic-figure-note__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .logic-figure-note__grid > section,
+  .logic-figure-note__grid > section:nth-child(2n),
+  .logic-figure-note__grid > section:nth-last-child(-n+2) {
     border-right: 0;
     border-bottom: 1px solid rgba(23, 23, 19, .14);
   }
-  .logic-figure-note__grid > div:last-child { border-bottom: 0; }
+
+  .logic-figure-note__grid > section:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logic-figure-note__summary,
+  .logic-figure-note__action b {
+    transition: none;
+  }
 }
