@@ -4,7 +4,8 @@ function SemesterContent({
   roman,
   title,
   period,
-  active,
+  status,
+  available,
 }) {
   return (
     <>
@@ -12,16 +13,18 @@ function SemesterContent({
         <span className="semester-roman">{roman}</span>
 
         <span className="semester-status">
-          {active ? 'Actual' : 'Archivo'}
+          {status}
         </span>
       </div>
 
       <div className="semester-bottom">
         <p className="semester-title">{title}</p>
 
-        {active ? (
+        {available ? (
           <>
-            <span className="semester-period">{period}</span>
+            {period && (
+              <span className="semester-period">{period}</span>
+            )}
 
             <span className="semester-enter">
               Entrar
@@ -43,19 +46,24 @@ export default function SemesterCard({
   title,
   period,
   active = false,
+  route,
 }) {
-  if (active) {
+  const available = Boolean(route)
+  const status = active ? 'Actual' : 'Archivo'
+
+  if (available) {
     return (
       <Link
-        to="/semestre/5"
+        to={route}
         className="semester-card semester-card--active"
-        aria-label="Entrar al Quinto semestre"
+        aria-label={`Entrar a ${title}`}
       >
         <SemesterContent
           roman={roman}
           title={title}
           period={period}
-          active
+          status={status}
+          available
         />
       </Link>
     )
@@ -67,7 +75,8 @@ export default function SemesterCard({
         roman={roman}
         title={title}
         period={period}
-        active={false}
+        status={status}
+        available={false}
       />
     </article>
   )

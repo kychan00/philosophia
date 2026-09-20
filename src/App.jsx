@@ -16,6 +16,10 @@ const AnalyticClass14Sep = lazy(() => import('./pages/AnalyticClass14Sep'))
 const Home = lazy(() => import('./pages/Home'))
 const CafeFilosofico = lazy(() => import('./pages/CafeFilosofico'))
 const CafeCapitalismoEvent = lazy(() => import('./pages/CafeCapitalismoEvent'))
+const FourthSemester = lazy(() => import('./pages/FourthSemester'))
+const PhilosophyLogic = lazy(() => import('./pages/PhilosophyLogic'))
+const PhilosophyLogicClass01 = lazy(() => import('./pages/PhilosophyLogicClass01'))
+const PhilosophyLogicClass02 = lazy(() => import('./pages/PhilosophyLogicClass02'))
 const FifthSemester = lazy(() => import('./pages/FifthSemester'))
 const OntologiaII = lazy(() => import('./pages/OntologiaII'))
 const OntologiaClass17Aug = lazy(() => import('./pages/OntologiaClass17Aug'))
@@ -99,6 +103,19 @@ function App() {
         <Route
           path="/cafe-filosofico/2026/09/07/fin-del-mundo-fin-del-capitalismo"
           element={<CafeCapitalismoEvent />}
+        />
+        <Route path="/semestre/4" element={<FourthSemester />} />
+        <Route
+          path="/semestre/4/filosofia-de-la-logica"
+          element={<PhilosophyLogic />}
+        />
+        <Route
+          path="/semestre/4/filosofia-de-la-logica/clase/19-enero"
+          element={<PhilosophyLogicClass01 />}
+        />
+        <Route
+          path="/semestre/4/filosofia-de-la-logica/clase/21-enero"
+          element={<PhilosophyLogicClass02 />}
         />
         <Route path="/semestre/5" element={<FifthSemester />} />
         <Route
