@@ -135,6 +135,102 @@ export default function PhilosophyLogic() {
             ]}
             to="/semestre/4/filosofia-de-la-logica/clase/21-enero"
           />
+
+          <PhilosophyLogicClassCard
+            number="03"
+            date="26 · I · 2026"
+            eyebrow="Tercera sesión · Lógica III"
+            title="Pluralidad de lógicas, demarcación y logicismo"
+            description="La pluralidad de sistemas obliga a preguntar qué cuenta como lógica: interpretación, generalidad formal, lenguaje natural, metalógica y el recorrido Frege–Russell–Gödel como problema de fundamentación."
+            tags={[
+              'demarcación',
+              'interpretabilidad',
+              'logicismo',
+              'Russell',
+              'Gödel',
+            ]}
+            to="/semestre/4/filosofia-de-la-logica/clase/26-enero"
+          />
+
+          <PhilosophyLogicClassCard
+            number="04"
+            date="04 · II · 2026"
+            eyebrow="Cuarta sesión · Lógica III"
+            title="Sistemas formales, neutralidad tópica y lenguaje"
+            description="Neutralidad tópica, sistemas interpretados y no interpretados, Leibniz y Frege, lenguaje como puente representacional, traducción, sintaxis, semántica y el paso hacia la proposición."
+            tags={[
+              'neutralidad tópica',
+              'lenguaje',
+              'Leibniz',
+              'Frege',
+              'proposición',
+            ]}
+            to="/semestre/4/filosofia-de-la-logica/clase/04-febrero"
+          />
+
+          <PhilosophyLogicClassCard
+            number="05"
+            date="09 · II · 2026"
+            eyebrow="Quinta sesión · Lógica III"
+            title="Oración, enunciado, proposición y verdad"
+            description="Del lenguaje reglado al fragmento proposicional: forma y función, contenido enunciativo, potencial de veracidad, bivalencia, validez, analítico/sintético, semánticas y condiciones de falsedad."
+            tags={[
+              'proposición',
+              'verdad',
+              'bivalencia',
+              'analítico / sintético',
+              'validez',
+            ]}
+            to="/semestre/4/filosofia-de-la-logica/clase/09-febrero"
+          />
+
+          <PhilosophyLogicClassCard
+            number="06"
+            date="11 · II · 2026"
+            eyebrow="Sexta sesión · Lógica III"
+            title="Sistemas axiomático-deductivos, axiomas y reglas de inferencia"
+            description="Arquitectura de sistemas deductivos, sentido clásico y contemporáneo de axioma, reglas deductivas, aridad, derivaciones, probabilidad, Peano, formalidad, neutralidad tópica y agenda metalógica."
+            tags={[
+              'axiomas',
+              'reglas de inferencia',
+              'derivación',
+              'Peano',
+              'metalógica',
+            ]}
+            to="/semestre/4/filosofia-de-la-logica/clase/11-febrero"
+          />
+
+          <PhilosophyLogicClassCard
+            number="07"
+            date="16 · II · 2026"
+            eyebrow="Séptima sesión · Lógica III"
+            title="Demarcación, completitud y sistema de Frege"
+            description="Neutralidad tópica, símbolos no interpretados, niveles de lenguaje, FBF, tautología y teorema, completitud, sistema proposicional atribuido a Frege e inferencias frente a equivalencias."
+            tags={[
+              'demarcación',
+              'FBF',
+              'tautología',
+              'completitud',
+              'Frege',
+            ]}
+            to="/semestre/4/filosofia-de-la-logica/clase/16-febrero"
+          />
+
+          <PhilosophyLogicClassCard
+            number="08"
+            date="18 · II · 2026"
+            eyebrow="Octava sesión · Lógica III"
+            title="Validez, metalógica y límites del logicismo"
+            description="La máquina axiomático-deductiva, validez formal y semántica, FBF/verdad lógica/teorema, consistencia, completitud, decidibilidad, Frege–Russell–Gödel, algoritmos e integración de extensiones."
+            tags={[
+              'validez',
+              'consistencia',
+              'completitud',
+              'decidibilidad',
+              'logicismo',
+            ]}
+            to="/semestre/4/filosofia-de-la-logica/clase/18-febrero"
+          />
         </div>
       </section>
 

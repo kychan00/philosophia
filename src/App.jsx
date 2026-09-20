@@ -20,6 +20,12 @@ const FourthSemester = lazy(() => import('./pages/FourthSemester'))
 const PhilosophyLogic = lazy(() => import('./pages/PhilosophyLogic'))
 const PhilosophyLogicClass01 = lazy(() => import('./pages/PhilosophyLogicClass01'))
 const PhilosophyLogicClass02 = lazy(() => import('./pages/PhilosophyLogicClass02'))
+const PhilosophyLogicClass03 = lazy(() => import('./pages/PhilosophyLogicClass03'))
+const PhilosophyLogicClass04 = lazy(() => import('./pages/PhilosophyLogicClass04'))
+const PhilosophyLogicClass05 = lazy(() => import('./pages/PhilosophyLogicClass05'))
+const PhilosophyLogicClass06 = lazy(() => import('./pages/PhilosophyLogicClass06'))
+const PhilosophyLogicClass07 = lazy(() => import('./pages/PhilosophyLogicClass07'))
+const PhilosophyLogicClass08 = lazy(() => import('./pages/PhilosophyLogicClass08'))
 const FifthSemester = lazy(() => import('./pages/FifthSemester'))
 const OntologiaII = lazy(() => import('./pages/OntologiaII'))
 const OntologiaClass17Aug = lazy(() => import('./pages/OntologiaClass17Aug'))
@@ -113,9 +119,33 @@ function App() {
           path="/semestre/4/filosofia-de-la-logica/clase/19-enero"
           element={<PhilosophyLogicClass01 />}
         />
-        <Route
+                <Route
           path="/semestre/4/filosofia-de-la-logica/clase/21-enero"
           element={<PhilosophyLogicClass02 />}
+        />
+        <Route
+          path="/semestre/4/filosofia-de-la-logica/clase/26-enero"
+          element={<PhilosophyLogicClass03 />}
+        />
+        <Route
+          path="/semestre/4/filosofia-de-la-logica/clase/04-febrero"
+          element={<PhilosophyLogicClass04 />}
+        />
+        <Route
+          path="/semestre/4/filosofia-de-la-logica/clase/09-febrero"
+          element={<PhilosophyLogicClass05 />}
+        />
+        <Route
+          path="/semestre/4/filosofia-de-la-logica/clase/11-febrero"
+          element={<PhilosophyLogicClass06 />}
+        />
+        <Route
+          path="/semestre/4/filosofia-de-la-logica/clase/16-febrero"
+          element={<PhilosophyLogicClass07 />}
+        />
+        <Route
+          path="/semestre/4/filosofia-de-la-logica/clase/18-febrero"
+          element={<PhilosophyLogicClass08 />}
         />
         <Route path="/semestre/5" element={<FifthSemester />} />
         <Route
