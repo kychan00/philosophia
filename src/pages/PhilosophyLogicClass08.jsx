@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
+import LogicFigureNote from '../components/LogicFigureNote'
 import './PhilosophyLogicClass01.css'
 import './PhilosophyLogicClass08.css'
 
@@ -386,6 +387,13 @@ export default function PhilosophyLogicClass08() {
                 <strong>teoremas verdaderos</strong>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c08-machine"
+              what="Representa el sistema axiomático-deductivo como una máquina que transforma puntos de partida en teoremas mediante reglas."
+              how="La entrada son axiomas, la flecha central son reglas deductivas y la salida son consecuencias. La figura presupone una interpretación en la que se habla de verdad; dentro del cálculo puro seguimos trabajando con cadenas y reglas."
+              why="Está aquí porque la sesión quiere evaluar si el mecanismo preserva lo que se espera de él. Sólo después de entender la máquina tiene sentido auditar sus propiedades."
+              takeaway="La confianza en el sistema depende tanto de sus puntos de partida como de que cada regla conserve correctamente la relación inferencial."
+            />
 
             <div className="flc8-machine-thesis">
               <span>IDEA MATRIZ</span>
@@ -472,6 +480,13 @@ export default function PhilosophyLogicClass08() {
                 <strong>verdad preservada</strong>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c08-validity"
+              what="Presenta la validez como un fenómeno que puede describirse desde sintaxis o semántica."
+              how="A la izquierda se revisa si las reglas se aplicaron correctamente; a la derecha se expresa que no puede darse el caso de premisas verdaderas con conclusión falsa. El centro indica correspondencia conceptual, no dos validez independientes."
+              why="Está aquí porque las propiedades metalógicas posteriores conectarán precisamente estos dos niveles de descripción."
+              takeaway="Validez formal y preservación de verdad son dos maneras de mirar el mismo éxito inferencial en el marco de la sesión."
+            />
 
             <p className="flc8-note">
               La sesión insiste en que no se están postulando dos tipos
@@ -501,6 +516,13 @@ export default function PhilosophyLogicClass08() {
                 <small>1, 2 · regla permitida</small>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c08-proof"
+              what="Muestra una demostración directa mínima como cadena justificable de líneas."
+              how="Las primeras líneas proporcionan premisas; la última sólo puede escribirse porque existe una regla autorizada que conecta ambas con Q. Cada paso debe poder rastrearse hacia atrás."
+              why="Está aquí para convertir “demostrar” en una actividad verificable y no en la impresión subjetiva de que una conclusión parece correcta."
+              takeaway="Una prueba formal es trazable: se puede preguntar en cada línea de dónde salió y qué regla permitió obtenerla."
+            />
 
             <div className="flc8-proof-rules">
               <article>
@@ -594,6 +616,13 @@ export default function PhilosophyLogicClass08() {
                 </div>
               </div>
             </div>
+            <LogicFigureNote
+              noteId="c08-hierarchy"
+              what="Representa una relación de inclusión entre FBF, verdades lógicas y teoremas según el esquema utilizado en la sesión."
+              how="El contenedor exterior muestra que todo lo demás debe, primero, estar bien formado. El segundo nivel añade verdad lógica y el núcleo representa aquello que además es derivable como teorema dentro del sistema."
+              why="Está aquí para hacer visible por qué las tres categorías no son equivalentes aun cuando puedan solaparse fuertemente."
+              takeaway="La figura prepara la pregunta de completitud: ¿coinciden por completo verdades lógicas y teoremas o queda algo entre ambos niveles?"
+            />
 
             <div className="flc8-relations">
               <p>✓ toda verdad lógica es FBF</p>
@@ -647,6 +676,13 @@ export default function PhilosophyLogicClass08() {
                 <strong>amenaza la función de decisión</strong>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c08-severity"
+              what="Compara el tipo de problema que representan inconsistencia, incompletitud e indecidibilidad en el encuadre de la sesión."
+              how="No lea las columnas como una escala matemática exacta. “Colapso”, “límite” y “amenaza a la decisión” resumen funciones distintas: contradicción compromete la confiabilidad, incompletitud deja verdades fuera del alcance y la indecidibilidad limita procedimientos mecánicos de veredicto."
+              why="Está aquí para evitar tratar todas las propiedades metalógicas como si su falla tuviera la misma consecuencia."
+              takeaway="Antes de decir que un sistema “falla”, hay que preguntar qué propiedad falla y qué función del sistema estaba destinada a garantizar."
+            />
           </section>
 
           <section id="consistencia" className="flc1-section">
@@ -669,6 +705,13 @@ export default function PhilosophyLogicClass08() {
                 <p>el sistema demuestra una contradicción</p>
               </div>
             </div>
+            <LogicFigureNote
+              noteId="c08-consistency"
+              what="Contrasta un sistema que no deriva contradicciones con uno en el que una contradicción sí es demostrable."
+              how="El símbolo ¬⊢(φ ∧ ¬φ) expresa el ideal de no derivabilidad de contradicción; el lado opuesto muestra que la contradicción ha entrado al conjunto de consecuencias autorizadas."
+              why="Está aquí porque no encontrar una contradicción por inspección no equivale a demostrar consistencia. La metalógica busca una garantía sobre todas las derivaciones posibles."
+              takeaway="Consistencia es una propiedad global del sistema: habla de lo que puede o no puede derivarse en cualquier cadena legítima."
+            />
 
             <div className="flc8-explosion">
               <span>POR QUÉ ES FATAL EN EL MARCO CLÁSICO</span>
@@ -682,6 +725,13 @@ export default function PhilosophyLogicClass08() {
                 como una máquina confiable de fundamentación.
               </p>
             </div>
+            <LogicFigureNote
+              noteId="c08-explosion"
+              what="Resume por qué una contradicción se presenta como problema fatal en el marco clásico discutido."
+              how="La secuencia contradicción → explosión → trivialización indica que, si el sistema permite derivar demasiado a partir de una contradicción, deja de discriminar consecuencias de manera útil."
+              why="Está aquí para explicar por qué Russell no representa simplemente “un error curioso” en el relato del curso, sino una amenaza al programa de fundamentación."
+              takeaway="El problema de la inconsistencia no es sólo tener dos frases incompatibles; es comprometer la capacidad del sistema para funcionar como fundamento confiable."
+            />
 
             <div className="flc8-proof-vs-search">
               <article>
@@ -714,6 +764,13 @@ export default function PhilosophyLogicClass08() {
                 <p>alguna verdad queda fuera de la derivación</p>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c08-completeness"
+              what="Contrasta completitud e incompletitud mediante la relación entre verdad lógica y derivabilidad."
+              how="El lado completo afirma que toda verdad relevante del sistema puede demostrarse; el lado incompleto representa la posibilidad de una verdad que no aparece como teorema dentro de la base y reglas disponibles."
+              why="Está aquí para diferenciar claramente incompletitud de inconsistencia: un sistema puede tener límites deductivos sin por ello derivar contradicciones."
+              takeaway="Completitud pregunta por alcance; consistencia pregunta por ausencia de contradicción. Son propiedades independientes en su significado."
+            />
 
             <div className="flc8-history-tabs">
               {historicalCases.map((item) => (
@@ -746,6 +803,13 @@ export default function PhilosophyLogicClass08() {
               <span>GÖDEL</span><b>→</b>
               <span>LÍMITE DEL PROGRAMA</span>
             </div>
+            <LogicFigureNote
+              noteId="c08-history"
+              what="Organiza el relato histórico Frege → Russell → teoría de tipos → Gödel utilizado para contextualizar límites del programa logicista."
+              how="La línea no resume toda la historia de la lógica matemática. Cada punto está elegido por la función que cumple en la narrativa de la sesión: fundamentación, contradicción, reparación y límite de completitud."
+              why="Está aquí para mostrar que las propiedades metalógicas no son sólo definiciones abstractas; influyeron en programas filosóficos concretos sobre el fundamento de la matemática."
+              takeaway="Lea la línea como mapa pedagógico del curso, no como historia exhaustiva ni como sustituto de estudiar cada resultado por separado."
+            />
 
             <p className="flc8-course-framing">
               Esta reconstrucción conserva el encuadre histórico y técnico de la
@@ -798,6 +862,13 @@ export default function PhilosophyLogicClass08() {
                 sigue siendo finito: el procedimiento termina.
               </p>
             </div>
+            <LogicFigureNote
+              noteId="c08-decision"
+              what="Usa una tabla de verdad como ejemplo de procedimiento finito de decisión en lógica proposicional."
+              how="Cada fila cubre una valuación posible de P y Q. Al terminar todas las combinaciones pertinentes obtenemos un resultado definido para la fórmula; lo importante es que el número de pasos sea finito para la entrada dada."
+              why="Está aquí para volver concreto qué significa “decidible” en la discusión de la sesión: existe un método mecánico que termina y entrega un veredicto."
+              takeaway="La eficiencia puede ser mala cuando crecen las variables, pero “tardar mucho” no es lo mismo que “no tener procedimiento de decisión”."
+            />
           </section>
 
           <section id="algoritmos" className="flc1-section">
@@ -820,6 +891,13 @@ export default function PhilosophyLogicClass08() {
                 <p>Hay un criterio rastreable sobre la propiedad evaluada.</p>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c08-loop"
+              what="Contrasta un proceso que puede continuar indefinidamente con uno que llega a un estado evaluable."
+              how="El lado abierto muestra repetición sin garantía de parada. El otro lado muestra un estado en el que una bandera o criterio ofrece un veredicto. La diferencia central es terminación y trazabilidad, no que uno use computadoras y el otro no."
+              why="Está aquí porque la clase conecta decidibilidad con algoritmos: un procedimiento de decisión necesita algo más que “seguir procesando”."
+              takeaway="Para hablar de decisión en el sentido trabajado aquí necesitamos un criterio finito de parada y una respuesta identificable."
+            />
 
             <div className="flc8-blackbox">
               <span>CAJA NEGRA</span>
@@ -878,6 +956,13 @@ export default function PhilosophyLogicClass08() {
               <span>SISTEMA B</span><b>→</b>
               <strong>RE-PROBAR CONSISTENCIA Y DEMÁS PROPIEDADES</strong>
             </div>
+            <LogicFigureNote
+              noteId="c08-extension"
+              what="Muestra que añadir operadores, axiomas o reglas produce una arquitectura que debe evaluarse de nuevo."
+              how="El sistema B puede conservar mucho del sistema A, pero la nueva pieza puede alterar qué fórmulas existen o qué puede derivarse. Por eso la flecha final exige volver a estudiar consistencia y otras propiedades."
+              why="Está aquí para evitar asumir que una extensión hereda automáticamente todas las garantías del sistema original."
+              takeaway="Cada ampliación debe justificarse metalógicamente: conservar una base no basta para asegurar que todas sus propiedades sobrevivan sin prueba."
+            />
           </section>
 
           <section id="cierre" className="flc1-section">

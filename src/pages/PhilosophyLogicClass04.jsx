@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
+import LogicFigureNote from '../components/LogicFigureNote'
 import './PhilosophyLogicClass01.css'
 import './PhilosophyLogicClass04.css'
 
@@ -140,6 +141,13 @@ export default function PhilosophyLogicClass04() {
               <article><span>TEMÁTICO</span><strong>△</strong><h3>Geometría</h3><p>Presupone espacio y relaciones espaciales.</p></article>
               <article className="is-logic"><span>NO FIJADO A TEMA</span><strong>P → Q</strong><h3>Lógica pura</h3><p>Puede permanecer sin contenido fijo y recibir distintas interpretaciones.</p></article>
             </div>
+            <LogicFigureNote
+              noteId="c04-systems"
+              what="Compara sistemas ligados a un dominio con la aspiración de neutralidad de la lógica pura."
+              how="Aritmética y geometría aparecen como ejemplos temáticos: una trabaja con números y otra con espacio. El tercer bloque usa P → Q para mostrar una estructura que puede recibir contenidos diferentes."
+              why="Está aquí porque la neutralidad tópica sólo se entiende bien por contraste. Ver sistemas igualmente rigurosos pero temáticamente comprometidos ayuda a separar “formal” de “neutral”."
+              takeaway="La lógica no se define aquí por carecer de estructura, sino por poder mantener la estructura sin fijar de antemano qué tipo de objetos la interpretarán."
+            />
             <div className="flc1-definition">
               <span>IDEA CENTRAL</span>
               <p>La neutralidad tópica exige que la lógica trate relaciones formales generales, no una ontología temática particular.</p>
@@ -164,6 +172,13 @@ export default function PhilosophyLogicClass04() {
               <div>≠</div>
               <article><span>NO INTERPRETADO</span><strong>P → Q</strong><p>Su contenido puede quedar abierto.</p></article>
             </div>
+            <LogicFigureNote
+              noteId="c04-neutrality"
+              what="Enfrenta una expresión ya interpretada con una forma abierta a interpretación."
+              how="2 + 2 = 4 trae consigo números y operaciones aritméticas. P → Q, en cambio, conserva sólo la relación formal mientras P y Q permanecen sin contenido fijo."
+              why="El contraste está aquí para mostrar visualmente qué significa “estar casado con un tema”. No es que una expresión sea mejor que la otra; cumplen funciones conceptuales diferentes."
+              takeaway="Neutralidad tópica significa poder conservar la forma mientras cambia el contenido interpretado."
+            />
           </section>
 
           <section id="lenguaje" className="flc1-section">
@@ -173,6 +188,13 @@ export default function PhilosophyLogicClass04() {
               <div><span>INTERPRETAR</span><b>→</b></div>
               <article className="is-language"><span>LENGUAJE</span><strong>proposiciones</strong><small>significado + tema</small></article>
             </div>
+            <LogicFigureNote
+              noteId="c04-interpretation"
+              what="Representa el paso desde símbolos de un sistema puro hacia una lectura en términos de lenguaje y proposiciones."
+              how="La flecha “interpretar” añade contenido a los signos; no transforma retrospectivamente el sistema en lenguaje natural. El lado izquierdo conserva marcas formales y el derecho muestra una interpretación lingüística posible."
+              why="Está aquí porque la clase quiere evitar identificar lógica y lenguaje. La lógica puede analizar lenguaje sin ser, por naturaleza, una lengua particular."
+              takeaway="Interpretar P y Q como proposiciones es una aplicación del sistema, no una definición de lo que P y Q “son” antes de interpretarlos."
+            />
             <div className="flc4-key">
               <span>DISTINCIÓN DOCENTE</span>
               <strong>Que P y Q puedan interpretarse como proposiciones no significa que la lógica sea lenguaje por naturaleza.</strong>
@@ -194,6 +216,13 @@ export default function PhilosophyLogicClass04() {
                 <p>Representar pensamiento y lenguaje mediante una estructura simbólica explícita.</p>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c04-leibnizfrege"
+              what="Conecta el ideal de Leibniz de mayor precisión simbólica con el proyecto formal de Frege."
+              how="Léalo como continuidad problemática, no como identidad de proyectos. Leibniz representa la aspiración a reducir ambigüedad y traducción; Frege representa una formalización mucho más explícita de estructura lógica."
+              why="Está aquí para explicar por qué el lenguaje se vuelve central en la historia de la lógica moderna: un código formal promete hacer visibles relaciones que el lenguaje ordinario puede ocultar o volver ambiguas."
+              takeaway="La línea histórica muestra un ideal compartido de precisión, aunque cada autor pertenezca a un contexto y proyecto distintos."
+            />
 
             <div className="flc4-translation">
               <article><span>LENGUAJE NATURAL</span><strong>interpretar</strong><p>sentido · contexto · matiz</p></article>
@@ -211,6 +240,13 @@ export default function PhilosophyLogicClass04() {
               <div><small>describir</small><b>→</b></div>
               <article><span>MUNDO</span><strong>W</strong></article>
             </div>
+            <LogicFigureNote
+              noteId="c04-mindlanguageworld"
+              what="Representa al lenguaje como mediación entre mente y mundo."
+              how="M, L y W no son tres pasos temporales. Son tres polos conceptuales: el sujeto expresa pensamiento mediante lenguaje y usa lenguaje para describir o representar el mundo. Las flechas señalan esas relaciones."
+              why="Está aquí porque interpretar la lógica lingüísticamente abre una pregunta filosófica más amplia: cómo una estructura simbólica puede representar pensamiento y realidad."
+              takeaway="La figura no resuelve dualismo, materialismo o isomorfismo; organiza el problema que esas posiciones intentan explicar."
+            />
 
             <div className="flc4-bridge-tabs">
               {bridgeViews.map(item => (
@@ -233,6 +269,13 @@ export default function PhilosophyLogicClass04() {
               <article className="is-utterance"><span>HABLANTE</span><strong>“gavagai”</strong><p>emite una expresión</p></article>
               <article><span>TRADUCTOR</span><strong>¿“liebre”?</strong><p>hipótesis interpretativa</p></article>
             </div>
+            <LogicFigureNote
+              noteId="c04-gavagai"
+              what="Resume el ejemplo de traducción radical usado para mostrar que observación y significado no coinciden automáticamente."
+              how="El animal observado y la palabra “gavagai” pueden correlacionarse, pero esa correlación no fija por sí sola que la traducción correcta sea exactamente “liebre”. La tercera columna representa la hipótesis del traductor."
+              why="Está aquí porque una lógica interpretada mediante lenguaje hereda problemas de significado y traducción. No basta con emparejar estímulos y palabras."
+              takeaway="El ejemplo enseña que interpretar exige hipótesis sobre significado; no es una sustitución mecánica de términos."
+            />
             <div className="flc4-key">
               <span>LECCIÓN</span>
               <strong>La correlación observacional no basta para fijar significado.</strong>
@@ -247,6 +290,13 @@ export default function PhilosophyLogicClass04() {
               <div>+</div>
               <article><span>SEMÁNTICA</span><h3>significado</h3><p>Interpretación de componentes y unidades.</p></article>
             </div>
+            <LogicFigureNote
+              noteId="c04-syntaxsemantics"
+              what="Separa sintaxis y semántica como dos dimensiones de un código."
+              how="Sintaxis pregunta cómo pueden combinarse los componentes; semántica pregunta qué significan. La suma visual no significa que sean idénticas, sino que ambas participan en la descripción amplia de una gramática."
+              why="Está aquí para preparar la transición desde sistemas no interpretados hacia expresiones lingüísticas con significado y, después, hacia proposiciones."
+              takeaway="Una expresión puede cumplir reglas sintácticas sin que por ello sea verdadera; buena formación, significado y verdad son preguntas diferentes."
+            />
 
             <div className="flc4-grammar-tabs">
               {grammarCases.map(item => (
@@ -274,6 +324,13 @@ export default function PhilosophyLogicClass04() {
               <article><span>03</span><strong>“La casa es”</strong><small>incompleta</small></article><b>→</b>
               <article className="is-complete"><span>04</span><strong>“La casa es azul”</strong><small>autonomía sintáctica</small></article>
             </div>
+            <LogicFigureNote
+              noteId="c04-sentencebuild"
+              what="Muestra cómo se gana cierre sintáctico al pasar de palabra aislada a oración completa."
+              how="Cada flecha añade estructura: “casa” nombra; “la casa” forma un grupo; “la casa es” todavía exige complemento; “la casa es azul” alcanza una unidad más autónoma para el análisis posterior."
+              why="Está aquí porque la lógica no toma cualquier fragmento lingüístico como proposición. Primero necesita una unidad con suficiente cierre para poder preguntar qué afirma."
+              takeaway="La autonomía sintáctica es un paso previo al potencial de verdad; todavía no basta por sí sola para definir proposición."
+            />
             <div className="flc4-word-vs">
               <article><span>PALABRA</span><p>Tiene significante y significado, pero no necesariamente cierre como enunciado.</p></article>
               <article><span>ORACIÓN</span><p>Unidad mínima que normalmente puede presentar un sentido completo.</p></article>

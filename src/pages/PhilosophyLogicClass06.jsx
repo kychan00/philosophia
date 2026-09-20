@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
+import LogicFigureNote from '../components/LogicFigureNote'
 import './PhilosophyLogicClass01.css'
 import './PhilosophyLogicClass06.css'
 
@@ -369,6 +370,13 @@ export default function PhilosophyLogicClass06() {
               <span>LENGUAJE FORMAL</span><b>+</b>
               <span>NEUTRALIDAD TÓPICA</span>
             </div>
+            <LogicFigureNote
+              noteId="c06-ladder"
+              what="Resume la acumulación de requisitos desde sistema deductivo hasta sistema lógico."
+              how="Cada “+” añade una condición: derivación, lenguaje formal y finalmente neutralidad tópica. No son tres objetos desconectados, sino niveles en los que el posterior conserva elementos del anterior."
+              why="Está aquí para que la arquitectura general permanezca visible mientras la clase analiza piezas más pequeñas como axiomas y reglas."
+              takeaway="Lo lógico, según esta sesión, es un caso especial de lo formal; y lo formal, a su vez, conserva una estructura deductiva."
+            />
           </section>
 
           <section id="anatomia" className="flc1-section">
@@ -402,6 +410,13 @@ export default function PhilosophyLogicClass06() {
                 <p>Resultados obtenidos mediante aplicaciones legítimas de reglas.</p>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c06-anatomy"
+              what="Descompone un sistema axiomático-deductivo en entrada, transformación y salida."
+              how="Axiomas funcionan como puntos de partida; reglas indican qué transformaciones están autorizadas; derivaciones son resultados obtenidos aplicando esas reglas. Las flechas muestran dependencia funcional, no causalidad física."
+              why="Está aquí porque entender el sistema como una sola “caja” oculta qué función cumple cada componente y dónde puede fallar una demostración."
+              takeaway="Para auditar una prueba hay que poder señalar de qué axiomas parte y qué regla justifica cada paso hasta la conclusión."
+            />
 
             <div className="flc6-machine">
               <span>MODELO BÁSICO</span>
@@ -466,6 +481,13 @@ export default function PhilosophyLogicClass06() {
                 <strong>“dámelo por postulado y veamos qué sistema resulta”</strong>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c06-axiomviews"
+              what="Contrasta dos sentidos de “axioma”: autoevidencia clásica y postulado operativo contemporáneo."
+              how="No lea la flecha como si un significado hubiera borrado por completo al otro. La clase muestra un cambio de función: el axioma puede dejar de justificarse por evidencia inmediata y pasar a ser un punto de partida cuya fecundidad se estudia dentro del sistema."
+              why="Está aquí porque muchas confusiones sobre axiomatización provienen de asumir que todo axioma debe ser una verdad obvia del mundo."
+              takeaway="En el sentido contemporáneo trabajado aquí, “axioma” describe principalmente una posición estructural dentro del sistema."
+            />
           </section>
 
           <section id="reglas" className="flc1-section">
@@ -524,6 +546,13 @@ export default function PhilosophyLogicClass06() {
                 <strong>{arity.output}</strong>
               </div>
             </div>
+            <LogicFigureNote
+              noteId="c06-arity"
+              what="Visualiza la aridad de una regla de inferencia: cuántas entradas necesita para producir una salida."
+              how="El número seleccionado indica cuántas fórmulas o premisas deben estar disponibles. Modus ponens aparece como ejemplo binario porque requiere P → Q y P para obtener Q."
+              why="Está aquí para hacer explícito que una regla no es una intuición vaga del tipo “esto parece seguirse”. Tiene una forma de aplicación definida y condiciones de entrada."
+              takeaway="Conocer la aridad ayuda a verificar si una regla realmente podía aplicarse en un paso concreto de una derivación."
+            />
 
             <p className="flc6-arity-note">{arity.explanation}</p>
           </section>
@@ -549,6 +578,13 @@ export default function PhilosophyLogicClass06() {
                 <strong>FÓRMULAS DERIVADAS</strong>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c06-distance"
+              what="Organiza las fórmulas según su distancia derivativa respecto de los axiomas usando la terminología específica de la sesión."
+              how="Distancia 0 corresponde a puntos de partida; distancia 1 al resultado obtenido directamente; niveles posteriores representan fórmulas que requieren cadenas adicionales de inferencia."
+              why="Está aquí para mostrar que los resultados de un sistema forman una red de dependencias y que no todas las fórmulas ocupan la misma posición justificatoria."
+              takeaway="La nomenclatura debe leerse como convención de esta clase para pensar cercanía derivativa, no como terminología universal obligatoria."
+            />
 
             <div className="flc6-terminology">
               <span>TERMINOLOGÍA USADA EN ESTA SESIÓN</span>
@@ -600,6 +636,13 @@ export default function PhilosophyLogicClass06() {
                 <small>para todo evento E</small>
               </div>
             </div>
+            <LogicFigureNote
+              noteId="c06-probability"
+              what="Usa axiomas de probabilidad para representar de manera concreta la estructura punto de partida → reglas → resultado."
+              how="Los axiomas del lado izquierdo fijan restricciones básicas; el centro representa las reglas del cálculo; el lado derecho muestra un resultado que se obtiene dentro de ese marco."
+              why="Está aquí porque una arquitectura formal se comprende mejor cuando se ve aplicada en un dominio familiar, aunque la clase no pretenda enseñar probabilidad en detalle."
+              takeaway="El ejemplo importa por su forma: explicita de dónde sale un resultado y qué recursos estaban autorizados para obtenerlo."
+            />
 
             <div className="flc1-definition">
               <span>LO IMPORTANTE DEL EJEMPLO</span>
@@ -632,6 +675,13 @@ export default function PhilosophyLogicClass06() {
                 </article>
               ))}
             </div>
+            <LogicFigureNote
+              noteId="c06-peano"
+              what="Presenta un conjunto de principios de Peano como ejemplo de axiomatización de la aritmética."
+              how="Cada tarjeta cumple una función distinta: punto inicial, sucesor, distinción, inyección e inducción. Léalo como un conjunto coordinado de postulados, no como cinco afirmaciones independientes sin relación."
+              why="Está aquí para mostrar que una práctica matemática conocida puede reconstruirse desde principios explícitos y reglas, haciendo visible su trasfondo sistemático."
+              takeaway="La axiomatización no inventa el uso cotidiano de los números; intenta especificar formalmente la estructura desde la que se derivan resultados."
+            />
 
             <div className="flc6-peano-purpose">
               <span>FUNCIÓN DOCENTE DEL EJEMPLO</span>
@@ -673,6 +723,13 @@ export default function PhilosophyLogicClass06() {
                 <strong>{change.consequence}</strong>
               </div>
             </div>
+            <LogicFigureNote
+              noteId="c06-change"
+              what="Muestra que modificar axiomas o reglas no es una corrección local: altera qué sistema estamos estudiando."
+              how="El lado izquierdo fija qué se cambia y el derecho muestra la consecuencia arquitectónica. Cambiar principios puede producir otra geometría, otra lógica o, en general, otro conjunto de derivaciones posibles."
+              why="Está aquí para bloquear una maniobra común: rechazar una consecuencia interna cambiando silenciosamente las reglas después de que la derivación comenzó."
+              takeaway="Si cambia la base o las reglas, hay que tratar el resultado como un nuevo sistema y volver a estudiar sus propiedades."
+            />
 
             <div className="flc6-demand">
               <span>EXIGENCIA</span>
@@ -732,6 +789,13 @@ export default function PhilosophyLogicClass06() {
                 <p>La corrección debe poder verificarse estructuralmente.</p>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c06-formal"
+              what="Contrasta la tolerancia del lenguaje natural a supuestos implícitos con la exigencia de explicitud del lenguaje formal."
+              how="El lado natural puede apoyarse en contexto y comprensión compartida; el lado formal intenta hacer visibles símbolos, reglas y criterios de buena formación para que el procedimiento sea reconstruible."
+              why="Está aquí porque “formal” no significa simplemente escribir con letras raras. Significa reducir la dependencia de información tácita."
+              takeaway="La ventaja pedagógica de la formalidad es la trazabilidad: otra persona puede revisar exactamente qué reglas se usaron y dónde."
+            />
           </section>
 
           <section id="logico" className="flc1-section">
@@ -775,6 +839,13 @@ export default function PhilosophyLogicClass06() {
                 <strong>relación general</strong>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c06-neutrality"
+              what="Compara relaciones claramente temáticas con una relación que la sesión presenta como más general."
+              how="“Arriba/abajo” presupone espacio y “más grande/menor” presupone magnitud. “Si P, entonces Q” conserva una relación entre contenidos cualesquiera mientras P y Q permanezcan sin interpretación fija."
+              why="Está aquí para volver operativo el criterio de neutralidad tópica que transforma un sistema formal en un candidato a sistema lógico."
+              takeaway="Preguntar por el tema que una relación presupone permite distinguir estructura lógica general de vocabulario ligado a un dominio."
+            />
 
             <div className="flc6-symbols">
               <span>SÍMBOLOS INTERNOS</span>
@@ -808,6 +879,13 @@ export default function PhilosophyLogicClass06() {
               <b>↓</b>
               <span>METALÓGICA</span>
             </div>
+            <LogicFigureNote
+              noteId="c06-meta"
+              what="Marca el cambio desde construir un sistema hasta estudiar propiedades del sistema como objeto."
+              how="Primero se da por construida la arquitectura de axiomas, reglas y derivaciones. La flecha hacia abajo indica un cambio de perspectiva: ahora preguntamos por consistencia, completitud, rigor o independencia."
+              why="Está aquí porque la metalógica no es una pieza más dentro de la misma derivación; es el nivel desde el que evaluamos la arquitectura entera."
+              takeaway="Una vez que sabemos cómo funciona el sistema, la pregunta cambia de “¿qué deriva?” a “¿qué propiedades tiene el mecanismo que deriva?”."
+            />
 
             <p className="flc6-meta-note">
               La sesión menciona además que otras propiedades, como efectividad

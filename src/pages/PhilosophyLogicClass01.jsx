@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
+import LogicFigureNote from '../components/LogicFigureNote'
 import './PhilosophyLogicClass01.css'
 
 const sections = [
@@ -230,6 +231,13 @@ export default function PhilosophyLogicClass01() {
                 </ul>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c01-fork"
+              what="Contrapone dos niveles de trabajo: operar dentro de un cálculo y convertir ese mismo cálculo en objeto de reflexión filosófica."
+              how="Lea de izquierda a derecha. El lado ⊢ reúne prácticas internas como probar o formalizar; el lado ? reúne preguntas sobre validez, necesidad, verdad lógica y demarcación. El signo ≠ marca un cambio de nivel, no una oposición entre actividades incompatibles."
+              why="Está al inicio porque la materia no pretende ser simplemente otra clase de ejercicios lógicos. La sesión necesita fijar desde el comienzo que ahora se preguntará por los supuestos y conceptos que hacen posible la práctica lógica."
+              takeaway="Hacer lógica y hacer filosofía de la lógica se relacionan, pero no responden la misma pregunta: una usa el sistema y la otra pregunta qué es y por qué funciona."
+            />
 
             <div className="flc1-definition">
               <span>GIRO METODOLÓGICO DE LA SESIÓN</span>
@@ -315,6 +323,13 @@ export default function PhilosophyLogicClass01() {
                 <small>¿qué exige además?</small>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c01-layers"
+              what="Ordena tres niveles que la sesión empieza a distinguir: sistema deductivo, sistema formal y sistema lógico."
+              how="La flecha vertical indica acumulación de exigencias. Ser lógico presupone haber llegado antes a un sistema con derivación y formalización; la pregunta abierta es qué requisito adicional permite llamar “lógico” al tercer nivel."
+              why="El cuadro prepara el problema de demarcación. Evita identificar automáticamente “formal” con “lógico” y deja espacio para investigar qué caracteriza propiamente a la lógica."
+              takeaway="La palabra “lógico” no se obtiene sólo porque haya símbolos o reglas: hace falta justificar qué diferencia a un sistema lógico de otros sistemas formales."
+            />
 
             <div className="flc1-demarcation-lab">
               <div>
@@ -331,6 +346,13 @@ export default function PhilosophyLogicClass01() {
                 queda deliberadamente abierto.
               </p>
             </div>
+            <LogicFigureNote
+              noteId="c01-demarcation"
+              what="Usa la aritmética como caso de prueba para separar formalidad de logicidad."
+              how="El ✓ junto a “formal” indica algo que la sesión concede para el ejemplo. El ? junto a “lógica” muestra precisamente lo que todavía no se ha decidido: si formalizar números basta para convertir la aritmética en lógica."
+              why="Está aquí para volver concreto un problema que de otro modo sería puramente verbal. Si encontramos un sistema formal que intuitivamente no queremos identificar sin más con la lógica, necesitamos un criterio de demarcación adicional."
+              takeaway="El caso de la aritmética funciona como contraejemplo a la equivalencia simple “formal = lógico”."
+            />
           </section>
 
           <section id="validez" className="flc1-section">
@@ -394,6 +416,13 @@ export default function PhilosophyLogicClass01() {
                 La sesión presenta la tensión. No decide todavía entre ambas posiciones.
               </p>
             </div>
+            <LogicFigureNote
+              noteId="c01-necessity"
+              what="Presenta dos direcciones filosóficas para explicar por qué una verdad como 2 + 2 = 4 parece necesaria."
+              how="El lado A localiza la necesidad en las reglas, axiomas y estructura del sistema. El lado B pregunta si la necesidad remite además a algo independiente del sistema: mundo, ser o conceptos. El “VS” sólo organiza la tensión; la clase no la resuelve aquí."
+              why="La figura aparece porque la validez lógica parece involucrar necesidad. Antes de usar “necesario” como una palabra transparente, la filosofía de la lógica pregunta de dónde proviene esa necesidad."
+              takeaway="La sesión abre un problema, no dicta una solución: necesidad como producto del sistema y necesidad como algo descubierto son alternativas filosóficas a examinar."
+            />
           </section>
 
           <section id="historia" className="flc1-section">
@@ -426,6 +455,13 @@ export default function PhilosophyLogicClass01() {
                 <small>¿o varias lógicas legítimas?</small>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c01-history"
+              what="Sitúa algunos hitos históricos para mostrar que la lógica que hoy parece estándar es el resultado de transformaciones sucesivas."
+              how="No lea la línea como una lista exhaustiva de toda la historia de la lógica. Úsela como orientación: diferentes etapas modifican qué se formaliza, con qué herramientas y qué preguntas filosóficas se vuelven centrales."
+              why="Está aquí porque el curso necesita desnaturalizar la lógica contemporánea. Ver su desarrollo histórico ayuda a comprender que “la lógica” no siempre ha tenido la misma forma ni las mismas fronteras."
+              takeaway="La historia funciona como argumento pedagógico contra tomar el cálculo actual como única forma imaginable de lógica."
+            />
           </section>
 
           <section id="formalizacion" className="flc1-section">
@@ -487,6 +523,13 @@ export default function PhilosophyLogicClass01() {
                 <b>?</b>
               </div>
             </div>
+            <LogicFigureNote
+              noteId="c01-truth"
+              what="Separa el funcionamiento interno de un sistema formal de la pregunta externa por verdad, significado o interpretación."
+              how="La zona interior representa reglas y transformaciones que pueden estudiarse por su estructura. La zona exterior representa la cuestión de cómo esas fórmulas llegan a hablar de algo y bajo qué condiciones reciben valores de verdad."
+              why="El gráfico está ahí porque “verdad lógica” puede confundirse con verdad empírica o con simple corrección sintáctica. La sesión quiere mostrar que son planos relacionados pero distintos."
+              takeaway="Una expresión puede estar correctamente formada y operar dentro del cálculo antes de que hayamos aclarado qué significa o qué la hace verdadera."
+            />
 
             <div className="flc1-truth-question">
               <span>PROBLEMA ABIERTO</span>
@@ -524,6 +567,13 @@ export default function PhilosophyLogicClass01() {
                 <p>Puede valorar también persuasión y fuerza retórica.</p>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c01-argument"
+              what="Contrasta el análisis formal de argumentos con el estudio más amplio de la argumentación en lenguaje natural."
+              how="Observe qué rasgos conserva cada lado. La lógica formal abstrae estructura y validez; la argumentación cotidiana introduce contexto, intención, audiencia y otros factores que no siempre caben en el cálculo."
+              why="Está al final porque muestra un límite de alcance: que la lógica sea útil para estudiar argumentos no significa que agote todo lo que ocurre cuando seres humanos argumentan."
+              takeaway="Formalizar es seleccionar una dimensión del argumento, no reemplazar el fenómeno completo de argumentar."
+            />
 
             <div className="flc1-question-grid">
               <p>¿Para qué sirve la formalidad lógica si mucha filosofía argumenta informalmente?</p>

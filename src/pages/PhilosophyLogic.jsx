@@ -231,6 +231,22 @@ export default function PhilosophyLogic() {
             ]}
             to="/semestre/4/filosofia-de-la-logica/clase/18-febrero"
           />
+
+          <PhilosophyLogicClassCard
+            number="09"
+            date="02 · III · 2026"
+            eyebrow="Novena sesión · Lógica III"
+            title="Validez, argumento e inferencia"
+            description="Validez sintáctica y semántica, anatomía del argumento, inferencia como proceso, deducción, inducción, abducción y analogía, doble evaluación, verdad frente a validez y límites de la formalización."
+            tags={[
+              'validez',
+              'argumento',
+              'inferencia',
+              'deducción',
+              'formalización',
+            ]}
+            to="/semestre/4/filosofia-de-la-logica/clase/02-marzo"
+          />
         </div>
       </section>
 

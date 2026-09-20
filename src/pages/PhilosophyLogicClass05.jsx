@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
+import LogicFigureNote from '../components/LogicFigureNote'
 import './PhilosophyLogicClass01.css'
 import './PhilosophyLogicClass05.css'
 
@@ -313,6 +314,13 @@ export default function PhilosophyLogicClass05() {
                 </p>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c05-language"
+              what="Distingue la capacidad general de comunicar de una lengua entendida como código reglado."
+              how="El lado “lenguaje” es más amplio e incluye diversas formas de comunicación. El lado “lengua” representa un sistema compartido y relativamente estable, como el español, sobre el que pueden formularse reglas gramaticales."
+              why="Está aquí porque antes de preguntar qué fragmento del lenguaje interesa a la lógica hay que saber sobre qué tipo de estructura lingüística se está trabajando."
+              takeaway="Toda lengua es una forma de lenguaje en el sentido amplio trabajado aquí, pero no toda capacidad comunicativa constituye una lengua reglada."
+            />
 
             <div className="flc1-definition">
               <span>POR QUÉ IMPORTA PARA LA LÓGICA</span>
@@ -348,6 +356,13 @@ export default function PhilosophyLogicClass05() {
                 </div>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c05-twoquestions"
+              what="Separa la pregunta por buena formación de la pregunta por verdad o falsedad."
+              how="Primero revise si la expresión satisface la gramática del código; sólo después tiene sentido pasar al plano lógico o epistemológico de sus condiciones de verdad. Las dos columnas evitan colapsar ambos criterios."
+              why="Está aquí porque una frase puede estar perfectamente formada y ser falsa, o incluso estar bien formada sin que todavía hayamos fijado una interpretación suficiente para evaluarla."
+              takeaway="Corrección gramatical no garantiza verdad: son filtros distintos y deben aplicarse en niveles distintos."
+            />
 
             <div className="flc5-synsem">
               <article>
@@ -428,6 +443,13 @@ export default function PhilosophyLogicClass05() {
                 <p>Enunciado con potencial de verdad.</p>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c05-stair"
+              what="Construye la escalera oración → enunciado → proposición."
+              how="Cada peldaño añade una exigencia. La oración es una unidad lingüística; el enunciado se usa para decir algo de algo; la proposición añade potencial de verdad o falsedad."
+              why="Está aquí porque “oración”, “enunciado” y “proposición” suelen usarse como si fueran sinónimos. La sesión necesita criterios para restringir progresivamente el fragmento que puede entrar al cálculo lógico."
+              takeaway="No toda oración es enunciado y, en el marco de la clase, no todo enunciado queda automáticamente tratado como proposición."
+            />
 
             <div className="flc5-subject-predicate">
               <article>
@@ -513,6 +535,13 @@ export default function PhilosophyLogicClass05() {
                 <strong>¿V o F ahora?</strong>
               </div>
             </div>
+            <LogicFigureNote
+              noteId="c05-future"
+              what="Usa “Mañana lloverá” como caso límite para tensionar el criterio de potencial de verdad."
+              how="La interrogación central pregunta si podemos asignar sin problemas V o F ahora a una afirmación sobre un futuro contingente. El cuadro no ofrece una resolución definitiva; exhibe el punto de fricción."
+              why="Está aquí para mostrar que incluso una oración declarativa aparentemente ordinaria puede complicar una definición demasiado simple de proposición."
+              takeaway="El caso funciona como problema filosófico: obliga a precisar qué significa “puede ser verdadera o falsa” y cuándo se supone disponible ese valor."
+            />
 
             <div className="flc5-open-problem">
               <span>PUNTO METODOLÓGICO</span>
@@ -542,6 +571,13 @@ export default function PhilosophyLogicClass05() {
               </div>
               <div className="flc5-f">F</div>
             </div>
+            <LogicFigureNote
+              noteId="c05-bivalence"
+              what="Representa el supuesto bivalente del marco clásico: las proposiciones se tratan con los valores V o F."
+              how="Los extremos V y F enmarcan el procedimiento central. Tablas de verdad y operadores clásicos necesitan que las expresiones relevantes puedan recibir esos valores para evaluar combinaciones y argumentos."
+              why="Está aquí porque la bivalencia no es decoración notacional; sostiene el método de evaluación que la sesión está explicando."
+              takeaway="Cuando una expresión no puede tratarse dentro del esquema V/F, el procedimiento clásico estándar necesita revisión o una teoría adicional."
+            />
 
             <div className="flc5-validity-flow">
               <span>PROPOSICIONES V/F</span><b>→</b>
@@ -600,6 +636,13 @@ export default function PhilosophyLogicClass05() {
                 <small>depende de cómo es el mundo</small>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c05-analytic"
+              what="Contrasta necesidad analítica y contingencia sintética en la terminología trabajada por la sesión."
+              how="El lado analítico apunta a verdades cuya negación entra en conflicto con principios lógicos o conceptuales; el lado sintético depende de cómo es el mundo y podría haber resultado de otro modo."
+              why="Está aquí para separar dos preguntas que suelen confundirse: que algo sea verdadero y que sea necesario. Una verdad de hecho puede ser muy clara y seguir siendo contingente."
+              takeaway="Verdad no implica necesidad: el eje analítico/sintético intenta explicar de dónde proviene la modalidad de una proposición."
+            />
           </section>
 
           <section id="semanticas" className="flc1-section">
@@ -657,6 +700,13 @@ export default function PhilosophyLogicClass05() {
                 </div>
               </div>
             </div>
+            <LogicFigureNote
+              noteId="c05-pigeons"
+              what="Muestra cómo una proposición universal puede falsarse mediante un contraejemplo."
+              how="El lado universal formula “todas”. El lado del contraejemplo muestra que basta encontrar una paloma que falle en una de las propiedades exigidas para que la universal completa resulte falsa."
+              why="Está aquí para separar el trabajo lógico del empírico. La lógica especifica qué estructura tendría un contraejemplo; la investigación observa si ese caso existe realmente."
+              takeaway="La lógica fija condiciones de falsedad; la ciencia o la experiencia buscan si esas condiciones se realizan en el mundo."
+            />
 
             <div className="flc5-logic-science">
               <article>
@@ -714,6 +764,13 @@ export default function PhilosophyLogicClass05() {
                 de un sistema formal axiomático-deductivo.
               </p>
             </div>
+            <LogicFigureNote
+              noteId="c05-axiomatic"
+              what="Anuncia la arquitectura que seguirá en la materia: axiomas + reglas deductivas → derivaciones."
+              how="Lea los bloques como funciones distintas. Los axiomas son puntos de partida; las reglas determinan pasos permitidos; las derivaciones son resultados producidos dentro de ese marco."
+              why="Está al final porque la sesión pasa de analizar qué tipo de expresiones entran al cálculo a preguntar cómo se organiza un sistema que opera con ellas."
+              takeaway="La próxima etapa ya no pregunta sólo qué es una proposición, sino cómo un sistema formal produce consecuencias justificadas."
+            />
           </section>
 
           <section id="cierre" className="flc1-section">

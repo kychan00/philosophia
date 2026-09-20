@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
+import LogicFigureNote from '../components/LogicFigureNote'
 import './PhilosophyLogicClass01.css'
 import './PhilosophyLogicClass02.css'
 
@@ -293,6 +294,13 @@ export default function PhilosophyLogicClass02() {
                 </p>
               </div>
             </div>
+            <LogicFigureNote
+              noteId="c02-1879"
+              what="Organiza 1879 como punto de quiebre pedagógico entre antecedentes, la Conceptografía de Frege y desarrollos posteriores de la lógica moderna."
+              how="Lea el centro como un hito, no como un origen absoluto. El lado anterior recuerda que existían tradiciones lógicas previas; el lado posterior muestra que a partir de la nueva formalización se desarrollan sistemas, semántica, metalógica y aplicaciones."
+              why="La figura sirve para explicar por qué el curso usa 1879 como fecha de referencia: permite ordenar una transformación en la manera de escribir, construir y estudiar sistemas lógicos."
+              takeaway="1879 funciona aquí como marcador histórico de la lógica moderna, no como afirmación de que antes de Frege no hubiera lógica."
+            />
 
             <div className="flc1-definition">
               <span>ANALOGÍA DE LA CLASE</span>
@@ -335,6 +343,13 @@ export default function PhilosophyLogicClass02() {
                 <strong>{activeSystem.question}</strong>
               </div>
             </div>
+            <LogicFigureNote
+              noteId="c02-systems"
+              what="Distingue tres grados de organización: deductivo, formal deductivo y formal logístico deductivo."
+              how="Cada nivel añade requisitos al anterior. Primero hay derivación; luego reglas y lenguaje explícitos; finalmente una organización logística más estricta del cálculo según el vocabulario trabajado en la sesión."
+              why="Está aquí para impedir que “sistema formal” sea una etiqueta vaga. La clase necesita separar qué aporta cada nivel antes de discutir propiedades del sistema."
+              takeaway="Los nombres son escalones analíticos: permiten preguntar exactamente qué está presente y qué falta en un sistema dado."
+            />
 
             <div className="flc2-modernity-thesis">
               <span>TESIS DIDÁCTICA</span>
@@ -374,6 +389,13 @@ export default function PhilosophyLogicClass02() {
                 </p>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c02-classical"
+              what="Aclara que “lógica clásica” en el uso técnico del curso no significa la silogística antigua de Aristóteles."
+              how="Las columnas comparan dos referencias históricas distintas. Una remite a la tradición silogística; la otra al cálculo proposicional y de predicados moderno que sirve como base de comparación para lógicas no clásicas."
+              why="El cuadro evita una ambigüedad terminológica muy frecuente: “clásico” puede sonar históricamente antiguo, pero aquí se usa como nombre técnico de una familia moderna de sistemas."
+              takeaway="Cuando la sesión diga “lógica clásica”, lea el término en sentido técnico contemporáneo, no como sinónimo de lógica aristotélica."
+            />
           </section>
 
           <section id="lenguajes" className="flc1-section">
@@ -414,6 +436,13 @@ export default function PhilosophyLogicClass02() {
                 permite representar estructura interna de la proposición.
               </small>
             </div>
+            <LogicFigureNote
+              noteId="c02-pigeon"
+              what="Muestra por qué la lógica de predicados puede representar estructura interna que la lógica proposicional trata como una unidad."
+              how="La frase sobre palomas se descompone en cuantificador, variable, predicado y condicional. No importa aquí verificar empíricamente si todas las palomas son blancas; importa ver qué estructura se hace visible al formalizar."
+              why="Está aquí para explicar qué gana el paso de proposiciones completas a predicados y cuantificadores: ya podemos representar “todos”, propiedades y relaciones entre objetos."
+              takeaway="La formalización de predicados aumenta la expresividad del sistema porque permite mirar dentro de la proposición."
+            />
           </section>
 
           <section id="metalogica" className="flc1-section">
@@ -457,6 +486,13 @@ export default function PhilosophyLogicClass02() {
               <b>→</b>
               <span>SISTEMA COMO OBJETO</span>
             </div>
+            <LogicFigureNote
+              noteId="c02-metaflow"
+              what="Ordena tres planos: sintaxis, semántica y metalógica."
+              how="Primero se pregunta cómo están formadas las expresiones; después cómo se interpretan; finalmente se estudian propiedades del sistema completo, como consistencia o completitud. La flecha indica cambio de nivel de análisis, no una simple secuencia temporal."
+              why="El cuadro está aquí porque la metalógica sólo se entiende si distinguimos el lenguaje objeto de la perspectiva desde la que examinamos el sistema."
+              takeaway="Metalógica significa estudiar el cálculo como objeto: sus propiedades no son simplemente otra fórmula dentro del mismo cálculo."
+            />
           </section>
 
           <section id="propiedades" className="flc1-section">
@@ -510,6 +546,13 @@ export default function PhilosophyLogicClass02() {
               </div>
               <p>{activeLogic.detail}</p>
             </div>
+            <LogicFigureNote
+              noteId="c02-nonclassical"
+              what="Clasifica maneras distintas de apartarse o extender la lógica clásica."
+              how="Use las categorías para preguntar qué cambia: algunas extensiones conservan el núcleo clásico y añaden operadores; otras modifican principios, valores o reglas. La diferencia está en la arquitectura del sistema, no sólo en usar símbolos nuevos."
+              why="La figura prepara la idea de pluralidad lógica. Si distintos sistemas cambian distintos componentes, la filosofía debe preguntar qué permite seguir llamándolos “lógica”."
+              takeaway="No toda lógica no clásica se aparta del sistema clásico de la misma manera; conviene identificar exactamente qué componente modifica."
+            />
 
             <div className="flc2-intuitionism">
               <span>CASO FILOSÓFICO · INTUICIONISMO</span>
@@ -555,6 +598,13 @@ export default function PhilosophyLogicClass02() {
                 <p>Resultado derivado dentro del marco, no principio básico.</p>
               </div>
             </div>
+            <LogicFigureNote
+              noteId="c02-probability"
+              what="Usa probabilidad como ejemplo sencillo de la estructura axiomas → derivación → teorema."
+              how="Los axiomas son puntos de partida; las reglas autorizan pasos; el resultado derivado muestra qué se obtiene sin añadir información arbitraria. El interés está en la forma de la construcción, no en desarrollar teoría de probabilidad."
+              why="Está aquí para hacer visible qué significa trabajar dentro de un sistema axiomático: no basta con afirmar resultados, hay que mostrar de qué principios y reglas proceden."
+              takeaway="El ejemplo enseña arquitectura formal: puntos de partida explícitos, reglas controladas y consecuencias justificadas."
+            />
 
             <div className="flc1-definition">
               <span>CAMBIO DE SENTIDO DE “AXIOMA”</span>
@@ -612,6 +662,13 @@ export default function PhilosophyLogicClass02() {
                 </p>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c02-truthvalues"
+              what="Separa la construcción técnica de un sistema con ciertos valores de verdad de la interpretación filosófica de esos valores."
+              how="Un lado pregunta si podemos definir formalmente dos, tres o muchos valores y operar con ellos. El otro pregunta qué significan filosóficamente esas categorías y qué representan cuando interpretamos el sistema."
+              why="El cuadro está aquí porque aumentar valores de verdad puede ser matemáticamente sencillo y, al mismo tiempo, conceptualmente difícil de interpretar."
+              takeaway="Poder construir una tabla con más valores no resuelve por sí solo qué significa cada valor ni qué concepción de verdad presupone."
+            />
           </section>
 
           <section id="argumentacion" className="flc1-section">

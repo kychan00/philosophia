@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
+import LogicFigureNote from '../components/LogicFigureNote'
 import './PhilosophyLogicClass01.css'
 import './PhilosophyLogicClass03.css'
 
@@ -348,6 +349,13 @@ export default function PhilosophyLogicClass03() {
                 </p>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c03-feedback"
+              what="Representa la relación de retroalimentación entre desarrollo técnico, aplicaciones filosóficas, metalógica y límites de formalización."
+              how="No lo lea como una línea que sólo avanza en una dirección. Las flechas muestran que un cambio en un área puede obligar a revisar las demás: nuevas lógicas generan nuevas preguntas metalógicas y problemas filosóficos pueden motivar nuevos sistemas."
+              why="Está aquí para mostrar que las cuatro áreas de la materia no son capítulos aislados. La sesión las presenta como un campo en interacción."
+              takeaway="La filosofía de la lógica trabaja mejor como red de problemas que como lista de temas independientes."
+            />
 
             <div className="flc3-examples">
               <article>
@@ -419,6 +427,13 @@ export default function PhilosophyLogicClass03() {
                 </p>
               </div>
             </div>
+            <LogicFigureNote
+              noteId="c03-demarcation"
+              what="Coloca la neutralidad tópica en el centro del intento de distinguir lógica de otros sistemas formales."
+              how="El núcleo del gráfico debe leerse como pregunta de filtro: ¿el sistema está ligado desde el inicio a números, espacio u otro dominio, o puede recibir interpretaciones distintas sin estar casado con un tema?"
+              why="La figura está aquí porque formalidad por sí sola resultó insuficiente. La clase necesita un criterio adicional para explicar qué hace especial a un sistema lógico."
+              takeaway="Neutralidad tópica es una propuesta de demarcación trabajada en la sesión, no una definición final incuestionable."
+            />
 
             <div className="flc3-arithmetic">
               <article>
@@ -477,6 +492,13 @@ export default function PhilosophyLogicClass03() {
               <b>→</b>
               <span>TEMA FIJO</span>
             </div>
+            <LogicFigureNote
+              noteId="c03-spectrum"
+              what="Muestra un continuo entre vacío formal, posibilidad de interpretación y fijación temática."
+              how="Avance de izquierda a derecha preguntando cuánto contenido está determinado de antemano. Un sistema lógico, según la tesis de la clase, debe poder interpretarse sin quedar fijado desde su construcción a un único tema."
+              why="Está aquí para evitar una falsa alternativa entre “sin significado” y “totalmente temático”. La interpretación puede añadirse posteriormente sin que el sistema pierda su generalidad inicial."
+              takeaway="La clave no es impedir toda interpretación, sino distinguir entre ser interpretable y nacer ya comprometido con un dominio concreto."
+            />
 
             <div className="flc3-thesis">
               <span>TESIS TRABAJADA EN CLASE</span>
@@ -566,6 +588,13 @@ export default function PhilosophyLogicClass03() {
                 <strong>estudia propiedades del cálculo</strong>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c03-logicmeta"
+              what="Contrasta lógica y metalógica como dos niveles de trabajo sobre el mismo cálculo."
+              how="La lógica opera con fórmulas y derivaciones dentro del sistema. La metalógica toma ese sistema como objeto y pregunta por propiedades como consistencia o completitud."
+              why="Está aquí porque la sesión avanza de construir sistemas a evaluarlos. Sin el cambio de nivel, las propiedades metalógicas se confundirían con reglas internas del cálculo."
+              takeaway="Trabajar “en” un sistema y estudiar “el” sistema son actividades distintas aunque estén estrechamente relacionadas."
+            />
           </section>
 
           <section id="logicismo" className="flc1-section">
@@ -592,6 +621,13 @@ export default function PhilosophyLogicClass03() {
                 <p>Fundamentar la aritmética mediante la lógica.</p>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c03-logicism"
+              what="Resume la dirección histórica del programa logicista atribuido a Frege: construir herramientas lógicas y utilizarlas para fundamentar la aritmética."
+              how="La línea conecta obras y programa. No pretende resumir toda la filosofía de Frege; muestra el hilo que interesa a esta sesión: de la formalización lógica al proyecto de fundamentación matemática."
+              why="Está aquí porque la demarcación entre lógica y matemática se vuelve filosóficamente decisiva cuando alguien pretende reducir una a la otra."
+              takeaway="El logicismo transforma una cuestión técnica de formalización en una tesis sobre el fundamento de la matemática."
+            />
 
             <div className="flc3-foundation">
               <span>¿POR QUÉ IMPORTABA?</span>
@@ -636,6 +672,13 @@ export default function PhilosophyLogicClass03() {
                 </p>
               </div>
             </div>
+            <LogicFigureNote
+              noteId="c03-russell"
+              what="Ofrece una representación intuitiva del problema de autorreferencia presentado en clase mediante la imagen de una “bolsa de bolsas”."
+              how="La bolsa no es la paradoja en su formulación técnica; es una ayuda visual para preguntar qué ocurre cuando una condición de pertenencia termina aplicándose a la propia colección que define."
+              why="Está aquí para mostrar por qué la consistencia importa filosóficamente: un fundamento que permite contradicción pierde la capacidad justificatoria que el programa logicista buscaba."
+              takeaway="Use el dibujo como intuición inicial sobre circularidad y autorreferencia, no como sustituto de una demostración formal de la paradoja."
+            />
 
             <div className="flc3-russell-impact">
               <span>SI EL FUNDAMENTO ES INCONSISTENTE</span>
@@ -663,6 +706,13 @@ export default function PhilosophyLogicClass03() {
                 </strong>
               </div>
             </div>
+            <LogicFigureNote
+              noteId="c03-godel"
+              what="Representa el límite introductorio que la sesión asocia a sistemas suficientemente ricos para expresar aritmética."
+              how="La flecha va de un sistema aritmético rico a la afirmación de que existirán verdades que no se obtienen de un conjunto fijo de principios en el sentido explicado por el curso. El cuadro resume una consecuencia, no la prueba técnica."
+              why="Está aquí para mostrar cómo un resultado metalógico puede debilitar un ideal filosófico de fundamentación total."
+              takeaway="La lección de esta sesión es filosófica e introductoria: Gödel aparece como límite del ideal fuerte de reducción, no como teorema demostrado paso a paso."
+            />
 
             <div className="flc3-godel-caution">
               <strong>IMPORTANTE PARA ENSEÑAR ESTA SESIÓN</strong>
@@ -700,6 +750,13 @@ export default function PhilosophyLogicClass03() {
                 </button>
               ))}
             </div>
+            <LogicFigureNote
+              noteId="c03-families"
+              what="Presenta varias familias de lógicas para poner a prueba el criterio de demarcación."
+              how="Seleccione cada familia preguntando qué cambia respecto de la lógica clásica: operadores, valores, principios o reglas. El lector no debe memorizar sólo nombres, sino localizar la modificación estructural."
+              why="Está aquí porque la pluralidad de sistemas vuelve más difícil decir qué tienen todos en común y qué justifica conservar la palabra “lógica”."
+              takeaway="El catálogo es una herramienta crítica: cada familia ejerce una presión distinta sobre cualquier definición demasiado estrecha de lógica."
+            />
 
             <div className="flc3-family-reader">
               <div>

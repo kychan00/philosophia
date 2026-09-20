@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
+import LogicFigureNote from '../components/LogicFigureNote'
 import './PhilosophyLogicClass01.css'
 import './PhilosophyLogicClass07.css'
 
@@ -407,6 +408,13 @@ export default function PhilosophyLogicClass07() {
                 </div>
               </div>
             </div>
+            <LogicFigureNote
+              noteId="c07-inclusion"
+              what="Representa la relación de inclusión entre sistemas deductivos, formales y lógicos."
+              how="Los recuadros anidados significan que el nivel interior conserva requisitos del exterior y añade otros. No indican tamaño histórico ni importancia, sino dependencia conceptual."
+              why="Está aquí para recordar que “lógico” no reemplaza “formal” o “deductivo”: especifica un caso más exigente dentro de esa arquitectura."
+              takeaway="Si algo no es deductivo o formal bajo los criterios del curso, no llega al nivel lógico representado en el núcleo."
+            />
           </section>
 
           <section id="demarcacion" className="flc1-section">
@@ -435,6 +443,13 @@ export default function PhilosophyLogicClass07() {
                 </p>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c07-demarcation"
+              what="Resume los dos criterios centrales de demarcación usados en la sesión: neutralidad tópica y símbolos no interpretados."
+              how="Las dos columnas deben cumplirse conjuntamente en la propuesta del curso. Un sistema puede ser muy formal y aun estar ligado a un tema; también puede usar símbolos abstractos pero darles significado fijo desde el inicio."
+              why="Está aquí porque el nombre “lógica” necesita un criterio que no dependa sólo de utilidad, tradición o apariencia simbólica."
+              takeaway="La sesión trata estos criterios como una propuesta de trabajo para distinguir sistemas, no como una definición filosófica definitiva."
+            />
 
             <div className="flc7-demarcation-result">
               <span>SEGÚN EL CRITERIO TRABAJADO EN LA SESIÓN</span>
@@ -477,6 +492,13 @@ export default function PhilosophyLogicClass07() {
               <article><span>GEOMETRÍA</span><strong>espacio</strong></article>
               <article className="is-neutral"><span>LÓGICA</span><strong>relaciones “en sí”</strong></article>
             </div>
+            <LogicFigureNote
+              noteId="c07-topicrow"
+              what="Usa aritmética, geometría y una relación lógica para comparar compromiso temático."
+              how="Números y espacio aparecen como dominios específicos. La tercera columna pretende ilustrar una relación que puede aplicarse a contenidos heterogéneos sin fijar qué son."
+              why="Está aquí para que la neutralidad no quede como una palabra abstracta: se reconoce examinando qué presupone cada vocabulario."
+              takeaway="Ser formal no elimina automáticamente el tema; la pregunta es qué contenido está incorporado de antemano al sistema."
+            />
           </section>
 
           <section id="modal" className="flc1-section">
@@ -544,6 +566,13 @@ export default function PhilosophyLogicClass07() {
                 <small>criterio sintáctico</small>
               </div>
             </div>
+            <LogicFigureNote
+              noteId="c07-syntax"
+              what="Muestra el recorrido símbolos → gramática → clasificación FBF/no-FBF."
+              how="Primero se fija el alfabeto; después las reglas de formación; finalmente se decide si una cadena pertenece correctamente al lenguaje. El resultado es sintáctico y todavía no dice que la fórmula sea verdadera."
+              why="Está aquí para separar una de las confusiones centrales de la sesión: corrección gramatical, verdad lógica y demostrabilidad son propiedades diferentes."
+              takeaway="Una FBF es una expresión bien construida; ser FBF es condición para otros análisis, no garantía de verdad o teorema."
+            />
 
             <div className="flc7-syntax-thesis">
               <span>TESIS DE LA SESIÓN</span>
@@ -633,6 +662,13 @@ export default function PhilosophyLogicClass07() {
                 <strong>¿es teorema?</strong>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c07-status"
+              what="Coloca FBF, tautología y teorema en tres niveles de evaluación: sintaxis, semántica y derivación."
+              how="Lea cada columna como una pregunta distinta. Sintaxis: ¿pertenece al lenguaje? Semántica: ¿es verdad lógica? Derivación: ¿puede obtenerse mediante axiomas y reglas?"
+              why="Está aquí porque estas tres categorías pueden coincidir en algunos casos y aun así no significan lo mismo."
+              takeaway="No use “bien formada”, “verdadera” y “demostrada” como sinónimos: cada palabra responde a un criterio diferente."
+            />
           </section>
 
           <section id="completitud" className="flc1-section">
@@ -673,6 +709,13 @@ export default function PhilosophyLogicClass07() {
                 <strong>⊢ φ</strong>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c07-completeness"
+              what="Representa la relación que la completitud intenta garantizar entre verdad lógica y derivabilidad."
+              how="El lado ⊨ φ pertenece al plano semántico y el lado ⊢ φ al plano de la prueba. El signo ? pregunta si toda fórmula válida semánticamente puede alcanzarse también mediante las reglas del sistema."
+              why="Está aquí porque completitud es precisamente una propiedad puente entre dos modos de caracterizar las fórmulas."
+              takeaway="Un sistema completo, en la definición operativa de la sesión, no deja verdades lógicas fuera del alcance de su aparato deductivo."
+            />
 
             <div className="flc7-course-note">
               <span>FORMULACIÓN DEL DISCURSO DE CLASE</span>
@@ -739,6 +782,13 @@ export default function PhilosophyLogicClass07() {
                 ))}
               </div>
             </div>
+            <LogicFigureNote
+              noteId="c07-frege"
+              what="Desarma el ejemplo atribuido a Frege en símbolos primitivos y reglas de formación."
+              how="La columna de primitivos responde “¿con qué puedo escribir?”; la de formación responde “¿cómo puedo combinarlo?”. Sólo después de ambas cosas tiene sentido preguntar si una cadena es FBF."
+              why="Está aquí para mostrar un sistema en funcionamiento y no sólo hablar de él en abstracto."
+              takeaway="Un lenguaje formal necesita especificar alfabeto y gramática antes de evaluar verdad, axiomas o teoremas."
+            />
 
             <div className="flc7-wff-example">
               <article>
@@ -799,6 +849,13 @@ export default function PhilosophyLogicClass07() {
                 <strong>expresión ⇄ reescritura</strong>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c07-rules"
+              what="Distingue producir una consecuencia de reescribir una expresión equivalente."
+              how="La inferencia avanza desde premisas hacia una conclusión autorizada. La equivalencia permite sustituir una forma por otra con el mismo valor lógico pertinente, pero esa reescritura no es por sí sola el mismo tipo de paso inferencial."
+              why="Está aquí porque en ejercicios formales ambas operaciones pueden verse parecidas al manipular símbolos y, sin embargo, justifican movimientos diferentes."
+              takeaway="Al justificar una línea de prueba conviene decir si se aplicó una regla de inferencia o una equivalencia, porque no cumplen la misma función."
+            />
           </section>
 
           <section id="necesidad" className="flc1-section">
@@ -817,6 +874,13 @@ export default function PhilosophyLogicClass07() {
                 <strong>¿por qué podría ser de otro modo?</strong>
               </article>
             </div>
+            <LogicFigureNote
+              noteId="c07-necessity"
+              what="Reabre la pregunta filosófica por necesidad y contingencia después del trabajo técnico."
+              how="Las dos columnas no son categorías de fórmulas calculadas aquí, sino preguntas de fundamento: por qué algo debe valer siempre frente a por qué podría haber sido de otro modo."
+              why="Está aquí para recordar que una filosofía de la lógica no termina cuando sabemos manipular un cálculo; también pregunta qué hace necesarias a ciertas reglas o verdades."
+              takeaway="La técnica conduce de nuevo al problema filosófico del fundamento de la validez y la necesidad."
+            />
 
             <div className="flc7-philosophy-question">
               <span>PREGUNTA DE FONDO</span>
