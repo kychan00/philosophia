@@ -357,6 +357,16 @@ export default function PhilosophyLogic() {
             tags={['pragmatismo','Quine','Kuhn','verificabilidad','objeciones']}
             to="/semestre/4/filosofia-de-la-logica/clase/04-mayo"
           />
+
+          <PhilosophyLogicClassCard
+            number="21"
+            date="06 · V · 2026"
+            eyebrow="Vigesimoprimera sesión · Lógica III"
+            title="Fenomenología, evidencia y verdad"
+            description="Mediación entre empirismo y racionalismo, teoría evidencial, Husserl, “a las cosas mismas”, Kant, expectativa y cumplimiento, percepción, autodonación, grados de plenitud y Heidegger como crítica mediante aletheia."
+            tags={['fenomenología','Husserl','evidencia','Heidegger','aletheia']}
+            to="/semestre/4/filosofia-de-la-logica/clase/06-mayo"
+          />
         </div>
       </section>
 
