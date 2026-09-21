@@ -287,6 +287,16 @@ export default function PhilosophyLogic() {
             tags={['necesidad','Platón','Aristóteles','abstracción','logos']}
             to="/semestre/4/filosofia-de-la-logica/clase/23-marzo"
           />
+
+          <PhilosophyLogicClassCard
+            number="14"
+            date="13 · IV · 2026"
+            eyebrow="Decimocuarta sesión · Lógica III"
+            title="Leibniz, analiticidad y entrada a Kant"
+            description="Verdades de razón y de hecho, mónada, identidad, no contradicción, principio de analiticidad, idealismo, criterios de verdad, logicismo, lenguaje formal universal y el problema kantiano de las proposiciones sintéticas a priori."
+            tags={['Leibniz','Kant','analiticidad','a priori','sintético a priori']}
+            to="/semestre/4/filosofia-de-la-logica/clase/13-abril"
+          />
         </div>
       </section>
 
