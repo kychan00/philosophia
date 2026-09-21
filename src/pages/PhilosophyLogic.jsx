@@ -337,6 +337,16 @@ export default function PhilosophyLogic() {
             tags={['redundancia','juicio','valor de verdad','deflacionismo','pro-oracionales']}
             to="/semestre/4/filosofia-de-la-logica/clase/27-abril"
           />
+
+          <PhilosophyLogicClassCard
+            number="19"
+            date="29 · IV · 2026"
+            eyebrow="Decimonovena sesión · Lógica III"
+            title="Objeciones a la redundancia y teorías pragmáticas"
+            description="Límites de T(P) ≡ P, predicado de verdad en contextos cuantificados, futuros indeterminados, raíz escéptica del pragmatismo, utilidad, coherencia, correspondencia, ciencia y contraste con fenomenología."
+            tags={['redundancia','pragmatismo','escepticismo','utilidad','ciencia']}
+            to="/semestre/4/filosofia-de-la-logica/clase/29-abril"
+          />
         </div>
       </section>
 
