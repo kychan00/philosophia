@@ -377,6 +377,16 @@ export default function PhilosophyLogic() {
             tags={['correspondencia','atomismo lógico','Russell','Wittgenstein','verificación']}
             to="/semestre/4/filosofia-de-la-logica/clase/11-mayo"
           />
+
+          <PhilosophyLogicClassCard
+            number="23"
+            date="18 · V · 2026"
+            eyebrow="Vigesimotercera sesión · Lógica III"
+            title="Tarski, verdad semántica y lógicas no clásicas"
+            description="Esquema T, lenguaje objeto y metalenguaje, verdad-en-L, referencia y satisfacción, crítica realista/antirrealista de Dummett, bivalencia y entrada a lógicas modal, de relevancia, multivalentes, intuicionistas y difusas."
+            tags={['Tarski','Dummett','semántica','bivalencia','lógicas no clásicas']}
+            to="/semestre/4/filosofia-de-la-logica/clase/18-mayo"
+          />
         </div>
       </section>
 
