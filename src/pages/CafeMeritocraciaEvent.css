@@ -396,3 +396,745 @@
     margin-top: 8px;
   }
 }
+
+/* ============================================================
+   MOBILE RESCUE V2 - MERITOCRACIA
+   Mantiene desktop intacto y recompone el collage para teléfono.
+   ============================================================ */
+
+@media (max-width: 700px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .merit-page {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    color: var(--ink) !important;
+    background-color: var(--paper) !important;
+    background-image:
+      radial-gradient(circle at 14% 9%, rgba(255,255,255,.36), transparent 20%),
+      repeating-linear-gradient(
+        0deg,
+        rgba(52,39,23,.025) 0 1px,
+        transparent 1px 4px
+      ) !important;
+  }
+
+  .merit-topbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+    min-height: 42px;
+    padding: 11px 14px;
+    font-size: 8px;
+    line-height: 1.25;
+    letter-spacing: .1em;
+  }
+
+  .merit-topbar a,
+  .merit-topbar span {
+    white-space: nowrap;
+  }
+
+  .merit-hero {
+    display: block;
+    min-height: 0;
+  }
+
+  .merit-hero-copy {
+    padding: 35px 18px 48px;
+  }
+
+  .merit-kicker {
+    margin-bottom: 20px;
+    font-size: 9px;
+    letter-spacing: .13em;
+  }
+
+  .merit-brand {
+    width: 100%;
+    max-width: none;
+    overflow: visible;
+  }
+
+  .merit-brand-first {
+    gap: 15px;
+  }
+
+  .merit-brand span {
+    font-size: clamp(60px, 19vw, 78px);
+    line-height: .79;
+    letter-spacing: -.055em;
+  }
+
+  .merit-brand strong {
+    margin-top: 7px;
+    font-size: clamp(54px, 17vw, 70px);
+    line-height: .82;
+    letter-spacing: -.06em;
+    white-space: nowrap;
+  }
+
+  .merit-cup {
+    flex: 0 0 auto;
+    width: 48px;
+    height: 34px;
+    border-width: 5px;
+    transform: translateY(-2px);
+  }
+
+  .merit-cup::after {
+    right: -20px;
+    top: 6px;
+    width: 20px;
+    height: 19px;
+    border-width: 5px;
+  }
+
+  .merit-cup::before {
+    left: 9px;
+    top: -31px;
+    font-size: 29px;
+  }
+
+  .merit-cup b {
+    left: -8px;
+    right: -8px;
+    bottom: -11px;
+    border-bottom-width: 4px;
+  }
+
+  .merit-gold-rule {
+    width: 100%;
+    height: 5px;
+    margin: 23px 0 9px;
+  }
+
+  .merit-subbrand {
+    font-size: clamp(26px, 9.5vw, 37px);
+    line-height: 1;
+  }
+
+  .merit-topic-paper {
+    width: 100%;
+    margin: 31px 0 24px;
+    padding: 18px 20px 21px;
+  }
+
+  .merit-topic-paper small {
+    font-size: 16px;
+  }
+
+  .merit-topic-paper h1 {
+    margin-top: 4px;
+    font-size: clamp(47px, 14.5vw, 58px);
+    line-height: .91;
+    letter-spacing: -.045em;
+  }
+
+  .merit-meta {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    width: 100%;
+    max-width: none;
+  }
+
+  .merit-meta article {
+    grid-template-columns: 58px minmax(0, 1fr);
+    min-height: 46px;
+    padding: 10px 13px;
+  }
+
+  .merit-meta span {
+    font-size: 8px;
+  }
+
+  .merit-meta strong {
+    font-size: 17px;
+    line-height: 1.05;
+  }
+
+  .merit-collage {
+    min-height: 390px;
+    height: 390px;
+    overflow: hidden;
+  }
+
+  .merit-gold-sun {
+    top: 42%;
+    right: -1%;
+    width: 145px;
+  }
+
+  .merit-bust {
+    top: -5%;
+    right: -8%;
+    width: min(69%, 285px);
+  }
+
+  .merit-ladder {
+    right: 1%;
+    bottom: -7%;
+    height: 50%;
+  }
+
+  .merit-reach {
+    right: 18%;
+    bottom: 17%;
+    width: 32%;
+  }
+
+  .merit-trophy {
+    top: 43%;
+    right: 3%;
+    width: 17%;
+  }
+
+  .merit-crowd {
+    left: -8%;
+    bottom: -2%;
+    width: 116%;
+  }
+
+  .merit-collage-label {
+    top: 8%;
+    right: 5%;
+    padding: 9px 11px;
+  }
+
+  .merit-collage-label span {
+    font-size: 7px;
+  }
+
+  .merit-collage-label b {
+    margin-top: 2px;
+    font-size: 19px;
+  }
+
+  .merit-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 31px 15px 0;
+  }
+
+  .merit-strip figure {
+    min-height: 128px;
+    padding: 11px;
+    border-right: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .merit-strip figure:nth-child(even) {
+    border-right: 0;
+  }
+
+  .merit-strip figure:nth-child(n + 3) {
+    border-bottom: 0;
+  }
+
+  .merit-strip img {
+    height: 88px;
+  }
+
+  .merit-strip figcaption {
+    left: 11px;
+    bottom: 9px;
+    font-size: 7px;
+  }
+
+  .merit-section,
+  .merit-prompts,
+  .merit-source {
+    color: var(--ink) !important;
+    background: transparent !important;
+  }
+
+  .merit-section {
+    padding: 60px 18px 22px;
+  }
+
+  .merit-section-head {
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+
+  .merit-section-head > span {
+    width: 42px;
+    height: 42px;
+    font-size: 9px;
+  }
+
+  .merit-section-head p {
+    padding-top: 6px;
+    font-size: 8px;
+  }
+
+  .merit-section-head h2 {
+    margin-top: 8px;
+    font-size: clamp(31px, 10vw, 42px);
+    line-height: .96;
+  }
+
+  .merit-event-intro {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-bottom: 36px;
+  }
+
+  .merit-event-intro figure {
+    width: min(82vw, 315px);
+    margin: 0 auto;
+    padding: 9px;
+  }
+
+  .merit-event-meta {
+    padding: 24px 0;
+  }
+
+  .merit-event-meta > span {
+    font-size: 8px;
+  }
+
+  .merit-event-meta h3 {
+    margin: 13px 0 18px;
+    font-size: clamp(37px, 11vw, 49px);
+  }
+
+  .merit-event-meta > strong {
+    font-size: 23px;
+  }
+
+  .merit-event-meta p {
+    margin-top: 18px;
+    font-size: 8px;
+    line-height: 1.5;
+  }
+
+  .merit-prompts-head {
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .merit-prompts-head span {
+    font-size: 8px;
+  }
+
+  .merit-prompts-head strong {
+    display: block;
+    margin-top: 6px;
+    font-size: 18px;
+  }
+
+  .merit-question-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .merit-question-tabs button {
+    min-height: 150px;
+    padding: 18px;
+  }
+
+  .merit-question-tabs small {
+    margin-top: 26px;
+  }
+
+  .merit-question-tabs strong {
+    font-size: 24px;
+  }
+
+  .merit-question-focus {
+    grid-template-columns: 1fr;
+    min-height: 205px;
+    padding: 25px 22px;
+  }
+
+  .merit-question-focus > div span {
+    font-size: 34px;
+  }
+
+  .merit-question-focus blockquote {
+    font-size: 27px;
+  }
+
+  .merit-binary {
+    grid-template-columns: 1fr;
+  }
+
+  .merit-binary > div {
+    height: 45px;
+  }
+
+  .merit-binary article {
+    min-height: 205px;
+    padding: 23px;
+  }
+
+  .merit-binary article strong {
+    font-size: 45px;
+  }
+
+  .merit-stair-editorial {
+    min-height: 560px;
+  }
+
+  .merit-editorial-ladder {
+    left: -11%;
+    bottom: -18%;
+    height: 82%;
+  }
+
+  .merit-editorial-reach {
+    left: 25%;
+    bottom: 11%;
+    width: 41%;
+  }
+
+  .merit-editorial-crowd {
+    left: -10%;
+    bottom: -3%;
+    width: 112%;
+  }
+
+  .merit-editorial-trophy {
+    top: 4%;
+    right: 2%;
+    width: 20%;
+  }
+
+  .merit-stair-editorial aside {
+    top: 5%;
+    right: 5%;
+    bottom: auto;
+    width: 82%;
+    min-height: 225px;
+  }
+
+  .merit-stair-editorial aside > div {
+    padding: 29px 24px;
+  }
+
+  .merit-stair-editorial aside blockquote {
+    font-size: 21px;
+  }
+
+  .merit-disciplines {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .merit-disciplines article {
+    min-height: 135px;
+    border-right: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .merit-disciplines article:nth-child(even) {
+    border-right: 0;
+  }
+
+  .merit-disciplines article:nth-child(n + 3) {
+    border-bottom: 0;
+  }
+
+  .merit-disciplines strong {
+    margin-top: 52px;
+    font-size: 17px;
+  }
+
+  .merit-footer {
+    margin-top: 54px;
+    padding: 27px 18px;
+  }
+}
+
+@media (max-width: 390px) {
+  .merit-brand strong {
+    font-size: 52px;
+  }
+
+  .merit-topic-paper h1 {
+    font-size: 45px;
+  }
+
+  .merit-collage {
+    min-height: 365px;
+    height: 365px;
+  }
+}
+
+/* ============================================================
+   MOBILE V3 - MERITOCRACIA
+   Simplifica por completo la cabecera en teléfono.
+   ============================================================ */
+
+@media (max-width: 700px) {
+  /* La cabecera deja de intentar reproducir el collage de desktop.
+     En móvil priorizamos jerarquía, lectura y acceso rápido al contenido. */
+
+  .merit-topbar {
+    min-height: 38px;
+    padding: 10px 14px;
+    font-size: 7.5px;
+    letter-spacing: .09em;
+  }
+
+  .merit-hero {
+    display: block;
+    min-height: 0;
+  }
+
+  .merit-hero-copy {
+    padding: 28px 18px 30px;
+  }
+
+  .merit-kicker {
+    margin-bottom: 16px;
+    font-size: 8px;
+    letter-spacing: .12em;
+  }
+
+  .merit-brand-first {
+    gap: 12px;
+  }
+
+  .merit-brand span {
+    font-size: clamp(48px, 14vw, 58px);
+    line-height: .82;
+    letter-spacing: -.045em;
+  }
+
+  .merit-brand strong {
+    margin-top: 5px;
+    font-size: clamp(44px, 13vw, 54px);
+    line-height: .86;
+    letter-spacing: -.045em;
+    white-space: normal;
+  }
+
+  .merit-cup {
+    width: 42px;
+    height: 30px;
+    border-width: 4px;
+  }
+
+  .merit-cup::after {
+    right: -18px;
+    top: 5px;
+    width: 18px;
+    height: 17px;
+    border-width: 4px;
+  }
+
+  .merit-cup::before {
+    left: 8px;
+    top: -28px;
+    font-size: 25px;
+  }
+
+  .merit-cup b {
+    left: -7px;
+    right: -7px;
+    bottom: -9px;
+    border-bottom-width: 3px;
+  }
+
+  .merit-gold-rule {
+    width: 100%;
+    height: 4px;
+    margin: 18px 0 8px;
+  }
+
+  .merit-subbrand {
+    font-size: clamp(22px, 7.3vw, 30px);
+    line-height: 1;
+  }
+
+  .merit-topic-paper {
+    width: 100%;
+    margin: 24px 0 18px;
+    padding: 15px 17px 17px;
+    transform: rotate(-.7deg);
+  }
+
+  .merit-topic-paper small {
+    font-size: 13px;
+  }
+
+  .merit-topic-paper h1 {
+    margin-top: 2px;
+    font-size: clamp(36px, 11vw, 45px);
+    line-height: .94;
+    letter-spacing: -.035em;
+  }
+
+  /* Metadatos compactos: fecha y hora comparten fila.
+     Lugar y café ocupan ancho completo. */
+  .merit-meta {
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+  }
+
+  .merit-meta article {
+    grid-template-columns: 46px minmax(0, 1fr);
+    min-height: 42px;
+    padding: 9px 10px;
+  }
+
+  .merit-meta article:nth-child(3),
+  .merit-meta article:nth-child(4) {
+    grid-column: 1 / -1;
+  }
+
+  .merit-meta span {
+    font-size: 7px;
+  }
+
+  .merit-meta strong {
+    font-size: 15px;
+    line-height: 1.05;
+  }
+
+  /* El collage grande funciona en desktop, pero en teléfono produce
+     una segunda portada enorme. Lo ocultamos y dejamos el cartel
+     original en la sección 01 como la pieza visual principal. */
+  .merit-collage {
+    display: none !important;
+  }
+
+  .merit-hero::after {
+    bottom: -17px;
+    height: 38px;
+  }
+
+  /* Pegatinas compactas inmediatamente después del hero. */
+  .merit-strip {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin: 30px 12px 0;
+  }
+
+  .merit-strip figure {
+    min-height: 88px;
+    padding: 8px 5px;
+    border-right: 1px solid var(--ink);
+    border-bottom: 0;
+  }
+
+  .merit-strip figure:nth-child(even) {
+    border-right: 1px solid var(--ink);
+  }
+
+  .merit-strip figure:last-child {
+    border-right: 0;
+  }
+
+  .merit-strip img {
+    height: 57px;
+  }
+
+  .merit-strip figcaption {
+    left: 6px;
+    bottom: 6px;
+    font-size: 5.5px;
+    letter-spacing: .08em;
+  }
+
+  /* Menos aire antes de la sección 01. */
+  .merit-section {
+    padding: 48px 18px 20px;
+  }
+
+  .merit-section-head {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 11px;
+    margin-bottom: 19px;
+  }
+
+  .merit-section-head > span {
+    width: 38px;
+    height: 38px;
+    font-size: 8px;
+  }
+
+  .merit-section-head p {
+    padding-top: 5px;
+    font-size: 7.5px;
+  }
+
+  .merit-section-head h2 {
+    margin-top: 6px;
+    font-size: clamp(28px, 8.8vw, 37px);
+    line-height: .98;
+  }
+
+  /* El cartel de la sección 01 queda grande suficiente para verse,
+     pero ya no domina toda la pantalla. */
+  .merit-event-intro {
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .merit-event-intro figure {
+    width: min(72vw, 275px);
+    padding: 8px;
+  }
+
+  .merit-event-meta {
+    padding: 20px 0;
+  }
+
+  .merit-event-meta h3 {
+    margin: 11px 0 15px;
+    font-size: clamp(32px, 9.5vw, 42px);
+  }
+
+  .merit-event-meta > strong {
+    padding: 8px 12px;
+    font-size: 20px;
+  }
+
+  .merit-event-meta p {
+    margin-top: 15px;
+    font-size: 7px;
+  }
+
+  .merit-question-tabs button {
+    min-height: 132px;
+    padding: 16px;
+  }
+
+  .merit-question-tabs small {
+    margin-top: 20px;
+  }
+
+  .merit-question-tabs strong {
+    font-size: 21px;
+  }
+
+  .merit-question-focus {
+    min-height: 175px;
+    padding: 22px 19px;
+  }
+
+  .merit-question-focus blockquote {
+    font-size: 23px;
+  }
+}
+
+@media (max-width: 390px) {
+  .merit-brand span {
+    font-size: 47px;
+  }
+
+  .merit-brand strong {
+    font-size: 43px;
+  }
+
+  .merit-topic-paper h1 {
+    font-size: 35px;
+  }
+
+  .merit-meta strong {
+    font-size: 14px;
+  }
+}
