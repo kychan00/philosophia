@@ -307,6 +307,16 @@ export default function PhilosophyLogic() {
             tags={['Kant','sintético a priori','espacio / tiempo','categorías','trascendental']}
             to="/semestre/4/filosofia-de-la-logica/clase/15-abril"
           />
+
+          <PhilosophyLogicClassCard
+            number="16"
+            date="20 · IV · 2026"
+            eyebrow="Decimosexta sesión · Lógica III"
+            title="Quine, holismo epistemológico y problema de la verdad"
+            description="Holismo, red de creencias, experiencia fenoménica, coherencia, pragmatismo, revisabilidad de lógica y matemáticas, necesidad relativa al sistema y apertura del bloque sobre teorías de la verdad."
+            tags={['Quine','holismo','pragmatismo','necesidad','verdad']}
+            to="/semestre/4/filosofia-de-la-logica/clase/20-abril"
+          />
         </div>
       </section>
 
