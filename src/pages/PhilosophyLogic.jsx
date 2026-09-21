@@ -347,6 +347,16 @@ export default function PhilosophyLogic() {
             tags={['redundancia','pragmatismo','escepticismo','utilidad','ciencia']}
             to="/semestre/4/filosofia-de-la-logica/clase/29-abril"
           />
+
+          <PhilosophyLogicClassCard
+            number="20"
+            date="04 · V · 2026"
+            eyebrow="Vigésima sesión · Lógica III"
+            title="Pragmatismo, naturalismo quineano y objeciones"
+            description="Hechos y proposiciones, creencias provisionales, sistema de creencias, ciencia como control, naturalismo quineano, paradigma kuhniano, verificabilidad, confirmación holista y objeciones a utilidad, consenso, coherencia y verificación."
+            tags={['pragmatismo','Quine','Kuhn','verificabilidad','objeciones']}
+            to="/semestre/4/filosofia-de-la-logica/clase/04-mayo"
+          />
         </div>
       </section>
 
