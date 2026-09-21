@@ -277,6 +277,16 @@ export default function PhilosophyLogic() {
             tags={['Frege','validez','necesidad','platonismo','verbo ser']}
             to="/semestre/4/filosofia-de-la-logica/clase/18-marzo"
           />
+
+          <PhilosophyLogicClassCard
+            number="13"
+            date="23 · III · 2026"
+            eyebrow="Decimotercera sesión · Lógica III"
+            title="Necesidad lógica, Platón y Aristóteles"
+            description="Necesidad y forma inferencial, platonismo, tercer mundo y grados cognoscitivos, intelectualismo aristotélico, abstracción, idealización, logos y comparación entre necesidad trascendente e inmanente."
+            tags={['necesidad','Platón','Aristóteles','abstracción','logos']}
+            to="/semestre/4/filosofia-de-la-logica/clase/23-marzo"
+          />
         </div>
       </section>
 
