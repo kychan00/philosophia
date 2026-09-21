@@ -257,6 +257,16 @@ export default function PhilosophyLogic() {
             tags={['Aristóteles','Frege','formalización','función / argumento','saturación']}
             to="/semestre/4/filosofia-de-la-logica/clase/09-marzo"
           />
+
+          <PhilosophyLogicClassCard
+            number="11"
+            date="11 · III · 2026"
+            eyebrow="Undécima sesión · Lógica III"
+            title="Frege, funciones y cuantificadores"
+            description="Dominio, codominio e imagen, saturación, funciones monádicas y poliádicas, operadores proposicionales, cuantificadores de primer y segundo nivel, operadores objetuales y estructura interna del enunciado."
+            tags={['Frege','funciones','aridad','cuantificadores','operadores']}
+            to="/semestre/4/filosofia-de-la-logica/clase/11-marzo"
+          />
         </div>
       </section>
 
