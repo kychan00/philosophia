@@ -297,6 +297,16 @@ export default function PhilosophyLogic() {
             tags={['Leibniz','Kant','analiticidad','a priori','sintético a priori']}
             to="/semestre/4/filosofia-de-la-logica/clase/13-abril"
           />
+
+          <PhilosophyLogicClassCard
+            number="15"
+            date="15 · IV · 2026"
+            eyebrow="Decimoquinta sesión · Lógica III"
+            title="Kant, conocimiento y proposiciones sintéticas a priori"
+            description="Forma y materia del conocimiento, revolución copernicana, analítico/sintético, a priori/a posteriori, intuición y entendimiento, espacio y tiempo, categorías y sentido trascendental de la necesidad."
+            tags={['Kant','sintético a priori','espacio / tiempo','categorías','trascendental']}
+            to="/semestre/4/filosofia-de-la-logica/clase/15-abril"
+          />
         </div>
       </section>
 
