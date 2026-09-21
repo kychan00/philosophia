@@ -317,6 +317,16 @@ export default function PhilosophyLogic() {
             tags={['Quine','holismo','pragmatismo','necesidad','verdad']}
             to="/semestre/4/filosofia-de-la-logica/clase/20-abril"
           />
+
+          <PhilosophyLogicClassCard
+            number="17"
+            date="22 · IV · 2026"
+            eyebrow="Decimoséptima sesión · Lógica III"
+            title="Teorías de la verdad y teoría de la redundancia"
+            description="Concepto y criterio de verdad, verdad trascendente e inmanente, correspondencia y coherencia, proyectos filosóficos, clasificaciones de teorías y teoría de la redundancia con oración, juicio, contexto y referencia."
+            tags={['verdad','correspondencia','coherencia','redundancia','referencia']}
+            to="/semestre/4/filosofia-de-la-logica/clase/22-abril"
+          />
         </div>
       </section>
 
