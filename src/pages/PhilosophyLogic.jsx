@@ -267,6 +267,16 @@ export default function PhilosophyLogic() {
             tags={['Frege','funciones','aridad','cuantificadores','operadores']}
             to="/semestre/4/filosofia-de-la-logica/clase/11-marzo"
           />
+
+          <PhilosophyLogicClassCard
+            number="12"
+            date="18 · III · 2026"
+            eyebrow="Duodécima sesión · Lógica III"
+            title="Frege, validez, necesidad y platonismo"
+            description="Los cuatro sentidos lógicos del verbo ser, límites de la silogística, verdad frente a validez, dependencia necesaria, preguntas filosóficas sobre la lógica y el platonismo como primera respuesta."
+            tags={['Frege','validez','necesidad','platonismo','verbo ser']}
+            to="/semestre/4/filosofia-de-la-logica/clase/18-marzo"
+          />
         </div>
       </section>
 
