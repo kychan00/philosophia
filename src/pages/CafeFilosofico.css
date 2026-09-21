@@ -254,6 +254,8 @@ button {
 }
 
 .cafe-public-session-list {
+  display: grid;
+  gap: clamp(26px, 3.2vw, 46px);
   padding-top: 34px;
 }
 
@@ -999,5 +1001,63 @@ button {
   .cafe-public-open::before,
   .cafe-public-open span {
     transition: none;
+  }
+}
+
+/* ============================================================
+   SESSION 02 - UPCOMING EVENT / POSTER CARD
+   ============================================================ */
+
+.cafe-public-session-badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-bottom: 14px;
+  padding: 7px 10px 6px;
+  border: 1px solid rgba(184, 75, 49, .54);
+  color: #8f3826;
+  background: rgba(184, 75, 49, .08);
+  font-family: var(--cafe-sans);
+  font-size: .56rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.cafe-public-session-image.is-poster {
+  display: grid;
+  place-items: center;
+  padding: clamp(18px, 2.2vw, 32px);
+  background:
+    radial-gradient(circle at 50% 42%, rgba(238, 230, 215, .12), transparent 48%),
+    #171713;
+}
+
+.cafe-public-session-image.is-poster img {
+  width: auto;
+  max-width: 100%;
+  height: min(560px, 100%);
+  min-height: 0;
+  object-fit: contain;
+  object-position: center;
+  border: 1px solid rgba(238, 230, 215, .34);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, .28);
+}
+
+@media (hover: hover) {
+  .cafe-public-session-image.is-poster:hover img {
+    transform: scale(1.018) rotate(-.25deg);
+  }
+}
+
+@media (max-width: 760px) {
+  .cafe-public-session-image.is-poster {
+    padding: 16px;
+  }
+
+  .cafe-public-session-image.is-poster img {
+    width: min(100%, 430px);
+    height: auto;
+    aspect-ratio: auto;
   }
 }

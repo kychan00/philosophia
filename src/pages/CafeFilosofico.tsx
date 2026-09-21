@@ -15,6 +15,20 @@ const sessions = [
       `${import.meta.env.BASE_URL}images/cafe-filosofico/gale02.JPG`,
     ],
   },
+  {
+    edition: 'EDICIÓN 02',
+    date: '22 SEP 2026',
+    title: 'La meritocracia',
+    description:
+      'Próximo encuentro interdisciplinario para abrir la discusión sobre mérito, pobreza, desigualdad y la tensión entre explicación individual y estructura.',
+    tags: ['Meritocracia', 'Desigualdad', 'Pobreza', 'Individuo', 'Estructura'],
+    route: '/cafe-filosofico/2026/09/22/meritocracia',
+    image: `${import.meta.env.BASE_URL}images/cafe-filosofico/meritocracia/poster-original.jpg`,
+    imageMode: 'poster',
+    badge: 'PRÓXIMO ENCUENTRO',
+    actionLabel: 'Explorar problema',
+  },
+
 ]
 
 export default function CafeFilosofico() {
@@ -94,7 +108,7 @@ export default function CafeFilosofico() {
             <article className="cafe-public-session-card" key={session.route}>
               <button
                 type="button"
-                className="cafe-public-session-image"
+                className={`cafe-public-session-image ${session.imageMode === 'poster' ? 'is-poster' : ''}`}
                 onClick={() => { window.location.hash = `#${session.route}` }}
                 aria-label={`Abrir ${session.title}`}
               >
@@ -105,6 +119,10 @@ export default function CafeFilosofico() {
               </button>
 
               <div className="cafe-public-session-copy">
+                {session.badge && (
+                  <span className="cafe-public-session-badge">{session.badge}</span>
+                )}
+
                 <div className="cafe-public-session-meta">
                   <span>{session.edition}</span>
                   <i />
@@ -140,7 +158,7 @@ export default function CafeFilosofico() {
                   className="cafe-public-open"
                   onClick={() => { window.location.hash = `#${session.route}` }}
                 >
-                  Abrir sesión
+                  {session.actionLabel || 'Abrir sesión'}
                   <span aria-hidden="true">↗</span>
                 </button>
               </div>

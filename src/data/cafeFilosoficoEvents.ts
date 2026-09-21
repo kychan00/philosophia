@@ -32,6 +32,25 @@ export const cafeEvents: CafeEvent[] = [
       'valor',
     ],
   },
+  {
+    id: 'cafe-2026-09-22-meritocracia',
+    date: '2026-09-22',
+    slug: 'meritocracia',
+    eyebrow: 'Café filosófico · interdisciplinario',
+    title: 'La meritocracia',
+    deck:
+      'Próximo encuentro interdisciplinario sobre mérito, pobreza, desigualdad y la tensión entre explicación individual y estructura.',
+    route: '/cafe-filosofico/2026/09/22/meritocracia',
+    status: 'proximo',
+    themes: [
+      'meritocracia',
+      'desigualdad',
+      'pobreza',
+      'individuo',
+      'estructura',
+    ],
+  },
+
 ]
 
 export function getCafeEventBySlug(slug: string) {
