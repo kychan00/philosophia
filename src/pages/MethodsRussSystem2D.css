@@ -2973,3 +2973,256 @@
     text-align: left;
   }
 }
+
+/* ============================================================
+   FASE 9 · NODOS CENTRADOS DENTRO DE LAS BANDAS
+   ============================================================ */
+
+/*
+ * Las franjas de los capítulos ocupan exactamente el área
+ * comprendida entre top: 0 y bottom: 54px (eje X).
+ * La grilla de nodos ahora usa ESA MISMA caja.
+ * Así cada nodo queda centrado matemáticamente dentro de su
+ * propia franja y deja de tocar/cruzar la línea divisoria.
+ */
+.russ2d-ch1-nodes,
+.russ2d-ch2-nodes,
+.russ2d-ch3-nodes {
+  inset: 0 34px 54px;
+  grid-template-rows: repeat(5, minmax(0, 1fr));
+}
+
+/* Quitar el desplazamiento añadido en la pasada anterior. */
+.russ2d-ch1-nodes button,
+.russ2d-ch2-nodes button,
+.russ2d-ch3-nodes button {
+  margin-top: 0;
+  align-self: center;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+/*
+ * Un poco más compactos para conservar aire real arriba/abajo
+ * incluso en pantallas angostas.
+ */
+.russ2d-ch1-nodes button {
+  min-height: 78px;
+}
+
+.russ2d-ch2-nodes button {
+  min-height: 80px;
+}
+
+.russ2d-ch3-nodes button {
+  min-height: 80px;
+}
+
+/*
+ * Los rótulos de nivel quedan claramente por encima del lienzo
+ * de nodos, pegados al borde superior de cada franja.
+ */
+.russ2d-ch1-level > span,
+.russ2d-ch1-level > b,
+.russ2d-ch2-level > span,
+.russ2d-ch2-level > b,
+.russ2d-ch3-level > span,
+.russ2d-ch3-level > b {
+  z-index: 4;
+  pointer-events: none;
+}
+
+/*
+ * En móvil conservamos el desplazamiento horizontal del mapa,
+ * pero evitamos que un nodo activo agrande visualmente su caja
+ * hacia una línea divisoria.
+ */
+@media (max-width: 700px) {
+  .russ2d-ch1-nodes button,
+  .russ2d-ch2-nodes button,
+  .russ2d-ch3-nodes button {
+    transform: none;
+  }
+
+  .russ2d-ch1-nodes button:hover,
+  .russ2d-ch1-nodes button.is-active,
+  .russ2d-ch2-nodes button:hover,
+  .russ2d-ch2-nodes button.is-active,
+  .russ2d-ch3-nodes button:hover,
+  .russ2d-ch3-nodes button.is-active {
+    transform: none;
+  }
+}
+
+/* ============================================================
+   FASE 10 · CORRECCIÓN ESTRUCTURAL REAL DE LOS MAPAS 2D
+   ============================================================ */
+
+/*
+ * El problema anterior no era sólo el inset:
+ * 1) las bandas eran demasiado bajas para nodo + rótulo;
+ * 2) el estado activo desplazaba el nodo hacia arriba;
+ * 3) la última columna tenía poco margen de seguridad.
+ *
+ * Se corrigen los tres capítulos con la misma geometría.
+ */
+
+.russ2d-ch1-map,
+.russ2d-ch2-map,
+.russ2d-ch3-map {
+  height: 790px;
+}
+
+/*
+ * La caja vertical coincide con las 5 bandas completas.
+ * Los laterales ahora tienen un gutter de seguridad para que
+ * la primera/última columna nunca toque el borde del lienzo.
+ */
+.russ2d-ch1-nodes,
+.russ2d-ch2-nodes,
+.russ2d-ch3-nodes {
+  inset: 0 96px 54px 72px;
+  grid-template-rows: repeat(5, minmax(0, 1fr));
+}
+
+/*
+ * Los nodos ya no "saltan" al seleccionarse.
+ * La selección se marca hacia dentro, por lo que no invade
+ * la línea superior/inferior de la banda.
+ */
+.russ2d-ch1-nodes button,
+.russ2d-ch2-nodes button,
+.russ2d-ch3-nodes button,
+.russ2d-ch1-nodes button:hover,
+.russ2d-ch1-nodes button.is-active,
+.russ2d-ch2-nodes button:hover,
+.russ2d-ch2-nodes button.is-active,
+.russ2d-ch3-nodes button:hover,
+.russ2d-ch3-nodes button.is-active {
+  transform: none;
+  margin: 0;
+  align-self: center;
+  box-sizing: border-box;
+}
+
+.russ2d-ch1-nodes button,
+.russ2d-ch2-nodes button,
+.russ2d-ch3-nodes button {
+  box-shadow: 3px 4px 0 rgba(16,16,14,.11);
+}
+
+.russ2d-ch1-nodes button:hover,
+.russ2d-ch1-nodes button.is-active,
+.russ2d-ch2-nodes button:hover,
+.russ2d-ch2-nodes button.is-active,
+.russ2d-ch3-nodes button:hover,
+.russ2d-ch3-nodes button.is-active {
+  box-shadow:
+    inset 0 0 0 3px var(--gold),
+    3px 4px 0 rgba(16,16,14,.11);
+}
+
+/* Altura contenida: deja aire arriba y abajo dentro de cada banda. */
+.russ2d-ch1-nodes button {
+  width: 86px;
+  min-height: 82px;
+}
+
+.russ2d-ch2-nodes button {
+  width: 96px;
+  min-height: 84px;
+}
+
+.russ2d-ch3-nodes button {
+  width: 88px;
+  min-height: 84px;
+}
+
+/*
+ * El nombre del nivel vive arriba de la banda.
+ * Se le da una pequeña placa del mismo fondo para que no parezca
+ * atravesado por líneas o por el borde de un nodo.
+ */
+.russ2d-ch1-level > span,
+.russ2d-ch1-level > b,
+.russ2d-ch2-level > span,
+.russ2d-ch2-level > b,
+.russ2d-ch3-level > span,
+.russ2d-ch3-level > b {
+  top: 10px;
+  z-index: 5;
+}
+
+.russ2d-ch1-level > b,
+.russ2d-ch2-level > b,
+.russ2d-ch3-level > b {
+  padding: 2px 6px 2px 4px;
+  background: color-mix(in srgb, var(--paper) 86%, transparent);
+}
+
+.russ2d-ch1-level.level-result > b,
+.russ2d-ch2-level.level-persistence > b,
+.russ2d-ch3-level.level-concept > b {
+  background: #1a1a16;
+}
+
+/*
+ * Más espacio real entre el rótulo de nivel y el nodo.
+ * Con 790px de alto, cada banda tiene ~147px:
+ * nodo 82–84px => ~31px libres arriba y abajo.
+ */
+.russ2d-ch1-levels,
+.russ2d-ch2-levels,
+.russ2d-ch3-levels {
+  inset: 0 0 54px;
+}
+
+/* El encabezado ya no compite por ancho con una frase tan larga. */
+.russ2d-ch1-map-head::after,
+.russ2d-ch2-map-head::after,
+.russ2d-ch3-map-head::after {
+  max-width: 290px;
+  line-height: 1.25;
+}
+
+/*
+ * MOBILE
+ * Sigue siendo un mapa 2D horizontal (no aplastamos el texto),
+ * pero con más margen interno y sin nodos "cortados" por el borde
+ * estructural de la propia banda.
+ */
+@media (max-width: 700px) {
+  .russ2d-ch1-map,
+  .russ2d-ch2-map,
+  .russ2d-ch3-map {
+    height: 760px;
+  }
+
+  .russ2d-ch1-nodes,
+  .russ2d-ch2-nodes,
+  .russ2d-ch3-nodes {
+    inset: 0 72px 54px 58px;
+  }
+
+  .russ2d-ch1-nodes button {
+    width: 82px;
+    min-height: 78px;
+  }
+
+  .russ2d-ch2-nodes button {
+    width: 90px;
+    min-height: 80px;
+  }
+
+  .russ2d-ch3-nodes button {
+    width: 84px;
+    min-height: 80px;
+  }
+
+  .russ2d-ch1-map-scroll,
+  .russ2d-ch2-map-scroll,
+  .russ2d-ch3-map-scroll {
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+}
