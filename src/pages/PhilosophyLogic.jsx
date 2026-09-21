@@ -247,6 +247,16 @@ export default function PhilosophyLogic() {
             ]}
             to="/semestre/4/filosofia-de-la-logica/clase/02-marzo"
           />
+
+          <PhilosophyLogicClassCard
+            number="10"
+            date="09 · III · 2026"
+            eyebrow="Décima sesión · Lógica III"
+            title="Formalización, Aristóteles y teoría funcional de Frege"
+            description="Lenguaje natural y formalización, silogística aristotélica, formas categóricas A/E/I/O, límites del esquema sujeto–predicado y giro fregeano hacia función, argumento, variables y saturación."
+            tags={['Aristóteles','Frege','formalización','función / argumento','saturación']}
+            to="/semestre/4/filosofia-de-la-logica/clase/09-marzo"
+          />
         </div>
       </section>
 
