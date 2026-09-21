@@ -327,6 +327,16 @@ export default function PhilosophyLogic() {
             tags={['verdad','correspondencia','coherencia','redundancia','referencia']}
             to="/semestre/4/filosofia-de-la-logica/clase/22-abril"
           />
+
+          <PhilosophyLogicClassCard
+            number="18"
+            date="27 · IV · 2026"
+            eyebrow="Decimoctava sesión · Lógica III"
+            title="Redundancia, juicio y valor de verdad"
+            description="Desarrollo de la teoría de la redundancia: eliminación de “es verdadero”, oración, contenido judicable, juicio, contexto, valor veritativo, problema referencial, deflacionismo, inflacionismo y teorías pro-oracionales."
+            tags={['redundancia','juicio','valor de verdad','deflacionismo','pro-oracionales']}
+            to="/semestre/4/filosofia-de-la-logica/clase/27-abril"
+          />
         </div>
       </section>
 
