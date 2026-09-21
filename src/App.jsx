@@ -64,6 +64,7 @@ const MethodsClass31Aug = lazy(() => import('./pages/MethodsClass31Aug'))
 const MethodsClass02Sep = lazy(() => import('./pages/MethodsClass02Sep'))
 const MethodsClass07Sep = lazy(() => import('./pages/MethodsClass07Sep'))
 const MethodsClass14Sep = lazy(() => import('./pages/MethodsClass14Sep'))
+const MethodsRussSystem2D = lazy(() => import('./pages/MethodsRussSystem2D'))
 const AnalyticPhilosophy = lazy(() => import('./pages/AnalyticPhilosophy'))
 const AnalyticClass17Aug = lazy(() => import('./pages/AnalyticClass17Aug'))
 const AnalyticClass19Aug = lazy(() => import('./pages/AnalyticClass19Aug'))
@@ -303,6 +304,10 @@ function App() {
         <Route
           path="/semestre/5/metodos-de-investigacion/clase/14-septiembre"
           element={<MethodsClass14Sep />}
+        />
+        <Route
+          path="/tareas/metodos-de-investigacion/jacqueline-russ-capitulos-1-3"
+          element={<MethodsRussSystem2D />}
         />
         <Route
           path="/semestre/5/filosofia-analitica"

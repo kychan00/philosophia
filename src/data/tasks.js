@@ -506,6 +506,7 @@ export const tasks = [
       'La grabación no fija un rango de páginas; la indicación segura corresponde a los capítulos 1–3.',
     sourceClass: 'Clase del 14 de septiembre',
     sourceRoute: '/semestre/5/metodos-de-investigacion/clase/14-septiembre',
+    studyRoute: '/tareas/metodos-de-investigacion/jacqueline-russ-capitulos-1-3',
   },
 ]
 

@@ -1,0 +1,2975 @@
+.russ2d-page{
+  --paper:#eee4cf;
+  --paper2:#d5c09a;
+  --ink:#10100e;
+  --gold:#bd8a34;
+  --rust:#984633;
+  min-height:100vh;
+  overflow-x:hidden;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 14% 8%,rgba(255,255,255,.34),transparent 20%),
+    repeating-linear-gradient(0deg,rgba(70,50,25,.024) 0 1px,transparent 1px 4px),
+    var(--paper);
+  font-family:Georgia,'Times New Roman',serif;
+}
+.russ2d-page *{box-sizing:border-box}
+.russ2d-grain{
+  position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.12;mix-blend-mode:multiply;
+  background:
+    radial-gradient(circle at 20% 30%,#000 0 .45px,transparent .65px) 0 0/19px 23px,
+    radial-gradient(circle at 70% 60%,#000 0 .35px,transparent .55px) 0 0/27px 31px;
+}
+.russ2d-topbar{
+  display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:center;
+  padding:14px 4vw;background:var(--ink);color:var(--paper);
+  border-bottom:1px solid rgba(238,228,207,.4);
+  font:700 9px Arial,sans-serif;letter-spacing:.15em;
+}
+.russ2d-topbar a{color:inherit;text-decoration:none}
+.russ2d-topbar a:last-child{text-align:right}
+
+.russ2d-hero{
+  position:relative;display:grid;grid-template-columns:95px minmax(0,1.25fr) minmax(300px,.75fr);
+  gap:34px;align-items:end;min-height:615px;padding:72px 6vw 78px;
+  background:var(--ink);color:var(--paper);
+}
+.russ2d-hero::after{
+  content:'';position:absolute;left:-2%;right:-2%;bottom:-22px;height:46px;background:var(--paper);
+  clip-path:polygon(0 42%,5% 14%,11% 48%,18% 21%,26% 52%,34% 17%,43% 50%,52% 21%,61% 53%,69% 19%,78% 50%,87% 24%,94% 48%,100% 34%,100% 100%,0 100%);
+}
+.russ2d-seal{
+  align-self:start;display:grid;place-items:center;width:68px;height:68px;border:2px solid var(--paper);
+  color:var(--gold);font:800 24px Arial,sans-serif;
+}
+.russ2d-hero-copy>p:first-child{margin:0 0 23px;font:700 10px Arial,sans-serif;letter-spacing:.18em}
+.russ2d-hero h1{margin:0;font-size:clamp(72px,8vw,132px);line-height:.74;letter-spacing:-.065em}
+.russ2d-hero h1 em{display:block;margin-top:18px;font-size:.57em}
+.russ2d-rule{height:7px;margin:34px 0 22px;background:var(--gold);transform:rotate(-.4deg)}
+.russ2d-deck{max-width:800px;margin:0;font-size:18px;line-height:1.48}
+.russ2d-deck strong{color:#ddb36b}
+.russ2d-thesis{
+  padding:28px;background:var(--paper);color:var(--ink);transform:rotate(1deg);
+  clip-path:polygon(0 3%,8% 0,18% 2%,29% 0,41% 3%,53% 1%,66% 3%,78% 0,91% 3%,100% 1%,98% 95%,89% 100%,76% 96%,63% 100%,50% 97%,35% 100%,21% 96%,8% 99%,1% 96%);
+}
+.russ2d-thesis small{font:800 9px Arial,sans-serif;letter-spacing:.16em;color:var(--rust)}
+.russ2d-thesis blockquote{margin:18px 0 24px;font:700 italic 25px/1.15 Georgia,serif}
+.russ2d-thesis-grid{display:grid;grid-template-columns:42px 1fr;gap:8px 12px;border-top:1px solid var(--ink);padding-top:15px}
+.russ2d-thesis-grid span{font:800 10px Arial,sans-serif;color:var(--rust)}
+.russ2d-thesis-grid b{font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+
+.russ2d-section-head{
+  display:grid;grid-template-columns:58px 1fr;gap:18px;
+}
+.russ2d-first-head{padding:94px 7vw 35px}
+.russ2d-section-head>span{
+  display:grid;place-items:center;width:50px;height:50px;border:2px solid var(--ink);
+  font:800 10px Arial,sans-serif;
+}
+.russ2d-section-head p{
+  margin:0;padding-top:7px;border-top:2px solid var(--ink);
+  font:800 9px Arial,sans-serif;letter-spacing:.16em;
+}
+.russ2d-section-head h2{
+  margin:8px 0 0;font-size:clamp(38px,4.5vw,62px);line-height:.96;
+}
+
+.russ2d-board-shell{
+  display:grid;grid-template-columns:76px minmax(0,1fr);gap:17px;padding:0 4vw 54px;
+}
+.russ2d-y-axis{
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:20px;
+  border-right:1px solid rgba(16,16,14,.45);
+}
+.russ2d-y-axis b{writing-mode:vertical-rl;transform:rotate(180deg);font:800 8px Arial,sans-serif;letter-spacing:.15em}
+.russ2d-y-axis span{font-size:27px}
+.russ2d-board{
+  position:relative;min-height:720px;border:2px solid var(--ink);overflow:hidden;
+}
+.russ2d-bands{position:absolute;inset:0 0 54px;display:grid;grid-template-rows:repeat(3,1fr)}
+.russ2d-band{position:relative;border-bottom:1px solid rgba(16,16,14,.4)}
+.russ2d-band:last-child{border-bottom:0}
+.russ2d-band-fundamento{background:#1a1a16;color:var(--paper)}
+.russ2d-band-especificidad{background:rgba(189,138,52,.18)}
+.russ2d-band-operacion{background:rgba(255,255,255,.12)}
+.russ2d-band span{position:absolute;left:13px;top:12px;font:800 9px Arial,sans-serif}
+.russ2d-band b{position:absolute;right:13px;top:12px;font:800 8px Arial,sans-serif;letter-spacing:.13em;opacity:.75}
+
+.russ2d-grid{
+  position:absolute;inset:36px 38px 92px;
+  display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(3,1fr);
+  gap:16px 22px;pointer-events:none;
+}
+.russ2d-node{
+  grid-column:var(--x);grid-row:var(--y);
+  align-self:center;justify-self:center;z-index:4;
+  width:min(165px,94%);min-height:108px;padding:14px 13px;
+  border:1px solid var(--ink);background:var(--paper);color:var(--ink);
+  text-align:left;cursor:pointer;pointer-events:auto;
+  box-shadow:5px 5px 0 rgba(16,16,14,.13);
+  transition:.18s ease;
+}
+.russ2d-node:hover{transform:translate(-2px,-3px);box-shadow:8px 9px 0 rgba(16,16,14,.18)}
+.russ2d-node:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.russ2d-node>span{display:grid;place-items:center;width:23px;height:23px;background:var(--ink);color:var(--paper);font:800 8px Arial,sans-serif}
+.russ2d-node small{display:block;margin:9px 0 5px;font:800 7px Arial,sans-serif;letter-spacing:.11em;color:var(--rust)}
+.russ2d-node strong{font-size:18px;line-height:1}
+.russ2d-node.chapter-II{background:#dfc185}
+.russ2d-node.chapter-III{background:#25251f;color:var(--paper);border-color:#d8c9aa}
+.russ2d-node.chapter-III>span{background:var(--gold);color:var(--ink)}
+.russ2d-node.chapter-III small{color:#ddb365}
+.russ2d-node.is-active{
+  transform:translate(-3px,-5px) rotate(-.4deg);
+  box-shadow:0 0 0 4px var(--gold),10px 12px 0 rgba(16,16,14,.18);
+}
+.russ2d-guides{position:absolute;inset:0 0 54px;pointer-events:none}
+.russ2d-guides i{position:absolute;background:rgba(16,16,14,.18)}
+.russ2d-guides .g1,.russ2d-guides .g2,.russ2d-guides .g3,.russ2d-guides .g4{top:10%;bottom:10%;width:1px}
+.russ2d-guides .g1{left:20%}.russ2d-guides .g2{left:40%}.russ2d-guides .g3{left:60%}.russ2d-guides .g4{left:80%}
+.russ2d-x-axis{
+  position:absolute;left:0;right:0;bottom:0;height:54px;
+  display:grid;grid-template-columns:auto 1fr auto 1fr auto auto;gap:10px;align-items:center;
+  padding:0 15px;border-top:2px solid var(--ink);background:var(--paper);
+  font:800 8px Arial,sans-serif;letter-spacing:.11em;
+}
+.russ2d-x-axis i{height:1px;background:var(--ink)}
+.russ2d-x-axis b{text-align:center}
+.russ2d-x-axis strong{font-size:23px}
+
+.russ2d-focus{
+  display:grid;grid-template-columns:92px minmax(0,1fr) auto;gap:24px;align-items:center;
+  margin:0 7vw;padding:27px 0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
+}
+.russ2d-focus-code{
+  display:grid;place-items:center;width:74px;height:74px;background:var(--ink);color:var(--paper);
+  font:800 32px Arial,sans-serif;
+}
+.russ2d-focus>div:nth-child(2)>span,.russ2d-focus aside small{
+  font:800 8px Arial,sans-serif;letter-spacing:.14em;color:var(--rust);
+}
+.russ2d-focus h2{margin:5px 0 6px;font-size:37px}
+.russ2d-focus p{margin:0;max-width:840px;font-size:16px;line-height:1.5}
+.russ2d-focus aside{text-align:right}
+.russ2d-focus aside b{display:block;margin-top:6px;font:800 17px Arial,sans-serif}
+
+.russ2d-section{padding:76px 7vw 18px}
+.russ2d-layer-cards{
+  display:grid;grid-template-columns:repeat(3,1fr);margin-top:28px;border:2px solid var(--ink);
+}
+.russ2d-layer-cards article{min-height:300px;padding:24px;border-right:1px solid var(--ink)}
+.russ2d-layer-cards article:last-child{border-right:0}
+.russ2d-layer-cards article.especificidad{background:#d3aa5d}
+.russ2d-layer-cards article.fundamento{background:var(--ink);color:var(--paper)}
+.russ2d-layer-cards article>span{
+  display:grid;place-items:center;width:35px;height:35px;border:1px solid currentColor;font:800 8px Arial,sans-serif;
+}
+.russ2d-layer-cards small{display:block;margin-top:54px;font:800 8px Arial,sans-serif;letter-spacing:.13em}
+.russ2d-layer-cards h3{margin:11px 0;font-size:35px;line-height:.95}
+.russ2d-layer-cards p{margin:0;font-size:15px;line-height:1.52}
+
+.russ2d-path{
+  display:grid;grid-template-columns:repeat(8,1fr);margin-top:28px;border:2px solid var(--ink);
+}
+.russ2d-path button{
+  min-height:145px;padding:13px 10px;border:0;border-right:1px solid var(--ink);
+  background:transparent;color:inherit;text-align:left;cursor:pointer;transition:.18s ease;
+}
+.russ2d-path button:last-child{border-right:0}
+.russ2d-path button:hover,.russ2d-path button.is-active{background:var(--ink);color:var(--paper)}
+.russ2d-path span{font:800 8px Arial,sans-serif}
+.russ2d-path strong{display:block;margin-top:71px;font-size:14px}
+
+.russ2d-memory-strip{
+  display:flex;align-items:center;justify-content:center;gap:clamp(8px,2.3vw,32px);
+  min-height:175px;margin-top:28px;border:2px solid var(--ink);background:var(--ink);color:var(--paper);
+}
+.russ2d-memory-strip b{
+  display:grid;place-items:center;width:61px;height:61px;border:2px solid var(--paper);
+  font:800 27px Arial,sans-serif;
+}
+.russ2d-memory-strip i{font-style:normal;color:var(--gold);font-size:25px}
+
+.russ2d-footer{
+  display:flex;justify-content:space-between;align-items:end;gap:30px;
+  margin-top:78px;padding:32px 6vw;background:var(--ink);color:var(--paper);
+}
+.russ2d-footer a{color:inherit;text-decoration:none;font:800 9px Arial,sans-serif;letter-spacing:.14em}
+.russ2d-footer div{text-align:right}
+.russ2d-footer strong,.russ2d-footer span{display:block}
+.russ2d-footer strong{font-size:21px}
+.russ2d-footer span{margin-top:6px;color:#d8ad61;font:800 8px Arial,sans-serif;letter-spacing:.12em}
+
+@media(max-width:1000px){
+  .russ2d-hero{grid-template-columns:75px 1fr}
+  .russ2d-thesis{grid-column:2}
+  .russ2d-board{overflow-x:auto}
+  .russ2d-grid,.russ2d-guides,.russ2d-x-axis,.russ2d-bands{min-width:920px}
+  .russ2d-layer-cards{grid-template-columns:1fr}
+  .russ2d-layer-cards article{border-right:0;border-bottom:1px solid var(--ink)}
+  .russ2d-path{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:700px){
+  .russ2d-topbar{grid-template-columns:1fr auto;padding:11px 14px;font-size:7px}
+  .russ2d-topbar span{display:none}
+  .russ2d-hero{display:block;min-height:auto;padding:43px 19px 52px}
+  .russ2d-seal{width:53px;height:53px;margin-bottom:26px;font-size:18px}
+  .russ2d-hero h1{font-size:clamp(58px,19vw,80px)}
+  .russ2d-hero h1 em{margin-top:14px}
+  .russ2d-deck{font-size:15px}
+  .russ2d-thesis{margin-top:32px;padding:23px}
+  .russ2d-thesis blockquote{font-size:20px}
+  .russ2d-first-head,.russ2d-section{padding:66px 18px 18px}
+  .russ2d-section-head{grid-template-columns:45px 1fr;gap:11px}
+  .russ2d-section-head>span{width:40px;height:40px}
+  .russ2d-section-head h2{font-size:32px}
+  .russ2d-board-shell{display:block;padding:0 12px 35px}
+  .russ2d-y-axis{display:none}
+  .russ2d-board{min-height:690px;overflow-x:auto}
+  .russ2d-grid,.russ2d-guides,.russ2d-x-axis,.russ2d-bands{min-width:880px}
+  .russ2d-focus{grid-template-columns:60px 1fr;margin:0 18px;padding:20px 0;gap:14px}
+  .russ2d-focus-code{width:52px;height:52px;font-size:23px}
+  .russ2d-focus h2{font-size:29px}
+  .russ2d-focus p{font-size:14px}
+  .russ2d-focus aside{grid-column:2;text-align:left}
+  .russ2d-layer-cards article{min-height:240px}
+  .russ2d-path{grid-template-columns:repeat(2,1fr)}
+  .russ2d-path button{min-height:112px}
+  .russ2d-path strong{margin-top:45px}
+  .russ2d-memory-strip{gap:5px;min-height:115px;padding:10px}
+  .russ2d-memory-strip b{width:36px;height:36px;font-size:17px}
+  .russ2d-memory-strip i{font-size:16px}
+  .russ2d-footer{flex-direction:column;align-items:start;padding:25px 18px}
+  .russ2d-footer div{text-align:left}
+}
+
+/* ============================================================
+   FASE 2 · GUÍA + RUTAS + CONTEXTO EXPANDIBLE
+   ============================================================ */
+
+.russ2d-guide {
+  padding-top: 84px;
+}
+
+.russ2d-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 28px;
+  border: 2px solid var(--ink);
+}
+
+.russ2d-guide-grid article {
+  min-height: 230px;
+  padding: 22px;
+  border-right: 1px solid var(--ink);
+}
+
+.russ2d-guide-grid article:last-child {
+  border-right: 0;
+}
+
+.russ2d-guide-grid article > span {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--ink);
+  font: 800 8px Arial, sans-serif;
+}
+
+.russ2d-guide-grid strong {
+  display: block;
+  margin-top: 57px;
+  font-size: 23px;
+  line-height: 1;
+}
+
+.russ2d-guide-grid p {
+  margin: 12px 0 0;
+  font-size: 14px;
+  line-height: 1.48;
+}
+
+.russ2d-route-picker {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 28px;
+  border: 2px solid var(--ink);
+}
+
+.russ2d-route-picker > button {
+  min-height: 270px;
+  padding: 21px;
+  border: 0;
+  border-right: 1px solid var(--ink);
+  background: rgba(255,255,255,.08);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: .18s ease;
+}
+
+.russ2d-route-picker > button:last-child {
+  border-right: 0;
+}
+
+.russ2d-route-picker > button:hover,
+.russ2d-route-picker > button.is-active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.russ2d-route-picker > button:focus-visible,
+.russ2d-route-sequence button:focus-visible,
+.russ2d-more-button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.russ2d-route-picker > button > span {
+  font: 800 9px Arial, sans-serif;
+}
+
+.russ2d-route-picker > button small {
+  display: block;
+  margin-top: 48px;
+  color: var(--rust);
+  font: 800 7px Arial, sans-serif;
+  letter-spacing: .13em;
+}
+
+.russ2d-route-picker > button.is-active small,
+.russ2d-route-picker > button:hover small {
+  color: #dfb76f;
+}
+
+.russ2d-route-picker > button strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.russ2d-route-picker > button p {
+  margin: 13px 0 0;
+  font-size: 14px;
+  line-height: 1.48;
+}
+
+.russ2d-route-readout {
+  display: grid;
+  grid-template-columns: 220px minmax(0,1fr);
+  gap: 20px;
+  align-items: stretch;
+  margin-top: 14px;
+}
+
+.russ2d-route-readout > div:first-child {
+  padding: 19px;
+  border: 2px solid var(--ink);
+}
+
+.russ2d-route-readout > div:first-child span {
+  display: block;
+  color: var(--rust);
+  font: 800 8px Arial, sans-serif;
+  letter-spacing: .14em;
+}
+
+.russ2d-route-readout > div:first-child strong {
+  display: block;
+  margin-top: 9px;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.russ2d-route-sequence {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  border: 2px solid var(--ink);
+}
+
+.russ2d-route-sequence button {
+  min-height: 88px;
+  padding: 11px;
+  border: 0;
+  border-right: 1px solid var(--ink);
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.russ2d-route-sequence button:last-child {
+  border-right: 0;
+}
+
+.russ2d-route-sequence button:hover {
+  background: rgba(189,138,52,.18);
+}
+
+.russ2d-route-sequence span {
+  font: 800 7px Arial, sans-serif;
+}
+
+.russ2d-route-sequence strong {
+  display: block;
+  margin-top: 29px;
+  font-size: 13px;
+}
+
+.russ2d-node.is-route:not(.is-active) {
+  box-shadow:
+    0 0 0 2px rgba(189,138,52,.82),
+    5px 5px 0 rgba(16,16,14,.13);
+}
+
+.russ2d-focus {
+  transition: padding .2s ease;
+}
+
+.russ2d-focus.is-expanded {
+  align-items: start;
+}
+
+.russ2d-focus-main {
+  min-width: 0;
+}
+
+.russ2d-more-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
+  padding: 10px 13px;
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font: 800 9px Arial, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  transition: .18s ease;
+}
+
+.russ2d-more-button:hover {
+  background: var(--ink);
+  color: var(--paper);
+  transform: translateY(-2px);
+}
+
+.russ2d-more-button > span {
+  display: grid;
+  place-items: center;
+  width: 19px;
+  height: 19px;
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.russ2d-focus-coords {
+  min-width: 170px;
+  text-align: right;
+}
+
+.russ2d-focus-coords small {
+  display: block;
+  margin-top: 14px;
+  color: var(--rust);
+  font: 800 7px Arial, sans-serif;
+  letter-spacing: .14em;
+}
+
+.russ2d-focus-coords small:first-child {
+  margin-top: 0;
+}
+
+.russ2d-focus-coords b {
+  display: block;
+  margin-top: 5px;
+  font: 800 13px Arial, sans-serif;
+}
+
+.russ2d-more-panel {
+  grid-column: 2 / -1;
+  display: grid;
+  grid-template-columns: minmax(0,1.35fr) minmax(240px,.65fr);
+  gap: 25px;
+  margin-top: 11px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(16,16,14,.35);
+}
+
+.russ2d-more-copy > span,
+.russ2d-report-use > span {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--rust);
+  font: 800 8px Arial, sans-serif;
+  letter-spacing: .14em;
+}
+
+.russ2d-more-copy p {
+  margin: 0 0 12px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.russ2d-report-use {
+  padding: 20px;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.russ2d-report-use > span {
+  color: #dfb76f;
+}
+
+.russ2d-report-use p {
+  margin: 0;
+  font: 700 italic 18px/1.35 Georgia, serif;
+}
+
+@media (max-width: 1000px) {
+  .russ2d-guide-grid,
+  .russ2d-route-picker {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .russ2d-guide-grid article:nth-child(2),
+  .russ2d-route-picker > button:nth-child(2) {
+    border-right: 0;
+  }
+
+  .russ2d-guide-grid article:nth-child(-n+2),
+  .russ2d-route-picker > button:nth-child(-n+2) {
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .russ2d-route-readout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .russ2d-guide {
+    padding-top: 62px;
+  }
+
+  .russ2d-guide-grid,
+  .russ2d-route-picker {
+    grid-template-columns: 1fr;
+  }
+
+  .russ2d-guide-grid article,
+  .russ2d-route-picker > button {
+    min-height: 180px;
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .russ2d-guide-grid article:last-child,
+  .russ2d-route-picker > button:last-child {
+    border-bottom: 0;
+  }
+
+  .russ2d-guide-grid strong {
+    margin-top: 38px;
+  }
+
+  .russ2d-route-picker > button small {
+    margin-top: 32px;
+  }
+
+  .russ2d-route-sequence {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .russ2d-route-sequence button {
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .russ2d-focus {
+    grid-template-columns: 56px minmax(0,1fr);
+  }
+
+  .russ2d-focus-coords {
+    grid-column: 2;
+    min-width: 0;
+    text-align: left;
+  }
+
+  .russ2d-more-panel {
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr;
+  }
+
+  .russ2d-more-button {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* ============================================================
+   FASE 3 · WORKSPACE + INSPECTOR DERECHO + FULLSCREEN
+   Inspirado en los sistemas de Spinoza y Kant.
+   ============================================================ */
+
+.russ2d-system-shell {
+  position: relative;
+  margin: 0 4vw 54px;
+  border: 2px solid var(--ink);
+  background: rgba(238,228,207,.96);
+  overflow: hidden;
+}
+
+.russ2d-system-toolbar {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 12px 10px 16px;
+  border-bottom: 1px solid rgba(16,16,14,.45);
+  background: #e4d7bd;
+}
+
+.russ2d-system-toolbar > div:first-child span,
+.russ2d-system-actions > span {
+  display: block;
+  color: var(--rust);
+  font: 800 7px Arial, sans-serif;
+  letter-spacing: .14em;
+}
+
+.russ2d-system-toolbar > div:first-child strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 18px;
+}
+
+.russ2d-system-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.russ2d-system-actions > span {
+  color: rgba(16,16,14,.7);
+}
+
+.russ2d-system-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 38px;
+  padding: 8px 10px 8px 13px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  cursor: pointer;
+  font: 800 8px Arial, sans-serif;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.russ2d-system-actions button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(16,16,14,.16);
+}
+
+.russ2d-system-actions button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.russ2d-system-actions button b {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.russ2d-workspace {
+  height: 760px;
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 390px;
+  overflow: hidden;
+}
+
+.russ2d-system-shell .russ2d-board-shell {
+  min-width: 0;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 62px minmax(0,1fr);
+  gap: 0;
+  padding: 0;
+}
+
+.russ2d-system-shell .russ2d-y-axis {
+  min-width: 0;
+  border-right: 1px solid rgba(16,16,14,.4);
+  background: rgba(255,255,255,.08);
+}
+
+.russ2d-system-shell .russ2d-board {
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  border: 0;
+  border-right: 1px solid rgba(16,16,14,.42);
+}
+
+.russ2d-inspector {
+  min-width: 0;
+  overflow: auto;
+  padding: 22px;
+  background: #f1e7d4;
+}
+
+.russ2d-inspector-head {
+  display: grid;
+  grid-template-columns: 66px minmax(0,1fr);
+  gap: 14px;
+  align-items: start;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(16,16,14,.35);
+}
+
+.russ2d-inspector-head .russ2d-focus-code {
+  width: 58px;
+  height: 58px;
+  font-size: 26px;
+}
+
+.russ2d-inspector-head span {
+  color: var(--rust);
+  font: 800 7px Arial, sans-serif;
+  letter-spacing: .13em;
+}
+
+.russ2d-inspector-head h2 {
+  margin: 5px 0 0;
+  font-size: 32px;
+  line-height: .96;
+}
+
+.russ2d-inspector-summary {
+  margin: 18px 0;
+  font-size: 16px;
+  line-height: 1.52;
+}
+
+.russ2d-inspector-meta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.russ2d-inspector-meta > div {
+  padding: 11px 12px;
+  border: 1px solid rgba(16,16,14,.3);
+  background: rgba(255,255,255,.18);
+}
+
+.russ2d-inspector-meta small,
+.russ2d-inspector-route > span {
+  display: block;
+  color: var(--rust);
+  font: 800 7px Arial, sans-serif;
+  letter-spacing: .13em;
+}
+
+.russ2d-inspector-meta b {
+  display: block;
+  margin-top: 4px;
+  font: 800 12px Arial, sans-serif;
+}
+
+.russ2d-inspector .russ2d-more-button {
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.russ2d-inspector .russ2d-more-panel {
+  display: block;
+  margin-top: 15px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(16,16,14,.35);
+}
+
+.russ2d-inspector .russ2d-more-copy p {
+  font-size: 14px;
+}
+
+.russ2d-inspector .russ2d-report-use {
+  margin-top: 15px;
+}
+
+.russ2d-inspector-route {
+  margin-top: 24px;
+  padding-top: 17px;
+  border-top: 2px solid var(--ink);
+}
+
+.russ2d-inspector-route > div {
+  display: grid;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.russ2d-inspector-route button {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid rgba(16,16,14,.25);
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.russ2d-inspector-route button:hover,
+.russ2d-inspector-route button.is-active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.russ2d-inspector-route button span {
+  font: 800 7px Arial, sans-serif;
+}
+
+.russ2d-inspector-route button b {
+  font-size: 13px;
+}
+
+.russ2d-system-shell:fullscreen,
+.russ2d-system-shell.is-fullscreen {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  border: 0;
+  background: var(--paper);
+}
+
+.russ2d-system-shell.is-fullscreen {
+  display: grid;
+  grid-template-rows: 58px minmax(0,1fr);
+}
+
+.russ2d-system-shell.is-fullscreen .russ2d-workspace {
+  height: 100%;
+  grid-template-columns: minmax(0,1fr) 420px;
+}
+
+.russ2d-system-shell.is-fullscreen .russ2d-board-shell,
+.russ2d-system-shell.is-fullscreen .russ2d-board {
+  height: 100%;
+}
+
+.russ2d-system-shell.is-fullscreen .russ2d-inspector {
+  box-shadow: -14px 0 34px rgba(16,16,14,.08);
+}
+
+.russ2d-system-shell.is-fullscreen .russ2d-grid {
+  inset: 42px 38px 92px;
+}
+
+.russ2d-system-shell.is-fullscreen .russ2d-node {
+  width: min(180px,94%);
+  min-height: 116px;
+}
+
+@media (max-width: 1180px) {
+  .russ2d-workspace {
+    grid-template-columns: minmax(0,1fr) 340px;
+  }
+
+  .russ2d-system-shell.is-fullscreen .russ2d-workspace {
+    grid-template-columns: minmax(0,1fr) 360px;
+  }
+}
+
+@media (max-width: 900px) {
+  .russ2d-system-shell {
+    margin: 0 18px 42px;
+  }
+
+  .russ2d-workspace {
+    height: auto;
+    min-height: 980px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 650px auto;
+  }
+
+  .russ2d-system-shell .russ2d-board-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .russ2d-system-shell .russ2d-y-axis {
+    display: none;
+  }
+
+  .russ2d-system-shell .russ2d-board {
+    border-right: 0;
+    border-bottom: 1px solid rgba(16,16,14,.4);
+  }
+
+  .russ2d-system-actions > span {
+    display: none;
+  }
+
+  .russ2d-system-shell.is-fullscreen .russ2d-workspace {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0,1fr) minmax(240px,42%);
+  }
+
+  .russ2d-system-shell.is-fullscreen .russ2d-inspector {
+    border-top: 1px solid rgba(16,16,14,.4);
+    box-shadow: 0 -10px 30px rgba(16,16,14,.08);
+  }
+}
+
+@media (max-width: 700px) {
+  .russ2d-system-toolbar {
+    padding-left: 10px;
+  }
+
+  .russ2d-system-toolbar > div:first-child strong {
+    font-size: 15px;
+  }
+
+  .russ2d-system-actions button {
+    padding-left: 9px;
+    font-size: 7px;
+  }
+
+  .russ2d-workspace {
+    grid-template-rows: 600px auto;
+  }
+
+  .russ2d-inspector {
+    padding: 18px;
+  }
+
+  .russ2d-inspector-head {
+    grid-template-columns: 55px 1fr;
+  }
+
+  .russ2d-inspector-head h2 {
+    font-size: 27px;
+  }
+}
+
+/* ============================================================
+   FASE 4 · MODAL PROFUNDO + TEXTO ORIGINAL
+   ============================================================ */
+
+.russ2d-open-deep {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 9px;
+  padding: 12px 14px;
+  border: 1px solid var(--gold);
+  background: var(--gold);
+  color: var(--ink);
+  cursor: pointer;
+  font: 900 9px Arial, sans-serif;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 20px rgba(90,61,20,.12);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.russ2d-open-deep:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(90,61,20,.2);
+}
+
+.russ2d-open-deep:focus-visible,
+.russ2d-deep-close:focus-visible {
+  outline: 3px solid var(--rust);
+  outline-offset: 3px;
+}
+
+.russ2d-open-deep b {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid currentColor;
+  font-size: 15px;
+}
+
+.russ2d-deep-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: clamp(18px,4vw,58px);
+  background: rgba(16,16,14,.42);
+  backdrop-filter: blur(15px) saturate(.72);
+  -webkit-backdrop-filter: blur(15px) saturate(.72);
+  animation: russ2d-backdrop-in .18s ease-out both;
+}
+
+.russ2d-deep-modal {
+  width: min(1120px, 94vw);
+  max-height: min(88vh, 900px);
+  display: grid;
+  grid-template-rows: auto minmax(0,1fr);
+  overflow: hidden;
+  border: 1px solid rgba(238,228,207,.52);
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(70,50,25,.025) 0 1px,
+      transparent 1px 4px
+    ),
+    #eee4cf;
+  color: var(--ink);
+  box-shadow: 0 35px 100px rgba(0,0,0,.38);
+  animation: russ2d-modal-in .2s ease-out both;
+}
+
+.russ2d-deep-top {
+  min-height: 64px;
+  display: grid;
+  grid-template-columns: 58px minmax(0,1fr) auto;
+  gap: 14px;
+  align-items: center;
+  padding: 9px 10px 9px 14px;
+  border-bottom: 1px solid rgba(16,16,14,.4);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.russ2d-deep-code {
+  display: grid;
+  place-items: center;
+  width: 45px;
+  height: 45px;
+  background: var(--gold);
+  color: var(--ink);
+  font: 900 20px Arial, sans-serif;
+}
+
+.russ2d-deep-top small {
+  display: block;
+  color: #dab263;
+  font: 800 7px Arial, sans-serif;
+  letter-spacing: .14em;
+}
+
+.russ2d-deep-top h2 {
+  margin: 3px 0 0;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.russ2d-deep-close {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(238,228,207,.5);
+  background: transparent;
+  color: var(--paper);
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.russ2d-deep-scroll {
+  min-height: 0;
+  overflow: auto;
+  padding: clamp(22px,3vw,38px);
+}
+
+.russ2d-deep-source-note {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-bottom: 16px;
+  color: var(--rust);
+  font: 800 8px Arial, sans-serif;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.russ2d-original-text {
+  position: relative;
+  margin: 0 0 30px;
+  padding: clamp(24px,3vw,38px);
+  border: 2px solid var(--ink);
+  background: #f5eddd;
+}
+
+.russ2d-original-text::before {
+  content: 'TEXTO ORIGINAL';
+  position: absolute;
+  top: -11px;
+  left: 20px;
+  padding: 4px 8px;
+  background: var(--gold);
+  color: var(--ink);
+  font: 900 7px Arial, sans-serif;
+  letter-spacing: .13em;
+}
+
+.russ2d-original-text blockquote {
+  margin: 0;
+  font: 700 italic clamp(23px,2.6vw,35px)/1.18 Georgia, serif;
+}
+
+.russ2d-original-text figcaption {
+  margin-top: 16px;
+  padding-top: 13px;
+  border-top: 1px solid rgba(16,16,14,.25);
+  font: 700 9px Arial, sans-serif;
+  letter-spacing: .08em;
+}
+
+.russ2d-systematic-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  border: 2px solid var(--ink);
+}
+
+.russ2d-systematic-grid article {
+  min-height: 190px;
+  padding: 21px;
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.russ2d-systematic-grid article:nth-child(even) {
+  border-right: 0;
+}
+
+.russ2d-systematic-grid article:nth-child(n+3) {
+  border-bottom: 0;
+}
+
+.russ2d-systematic-grid span {
+  display: grid;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  border: 1px solid var(--ink);
+  font: 900 8px Arial, sans-serif;
+}
+
+.russ2d-systematic-grid small {
+  display: block;
+  margin-top: 33px;
+  color: var(--rust);
+  font: 900 7px Arial, sans-serif;
+  letter-spacing: .13em;
+}
+
+.russ2d-systematic-grid h3 {
+  margin: 7px 0 9px;
+  font-size: 25px;
+  line-height: 1;
+}
+
+.russ2d-systematic-grid p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.52;
+}
+
+.russ2d-deep-formula {
+  display: grid;
+  grid-template-columns: auto minmax(0,1fr);
+  gap: 20px;
+  align-items: center;
+  margin-top: 18px;
+  padding: 18px 20px;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.russ2d-deep-formula span {
+  color: #dab263;
+  font: 900 8px Arial, sans-serif;
+  letter-spacing: .13em;
+}
+
+.russ2d-deep-formula strong {
+  font-size: clamp(18px,2vw,28px);
+  line-height: 1.1;
+}
+
+@keyframes russ2d-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes russ2d-modal-in {
+  from { opacity: 0; transform: translateY(16px) scale(.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 760px) {
+  .russ2d-deep-backdrop {
+    padding: 10px;
+  }
+
+  .russ2d-deep-modal {
+    width: 100%;
+    max-height: 94vh;
+  }
+
+  .russ2d-deep-top {
+    grid-template-columns: 48px 1fr auto;
+  }
+
+  .russ2d-deep-top h2 {
+    font-size: 20px;
+  }
+
+  .russ2d-systematic-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .russ2d-systematic-grid article {
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .russ2d-systematic-grid article:nth-child(n+3) {
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .russ2d-systematic-grid article:last-child {
+    border-bottom: 0;
+  }
+
+  .russ2d-deep-formula {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+}
+
+/* ============================================================
+   FASE 5 · CAPÍTULO I · SISTEMATIZACIÓN 2D COMPLETA
+   ============================================================ */
+
+.russ2d-ch1-section {
+  padding-top: 82px;
+}
+
+.russ2d-ch1-thesis {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(300px,.65fr);
+  gap: 0;
+  margin-top: 28px;
+  border: 2px solid var(--ink);
+}
+
+.russ2d-ch1-thesis > div,
+.russ2d-ch1-thesis > p {
+  padding: 26px;
+}
+
+.russ2d-ch1-thesis > div {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.russ2d-ch1-thesis small,
+.russ2d-ch1-reasons small,
+.russ2d-ch1-inspector small,
+.russ2d-ch1-architecture small {
+  display: block;
+  color: var(--rust);
+  font: 900 7px Arial,sans-serif;
+  letter-spacing: .14em;
+}
+
+.russ2d-ch1-thesis > div small {
+  color: #ddb36b;
+}
+
+.russ2d-ch1-thesis > div strong {
+  display: block;
+  margin-top: 12px;
+  font-size: clamp(24px,2.5vw,38px);
+  line-height: 1.05;
+}
+
+.russ2d-ch1-thesis > p {
+  margin: 0;
+  font: 700 italic 20px/1.4 Georgia,serif;
+}
+
+.russ2d-ch1-reasons {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  margin-top: 16px;
+  border: 2px solid var(--ink);
+}
+
+.russ2d-ch1-reasons article {
+  min-height: 245px;
+  padding: 20px;
+  border-right: 1px solid var(--ink);
+}
+
+.russ2d-ch1-reasons article:last-child {
+  border-right: 0;
+}
+
+.russ2d-ch1-reasons article > span {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--ink);
+  font: 900 9px Arial,sans-serif;
+}
+
+.russ2d-ch1-reasons small {
+  margin-top: 34px;
+}
+
+.russ2d-ch1-reasons h3 {
+  margin: 7px 0 10px;
+  font-size: 27px;
+  line-height: 1;
+}
+
+.russ2d-ch1-reasons p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.russ2d-ch1-reasons b {
+  display: block;
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(16,16,14,.3);
+  font: 800 10px/1.4 Arial,sans-serif;
+}
+
+.russ2d-ch1-voluntary {
+  display: grid;
+  grid-template-columns: auto minmax(0,1fr) minmax(260px,.7fr);
+  gap: 24px;
+  align-items: center;
+  margin-top: 16px;
+  padding: 18px 20px;
+  background: #d3aa5d;
+  border: 2px solid var(--ink);
+}
+
+.russ2d-ch1-voluntary > span {
+  font: 900 8px Arial,sans-serif;
+  letter-spacing: .14em;
+}
+
+.russ2d-ch1-voluntary > strong {
+  font-size: 18px;
+}
+
+.russ2d-ch1-voluntary > p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.russ2d-ch1-layout {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 360px;
+  margin-top: 20px;
+  border: 2px solid var(--ink);
+  min-height: 720px;
+}
+
+.russ2d-ch1-map-shell {
+  min-width: 0;
+  border-right: 1px solid var(--ink);
+}
+
+.russ2d-ch1-map-head {
+  min-height: 56px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--ink);
+  background: #dfd0b2;
+}
+
+.russ2d-ch1-map-head span {
+  color: var(--rust);
+  font: 900 8px Arial,sans-serif;
+  letter-spacing: .13em;
+}
+
+.russ2d-ch1-map-head strong {
+  font-size: 17px;
+}
+
+.russ2d-ch1-map-scroll {
+  width: 100%;
+  overflow-x: auto;
+  background: rgba(255,255,255,.08);
+}
+
+.russ2d-ch1-map {
+  position: relative;
+  min-width: 1120px;
+  height: 662px;
+  display: grid;
+  grid-template-rows: repeat(5,1fr) 54px;
+}
+
+.russ2d-ch1-levels {
+  position: absolute;
+  inset: 0 0 54px;
+  display: grid;
+  grid-template-rows: repeat(5,1fr);
+  pointer-events: none;
+}
+
+.russ2d-ch1-level {
+  grid-row: var(--row);
+  position: relative;
+  border-bottom: 1px solid rgba(16,16,14,.26);
+  background: rgba(255,255,255,.08);
+}
+
+.russ2d-ch1-level:nth-child(2) {
+  background: rgba(189,138,52,.10);
+}
+
+.russ2d-ch1-level:nth-child(3) {
+  background: rgba(189,138,52,.18);
+}
+
+.russ2d-ch1-level:nth-child(4) {
+  background: rgba(152,70,51,.10);
+}
+
+.russ2d-ch1-level:nth-child(5) {
+  background: #1a1a16;
+  color: var(--paper);
+}
+
+.russ2d-ch1-level > span {
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  font: 900 8px Arial,sans-serif;
+}
+
+.russ2d-ch1-level > b {
+  position: absolute;
+  left: 38px;
+  top: 9px;
+  font: 900 8px Arial,sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.russ2d-ch1-level > small {
+  position: absolute;
+  right: 12px;
+  top: 9px;
+  max-width: 330px;
+  text-align: right;
+  font: 700 7px Arial,sans-serif;
+  opacity: .72;
+}
+
+.russ2d-ch1-nodes {
+  position: absolute;
+  inset: 32px 34px 80px;
+  display: grid;
+  grid-template-columns: repeat(11,1fr);
+  grid-template-rows: repeat(5,1fr);
+  gap: 12px;
+  pointer-events: none;
+}
+
+.russ2d-ch1-nodes button {
+  grid-column: var(--cx);
+  grid-row: var(--cy);
+  align-self: center;
+  justify-self: center;
+  width: 88px;
+  min-height: 82px;
+  padding: 9px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow: 4px 4px 0 rgba(16,16,14,.14);
+  transition: .16s ease;
+}
+
+.russ2d-ch1-nodes button:hover,
+.russ2d-ch1-nodes button.is-active {
+  transform: translate(-2px,-3px);
+  box-shadow: 0 0 0 3px var(--gold),7px 8px 0 rgba(16,16,14,.16);
+}
+
+.russ2d-ch1-nodes button span {
+  display: block;
+  color: var(--rust);
+  font: 900 8px Arial,sans-serif;
+}
+
+.russ2d-ch1-nodes button strong {
+  display: block;
+  margin-top: 18px;
+  font-size: 13px;
+  line-height: 1.05;
+}
+
+.russ2d-ch1-axis {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 54px;
+  display: grid;
+  grid-template-columns: auto 1fr auto 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+  padding: 0 14px;
+  border-top: 2px solid var(--ink);
+  background: var(--paper);
+  font: 900 7px Arial,sans-serif;
+  letter-spacing: .1em;
+}
+
+.russ2d-ch1-axis i {
+  height: 1px;
+  background: var(--ink);
+}
+
+.russ2d-ch1-axis strong:last-child {
+  font-size: 22px;
+}
+
+.russ2d-ch1-inspector {
+  min-width: 0;
+  padding: 22px;
+  background: #f2e8d6;
+}
+
+.russ2d-ch1-inspector header {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 13px;
+  align-items: start;
+  padding-bottom: 17px;
+  border-bottom: 1px solid rgba(16,16,14,.32);
+}
+
+.russ2d-ch1-inspector header > span {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  background: var(--ink);
+  color: var(--paper);
+  font: 900 17px Arial,sans-serif;
+}
+
+.russ2d-ch1-inspector h3 {
+  margin: 5px 0 0;
+  font-size: 29px;
+  line-height: 1;
+}
+
+.russ2d-ch1-question {
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid var(--ink);
+  background: #eadbbd;
+}
+
+.russ2d-ch1-question strong {
+  display: block;
+  margin-top: 7px;
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.russ2d-ch1-short {
+  margin: 18px 0;
+  font: 700 italic 19px/1.35 Georgia,serif;
+}
+
+.russ2d-ch1-explain {
+  padding-top: 17px;
+  border-top: 2px solid var(--ink);
+}
+
+.russ2d-ch1-explain p {
+  margin: 9px 0 0;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.russ2d-ch1-movement {
+  margin-top: 18px;
+  padding: 15px;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.russ2d-ch1-movement small {
+  color: #ddb36b;
+}
+
+.russ2d-ch1-movement strong {
+  display: block;
+  margin-top: 7px;
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.russ2d-ch1-mini-route {
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  gap: 5px;
+  margin-top: 19px;
+}
+
+.russ2d-ch1-mini-route button {
+  height: 34px;
+  border: 1px solid rgba(16,16,14,.35);
+  background: transparent;
+  cursor: pointer;
+  font: 900 7px Arial,sans-serif;
+}
+
+.russ2d-ch1-mini-route button:hover,
+.russ2d-ch1-mini-route button.is-active {
+  background: var(--gold);
+}
+
+.russ2d-ch1-architecture {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  margin-top: 18px;
+  border: 2px solid var(--ink);
+}
+
+.russ2d-ch1-architecture > div {
+  min-height: 155px;
+  padding: 18px;
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.russ2d-ch1-architecture > div:nth-child(3n) {
+  border-right: 0;
+}
+
+.russ2d-ch1-architecture > div:nth-child(n+4) {
+  border-bottom: 0;
+}
+
+.russ2d-ch1-architecture strong {
+  display: block;
+  margin-top: 26px;
+  font-size: 18px;
+  line-height: 1.05;
+}
+
+.russ2d-ch1-architecture p {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+@media (max-width: 980px) {
+  .russ2d-ch1-thesis {
+    grid-template-columns: 1fr;
+  }
+
+  .russ2d-ch1-reasons {
+    grid-template-columns: 1fr;
+  }
+
+  .russ2d-ch1-reasons article {
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .russ2d-ch1-reasons article:last-child {
+    border-bottom: 0;
+  }
+
+  .russ2d-ch1-voluntary {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .russ2d-ch1-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .russ2d-ch1-map-shell {
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .russ2d-ch1-architecture {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .russ2d-ch1-architecture > div:nth-child(3n) {
+    border-right: 1px solid var(--ink);
+  }
+
+  .russ2d-ch1-architecture > div:nth-child(even) {
+    border-right: 0;
+  }
+
+  .russ2d-ch1-architecture > div:nth-child(n+4) {
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .russ2d-ch1-architecture > div:nth-child(n+5) {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .russ2d-ch1-section {
+    padding-top: 60px;
+  }
+
+  .russ2d-ch1-thesis > div,
+  .russ2d-ch1-thesis > p {
+    padding: 19px;
+  }
+
+  .russ2d-ch1-layout {
+    min-height: 0;
+  }
+
+  .russ2d-ch1-inspector {
+    padding: 18px;
+  }
+
+  .russ2d-ch1-architecture {
+    grid-template-columns: 1fr;
+  }
+
+  .russ2d-ch1-architecture > div {
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--ink) !important;
+  }
+
+  .russ2d-ch1-architecture > div:last-child {
+    border-bottom: 0 !important;
+  }
+}
+
+/* ============================================================
+   FASE 6 · CAPÍTULO II · SISTEMATIZACIÓN 2D COMPLETA
+   ============================================================ */
+
+.russ2d-ch2-section {
+  padding-top: 82px;
+}
+
+.russ2d-ch2-thesis {
+  display: grid;
+  grid-template-columns: minmax(0,1.1fr) minmax(330px,.9fr);
+  margin-top: 28px;
+  border: 2px solid var(--ink);
+}
+
+.russ2d-ch2-thesis > div {
+  padding: 26px;
+}
+
+.russ2d-ch2-thesis > div:first-child {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.russ2d-ch2-thesis small,
+.russ2d-ch2-inspector small,
+.russ2d-ch2-contrasts small,
+.russ2d-ch2-models small {
+  display: block;
+  color: var(--rust);
+  font: 900 7px Arial,sans-serif;
+  letter-spacing: .14em;
+}
+
+.russ2d-ch2-thesis > div:first-child small {
+  color: #ddb36b;
+}
+
+.russ2d-ch2-thesis > div:first-child strong {
+  display: block;
+  margin-top: 12px;
+  font-size: clamp(23px,2.5vw,37px);
+  line-height: 1.05;
+}
+
+.russ2d-ch2-core {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  gap: 10px;
+  background: #d3aa5d;
+}
+
+.russ2d-ch2-core span {
+  padding: 9px 11px;
+  border: 1px solid var(--ink);
+  font: 900 9px Arial,sans-serif;
+  text-transform: uppercase;
+}
+
+.russ2d-ch2-core i {
+  align-self: center;
+  font-style: normal;
+  font-size: 18px;
+}
+
+.russ2d-ch2-warning {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto 1fr;
+  gap: 14px;
+  align-items: center;
+  margin-top: 16px;
+  padding: 17px 18px;
+  border: 2px solid var(--ink);
+  background: #eadbbd;
+}
+
+.russ2d-ch2-warning span {
+  color: var(--rust);
+  font: 900 7px Arial,sans-serif;
+  letter-spacing: .13em;
+}
+
+.russ2d-ch2-warning strong {
+  font-size: 14px;
+}
+
+.russ2d-ch2-warning i {
+  font-style: normal;
+  font-size: 22px;
+}
+
+.russ2d-ch2-layout {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 370px;
+  margin-top: 20px;
+  border: 2px solid var(--ink);
+  min-height: 720px;
+}
+
+.russ2d-ch2-map-shell {
+  min-width: 0;
+  border-right: 1px solid var(--ink);
+}
+
+.russ2d-ch2-map-head {
+  min-height: 56px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--ink);
+  background: #dfd0b2;
+}
+
+.russ2d-ch2-map-head span {
+  color: var(--rust);
+  font: 900 8px Arial,sans-serif;
+  letter-spacing: .13em;
+}
+
+.russ2d-ch2-map-head strong {
+  font-size: 17px;
+}
+
+.russ2d-ch2-map-scroll {
+  width: 100%;
+  overflow-x: auto;
+  background: rgba(255,255,255,.08);
+}
+
+.russ2d-ch2-map {
+  position: relative;
+  min-width: 1100px;
+  height: 662px;
+}
+
+.russ2d-ch2-levels {
+  position: absolute;
+  inset: 0 0 54px;
+  display: grid;
+  grid-template-rows: repeat(5,1fr);
+  pointer-events: none;
+}
+
+.russ2d-ch2-level {
+  grid-row: var(--row);
+  position: relative;
+  border-bottom: 1px solid rgba(16,16,14,.26);
+}
+
+.russ2d-ch2-level.level-opening {
+  background: rgba(255,255,255,.08);
+}
+
+.russ2d-ch2-level.level-questioning {
+  background: rgba(189,138,52,.10);
+}
+
+.russ2d-ch2-level.level-problem {
+  background: rgba(189,138,52,.22);
+}
+
+.russ2d-ch2-level.level-scope {
+  background: rgba(152,70,51,.11);
+}
+
+.russ2d-ch2-level.level-persistence {
+  background: #1a1a16;
+  color: var(--paper);
+}
+
+.russ2d-ch2-level > span {
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  font: 900 8px Arial,sans-serif;
+}
+
+.russ2d-ch2-level > b {
+  position: absolute;
+  left: 38px;
+  top: 9px;
+  font: 900 8px Arial,sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.russ2d-ch2-level > small {
+  position: absolute;
+  right: 12px;
+  top: 9px;
+  max-width: 330px;
+  text-align: right;
+  font: 700 7px Arial,sans-serif;
+  opacity: .72;
+}
+
+.russ2d-ch2-nodes {
+  position: absolute;
+  inset: 32px 34px 80px;
+  display: grid;
+  grid-template-columns: repeat(9,1fr);
+  grid-template-rows: repeat(5,1fr);
+  gap: 12px;
+  pointer-events: none;
+}
+
+.russ2d-ch2-nodes button {
+  grid-column: var(--cx);
+  grid-row: var(--cy);
+  align-self: center;
+  justify-self: center;
+  width: 100px;
+  min-height: 86px;
+  padding: 9px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow: 4px 4px 0 rgba(16,16,14,.14);
+  transition: .16s ease;
+}
+
+.russ2d-ch2-nodes button:hover,
+.russ2d-ch2-nodes button.is-active {
+  transform: translate(-2px,-3px);
+  box-shadow: 0 0 0 3px var(--gold),7px 8px 0 rgba(16,16,14,.16);
+}
+
+.russ2d-ch2-nodes button span {
+  display: block;
+  color: var(--rust);
+  font: 900 8px Arial,sans-serif;
+}
+
+.russ2d-ch2-nodes button strong {
+  display: block;
+  margin-top: 18px;
+  font-size: 13px;
+  line-height: 1.05;
+}
+
+.russ2d-ch2-axis {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 54px;
+  display: grid;
+  grid-template-columns: auto 1fr auto 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+  padding: 0 14px;
+  border-top: 2px solid var(--ink);
+  background: var(--paper);
+  font: 900 7px Arial,sans-serif;
+  letter-spacing: .1em;
+}
+
+.russ2d-ch2-axis i {
+  height: 1px;
+  background: var(--ink);
+}
+
+.russ2d-ch2-axis strong:last-child {
+  font-size: 22px;
+}
+
+.russ2d-ch2-inspector {
+  min-width: 0;
+  padding: 22px;
+  background: #f2e8d6;
+}
+
+.russ2d-ch2-inspector header {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 13px;
+  align-items: start;
+  padding-bottom: 17px;
+  border-bottom: 1px solid rgba(16,16,14,.32);
+}
+
+.russ2d-ch2-inspector header > span {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  background: var(--ink);
+  color: var(--paper);
+  font: 900 17px Arial,sans-serif;
+}
+
+.russ2d-ch2-inspector h3 {
+  margin: 5px 0 0;
+  font-size: 29px;
+  line-height: 1;
+}
+
+.russ2d-ch2-question {
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid var(--ink);
+  background: #eadbbd;
+}
+
+.russ2d-ch2-question strong {
+  display: block;
+  margin-top: 7px;
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.russ2d-ch2-short {
+  margin: 18px 0;
+  font: 700 italic 19px/1.35 Georgia,serif;
+}
+
+.russ2d-ch2-explain {
+  padding-top: 17px;
+  border-top: 2px solid var(--ink);
+}
+
+.russ2d-ch2-explain p {
+  margin: 9px 0 0;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.russ2d-ch2-movement {
+  margin-top: 18px;
+  padding: 15px;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.russ2d-ch2-movement small {
+  color: #ddb36b;
+}
+
+.russ2d-ch2-movement strong {
+  display: block;
+  margin-top: 7px;
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.russ2d-ch2-mini-route {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 5px;
+  margin-top: 19px;
+}
+
+.russ2d-ch2-mini-route button {
+  height: 34px;
+  border: 1px solid rgba(16,16,14,.35);
+  background: transparent;
+  cursor: pointer;
+  font: 900 7px Arial,sans-serif;
+}
+
+.russ2d-ch2-mini-route button:hover,
+.russ2d-ch2-mini-route button.is-active {
+  background: var(--gold);
+}
+
+.russ2d-ch2-contrasts {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.russ2d-ch2-contrasts article {
+  border: 2px solid var(--ink);
+  padding: 18px;
+}
+
+.russ2d-ch2-contrasts article > span {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--ink);
+  font: 900 8px Arial,sans-serif;
+}
+
+.russ2d-ch2-contrasts h3 {
+  margin: 7px 0 14px;
+  font-size: 25px;
+}
+
+.russ2d-ch2-contrasts article > div {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  border: 1px solid var(--ink);
+}
+
+.russ2d-ch2-contrasts section {
+  padding: 14px;
+}
+
+.russ2d-ch2-contrasts section:first-child {
+  border-right: 1px solid var(--ink);
+  background: rgba(189,138,52,.13);
+}
+
+.russ2d-ch2-contrasts section b {
+  font-size: 15px;
+}
+
+.russ2d-ch2-contrasts section p {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.russ2d-ch2-models {
+  display: grid;
+  grid-template-columns: 1.2fr repeat(4,1fr);
+  margin-top: 18px;
+  border: 2px solid var(--ink);
+}
+
+.russ2d-ch2-models > * {
+  min-height: 165px;
+  padding: 18px;
+  border-right: 1px solid var(--ink);
+}
+
+.russ2d-ch2-models > *:last-child {
+  border-right: 0;
+}
+
+.russ2d-ch2-models-title {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.russ2d-ch2-models-title small {
+  color: #ddb36b;
+}
+
+.russ2d-ch2-models-title strong {
+  display: block;
+  margin-top: 34px;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.russ2d-ch2-models article strong {
+  font-size: 21px;
+}
+
+.russ2d-ch2-models article p {
+  margin: 36px 0 0;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.russ2d-ch2-key {
+  background: #eadbbd;
+}
+
+@media (max-width: 1050px) {
+  .russ2d-ch2-thesis {
+    grid-template-columns: 1fr;
+  }
+
+  .russ2d-ch2-warning {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .russ2d-ch2-warning i {
+    display: none;
+  }
+
+  .russ2d-ch2-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .russ2d-ch2-map-shell {
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .russ2d-ch2-models {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .russ2d-ch2-models > * {
+    border-bottom: 1px solid var(--ink);
+  }
+}
+
+@media (max-width: 700px) {
+  .russ2d-ch2-section {
+    padding-top: 60px;
+  }
+
+  .russ2d-ch2-thesis > div {
+    padding: 19px;
+  }
+
+  .russ2d-ch2-core {
+    justify-content: flex-start;
+  }
+
+  .russ2d-ch2-inspector {
+    padding: 18px;
+  }
+
+  .russ2d-ch2-contrasts {
+    grid-template-columns: 1fr;
+  }
+
+  .russ2d-ch2-contrasts article > div {
+    grid-template-columns: 1fr;
+  }
+
+  .russ2d-ch2-contrasts section:first-child {
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .russ2d-ch2-models {
+    grid-template-columns: 1fr;
+  }
+
+  .russ2d-ch2-models > * {
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .russ2d-ch2-models > *:last-child {
+    border-bottom: 0;
+  }
+}
+
+/* ============================================================
+   FASE 7 · CAPÍTULO III · SISTEMATIZACIÓN 2D COMPLETA
+   ============================================================ */
+
+.russ2d-ch3-section {
+  padding-top: 82px;
+}
+
+.russ2d-ch3-question {
+  display: grid;
+  grid-template-columns: minmax(0,1.15fr) minmax(320px,.85fr);
+  margin-top: 28px;
+  border: 2px solid var(--ink);
+}
+
+.russ2d-ch3-question > div,
+.russ2d-ch3-question > p {
+  padding: 26px;
+}
+
+.russ2d-ch3-question > div {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.russ2d-ch3-question small,
+.russ2d-ch3-inspector small,
+.russ2d-ch3-foundations small,
+.russ2d-ch3-contrasts small {
+  display: block;
+  color: var(--rust);
+  font: 900 7px Arial,sans-serif;
+  letter-spacing: .14em;
+}
+
+.russ2d-ch3-question > div small {
+  color: #ddb36b;
+}
+
+.russ2d-ch3-question > div strong {
+  display: block;
+  margin-top: 12px;
+  font-size: clamp(24px,2.6vw,38px);
+  line-height: 1.06;
+}
+
+.russ2d-ch3-question > p {
+  margin: 0;
+  font: 700 italic 20px/1.42 Georgia,serif;
+}
+
+.russ2d-ch3-foundations {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  margin-top: 16px;
+  border: 2px solid var(--ink);
+}
+
+.russ2d-ch3-foundations article {
+  min-height: 265px;
+  padding: 22px;
+  border-right: 1px solid var(--ink);
+}
+
+.russ2d-ch3-foundations article:last-child {
+  border-right: 0;
+}
+
+.russ2d-ch3-foundations article.descartes {
+  background: rgba(255,255,255,.10);
+}
+
+.russ2d-ch3-foundations article.bridge {
+  background: #d3aa5d;
+}
+
+.russ2d-ch3-foundations article.hegel {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.russ2d-ch3-foundations article.hegel small {
+  color: #ddb36b;
+}
+
+.russ2d-ch3-foundations article > span {
+  display: inline-block;
+  margin-top: 34px;
+  padding: 7px 9px;
+  border: 1px solid currentColor;
+  font: 900 8px Arial,sans-serif;
+  letter-spacing: .12em;
+}
+
+.russ2d-ch3-foundations h3 {
+  margin: 11px 0 8px;
+  font-size: 31px;
+  line-height: 1;
+}
+
+.russ2d-ch3-foundations article > strong {
+  display: block;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.russ2d-ch3-foundations p {
+  margin: 15px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.russ2d-ch3-layout {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 380px;
+  margin-top: 20px;
+  border: 2px solid var(--ink);
+  min-height: 735px;
+}
+
+.russ2d-ch3-map-shell {
+  min-width: 0;
+  border-right: 1px solid var(--ink);
+}
+
+.russ2d-ch3-map-head {
+  min-height: 56px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--ink);
+  background: #dfd0b2;
+}
+
+.russ2d-ch3-map-head span {
+  color: var(--rust);
+  font: 900 8px Arial,sans-serif;
+  letter-spacing: .13em;
+}
+
+.russ2d-ch3-map-head strong {
+  font-size: 17px;
+}
+
+.russ2d-ch3-map-scroll {
+  width: 100%;
+  overflow-x: auto;
+  background: rgba(255,255,255,.08);
+}
+
+.russ2d-ch3-map {
+  position: relative;
+  min-width: 1200px;
+  height: 677px;
+}
+
+.russ2d-ch3-levels {
+  position: absolute;
+  inset: 0 0 54px;
+  display: grid;
+  grid-template-rows: repeat(5,1fr);
+  pointer-events: none;
+}
+
+.russ2d-ch3-level {
+  grid-row: var(--row);
+  position: relative;
+  border-bottom: 1px solid rgba(16,16,14,.27);
+}
+
+.russ2d-ch3-level.level-cartesian {
+  background: rgba(255,255,255,.10);
+}
+
+.russ2d-ch3-level.level-construction {
+  background: rgba(189,138,52,.10);
+}
+
+.russ2d-ch3-level.level-transition {
+  background: #d7b670;
+}
+
+.russ2d-ch3-level.level-dialectic {
+  background: rgba(80,68,48,.28);
+}
+
+.russ2d-ch3-level.level-concept {
+  background: #1a1a16;
+  color: var(--paper);
+}
+
+.russ2d-ch3-level > span {
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  font: 900 8px Arial,sans-serif;
+}
+
+.russ2d-ch3-level > b {
+  position: absolute;
+  left: 38px;
+  top: 9px;
+  font: 900 8px Arial,sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.russ2d-ch3-level > small {
+  display: none;
+}
+
+.russ2d-ch3-map-head::after {
+  content: 'Los niveles se explican en el inspector lateral para evitar ruido visual en el lienzo.';
+  display: inline-block;
+  margin-left: auto;
+  color: rgba(16,16,14,.68);
+  font: 700 8px Arial,sans-serif;
+  letter-spacing: .06em;
+  text-transform: none;
+}
+
+
+.russ2d-ch3-nodes {
+  position: absolute;
+  inset: 32px 34px 80px;
+  display: grid;
+  grid-template-columns: repeat(11,1fr);
+  grid-template-rows: repeat(5,1fr);
+  gap: 10px;
+  pointer-events: none;
+}
+
+.russ2d-ch3-nodes button {
+  grid-column: var(--cx);
+  grid-row: var(--cy);
+  align-self: center;
+  justify-self: center;
+  width: 92px;
+  min-height: 88px;
+  padding: 8px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow: 4px 4px 0 rgba(16,16,14,.14);
+  transition: .16s ease;
+}
+
+.russ2d-ch3-nodes button.foundation-hegel {
+  background: #25251f;
+  color: var(--paper);
+  border-color: #d7c6a4;
+}
+
+.russ2d-ch3-nodes button.foundation-transición {
+  background: #d3aa5d;
+}
+
+.russ2d-ch3-nodes button:hover,
+.russ2d-ch3-nodes button.is-active {
+  transform: translate(-2px,-3px);
+  box-shadow: 0 0 0 3px var(--gold),7px 8px 0 rgba(16,16,14,.18);
+}
+
+.russ2d-ch3-nodes button > span {
+  display: block;
+  color: var(--rust);
+  font: 900 8px Arial,sans-serif;
+}
+
+.russ2d-ch3-nodes button.foundation-hegel > span {
+  color: #ddb36b;
+}
+
+.russ2d-ch3-nodes button > small {
+  display: block;
+  margin-top: 8px;
+  color: inherit;
+  opacity: .66;
+  font: 800 6px Arial,sans-serif;
+  letter-spacing: .08em;
+}
+
+.russ2d-ch3-nodes button > strong {
+  display: block;
+  margin-top: 7px;
+  font-size: 12px;
+  line-height: 1.05;
+}
+
+.russ2d-ch3-axis {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 54px;
+  display: grid;
+  grid-template-columns: auto 1fr auto 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+  padding: 0 14px;
+  border-top: 2px solid var(--ink);
+  background: var(--paper);
+  font: 900 7px Arial,sans-serif;
+  letter-spacing: .1em;
+}
+
+.russ2d-ch3-axis i {
+  height: 1px;
+  background: var(--ink);
+}
+
+.russ2d-ch3-axis strong:last-child {
+  font-size: 22px;
+}
+
+.russ2d-ch3-inspector {
+  min-width: 0;
+  padding: 22px;
+  background: #f2e8d6;
+}
+
+.russ2d-ch3-inspector header {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 13px;
+  align-items: start;
+  padding-bottom: 17px;
+  border-bottom: 1px solid rgba(16,16,14,.32);
+}
+
+.russ2d-ch3-inspector header > span {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  background: var(--ink);
+  color: var(--paper);
+  font: 900 17px Arial,sans-serif;
+}
+
+.russ2d-ch3-inspector h3 {
+  margin: 5px 0 0;
+  font-size: 29px;
+  line-height: 1;
+}
+
+.russ2d-ch3-control {
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid var(--ink);
+  background: #eadbbd;
+}
+
+.russ2d-ch3-control strong {
+  display: block;
+  margin-top: 7px;
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.russ2d-ch3-short {
+  margin: 18px 0;
+  font: 700 italic 19px/1.35 Georgia,serif;
+}
+
+.russ2d-ch3-explain {
+  padding-top: 17px;
+  border-top: 2px solid var(--ink);
+}
+
+.russ2d-ch3-explain p {
+  margin: 9px 0 0;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.russ2d-ch3-movement {
+  margin-top: 18px;
+  padding: 15px;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.russ2d-ch3-movement small {
+  color: #ddb36b;
+}
+
+.russ2d-ch3-movement strong {
+  display: block;
+  margin-top: 7px;
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.russ2d-ch3-mini-route {
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  gap: 5px;
+  margin-top: 19px;
+}
+
+.russ2d-ch3-mini-route button {
+  height: 34px;
+  border: 1px solid rgba(16,16,14,.35);
+  background: transparent;
+  cursor: pointer;
+  font: 900 7px Arial,sans-serif;
+}
+
+.russ2d-ch3-mini-route button:hover,
+.russ2d-ch3-mini-route button.is-active {
+  background: var(--gold);
+}
+
+.russ2d-ch3-contrasts {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.russ2d-ch3-contrasts article {
+  border: 2px solid var(--ink);
+  padding: 18px;
+}
+
+.russ2d-ch3-contrasts article > span {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--ink);
+  font: 900 8px Arial,sans-serif;
+}
+
+.russ2d-ch3-contrasts h3 {
+  margin: 7px 0 14px;
+  font-size: 25px;
+}
+
+.russ2d-ch3-contrasts article > div {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  border: 1px solid var(--ink);
+}
+
+.russ2d-ch3-contrasts section {
+  padding: 14px;
+}
+
+.russ2d-ch3-contrasts section:first-child {
+  border-right: 1px solid var(--ink);
+  background: rgba(189,138,52,.13);
+}
+
+.russ2d-ch3-contrasts section b {
+  font-size: 15px;
+}
+
+.russ2d-ch3-contrasts section p {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.russ2d-ch3-synthesis {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1.2fr;
+  gap: 15px;
+  align-items: center;
+  margin-top: 18px;
+  padding: 20px;
+  border: 2px solid var(--ink);
+  background: #eadbbd;
+}
+
+.russ2d-ch3-synthesis > span,
+.russ2d-ch3-synthesis > i {
+  font-size: 25px;
+  font-style: normal;
+}
+
+.russ2d-ch3-synthesis small {
+  display: block;
+  color: var(--rust);
+  font: 900 7px Arial,sans-serif;
+  letter-spacing: .13em;
+}
+
+.russ2d-ch3-synthesis strong {
+  display: block;
+  margin-top: 7px;
+  font-size: 20px;
+  line-height: 1.05;
+}
+
+.russ2d-ch3-synthesis .result {
+  padding: 16px;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.russ2d-ch3-synthesis .result small {
+  color: #ddb36b;
+}
+
+.russ2d-ch3-key {
+  background: #eadbbd;
+}
+
+@media (max-width: 1050px) {
+  .russ2d-ch3-question {
+    grid-template-columns: 1fr;
+  }
+
+  .russ2d-ch3-foundations {
+    grid-template-columns: 1fr;
+  }
+
+  .russ2d-ch3-foundations article {
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .russ2d-ch3-foundations article:last-child {
+    border-bottom: 0;
+  }
+
+  .russ2d-ch3-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .russ2d-ch3-map-shell {
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .russ2d-ch3-synthesis {
+    grid-template-columns: 1fr;
+  }
+
+  .russ2d-ch3-synthesis > span,
+  .russ2d-ch3-synthesis > i {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .russ2d-ch3-section {
+    padding-top: 60px;
+  }
+
+  .russ2d-ch3-question > div,
+  .russ2d-ch3-question > p {
+    padding: 19px;
+  }
+
+  .russ2d-ch3-map-head::after {
+    display: block;
+    width: 100%;
+    margin: 6px 0 0;
+  }
+
+  .russ2d-ch3-inspector {
+    padding: 18px;
+  }
+
+  .russ2d-ch3-contrasts {
+    grid-template-columns: 1fr;
+  }
+
+  .russ2d-ch3-contrasts article > div {
+    grid-template-columns: 1fr;
+  }
+
+  .russ2d-ch3-contrasts section:first-child {
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+}
+
+/* ================================================================
+   FASE 8 · LIMPIEZA VISUAL Y CENTRADO DE NODOS
+   ================================================================ */
+
+.russ2d-ch1-level > small,
+.russ2d-ch2-level > small,
+.russ2d-ch3-level > small {
+  display: none;
+}
+
+.russ2d-ch1-map-head,
+.russ2d-ch2-map-head,
+.russ2d-ch3-map-head {
+  align-items: flex-start;
+}
+
+.russ2d-ch1-map-head::after,
+.russ2d-ch2-map-head::after,
+.russ2d-ch3-map-head::after {
+  content: 'Los niveles se explican en el inspector lateral para evitar ruido visual en el lienzo.';
+  margin-left: auto;
+  max-width: 360px;
+  color: rgba(16,16,14,.68);
+  font: 700 8px Arial,sans-serif;
+  letter-spacing: .06em;
+  line-height: 1.35;
+  text-align: right;
+}
+
+.russ2d-ch1-nodes,
+.russ2d-ch2-nodes,
+.russ2d-ch3-nodes {
+  inset: 42px 34px 92px;
+}
+
+.russ2d-ch1-nodes button,
+.russ2d-ch2-nodes button,
+.russ2d-ch3-nodes button {
+  margin-top: 8px;
+}
+
+@media (max-width: 980px) {
+  .russ2d-ch1-map-head::after,
+  .russ2d-ch2-map-head::after,
+  .russ2d-ch3-map-head::after {
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin: 6px 0 0;
+    text-align: left;
+  }
+}
