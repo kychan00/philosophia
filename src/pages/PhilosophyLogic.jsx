@@ -367,6 +367,16 @@ export default function PhilosophyLogic() {
             tags={['fenomenología','Husserl','evidencia','Heidegger','aletheia']}
             to="/semestre/4/filosofia-de-la-logica/clase/06-mayo"
           />
+
+          <PhilosophyLogicClassCard
+            number="22"
+            date="11 · V · 2026"
+            eyebrow="Vigesimosegunda sesión · Lógica III"
+            title="Correspondencia, atomismo lógico y críticas"
+            description="Verdad como adecuación, giro de representación mental a lenguaje, estados de cosas y hechos, Frege, Russell, primer Wittgenstein, atomismo lógico, verificación, isomorfismo, teoría pictórica y crítica del segundo Wittgenstein."
+            tags={['correspondencia','atomismo lógico','Russell','Wittgenstein','verificación']}
+            to="/semestre/4/filosofia-de-la-logica/clase/11-mayo"
+          />
         </div>
       </section>
 
