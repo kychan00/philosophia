@@ -72,6 +72,7 @@ const AnalyticClass24Aug = lazy(() => import('./pages/AnalyticClass24Aug'))
 const AnalyticClass31Aug = lazy(() => import('./pages/AnalyticClass31Aug'))
 const AnalyticClass02Sep = lazy(() => import('./pages/AnalyticClass02Sep'))
 const AnalyticFollesdalMap = lazy(() => import('./pages/AnalyticFollesdalMap'))
+const AnalyticHackerSystem = lazy(() => import('./pages/AnalyticHackerSystem'))
 const CriticalTheory = lazy(() => import('./pages/CriticalTheory'))
 const CriticalTheoryTask1 = lazy(() => import('./pages/CriticalTheoryTask1'))
 const CriticalTheoryClass18Aug = lazy(() => import('./pages/CriticalTheoryClass18Aug'))
@@ -347,6 +348,9 @@ function App() {
           element={<AnalyticFollesdalMap />}
         />
         <Route
+          path="/semestre/5/filosofia-analitica/reporte/hacker"
+          element={<AnalyticHackerSystem />}
+        /><Route
           path="/semestre/5/teoria-critica"
           element={<CriticalTheory />}
         />

@@ -39,9 +39,9 @@ export const cafeEvents: CafeEvent[] = [
     eyebrow: 'Café filosófico · interdisciplinario',
     title: 'La meritocracia',
     deck:
-      'Próximo encuentro interdisciplinario sobre mérito, pobreza, desigualdad y la tensión entre explicación individual y estructura.',
+      'Memoria del diálogo sobre mérito, pobreza, merecimiento, trabajo, desigualdad, competencia y las condiciones sociales que hacen posible atribuir éxito o fracaso.',
     route: '/cafe-filosofico/2026/09/22/meritocracia',
-    status: 'proximo',
+    status: 'publicado',
     themes: [
       'meritocracia',
       'desigualdad',

@@ -508,6 +508,27 @@ export const tasks = [
     sourceRoute: '/semestre/5/metodos-de-investigacion/clase/14-septiembre',
     studyRoute: '/tareas/metodos-de-investigacion/jacqueline-russ-capitulos-1-3',
   },
+  {
+    id: 'analitica-2026-09-28-segundo-reporte-hacker',
+    subject: 'Filosofía Analítica',
+    subjectCode: 'FI264',
+    assignedDate: '2026-09-21',
+    dueDate: '2026-09-28',
+    title: 'Segundo reporte · Peter M. S. Hacker',
+    type: 'Reporte de lectura',
+    weight: null,
+    description:
+      'Preparar el segundo reporte sobre “El surgimiento de la filosofía analítica del siglo XX”, de Peter M. S. Hacker. El sistema total organiza los 53 puntos principales de la sistematización, relaciones históricas y conceptuales, ejemplos propios y citas suministradas.',
+    readingScope:
+      'Peter M. S. Hacker · “El surgimiento de la filosofía analítica del siglo XX”',
+    readingPages: 'pp. 95–132',
+    readingEdition:
+      'Hans-Johann Glock (ed.) · El surgimiento de la filosofía analítica · Círculo Ometeotl, 2013',
+    sourceClass: 'Segundo reporte de lectura · Filosofía Analítica',
+    sourceRoute: '/semestre/5/filosofia-analitica',
+    studyRoute: '/semestre/5/filosofia-analitica/reporte/hacker',
+  },
+
 ]
 
 export default tasks

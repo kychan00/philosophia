@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 import './CafeMeritocraciaEvent.css'
+import MeritocracyDialogueArchive from '../components/cafe/MeritocracyDialogueArchive'
 
 const ASSET = '/philosophia/images/cafe-filosofico/meritocracia'
 
@@ -119,7 +120,7 @@ export default function CafeMeritocraciaEvent() {
         <div className="merit-section-head">
           <span>01</span>
           <div>
-            <p>PRÓXIMO ENCUENTRO</p>
+            <p>MEMORIA DEL ENCUENTRO</p>
             <h2>La meritocracia</h2>
           </div>
         </div>
@@ -239,6 +240,8 @@ export default function CafeMeritocraciaEvent() {
           ))}
         </div>
       </section>
+
+      <MeritocracyDialogueArchive />
 
       <footer className="merit-footer">
         <Link to="/cafe-filosofico">← VOLVER AL CAFÉ FILOSÓFICO</Link>
