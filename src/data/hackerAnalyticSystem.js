@@ -1,6 +1,7 @@
 export const hackerRoutes = [
   { id: 'all', label: 'Todo' },
   { id: 'class14', label: 'Clase 14 Sep' },
+  { id: 'class21', label: 'Clase 21 Sep' },
   { id: 'identity', label: 'Definición' },
   { id: 'moore', label: 'Moore' },
   { id: 'russell', label: 'Russell' },
@@ -12,6 +13,7 @@ export const hackerRoutes = [
 
 export const hackerRouteColors = {
   class14: '#9b4b38',
+  class21: '#466f68',
   identity: '#9a702e',
   moore: '#59745c',
   russell: '#49687d',
@@ -713,11 +715,187 @@ Object.entries(class14Notes).forEach(([id, info]) => {
   }
 })
 
+
+const class21Notes = {
+  H13: ['DOBLE ORIGEN, NO SÓLO LOGICISMO',
+    'Nava subraya que reducir el origen de la filosofía analítica al logicismo es insuficiente. Moore y Russell comparten una preocupación por análisis conceptual, semántico y lógico, pero no son logicistas en el mismo sentido.'],
+  H14: ['IDEALISMO BRITÁNICO COMO ADVERSARIO',
+    'La clase desarrolla el contexto histórico: mientras el hegelianismo perdía fuerza en Alemania y aparecía el neokantismo, el idealismo absoluto seguía dominando buena parte de las universidades británicas.'],
+  H15: ['REALISMO, PLURALISMO Y OBJETO INDEPENDIENTE',
+    'Nava explica el giro antiidealista mediante sujeto–objeto–representación. Moore insiste en que conocer algo y aquello que es conocido no son idénticos; conservar el objeto rompe con el monismo idealista.'],
+  H16: ['TRES SENTIDOS DE ANÁLISIS',
+    'La clase sistematiza tres usos mooreanos: análisis descomposicional, inspección del concepto o sus componentes y análisis relacional. El ejemplo del caballo distingue descomponer un concepto de estudiar sus conexiones.'],
+  H17: ['COMPRENDER NO ES ANALIZAR',
+    'Saber usar una expresión y captar su significado ordinario no equivale a conocer filosóficamente su análisis. Podemos entender “caballo” o “bonito” sin agotar sus componentes o relaciones.'],
+  H18: ['TENSIÓN ENTRE TEORÍA Y PRÁCTICA',
+    'Aunque Moore concibe el concepto como independiente del lenguaje, en la práctica compara expresiones y usos. Nava marca esta tensión como el camino hacia el análisis conectivo posterior.'],
+  H19: ['FILOSOFÍA COMO DESCRIPCIÓN DEL UNIVERSO',
+    'Moore no reduce la filosofía a aclaración lingüística. La clase recupera su proyecto de describir las clases fundamentales de cosas y sus relaciones, apoyándose en creencias de sentido común.'],
+  H09: ['DESCRIBIR EL MUNDO ≠ USAR EL LENGUAJE',
+    'Nava contrasta la función descriptiva privilegiada por los primeros analíticos con el segundo Wittgenstein: el lenguaje también sirve para mentir, imaginar, narrar sueños y participar en prácticas comunicativas.'],
+  H34: ['MOORE FRENTE AL ESPEJO TRACTARIANO',
+    'La clase compara dos ontologías de la proposición: en el primer Wittgenstein la proposición figura o representa la realidad; en el Moore platonista una proposición verdadera forma parte de la realidad.'],
+  H53: ['DEL ANÁLISIS DESCOMPOSICIONAL AL CONECTIVO',
+    'Tras abandonar el platonismo fuerte de Moore, el análisis persiste como estudio de implicaciones, exclusiones, presuposiciones, compatibilidades e incompatibilidades.'],
+}
+
+const class21Nodes = [
+  n('HC21-01','9.1','classpoint','Platonismo como estrategia antiidealista',
+    'Moore y el primer Russell recurren a un platonismo fuerte para afirmar objetividad e independencia frente al idealismo.',
+    'La clase presenta esta solución como sui generis: parecía más intuitivo volver al empirismo, pero el platonismo permite afirmar objetos independientes del sujeto aunque sean ideales.',
+    'Aporte de Nava para explicar el arranque antiidealista de Moore.',
+    'Novena clase · 21 sep 2026',['moore','class21'],['H14','H15'],
+    ['platonismo','antiidealismo','objetivismo','pluralismo'],{critical:true}),
+
+  n('HC21-02','9.2','classpoint','La proposición forma parte de la realidad',
+    'En el Moore platonista, una proposición verdadera pertenece a la realidad ideal.',
+    'Los conceptos existen independientemente de la mente y se combinan en proposiciones. Esto contrasta con el primer Wittgenstein, donde la proposición figura un estado de cosas.',
+    'Diferencia ontológica explicitada por Nava entre Moore y el Tractatus.',
+    'Novena clase · 21 sep 2026',['moore','class21'],['HC21-01','H15'],
+    ['proposición','realidad','conceptos','Wittgenstein'],{critical:true}),
+
+  n('HC21-03','9.3','classpoint','Verdad absoluta frente a coherencia',
+    'Para este Moore, una proposición es verdadera o falsa en sentido absoluto.',
+    'Nava contrasta esta posición con teorías coherentistas: pertenecer coherentemente a un sistema no constituye por sí mismo la verdad de la proposición.',
+    'Aporte de clase sobre el realismo proposicional temprano de Moore.',
+    'Novena clase · 21 sep 2026',['moore','class21'],['HC21-02'],
+    ['verdad','coherencia','proposición','absoluto']),
+
+  n('HC21-04','9.4','classpoint','Sujeto, objeto y representación',
+    'Toda relación cognoscitiva exige al menos un sujeto y algo conocido.',
+    'La clase organiza el problema mediante sujeto–objeto–representación y presenta el objetivismo de Moore como respuesta al idealismo subjetivista y al monismo absoluto.',
+    'Esquema pedagógico de Nava para explicar The Refutation of Idealism.',
+    'Novena clase · 21 sep 2026',['moore','class21'],['H15'],
+    ['sujeto','objeto','representación','conocimiento'],{critical:true}),
+
+  n('HC21-05','9.5','classpoint','Describir el mundo o comunicarnos',
+    'La clase distingue representar el mundo de participar en prácticas de comunicación.',
+    'Con el segundo Wittgenstein, describir pasa a ser sólo una práctica entre otras: también mentimos, narramos sueños, imaginamos y actuamos lingüísticamente.',
+    'Puente entre Moore, primer Wittgenstein y filosofía del lenguaje ordinario.',
+    'Novena clase · 21 sep 2026',['moore','after','class21'],['H18','H09'],
+    ['descripción','comunicación','uso','lenguaje ordinario'],{critical:true}),
+
+  n('HC21-06','9.6','classpoint','Universales lingüísticos y estructura profunda',
+    'La clase pregunta si las lenguas comparten estructuras profundas pese a sus diferencias superficiales.',
+    'Nava introduce a Chomsky como ejemplo de una respuesta afirmativa y señala que esta tesis también ha recibido críticas desde enfoques centrados en uso y práctica.',
+    'Aporte del profesor que conecta filosofía analítica con lingüística.',
+    'Novena clase · 21 sep 2026',['after','class21'],['HC21-05'],
+    ['Chomsky','estructura profunda','universales','a priori']),
+
+  n('HC21-07','9.7','classpoint','Quine y “gavagai”: referencia indeterminada',
+    'Que una comunidad diga “gavagai” cuando aparece un conejo no fija con certeza que signifique exactamente “conejo”.',
+    'Podría significar conejo, parte de conejo, una pata, una fase temporal o algo como “ahí pasa comida”.',
+    'Ejemplo de Nava sobre traducción y referencia.',
+    'Novena clase · 21 sep 2026',['after','class21'],['HC21-06'],
+    ['Quine','gavagai','referencia','traducción'],{critical:true}),
+
+  n('HC21-08','9.8','classpoint','No tener una palabra “yo” no elimina el concepto de yo',
+    'Una lengua puede no usar un equivalente directo a “yo” sin que eso demuestre ausencia de la capacidad cognitiva correspondiente.',
+    'Nava separa estructura lingüística y capacidad psicológica o conceptual.',
+    'Problema abierto sobre lenguaje y cognición.',
+    'Novena clase · 21 sep 2026',['after','class21'],['HC21-07'],
+    ['yo','cognición','lenguaje','psicología']),
+
+  n('HC21-09','9.9','classpoint','Análisis contra síntesis',
+    'Adoptar “análisis” es también una declaración metodológica contra el idealismo.',
+    'Frente a la síntesis idealista, Moore enfatiza partes, componentes y relaciones distinguibles.',
+    'Aporte histórico-metodológico de Nava.',
+    'Novena clase · 21 sep 2026',['moore','class21'],['H16','H14'],
+    ['análisis','síntesis','idealismo','método'],{critical:true}),
+
+  n('HC21-10','9.10','classpoint','Analysandum y analysans',
+    'El analysandum es aquello que se quiere analizar; el analysans es aquello mediante lo cual se lo explica.',
+    'La analogía con definiendum y definiens permite diagnosticar cuándo un análisis introduce aquello mismo que pretendía explicar.',
+    'Herramienta conceptual de la novena clase.',
+    'Novena clase · 21 sep 2026',['moore','class21'],['HC21-09','H16'],
+    ['analysandum','analysans','definiendum','definiens']),
+
+  n('HC21-11','9.11','classpoint','Circularidad e inanalizables',
+    'Si el analysandum reaparece indispensablemente dentro del analysans, el análisis se vuelve circular.',
+    'Moore puede caer en circularidad o declarar un concepto simple e inanalizable. “Bueno” en Principia Ethica funciona como ejemplo.',
+    'Límite interno del análisis descomposicional.',
+    'Novena clase · 21 sep 2026',['moore','class21'],['HC21-10'],
+    ['circularidad','inanalizable','bueno','Principia Ethica'],{critical:true}),
+
+  n('HC21-12','9.12','classpoint','Paráfrasis y problema de equivalencia',
+    'Reformular una expresión puede revelar estructura, pero toda paráfrasis incorpora interpretación.',
+    'No basta sustituir una oración por otra: hay que justificar por qué la nueva formulación conserva lo relevante de la original.',
+    'Puente de Moore hacia Russell.',
+    'Novena clase · 21 sep 2026',['moore','russell','class21'],['HC21-11','H18'],
+    ['paráfrasis','equivalencia','interpretación','Russell'],{critical:true}),
+
+  n('HC21-13','9.13','classpoint','Sentido común y “prueba de las manos”',
+    'Moore intenta defender el mundo exterior desde certezas ordinarias: “aquí hay una mano”, “aquí hay otra mano”.',
+    'Nava señala su debilidad frente al escéptico: percibir dos manos no demuestra todavía que existan independientemente de la conciencia.',
+    'Evaluación crítica de la estrategia de sentido común.',
+    'Novena clase · 21 sep 2026',['moore','class21'],['H19','HC21-04'],
+    ['sentido común','mundo exterior','manos','escepticismo'],{critical:true}),
+
+  n('HC21-14','9.14','classpoint','Descartes y la queja escéptica',
+    'Del cogito no se sigue automáticamente un mundo externo independiente de la conciencia.',
+    'La cuestión escéptica no es si tengo experiencias, sino cómo demuestro que existe algo distinto de mi conciencia.',
+    'Profundización de Nava del problema que Moore intenta resolver.',
+    'Novena clase · 21 sep 2026',['moore','class21'],['HC21-13'],
+    ['Descartes','cogito','mundo exterior','escepticismo']),
+
+  n('HC21-15','9.15','classpoint','Kant: una respuesta condicional al mundo exterior',
+    'Si espacio y tiempo organizan un material recibido, nuestras percepciones sugerirían que algo afecta a la mente.',
+    'Nava aclara el límite: este argumento sólo funciona si se acepta previamente el aparato trascendental kantiano.',
+    'Cierre comparativo sobre el problema del mundo exterior.',
+    'Novena clase · 21 sep 2026',['moore','class21'],['HC21-14'],
+    ['Kant','espacio','tiempo','a priori','mundo exterior'],{critical:true}),
+]
+
+class21Nodes.forEach((node) => {
+  node.data.classSeen = true
+  node.data.classOnly = true
+  node.data.classLabel = 'APORTE DE LA NOVENA CLASE'
+  node.data.classNote = node.data.explanation
+  node.data.classHeader = 'PROF. ALONSO NAVA · NOVENA CLASE · 21 SEP 2026'
+  node.data.classRoute = '/semestre/5/filosofia-analitica/clase/21-septiembre'
+  node.data.classLinkLabel = 'Abrir novena clase ↗'
+})
+
+Object.entries(class21Notes).forEach(([id, [label, note]]) => {
+  const node = [
+    ...mainNodes,
+    ...turnNodes,
+    ...collapseNodes,
+    ...class14Nodes,
+  ].find((item) => item.id === id)
+
+  if (!node) return
+
+  const alreadySeen = Boolean(node.data.classSeen)
+  const previous = node.data.classNote
+
+  node.data.classSeen = true
+  node.data.classOnly = false
+  node.data.classLabel = alreadySeen
+    ? 'VISTO EN CLASE · 14 Y 21 SEP'
+    : label
+  node.data.classNote = alreadySeen && previous
+    ? `${previous}\n\nNOVENA CLASE · 21 SEP: ${note}`
+    : note
+  node.data.classHeader = alreadySeen
+    ? 'PROF. ALONSO NAVA · OCTAVA + NOVENA CLASE'
+    : 'PROF. ALONSO NAVA · NOVENA CLASE · 21 SEP 2026'
+  node.data.classRoute = '/semestre/5/filosofia-analitica/clase/21-septiembre'
+  node.data.classLinkLabel = alreadySeen
+    ? 'Abrir clase del 21 sep ↗'
+    : 'Abrir novena clase ↗'
+
+  if (!node.data.branch.includes('class21')) {
+    node.data.branch.push('class21')
+  }
+})
+
 export const hackerNodes = [
   ...mainNodes,
   ...turnNodes,
   ...collapseNodes,
   ...class14Nodes,
+  ...class21Nodes,
 ]
 
 const hackerArticleSource = {
@@ -1499,6 +1677,7 @@ const order = [
   'H43','H44','H45','H46','H47','H48','H49','H50','H51','H52',
   'H52.1','H52.2','H52.3','H52.4','H52.5','H52.6','H52.7','H52.8','H53',
   'HC1','HC2','HC3','HC4','HC5',
+  'HC21-01','HC21-02','HC21-03','HC21-04','HC21-05','HC21-06','HC21-07','HC21-08','HC21-09','HC21-10','HC21-11','HC21-12','HC21-13','HC21-14','HC21-15',
 ]
 
 export const hackerOrder = order

@@ -313,6 +313,31 @@ export default function AnalyticPhilosophy() {
           </div>
         </Link>
 
+        <Link
+          to="/semestre/5/filosofia-analitica/clase/21-septiembre"
+          className="analytic-class-card"
+        >
+          <div className="analytic-date">
+            <strong>XXI</strong>
+            <span>IX · MMXXVI</span>
+          </div>
+
+          <div className="analytic-class-copy">
+            <span>Novena clase · G. E. Moore y los orígenes</span>
+            <h3>Platonismo, análisis y sentido común</h3>
+            <p>
+              Idealismo británico, realismo pluralista, conceptos y proposiciones,
+              tres sentidos de análisis, lenguaje, circularidad, paráfrasis,
+              análisis conectivo y el problema del mundo exterior.
+            </p>
+          </div>
+
+          <div className="analytic-enter">
+            <span>Abrir análisis</span>
+            <b>↗</b>
+          </div>
+        </Link>
+
 </section>
 
       <section className="analytic-course-map">

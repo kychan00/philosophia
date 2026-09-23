@@ -77,11 +77,38 @@ function buildConceptGuide(route) {
     }))
 }
 
+
+function buildGuidedRouteFor(route) {
+  if (route === 'all') return hackerGuidedRoute
+
+  const routeLabel =
+    hackerRoutes.find((item) => item.id === route)?.label || route
+
+  const ids = buildConceptGuide(route).map((item) => item.id)
+
+  return ids.map((id, index) => {
+    const node = hackerNodeById(id)
+    const next = hackerNodeById(ids[index + 1])
+
+    return {
+      id,
+      phase: routeLabel,
+      why: node?.data.role || node?.data.explanation || '',
+      nextQuestion:
+        node?.data.nextQuestion ||
+        (next
+          ? `¿Cómo conduce esto a “${next.data.title}”?`
+          : `Fin de la guía de ${routeLabel}.`),
+    }
+  })
+}
+
 function StudyCanvas() {
   const [route, setRoute] = useState('all')
   const [selectedId, setSelectedId] = useState('H00')
   const [history, setHistory] = useState(['H00'])
   const [guidedMode, setGuidedMode] = useState(false)
+  const [guidedScope, setGuidedScope] = useState('all')
   const [isFullscreen, setIsFullscreen] = useState(false)
   const workspaceRef = useRef(null)
   const [guidedIndex, setGuidedIndex] = useState(() => {
@@ -130,14 +157,19 @@ function StudyCanvas() {
   const selected = hackerNodeById(selectedId)
   const selectionSet = useMemo(() => selectionSetFor(selectedId), [selectedId])
 
-  const guidedStep = hackerGuidedRoute[guidedIndex] || null
+  const activeGuidedRoute = useMemo(
+    () => buildGuidedRouteFor(guidedScope),
+    [guidedScope],
+  )
+
+  const guidedStep = activeGuidedRoute[guidedIndex] || null
   const guidedCurrent = guidedStep ? hackerNodeById(guidedStep.id) : null
-  const guidedNext = hackerGuidedRoute[guidedIndex + 1] || null
-  const guidedPrev = hackerGuidedRoute[guidedIndex - 1] || null
+  const guidedNext = activeGuidedRoute[guidedIndex + 1] || null
+  const guidedPrev = activeGuidedRoute[guidedIndex - 1] || null
 
   const guidedCompletedIds = useMemo(
-    () => new Set(hackerGuidedRoute.slice(0, guidedIndex).map((step) => step.id)),
-    [guidedIndex],
+    () => new Set(activeGuidedRoute.slice(0, guidedIndex).map((step) => step.id)),
+    [activeGuidedRoute, guidedIndex],
   )
 
   const conceptGuide = useMemo(() => buildConceptGuide(route), [route])
@@ -232,9 +264,11 @@ function StudyCanvas() {
           guidedSupport: isGuidedSupport,
           dimmed: guidedMode
             ? !isGuidedCurrent && !isGuidedNext && !isGuidedCompleted && !isGuidedSupport
-            : route !== 'all'
-              ? !topicActive && !topicSupport
-              : Boolean(selectedId) && !inSelection,
+            : Boolean(selectedId)
+              ? !inSelection
+              : route !== 'all'
+                ? !topicActive && !topicSupport
+                : false,
           highlighted:
             !guidedMode &&
             routeMatches &&
@@ -297,7 +331,19 @@ function StudyCanvas() {
           strokeWidth: guidedDependency ? 2.6 : selectedTouches ? 3.6 : routeActive ? 2.4 : 1.15,
           opacity: guidedMode
             ? guidedDependency ? 1 : 0.06
-            : selectedTouches || routeActive ? 1 : supportEdge ? 0.7 : route === 'all' ? 0.24 : 0.04,
+            : selectedId
+              ? selectedTouches ? 1 : 0.018
+              : routeActive
+                ? 1
+                : supportEdge
+                  ? 0.7
+                  : route === 'all'
+                    ? 0.24
+                    : 0.04,
+          filter:
+            !guidedMode && selectedId && !selectedTouches
+              ? 'blur(1.4px)'
+              : 'none',
         },
         markerEnd: {
           type: MarkerType.ArrowClosed,
@@ -366,25 +412,74 @@ function StudyCanvas() {
   }, [selectNode])
 
   const jumpGuided = useCallback((index) => {
-    const safe = Math.min(Math.max(index, 0), hackerGuidedRoute.length - 1)
-    const step = hackerGuidedRoute[safe]
+    if (!activeGuidedRoute.length) return
+
+    const safe = Math.min(
+      Math.max(index, 0),
+      activeGuidedRoute.length - 1,
+    )
+    const step = activeGuidedRoute[safe]
     const node = step ? hackerNodeById(step.id) : null
     if (!node) return
 
     setGuidedMode(true)
     setGuidedIndex(safe)
-    setRoute('all')
+    setRoute(guidedScope === 'all' ? 'all' : guidedScope)
     setSelectedId(node.id)
 
-    try {
-      window.localStorage.setItem('philosophia-hacker-guided-step', String(safe))
-    } catch {}
+    if (guidedScope === 'all') {
+      try {
+        window.localStorage.setItem(
+          'philosophia-hacker-guided-step',
+          String(safe),
+        )
+      } catch {}
+    }
+
+    setCenter(node.position.x + 115, node.position.y + 75, {
+      zoom: 1.08,
+      duration: 460,
+    })
+  }, [activeGuidedRoute, guidedScope, setCenter])
+
+  const startTopicGuide = useCallback((routeId) => {
+    const routeSteps = buildGuidedRouteFor(routeId)
+    const first = routeSteps[0]
+    const node = first ? hackerNodeById(first.id) : null
+    if (!node) return
+
+    setGuidedScope(routeId)
+    setGuidedMode(true)
+    setGuidedIndex(0)
+    setRoute(routeId)
+    setSelectedId(node.id)
 
     setCenter(node.position.x + 115, node.position.y + 75, {
       zoom: 1.08,
       duration: 460,
     })
   }, [setCenter])
+
+  const startGlobalGuide = useCallback(() => {
+    const safe = Math.min(
+      Math.max(guidedScope === 'all' ? guidedIndex : 0, 0),
+      hackerGuidedRoute.length - 1,
+    )
+    const step = hackerGuidedRoute[safe]
+    const node = step ? hackerNodeById(step.id) : null
+    if (!node) return
+
+    setGuidedScope('all')
+    setGuidedMode(true)
+    setGuidedIndex(safe)
+    setRoute('all')
+    setSelectedId(node.id)
+
+    setCenter(node.position.x + 115, node.position.y + 75, {
+      zoom: 1.08,
+      duration: 460,
+    })
+  }, [guidedIndex, guidedScope, setCenter])
 
   const reset = useCallback(() => {
     setGuidedMode(false)
@@ -398,6 +493,7 @@ function StudyCanvas() {
       window.localStorage.removeItem('philosophia-hacker-guided-step')
     } catch {}
     setGuidedIndex(0)
+    setGuidedScope('all')
     setGuidedMode(false)
     setSelectedId(null)
     setRoute('all')
@@ -413,7 +509,7 @@ function StudyCanvas() {
       </nav>
 
       <header className="hacker-study-hero">
-        <div className="hacker-study-mark">67</div>
+        <div className="hacker-study-mark">82</div>
         <div>
           <p>PETER M. S. HACKER · SISTEMA TOTAL</p>
           <h1>El surgimiento de <em>la filosofía analítica del siglo XX</em></h1>
@@ -433,7 +529,7 @@ function StudyCanvas() {
       <section className="hacker-study-intro">
         <div>
           <span>MAPPA ANALYTICA</span>
-          <strong>67 nodos · un solo plano 2D</strong>
+          <strong>82 nodos · un solo plano 2D</strong>
         </div>
         <p>
           La navegación replica la lógica del sistema de Spinoza:
@@ -459,11 +555,15 @@ function StudyCanvas() {
                 setSelectedId(null)
                 setTimeout(() => fitView({ padding: 0.1, duration: 500 }), 0)
               } else {
-                jumpGuided(guidedIndex)
+                startGlobalGuide()
               }
             }}
           >
-            {guidedMode ? 'Salir de ruta guiada' : `Continuar · paso ${guidedIndex + 1}`}
+            {guidedMode
+              ? 'Salir de ruta guiada'
+              : guidedScope === 'all'
+                ? `Continuar · paso ${guidedIndex + 1}`
+                : 'Iniciar ruta general'}
           </button>
         </div>
       </section>
@@ -471,18 +571,27 @@ function StudyCanvas() {
       {guidedMode && guidedCurrent && (
         <section className="hacker-guided-panel">
           <div className="hacker-guided-progress">
-            <span>Paso {guidedIndex + 1} de {hackerGuidedRoute.length}</span>
+            <span>Paso {guidedIndex + 1} de {activeGuidedRoute.length}</span>
             <div>
-              <i style={{ width: `${((guidedIndex + 1) / hackerGuidedRoute.length) * 100}%` }} />
+              <i style={{ width: `${((guidedIndex + 1) / activeGuidedRoute.length) * 100}%` }} />
             </div>
           </div>
 
           <div className="hacker-guided-phases">
-            {hackerGuidedPhases.map((phase) => (
-              <span key={phase} className={guidedStep?.phase === phase ? 'is-active' : ''}>
-                {phase}
+            {guidedScope === 'all' ? (
+              hackerGuidedPhases.map((phase) => (
+                <span
+                  key={phase}
+                  className={guidedStep?.phase === phase ? 'is-active' : ''}
+                >
+                  {phase}
+                </span>
+              ))
+            ) : (
+              <span className="is-active">
+                Guía temática · {hackerRoutes.find((item) => item.id === guidedScope)?.label}
               </span>
-            ))}
+            )}
           </div>
 
           <div className="hacker-guided-copy">
@@ -516,7 +625,7 @@ function StudyCanvas() {
             <button
               key={item.id}
               type="button"
-              data-class-route={item.id === 'class14' ? 'true' : undefined}
+              data-class-route={item.id.startsWith('class') ? 'true' : undefined}
               className={route === item.id ? 'is-active' : ''}
               onClick={() => {
                 setGuidedMode(false)
@@ -532,20 +641,38 @@ function StudyCanvas() {
       </section>
 
       {route !== 'all' && !guidedMode && (
-        <section className="hacker-concept-guide" style={{ '--concept-color': conceptColor }}>
-          <div>
+        <section
+          className="hacker-topic-guide-strip"
+          style={{ '--concept-color': conceptColor }}
+        >
+          <div className="hacker-topic-guide-copy">
             <span>ORIENTATIO ANALYTICA</span>
-            <strong>Ruta para comprender · {hackerRoutes.find((item) => item.id === route)?.label}</strong>
-            <p>
-              La numeración es una ruta de estudio. Las flechas del lienzo conservan
-              las dependencias argumentales.
-            </p>
+            <strong>
+              {hackerRoutes.find((item) => item.id === route)?.label}
+            </strong>
+            <small>{conceptGuide.length} pasos</small>
           </div>
-          <div className="hacker-concept-guide-steps">
+
+          <button
+            type="button"
+            className="hacker-topic-guide-start"
+            onClick={() => startTopicGuide(route)}
+          >
+            <span>▶</span>
+            <strong>Iniciar guía</strong>
+          </button>
+
+          <div className="hacker-topic-guide-rail">
             {conceptGuide.map((item) => {
               const node = hackerNodeById(item.id)
               return (
-                <button key={item.id} type="button" onClick={() => selectById(item.id)}>
+                <button
+                  key={item.id}
+                  type="button"
+                  className={selectedId === item.id ? 'is-active' : ''}
+                  onClick={() => selectById(item.id)}
+                  title={node?.data.title}
+                >
                   <b>{item.number}</b>
                   <span>{node?.data.code}</span>
                   <strong>{node?.data.title}</strong>
@@ -626,11 +753,18 @@ function StudyCanvas() {
 
               {selected.data.classSeen && (
                 <section className="hacker-class-note">
-                  <span>PROF. ALONSO NAVA · OCTAVA CLASE · 14 SEP 2026</span>
+                  <span>
+                    {selected.data.classHeader || 'PROF. ALONSO NAVA · OCTAVA CLASE · 14 SEP 2026'}
+                  </span>
                   <strong>{selected.data.classLabel || 'VISTO EN CLASE'}</strong>
-                  <p>{selected.data.classNote}</p>
-                  <Link to="/semestre/5/filosofia-analitica/clase/14-septiembre">
-                    Abrir octava clase ↗
+                  <p style={{ whiteSpace: 'pre-line' }}>{selected.data.classNote}</p>
+                  <Link
+                    to={
+                      selected.data.classRoute ||
+                      '/semestre/5/filosofia-analitica/clase/14-septiembre'
+                    }
+                  >
+                    {selected.data.classLinkLabel || 'Abrir octava clase ↗'}
                   </Link>
                 </section>
               )}
@@ -762,7 +896,7 @@ function StudyCanvas() {
               <div className="hacker-inspector-guided-step">
                 <span>Guía</span>
                 <strong>
-                  {guidedIndex + 1} / {hackerGuidedRoute.length}
+                  {guidedIndex + 1} / {activeGuidedRoute.length}
                 </strong>
               </div>
 

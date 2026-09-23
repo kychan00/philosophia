@@ -264,13 +264,32 @@
   background: #f1e7d2;
   color: var(--h-ink);
   box-shadow: 3px 4px 0 rgba(17,17,15,.10);
-  transition: opacity .15s ease, box-shadow .15s ease, filter .15s ease;
+  transition:
+    opacity .18s ease,
+    box-shadow .18s ease,
+    filter .18s ease,
+    transform .18s ease;
 }
 .hacker-flow-node.is-critical { border-width: 2px; }
 .hacker-flow-node.is-selected {
   box-shadow: inset 0 0 0 3px var(--h-gold), 4px 5px 0 rgba(17,17,15,.13);
 }
-.hacker-flow-node.is-dimmed { opacity: .13; filter: grayscale(.6); }
+.hacker-flow-node.is-dimmed {
+  opacity: .16;
+  filter: blur(2.4px) grayscale(.72) saturate(.55);
+  transform: scale(.985);
+}
+
+.hacker-flow-node.is-dimmed:hover {
+  opacity: .34;
+  filter: blur(1.15px) grayscale(.55) saturate(.72);
+}
+
+.hacker-flow-node.is-selected,
+.hacker-flow-node.is-highlighted {
+  filter: none;
+  opacity: 1;
+}
 .hacker-flow-node.is-highlighted { box-shadow: inset 0 0 0 2px var(--h-rust); }
 .hacker-flow-node.is-topic-active { box-shadow: inset 0 0 0 3px var(--topic-color); }
 .hacker-flow-node.is-topic-support { border-style: dashed; opacity: .75; }
@@ -816,4 +835,245 @@
   letter-spacing: .07em;
   text-transform: uppercase;
   opacity: .72;
+}
+
+
+/* ============================================================
+   HACKER · FOCUS RELACIONAL V2
+   La selección domina visualmente sobre filtros temáticos.
+   ============================================================ */
+
+.hacker-flow-node.is-dimmed {
+  opacity: .10 !important;
+  filter: blur(3.2px) grayscale(.78) saturate(.42) !important;
+  transform: scale(.982);
+}
+
+.hacker-flow-node.is-dimmed:hover {
+  opacity: .24 !important;
+  filter: blur(1.5px) grayscale(.58) saturate(.65) !important;
+}
+
+.hacker-flow-node.is-selected,
+.hacker-flow-node.is-highlighted,
+.hacker-flow-node.is-selected.is-topic-active,
+.hacker-flow-node.is-highlighted.is-topic-active,
+.hacker-flow-node.is-selected.is-topic-support,
+.hacker-flow-node.is-highlighted.is-topic-support {
+  opacity: 1 !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+
+/* ============================================================
+   HACKER · GUÍAS TEMÁTICAS
+   ============================================================ */
+
+.hacker-topic-guide-button {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  margin-top: 14px;
+  padding: 13px 15px;
+  border: 1px solid #15140f;
+  background: #d8bf87;
+  color: #15140f;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform .16s ease,
+    box-shadow .16s ease,
+    background .16s ease;
+}
+
+.hacker-topic-guide-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 3px 4px 0 rgba(21,20,15,.14);
+  background: #e1c991;
+}
+
+.hacker-topic-guide-button > span {
+  color: #9b4b38;
+  font: 700 8px Arial, sans-serif;
+  letter-spacing: .13em;
+}
+
+.hacker-topic-guide-button > strong {
+  font-size: 14px;
+  line-height: 1.15;
+}
+
+.hacker-topic-guide-button > b {
+  font: 700 18px Arial, sans-serif;
+}
+
+.hacker-guided-phases > span.is-active {
+  white-space: nowrap;
+}
+
+
+/* ============================================================
+   HACKER · GUÍA TEMÁTICA COMPACTA
+   ============================================================ */
+
+.hacker-topic-guide-strip {
+  display: grid;
+  grid-template-columns: 150px 128px minmax(0, 1fr);
+  gap: 10px;
+  align-items: stretch;
+  margin: 10px 0 14px;
+  padding: 10px;
+  border: 1px solid rgba(21,20,15,.72);
+  background: rgba(239,227,203,.72);
+}
+
+.hacker-topic-guide-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  min-width: 0;
+  padding: 4px 6px;
+}
+
+.hacker-topic-guide-copy > span {
+  color: #9b4b38;
+  font: 700 7px Arial, sans-serif;
+  letter-spacing: .12em;
+}
+
+.hacker-topic-guide-copy > strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.hacker-topic-guide-copy > small {
+  color: #766b59;
+  font: 700 8px Arial, sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.hacker-topic-guide-start {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid #15140f;
+  background: #d8bf87;
+  color: #15140f;
+  cursor: pointer;
+  font: 700 9px Arial, sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  transition:
+    transform .14s ease,
+    background .14s ease,
+    box-shadow .14s ease;
+}
+
+.hacker-topic-guide-start:hover {
+  transform: translateY(-1px);
+  background: #e1c991;
+  box-shadow: 2px 3px 0 rgba(21,20,15,.12);
+}
+
+.hacker-topic-guide-start > span {
+  font-size: 10px;
+}
+
+.hacker-topic-guide-rail {
+  display: flex;
+  gap: 6px;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1px 1px 3px;
+  scrollbar-width: thin;
+}
+
+.hacker-topic-guide-rail > button {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  grid-template-rows: auto auto;
+  gap: 1px 6px;
+  flex: 0 0 150px;
+  min-height: 44px;
+  padding: 6px 8px;
+  border: 1px solid rgba(21,20,15,.28);
+  background: rgba(246,238,220,.88);
+  color: #15140f;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color .14s ease,
+    background .14s ease,
+    transform .14s ease;
+}
+
+.hacker-topic-guide-rail > button:hover {
+  transform: translateY(-1px);
+  border-color: var(--concept-color);
+  background: #f1e5cb;
+}
+
+.hacker-topic-guide-rail > button.is-active {
+  border-color: var(--concept-color);
+  box-shadow: inset 0 0 0 1px var(--concept-color);
+  background: #ead7ad;
+}
+
+.hacker-topic-guide-rail > button > b {
+  grid-row: 1 / span 2;
+  color: var(--concept-color);
+  font: 700 8px Arial, sans-serif;
+}
+
+.hacker-topic-guide-rail > button > span {
+  color: #9b4b38;
+  font: 700 7px Arial, sans-serif;
+  letter-spacing: .08em;
+}
+
+.hacker-topic-guide-rail > button > strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+  line-height: 1.15;
+}
+
+/* Apagar visualmente la versión vieja si quedó CSS residual. */
+.hacker-concept-guide,
+.hacker-topic-guide-button {
+  /* la UI nueva ya no usa estas clases */
+}
+
+@media (max-width: 900px) {
+  .hacker-topic-guide-strip {
+    grid-template-columns: 1fr 120px;
+  }
+
+  .hacker-topic-guide-rail {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 620px) {
+  .hacker-topic-guide-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .hacker-topic-guide-start,
+  .hacker-topic-guide-rail {
+    grid-column: 1;
+  }
 }

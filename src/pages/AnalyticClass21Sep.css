@@ -1,0 +1,684 @@
+/* ============================================================
+   FILOSOFÍA ANALÍTICA · NOVENA CLASE · 21 SEP 2026
+   ============================================================ */
+
+.ac21-page {
+  --ac21-ink: #181713;
+  --ac21-paper: #efe6d3;
+  --ac21-paper-2: #e6d5b2;
+  --ac21-accent: #466f68;
+  --ac21-gold: #b58b42;
+  --ac21-red: #9b4b38;
+}
+
+.ac21-hero {
+  border-bottom-color: var(--ac21-accent);
+}
+
+.ac21-ghost {
+  opacity: .055;
+}
+
+.ac21-question {
+  border-left-color: var(--ac21-accent);
+}
+
+.ac21-hero-schema .active {
+  border-color: var(--ac21-accent);
+  background: rgba(70,111,104,.12);
+}
+
+.ac21-layout {
+  align-items: start;
+}
+
+.ac21-index {
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.ac21-article > section {
+  scroll-margin-top: 20px;
+}
+
+.ac21-heading > span {
+  background: var(--ac21-accent);
+}
+
+.ac21-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0;
+  padding: 18px;
+  border: 1px solid rgba(24,23,19,.6);
+  background: #e6d5b2;
+}
+
+.ac21-flow span,
+.ac21-flow strong {
+  padding: 7px 10px;
+  border: 1px solid rgba(24,23,19,.32);
+  background: rgba(255,255,255,.28);
+  font: 700 10px Arial, sans-serif;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.ac21-flow strong {
+  background: var(--ac21-ink);
+  color: #f5ecd8;
+}
+
+.ac21-flow b {
+  color: var(--ac21-red);
+}
+
+.ac21-summary-grid,
+.ac21-pairs,
+.ac21-three,
+.ac21-limit-grid {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.ac21-summary-grid,
+.ac21-three,
+.ac21-limit-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ac21-pairs {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ac21-summary-grid article,
+.ac21-pairs article,
+.ac21-three article,
+.ac21-limit-grid article {
+  padding: 16px;
+  border: 1px solid rgba(24,23,19,.4);
+  background: rgba(255,255,255,.24);
+}
+
+.ac21-summary-grid span,
+.ac21-pairs span,
+.ac21-three span,
+.ac21-limit-grid span,
+.ac21-reading-card > span,
+.ac21-analysis-card > span,
+.ac21-universe > span,
+.ac21-ending > span,
+.ac21-no-task > span {
+  color: var(--ac21-red);
+  font: 700 8px Arial, sans-serif;
+  letter-spacing: .12em;
+}
+
+.ac21-summary-grid strong,
+.ac21-pairs strong,
+.ac21-three strong,
+.ac21-limit-grid strong {
+  display: block;
+  margin-top: 7px;
+  font-size: 18px;
+  line-height: 1.08;
+}
+
+.ac21-summary-grid p,
+.ac21-pairs p,
+.ac21-three p,
+.ac21-limit-grid p {
+  margin: 8px 0 0;
+  line-height: 1.45;
+}
+
+.ac21-thesis {
+  border-color: var(--ac21-accent);
+}
+
+.ac21-dateband {
+  display: grid;
+  grid-template-columns: auto 1fr auto 1fr auto 1fr;
+  gap: 0;
+  margin: 18px 0;
+  border: 1px solid var(--ac21-ink);
+}
+
+.ac21-dateband span,
+.ac21-dateband b {
+  padding: 10px 12px;
+  border-right: 1px solid rgba(24,23,19,.25);
+}
+
+.ac21-dateband span {
+  background: var(--ac21-ink);
+  color: var(--ac21-paper);
+  font: 700 9px Arial, sans-serif;
+}
+
+.ac21-dateband b {
+  font-size: 13px;
+}
+
+.ac21-context,
+.ac21-versus,
+.ac21-analysans,
+.ac21-connective,
+.ac21-kant-flow {
+  display: grid;
+  align-items: stretch;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.ac21-context {
+  grid-template-columns: 1fr auto 1fr;
+}
+
+.ac21-versus {
+  grid-template-columns: 1fr auto 1fr;
+}
+
+.ac21-analysans,
+.ac21-connective {
+  grid-template-columns: 1fr auto 1fr;
+}
+
+.ac21-kant-flow {
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+}
+
+.ac21-context > article,
+.ac21-versus > article,
+.ac21-analysans > article,
+.ac21-connective > div,
+.ac21-kant-flow > article {
+  padding: 17px;
+  border: 1px solid rgba(24,23,19,.4);
+  background: rgba(255,255,255,.22);
+}
+
+.ac21-context > div,
+.ac21-versus > i,
+.ac21-analysans > div,
+.ac21-connective > b,
+.ac21-kant-flow > b {
+  align-self: center;
+  color: var(--ac21-red);
+  font-weight: 700;
+  font-style: normal;
+}
+
+.ac21-context span,
+.ac21-versus span,
+.ac21-analysans span,
+.ac21-connective span,
+.ac21-kant-flow span {
+  color: var(--ac21-red);
+  font: 700 8px Arial, sans-serif;
+  letter-spacing: .11em;
+}
+
+.ac21-context strong,
+.ac21-versus strong,
+.ac21-analysans strong,
+.ac21-connective strong,
+.ac21-kant-flow strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 19px;
+  line-height: 1.1;
+}
+
+.ac21-context p,
+.ac21-analysans p,
+.ac21-kant-flow p {
+  margin: 8px 0 0;
+  line-height: 1.45;
+}
+
+.ac21-context article:last-child,
+.ac21-versus article:last-child,
+.ac21-analysans article.active,
+.ac21-connective div.active,
+.ac21-kant-flow article.active,
+.ac21-three article.active {
+  border-color: var(--ac21-accent);
+  background: rgba(70,111,104,.1);
+}
+
+.ac21-note {
+  border-left: 5px solid var(--ac21-accent);
+}
+
+.ac21-epistemic {
+  display: grid;
+  grid-template-columns: 1fr auto 1.2fr auto 1fr;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.ac21-epistemic > div {
+  padding: 18px 12px;
+  border: 1px solid rgba(24,23,19,.4);
+  text-align: center;
+}
+
+.ac21-epistemic > div.active {
+  border-color: var(--ac21-accent);
+  background: rgba(70,111,104,.12);
+}
+
+.ac21-epistemic span {
+  display: block;
+  font: 700 10px Arial, sans-serif;
+  letter-spacing: .1em;
+}
+
+.ac21-epistemic small {
+  display: block;
+  margin-top: 6px;
+}
+
+.ac21-concept-stack {
+  display: grid;
+  gap: 8px;
+  max-width: 760px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.ac21-concept-stack > div {
+  padding: 16px;
+  border: 1px solid rgba(24,23,19,.4);
+  background: rgba(255,255,255,.2);
+}
+
+.ac21-concept-stack > div.active {
+  border-color: var(--ac21-accent);
+  background: rgba(70,111,104,.11);
+}
+
+.ac21-concept-stack span {
+  color: var(--ac21-red);
+  font: 700 8px Arial, sans-serif;
+  letter-spacing: .12em;
+}
+
+.ac21-concept-stack strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 18px;
+}
+
+.ac21-mini-question {
+  margin-top: 18px;
+}
+
+.ac21-switcher {
+  margin: 18px 0 10px;
+}
+
+.ac21-switcher button.active {
+  background: var(--ac21-accent);
+  border-color: var(--ac21-accent);
+}
+
+.ac21-reading-card,
+.ac21-analysis-card {
+  padding: 20px;
+  border: 1px solid var(--ac21-ink);
+  background: #e6d5b2;
+}
+
+.ac21-reading-card strong {
+  display: block;
+  margin-top: 7px;
+  font-size: 28px;
+}
+
+.ac21-reading-card p {
+  margin: 10px 0 0;
+  max-width: 800px;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.ac21-gavagai {
+  margin: 18px 0;
+  padding: 18px;
+  border: 2px dashed var(--ac21-red);
+  background: rgba(155,75,56,.06);
+}
+
+.ac21-gavagai > span {
+  color: var(--ac21-red);
+  font: 700 10px Arial, sans-serif;
+  letter-spacing: .14em;
+}
+
+.ac21-gavagai > div,
+.ac21-tagwall {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 12px 0;
+}
+
+.ac21-gavagai b,
+.ac21-tagwall b {
+  padding: 6px 9px;
+  border: 1px solid rgba(24,23,19,.28);
+  background: rgba(255,255,255,.28);
+  font: 700 10px Arial, sans-serif;
+}
+
+.ac21-analysis-card {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.ac21-analysis-card > span {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  background: var(--ac21-ink);
+  color: var(--ac21-paper);
+  font-size: 18px;
+}
+
+.ac21-analysis-card strong {
+  font-size: 26px;
+}
+
+.ac21-analysis-card p {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.ac21-analysis-card em {
+  display: block;
+  padding-top: 8px;
+  border-top: 1px solid rgba(24,23,19,.24);
+  color: #635948;
+}
+
+.ac21-circular {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 17px 0;
+  padding: 14px;
+  border: 1px solid var(--ac21-red);
+  background: rgba(155,75,56,.08);
+}
+
+.ac21-circular > span {
+  font-size: 24px;
+}
+
+.ac21-universe {
+  margin: 20px 0;
+  padding: 24px;
+  border: 2px solid var(--ac21-ink);
+  background: var(--ac21-ink);
+  color: var(--ac21-paper);
+}
+
+.ac21-universe > span {
+  color: #d9b56a;
+}
+
+.ac21-universe > strong {
+  display: block;
+  margin-top: 10px;
+  max-width: 850px;
+  font: 700 italic 28px/1.2 Georgia, serif;
+}
+
+.ac21-skeptic-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+  margin: 18px 0 10px;
+}
+
+.ac21-skeptic-tabs button {
+  padding: 10px;
+  border: 1px solid rgba(24,23,19,.35);
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font: 700 10px Arial, sans-serif;
+}
+
+.ac21-skeptic-tabs button span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--ac21-red);
+}
+
+.ac21-skeptic-tabs button.active {
+  border-color: var(--ac21-accent);
+  background: rgba(70,111,104,.11);
+}
+
+.ac21-skeptic-card {
+  padding: 22px;
+  border: 1px solid var(--ac21-accent);
+  background: rgba(70,111,104,.08);
+}
+
+.ac21-skeptic-card > span {
+  color: var(--ac21-accent);
+  font: 700 9px Arial, sans-serif;
+}
+
+.ac21-skeptic-card > strong {
+  display: block;
+  margin: 7px 0;
+  font-size: 30px;
+}
+
+.ac21-skeptic-card p {
+  margin: 0;
+  max-width: 850px;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.ac21-ending {
+  margin: 20px 0;
+  padding: 22px;
+  border: 2px solid var(--ac21-accent);
+  background: rgba(70,111,104,.1);
+}
+
+.ac21-ending strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 32px;
+}
+
+.ac21-ending p {
+  margin: 8px 0 0;
+  line-height: 1.5;
+}
+
+.ac21-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ac21-actions a {
+  padding: 9px 12px;
+  border: 1px solid var(--ac21-ink);
+  color: inherit;
+  text-decoration: none;
+  font: 700 9px Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.ac21-actions a:first-child {
+  background: var(--ac21-ink);
+  color: var(--ac21-paper);
+}
+
+.ac21-no-task {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-left: 4px solid var(--ac21-gold);
+  background: rgba(181,139,66,.09);
+}
+
+.ac21-no-task strong {
+  display: block;
+  margin-top: 5px;
+}
+
+@media (max-width: 980px) {
+  .ac21-summary-grid,
+  .ac21-three,
+  .ac21-limit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ac21-dateband {
+    grid-template-columns: auto 1fr;
+  }
+
+  .ac21-context,
+  .ac21-versus,
+  .ac21-analysans,
+  .ac21-connective,
+  .ac21-kant-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .ac21-context > div,
+  .ac21-versus > i,
+  .ac21-analysans > div,
+  .ac21-connective > b,
+  .ac21-kant-flow > b {
+    justify-self: center;
+    transform: rotate(90deg);
+  }
+
+  .ac21-skeptic-tabs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .ac21-pairs,
+  .ac21-epistemic {
+    grid-template-columns: 1fr;
+  }
+
+  .ac21-epistemic > b {
+    justify-self: center;
+    transform: rotate(90deg);
+  }
+
+  .ac21-analysis-card {
+    grid-template-columns: 1fr;
+  }
+
+  .ac21-skeptic-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .ac21-universe > strong {
+    font-size: 22px;
+  }
+}
+
+
+/* ============================================================
+   CLASE 21 · FIX NOTAS Y NUMERACIÓN
+   ============================================================ */
+
+/* Los números heredaban el azul translúcido de la clase 14.
+   Aquí recuperamos contraste real sobre el verde de esta clase. */
+.ac21-heading > span {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  min-height: 76px;
+  padding: 8px;
+  box-sizing: border-box;
+  color: #f4ead6 !important;
+  background: var(--ac21-accent) !important;
+  opacity: 1 !important;
+  font-size: 3.4rem;
+  line-height: 1;
+  text-align: center;
+}
+
+/* Las referencias/notas de cierre no tenían caja propia porque
+   .ac9-note no define estilos. Se convierten en callouts reales. */
+.ac21-note {
+  display: block;
+  margin: 22px 0 0;
+  padding: 18px 20px 20px;
+  border: 1px solid rgba(24,23,19,.24);
+  border-left: 5px solid var(--ac21-accent);
+  background: rgba(70,111,104,.075);
+  box-sizing: border-box;
+}
+
+.ac21-note > span {
+  display: block;
+  margin: 0 0 8px;
+  color: var(--ac21-accent);
+  font: 800 9px/1.2 Arial, sans-serif;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.ac21-note > strong {
+  display: block;
+  margin: 0;
+  max-width: 1100px;
+  font: 700 1.18rem/1.38 Georgia, "Times New Roman", serif;
+}
+
+.ac21-note > p {
+  margin: 8px 0 0;
+  max-width: 1000px;
+  line-height: 1.58;
+}
+
+/* Evita que el callout quede visualmente pegado al bloque previo. */
+.ac21-reading-card + .ac21-note,
+.ac21-analysis-card + .ac21-note,
+.ac21-skeptic-card + .ac21-note,
+.ac21-mini-question + .ac21-note {
+  margin-top: 24px;
+}
+
+@media (max-width: 760px) {
+  .ac21-heading > span {
+    width: 58px;
+    min-height: 58px;
+    font-size: 2.3rem;
+  }
+
+  .ac21-note {
+    padding: 15px 16px 17px;
+  }
+
+  .ac21-note > strong {
+    font-size: 1.02rem;
+  }
+}
