@@ -397,6 +397,56 @@ export default function OntologiaII() {
           <div className="ontology-program-enter"><span>Abrir folio</span><b>↗</b></div>
         </Link>
 
+        <Link
+          to="/semestre/5/ontologia-ii/clase/21-septiembre"
+          className="ontology-program-class-card"
+        >
+          <div className="ontology-program-date">
+            <strong>XXI</strong>
+            <span>IX · MMXXVI</span>
+          </div>
+
+          <div className="ontology-program-class-copy">
+            <span>Novena clase · Analítica trascendental</span>
+            <h3>Lógica, juicios, categorías y esquematismo</h3>
+            <p>
+              Aristóteles y Kant, lógica formal y trascendental, Hume y causalidad,
+              deducción metafísica y trascendental, tabla de juicios, doce categorías,
+              juicios sintéticos a priori, esquematismo y tránsito hacia la Dialéctica.
+            </p>
+          </div>
+
+          <div className="ontology-program-enter">
+            <span>Abrir folio</span>
+            <b>↗</b>
+          </div>
+        </Link>
+
+        <Link
+          to="/semestre/5/ontologia-ii/clase/23-septiembre"
+          className="ontology-program-class-card"
+        >
+          <div className="ontology-program-date">
+            <strong>XXIII</strong>
+            <span>IX · MMXXVI</span>
+          </div>
+
+          <div className="ontology-program-class-copy">
+            <span>Décima clase · Dialéctica trascendental</span>
+            <h3>La frontera de la razón</h3>
+            <p>
+              Metafísica, razón y entendimiento; dogmatismo racionalista y Hume;
+              Dios, alma y mundo; fenómeno y límites del conocimiento; prueba
+              ontológica, existencia y tarea sobre la cosa en sí en Hartmann.
+            </p>
+          </div>
+
+          <div className="ontology-program-enter">
+            <span>Abrir clase</span>
+            <b>↗</b>
+          </div>
+        </Link>
+
       </section>
 
       <section className="ontology-program-route">

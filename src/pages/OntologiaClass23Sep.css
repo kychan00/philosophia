@@ -1,0 +1,667 @@
+/* ============================================================
+   ONTOLOGÍA II · CLASE 23 SEP 2026
+   ============================================================ */
+
+.ontsep23-page{
+  --sep23-ink:#1e211f;
+  --sep23-paper:#eee5d4;
+  --sep23-green:#466a62;
+  --sep23-green-dark:#334f49;
+  --sep23-red:#944c39;
+  --sep23-gold:#ad843e;
+}
+
+.ontsep23-hero{
+  min-height:82vh;
+}
+
+.ontsep23-ghost{
+  font-size:clamp(6rem,16vw,15rem);
+  opacity:.04;
+  letter-spacing:-.08em;
+}
+
+.ontsep23-heading>span{
+  color:#f3ead8!important;
+  background:var(--sep23-green)!important;
+  opacity:1!important;
+}
+
+.ontsep23-question{
+  border-left-color:var(--sep23-green);
+}
+
+.ontsep23-hero-schema{
+  padding:1.2rem;
+  border:1px solid rgba(30,33,31,.25);
+  background:rgba(255,255,255,.18);
+}
+
+.ontsep23-hero-schema>span{
+  display:block;
+  margin-bottom:.9rem;
+  color:var(--sep23-red);
+  font:900 .6rem Arial,sans-serif;
+  letter-spacing:.13em;
+}
+
+.ontsep23-hero-schema>div{
+  padding:.8rem;
+  border:1px solid rgba(30,33,31,.16);
+}
+
+.ontsep23-hero-schema>div.active{
+  border-color:var(--sep23-green);
+  background:rgba(70,106,98,.08);
+}
+
+.ontsep23-hero-schema small{
+  display:block;
+  color:var(--sep23-green);
+  font:900 .55rem Arial,sans-serif;
+  letter-spacing:.1em;
+}
+
+.ontsep23-hero-schema strong{
+  display:block;
+  margin-top:.35rem;
+  font-size:1rem;
+}
+
+.ontsep23-hero-schema>b{
+  display:block;
+  margin:.3rem 0;
+  color:var(--sep23-red);
+  text-align:center;
+}
+
+.ontsep23-index{
+  position:sticky;
+  top:0;
+  max-height:100vh;
+  overflow:auto;
+}
+
+.ontsep23-article>section{
+  scroll-margin-top:20px;
+}
+
+.ontsep23-session-map{
+  display:flex;
+  align-items:stretch;
+  gap:.45rem;
+  margin:1.5rem 0;
+}
+
+.ontsep23-session-map article{
+  flex:1;
+  min-width:0;
+  padding:1rem;
+  border:1px solid rgba(30,33,31,.2);
+  background:rgba(255,255,255,.24);
+}
+
+.ontsep23-session-map article.active{
+  border-color:var(--sep23-green);
+  background:rgba(70,106,98,.08);
+}
+
+.ontsep23-session-map span{
+  display:block;
+  color:var(--sep23-red);
+  font:900 .55rem Arial,sans-serif;
+}
+
+.ontsep23-session-map strong{
+  display:block;
+  margin:.45rem 0;
+  font-size:.95rem;
+}
+
+.ontsep23-session-map p{
+  margin:0;
+  font-size:.72rem;
+  line-height:1.4;
+}
+
+.ontsep23-session-map>b{
+  align-self:center;
+  color:var(--sep23-red);
+}
+
+.ontsep23-thesis{
+  border-left-color:var(--sep23-green);
+}
+
+.ontsep23-board-photos{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+  margin:1.4rem 0;
+}
+
+.ontsep23-board-photos figure{
+  margin:0;
+}
+
+.ontsep23-board-photos a{
+  display:block;
+  overflow:hidden;
+  border:1px solid rgba(30,33,31,.22);
+  background:#ddd2bc;
+}
+
+.ontsep23-board-photos img{
+  display:block;
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  transition:transform .2s ease;
+}
+
+.ontsep23-board-photos a:hover img{
+  transform:scale(1.015);
+}
+
+.ontsep23-board-photos figcaption{
+  padding:.55rem .15rem;
+  color:#70695d;
+  font:700 .62rem Arial,sans-serif;
+  letter-spacing:.04em;
+}
+
+.ontsep23-board-switcher{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.45rem;
+  margin:1.2rem 0 .7rem;
+}
+
+.ontsep23-board-switcher button{
+  padding:.65rem .85rem;
+  border:1px solid rgba(30,33,31,.27);
+  background:transparent;
+  color:inherit;
+  cursor:pointer;
+  font:900 .6rem Arial,sans-serif;
+  letter-spacing:.08em;
+}
+
+.ontsep23-board-switcher button.active{
+  border-color:var(--sep23-green);
+  background:var(--sep23-green);
+  color:#fff;
+}
+
+.ontsep23-board-reading{
+  padding:1.25rem;
+  border:1px solid rgba(30,33,31,.24);
+  background:rgba(70,106,98,.055);
+}
+
+.ontsep23-board-reading>span{
+  color:var(--sep23-green);
+  font:900 .58rem Arial,sans-serif;
+  letter-spacing:.12em;
+}
+
+.ontsep23-board-reading>strong{
+  display:block;
+  margin:.45rem 0;
+  font-size:1.55rem;
+}
+
+.ontsep23-board-reading>p{
+  max-width:850px;
+  line-height:1.55;
+}
+
+.ontsep23-board-schema{
+  display:grid;
+  gap:.7rem;
+  align-items:center;
+  margin-top:1rem;
+}
+
+.ontsep23-board-schema.architecture{
+  grid-template-columns:1fr auto 1fr auto 1fr;
+}
+
+.ontsep23-board-schema.dogmatism{
+  grid-template-columns:1fr auto 1fr auto 1fr;
+}
+
+.ontsep23-board-schema.ideas{
+  grid-template-columns:1fr auto repeat(3,1fr);
+}
+
+.ontsep23-board-schema>div{
+  padding:.9rem;
+  border:1px solid rgba(30,33,31,.2);
+  background:rgba(255,255,255,.24);
+}
+
+.ontsep23-board-schema>div span{
+  display:block;
+  color:var(--sep23-green);
+  font:900 .53rem Arial,sans-serif;
+  letter-spacing:.1em;
+}
+
+.ontsep23-board-schema>div strong{
+  display:block;
+  margin-top:.4rem;
+}
+
+.ontsep23-board-schema>b{
+  color:var(--sep23-red);
+}
+
+.ontsep23-formula{
+  display:grid;
+  gap:.6rem;
+  margin-top:1rem;
+}
+
+.ontsep23-formula code{
+  display:block;
+  padding:.9rem 1rem;
+  overflow:auto;
+  background:#202925;
+  color:#f0e6d3;
+  font-size:1rem;
+  line-height:1.5;
+}
+
+.ontsep23-formula-note{
+  color:#6b655b;
+  font-size:.77rem;
+}
+
+.ontsep23-two-paths,
+.ontsep23-triad,
+.ontsep23-ideas{
+  display:grid;
+  gap:.85rem;
+  margin:1.4rem 0;
+}
+
+.ontsep23-two-paths{
+  grid-template-columns:1fr 1fr;
+}
+
+.ontsep23-triad,
+.ontsep23-ideas{
+  grid-template-columns:repeat(3,1fr);
+}
+
+.ontsep23-two-paths article,
+.ontsep23-triad article,
+.ontsep23-ideas article{
+  padding:1.15rem;
+  border:1px solid rgba(30,33,31,.2);
+  background:rgba(255,255,255,.25);
+}
+
+.ontsep23-two-paths article.active,
+.ontsep23-triad article.active,
+.ontsep23-ideas article.active{
+  border-color:var(--sep23-green);
+  background:rgba(70,106,98,.08);
+}
+
+.ontsep23-two-paths span,
+.ontsep23-triad span,
+.ontsep23-ideas span{
+  display:block;
+  color:var(--sep23-green);
+  font:900 .58rem Arial,sans-serif;
+  letter-spacing:.11em;
+}
+
+.ontsep23-two-paths strong,
+.ontsep23-triad strong,
+.ontsep23-ideas strong{
+  display:block;
+  margin:.55rem 0;
+  font-size:1.18rem;
+}
+
+.ontsep23-two-paths p,
+.ontsep23-triad p,
+.ontsep23-ideas p{
+  margin:0;
+  line-height:1.5;
+}
+
+.ontsep23-faculties,
+.ontsep23-limit,
+.ontsep23-dialectic,
+.ontsep23-predicate{
+  display:grid;
+  grid-template-columns:1fr auto 1fr auto 1fr;
+  gap:.65rem;
+  align-items:center;
+  margin:1.5rem 0;
+}
+
+.ontsep23-predicate{
+  grid-template-columns:1fr auto 1fr;
+}
+
+.ontsep23-faculties article,
+.ontsep23-dialectic article,
+.ontsep23-predicate article,
+.ontsep23-limit>div{
+  padding:1rem;
+  border:1px solid rgba(30,33,31,.2);
+  background:rgba(255,255,255,.24);
+}
+
+.ontsep23-faculties article.active,
+.ontsep23-dialectic article.active,
+.ontsep23-predicate article.active,
+.ontsep23-limit>div.active{
+  border-color:var(--sep23-green);
+  background:rgba(70,106,98,.08);
+}
+
+.ontsep23-faculties span,
+.ontsep23-dialectic span,
+.ontsep23-predicate span,
+.ontsep23-limit span{
+  display:block;
+  color:var(--sep23-green);
+  font:900 .54rem Arial,sans-serif;
+  letter-spacing:.1em;
+}
+
+.ontsep23-faculties strong,
+.ontsep23-dialectic strong,
+.ontsep23-predicate strong,
+.ontsep23-limit strong{
+  display:block;
+  margin:.42rem 0;
+  font-size:1rem;
+}
+
+.ontsep23-faculties p,
+.ontsep23-dialectic p,
+.ontsep23-predicate p{
+  margin:0;
+  font-size:.78rem;
+  line-height:1.45;
+}
+
+.ontsep23-faculties>b,
+.ontsep23-dialectic>b,
+.ontsep23-predicate>b,
+.ontsep23-limit>b{
+  color:var(--sep23-red);
+}
+
+.ontsep23-warning{
+  margin:1.2rem 0;
+  padding:1rem 1.1rem;
+  border-left:4px solid var(--sep23-gold);
+  background:rgba(173,132,62,.07);
+}
+
+.ontsep23-warning>span{
+  color:var(--sep23-gold);
+  font:900 .57rem Arial,sans-serif;
+  letter-spacing:.12em;
+}
+
+.ontsep23-warning>strong{
+  display:block;
+  margin:.35rem 0;
+  font-size:1.2rem;
+}
+
+.ontsep23-warning>p{
+  margin:.4rem 0 0;
+  line-height:1.55;
+}
+
+.ontsep23-god{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:.8rem;
+  margin:1.2rem 0;
+  padding:1rem;
+  border:1px solid rgba(30,33,31,.2);
+}
+
+.ontsep23-god span{
+  color:var(--sep23-green);
+  font:900 .65rem Arial,sans-serif;
+}
+
+.ontsep23-god b{
+  color:var(--sep23-red);
+}
+
+.ontsep23-argument{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:.7rem;
+  margin:1.5rem 0;
+}
+
+.ontsep23-argument span{
+  padding:.8rem 1rem;
+  border:1px solid rgba(30,33,31,.22);
+  background:rgba(255,255,255,.22);
+  font:900 .67rem Arial,sans-serif;
+}
+
+.ontsep23-argument>b{
+  color:var(--sep23-red);
+}
+
+.ontsep23-prose{
+  max-width:850px;
+  font-size:1rem;
+  line-height:1.65;
+}
+
+.ontsep23-thalers{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  gap:.7rem;
+  align-items:center;
+  margin:1.2rem 0;
+}
+
+.ontsep23-thalers article{
+  padding:1rem;
+  border:1px solid rgba(30,33,31,.2);
+  text-align:center;
+  background:rgba(255,255,255,.22);
+}
+
+.ontsep23-thalers span{
+  color:var(--sep23-green);
+  font:900 .56rem Arial,sans-serif;
+}
+
+.ontsep23-thalers strong{
+  display:block;
+  margin:.4rem 0;
+  font-size:2rem;
+}
+
+.ontsep23-thalers p{
+  margin:0;
+  font-size:.75rem;
+}
+
+.ontsep23-thalers>b{
+  color:var(--sep23-red);
+}
+
+.ontsep23-system-link{
+  display:inline-block;
+  margin-top:.8rem;
+  padding:.7rem .9rem;
+  border:1px solid var(--sep23-ink);
+  background:var(--sep23-ink);
+  color:var(--sep23-paper);
+  text-decoration:none;
+  font:900 .62rem Arial,sans-serif;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+
+.ontsep23-digression{
+  padding:1.2rem;
+  border:1px solid rgba(30,33,31,.2);
+  border-left:4px solid var(--sep23-red);
+  background:rgba(148,76,57,.055);
+}
+
+.ontsep23-digression>span{
+  color:var(--sep23-red);
+  font:900 .57rem Arial,sans-serif;
+  letter-spacing:.12em;
+}
+
+.ontsep23-digression>strong{
+  display:block;
+  margin:.55rem 0;
+  font-size:1.2rem;
+  line-height:1.35;
+}
+
+.ontsep23-digression>p{
+  margin:.5rem 0 0;
+  line-height:1.6;
+}
+
+.ontsep23-task{
+  margin:1.4rem 0;
+  padding:1.25rem;
+  border:2px solid var(--sep23-green);
+  background:rgba(70,106,98,.075);
+}
+
+.ontsep23-task>span{
+  color:var(--sep23-green);
+  font:900 .6rem Arial,sans-serif;
+  letter-spacing:.13em;
+}
+
+.ontsep23-task h3{
+  margin:.55rem 0;
+  font-size:1.7rem;
+}
+
+.ontsep23-task p{
+  max-width:850px;
+  line-height:1.6;
+}
+
+.ontsep23-task>div{
+  display:grid;
+  grid-template-columns:auto 1fr auto 1fr;
+  gap:.5rem;
+  margin-top:1rem;
+  padding-top:.8rem;
+  border-top:1px solid rgba(30,33,31,.16);
+}
+
+.ontsep23-task>div b{
+  color:var(--sep23-green);
+  font:900 .58rem Arial,sans-serif;
+  letter-spacing:.07em;
+}
+
+.ontsep23-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.55rem;
+}
+
+.ontsep23-actions a{
+  padding:.7rem .9rem;
+  border:1px solid var(--sep23-ink);
+  color:inherit;
+  text-decoration:none;
+  font:900 .6rem Arial,sans-serif;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+
+.ontsep23-actions a:first-child{
+  background:var(--sep23-ink);
+  color:var(--sep23-paper);
+}
+
+@media(max-width:1050px){
+  .ontsep23-session-map{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .ontsep23-session-map>b{
+    display:none;
+  }
+
+  .ontsep23-board-schema.architecture,
+  .ontsep23-board-schema.dogmatism,
+  .ontsep23-board-schema.ideas{
+    grid-template-columns:1fr;
+  }
+
+  .ontsep23-board-schema>b{
+    justify-self:center;
+    transform:rotate(90deg);
+  }
+}
+
+@media(max-width:760px){
+  .ontsep23-board-photos,
+  .ontsep23-two-paths,
+  .ontsep23-triad,
+  .ontsep23-ideas,
+  .ontsep23-faculties,
+  .ontsep23-limit,
+  .ontsep23-dialectic,
+  .ontsep23-predicate{
+    grid-template-columns:1fr;
+  }
+
+  .ontsep23-faculties>b,
+  .ontsep23-limit>b,
+  .ontsep23-dialectic>b,
+  .ontsep23-predicate>b{
+    justify-self:center;
+    transform:rotate(90deg);
+  }
+
+  .ontsep23-task>div{
+    grid-template-columns:1fr;
+  }
+
+  .ontsep23-god,
+  .ontsep23-argument{
+    flex-direction:column;
+  }
+}
+
+@media(max-width:520px){
+  .ontsep23-session-map{
+    grid-template-columns:1fr;
+  }
+
+  .ontsep23-thalers{
+    grid-template-columns:1fr;
+  }
+
+  .ontsep23-thalers>b{
+    justify-self:center;
+  }
+}

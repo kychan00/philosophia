@@ -1053,6 +1053,259 @@ export const MAPS = {
   },
 }
 
+export const CLASS_21_SEP = {
+  id: '2026-09-21',
+  label: 'CLASE 21 SEP',
+  date: '21 de septiembre de 2026',
+  professor: 'Ontología II',
+  nodes: {
+    'architecture:sensibility': {
+      title: 'Punto de partida: lo ya obtenido en la Estética',
+      note:
+        'La clase recuerda que la sensibilidad recibe lo dado y que la Estética trascendental ya había establecido espacio y tiempo como formas puras de la intuición. La Analítica comienza precisamente donde ese resultado deja pendiente explicar cómo pensamos lo dado.',
+      locator: 'Clase 21 sep · §§3, 12 y 31',
+    },
+    'architecture:space-time': {
+      title: 'Espacio y tiempo no son categorías',
+      note:
+        'El profesor subraya la separación de facultades: espacio y tiempo pertenecen a la sensibilidad; las categorías pertenecen al entendimiento. Esta diferencia permite ordenar la arquitectura completa de la Crítica.',
+      locator: 'Clase 21 sep · §§12 y 31',
+    },
+    'architecture:analytic': {
+      title: 'Lógica formal frente a lógica trascendental',
+      note:
+        'La lógica formal prescinde del contenido y estudia la validez de las estructuras. La lógica trascendental, en cambio, tiene un contenido determinado: los conceptos puros del entendimiento y la legitimidad de su aplicación.',
+      locator: 'Clase 21 sep · §§4–5',
+    },
+    'architecture:concepts': {
+      title: 'Conceptos puros del entendimiento',
+      note:
+        'La clase formula la definición que debe quedar fija: las categorías son conceptos a priori del entendimiento. No se extraen simplemente de la experiencia.',
+      locator: 'Clase 21 sep · §5',
+    },
+    'architecture:judgment': {
+      title: 'La tabla de juicios como hilo conductor',
+      note:
+        'Kant parte de las funciones lógicas del juicio —cantidad, cualidad, relación y modalidad— para encontrar sistemáticamente las categorías.',
+      locator: 'Clase 21 sep · §§12–13',
+    },
+    'architecture:metaphysical-deduction': {
+      title: 'Deducción metafísica: el hecho',
+      note:
+        'El profesor la presenta pedagógicamente como la cuestión de cómo se obtiene o deriva sistemáticamente la tabla de categorías a partir de las formas del juicio.',
+      locator: 'Clase 21 sep · §11',
+    },
+    'architecture:categories': {
+      title: 'Aristóteles y Kant: del ser al conocer',
+      note:
+        'La comparación de la clase es decisiva: en Aristóteles las categorías funcionan como figuras de la predicación y modos del ser; en Kant pasan a ser conceptos a priori del entendimiento, es decir, modos fundamentales de conocer objetos.',
+      locator: 'Clase 21 sep · §§1–5 y 10',
+    },
+    'architecture:transcendental-deduction': {
+      title: 'Deducción trascendental: el derecho',
+      note:
+        'La pregunta ya no es qué categorías tenemos, sino con qué derecho conceptos que no proceden de la experiencia pueden aplicarse objetivamente a los objetos de experiencia: el quid juris.',
+      locator: 'Clase 21 sep · §11',
+    },
+    'architecture:principles': {
+      title: 'De las categorías a los principios',
+      note:
+        'Al final de la clase se ubican Axiomas de la intuición, Anticipaciones de la percepción, Analogías de la experiencia y Postulados del pensamiento empírico como el siguiente desarrollo de la Analítica.',
+      locator: 'Clase 21 sep · §39 y cierre',
+    },
+    'architecture:schematism': {
+      title: 'La mediación entre lo sensible y lo conceptual',
+      note:
+        'El esquema trascendental aparece para responder cómo puede una categoría pura aplicarse a lo recibido por la sensibilidad. La clase insiste en que no hay un paso inmediato sensación → categoría.',
+      locator: 'Clase 21 sep · §§31–33',
+    },
+    'architecture:system-principles': {
+      title: 'Cuatro familias de principios',
+      note:
+        'La sesión anticipa el sistema completo de principios del entendimiento puro y lo relaciona con el problema de universalidad y necesidad en la física.',
+      locator: 'Clase 21 sep · §39',
+    },
+    'architecture:experience': {
+      title: 'Las categorías valen dentro de la experiencia posible',
+      note:
+        'La clase prepara ya el límite crítico: las categorías organizan aquello que puede dársenos fenoménicamente; su uso cognoscitivo no autoriza automáticamente a extenderlas más allá de la experiencia posible.',
+      locator: 'Clase 21 sep · §§34–37',
+    },
+    'architecture:systematicity': {
+      title: 'La objeción de Kant a Aristóteles',
+      note:
+        'Según la exposición del profesor, Kant reprocha a Aristóteles haber reunido sus categorías sin un principio sistemático capaz de demostrar por qué la tabla era completa. Kant pretende ofrecer ese principio.',
+      locator: 'Clase 21 sep · §10',
+    },
+
+    'categories:quantity-judgments': {
+      title: 'Juicios de cantidad',
+      note:
+        'Universal, particular y singular son las tres formas trabajadas en clase. Se retomaron los cuantificadores y las proposiciones tradicionales A, E, I, O.',
+      locator: 'Clase 21 sep · §14',
+    },
+    'categories:quantity-categories': {
+      title: 'Unidad, pluralidad y totalidad',
+      note:
+        'La clase conecta el individuo singular con unidad, algunos con pluralidad y el todos con totalidad, destacando que estas categorías no son generalizaciones empíricas.',
+      locator: 'Clase 21 sep · §§15–16',
+    },
+    'categories:quality-judgments': {
+      title: 'Juicios de cualidad',
+      note:
+        'Se distinguieron juicios afirmativos, negativos e infinitos, insistiendo en la diferencia entre negar la cópula y predicar un término negativo.',
+      locator: 'Clase 21 sep · §17',
+    },
+    'categories:quality-categories': {
+      title: 'Realidad, negación y limitación',
+      note:
+        'La tríada de cualidad aparece como correlato de afirmación, negación y juicio infinito.',
+      locator: 'Clase 21 sep · §17',
+    },
+    'categories:relation-judgments': {
+      title: 'Juicios de relación',
+      note:
+        'La clase trabaja las formas categórica, hipotética y disyuntiva, aprovechando herramientas de lógica ya conocidas por el grupo.',
+      locator: 'Clase 21 sep · §§18–19',
+    },
+    'categories:relation-categories': {
+      title: 'Sustancia, causalidad y comunidad',
+      note:
+        'El juicio categórico se conecta con sustancia/accidente; el hipotético con causa/efecto; y el disyuntivo con comunidad o acción recíproca. Aquí se ve con claridad el desplazamiento desde la ontología aristotélica hacia condiciones del entendimiento.',
+      locator: 'Clase 21 sep · §20',
+    },
+    'categories:modality-judgments': {
+      title: 'Juicios de modalidad',
+      note:
+        'Problemático, asertórico y apodíctico expresan respectivamente posibilidad, efectividad y necesidad. La sesión usa ejemplos cotidianos e históricos para distinguirlos.',
+      locator: 'Clase 21 sep · §§21–24',
+    },
+    'categories:modality-categories': {
+      title: 'Posibilidad, existencia y necesidad',
+      note:
+        'Estas categorías preparan directamente el puente hacia la Dialéctica: la clase anticipa que la existencia sólo tiene uso cognoscitivo legítimo dentro de las condiciones de la experiencia posible.',
+      locator: 'Clase 21 sep · §§25 y 34–38',
+    },
+    'categories:discovery-proof': {
+      title: 'Encontrar la tabla no basta',
+      note:
+        'La clase separa con nitidez el problema de derivar sistemáticamente las categorías y el problema de justificar su validez objetiva. Esta es la diferencia entre deducción metafísica y trascendental.',
+      locator: 'Clase 21 sep · §11',
+    },
+
+    'deduction:quid-juris': {
+      title: 'Quid juris',
+      note:
+        'El profesor formula la cuestión jurídica: ¿con qué derecho aplicamos conceptos a priori a objetos si esos conceptos no fueron obtenidos de la experiencia?',
+      locator: 'Clase 21 sep · §11',
+    },
+    'deduction:a-priori-claim': {
+      title: 'La dificultad central de las categorías a priori',
+      note:
+        'Kant sostiene que categorías como causalidad no se extraen de impresiones sensibles. Precisamente por eso debe justificar cómo pueden valer objetivamente para la experiencia.',
+      locator: 'Clase 21 sep · §§7–11',
+    },
+    'deduction:manifold': {
+      title: 'Lo múltiple dado',
+      note:
+        'La materia sensible presenta diferencias, relaciones, sucesiones y simultaneidades; pero esa materia no proporciona por sí sola la categoría que organiza lo dado.',
+      locator: 'Clase 21 sep · §32',
+    },
+    'deduction:synthesis': {
+      title: 'La categoría sintetiza lo múltiple',
+      note:
+        'La causalidad sirve de ejemplo: distintas impresiones son relacionadas por una función sintética del entendimiento. No existe una categoría especial llamada “síntesis”; sintetizar caracteriza la actividad de las categorías.',
+      locator: 'Clase 21 sep · §§9 y 32',
+    },
+    'deduction:categories-rules': {
+      title: 'Estructuras a priori del sujeto',
+      note:
+        'El cambio decisivo presentado en clase es que el sujeto conoce mediante estructuras a priori. Las categorías funcionan como reglas con las que el entendimiento organiza la experiencia.',
+      locator: 'Clase 21 sep · §9',
+    },
+    'deduction:experience': {
+      title: 'Experiencia como síntesis organizada',
+      note:
+        'El ejemplo de causalidad muestra el propósito kantiano: no basta una sucesión de impresiones; el entendimiento organiza la experiencia bajo reglas que pretenden universalidad y necesidad.',
+      locator: 'Clase 21 sep · §§7–9 y 28–29',
+    },
+    'deduction:objective-validity': {
+      title: 'Validez objetiva',
+      note:
+        'La deducción trascendental debe explicar por qué las categorías pueden aplicarse legítimamente a objetos de experiencia y no son simples conceptos subjetivos sin alcance objetivo.',
+      locator: 'Clase 21 sep · §11',
+    },
+    'deduction:empirical-limit': {
+      title: 'Límite: experiencia posible',
+      note:
+        'La sesión anticipa la tesis crítica que después será central en la Dialéctica: una categoría no adquiere validez cognoscitiva por el mero hecho de que podamos pensar algo con ella.',
+      locator: 'Clase 21 sep · §§34–38',
+    },
+
+    'apperception:i-think': {
+      title: 'El sujeto trascendental queda anunciado',
+      note:
+        'La clase parte de Descartes y del cogito para señalar que Kant dará un paso hacia el sujeto trascendental. No se desarrolla todavía aquí la doctrina completa de la apercepción.',
+      locator: 'Clase 21 sep · §3',
+    },
+    'apperception:categories': {
+      title: 'Síntesis mediante categorías',
+      note:
+        'Aunque la clase no desarrolla todavía toda la apercepción, sí enfatiza que el entendimiento no recibe pasivamente las categorías: las usa como funciones de síntesis sobre lo múltiple.',
+      locator: 'Clase 21 sep · §§9 y 32',
+    },
+
+    'schematism:schema-problem': {
+      title: '¿Cómo conectamos sensibilidad y entendimiento?',
+      note:
+        'La pregunta aparece literalmente como el problema de aplicar un concepto puro, no sensible, a aquello que se presenta sensiblemente.',
+      locator: 'Clase 21 sep · §31',
+    },
+    'schematism:time-schema': {
+      title: 'El esquema como mediación',
+      note:
+        'La clase explica que el esquema trascendental media entre categorías e intuiciones y que esta mediación mantiene una relación fundamental con el tiempo.',
+      locator: 'Clase 21 sep · §§32–33',
+    },
+    'schematism:causality-schema': {
+      title: 'De Hume a Kant: causalidad y sucesión reglada',
+      note:
+        'Hume sólo encuentra sucesión repetida de impresiones; Kant busca explicar la necesidad causal mediante una categoría a priori cuyo esquema se vincula con una sucesión temporal reglada.',
+      locator: 'Clase 21 sep · §§6–9 y 33',
+    },
+    'schematism:modality-schema': {
+      title: 'Modalidad y experiencia',
+      note:
+        'Posibilidad, existencia y necesidad no son propiedades obtenidas empíricamente sin más. Su uso legítimo queda vinculado a las condiciones de la experiencia.',
+      locator: 'Clase 21 sep · §§21–25 y 34–38',
+    },
+    'schematism:principles-root': {
+      title: 'Del esquematismo al sistema de principios',
+      note:
+        'La clase sitúa aquí el siguiente paso de la Analítica: después de las categorías y su mediación temporal, Kant desarrolla los principios del entendimiento puro.',
+      locator: 'Clase 21 sep · §39',
+    },
+    'schematism:analogies': {
+      title: 'Analogías y necesidad en la experiencia',
+      note:
+        'Ante la pregunta final sobre cómo puede Kant hablar de necesidad en las leyes físicas, el profesor remite a las Analogías de la experiencia y al sistema de principios.',
+      locator: 'Clase 21 sep · §39',
+    },
+    'schematism:postulates': {
+      title: 'Postulados del pensamiento empírico',
+      note:
+        'La clase remite expresamente a los Postulados para profundizar en posibilidad, realidad y necesidad dentro del uso empírico del entendimiento.',
+      locator: 'Clase 21 sep · §39',
+    },
+    'schematism:schema-limit': {
+      title: 'El esquema también limita',
+      note:
+        'La mediación sensible impide convertir las categorías en autorizaciones para conocer cualquier objeto pensable. Este límite prepara el tránsito crítico hacia la Dialéctica trascendental.',
+      locator: 'Clase 21 sep · §§33–38',
+    },
+  },
+}
+
 export const GUIDE_STEPS = [
   {
     mode: 'architecture',

@@ -509,6 +509,28 @@ export const tasks = [
     studyRoute: '/tareas/metodos-de-investigacion/jacqueline-russ-capitulos-1-3',
   },
   {
+    id: 'ontologia-2026-09-30-hartmann-cosa-en-si',
+    subject: 'Ontología II',
+    subjectCode: 'FI190',
+    assignedDate: '2026-09-23',
+    dueDate: '2026-09-30',
+    dueTime: '12:55',
+    title: 'Nicolai Hartmann · el problema de la cosa en sí',
+    type: 'Lectura / preparación',
+    weight: null,
+    description:
+      'Leer a Nicolai Hartmann en su tratamiento del idealismo alemán, concentrándose en el problema de la cosa en sí: cómo fue interpretada la cosa en sí kantiana y qué problemas filosóficos se derivaron de ella. El profesor indica que probablemente no habrá clase el lunes 28 por una reunión y que el tema se retomará el miércoles 30.',
+    readingScope:
+      'Nicolai Hartmann · idealismo alemán · interpretación y problemas de la cosa en sí kantiana',
+    readingPages:
+      'La grabación no fija páginas exactas; la indicación es leer el apartado dedicado a la cosa en sí.',
+    sourceClass:
+      'Clase del 23 de septiembre · Dialéctica trascendental y crítica de la metafísica',
+    sourceRoute: '/semestre/5/ontologia-ii/clase/23-septiembre',
+    studyRoute: '/tareas/ontologia-ii/kant-dialectica-trascendental',
+  },
+
+  {
     id: 'analitica-2026-09-28-segundo-reporte-hacker',
     subject: 'Filosofía Analítica',
     subjectCode: 'FI264',

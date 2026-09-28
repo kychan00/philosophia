@@ -53,10 +53,13 @@ const OntologiaClass02Sep = lazy(() => import('./pages/OntologiaClass02Sep'))
 const OntologiaClass07Sep = lazy(() => import('./pages/OntologiaClass07Sep'))
 const OntologiaClass09Sep = lazy(() => import('./pages/OntologiaClass09Sep'))
 const OntologiaClass14Sep = lazy(() => import('./pages/OntologiaClass14Sep'))
+const OntologiaClass21Sep = lazy(() => import('./pages/OntologiaClass21Sep'))
+const OntologiaClass23Sep = lazy(() => import('./pages/OntologiaClass23Sep'))
 const KantPrefacesMap = lazy(() => import('./pages/KantPrefacesMap'))
 const KantIntroductionMap = lazy(() => import('./pages/KantIntroductionMap'))
 const KantAestheticMap = lazy(() => import('./pages/KantAestheticMap'))
 const KantAnalyticSystem = lazy(() => import('./pages/KantAnalyticSystem'))
+const KantDialecticSystem = lazy(() => import('./pages/KantDialecticSystem'))
 const MethodsResearch = lazy(() => import('./pages/MethodsResearch'))
 const MethodsClass17Aug = lazy(() => import('./pages/MethodsClass17Aug'))
 const MethodsClass19Aug = lazy(() => import('./pages/MethodsClass19Aug'))
@@ -266,6 +269,18 @@ function App() {
         <Route
           path="/semestre/5/ontologia-ii/clase/14-septiembre"
           element={<OntologiaClass14Sep />}
+        />
+        <Route
+          path="/semestre/5/ontologia-ii/clase/21-septiembre"
+          element={<OntologiaClass21Sep />}
+        />
+        <Route
+          path="/semestre/5/ontologia-ii/clase/23-septiembre"
+          element={<OntologiaClass23Sep />}
+        />
+        <Route
+          path="/tareas/ontologia-ii/kant-dialectica-trascendental"
+          element={<KantDialecticSystem />}
         />
         <Route
           path="/tareas/ontologia-ii/kant-critica-razon-pura-prologos"

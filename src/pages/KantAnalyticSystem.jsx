@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import {
   Background, Controls, MarkerType, MiniMap, ReactFlow, ReactFlowProvider, useEdgesState, useNodesState, useReactFlow, } from '@xyflow/react'
 import '@xyflow/react/dist/style.css'
-import { GUIDE_STEPS, MAPS, PHASES, SOURCE_LABELS, STUDY_QUESTIONS, SOURCE_READINGS, READING_LIBRARY, NODE_READING_PRESETS } from '../data/kantAnalyticSystem'
+import { CLASS_21_SEP, GUIDE_STEPS, MAPS, PHASES, SOURCE_LABELS, STUDY_QUESTIONS, SOURCE_READINGS, READING_LIBRARY, NODE_READING_PRESETS } from '../data/kantAnalyticSystem'
 import './KantAnalyticSystem.css'
 
 const NODE_WIDTH = 310
@@ -21,6 +21,11 @@ function sourceMatches(nodeSource, filter) {
   if (filter === 'kant') return nodeSource === 'kant' || nodeSource === 'both'
   if (filter === 'hartnack') return nodeSource === 'hartnack' || nodeSource === 'both'
   return true
+}
+
+
+function class21For(mapId, itemId) {
+  return CLASS_21_SEP.nodes[`${mapId}:${itemId}`] || null
 }
 
 
@@ -72,7 +77,10 @@ function nodeLabel(item) {
     <div className="kas-node-copy">
       <div className="kas-node-topline">
         <span>{item.eyebrow}</span>
-        <SourceChip source={item.source} />
+        <div className="kas-node-badges">
+          {item.class21 && <span className="kas-class-chip">VISTO EN CLASE</span>}
+          <SourceChip source={item.source} />
+        </div>
       </div>
       <strong>{item.title}</strong>
       <small>{item.short}</small>
@@ -81,20 +89,25 @@ function nodeLabel(item) {
 }
 
 function buildNodes(mode) {
-  return MAPS[mode].nodes.map((item) => ({
-    id: item.id,
-    position: { x: item.x, y: item.y },
-    data: { ...item, label: nodeLabel(item) },
-    style: {
-      width: NODE_WIDTH,
-      padding: 0,
-      border: '1px solid rgba(43, 55, 68, .22)',
-      borderRadius: 4,
-      background: '#f2eee5',
-      color: '#1f2328',
-      boxShadow: '0 14px 34px rgba(31, 35, 40, .07)',
-    },
-  }))
+  return MAPS[mode].nodes.map((item) => {
+    const class21 = class21For(mode, item.id)
+    const data = { ...item, class21 }
+
+    return {
+      id: item.id,
+      position: { x: item.x, y: item.y },
+      data: { ...data, label: nodeLabel(data) },
+      style: {
+        width: NODE_WIDTH,
+        padding: 0,
+        border: '1px solid rgba(43, 55, 68, .22)',
+        borderRadius: 4,
+        background: '#f2eee5',
+        color: '#1f2328',
+        boxShadow: '0 14px 34px rgba(31, 35, 40, .07)',
+      },
+    }
+  })
 }
 
 function buildEdges(mode) {
@@ -241,6 +254,17 @@ function Inspector({
                   </div>
                 )}
 
+          {item.class21 && (
+            <section className="kas-class21-card">
+              <header>
+                <span>VISTO EN CLASE · 21 SEP 2026</span>
+                <b>{item.class21.locator}</b>
+              </header>
+              <strong>{item.class21.title}</strong>
+              <p>{item.class21.note}</p>
+            </section>
+          )}
+
           {readings && (
             <div className="kas-readings-box">
               <div className="kas-readings-title">
@@ -332,6 +356,7 @@ function Guide({ open, index, onIndex, onClose }) {
 function Workspace() {
   const [mode, setMode] = useState('architecture')
   const [sourceFilter, setSourceFilter] = useState('all')
+  const [class21Only, setClass21Only] = useState(false)
   const [selectedId, setSelectedId] = useState('analytic')
   const [guideOpen, setGuideOpen] = useState(false)
   const [guideIndex, setGuideIndex] = useState(0)
@@ -360,6 +385,7 @@ function Workspace() {
       Object.entries(MAPS).flatMap(([mapId, map]) =>
         map.nodes.map((item) => {
           const readings = resolveNodeReadings(mapId, item)
+          const class21 = class21For(mapId, item.id)
           const readingText = readings
             ? Object.values(readings)
                 .filter(Boolean)
@@ -374,6 +400,7 @@ function Workspace() {
 
           return {
             ...item,
+            class21,
             mapId,
             mapLabel: map.label,
             hasReading: Boolean(readings),
@@ -386,6 +413,9 @@ function Workspace() {
                 item.family,
                 item.kantRef,
                 item.hartnackRef,
+                class21?.title,
+                class21?.note,
+                class21?.locator,
                 map.label,
                 map.subtitle,
                 readingText,
@@ -433,6 +463,7 @@ function Workspace() {
     setSearchOpen(false)
     setSearchTerm(result.title)
     setSourceFilter('all')
+    setClass21Only(false)
     setGuideOpen(false)
     setStudyOpen(false)
     setInspectorMinimized(false)
@@ -445,19 +476,28 @@ function Workspace() {
     }
   }
 
-  const selected = useMemo(
-    () => currentMap.nodes.find((item) => item.id === selectedId) || null,
-    [currentMap, selectedId],
+  const selected = useMemo(() => {
+    const item = currentMap.nodes.find((entry) => entry.id === selectedId) || null
+    return item ? { ...item, class21: class21For(mode, item.id) } : null
+  }, [currentMap, mode, selectedId])
+
+  const class21Count = useMemo(
+    () => currentMap.nodes.filter((item) => class21For(mode, item.id)).length,
+    [currentMap, mode],
   )
 
   const visibleIds = useMemo(
     () =>
       new Set(
         nodes
-          .filter((node) => sourceMatches(node.data.source, sourceFilter))
+          .filter(
+            (node) =>
+              sourceMatches(node.data.source, sourceFilter) &&
+              (!class21Only || Boolean(node.data.class21)),
+          )
           .map((node) => node.id),
       ),
-    [nodes, sourceFilter],
+    [nodes, sourceFilter, class21Only],
   )
 
   const visibleNodes = useMemo(
@@ -468,6 +508,8 @@ function Workspace() {
         className: [
           'kas-flow-node',
           node.id === selectedId ? 'is-selected' : '',
+          node.data.class21 ? 'is-class21' : '',
+          class21Only && node.data.class21 ? 'is-class21-focus' : '',
           guideOpen && GUIDE_STEPS[guideIndex]?.nodeId === node.id ? 'is-guide' : '',
         ]
           .filter(Boolean)
@@ -492,10 +534,14 @@ function Workspace() {
   const changeMode = (nextMode, preferredId = null) => {
     const nextNodes = buildNodes(nextMode)
     const nextEdges = buildEdges(nextMode)
+    const classCandidate = class21Only
+      ? MAPS[nextMode].nodes.find((node) => class21For(nextMode, node.id))
+      : null
+
     const nextId =
       preferredId && MAPS[nextMode].nodes.some((node) => node.id === preferredId)
         ? preferredId
-        : MAPS[nextMode].nodes[0].id
+        : classCandidate?.id || MAPS[nextMode].nodes[0].id
 
     setMode(nextMode)
     setNodes(nextNodes)
@@ -529,6 +575,7 @@ function Workspace() {
 
   const startGuide = () => {
     setSourceFilter('all')
+    setClass21Only(false)
     setGuideOpen(true)
     setGuideIndex(0)
   }
@@ -539,6 +586,7 @@ function Workspace() {
   const openStudy = () => {
     setStudyOpen(true)
     setGuideOpen(false)
+    setClass21Only(false)
     const first = STUDY_QUESTIONS[studyIndex]
 
     if (!first) return
@@ -933,6 +981,28 @@ function Workspace() {
                       {label}
                     </button>
                   ))}
+                </div>
+
+                <div className="kas-class-filter">
+                  <span>CLASE</span>
+                  <button
+                    type="button"
+                    className={class21Only ? 'active' : ''}
+                    onClick={() => {
+                      const next = !class21Only
+                      setClass21Only(next)
+
+                      if (next && selected && !selected.class21) {
+                        setSelectedId(null)
+                      }
+
+                      window.setTimeout(() => {
+                        fitView({ padding: 0.24, duration: 420, maxZoom: 1 })
+                      }, 60)
+                    }}
+                  >
+                    21 SEP · {class21Count}
+                  </button>
                 </div>
 
                 <div className="kas-actions">
