@@ -109,3 +109,139 @@
   .marketing-core-diagram>b{justify-self:center;transform:rotate(90deg)}.marketing-future{grid-template-columns:1fr}
   .marketing-invite{grid-template-columns:1fr;margin:55px 18px;padding:28px 24px}.marketing-footer{align-items:flex-start;flex-direction:column}
 }
+/* ============================================================
+   CAFÉ MERCADOTECNIA · MOBILE RESCUE
+   ============================================================ */
+
+@media(max-width:760px){
+  .marketing-page{
+    overflow-x:hidden;
+  }
+
+  /* 2x2 superior: evitar que palabras largas ensanchen las columnas */
+  .marketing-strip{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .marketing-strip article{
+    min-width:0;
+    min-height:142px;
+    padding:18px 14px;
+  }
+
+  .marketing-strip strong{
+    margin-top:66px;
+    min-width:0;
+    font-size:clamp(15px,4.8vw,19px);
+    line-height:.95;
+    letter-spacing:-.025em;
+    overflow-wrap:anywhere;
+  }
+
+  /* Títulos de sección: más respiración y menos escala */
+  .marketing-section-head{
+    grid-template-columns:52px minmax(0,1fr);
+    gap:14px;
+  }
+
+  .marketing-section-head>span{
+    width:48px;
+    height:48px;
+  }
+
+  .marketing-section-head h2{
+    max-width:100%;
+    font-size:clamp(30px,9.7vw,40px);
+    line-height:.96;
+    letter-spacing:-.035em;
+  }
+
+  /* Pares conceptuales: impedir overflow por contenido intrínseco */
+  .marketing-tensions article{
+    grid-template-columns:46px minmax(0,1fr);
+    min-width:0;
+  }
+
+  .marketing-tensions article div{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+    gap:8px;
+    min-width:0;
+    padding:18px 12px;
+  }
+
+  .marketing-tensions strong{
+    min-width:0;
+    font-size:clamp(15px,4.7vw,19px);
+    line-height:1;
+    text-align:center;
+    overflow-wrap:anywhere;
+  }
+
+  .marketing-tensions b{
+    font-size:20px;
+  }
+
+  /* Bloque final: "Mercadotecnia" no debe salirse del panel */
+  .marketing-invite{
+    min-width:0;
+    overflow:hidden;
+  }
+
+  .marketing-invite>div{
+    min-width:0;
+  }
+
+  .marketing-invite h2{
+    max-width:100%;
+    font-size:clamp(39px,12.7vw,54px);
+    line-height:.9;
+    letter-spacing:-.055em;
+    overflow-wrap:anywhere;
+  }
+
+  .marketing-invite p{
+    max-width:100%;
+    font-size:clamp(20px,6.2vw,26px);
+    line-height:1.08;
+  }
+
+  .marketing-invite aside{
+    width:100%;
+    min-width:0;
+  }
+
+  /* Tres tarjetas finales: una por fila en móvil */
+  .marketing-future{
+    grid-template-columns:minmax(0,1fr);
+  }
+
+  .marketing-future article{
+    min-width:0;
+    min-height:175px;
+    border-right:0;
+    border-bottom:1px solid var(--ink);
+  }
+
+  .marketing-future article:last-child{
+    border-bottom:0;
+  }
+
+  .marketing-future strong{
+    margin-top:42px;
+  }
+}
+
+@media(max-width:390px){
+  .marketing-strip strong{
+    font-size:14px;
+  }
+
+  .marketing-tensions strong{
+    font-size:14px;
+  }
+
+  .marketing-invite h2{
+    font-size:clamp(36px,12vw,46px);
+  }
+}
