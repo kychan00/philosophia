@@ -1061,3 +1061,49 @@ button {
     aspect-ratio: auto;
   }
 }
+
+
+/* ============================================================
+   CAFÉ FILOSÓFICO · SESIÓN 02 · PHOTO STRIP
+   ============================================================ */
+
+.cafe-public-session-gallery.is-strip{
+  display:grid;
+  grid-auto-flow:column;
+  grid-auto-columns:minmax(230px, 31%);
+  grid-template-columns:none;
+  gap:10px;
+  overflow-x:auto;
+  overscroll-behavior-inline:contain;
+  scroll-snap-type:inline mandatory;
+  scrollbar-width:thin;
+  padding-bottom:10px;
+}
+
+.cafe-public-session-gallery.is-strip .cafe-public-session-photo{
+  scroll-snap-align:start;
+}
+
+.cafe-public-session-gallery.is-strip .cafe-public-session-photo img{
+  height:210px;
+}
+
+@media(max-width:980px){
+  .cafe-public-session-gallery.is-strip{
+    grid-auto-columns:minmax(220px, 44%);
+  }
+}
+
+@media(max-width:620px){
+  .cafe-public-session-gallery.is-strip{
+    display:grid;
+    grid-auto-flow:column;
+    grid-auto-columns:84%;
+    grid-template-columns:none;
+    overflow-x:auto;
+  }
+
+  .cafe-public-session-gallery.is-strip .cafe-public-session-photo img{
+    height:220px;
+  }
+}

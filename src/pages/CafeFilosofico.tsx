@@ -20,13 +20,24 @@ const sessions = [
     date: '22 SEP 2026',
     title: 'La meritocracia',
     description:
-      'Próximo encuentro interdisciplinario para abrir la discusión sobre mérito, pobreza, desigualdad y la tensión entre explicación individual y estructura.',
+      'Memoria del diálogo sobre mérito, pobreza, merecimiento, trabajo, desigualdad, competencia y las condiciones sociales que hacen posible atribuir éxito o fracaso.',
     tags: ['Meritocracia', 'Desigualdad', 'Pobreza', 'Individuo', 'Estructura'],
     route: '/cafe-filosofico/2026/09/22/meritocracia',
     image: `${import.meta.env.BASE_URL}images/cafe-filosofico/meritocracia/poster-original.jpg`,
     imageMode: 'poster',
-    badge: 'PRÓXIMO ENCUENTRO',
-    actionLabel: 'Explorar problema',
+    badge: 'MEMORIA PUBLICADA',
+    actionLabel: 'Explorar memoria',
+    galleryMode: 'strip',
+    photos: [
+      `${import.meta.env.BASE_URL}images/cafe-filosofico/meritocracia/session-02/01.jpg`,
+      `${import.meta.env.BASE_URL}images/cafe-filosofico/meritocracia/session-02/02.jpg`,
+      `${import.meta.env.BASE_URL}images/cafe-filosofico/meritocracia/session-02/03.jpg`,
+      `${import.meta.env.BASE_URL}images/cafe-filosofico/meritocracia/session-02/04.jpg`,
+      `${import.meta.env.BASE_URL}images/cafe-filosofico/meritocracia/session-02/05.jpg`,
+      `${import.meta.env.BASE_URL}images/cafe-filosofico/meritocracia/session-02/06.jpg`,
+      `${import.meta.env.BASE_URL}images/cafe-filosofico/meritocracia/session-02/07.jpg`,
+      `${import.meta.env.BASE_URL}images/cafe-filosofico/meritocracia/session-02/08.jpg`,
+    ],
   },
 
 ]
@@ -138,16 +149,23 @@ export default function CafeFilosofico() {
                   ))}
                 </div>
 
-                <div className="cafe-public-session-gallery" aria-label="Galería del encuentro">
+                <div
+                  className={`cafe-public-session-gallery ${session.galleryMode === 'strip' ? 'is-strip' : ''}`}
+                  aria-label={`Galería del encuentro · ${session.date}`}
+                >
                   {session.photos?.map((photo, photoIndex) => (
-                    <figure key={photo} className={`cafe-public-session-photo cafe-public-session-photo-${photoIndex + 1}`}>
+                    <figure
+                      key={photo}
+                      className={`cafe-public-session-photo cafe-public-session-photo-${photoIndex + 1}`}
+                    >
                       <img
                         src={photo}
-                        alt={`Fotografía ${photoIndex + 1} del encuentro del 7 de septiembre de 2026.`}
+                        alt={`Fotografía ${photoIndex + 1} del encuentro · ${session.date}.`}
+                        loading="lazy"
                       />
                       <figcaption>
                         <span>{String(photoIndex + 1).padStart(2, '0')}</span>
-                        <p>Encuentro · 07 SEP 2026</p>
+                        <p>Encuentro · {session.date}</p>
                       </figcaption>
                     </figure>
                   ))}

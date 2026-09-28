@@ -1659,3 +1659,259 @@
     font-size:25px;
   }
 }
+
+
+/* ============================================================
+   CAFÉ MERITOCRACIA · REGISTRO FOTOGRÁFICO
+   ============================================================ */
+
+.merit-photo-archive{
+  padding-top:104px;
+}
+
+.merit-photo-archive-intro{
+  display:grid;
+  grid-template-columns:220px minmax(0,760px);
+  gap:28px;
+  align-items:start;
+  margin:-8px 0 28px 84px;
+}
+
+.merit-photo-archive-intro span{
+  color:#9b4b38;
+  font:700 8px Arial,sans-serif;
+  letter-spacing:.14em;
+}
+
+.merit-photo-archive-intro p{
+  margin:0;
+  font-size:17px;
+  line-height:1.6;
+}
+
+.merit-photo-archive-grid{
+  display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  gap:12px;
+}
+
+.merit-photo-item{
+  position:relative;
+  grid-column:span 4;
+  margin:0;
+  overflow:hidden;
+  border:1px solid rgba(16,16,14,.68);
+  background:#d7c7a8;
+  box-shadow:4px 5px 0 rgba(16,16,14,.08);
+}
+
+.merit-photo-item:nth-child(1),
+.merit-photo-item:nth-child(6){
+  grid-column:span 7;
+}
+
+.merit-photo-item:nth-child(2),
+.merit-photo-item:nth-child(5){
+  grid-column:span 5;
+}
+
+.merit-photo-item:nth-child(3),
+.merit-photo-item:nth-child(4),
+.merit-photo-item:nth-child(7),
+.merit-photo-item:nth-child(8){
+  grid-column:span 6;
+}
+
+.merit-photo-item a{
+  display:block;
+  overflow:hidden;
+  background:#171713;
+}
+
+.merit-photo-item img{
+  display:block;
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  filter:saturate(.82) contrast(1.025);
+  transition:transform 300ms cubic-bezier(.2,.7,.2,1),filter 300ms ease;
+}
+
+.merit-photo-item figcaption{
+  display:grid;
+  grid-template-columns:52px minmax(0,1fr);
+  min-height:38px;
+  border-top:1px solid rgba(16,16,14,.55);
+  background:#eee2cb;
+}
+
+.merit-photo-item figcaption span{
+  display:grid;
+  place-items:center;
+  border-right:1px solid rgba(16,16,14,.35);
+  color:#9b4b38;
+  font:700 8px Arial,sans-serif;
+  letter-spacing:.1em;
+}
+
+.merit-photo-item figcaption p{
+  margin:0;
+  padding:10px 12px 9px;
+  font:700 8px Arial,sans-serif;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+
+@media(hover:hover){
+  .merit-photo-item:hover img{
+    transform:scale(1.018);
+    filter:saturate(.96) contrast(1.03);
+  }
+}
+
+@media(max-width:900px){
+  .merit-photo-archive-intro{
+    grid-template-columns:1fr;
+    gap:8px;
+    margin:-4px 0 24px;
+  }
+
+  .merit-photo-item,
+  .merit-photo-item:nth-child(1),
+  .merit-photo-item:nth-child(2),
+  .merit-photo-item:nth-child(3),
+  .merit-photo-item:nth-child(4),
+  .merit-photo-item:nth-child(5),
+  .merit-photo-item:nth-child(6),
+  .merit-photo-item:nth-child(7),
+  .merit-photo-item:nth-child(8){
+    grid-column:span 6;
+  }
+}
+
+@media(max-width:620px){
+  .merit-photo-archive{
+    padding-top:78px;
+  }
+
+  .merit-photo-archive-grid{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .merit-photo-item,
+  .merit-photo-item:nth-child(1),
+  .merit-photo-item:nth-child(2),
+  .merit-photo-item:nth-child(3),
+  .merit-photo-item:nth-child(4),
+  .merit-photo-item:nth-child(5),
+  .merit-photo-item:nth-child(6),
+  .merit-photo-item:nth-child(7),
+  .merit-photo-item:nth-child(8){
+    grid-column:auto;
+  }
+}
+
+
+/* ============================================================
+   CAFÉ MERITOCRACIA · FRAGMENTOS EN VIDEO
+   ============================================================ */
+
+.merit-video-archive{
+  padding-top:96px;
+}
+
+.merit-video-intro{
+  display:grid;
+  grid-template-columns:220px minmax(0,760px);
+  gap:28px;
+  align-items:start;
+  margin:-8px 0 28px 84px;
+}
+
+.merit-video-intro span{
+  color:#9b4b38;
+  font:700 8px Arial,sans-serif;
+  letter-spacing:.14em;
+}
+
+.merit-video-intro p{
+  margin:0;
+  font-size:17px;
+  line-height:1.6;
+}
+
+.merit-video-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+
+.merit-video-item{
+  margin:0;
+  border:2px solid var(--ink);
+  background:#efe1c6;
+  box-shadow:6px 7px 0 rgba(16,16,14,.08);
+}
+
+.merit-video-frame{
+  padding:10px;
+  background:var(--ink);
+}
+
+.merit-video-frame video{
+  display:block;
+  width:100%;
+  aspect-ratio:16/9;
+  background:#000;
+  object-fit:contain;
+}
+
+.merit-video-item figcaption{
+  display:grid;
+  grid-template-columns:58px minmax(0,1fr);
+  border-top:1px solid var(--ink);
+}
+
+.merit-video-item figcaption>span{
+  display:grid;
+  place-items:center;
+  border-right:1px solid var(--ink);
+  color:#9b4b38;
+  font:700 10px Arial,sans-serif;
+}
+
+.merit-video-item figcaption>div{
+  padding:12px 14px;
+}
+
+.merit-video-item figcaption strong{
+  display:block;
+  font-size:16px;
+}
+
+.merit-video-item figcaption p{
+  margin:4px 0 0;
+  color:#6c6252;
+  font:700 8px Arial,sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+@media(max-width:900px){
+  .merit-video-intro{
+    grid-template-columns:1fr;
+    gap:8px;
+    margin:-4px 0 24px;
+  }
+}
+
+@media(max-width:700px){
+  .merit-video-grid{
+    grid-template-columns:1fr;
+  }
+
+  .merit-video-archive{
+    padding-top:76px;
+  }
+}

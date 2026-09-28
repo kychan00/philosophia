@@ -28,6 +28,22 @@ const questions = [
 
 const disciplines = ['FILOSOFÍA', 'SOCIOLOGÍA', 'ECONOMÍA', 'POLÍTICA']
 
+const SESSION_PHOTOS = [
+  `${ASSET}/session-02/01.jpg`,
+  `${ASSET}/session-02/02.jpg`,
+  `${ASSET}/session-02/03.jpg`,
+  `${ASSET}/session-02/04.jpg`,
+  `${ASSET}/session-02/05.jpg`,
+  `${ASSET}/session-02/06.jpg`,
+  `${ASSET}/session-02/07.jpg`,
+  `${ASSET}/session-02/08.jpg`,
+]
+
+const SESSION_VIDEOS = [
+  `${ASSET}/session-02/09-vid.mp4`,
+  `${ASSET}/session-02/10-vid.mp4`,
+]
+
 export default function CafeMeritocraciaEvent() {
   const [activeId, setActiveId] = useState('inequality')
 
@@ -242,6 +258,91 @@ export default function CafeMeritocraciaEvent() {
       </section>
 
       <MeritocracyDialogueArchive />
+
+      <section className="merit-section merit-photo-archive">
+        <div className="merit-section-head">
+          <span>07</span>
+          <div>
+            <p>REGISTRO FOTOGRÁFICO</p>
+            <h2>El diálogo también queda en imágenes</h2>
+          </div>
+        </div>
+
+        <div className="merit-photo-archive-intro">
+          <span>22 SEP 2026 · EDIFICIO C · AULA 5</span>
+          <p>
+            Ocho fotografías del segundo encuentro del Café Filosófico
+            interdisciplinario: una memoria visual de la conversación sobre
+            meritocracia, pobreza, desigualdad, trabajo y estructura.
+          </p>
+        </div>
+
+        <div className="merit-photo-archive-grid">
+          {SESSION_PHOTOS.map((photo, index) => (
+            <figure
+              key={photo}
+              className={`merit-photo-item merit-photo-item-${index + 1}`}
+            >
+              <a href={photo} target="_blank" rel="noreferrer">
+                <img
+                  src={photo}
+                  alt={`Registro fotográfico ${index + 1} del Café Filosófico sobre meritocracia · 22 SEP 2026.`}
+                  loading="lazy"
+                />
+              </a>
+
+              <figcaption>
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <p>Café Filosófico · La meritocracia</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      <section className="merit-section merit-video-archive">
+        <div className="merit-section-head">
+          <span>08</span>
+          <div>
+            <p>FRAGMENTOS EN VIDEO</p>
+            <h2>La conversación en movimiento</h2>
+          </div>
+        </div>
+
+        <div className="merit-video-intro">
+          <span>22 SEP 2026 · REGISTRO AUDIOVISUAL</span>
+          <p>
+            Dos fragmentos breves del segundo Café Filosófico interdisciplinario.
+            El video conserva no sólo lo dicho, sino el ritmo, los gestos y la
+            dinámica real del diálogo.
+          </p>
+        </div>
+
+        <div className="merit-video-grid">
+          {SESSION_VIDEOS.map((video, index) => (
+            <figure key={video} className="merit-video-item">
+              <div className="merit-video-frame">
+                <video
+                  controls
+                  preload="metadata"
+                  playsInline
+                  src={video}
+                >
+                  Tu navegador no puede reproducir este video.
+                </video>
+              </div>
+
+              <figcaption>
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <div>
+                  <strong>Fragmento audiovisual</strong>
+                  <p>Café Filosófico · La meritocracia · 22 SEP 2026</p>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
 
       <footer className="merit-footer">
         <Link to="/cafe-filosofico">← VOLVER AL CAFÉ FILOSÓFICO</Link>
