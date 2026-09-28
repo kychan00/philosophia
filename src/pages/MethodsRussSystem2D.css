@@ -3226,3 +3226,21 @@
     -webkit-overflow-scrolling: touch;
   }
 }
+
+/* MÉTODOS RUSS · CLASE 21 SEP */
+.russ2d-node.is-class21{box-shadow:inset 0 0 0 2px rgba(78,106,94,.34)}
+.russ2d-class-chip{position:absolute;right:6px;bottom:6px;padding:3px 5px;border:1px solid #4e6a5e;background:#e7eee9;color:#344b42;font:900 7px Arial,sans-serif;letter-spacing:.07em;font-style:normal}
+.russ2d-class21-note{margin:14px 0;padding:12px;border-left:4px solid #4e6a5e;background:rgba(78,106,94,.08)}
+.russ2d-class21-note>span{display:block;color:#4e6a5e;font:900 8px Arial,sans-serif;letter-spacing:.1em}
+.russ2d-class21-note p{margin:8px 0;line-height:1.5}
+.russ2d-class21-note a{color:inherit;font:900 8px Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+
+/* MÉTODOS RUSS · CLASE 23 SEP */
+.russ2d-node.is-class23{outline:2px solid rgba(83,109,128,.32);outline-offset:-4px}
+.russ2d-class-chips{position:absolute;right:6px;bottom:6px;display:flex;flex-direction:column;align-items:flex-end;gap:3px}
+.russ2d-class-chips .russ2d-class-chip{position:static}
+.russ2d-class-chip-23{border-color:#536d80;background:#e5ebef;color:#344a58}
+.russ2d-class23-note{margin:14px 0;padding:12px;border-left:4px solid #536d80;background:rgba(83,109,128,.08)}
+.russ2d-class23-note>span{display:block;color:#536d80;font:900 8px Arial,sans-serif;letter-spacing:.1em}
+.russ2d-class23-note p{margin:8px 0;line-height:1.5}
+.russ2d-class23-note a{color:inherit;font:900 8px Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}

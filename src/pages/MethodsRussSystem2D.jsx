@@ -250,6 +250,40 @@ const nodes = [
   },
 ]
 
+
+const class21Notes = {
+  delimitar: 'La clase conecta esta regla con el objeto de estudio: determinar extensión, límites y conceptos esenciales antes de avanzar.',
+  analizar: 'Nava amplía el análisis como descomposición + descripción: reconocer elementos, aparición, interacción y función. Usa la analogía de desmontar un automóvil registrando cada pieza.',
+  sintetizar: 'La síntesis reconstruye vínculos, mediaciones y unidad significativa; en comentario de texto, recupera el juego y la estrategia del argumento.',
+  ordenar: 'Ordenar dispone conceptos y argumentos de lo simple a lo complejo y exige una idea del conjunto.',
+  problematizar: 'Un tema todavía no es una investigación: la problemática organiza preguntas y tensiones alrededor de un objeto delimitado.',
+  problema: 'El problema filosófico puede permanecer abierto como aporía: aclararlo no equivale necesariamente a eliminarlo con una solución.',
+  descartes: 'Herencia cartesiana: poseer razón no basta; hay que conducirla bien. El método organiza y ejercita el pensamiento.',
+  hegel: 'La dialéctica no se reduce a tesis-antítesis-síntesis. Los conceptos tienen proceso y la negatividad transforma lo anterior.',
+  integrar: 'El momento anterior puede conservarse dentro de una elaboración conceptual nueva; de ahí el carácter procesual de la integración.',
+}
+
+nodes.forEach((node) => {
+  const note = class21Notes[node.id]
+  if (!note) return
+  node.class21Seen = true
+  node.class21Note = note
+})
+
+const class23Notes = {
+  delimitar: 'La novena clase aplica la regla de delimitación: pasar del tema general a un objeto determinado mediante concepto filosófico, rama, ámbito concreto y tensión.',
+  cuestionar: 'La pregunta de investigación se prepara mediante preguntas sobre capacidad, contexto, fenómeno y dimensión filosófica.',
+  problematizar: 'La problematización se construye con tres ejes: error epistémico, fracaso/futuro y vulnerabilidad.',
+  problema: 'La sesión culmina en una formulación provisional sobre miedo, apertura epistémica, autonomía e imaginación crítica en la relación pedagógica.',
+}
+
+nodes.forEach((node) => {
+  const note = class23Notes[node.id]
+  if (!note) return
+  node.class23Seen = true
+  node.class23Note = note
+})
+
 const deepDetails = {
   dato: {
     status: 'Nodo de síntesis del mapa',
@@ -1146,6 +1180,24 @@ const learningRoutes = [
       'Para comprender por qué Russ combina el rigor cartesiano con el movimiento dialéctico hegeliano.',
     nodes: ['descartes', 'hegel', 'integrar'],
   },
+  {
+    id: 'class21',
+    number: '05',
+    title: 'Clase 21 Sep',
+    subtitle: 'OCTAVA SESIÓN · VISTO EN CLASE',
+    description:
+      'Delimitar, analizar, sintetizar y ordenar; después construir problemática, problema e hipótesis.',
+    nodes: ['delimitar', 'analizar', 'sintetizar', 'ordenar', 'problematizar', 'problema', 'descartes', 'hegel', 'integrar'],
+  },
+  {
+    id: 'class23',
+    number: '06',
+    title: 'Clase 23 Sep',
+    subtitle: 'NOVENA SESIÓN · APLICACIÓN DEL MÉTODO',
+    description:
+      'Del tema general al objeto: delimitar, construir ejes de problematización y formular una pregunta provisional.',
+    nodes: ['delimitar', 'cuestionar', 'problematizar', 'problema'],
+  },
 ]
 
 function NodeButton({ node, activeId, routeNodeIds, onSelect }) {
@@ -1154,7 +1206,7 @@ function NodeButton({ node, activeId, routeNodeIds, onSelect }) {
   return (
     <button
       type="button"
-      className={`russ2d-node chapter-${node.chapter} ${activeId === node.id ? 'is-active' : ''} ${routeActive ? 'is-route' : ''}`}
+      className={`russ2d-node chapter-${node.chapter} ${activeId === node.id ? 'is-active' : ''} ${routeActive ? 'is-route' : ''} ${node.class21Seen ? 'is-class21' : ''} ${node.class23Seen ? 'is-class23' : ''}`}
       style={{ '--x': node.x, '--y': 4 - node.y }}
       onClick={() => onSelect(node.id)}
       aria-pressed={activeId === node.id}
@@ -1162,6 +1214,12 @@ function NodeButton({ node, activeId, routeNodeIds, onSelect }) {
       <span>{node.code}</span>
       <small>CAP. {node.chapter}</small>
       <strong>{node.title}</strong>
+      {(node.class21Seen || node.class23Seen) && (
+        <span className="russ2d-class-chips">
+          {node.class21Seen && <em className="russ2d-class-chip">21 SEP</em>}
+          {node.class23Seen && <em className="russ2d-class-chip russ2d-class-chip-23">23 SEP</em>}
+        </span>
+      )}
     </button>
   )
 }
@@ -1495,6 +1553,22 @@ export default function MethodsRussSystem2D() {
             </div>
 
             <p className="russ2d-inspector-summary">{active.text}</p>
+
+            {active.class21Seen && (
+              <div className="russ2d-class21-note">
+                <span>VISTO EN CLASE · 21 SEP 2026</span>
+                <p>{active.class21Note}</p>
+                <Link to="/semestre/5/metodos-de-investigacion/clase/21-septiembre">Abrir octava clase ↗</Link>
+              </div>
+            )}
+
+            {active.class23Seen && (
+              <div className="russ2d-class23-note">
+                <span>VISTO EN CLASE · 23 SEP 2026</span>
+                <p>{active.class23Note}</p>
+                <Link to="/semestre/5/metodos-de-investigacion/clase/23-septiembre">Abrir novena clase ↗</Link>
+              </div>
+            )}
 
             <div className="russ2d-inspector-meta">
               <div>
