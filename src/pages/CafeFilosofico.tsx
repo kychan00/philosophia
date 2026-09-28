@@ -39,6 +39,20 @@ const sessions = [
       `${import.meta.env.BASE_URL}images/cafe-filosofico/meritocracia/session-02/08.jpg`,
     ],
   },
+  {
+    edition: 'EDICIÓN 03',
+    date: '05 OCT 2026',
+    title: 'Mercadotecnia',
+    description:
+      '¿Sugerencia, persuasión o manipulación? Un encuentro para discutir si la mercadotecnia sólo informa o también influye en lo que pensamos, sentimos y elegimos.',
+    tags: ['Mercadotecnia', 'Persuasión', 'Manipulación', 'Consumo', 'Libertad'],
+    route: '/cafe-filosofico/2026/10/05/mercadotecnia',
+    image: `${import.meta.env.BASE_URL}images/cafe-filosofico/mercadotecnia/poster-original.jpg`,
+    imageMode: 'poster',
+    badge: 'PRÓXIMO ENCUENTRO',
+    actionLabel: 'Explorar problema',
+  },
+
 
 ]
 

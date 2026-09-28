@@ -50,6 +50,19 @@ export const cafeEvents: CafeEvent[] = [
       'estructura',
     ],
   },
+  {
+    id: 'cafe-2026-10-05-mercadotecnia',
+    date: '2026-10-05',
+    slug: 'mercadotecnia',
+    eyebrow: 'Café filosófico · interdisciplinario',
+    title: 'Mercadotecnia · ¿Sugerencia, persuasión o manipulación?',
+    deck:
+      'Próximo diálogo sobre información, influencia, persuasión, manipulación y libertad de elección en el consumo.',
+    route: '/cafe-filosofico/2026/10/05/mercadotecnia',
+    status: 'proximo',
+    themes: ['mercadotecnia', 'persuasión', 'manipulación', 'consumo', 'libertad'],
+  },
+
 
 ]
 

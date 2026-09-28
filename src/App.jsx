@@ -18,6 +18,7 @@ const Home = lazy(() => import('./pages/Home'))
 const CafeFilosofico = lazy(() => import('./pages/CafeFilosofico'))
 const CafeCapitalismoEvent = lazy(() => import('./pages/CafeCapitalismoEvent'))
 const CafeMeritocraciaEvent = lazy(() => import('./pages/CafeMeritocraciaEvent'))
+const CafeMercadotecniaEvent = lazy(() => import('./pages/CafeMercadotecniaEvent'))
 const FourthSemester = lazy(() => import('./pages/FourthSemester'))
 const PhilosophyLogic = lazy(() => import('./pages/PhilosophyLogic'))
 const PhilosophyLogicClass01 = lazy(() => import('./pages/PhilosophyLogicClass01'))
@@ -135,6 +136,10 @@ function App() {
         <Route
           path="/cafe-filosofico/2026/09/22/meritocracia"
           element={<CafeMeritocraciaEvent />}
+        />
+        <Route
+          path="/cafe-filosofico/2026/10/05/mercadotecnia"
+          element={<CafeMercadotecniaEvent />}
         />
         <Route path="/semestre/4" element={<FourthSemester />} />
         <Route
