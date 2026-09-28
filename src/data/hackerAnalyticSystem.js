@@ -2,6 +2,7 @@ export const hackerRoutes = [
   { id: 'all', label: 'Todo' },
   { id: 'class14', label: 'Clase 14 Sep' },
   { id: 'class21', label: 'Clase 21 Sep' },
+  { id: 'class23', label: 'Clase 23 Sep' },
   { id: 'identity', label: 'Definición' },
   { id: 'moore', label: 'Moore' },
   { id: 'russell', label: 'Russell' },
@@ -14,6 +15,7 @@ export const hackerRoutes = [
 export const hackerRouteColors = {
   class14: '#9b4b38',
   class21: '#466f68',
+  class23: '#49687d',
   identity: '#9a702e',
   moore: '#59745c',
   russell: '#49687d',
@@ -890,12 +892,229 @@ Object.entries(class21Notes).forEach(([id, [label, note]]) => {
   }
 })
 
+
+const class23Notes = {
+  H20: ['RELACIONES EXTERNAS Y MATEMÁTICAS',
+    'La décima clase usa 5 > 4 y P → Q para insistir en que no basta con enumerar los términos: también debe reconocerse la relación misma. Esto golpea directamente la doctrina idealista de las relaciones internas.'],
+  H21: ['MATEMÁTICAS COMO MODELO DE RIGOR',
+    'Nava vincula la separación de Russell respecto del idealismo con su formación matemática y con trabajos del siglo XIX sobre cálculo, límite y continuidad. El análisis matemático permite eliminar cargas metafísicas innecesarias.'],
+  H22: ['COMPLEJIDAD OBJETIVA Y DESCOMPOSICIÓN',
+    'La clase explica que, si el análisis lógico distingue componentes, Russell entiende que esas diferencias corresponden a una pluralidad real y no meramente mental. El análisis continúa hasta simples o indefinibles.'],
+  H23: ['LOGICISMO COMO RESPUESTA A LA OBJETIVIDAD',
+    'Frege y Russell buscan fundamentar las matemáticas en la lógica para explicar necesidad y universalidad sin hacerlas depender de estructuras psicológicas humanas.'],
+  H24: ['TEORÍA REFERENCIAL Y ONTOLOGÍA ABUNDANTE',
+    'La sesión presenta la consecuencia del primer Russell: si toda expresión significativa debe significar algo, la ontología se llena de números, clases, relaciones, objetos lógicos e incluso entidades problemáticas como la montaña de oro.'],
+}
+
+const class23Nodes = [
+  n(
+    'HC23-01',
+    '10.1',
+    'classpoint',
+    '5 > 4: la relación no desaparece',
+    '“Cinco es mayor que cuatro” contiene cinco, cuatro y la relación “mayor que”.',
+    'La clase usa el ejemplo para mostrar que una proposición relacional no puede reducirse a la mera existencia de sus términos.',
+    'Esquema pedagógico de Nava para introducir las relaciones externas de Russell.',
+    'Décima clase · 23 sep 2026',
+    ['russell', 'class23'],
+    ['H20'],
+    ['relación', 'mayor que', 'pluralidad', 'matemáticas'],
+    { critical: true },
+  ),
+  n(
+    'HC23-02',
+    '10.2',
+    'classpoint',
+    'P → Q también exige una relación',
+    'Tener P y Q no basta: hay que comprender la relación de implicación.',
+    'La clase extiende el mismo argumento desde comparación matemática hacia relaciones lógicas.',
+    'Conecta la ontología de relaciones con el análisis formal.',
+    'Décima clase · 23 sep 2026',
+    ['russell', 'class23'],
+    ['HC23-01'],
+    ['implicación', 'P', 'Q', 'relaciones'],
+  ),
+  n(
+    'HC23-03',
+    '10.3',
+    'classpoint',
+    'Análisis contra síntesis',
+    '“Análisis” funciona como una bandera antiidealista frente a la síntesis neohegeliana.',
+    'El idealismo integra elementos en una totalidad; Russell quiere separar componentes mediante análisis lógico o formal.',
+    'Hace explícita la oposición metodológica desarrollada en clase.',
+    'Décima clase · 23 sep 2026',
+    ['russell', 'class23'],
+    ['H21'],
+    ['análisis', 'síntesis', 'antiidealismo', 'método'],
+    { critical: true },
+  ),
+  n(
+    'HC23-04',
+    '10.4',
+    'classpoint',
+    'Leibniz: verdad de razón → identidad',
+    'Toda verdad de razón puede analizarse hasta llegar a identidad o no contradicción.',
+    'Nava reconstruye el antecedente leibniziano de la analiticidad con ejemplos como 5 = 2 + 3 y “el triángulo tiene tres lados”.',
+    'Antecedente histórico necesario para entender la respuesta de Kant.',
+    'Décima clase · 23 sep 2026',
+    ['russell', 'class23'],
+    ['HC23-03'],
+    ['Leibniz', 'analiticidad', 'identidad', 'verdades de razón'],
+  ),
+  n(
+    'HC23-05',
+    '10.5',
+    'classpoint',
+    'Kant: lo sintético a priori',
+    'Kant busca proposiciones que amplíen conocimiento y, sin embargo, posean necesidad y universalidad.',
+    'La clase contrasta analítico/a priori y sintético/a posteriori para mostrar la novedad de la combinación sintético/a priori.',
+    'Explica la alternativa kantiana a la trivialidad de una matemática puramente analítica.',
+    'Décima clase · 23 sep 2026',
+    ['russell', 'class23'],
+    ['HC23-04'],
+    ['Kant', 'sintético a priori', 'analítico', 'a priori'],
+    { critical: true },
+  ),
+  n(
+    'HC23-06',
+    '10.6',
+    'classpoint',
+    'Forma + materia del conocimiento',
+    'La experiencia combina contenido recibido y estructuras aportadas por el sujeto.',
+    'Espacio y tiempo aparecen como formas a priori que organizan necesariamente toda representación sensible.',
+    'Esquema de clase para explicar cómo Kant fundamenta matemáticas sintéticas a priori.',
+    'Décima clase · 23 sep 2026',
+    ['russell', 'class23'],
+    ['HC23-05'],
+    ['forma', 'materia', 'espacio', 'tiempo'],
+  ),
+  n(
+    'HC23-07',
+    '10.7',
+    'classpoint',
+    'Objeción: ¿las matemáticas dependen del sujeto?',
+    'La clase pregunta si 1 + 1 seguiría siendo 2 aunque desaparecieran todos los seres humanos.',
+    'Frege y Russell buscan una objetividad matemática que no dependa de la configuración cognitiva humana.',
+    'Formula pedagógicamente la incomodidad de Russell frente a Kant.',
+    'Décima clase · 23 sep 2026',
+    ['russell', 'class23'],
+    ['HC23-06', 'H23'],
+    ['objetividad', 'matemáticas', 'subjetividad', 'realismo'],
+    { critical: true },
+  ),
+  n(
+    'HC23-08',
+    '10.8',
+    'classpoint',
+    'Frege y el proyecto logicista',
+    'La aritmética debe poder fundamentarse en la lógica.',
+    'La clase presenta a Frege como antecedente decisivo del programa que Russell continúa y recuerda que la paradoja de Russell compromete el sistema fregeano original.',
+    'Puente entre objetividad matemática y logicismo.',
+    'Décima clase · 23 sep 2026',
+    ['russell', 'class23'],
+    ['HC23-07', 'H23'],
+    ['Frege', 'logicismo', 'aritmética', 'paradoja de Russell'],
+  ),
+  n(
+    'HC23-09',
+    '10.9',
+    'classpoint',
+    'Russell y Moore: realismo platónico',
+    'Al abandonar el idealismo, ambos adoptan una forma fuerte de realismo.',
+    'Las relaciones y entidades matemáticas no se reducen a productos mentales ni a momentos de una totalidad idealista.',
+    'Contextualiza la ontología del primer Russell.',
+    'Décima clase · 23 sep 2026',
+    ['russell', 'class23'],
+    ['H20', 'HC23-08'],
+    ['Russell', 'Moore', 'realismo platónico', 'relaciones'],
+  ),
+  n(
+    'HC23-10',
+    '10.10',
+    'classpoint',
+    'Análisis hasta simples o indefinibles',
+    'La complejidad objetiva puede descomponerse hasta elementos simples.',
+    'Nava explica que, una vez alcanzados elementos indefinibles, Russell apela a una familiaridad directa comparable a la familiaridad con un color o un sabor.',
+    'Desarrolla el sentido temprano del análisis en Los principios de la matemática.',
+    'Décima clase · 23 sep 2026',
+    ['russell', 'class23'],
+    ['H22', 'HC23-09'],
+    ['simples', 'indefinibles', 'familiaridad', 'descomposición'],
+  ),
+  n(
+    'HC23-11',
+    '10.11',
+    'classpoint',
+    'Montaña de oro y ontología abundante',
+    'Una teoría referencial demasiado fuerte obliga a preguntar qué entidad corresponde a expresiones significativas como “la montaña de oro”.',
+    'La clase deja preparado el problema que Russell abordará posteriormente mediante la teoría de las descripciones definidas.',
+    'Cierre de la décima clase y puente hacia la siguiente sección de Hacker.',
+    'Décima clase · 23 sep 2026',
+    ['russell', 'class23'],
+    ['H24', 'HC23-10'],
+    ['referencia', 'montaña de oro', 'ontología', 'descripciones'],
+    { critical: true },
+  ),
+  n(
+    'HC23-12',
+    '10.12',
+    'classpoint',
+    'Sentido: sintaxis y semántica',
+    'Una fórmula bien formada cumple condiciones gramaticales, pero la discusión del significado exige además atender a cuestiones semánticas.',
+    'La pregunta final del alumno permite a Nava anticipar que los positivistas añadirán condiciones vinculadas a la función descriptiva y a la referencia.',
+    'Problema abierto con el que termina la grabación.',
+    'Décima clase · 23 sep 2026',
+    ['russell', 'class23'],
+    ['HC23-11'],
+    ['sentido', 'sintaxis', 'semántica', 'positivismo'],
+  ),
+]
+
+class23Nodes.forEach((node) => {
+  node.data.classSeen = true
+  node.data.classOnly = true
+  node.data.classLabel = 'APORTE DE LA DÉCIMA CLASE'
+  node.data.classNote = node.data.explanation
+  node.data.classHeader = 'PROF. ALONSO NAVA · DÉCIMA CLASE · 23 SEP 2026'
+  node.data.classRoute = '/semestre/5/filosofia-analitica/clase/23-septiembre'
+  node.data.classLinkLabel = 'Abrir décima clase ↗'
+})
+
+Object.entries(class23Notes).forEach(([id, [label, note]]) => {
+  const node = [
+    ...mainNodes,
+    ...turnNodes,
+    ...collapseNodes,
+    ...class14Nodes,
+    ...class21Nodes,
+  ].find((item) => item.id === id)
+
+  if (!node) return
+
+  const previous = node.data.classNote
+
+  node.data.classSeen = true
+  node.data.classOnly = false
+  node.data.classLabel = label
+  node.data.classNote = previous
+    ? `${previous}\n\nDÉCIMA CLASE · 23 SEP: ${note}`
+    : note
+  node.data.classHeader = 'PROF. ALONSO NAVA · DÉCIMA CLASE · 23 SEP 2026'
+  node.data.classRoute = '/semestre/5/filosofia-analitica/clase/23-septiembre'
+  node.data.classLinkLabel = 'Abrir décima clase ↗'
+
+  if (!node.data.branch.includes('class23')) {
+    node.data.branch.push('class23')
+  }
+})
+
 export const hackerNodes = [
   ...mainNodes,
   ...turnNodes,
   ...collapseNodes,
   ...class14Nodes,
   ...class21Nodes,
+  ...class23Nodes,
 ]
 
 const hackerArticleSource = {
@@ -1678,6 +1897,7 @@ const order = [
   'H52.1','H52.2','H52.3','H52.4','H52.5','H52.6','H52.7','H52.8','H53',
   'HC1','HC2','HC3','HC4','HC5',
   'HC21-01','HC21-02','HC21-03','HC21-04','HC21-05','HC21-06','HC21-07','HC21-08','HC21-09','HC21-10','HC21-11','HC21-12','HC21-13','HC21-14','HC21-15',
+  'HC23-01','HC23-02','HC23-03','HC23-04','HC23-05','HC23-06','HC23-07','HC23-08','HC23-09','HC23-10','HC23-11','HC23-12',
 ]
 
 export const hackerOrder = order

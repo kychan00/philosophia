@@ -338,6 +338,31 @@ export default function AnalyticPhilosophy() {
           </div>
         </Link>
 
+        <Link
+          to="/semestre/5/filosofia-analitica/clase/23-septiembre"
+          className="analytic-class-card"
+        >
+          <div className="analytic-date">
+            <strong>XXIII</strong>
+            <span>IX · MMXXVI</span>
+          </div>
+
+          <div className="analytic-class-copy">
+            <span>Décima clase · Bertrand Russell</span>
+            <h3>Relaciones, análisis y objetividad matemática</h3>
+            <p>
+              Relaciones externas, pluralidad, análisis contra síntesis,
+              Leibniz, Kant y lo sintético a priori, Frege y logicismo,
+              realismo platónico, análisis lógico y teoría referencial.
+            </p>
+          </div>
+
+          <div className="analytic-enter">
+            <span>Abrir análisis</span>
+            <b>↗</b>
+          </div>
+        </Link>
+
 </section>
 
       <section className="analytic-course-map">
