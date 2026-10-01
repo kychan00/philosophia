@@ -551,6 +551,31 @@ export const tasks = [
     studyRoute: '/semestre/5/filosofia-analitica/reporte/hacker',
   },
 
+
+  {
+    id: 'teoria-critica-2026-09-29-marx-mercancia-forma-valor',
+    subject: 'Teoría Crítica',
+    subjectCode: 'FI265',
+    assignedDate: '2026-09-28',
+    dueDate: '2026-09-29',
+    dueTime: '17:25',
+    title: 'Marx · mercancía, valor y génesis de la forma dinero',
+    type: 'Lectura / estudio',
+    weight: null,
+    description:
+      'Leer rigurosamente las pp. 43–86 de la paginación impresa de esta edición de El capital. El recorrido cubre los dos factores de la mercancía, la dualidad del trabajo y el desarrollo de la forma de valor hasta la forma de dinero.',
+    readingScope:
+      'Karl Marx · El capital · Libro primero · Capítulo I, §§1–3 · mercancía, valor, dualidad del trabajo y forma de valor',
+    readingPages: 'Paginación impresa pp. 43–86',
+    readingEdition:
+      'Karl Marx · El capital · Tomo I / Vol. 1 · Libro primero · Siglo XXI Editores · edición, traducción, advertencia y notas de Pedro Scaron · 28.ª reimpresión, 2008',
+    readingFullPart:
+      'Control de frontera: en esta edición la p. 86 concluye con la forma de dinero; el apartado 4, “El carácter fetichista de la mercancía y su secreto”, comienza en la p. 87. El sistema estudia únicamente el rango asignado y lo trata como la construcción conceptual inmediata del problema del fetichismo.',
+    sourceClass: 'Lectura para la clase del 29 de septiembre',
+    sourceRoute: '/semestre/5/teoria-critica',
+    studyRoute: '/tareas/teoria-critica/marx-capital-fetichismo-parte-i',
+  },
+
 ]
 
 export default tasks
