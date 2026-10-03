@@ -413,6 +413,31 @@ export default function AnalyticPhilosophy() {
           </div>
         </Link>
 
+        <Link
+          to="/semestre/5/filosofia-analitica/clase/30-septiembre"
+          className="analytic-class-card"
+        >
+          <div className="analytic-date">
+            <strong>XXX</strong>
+            <span>IX · MMXXVI</span>
+          </div>
+
+          <div className="analytic-class-copy">
+            <span>Decimotercera clase · El giro lingüístico</span>
+            <h3>Del origen de la analítica al Tractatus</h3>
+            <p>
+              Cierre de Moore y Russell como primera etapa, p. 117 de Hacker,
+              Rorty, Tractatus, Frege 1884, principio contextual, Bentham y
+              el problema de distinguir antecedentes de una transformación histórica.
+            </p>
+          </div>
+
+          <div className="analytic-enter">
+            <span>Abrir análisis</span>
+            <b>↗</b>
+          </div>
+        </Link>
+
 </section>
 
       <section className="analytic-course-map">
