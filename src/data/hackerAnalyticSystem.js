@@ -3,6 +3,7 @@ export const hackerRoutes = [
   { id: 'class14', label: 'Clase 14 Sep' },
   { id: 'class21', label: 'Clase 21 Sep' },
   { id: 'class23', label: 'Clase 23 Sep' },
+  { id: 'class30', label: 'Clase 30 Sep' },
   { id: 'identity', label: 'Definición' },
   { id: 'moore', label: 'Moore' },
   { id: 'russell', label: 'Russell' },
@@ -16,6 +17,7 @@ export const hackerRouteColors = {
   class14: '#9b4b38',
   class21: '#466f68',
   class23: '#49687d',
+  class30: '#355f73',
   identity: '#9a702e',
   moore: '#59745c',
   russell: '#49687d',
@@ -1108,6 +1110,192 @@ Object.entries(class23Notes).forEach(([id, [label, note]]) => {
   }
 })
 
+const class30Notes = {
+  H30: ['CIERRE DE LA PRIMERA ETAPA',
+    'La decimotercera clase cierra la fase de Moore y Russell insistiendo en que conviene hablar de orígenes y no identificar toda la etapa con el logicismo: Moore trabaja principalmente con análisis conceptual y semántico, mientras Russell desarrolla un análisis lógico y reductivo.'],
+  H31: ['INICIO DEL GIRO LINGÜÍSTICO',
+    'Nava abre la p. 117 y subraya la precisión de Hacker: el giro lingüístico empieza, aunque no se completa, en el Tractatus. Esto no equivale a hacer nacer allí la filosofía analítica, pues Moore y Russell pertenecen a una etapa anterior.'],
+  H32: ['FREGE, PRINCIPIO CONTEXTUAL Y PRIORIDAD',
+    'La clase reconstruye la alternativa de Anthony Kenny y Dummett: fechar el giro en Frege 1884 por el principio contextual. Hacker objeta que la prioridad textual no basta, porque Bentham ya había ensayado una estrategia semejante; lo decisivo es cuándo una práctica transforma efectivamente la manera de filosofar.'],
+}
+
+const class30Nodes = [
+  n(
+    'HC30-01',
+    '13.1',
+    'classpoint',
+    'Primera etapa: orígenes, no logicismo',
+    'Moore y Russell inauguran la filosofía analítica mediante estilos distintos.',
+    'La clase rechaza llamar logicista a toda la primera etapa: esa etiqueta no describe adecuadamente a Moore ni la heterogeneidad de los comienzos.',
+    'Ajuste historiográfico con el que se cierra la primera etapa de Hacker.',
+    'Decimotercera clase · 30 sep 2026',
+    ['identity', 'class30'],
+    ['H30'],
+    ['orígenes', 'Moore', 'Russell', 'logicismo'],
+    { critical: true },
+  ),
+  n(
+    'HC30-02',
+    '13.2',
+    'classpoint',
+    'Moore: análisis semántico y conceptual',
+    'Moore no se caracteriza por hacer de la lógica formal el centro de su método.',
+    'Nava contrasta el trabajo de Moore sobre conceptos y significados con el uso mucho más fuerte de la lógica que aparece en Russell.',
+    'Ejemplo pedagógico de por qué la tradición no tiene un solo método.',
+    'Decimotercera clase · 30 sep 2026',
+    ['moore', 'class30'],
+    ['HC30-01'],
+    ['Moore', 'semántica', 'análisis conceptual', 'método'],
+  ),
+  n(
+    'HC30-03',
+    '13.3',
+    'classpoint',
+    'Segunda etapa: giro lingüístico',
+    'Con la p. 117 comienza una nueva fase de la historia reconstruida por Hacker.',
+    'Los problemas filosóficos se presentan mediante formulaciones lingüísticas y el análisis de esas formulaciones se vuelve una vía privilegiada de acceso.',
+    'Puente entre los orígenes y el Tractatus.',
+    'Decimotercera clase · 30 sep 2026',
+    ['tractatus', 'class30'],
+    ['H30', 'HC30-02'],
+    ['giro lingüístico', 'lenguaje', 'problemas filosóficos', 'análisis'],
+    { critical: true },
+  ),
+  n(
+    'HC30-04',
+    '13.4',
+    'classpoint',
+    'Rorty bautiza el giro en 1967',
+    'La expresión “giro lingüístico” se populariza como título de una antología de Richard Rorty.',
+    'El nombre historiográfico es posterior al proceso que describe, por lo que no debe confundirse la fecha del rótulo con la fecha del fenómeno.',
+    'Punto cronológico inicial del apartado 3.',
+    'Decimotercera clase · 30 sep 2026',
+    ['tractatus', 'class30'],
+    ['HC30-03'],
+    ['Rorty', '1967', 'giro lingüístico', 'historiografía'],
+  ),
+  n(
+    'HC30-05',
+    '13.5',
+    'classpoint',
+    'El giro empieza, pero no se completa, en el Tractatus',
+    'Hacker sitúa el punto de inflexión en Wittgenstein sin hacer de él el fundador de toda la filosofía analítica.',
+    'La precisión permite distinguir nacimiento de la tradición y transformación lingüística interna de esa tradición.',
+    'Tesis central del fragmento.',
+    'Decimotercera clase · 30 sep 2026',
+    ['tractatus', 'class30'],
+    ['H31', 'HC30-04'],
+    ['Tractatus', 'Wittgenstein', 'giro lingüístico', 'orígenes'],
+    { critical: true },
+  ),
+  n(
+    'HC30-06',
+    '13.6',
+    'classpoint',
+    '1918 y 1922: texto y difusión',
+    'La clase distingue la publicación alemana y la posterior edición inglesa del Tractatus.',
+    'Las fechas sirven para ubicar históricamente la entrada del libro en la discusión analítica y su difusión internacional.',
+    'Cronología usada por Nava para fijar el punto de inflexión.',
+    'Decimotercera clase · 30 sep 2026',
+    ['tractatus', 'class30'],
+    ['HC30-05'],
+    ['1918', '1922', 'Tractatus', 'difusión'],
+  ),
+  n(
+    'HC30-07',
+    '13.7',
+    'classpoint',
+    'Frege 1884 como candidato alternativo',
+    'Anthony Kenny, en una línea asociada con Dummett, desplaza el giro hacia los Fundamentos de la aritmética.',
+    'La razón es la estrategia de investigar la naturaleza del número mediante el análisis de las proposiciones en las que aparecen numerales.',
+    'Alternativa historiográfica discutida por Hacker.',
+    'Decimotercera clase · 30 sep 2026',
+    ['tractatus', 'class30'],
+    ['H32', 'HC30-06'],
+    ['Frege', '1884', 'Kenny', 'Dummett'],
+  ),
+  n(
+    'HC30-08',
+    '13.8',
+    'classpoint',
+    'Principio contextual',
+    'Para investigar la naturaleza de X, analice las proposiciones en las que aparece X.',
+    'El foco se desplaza desde buscar inmediatamente una entidad hasta estudiar el papel de una expresión en proposiciones completas.',
+    'Regla general que la clase extrae del caso de los números.',
+    'Decimotercera clase · 30 sep 2026',
+    ['tractatus', 'class30'],
+    ['HC30-07'],
+    ['principio contextual', 'proposición', 'expresión', 'Frege'],
+  ),
+  n(
+    'HC30-09',
+    '13.9',
+    'classpoint',
+    'Bentham muestra que la prioridad no basta',
+    'Si el principio contextual fuera por sí solo la señal del giro, habría que retroceder a Bentham.',
+    'La clase radicaliza la objeción: buscar sólo quién dijo algo primero puede llevar a antecedentes cada vez más antiguos sin explicar el cambio histórico.',
+    'Crítica al criterio puramente cronológico.',
+    'Decimotercera clase · 30 sep 2026',
+    ['tractatus', 'class30'],
+    ['H32', 'HC30-08'],
+    ['Bentham', 'precedente', 'prioridad', 'historiografía'],
+    { critical: true },
+  ),
+  n(
+    'HC30-10',
+    '13.10',
+    'classpoint',
+    'Giro histórico: una práctica se vuelve transformadora',
+    'Lo decisivo no es la primera aparición de una idea semejante, sino el momento en que reorganiza efectivamente una tradición.',
+    'Nava presenta al Tractatus como el punto en que el análisis lingüístico adquiere fuerza causal y se vuelve dominante en una nueva manera de hacer filosofía.',
+    'Criterio con el que termina el fragmento entregado.',
+    'Decimotercera clase · 30 sep 2026',
+    ['tractatus', 'class30'],
+    ['HC30-09'],
+    ['transformación', 'dominancia', 'Tractatus', 'historia'],
+    { critical: true },
+  ),
+]
+
+class30Nodes.forEach((node) => {
+  node.data.classSeen = true
+  node.data.classOnly = true
+  node.data.classLabel = 'APORTE DE LA DECIMOTERCERA CLASE'
+  node.data.classNote = node.data.explanation
+  node.data.classHeader = 'PROF. ALONSO NAVA · DECIMOTERCERA CLASE · 30 SEP 2026'
+  node.data.classRoute = '/semestre/5/filosofia-analitica/clase/30-septiembre'
+  node.data.classLinkLabel = 'Abrir decimotercera clase ↗'
+})
+
+Object.entries(class30Notes).forEach(([id, [label, note]]) => {
+  const node = [
+    ...mainNodes,
+    ...turnNodes,
+    ...collapseNodes,
+    ...class14Nodes,
+    ...class21Nodes,
+    ...class23Nodes,
+  ].find((item) => item.id === id)
+
+  if (!node) return
+
+  const previous = node.data.classNote
+
+  node.data.classSeen = true
+  node.data.classOnly = false
+  node.data.classLabel = label
+  node.data.classNote = previous
+    ? `${previous}\n\nDECIMOTERCERA CLASE · 30 SEP: ${note}`
+    : note
+  node.data.classHeader = 'PROF. ALONSO NAVA · DECIMOTERCERA CLASE · 30 SEP 2026'
+  node.data.classRoute = '/semestre/5/filosofia-analitica/clase/30-septiembre'
+  node.data.classLinkLabel = 'Abrir decimotercera clase ↗'
+
+  if (!node.data.branch.includes('class30')) {
+    node.data.branch.push('class30')
+  }
+})
+
 export const hackerNodes = [
   ...mainNodes,
   ...turnNodes,
@@ -1115,6 +1303,7 @@ export const hackerNodes = [
   ...class14Nodes,
   ...class21Nodes,
   ...class23Nodes,
+  ...class30Nodes,
 ]
 
 const hackerArticleSource = {
@@ -1898,6 +2087,7 @@ const order = [
   'HC1','HC2','HC3','HC4','HC5',
   'HC21-01','HC21-02','HC21-03','HC21-04','HC21-05','HC21-06','HC21-07','HC21-08','HC21-09','HC21-10','HC21-11','HC21-12','HC21-13','HC21-14','HC21-15',
   'HC23-01','HC23-02','HC23-03','HC23-04','HC23-05','HC23-06','HC23-07','HC23-08','HC23-09','HC23-10','HC23-11','HC23-12',
+  'HC30-01','HC30-02','HC30-03','HC30-04','HC30-05','HC30-06','HC30-07','HC30-08','HC30-09','HC30-10',
 ]
 
 export const hackerOrder = order
