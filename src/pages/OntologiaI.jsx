@@ -30,7 +30,7 @@ export default function OntologiaI(){
 
       <section className="oi-classes">
         <div className="oi-heading">
-          <small>the collection</small>
+          <small>collectio</small>
           <h2>Folios publicados</h2>
         </div>
 
@@ -58,7 +58,7 @@ export default function OntologiaI(){
 
       <footer className="oi-footer">
         <Link to="/semestre/4">← Cuarto semestre</Link>
-        <span>☙ ὄν ❧</span>
+        <span>☙ ens · esse ❧</span>
         <span>Ontología · MMXXVI</span>
       </footer>
     </main>

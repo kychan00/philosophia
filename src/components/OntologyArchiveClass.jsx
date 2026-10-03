@@ -48,8 +48,8 @@ export default function OntologyArchiveClass({ data }) {
               </div>
             ) : (
               <div className="oa-glyph-frame" aria-label={data.glyphLabel || 'Pieza conceptual'}>
-                <span>{data.glyphTop || 'τὸ'}</span>
-                <strong>{data.glyph || 'ὄν'}</strong>
+                <span>{data.glyphTop || 'ens'}</span>
+                <strong>{data.glyph || 'esse'}</strong>
                 <small>{data.glyphBottom || 'lo que es'}</small>
               </div>
             )}
@@ -57,6 +57,12 @@ export default function OntologyArchiveClass({ data }) {
               <span>{data.objectLabel}</span>
               <strong>{data.objectTitle}</strong>
               <small>{data.objectNote}</small>
+              {data.objectRights && <small className="oa-image-rights">{data.objectRights}</small>}
+              {data.imageSource && (
+                <a className="oa-image-source" href={data.imageSource} target="_blank" rel="noreferrer">
+                  fuente de imagen ↗
+                </a>
+              )}
             </figcaption>
           </figure>
         </header>
@@ -71,7 +77,7 @@ export default function OntologyArchiveClass({ data }) {
         <div className="oa-columns">
           <div className="oa-column oa-left">
             <section className="oa-welcome">
-              <h2>welcome</h2>
+              <h2>introductio</h2>
               <span>entrada conceptual</span>
               {data.welcome.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             </section>
@@ -79,8 +85,8 @@ export default function OntologyArchiveClass({ data }) {
             {data.philology?.length > 0 && (
               <section className="oa-cabinet">
                 <div className="oa-script-title">
-                  <small>cabinet</small>
-                  <h2>of words</h2>
+                  <small>armarium</small>
+                  <h2>verborum</h2>
                 </div>
                 <div className="oa-word-grid">
                   {data.philology.map((item) => (
@@ -96,7 +102,7 @@ export default function OntologyArchiveClass({ data }) {
             )}
 
             <section className="oa-collection">
-              <h2>the collection</h2>
+              <h2>collectio</h2>
               <p className="oa-section-intro">{data.collectionIntro}</p>
               <div className="oa-collection-list">
                 {data.collection.map((item, index) => (
@@ -116,7 +122,7 @@ export default function OntologyArchiveClass({ data }) {
 
             {data.distinctions?.length > 0 && (
               <section className="oa-goal">
-                <h2>the <em>distinctions</em></h2>
+                <h2><em>distinctiones</em></h2>
                 <div className="oa-distinction-paper">
                   {data.distinctions.map((item) => (
                     <article key={item.title}>
@@ -133,7 +139,7 @@ export default function OntologyArchiveClass({ data }) {
             <section className="oa-wine oa-atlas">
               <div className="oa-wine-title">
                 <span>{data.fragmentAtlas ? 'documentum' : 'schema / atlas'}</span>
-                <h2>the atlas</h2>
+                <h2>atlas</h2>
               </div>
 
               <p>{data.atlasIntro}</p>
@@ -164,7 +170,7 @@ export default function OntologyArchiveClass({ data }) {
               <section className="oa-wine oa-lenses">
                 <div className="oa-wine-title">
                   <span>perspectivae</span>
-                  <h2>the lenses</h2>
+                  <h2>perspectivae</h2>
                 </div>
 
                 <div className="oa-lens-tabs">
@@ -195,7 +201,7 @@ export default function OntologyArchiveClass({ data }) {
 
             {data.timeline?.length > 0 && (
               <section className="oa-timeline">
-                <h2>the timeline</h2>
+                <h2>genealogia</h2>
                 <p className="oa-section-intro">desplazamientos registrados en la sesión</p>
                 <div className="oa-timeline-list">
                   {data.timeline.map((item, index) => (
@@ -213,8 +219,8 @@ export default function OntologyArchiveClass({ data }) {
             )}
 
             <section className="oa-source">
-              <div className="oa-source-seal" aria-hidden="true">ὄν</div>
-              <h2>document</h2>
+              <div className="oa-source-seal" aria-hidden="true">ens</div>
+              <h2>documentum</h2>
               <p>{data.sourceNote}</p>
 
               {data.preparation?.length > 0 && (
@@ -229,7 +235,7 @@ export default function OntologyArchiveClass({ data }) {
 
         <footer className="oa-footer">
           <Link to={courseRoot}>← Ontología</Link>
-          <span>☙ τὸ ὄν ❧</span>
+          <span>☙ ens · esse ❧</span>
           <span>{data.dateLabel}</span>
         </footer>
       </div>

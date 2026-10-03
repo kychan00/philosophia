@@ -72,6 +72,66 @@
       "institution": "National Archaeological Museum of Athens",
       "license": "CC0 1.0 Universal / public domain dedication",
       "use": "Clase de Ética 2026-09-03 · justicia, prudencia y escucha"
+    },
+    {
+      "id": "ontology-2026-01-21-school-of-athens",
+      "target": "public/images/ontologia/open/2026-01-21/escuela-de-atenas.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Raphael_School_of_Athens.jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Raphael_School_of_Athens.jpg?width=1280",
+      "title": "La escuela de Atenas",
+      "creator": "Rafael",
+      "date": "1511",
+      "institution": "Palacio Apostólico, Ciudad del Vaticano",
+      "license": "Public Domain Mark 1.0 / dominio público",
+      "use": "Ontología 2026-01-21 · apertura histórica y mapa de problemas"
+    },
+    {
+      "id": "ontology-2026-03-23-aristotle-bust",
+      "target": "public/images/ontologia/open/2026-03-23/busto-aristoteles.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Aristotle_bust.jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aristotle_bust.jpg?width=1280",
+      "title": "Busto de Aristóteles",
+      "creator": "Ktrepas",
+      "date": "2019",
+      "institution": "Wikimedia Commons",
+      "license": "CC0 1.0 Universal",
+      "use": "Ontología 2026-03-23 · imagen contextual para fragmento documental"
+    },
+    {
+      "id": "ontology-2026-03-25-metaphysica-bekker",
+      "target": "public/images/ontologia/open/2026-03-25/metaphysica-bekker-1837.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Aristotle_Metaphysica_page_1.png",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aristotle_Metaphysica_page_1.png?width=1280",
+      "title": "Aristóteles, Metaphysica, primera página",
+      "creator": "edición de Immanuel Bekker",
+      "date": "1837",
+      "institution": "reproducción histórica",
+      "license": "Public Domain Mark 1.0 / dominio público",
+      "use": "Ontología 2026-03-25 · Metafísica IV y principio de no contradicción"
+    },
+    {
+      "id": "ontology-2026-04-13-aristotle-manuscript",
+      "target": "public/images/ontologia/open/2026-04-13/manuscrito-aristotelico-1457.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:'Aristotle',_manuscript_miscellany_of_philosophical_writings,_mainly_texts_by_Aristotle.jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%27Aristotle%27%2C_manuscript_miscellany_of_philosophical_writings%2C_mainly_texts_by_Aristotle.jpg?width=1280",
+      "title": "Miscelánea manuscrita de textos aristotélicos",
+      "creator": "autor desconocido",
+      "date": "1457",
+      "institution": "Biblioteca Nacional de Austria",
+      "license": "Public Domain Mark 1.0 / dominio público",
+      "use": "Ontología 2026-04-13 · imagen contextual para fragmento sobre tipos de ser"
+    },
+    {
+      "id": "ontology-2026-04-15-florentine-aristotle",
+      "target": "public/images/ontologia/open/2026-04-15/busto-aristoteles-florentino.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Florentine_15th_Century,_Bust_of_Aristotle,_15th_century,_NGA_43846.jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Florentine_15th_Century%2C_Bust_of_Aristotle%2C_15th_century%2C_NGA_43846.jpg?width=1280",
+      "title": "Busto de Aristóteles",
+      "creator": "Florencia, siglo XV",
+      "date": "ca. 1450",
+      "institution": "National Gallery of Art",
+      "license": "CC0 1.0 Universal",
+      "use": "Ontología 2026-04-15 · entidad, accidente y predicación"
     }
   ]
 }
