@@ -1,5 +1,9 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
+import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema'
+import '../components/OntologyArchiveClass.css'
+import './OntologiaClass17AugArchive.css'
+import './OntologiaClass26AugArchive.css'
 
 const problems = [
   {
@@ -106,6 +110,37 @@ const finalChain = [
   'ARMONÍA',
   'LIBERTAD',
 ]
+const atlasSchema = {
+  layout: 'flow',
+  direction: 'vertical',
+  flowGap: 50,
+  minHeight: 980,
+  fitPadding: 54,
+  sizeHint: 'tall',
+  nodes: [
+    { id: 'reductions', label: 'dos reducciones', caption: 'mecanicismo · necesidad absoluta', shapeRole: 'concept', emphasis: true, tone: 'accent' },
+    { id: 'contingency', label: 'contingencia', caption: 'orden racional sin necesidad lógica total', shapeRole: 'structure' },
+    { id: 'truths', label: 'verdades', caption: 'de razón · de hecho', shapeRole: 'concept' },
+    { id: 'reason', label: 'razón suficiente', caption: 'explicación de lo contingente', shapeRole: 'mediation' },
+    { id: 'worlds', label: 'mundos posibles', caption: 'elección divina', shapeRole: 'structure' },
+    { id: 'force', label: 'fuerza', caption: 'actividad interna · entelequia', shapeRole: 'mediation' },
+    { id: 'monads', label: 'mónadas', caption: 'sustancias simples · perspectivas', shapeRole: 'concept' },
+    { id: 'harmony', label: 'armonía preestablecida', caption: 'coordinación sin interacción causal', shapeRole: 'mediation' },
+    { id: 'freedom', label: 'libertad', caption: 'orden sin fatalismo', shapeRole: 'result', tone: 'accent' },
+  ],
+  edges: [
+    { from: 'reductions', to: 'contingency', label: 'Leibniz intenta superar con', relationKind: 'derives' },
+    { from: 'contingency', to: 'truths', label: 'exige distinguir', relationKind: 'derives' },
+    { from: 'truths', to: 'reason', label: 'las de hecho requieren', relationKind: 'derives' },
+    { from: 'reason', to: 'worlds', label: 'permite pensar', relationKind: 'derives' },
+    { from: 'worlds', to: 'force', label: 'se articula con', relationKind: 'derives' },
+    { from: 'force', to: 'monads', label: 'culmina metafísicamente en', relationKind: 'derives' },
+    { from: 'monads', to: 'harmony', label: 'se coordinan mediante', relationKind: 'derives' },
+    { from: 'harmony', to: 'freedom', label: 'busca conservar', relationKind: 'derives' },
+  ],
+  animation: { mode: 'sequence', nodeDuration: .27, edgeDuration: .29 },
+}
+
 
 export default function OntologiaClass26Aug() {
   const [activeId, setActiveId] = useState('contingencia')
@@ -119,39 +154,95 @@ export default function OntologiaClass26Aug() {
   )
 
   return (
-    <main className="onto26-page">
-      <nav className="onto26-nav">
-        <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
-        <Link to="/" className="onto26-brand">Φ · Philosophia</Link>
-        <span>26 · VIII · 2026</span>
-      </nav>
+    <main className="onto26-page oa-page oaf-page oaf-leibniz-page">
+      <div className="oa-backdrop" aria-hidden="true" />
 
-      <header className="onto26-hero">
-        <div className="onto26-hero-ghost" aria-hidden="true">MONAS</div>
+      <div className="oa-brochure oaf-brochure oaf-leibniz-brochure">
+        <nav className="oa-nav">
+          <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
+          <Link to="/" className="oa-brand">Φ · Philosophia</Link>
+          <span>XXVI · VIII · MMXXVI</span>
+        </nav>
 
-        <div className="onto26-hero-copy">
-          <p>Ontología II · clase del 26 de agosto</p>
-          <h1>Leibniz <em>contra dos reducciones</em></h1>
-          <p className="onto26-lead">
-            Del mecanicismo cartesiano y la necesidad spinozista hacia una
-            metafísica capaz de conservar fuerza, contingencia, finalidad,
-            mónadas, armonía y libertad.
+        <header className="oa-cover oaf-cover">
+          <div className="oa-cover-copy">
+            <span className="oa-kicker">Archivum ontologicum · fol. XVI · monas</span>
+            <h1>Leibniz<em>contra dos reducciones</em></h1>
+            <p className="oa-subtitle">contingentia · ratio sufficiens · monas · harmonia · libertas</p>
+            <p className="oaf-lead">
+              Del mecanicismo cartesiano y la necesidad spinozista hacia una
+              metafísica capaz de conservar fuerza, contingencia, finalidad,
+              mónadas, armonía y libertad.
+            </p>
+            <div className="oa-question">
+              <small>QUAESTIO</small>
+              <strong>¿Cómo puede existir un universo completamente racional sin que todo sea lógicamente necesario?</strong>
+            </div>
+            <div className="oaf-axis" aria-label="Problema rector">
+              <span>Descartes · mecanismo</span><b>→</b>
+              <span>Spinoza · necesidad</span><b>→</b>
+              <span>Leibniz · orden + contingencia</span>
+            </div>
+          </div>
+
+          <figure className="oa-cover-object">
+            <div className="oa-cover-frame">
+              <span className="oa-tape oa-tape-a" aria-hidden="true" />
+              <span className="oa-tape oa-tape-b" aria-hidden="true" />
+              <img
+                src={`${import.meta.env.BASE_URL}images/ontologia/open/2026-08-26/leibniz-francke.jpg`}
+                alt="Retrato de Gottfried Wilhelm Leibniz pintado por Christoph Bernhard Francke hacia 1695"
+              />
+            </div>
+            <figcaption>
+              <span>IMAGO XVI · GODEFRIDUS LEIBNITIUS</span>
+              <strong>Retrato de Gottfried Wilhelm Leibniz</strong>
+              <small>Christoph Bernhard Francke · ca. 1695 · Museo Herzog Anton Ulrich.</small>
+              <small className="oa-image-rights">Dominio público</small>
+              <a className="oa-image-source"
+                 href="https://commons.wikimedia.org/wiki/File:Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_(ca._1695).jpg"
+                 target="_blank" rel="noreferrer">fuente de imagen ↗</a>
+            </figcaption>
+          </figure>
+        </header>
+
+        <section className="oaf-prologue">
+          <div className="oaf-prologue-copy">
+            <small>INTRODUCTIO</small>
+            <h2>Orden racional sin necesitarismo</h2>
+            <div className="oaf-questions">
+              <p>¿Cómo conservar contingencia?</p>
+              <p>¿Cómo explicar actividad y finalidad?</p>
+              <p>¿Cómo coordinar sustancias sin interacción directa?</p>
+            </div>
+            <p>
+              La clase organiza a Leibniz como una respuesta simultánea a dos
+              reducciones: el mecanicismo cartesiano y la necesidad absoluta
+              asociada a Spinoza.
+            </p>
+          </div>
+
+          <div className="oaf-armarium">
+            <small>ARMARIUM VERBORUM</small>
+            <h2>Vocabulario de Leibniz</h2>
+            <div>
+              <article><span>Latín</span><strong>contingentia</strong><p>Posibilidad de que lo contrario no implique contradicción.</p></article>
+              <article><span>Latín</span><strong>ratio sufficiens</strong><p>Razón por la cual algo es así y no de otro modo.</p></article>
+              <article><span>Latín</span><strong>monas</strong><p>Sustancia simple e indivisible con principio interno de actividad.</p></article>
+              <article><span>Latín</span><strong>harmonia praestabilita</strong><p>Coordinación de las sustancias sin interacción causal directa.</p></article>
+            </div>
+          </div>
+        </section>
+
+        <section className="oa-wine oaf-atlas oaf-leibniz-atlas">
+          <div className="oa-wine-title"><span>SCHEMA · ATLAS</span><h2>atlas</h2></div>
+          <p>
+            El Atlas añade una vista general de la ruta conceptual. No sustituye
+            el laboratorio interactivo, la Teodicea, el sistema de mónadas, la tabla
+            comparativa ni la cadena final que ya integraban la clase.
           </p>
-          <blockquote>
-            ¿Cómo puede existir un universo completamente racional sin que todo
-            sea lógicamente necesario?
-          </blockquote>
-        </div>
-
-        <aside className="onto26-hero-axis">
-          <span>PROBLEMA RECTOR</span>
-          <div><b>DESCARTES</b><small>mecanismo</small></div>
-          <i>↓</i>
-          <div><b>SPINOZA</b><small>necesidad</small></div>
-          <i>↓</i>
-          <div className="is-leibniz"><b>LEIBNIZ</b><small>orden + contingencia</small></div>
-        </aside>
-      </header>
+          <div className="oa-schema-card"><AnimatedConceptSchema schema={atlasSchema} /></div>
+        </section>
 
       <section className="onto26-map">
         <header>
@@ -445,6 +536,23 @@ export default function OntologiaClass26Aug() {
           de la forma, orden racional, contingencia, finalidad y libertad.
         </blockquote>
       </section>
+
+      <section className="oaf-documentum">
+        <div><small>DOCUMENTUM</small><h2>Criterio documental</h2></div>
+        <p>
+          Esta edición conserva las diez secciones interactivas de la página anterior:
+          siete problemas, laboratorio de verdades, mundos posibles, Teodicea, fuerza,
+          mónadas animadas, perspectivas, tabla comparativa y cadena final. ARCHIVUM
+          añade contexto y diseño; no sustituye el contenido de clase.
+        </p>
+      </section>
+
+      <footer className="oa-footer">
+        <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
+        <span>☙ contingentia · monas · harmonia · libertas ❧</span>
+        <span>XXVI · VIII · MMXXVI</span>
+      </footer>
+      </div>
     </main>
   )
 }

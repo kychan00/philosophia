@@ -1,0 +1,12 @@
+.oaf-leibniz-page{background:#2b211b}
+.oaf-leibniz-brochure{overflow:hidden}
+.oaf-leibniz-brochure>.onto26-map,.oaf-leibniz-brochure>.onto26-triad,.oaf-leibniz-brochure>.onto26-truth-lab,.oaf-leibniz-brochure>.onto26-worlds,.oaf-leibniz-brochure>.onto26-evil,.oaf-leibniz-brochure>.onto26-force,.oaf-leibniz-brochure>.onto26-monad,.oaf-leibniz-brochure>.onto26-perspective,.oaf-leibniz-brochure>.onto26-compare,.oaf-leibniz-brochure>.onto26-final{max-width:none;margin:0;padding:52px 54px;border-top:1px solid var(--oa-line);background:var(--oa-paper)}
+.oaf-leibniz-brochure>.onto26-triad,.oaf-leibniz-brochure>.onto26-worlds,.oaf-leibniz-brochure>.onto26-force,.oaf-leibniz-brochure>.onto26-perspective,.oaf-leibniz-brochure>.onto26-final{background:#eee5d7}
+.oaf-leibniz-brochure>.onto26-evil,.oaf-leibniz-brochure>.onto26-monad{background:#f4eee3}
+.oaf-leibniz-brochure>.onto26-map h2,.oaf-leibniz-brochure>.onto26-triad h2,.oaf-leibniz-brochure>.onto26-truth-lab h2,.oaf-leibniz-brochure>.onto26-worlds h2,.oaf-leibniz-brochure>.onto26-evil h2,.oaf-leibniz-brochure>.onto26-force h2,.oaf-leibniz-brochure>.onto26-monad h2,.oaf-leibniz-brochure>.onto26-perspective h2,.oaf-leibniz-brochure>.onto26-compare h2,.oaf-leibniz-brochure>.onto26-final h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2.8rem,5vw,4.5rem);line-height:.95}
+.oaf-leibniz-brochure .onto26-problem-tabs button.active,.oaf-leibniz-brochure .onto26-world-grid button.active{border-color:var(--oa-wine);background:rgba(122,45,30,.08)}
+.oaf-leibniz-brochure .onto26-truth-switch button.active{background:var(--oa-wine)}
+.oaf-leibniz-brochure .onto26-god{background:#eadcc7;border-color:var(--oa-wine)}
+.oaf-leibniz-brochure .onto26-orbit i{background:var(--oa-wine)}
+.oaf-leibniz-atlas .animated-concept-schema{min-height:980px!important}
+@media(max-width:760px){.oaf-leibniz-brochure>.onto26-map,.oaf-leibniz-brochure>.onto26-triad,.oaf-leibniz-brochure>.onto26-truth-lab,.oaf-leibniz-brochure>.onto26-worlds,.oaf-leibniz-brochure>.onto26-evil,.oaf-leibniz-brochure>.onto26-force,.oaf-leibniz-brochure>.onto26-monad,.oaf-leibniz-brochure>.onto26-perspective,.oaf-leibniz-brochure>.onto26-compare,.oaf-leibniz-brochure>.onto26-final{padding-left:24px;padding-right:24px}}

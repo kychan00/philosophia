@@ -252,6 +252,18 @@
       "institution": "Herzog August Bibliothek, Wolfenbüttel",
       "license": "dominio público / Public Domain Mark 1.0",
       "use": "Ontología II 2026-08-24 · sustancia, necesidad, libertad y afectos"
+    },
+    {
+      "id": "ontology-2026-08-26-leibniz-francke",
+      "target": "public/images/ontologia/open/2026-08-26/leibniz-francke.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_(ca._1695).jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_%28ca._1695%29.jpg?width=1280",
+      "title": "Retrato de Gottfried Wilhelm Leibniz",
+      "creator": "Christoph Bernhard Francke",
+      "date": "ca. 1695",
+      "institution": "Herzog Anton Ulrich Museum, Brunswick",
+      "license": "dominio público / Public Domain Mark 1.0",
+      "use": "Ontología II 2026-08-26 · contingencia, mónadas, armonía y libertad"
     }
   ]
 }
