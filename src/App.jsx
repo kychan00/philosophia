@@ -94,6 +94,7 @@ const AnalyticPhilosophy = lazy(() => import('./pages/AnalyticPhilosophy'))
 const AnalyticClass17Aug = lazy(() => import('./pages/AnalyticClass17Aug'))
 const AnalyticClass19Aug = lazy(() => import('./pages/AnalyticClass19Aug'))
 const AnalyticClass24Aug = lazy(() => import('./pages/AnalyticClass24Aug'))
+const AnalyticClass26Aug = lazy(() => import('./pages/AnalyticClass26Aug'))
 const AnalyticClass31Aug = lazy(() => import('./pages/AnalyticClass31Aug'))
 const AnalyticClass02Sep = lazy(() => import('./pages/AnalyticClass02Sep'))
 const AnalyticFollesdalMap = lazy(() => import('./pages/AnalyticFollesdalMap'))
@@ -404,6 +405,10 @@ function App() {
         <Route
           path="/semestre/5/filosofia-analitica/clase/24-agosto"
           element={<AnalyticClass24Aug />}
+        />
+        <Route
+          path="/semestre/5/filosofia-analitica/clase/26-agosto"
+          element={<AnalyticClass26Aug />}
         />
         <Route
           path="/semestre/5/filosofia-analitica/clase/31-agosto"
