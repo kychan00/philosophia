@@ -1,5 +1,9 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
+import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema'
+import '../components/OntologyArchiveClass.css'
+import './OntologiaClass17AugArchive.css'
+import './OntologiaClass21SepArchive.css'
 import './OntologiaClass07Sep.css'
 import './OntologiaClass09Sep.css'
 import './OntologiaClass14Sep.css'
@@ -78,6 +82,37 @@ const causalRoute = [
   },
 ]
 
+const atlasSchema = {
+  layout: 'flow',
+  direction: 'vertical',
+  flowGap: 50,
+  minHeight: 1060,
+  fitPadding: 56,
+  sizeHint: 'tall',
+  nodes: [
+    { id: 'aristotle', label: 'categorías aristotélicas', caption: 'figuras de predicación · sustancia', shapeRole: 'concept', emphasis: true, tone: 'accent' },
+    { id: 'turn', label: 'giro kantiano', caption: 'del ser al conocer', shapeRole: 'structure' },
+    { id: 'logic', label: 'lógica trascendental', caption: 'conceptos puros del entendimiento', shapeRole: 'concept' },
+    { id: 'judgments', label: 'tabla de juicios', caption: 'hilo conductor', shapeRole: 'mediation' },
+    { id: 'categories', label: 'doce categorías', caption: 'cantidad · cualidad · relación · modalidad', shapeRole: 'structure' },
+    { id: 'deduction', label: 'deducción', caption: 'quid facti · quid juris', shapeRole: 'mediation' },
+    { id: 'schema', label: 'esquematismo', caption: 'mediación temporal', shapeRole: 'concept' },
+    { id: 'principles', label: 'principios', caption: 'experiencia posible · ciencia', shapeRole: 'mediation' },
+    { id: 'dialectic', label: 'Dialéctica', caption: 'límite del uso de las categorías', shapeRole: 'result', tone: 'accent' },
+  ],
+  edges: [
+    { from: 'aristotle', to: 'turn', label: 'es reformulado por', relationKind: 'derives' },
+    { from: 'turn', to: 'logic', label: 'abre', relationKind: 'derives' },
+    { from: 'logic', to: 'judgments', label: 'encuentra su hilo en', relationKind: 'derives' },
+    { from: 'judgments', to: 'categories', label: 'conduce a', relationKind: 'derives' },
+    { from: 'categories', to: 'deduction', label: 'requieren', relationKind: 'derives' },
+    { from: 'deduction', to: 'schema', label: 'exige mediación mediante', relationKind: 'derives' },
+    { from: 'schema', to: 'principles', label: 'hace posible', relationKind: 'derives' },
+    { from: 'principles', to: 'dialectic', label: 'delimita frente a', relationKind: 'derives' },
+  ],
+  animation: { mode: 'sequence', nodeDuration: .27, edgeDuration: .29 },
+}
+
 const goTo = (id) =>
   document.getElementById(id)?.scrollIntoView({
     behavior: 'smooth',
@@ -111,77 +146,123 @@ export default function OntologiaClass21Sep() {
   )
 
   return (
-    <main className="ontsep7-page ontsep9-page ontsep14-page ontsep21-page">
-      <nav className="ontsep7-nav">
-        <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
-        <Link to="/" className="ontsep7-brand">Φ · Philosophia</Link>
-        <span>XXI · IX · MMXXVI</span>
-      </nav>
+    <main className="ontsep7-page ontsep9-page ontsep14-page ontsep21-page oa-page oaf-page oaf-sep21-page">
+      <div className="oa-backdrop" aria-hidden="true" />
 
-      <header className="ontsep7-hero ontsep9-hero ontsep14-hero ontsep21-hero">
-        <div className="ontsep7-grid" aria-hidden="true" />
-        <div className="ontsep7-ghost ontsep14-ghost ontsep21-ghost" aria-hidden="true">
-          Kategorien
-        </div>
+      <div className="oa-brochure oaf-brochure oaf-sep21-brochure">
+        <nav className="oa-nav">
+          <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
+          <Link to="/" className="oa-brand">Φ · Philosophia</Link>
+          <span>XXI · IX · MMXXVI</span>
+        </nav>
 
-        <div className="ontsep7-hero-inner">
-          <div>
-            <p className="ontsep7-kicker">
-              FI190 · Ontología II · Novena clase · 21 de septiembre de 2026
-            </p>
+        <header className="oa-cover oaf-cover">
+          <div className="oa-cover-copy">
+            <span className="oa-kicker">Archivum ontologicum · fol. XXI · analytica transcendentalis</span>
 
             <h1>
-              Kant:
-              <em>lógica trascendental, juicios y categorías</em>
+              Kant
+              <em>lógica, juicios, categorías y esquematismo</em>
             </h1>
 
-            <p className="ontsep7-lead">
-              La sesión desplaza el problema ontológico desde las categorías como
-              modos del ser en Aristóteles hacia las categorías como conceptos
-              <i> a priori</i> del entendimiento en Kant, y reconstruye el camino
-              tabla de juicios → tabla de categorías → deducción → esquematismo.
+            <p className="oa-subtitle">
+              logica · iudicium · categoriae · deductio · schema
             </p>
 
-            <div className="ontsep7-question ontsep21-question">
-              <span>PREGUNTA RECTORA</span>
+            <p className="oaf-lead">
+              La sesión desplaza el problema desde las categorías como modos del
+              ser en Aristóteles hacia las categorías como conceptos a priori del
+              entendimiento en Kant, y reconstruye el trayecto juicios → categorías
+              → deducción → esquematismo → principios.
+            </p>
+
+            <div className="oa-question">
+              <small>QUAESTIO</small>
               <strong>
                 ¿Cómo pueden conceptos que no proceden de la experiencia aplicarse
                 legítimamente a objetos de experiencia?
               </strong>
             </div>
 
-            <div className="ontsep7-hero-actions">
-              <button type="button" onClick={() => goTo('mapa')}>
-                Recorrer la clase ↓
-              </button>
+            <div className="oaf-axis" aria-label="Eje conceptual">
+              <span>iudicia</span><b>→</b>
+              <span>categoriae</span><b>→</b>
+              <span>deductio</span><b>→</b>
+              <span>schema</span><b>→</b>
+              <span>principia</span>
+            </div>
+
+            <div className="oaf-sep7-actions">
+              <button type="button" onClick={() => goTo('mapa')}>Recorrer la clase ↓</button>
               <Link to="/tareas/ontologia-ii/kant-analitica-trascendental">
                 Abrir sistema de la Analítica ↗
               </Link>
             </div>
           </div>
 
-          <aside className="ontsep7-hero-schema ontsep14-schema ontsep21-schema">
-            <span>CAMBIO FUNDAMENTAL</span>
+          <figure className="oa-cover-object">
+            <div className="oa-cover-frame">
+              <span className="oa-tape oa-tape-a" aria-hidden="true" />
+              <span className="oa-tape oa-tape-b" aria-hidden="true" />
+              <img
+                src={`${import.meta.env.BASE_URL}images/ontologia/open/2026-09-21/kant-analytik-1781-p67.png`}
+                alt="Página 67 de la primera edición de la Crítica de la razón pura, sobre el uso lógico del entendimiento"
+              />
+            </div>
+            <figcaption>
+              <span>IMAGO XXI · USUS LOGICUS INTELLECTUS</span>
+              <strong>Uso lógico del entendimiento</strong>
+              <small>Immanuel Kant · <em>Critik der reinen Vernunft</em> · Riga · 1781 · p. 67.</small>
+              <small className="oa-image-rights">Dominio público</small>
+              <a
+                className="oa-image-source"
+                href="https://de.wikisource.org/wiki/Seite:Kant_Critik_der_reinen_Vernunft_067.png"
+                target="_blank"
+                rel="noreferrer"
+              >
+                fuente del escaneo ↗
+              </a>
+            </figcaption>
+          </figure>
+        </header>
+
+        <section className="oaf-prologue">
+          <div className="oaf-prologue-copy">
+            <small>INTRODUCTIO</small>
+            <h2>Del juicio a la validez objetiva</h2>
+            <div className="oaf-questions">
+              <p>¿De dónde salen las categorías?</p>
+              <p>¿Con qué derecho se aplican?</p>
+              <p>¿Cómo median entre concepto e intuición?</p>
+            </div>
+            <p>
+              La tabla de los juicios funciona como hilo conductor para descubrir
+              categorías; la deducción busca legitimarlas y el esquematismo explica
+              su mediación con aquello que aparece en el tiempo.
+            </p>
+          </div>
+
+          <div className="oaf-armarium">
+            <small>ARMARIUM VERBORUM</small>
+            <h2>Vocabulario de la Analítica</h2>
             <div>
-              <small>ARISTÓTELES</small>
-              <strong>modos del ser</strong>
-              <p>figuras de la predicación</p>
+              <article><span>Latín</span><strong>iudicium</strong><p>Juicio; función lógica que sirve de hilo conductor.</p></article>
+              <article><span>Latín</span><strong>categoria</strong><p>Concepto puro a priori del entendimiento.</p></article>
+              <article><span>Latín</span><strong>deductio</strong><p>Justificación del origen sistemático y de la validez objetiva.</p></article>
+              <article><span>Latín</span><strong>schema</strong><p>Mediación que vincula categoría y condición temporal sensible.</p></article>
             </div>
-            <b>→</b>
-            <div className="active">
-              <small>KANT</small>
-              <strong>modos de conocer</strong>
-              <p>conceptos a priori del entendimiento</p>
-            </div>
-            <b>→</b>
-            <div>
-              <small>PROBLEMA</small>
-              <strong>validez objetiva</strong>
-              <p>¿con qué derecho se aplican?</p>
-            </div>
-          </aside>
-        </div>
-      </header>
+          </div>
+        </section>
+
+        <section className="oa-wine oaf-atlas oaf-sep21-atlas">
+          <div className="oa-wine-title"><span>SCHEMA · ATLAS</span><h2>atlas</h2></div>
+          <p>
+            El Atlas sólo orienta. Las quince secciones originales, el selector
+            de juicios, la ruta interactiva Hume–Kant y todo el desarrollo de
+            deducciones, categorías, esquematismo y principios permanecen completos.
+          </p>
+          <div className="oa-schema-card"><AnimatedConceptSchema schema={atlasSchema} /></div>
+        </section>
 
       <div className="ontsep7-layout">
         <aside className="ontsep7-index ontsep21-index">
@@ -714,10 +795,24 @@ export default function OntologiaClass21Sep() {
         </article>
       </div>
 
-      <footer className="ontsep7-footer ontsep14-footer">
-        <Link to="/semestre/5/ontologia-ii">← Volver a Ontología II</Link>
-        <span>FI190 · XXI · IX · MMXXVI</span>
+      <section className="oaf-documentum">
+        <div><small>DOCUMENTUM</small><h2>Criterio documental</h2></div>
+        <p>
+          Esta edición conserva las quince secciones de la página anterior:
+          Aristóteles, giro kantiano, lógicas, Hume, deducciones, juicios,
+          categorías, ciencia, sintéticos a priori, esquematismo, Dialéctica,
+          existencia, principios y cierre. También preserva los selectores
+          interactivos de juicios y de la ruta causal Hume–Kant. ARCHIVUM añade
+          contexto curatorial y Atlas; no recorta ni sustituye la clase.
+        </p>
+      </section>
+
+      <footer className="oa-footer">
+        <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
+        <span>☙ iudicium · categoriae · deductio · schema ❧</span>
+        <span>XXI · IX · MMXXVI</span>
       </footer>
+      </div>
     </main>
   )
 }

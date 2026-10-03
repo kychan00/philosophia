@@ -1,0 +1,14 @@
+.oaf-sep21-page{background:#2b211b}
+.oaf-sep21-brochure{overflow:hidden}
+.oaf-sep21-brochure>.ontsep7-layout{max-width:none;margin:0;background:var(--oa-paper)}
+.oaf-sep21-brochure .ontsep21-index{top:20px;background:#eee5d7}
+.oaf-sep21-brochure .ontsep21-article>section{background:var(--oa-paper)}
+.oaf-sep21-brochure .ontsep21-article>section:nth-child(even){background:#f2ebdf}
+.oaf-sep21-brochure .ontsep21-heading h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2.75rem,5vw,4.5rem);line-height:.95}
+.oaf-sep21-brochure .ontsep21-heading>span{font-family:'Cormorant Garamond',Georgia,serif;color:rgba(122,45,30,.14)}
+.oaf-sep21-brochure .ontsep21-causal-tabs button.active,.oaf-sep21-brochure .ontsep21-switcher button.active{border-color:var(--oa-wine);background:rgba(122,45,30,.08)}
+.oaf-sep21-brochure .ontsep21-causal-card,.oaf-sep21-brochure .ontsep21-judgment-card,.oaf-sep21-brochure .ontsep21-callout,.oaf-sep21-brochure .ontsep21-reading-note{border-left-color:var(--oa-wine)}
+.oaf-sep21-brochure .ontsep21-flow b,.oaf-sep21-brochure .ontsep21-hume-flow b,.oaf-sep21-brochure .ontsep21-juris b,.oaf-sep21-brochure .ontsep21-mathphysics>b,.oaf-sep21-brochure .ontsep21-faculties>b,.oaf-sep21-brochure .ontsep21-existence b{color:var(--oa-wine)}
+.oaf-sep21-brochure .ontsep21-category-grid .active,.oaf-sep21-brochure .ontsep21-physics,.oaf-sep21-brochure .ontsep21-faculties .active,.oaf-sep21-brochure .ontsep21-boundary .active,.oaf-sep21-brochure .ontsep21-status .active{border-color:var(--oa-wine);background:rgba(122,45,30,.06)}
+.oaf-sep21-atlas .animated-concept-schema{min-height:1060px!important}
+@media(max-width:780px){.oaf-sep21-brochure .ontsep21-article>section{padding-left:24px;padding-right:24px}}

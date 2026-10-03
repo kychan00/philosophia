@@ -312,6 +312,18 @@
       "institution": "edición de Johann Friedrich Hartknoch, Riga; escaneo en Wikisource/Wikimedia",
       "license": "dominio público",
       "use": "Ontología II 2026-09-14 · Estética trascendental, espacio, tiempo y fenómeno"
+    },
+    {
+      "id": "ontology-2026-09-21-kant-analytik-p67",
+      "target": "public/images/ontologia/open/2026-09-21/kant-analytik-1781-p67.png",
+      "source_page": "https://de.wikisource.org/wiki/Seite:Kant_Critik_der_reinen_Vernunft_067.png",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kant%20Critik%20der%20reinen%20Vernunft%20067.png?width=1280",
+      "title": "Critik der reinen Vernunft, p. 67 · uso lógico del entendimiento",
+      "creator": "Immanuel Kant",
+      "date": "1781",
+      "institution": "edición de Johann Friedrich Hartknoch, Riga; escaneo en Wikisource/Wikimedia",
+      "license": "dominio público",
+      "use": "Ontología II 2026-09-21 · lógica trascendental, juicios, categorías y deducción"
     }
   ]
 }
