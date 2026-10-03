@@ -1,0 +1,16 @@
+{
+  "page": "ETHOS · Demo de Ética · La amistad",
+  "status": "demo-not-academic-record",
+  "assets": [
+    {
+      "file": "aristotle-bust.png",
+      "role": "Imagen curatorial principal · Aristóteles",
+      "source": "https://commons.wikimedia.org/wiki/File:Aristotle_transparent.png",
+      "author": "Alvaro Marques Hijazo",
+      "date": "2019-01-14",
+      "license": "CC0 1.0 Universal / Public Domain Dedication",
+      "reuse": "Copia local reutilizada desde un asset ya descargado y documentado dentro de PHILOSOPHIA.",
+      "source_asset": "public/images/cafe-filosofico/meritocracia/aristotle-bust.png"
+    }
+  ]
+}

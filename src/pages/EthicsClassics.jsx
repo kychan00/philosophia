@@ -298,6 +298,26 @@ export default function EthicsClassics() {
           <div className="ethicsx-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
         </Link>
 
+        <Link
+          to="/semestre/5/etica/demo/amistad"
+          className="ethicsx-class-card"
+        >
+          <div className="ethicsx-class-card-date">
+            <strong>Δ</strong>
+            <span>DEMO · SINE DIE</span>
+          </div>
+          <div className="ethicsx-class-card-copy">
+            <span>Prototipo ETHOS · No es una clase real</span>
+            <h3>La amistad como práctica del bien</h3>
+            <p>
+              Página laboratorio para probar el nuevo estándar de Ética:
+              azul egeo, friso griego, imagen curatorial local, deliberación
+              y esquemas conceptuales obligatorios.
+            </p>
+          </div>
+          <div className="ethicsx-class-card-enter"><span>Abrir demo</span><b>↗</b></div>
+        </Link>
+
       </section>
 
       <section className="ethicsx-section ethicsx-note">
