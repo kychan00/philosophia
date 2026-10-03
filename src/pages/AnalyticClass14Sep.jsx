@@ -104,7 +104,7 @@ export default function AnalyticClass14Sep() {
 
         <div className="ac9-hero-inner">
           <div>
-            <p className="ac9-kicker">FI264 · Octava clase · 14 de septiembre de 2026</p>
+            <p className="ac9-kicker">FI264 · Novena clase · 14 de septiembre de 2026</p>
             <h1>
               Frege, Russell y Wittgenstein:
               <em>pensamiento, lenguaje y representación</em>
