@@ -100,7 +100,7 @@ export default function AnalyticClass02Sep() {
 
         <div className="an02-hero-inner">
           <div>
-            <p className="an02-kicker">FI264 · Quinta clase · 2 de septiembre</p>
+            <p className="an02-kicker">FI264 · Sexta clase · 2 de septiembre</p>
             <h1>
               Hermenéutica,
               <em>positivismo y demarcación</em>
