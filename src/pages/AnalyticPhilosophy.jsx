@@ -388,6 +388,31 @@ export default function AnalyticPhilosophy() {
           </div>
         </Link>
 
+        <Link
+          to="/semestre/5/filosofia-analitica/clase/28-septiembre"
+          className="analytic-class-card"
+        >
+          <div className="analytic-date">
+            <strong>XXVIII</strong>
+            <span>IX · MMXXVI</span>
+          </div>
+
+          <div className="analytic-class-copy">
+            <span>Duodécima clase · Russell y teoría de las descripciones</span>
+            <h3>Descripciones, referente y forma lógica</h3>
+            <p>
+              Del Russell ontológicamente abundante al giro de 1905:
+              teoría de las descripciones, rey de Francia, forma gramatical
+              frente a forma lógica, paráfrasis y bivalencia.
+            </p>
+          </div>
+
+          <div className="analytic-enter">
+            <span>Abrir análisis</span>
+            <b>↗</b>
+          </div>
+        </Link>
+
 </section>
 
       <section className="analytic-course-map">
