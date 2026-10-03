@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "id": "ethics-2026-08-18-achilles-agamemnon",
+      "target": "public/images/ethics/open/2026-08-18/achilles-agamemnon.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Achilles_weigert_de_geschenken_van_Agamemnon,_RP-P-1911-3299.jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Achilles_weigert_de_geschenken_van_Agamemnon%2C_RP-P-1911-3299.jpg?width=1280",
+      "title": "Achilles weigert de geschenken van Agamemnon",
+      "creator": "Taller de Bernard Picart",
+      "date": "1710",
+      "institution": "Rijksmuseum",
+      "license": "CC0 1.0 Universal / dominio público",
+      "use": "Clase de Ética 2026-08-18 · episodio de reparación Aquiles / Agamenón"
+    }
+  ]
+}

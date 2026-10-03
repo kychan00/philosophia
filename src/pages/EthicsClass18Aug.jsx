@@ -86,7 +86,7 @@ export default function EthicsClass18Aug() {
           <figure className="ethos18-figure">
             <div className="ethos18-figure-frame">
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Achilles_weigert_de_geschenken_van_Agamemnon%2C_RP-P-1911-3299.jpg/960px-Achilles_weigert_de_geschenken_van_Agamemnon%2C_RP-P-1911-3299.jpg"
+                src={`${import.meta.env.BASE_URL}images/ethics/open/2026-08-18/achilles-agamemnon.jpg`}
                 alt="Fénix, Áyax y Odiseo ofrecen a Aquiles regalos enviados por Agamenón; Aquiles los rechaza"
               />
             </div>
