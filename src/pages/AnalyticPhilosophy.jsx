@@ -197,6 +197,31 @@ export default function AnalyticPhilosophy() {
             <b>↗</b>
           </div>
         </Link>
+
+        <Link
+          to="/semestre/5/filosofia-analitica/clase/26-agosto"
+          className="analytic-class-card"
+        >
+          <div className="analytic-date">
+            <strong>XXVI</strong>
+            <span>VIII · MMXXVI</span>
+          </div>
+
+          <div className="analytic-class-copy">
+            <span>Cuarta clase · Føllesdal, demarcación y justificación</span>
+            <h3>Genealogía, argumento y análisis del lenguaje</h3>
+            <p>
+              Waismann, Moore y Quine; doctrinas, problemas, método y afiliación
+              genética; Frege, Bolzano y el límite de la genealogía; argumento,
+              justificación y análisis lingüístico como herramienta.
+            </p>
+          </div>
+
+          <div className="analytic-enter">
+            <span>Abrir análisis</span>
+            <b>↗</b>
+          </div>
+        </Link>
         <Link
           to="/semestre/5/filosofia-analitica/clase/31-agosto"
           className="analytic-class-card"
@@ -206,7 +231,7 @@ export default function AnalyticPhilosophy() {
             <span>VIII · MMXXVI</span>
           </div>
           <div className="analytic-class-copy">
-            <span>Cuarta clase · Lenguaje, justificación y conocimiento</span>
+            <span>Quinta clase · Lenguaje, justificación y conocimiento</span>
             <h3>Wittgenstein contra Wittgenstein</h3>
             <p>
               Argumentación racional, equilibrio reflexivo, giro lingüístico,
@@ -226,7 +251,7 @@ export default function AnalyticPhilosophy() {
             <span>IX · MMXXVI</span>
           </div>
           <div className="analytic-class-copy">
-            <span>Quinta clase · Hermenéutica, positivismo y demarcación</span>
+            <span>Sexta clase · Hermenéutica, positivismo y demarcación</span>
             <h3>¿Qué hace analítica a la filosofía analítica?</h3>
             <p>
               Ciencia unificada, Comte, positivismo lógico, realismo,
@@ -248,7 +273,7 @@ export default function AnalyticPhilosophy() {
           </div>
 
           <div className="analytic-class-copy">
-            <span>Sexta clase &middot; Hacker, Frege y el giro linguistico</span>
+            <span>Séptima clase &middot; Hacker, Frege y el giro linguistico</span>
             <h3>Lenguaje, logica y tradicion analitica</h3>
             <p>
               Contexto historico de la filosofia analitica, giro linguistico,
@@ -272,7 +297,7 @@ export default function AnalyticPhilosophy() {
           </div>
 
           <div className="analytic-class-copy">
-            <span>Séptima clase · Frege, Kant y objetividad</span>
+            <span>Octava clase · Frege, Kant y objetividad</span>
             <h3>Pensamiento, verdad y condiciones del conocer</h3>
             <p>
               Pensamiento frente a pensar, forma lógica, platonismo de Frege,
@@ -297,7 +322,7 @@ export default function AnalyticPhilosophy() {
           </div>
 
           <div className="analytic-class-copy">
-            <span>Octava clase · Frege, Russell y Wittgenstein</span>
+            <span>Novena clase · Frege, Russell y Wittgenstein</span>
             <h3>Pensamiento, lenguaje, representación y límites</h3>
             <p>
               Pensamiento objetivo y tercer reino, giro lingüístico,
@@ -323,7 +348,7 @@ export default function AnalyticPhilosophy() {
           </div>
 
           <div className="analytic-class-copy">
-            <span>Novena clase · G. E. Moore y los orígenes</span>
+            <span>Décima clase · G. E. Moore y los orígenes</span>
             <h3>Platonismo, análisis y sentido común</h3>
             <p>
               Idealismo británico, realismo pluralista, conceptos y proposiciones,
@@ -348,7 +373,7 @@ export default function AnalyticPhilosophy() {
           </div>
 
           <div className="analytic-class-copy">
-            <span>Décima clase · Bertrand Russell</span>
+            <span>Undécima clase · Bertrand Russell</span>
             <h3>Relaciones, análisis y objetividad matemática</h3>
             <p>
               Relaciones externas, pluralidad, análisis contra síntesis,
