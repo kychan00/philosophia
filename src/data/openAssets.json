@@ -288,6 +288,18 @@
       "institution": "reproducción histórica",
       "license": "dominio público / Public Domain Mark 1.0",
       "use": "Ontología II 2026-09-07 · condiciones del conocer y giro trascendental"
+    },
+    {
+      "id": "ontology-2026-09-09-kant-kdrv-1781",
+      "target": "public/images/ontologia/open/2026-09-09/kant-kdrv-1781.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Kant-KdrV-1781.png",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kant-KdrV-1781.png?width=1280",
+      "title": "Portada de la primera edición de Kritik der reinen Vernunft",
+      "creator": "Immanuel Kant; autor material de la portada no identificado",
+      "date": "1781",
+      "institution": "edición de Johann Friedrich Hartknoch, Riga",
+      "license": "dominio público / Public Domain Mark 1.0",
+      "use": "Ontología II 2026-09-09 · Introducción, juicios sintéticos a priori y condiciones del conocer"
     }
   ]
 }

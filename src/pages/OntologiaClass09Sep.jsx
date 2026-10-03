@@ -1,5 +1,9 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
+import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema'
+import '../components/OntologyArchiveClass.css'
+import './OntologiaClass17AugArchive.css'
+import './OntologiaClass09SepArchive.css'
 import './OntologiaClass07Sep.css'
 import './OntologiaClass09Sep.css'
 
@@ -80,6 +84,37 @@ const architecture = [
   },
 ]
 
+const atlasSchema = {
+  layout: 'flow',
+  direction: 'vertical',
+  flowGap: 50,
+  minHeight: 1040,
+  fitPadding: 56,
+  sizeHint: 'tall',
+  nodes: [
+    { id: 'experience', label: 'experiencia', caption: 'todo conocimiento comienza aquí', shapeRole: 'concept', emphasis: true, tone: 'accent' },
+    { id: 'apriori', label: 'a priori', caption: 'no todo procede de la experiencia', shapeRole: 'structure' },
+    { id: 'judgments', label: 'juicios', caption: 'analítico · sintético', shapeRole: 'concept' },
+    { id: 'sap', label: 'sintético a priori', caption: 'amplía + universal / necesario', shapeRole: 'mediation' },
+    { id: 'time', label: 'tiempo', caption: 'sucesión · 7 + 5 = 12', shapeRole: 'structure' },
+    { id: 'space', label: 'espacio', caption: 'geometría · forma sensible', shapeRole: 'structure' },
+    { id: 'faculties', label: 'facultades', caption: 'sensibilidad · entendimiento', shapeRole: 'concept' },
+    { id: 'causality', label: 'causalidad', caption: 'categoría del entendimiento', shapeRole: 'mediation' },
+    { id: 'limit', label: 'límite', caption: 'metafísica · experiencia posible', shapeRole: 'result', tone: 'accent' },
+  ],
+  edges: [
+    { from: 'experience', to: 'apriori', label: 'no agota', relationKind: 'derives' },
+    { from: 'apriori', to: 'judgments', label: 'se examina mediante', relationKind: 'derives' },
+    { from: 'judgments', to: 'sap', label: 'culmina en', relationKind: 'derives' },
+    { from: 'sap', to: 'time', label: 'se ejemplifica con', relationKind: 'derives' },
+    { from: 'time', to: 'space', label: 'se articula con', relationKind: 'secondary' },
+    { from: 'space', to: 'faculties', label: 'pertenece a', relationKind: 'derives' },
+    { from: 'faculties', to: 'causality', label: 'permite pensar', relationKind: 'derives' },
+    { from: 'causality', to: 'limit', label: 'reformula', relationKind: 'derives' },
+  ],
+  animation: { mode: 'sequence', nodeDuration: .27, edgeDuration: .29 },
+}
+
 const goToSection = (id) =>
   document.getElementById(id)?.scrollIntoView({
     behavior: 'smooth',
@@ -115,70 +150,117 @@ export default function OntologiaClass09Sep() {
   )
 
   return (
-    <main className="ontsep7-page ontsep9-page">
-      <nav className="ontsep7-nav">
-        <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
-        <Link to="/" className="ontsep7-brand">Φ · Philosophia</Link>
-        <span>IX · IX · MMXXVI</span>
-      </nav>
+    <main className="ontsep7-page ontsep9-page oa-page oaf-page oaf-sep9-page">
+      <div className="oa-backdrop" aria-hidden="true" />
 
-      <header className="ontsep7-hero ontsep9-hero">
-        <div className="ontsep7-grid" aria-hidden="true" />
-        <div className="ontsep7-ghost ontsep9-ghost" aria-hidden="true">synthetisch</div>
+      <div className="oa-brochure oaf-brochure oaf-sep9-brochure">
+        <nav className="oa-nav">
+          <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
+          <Link to="/" className="oa-brand">Φ · Philosophia</Link>
+          <span>IX · IX · MMXXVI</span>
+        </nav>
 
-        <div className="ontsep7-hero-inner">
-          <div>
-            <p className="ontsep7-kicker">FI190 · Ontología II · 9 de septiembre de 2026</p>
+        <header className="oa-cover oaf-cover">
+          <div className="oa-cover-copy">
+            <span className="oa-kicker">Archivum ontologicum · fol. XIX · iudicia</span>
+
             <h1>
-              Kant:
+              Kant
               <em>juicios y condiciones del conocer</em>
             </h1>
-            <p className="ontsep7-lead">
+
+            <p className="oa-subtitle">
+              experientia · a priori · iudicium · tempus · spatium
+            </p>
+
+            <p className="oaf-lead">
               La Introducción de la <em>Crítica de la razón pura</em> concentra
               el problema: explicar cómo puede haber conocimiento que amplía lo
               que sabemos y, sin embargo, reclama necesidad y universalidad.
             </p>
 
-            <div className="ontsep7-question">
-              <span>PREGUNTA RECTORA</span>
+            <div className="oa-question">
+              <small>QUAESTIO</small>
               <strong>¿Cómo son posibles los juicios sintéticos a priori?</strong>
             </div>
 
-            <div className="ontsep7-hero-actions">
-              <button type="button" onClick={() => goToSection('mapa')}>
-                Recorrer la clase ↓
-              </button>
-              <Link to="/tareas/ontologia-ii/kant-critica-razon-pura-introduccion">
-                Abrir mapa de la Introducción ↗
-              </Link>
-              <Link to="/tareas/ontologia-ii/kant-critica-razon-pura-estetica-trascendental">
-                Abrir Estética trascendental ↗
-              </Link>
+            <div className="oaf-axis" aria-label="Eje conceptual">
+              <span>experientia</span><b>→</b>
+              <span>a priori</span><b>→</b>
+              <span>iudicium</span><b>→</b>
+              <span>tempus / spatium</span><b>→</b>
+              <span>experiencia posible</span>
+            </div>
+
+            <div className="oaf-sep7-actions">
+              <button type="button" onClick={() => goToSection('mapa')}>Recorrer la clase ↓</button>
+              <Link to="/tareas/ontologia-ii/kant-critica-razon-pura-introduccion">Abrir mapa de la Introducción ↗</Link>
+              <Link to="/tareas/ontologia-ii/kant-critica-razon-pura-estetica-trascendental">Abrir Estética trascendental ↗</Link>
             </div>
           </div>
 
-          <aside className="ontsep7-hero-schema ontsep9-schema">
-            <span>NÚCLEO DEL PROBLEMA</span>
+          <figure className="oa-cover-object">
+            <div className="oa-cover-frame">
+              <span className="oa-tape oa-tape-a" aria-hidden="true" />
+              <span className="oa-tape oa-tape-b" aria-hidden="true" />
+              <img
+                src={`${import.meta.env.BASE_URL}images/ontologia/open/2026-09-09/kant-kdrv-1781.png`}
+                alt="Portada de la primera edición de la Crítica de la razón pura de Immanuel Kant, 1781"
+              />
+            </div>
+            <figcaption>
+              <span>IMAGO XIX · CRITICA RATIONIS PURAE</span>
+              <strong>Crítica de la razón pura · primera edición</strong>
+              <small>Riga · Johann Friedrich Hartknoch · 1781.</small>
+              <small className="oa-image-rights">Dominio público</small>
+              <a
+                className="oa-image-source"
+                href="https://commons.wikimedia.org/wiki/File:Kant-KdrV-1781.png"
+                target="_blank"
+                rel="noreferrer"
+              >
+                fuente de imagen ↗
+              </a>
+            </figcaption>
+          </figure>
+        </header>
+
+        <section className="oaf-prologue">
+          <div className="oaf-prologue-copy">
+            <small>INTRODUCTIO</small>
+            <h2>De la experiencia a las condiciones a priori</h2>
+            <div className="oaf-questions">
+              <p>¿Qué comienza con la experiencia?</p>
+              <p>¿Qué no procede de ella?</p>
+              <p>¿Cómo puede una síntesis ser necesaria?</p>
+            </div>
+            <p>
+              La clase pasa del contraste empírico/puro a la clasificación de
+              los juicios y, desde ahí, a espacio, tiempo, facultades, causalidad
+              y condiciones de posibilidad de la experiencia.
+            </p>
+          </div>
+
+          <div className="oaf-armarium">
+            <small>ARMARIUM VERBORUM</small>
+            <h2>Vocabulario de la Introducción</h2>
             <div>
-              <small>SINTÉTICO</small>
-              <strong>amplía conocimiento</strong>
-              <p>El predicado añade algo que no estaba dado por mero análisis.</p>
+              <article><span>Latín</span><strong>experientia</strong><p>Punto de comienzo del conocimiento humano.</p></article>
+              <article><span>Latín</span><strong>a priori</strong><p>Independencia respecto de una experiencia particular.</p></article>
+              <article><span>Latín</span><strong>iudicium</strong><p>Juicio; relación que puede ser analítica, sintética o sintética a priori.</p></article>
+              <article><span>Latín</span><strong>tempus · spatium</strong><p>Tiempo y espacio como condiciones de la sensibilidad.</p></article>
             </div>
-            <b>+</b>
-            <div className="active">
-              <small>A PRIORI</small>
-              <strong>necesidad + universalidad</strong>
-              <p>No depende de reunir una serie de observaciones empíricas.</p>
-            </div>
-            <b>=</b>
-            <div>
-              <small>PROBLEMA KANTIANO</small>
-              <strong>ciencia posible</strong>
-              <p>Explicar matemática, física y el límite de la metafísica.</p>
-            </div>
-          </aside>
-        </div>
-      </header>
+          </div>
+        </section>
+
+        <section className="oa-wine oaf-atlas oaf-sep9-atlas">
+          <div className="oa-wine-title"><span>SCHEMA · ATLAS</span><h2>atlas</h2></div>
+          <p>
+            El Atlas orienta la lectura, pero no reemplaza ninguna de las catorce
+            secciones, matrices ni interacciones de la página original.
+          </p>
+          <div className="oa-schema-card"><AnimatedConceptSchema schema={atlasSchema} /></div>
+        </section>
 
       <div className="ontsep7-layout">
         <aside className="ontsep7-index">
@@ -271,7 +353,7 @@ export default function OntologiaClass09Sep() {
                 <h3>ser en cuanto ser</h3>
                 <p>
                   La filosofía primera investiga los sentidos del ser y remite
-                  esa multiplicidad a la ousía o sustancia.
+                  esa multiplicidad a la sustancia.
                 </p>
               </article>
               <b>→</b>
@@ -625,11 +707,24 @@ export default function OntologiaClass09Sep() {
         </article>
       </div>
 
-      <footer className="ontology-program-footer ontsep9-footer">
+      <section className="oaf-documentum">
+        <div><small>DOCUMENTUM</small><h2>Criterio documental</h2></div>
+        <p>
+          Esta edición conserva las catorce secciones, la matriz de juicios,
+          la arquitectura de la Crítica y los estados interactivos sobre
+          conocimiento puro/empírico, juicios, tiempo y arquitectura. También
+          conserva los ejemplos 7 + 5 = 12, espacio/geometría, causalidad,
+          sujeto trascendental, IA y materia/forma. ARCHIVUM añade presentación;
+          no sustituye el contenido.
+        </p>
+      </section>
+
+      <footer className="oa-footer">
         <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
-        <span>sensibilitas · intellectus · ratio</span>
+        <span>☙ sensibilitas · intellectus · ratio ❧</span>
         <span>IX · IX · MMXXVI</span>
       </footer>
+      </div>
     </main>
   )
 }

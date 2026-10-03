@@ -1,0 +1,14 @@
+.oaf-sep9-page{background:#2b211b}
+.oaf-sep9-brochure{overflow:hidden}
+.oaf-sep9-brochure>.ontsep7-layout{max-width:none;margin:0;background:var(--oa-paper)}
+.oaf-sep9-brochure .ontsep7-index{top:20px;background:#eee5d7}
+.oaf-sep9-brochure .ontsep7-article>section{background:var(--oa-paper)}
+.oaf-sep9-brochure .ontsep7-article>section:nth-child(even){background:#f2ebdf}
+.oaf-sep9-brochure .ontsep9-heading h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2.75rem,5vw,4.5rem);line-height:.95}
+.oaf-sep9-brochure .ontsep9-heading>span{font-family:'Cormorant Garamond',Georgia,serif;color:rgba(122,45,30,.14)}
+.oaf-sep9-brochure .ontsep7-tabs button.active{border-color:var(--oa-wine);background:rgba(122,45,30,.08)}
+.oaf-sep9-brochure .ontsep7-callout,.oaf-sep9-brochure .ontsep7-thesis,.oaf-sep9-brochure .ontsep7-question{border-left-color:var(--oa-wine)}
+.oaf-sep9-brochure .ontsep9-formula b,.oaf-sep9-brochure .ontsep9-cause b,.oaf-sep9-brochure .ontsep9-ai b,.oaf-sep9-brochure .ontsep9-matter b{color:var(--oa-wine)}
+.oaf-sep9-brochure .ontsep9-formula .active,.oaf-sep9-brochure .ontsep9-ai .active,.oaf-sep9-brochure .ontsep9-matter .active{border-color:var(--oa-wine);background:rgba(122,45,30,.06)}
+.oaf-sep9-atlas .animated-concept-schema{min-height:1040px!important}
+@media(max-width:780px){.oaf-sep9-brochure .ontsep7-article>section{padding-left:24px;padding-right:24px}}
