@@ -12,6 +12,8 @@ const classes = [
   {date:'XXIX',month:'IV',route:'29-abril',state:'Fase II · Folio completo',title:'Materia, forma y prioridad ontológica',copy:'Separabilidad, determinación, forma, compuesto y tránsito hacia la esencia.'},
   {date:'VI',month:'V',route:'06-mayo',state:'Fase II · Folio completo',title:'Entidad, esencia y accidente',copy:'Lo que una cosa es por sí, accidente, algo determinado y definición.'},
   {date:'XI',month:'V',route:'11-mayo',state:'Fase II · Folio completo',title:'Definición, analogía y compuestos',copy:'Esencia primaria, usos derivados, analogía, adición, repetición y definición no primaria.'},
+  {date:'XVIII',month:'V',route:'18-mayo',state:'Fase III · Folio completo',title:'Tomás de Aquino: ente, esencia y sustancias compuestas',copy:'Ens, essentia, quididad, materia y forma, materia signada, género, especie y diferencia.'},
+  {date:'XX',month:'V',route:'20-mayo',state:'Fase III · Folio completo',title:'Tomás de Aquino: esencia, esse y accidentes',copy:'Esencia y esse, sustancias intelectuales, sustancias materiales, accidentes y esencia analógica.'},
 ]
 
 export default function OntologiaI(){
@@ -28,8 +30,8 @@ export default function OntologiaI(){
         <h1>Ontología <em>I</em></h1>
         <p>Problemas clásicos · ser · entidad · sustancia · esencia · predicación</p>
         <div>
-          <strong>FASES I–II</strong>
-          <span>Apertura · Metafísica IV · Metafísica VII</span>
+          <strong>FASES I–III</strong>
+          <span>Apertura · Metafísica IV · Metafísica VII · Tomás de Aquino</span>
         </div>
       </header>
 
@@ -56,9 +58,9 @@ export default function OntologiaI(){
       </section>
 
       <section className="oi-next">
-        <small>fase siguiente</small>
-        <h2>Tomás de Aquino</h2>
-        <p>Ente, esencia, quididad, sustancias compuestas, materia signada, esse y accidentes.</p>
+        <small>continuación del archivo</small>
+        <h2>Ontología II</h2>
+        <p>Racionalismo moderno: Descartes, Spinoza y Leibniz. Los sistemas 2D existentes permanecen intactos.</p>
       </section>
 
       <footer className="oi-footer">

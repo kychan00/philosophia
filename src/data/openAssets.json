@@ -192,6 +192,30 @@
       "institution": "reproducción histórica",
       "license": "dominio público",
       "use": "Ontología 2026-05-11 · definición, analogía y compuestos"
+    },
+    {
+      "id": "ontology-2026-05-18-thomas-crivelli",
+      "target": "public/images/ontologia/open/2026-05-18/tomas-aquino-crivelli.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Saint_Thomas_Aquinas_(Crivelli,_15th-century).jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Saint_Thomas_Aquinas_%28Crivelli%2C_15th-century%29.jpg?width=1280",
+      "title": "Santo Tomás de Aquino",
+      "creator": "Carlo Crivelli",
+      "date": "1476",
+      "institution": "National Gallery, Londres",
+      "license": "dominio público / Public Domain Mark 1.0",
+      "use": "Ontología 2026-05-18 · ente, esencia y sustancias compuestas"
+    },
+    {
+      "id": "ontology-2026-05-20-thomas-manuscript-basel",
+      "target": "public/images/ontologia/open/2026-05-20/manuscrito-tomas-aquino-basilea.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Basel,_Universit%C3%A4tsbibliothek,_A_I_14,_f._70v_%E2%80%93_Thomas_Aquinas,_Summa_theologiae_(prima_pars.JPG",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Basel%2C_Universit%C3%A4tsbibliothek%2C_A_I_14%2C_f._70v_%E2%80%93_Thomas_Aquinas%2C_Summa_theologiae_%28prima_pars.JPG?width=1280",
+      "title": "Tomás de Aquino, manuscrito de la Summa theologiae, fol. 70v",
+      "creator": "Tomás de Aquino; copista no identificado",
+      "date": "siglo XV",
+      "institution": "Biblioteca Universitaria de Basilea",
+      "license": "dominio público / Public Domain Mark 1.0",
+      "use": "Ontología 2026-05-20 · esencia, esse y accidentes"
     }
   ]
 }

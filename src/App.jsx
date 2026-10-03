@@ -32,6 +32,8 @@ const OntologyClass27Apr = lazy(() => import('./pages/OntologyClass27Apr'))
 const OntologyClass29Apr = lazy(() => import('./pages/OntologyClass29Apr'))
 const OntologyClass06May = lazy(() => import('./pages/OntologyClass06May'))
 const OntologyClass11May = lazy(() => import('./pages/OntologyClass11May'))
+const OntologyClass18May = lazy(() => import('./pages/OntologyClass18May'))
+const OntologyClass20May = lazy(() => import('./pages/OntologyClass20May'))
 const PhilosophyLogic = lazy(() => import('./pages/PhilosophyLogic'))
 const PhilosophyLogicClass01 = lazy(() => import('./pages/PhilosophyLogicClass01'))
 const PhilosophyLogicClass02 = lazy(() => import('./pages/PhilosophyLogicClass02'))
@@ -168,6 +170,8 @@ function App() {
         <Route path="/semestre/4/ontologia/clase/29-abril" element={<OntologyClass29Apr />} />
         <Route path="/semestre/4/ontologia/clase/06-mayo" element={<OntologyClass06May />} />
         <Route path="/semestre/4/ontologia/clase/11-mayo" element={<OntologyClass11May />} />
+        <Route path="/semestre/4/ontologia/clase/18-mayo" element={<OntologyClass18May />} />
+        <Route path="/semestre/4/ontologia/clase/20-mayo" element={<OntologyClass20May />} />
         <Route
           path="/semestre/4/filosofia-de-la-logica"
           element={<PhilosophyLogic />}
