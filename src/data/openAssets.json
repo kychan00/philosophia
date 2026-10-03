@@ -132,6 +132,66 @@
       "institution": "National Gallery of Art",
       "license": "CC0 1.0 Universal",
       "use": "Ontología 2026-04-15 · entidad, accidente y predicación"
+    },
+    {
+      "id": "ontology-2026-04-20-aristotle-altemps",
+      "target": "public/images/ontologia/open/2026-04-20/aristoteles-altemps.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Aristotle_Altemps_Detail.jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aristotle_Altemps_Detail.jpg?width=1280",
+      "title": "Retrato de Aristóteles, Palacio Altemps",
+      "creator": "copia antigua del tipo de Lisipo; fotografía de Jastrow",
+      "date": "fotografía 2006",
+      "institution": "Museo Nacional Romano, Palacio Altemps",
+      "license": "dominio público",
+      "use": "Ontología 2026-04-20 · entidad como sentido primero de ser"
+    },
+    {
+      "id": "ontology-2026-04-27-metaphysics-incunabulum",
+      "target": "public/images/ontologia/open/2026-04-27/metafisica-incunable-1483.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Aristotle,_Metaphysics,_Incunabulum.jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aristotle%2C_Metaphysics%2C_Incunabulum.jpg?width=1280",
+      "title": "Metafísica de Aristóteles, incunable iluminado",
+      "creator": "Aristóteles; iluminador no identificado",
+      "date": "1483",
+      "institution": "Biblioteca y Museo Morgan",
+      "license": "dominio público",
+      "use": "Ontología 2026-04-27 · entidad como sujeto y sustrato"
+    },
+    {
+      "id": "ontology-2026-04-29-aristotle-spada",
+      "target": "public/images/ontologia/open/2026-04-29/estatua-aristoteles-spada.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Greece_from_the_Coming_of_the_Hellenes_to_AD._14,_page_359,_Aristotle.jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Greece_from_the_Coming_of_the_Hellenes_to_AD._14%2C_page_359%2C_Aristotle.jpg?width=1280",
+      "title": "Estatua de Aristóteles en el Palacio Spada",
+      "creator": "fotografía de Anderson; reproducción publicada en 1911",
+      "date": "1911",
+      "institution": "Palacio Spada",
+      "license": "CC0 1.0 Universal",
+      "use": "Ontología 2026-04-29 · materia, forma y prioridad ontológica"
+    },
+    {
+      "id": "ontology-2026-05-06-metaphysics-vaticanus",
+      "target": "public/images/ontologia/open/2026-05-06/metafisica-vaticanus-256.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Aristotle,_Metaphysics,_Vaticanus_graecus_256.jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aristotle%2C_Metaphysics%2C_Vaticanus_graecus_256.jpg?width=1280",
+      "title": "Metafísica de Aristóteles, Vaticanus graecus 256, fol. 124r",
+      "creator": "Aristóteles; copista no identificado",
+      "date": "1311–1321",
+      "institution": "Biblioteca Apostólica Vaticana",
+      "license": "dominio público",
+      "use": "Ontología 2026-05-06 · esencia y accidente"
+    },
+    {
+      "id": "ontology-2026-05-11-aristotle-engraving",
+      "target": "public/images/ontologia/open/2026-05-11/aristoteles-grabado.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Aristotle_1.jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aristotle_1.jpg?width=1280",
+      "title": "Aristóteles",
+      "creator": "Ambroise Tardieu",
+      "date": "siglo XIX",
+      "institution": "reproducción histórica",
+      "license": "dominio público",
+      "use": "Ontología 2026-05-11 · definición, analogía y compuestos"
     }
   ]
 }

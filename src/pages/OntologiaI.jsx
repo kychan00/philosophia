@@ -6,7 +6,12 @@ const classes = [
   {date:'XXIII',month:'III',route:'23-marzo',state:'Fragmento',title:'Lo que es en tanto que es',copy:'Documento mínimo: encabezado, nodos M/F/G/A y la anotación “Ente → Accidente” en M.'},
   {date:'XXV',month:'III',route:'25-marzo',state:'Folio completo',title:'Principio de no contradicción',copy:'Primer principio, regreso infinito, determinación, lenguaje, predicación, modalidad y verdad.'},
   {date:'XIII',month:'IV',route:'13-abril',state:'Fragmento',title:'Tipos de ser',copy:'Esquema breve sobre ser, sujeto, predicado y accidente; sin reconstrucciones añadidas.'},
-  {date:'XV',month:'IV',route:'15-abril',state:'Folio completo',title:'Entidad, accidente y predicación',copy:'Sujeto, coincidencia accidental, falsa unidad, regreso y determinación ontológica.'},
+  {date:'XV',month:'IV',route:'15-abril',state:'Fase I · Folio completo',title:'Entidad, accidente y predicación',copy:'Sujeto, coincidencia accidental, falsa unidad, regreso y determinación ontológica.'},
+  {date:'XX',month:'IV',route:'20-abril',state:'Fase II · Folio completo',title:'La entidad como sentido fundamental',copy:'Ser en muchos sentidos, prioridad de la entidad y candidatos sensibles, matemáticos y suprasensibles.'},
+  {date:'XXVII',month:'IV',route:'27-abril',state:'Fase II · Folio completo',title:'Entidad como sujeto y sustrato',copy:'Esencia, universal, género, sujeto, materia, forma, compuesto e indeterminación.'},
+  {date:'XXIX',month:'IV',route:'29-abril',state:'Fase II · Folio completo',title:'Materia, forma y prioridad ontológica',copy:'Separabilidad, determinación, forma, compuesto y tránsito hacia la esencia.'},
+  {date:'VI',month:'V',route:'06-mayo',state:'Fase II · Folio completo',title:'Entidad, esencia y accidente',copy:'Lo que una cosa es por sí, accidente, algo determinado y definición.'},
+  {date:'XI',month:'V',route:'11-mayo',state:'Fase II · Folio completo',title:'Definición, analogía y compuestos',copy:'Esencia primaria, usos derivados, analogía, adición, repetición y definición no primaria.'},
 ]
 
 export default function OntologiaI(){
@@ -23,8 +28,8 @@ export default function OntologiaI(){
         <h1>Ontología <em>I</em></h1>
         <p>Problemas clásicos · ser · entidad · sustancia · esencia · predicación</p>
         <div>
-          <strong>FASE I</strong>
-          <span>Apertura · Metafísica IV · fundamentos de la predicación</span>
+          <strong>FASES I–II</strong>
+          <span>Apertura · Metafísica IV · Metafísica VII</span>
         </div>
       </header>
 
@@ -52,8 +57,8 @@ export default function OntologiaI(){
 
       <section className="oi-next">
         <small>fase siguiente</small>
-        <h2>Metafísica VII</h2>
-        <p>Entidad como sentido fundamental, sujeto y sustrato, materia, forma, esencia, definición y analogía.</p>
+        <h2>Tomás de Aquino</h2>
+        <p>Ente, esencia, quididad, sustancias compuestas, materia signada, esse y accidentes.</p>
       </section>
 
       <footer className="oi-footer">
