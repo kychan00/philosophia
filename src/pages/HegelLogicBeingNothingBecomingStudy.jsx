@@ -394,9 +394,14 @@ export default function HegelLogicBeingNothingBecomingStudy() {
             </p>
           </div>
 
-          <Link to="/estudios/ontologia-ii/hegel-fenomenologia-prologo">
-            Volver al Prólogo de Hegel ↗
-          </Link>
+          <div className="hegel-logic-next-actions">
+            <Link to="/estudios/ontologia-ii/hegel-fenomenologia-prologo">
+              Volver al Prólogo de Hegel ↗
+            </Link>
+            <Link to="/estudios/ontologia-ii/marx-critica-dialectica-hegeliana">
+              Continuar con Marx ↗
+            </Link>
+          </div>
         </section>
 
         <footer className="oa-footer">

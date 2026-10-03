@@ -384,6 +384,18 @@
       "institution": "reproducción histórica",
       "license": "dominio público",
       "use": "Ontología II · umbral programático Hegel · ser puro, nada pura, devenir y Dasein"
+    },
+    {
+      "id": "ontology-marx-mayall-1875",
+      "target": "public/images/ontologia/open/marx/marx-mayall-1875.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Karl_Marx_by_John_Jabez_Edwin_Mayall_1875_-_Restored_(cropped).png",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Karl_Marx_by_John_Jabez_Edwin_Mayall_1875_-_Restored_%28cropped%29.png?width=1280",
+      "title": "Retrato de Karl Marx",
+      "creator": "John Jabez Edwin Mayall",
+      "date": "1875",
+      "institution": "Städel Museum",
+      "license": "dominio público / Public Domain Mark 1.0",
+      "use": "Ontología II · umbral programático Marx · crítica de la dialéctica hegeliana"
     }
   ]
 }

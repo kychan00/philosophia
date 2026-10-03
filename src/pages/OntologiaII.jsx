@@ -530,6 +530,30 @@ export default function OntologiaII() {
             <b>↗</b>
           </div>
         </Link>
+
+        <Link
+          to="/estudios/ontologia-ii/marx-critica-dialectica-hegeliana"
+          className="ontology-program-class-card"
+        >
+          <div className="ontology-program-date">
+            <strong>V</strong>
+            <span>UMBRAL</span>
+          </div>
+
+          <div className="ontology-program-class-copy">
+            <span>Dossier programático · Marx</span>
+            <h3>Crítica de la dialéctica hegeliana</h3>
+            <p>
+              Negatividad, trabajo, objetivación, enajenación, hombre natural
+              y crítica de la superación puramente abstracta.
+            </p>
+          </div>
+
+          <div className="ontology-program-enter">
+            <span>Abrir dossier</span>
+            <b>↗</b>
+          </div>
+        </Link>
       </section>
 
 
