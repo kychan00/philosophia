@@ -1,319 +1,170 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
+import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema'
+import {
+  shameAutonomySchema,
+  emotionDeliberationSchema,
+  democritusMaxims,
+  deliberationCases,
+} from '../data/ethicsClass27Aug'
+import './EthicsClass27Aug.css'
 
 const sections = [
-  ['00', 'mapa', 'Mapa de la sesión'],
-  ['01', 'emocion', 'Emoción, razón e idea adecuada'],
-  ['02', 'maximas', 'Demócrito y las máximas morales'],
-  ['03', 'verguenza', 'Vergüenza externa e interna'],
-  ['04', 'dignidad', 'Dignidad, poder y vulnerabilidad'],
-  ['05', 'conciencia', 'Vigilancia interior y autonomía'],
-  ['06', 'reparacion', 'Perdón, reparación y reintegración'],
-  ['07', 'casos', 'Laboratorio de deliberación'],
-  ['08', 'transicion', 'De cultura de vergüenza a ética'],
-  ['09', 'tarea', 'Tarea: máxima + caso concreto'],
+  ['00', 'problema', 'Problema'],
+  ['01', 'emocion', 'Emoción y deliberación'],
+  ['02', 'maximas', 'Demócrito y máximas'],
+  ['03', 'verguenza', 'Vergüenza externa / interna'],
+  ['04', 'dignidad', 'Dignidad y vulnerabilidad'],
+  ['05', 'conciencia', 'Conciencia y autonomía'],
+  ['06', 'reparacion', 'Reparación'],
+  ['07', 'tarea', 'Tarea'],
 ]
 
-const maxims = [
-  {
-    id: 'uno',
-    label: 'Máxima I',
-    title: 'Vergüenza ante uno mismo',
-    text:
-      'La persona debe sentir vergüenza primero ante sí misma cuando realiza una acción vergonzosa.',
-    key:
-      'La mirada moral no depende exclusivamente de que alguien me descubra.',
-  },
-  {
-    id: 'dos',
-    label: 'Máxima II',
-    title: 'Actuar correctamente incluso a solas',
-    text:
-      'Incluso cuando estés solo, no digas ni hagas nada vergonzoso.',
-    key:
-      'La conciencia funciona como testigo interior cuando desaparecen policía, reputación y vigilancia externa.',
-  },
-  {
-    id: 'tres',
-    label: 'Máxima III',
-    title: 'No vivir para el “qué dirán”',
-    text:
-      'No te avergüences más ante los demás que ante ti mismo.',
-    key:
-      'La desaprobación social no basta: hay que poder juzgar racionalmente si realmente se produjo un daño o una indignidad.',
-  },
-]
+function goToSection(id) {
+  document.getElementById(id)?.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  })
+}
 
-const cases = [
-  {
-    id: 'robo',
-    title: 'Robar un bien común',
-    question: 'Nadie me vio. ¿Eso vuelve aceptable la acción?',
-    facts:
-      'La persona toma algo perteneciente a una comunidad; nadie sabe quién fue y no existe castigo externo.',
-    analysis:
-      'El daño subsiste porque otras personas fueron privadas de un bien que necesitaban. La ausencia de vigilancia no elimina la dimensión moral.',
-    best: 'dos',
-  },
-  {
-    id: 'ninos',
-    title: 'Niños en un espacio público',
-    question: '¿Debo sentir vergüenza porque otros me miran mal?',
-    facts:
-      'Los niños hablan, juegan y hacen ruido de manera ordinaria. Algunas personas expresan desaprobación hacia los padres.',
-    analysis:
-      'La presión social puede ser injusta. La pregunta moral es si hubo daño, abuso o incumplimiento real de una responsabilidad, no sólo molestia ajena.',
-    best: 'tres',
-  },
-  {
-    id: 'ausente',
-    title: 'Hablar de alguien ausente',
-    question: '¿Es justo juzgar a quien no puede responder?',
-    facts:
-      'Un grupo discute y degrada a una persona que no está presente para explicar su posición.',
-    analysis:
-      'La justicia discursiva exige evitar inventar, humillar o reducir a alguien a insultos cuando carece de posibilidad de respuesta.',
-    best: 'uno',
-  },
-  {
-    id: 'vulnerable',
-    title: 'Abuso de una posición de fuerza',
-    question: '¿Qué vuelve especialmente vil esta acción?',
-    facts:
-      'Un adulto utiliza su fuerza o autoridad para humillar o dañar a una persona vulnerable.',
-    analysis:
-      'La asimetría de poder aumenta la responsabilidad. La acción degrada la humanidad del otro y explota una vulnerabilidad.',
-    best: 'uno',
-  },
-]
-
-const progression = [
-  ['Mirada externa', 'La comunidad me dice qué debe avergonzarme.'],
-  ['Interiorización', 'Aprendo normas, modelos y máximas de conducta.'],
-  ['Conciencia', 'Puedo reconocer lo que hice aunque nadie me observe.'],
-  ['Deliberación', 'Pregunto si realmente causé daño o actué indignamente.'],
-  ['Autonomía moral', 'Puedo justificar racionalmente mi acción sin depender sólo del “qué dirán”.'],
-]
-
-const concepts = [
-  ['Emoción', 'Puede motivar la acción sin sustituir necesariamente la deliberación racional.'],
-  ['Deliberación', 'Proceso de valorar posibilidades antes de actuar.'],
-  ['Idea adecuada', 'Comprensión más clara de aquello que realmente ocurre antes de decidir.'],
-  ['Máxima', 'Regla breve de conducta utilizada para orientar una acción concreta.'],
-  ['Sentencia moral', 'Formulación breve de sabiduría práctica.'],
-  ['Vergüenza', 'Experiencia moral asociada con reconocer una acción como indigna.'],
-  ['Conciencia', 'Capacidad de reconocer y evaluar las propias acciones.'],
-  ['Dignidad', 'Valor que exige tratar al otro de manera acorde con su humanidad.'],
-  ['Vileza', 'Acción degradante, especialmente cuando implica abuso o humillación.'],
-  ['Reparación', 'Intento de responder al daño causado.'],
-  ['Perdón', 'Proceso distinto de negar la responsabilidad; puede formar parte de la elaboración del daño.'],
-  ['Autonomía moral', 'Capacidad de juzgar las propias acciones sin depender exclusivamente de la presión social.'],
-]
-
-const goToSection = (id) =>
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-
-function SectionHead({ n, eyebrow, children }) {
+function Heading({ number, eyebrow, children }) {
   return (
-    <>
-      <span className="eth27-number">{n}</span>
-      <p className="eth27-eyebrow">{eyebrow}</p>
-      <h2>{children}</h2>
-    </>
+    <div className="ethos27-heading">
+      <span>{number}</span>
+      <div>
+        <p>{eyebrow}</p>
+        <h2>{children}</h2>
+      </div>
+    </div>
   )
 }
 
 export default function EthicsClass27Aug() {
-  const [emotionView, setEmotionView] = useState('emotion')
-  const [maximId, setMaximId] = useState('uno')
-  const [shameView, setShameView] = useState('external')
-  const [caseId, setCaseId] = useState('robo')
-  const [progressIndex, setProgressIndex] = useState(0)
-  const [taskMaxim, setTaskMaxim] = useState('dos')
-
+  const [maximId, setMaximId] = useState('alone')
   const maxim = useMemo(
-    () => maxims.find((item) => item.id === maximId) || maxims[0],
+    () => democritusMaxims.find((item) => item.id === maximId) || democritusMaxims[1],
     [maximId],
   )
-  const moralCase = cases.find((item) => item.id === caseId) || cases[0]
-  const chosenTaskMaxim =
-    maxims.find((item) => item.id === taskMaxim) || maxims[0]
 
   return (
-    <main className="eth27-page">
-      <nav className="eth27-nav">
+    <main className="ethos27-page">
+      <div className="ethos27-meander" aria-hidden="true" />
+
+      <nav className="ethos27-nav">
         <Link to="/semestre/5/etica">← Ética</Link>
-        <Link to="/" className="eth27-brand">Φ · Philosophia</Link>
+        <Link to="/" className="ethos27-brand"><span>Φ</span> Philosophia</Link>
         <span>XXVII · VIII · MMXXVI</span>
       </nav>
 
-      <header className="eth27-hero">
-        <div className="eth27-meander" aria-hidden="true" />
-        <div className="eth27-ghost" aria-hidden="true">ΑΙΔΩΣ</div>
+      <header className="ethos27-hero">
+        <div className="ethos27-columns" aria-hidden="true">
+          <span /><span /><span /><span /><span />
+        </div>
 
-        <div className="eth27-hero-inner">
-          <div className="eth27-hero-copy">
-            <p>Ética · cuarta clase · jueves 27 de agosto</p>
+        <div className="ethos27-hero-inner">
+          <div className="ethos27-hero-copy">
+            <p className="ethos27-kicker">ETHOS · Clase IV · Ética · Escuelas clásicas</p>
+            <div className="ethos27-medallion">IV</div>
+
+            <p className="ethos27-overline">
+              27 de agosto de 2026 · Cuarta sesión documentada
+            </p>
+
             <h1>
               Vergüenza,
               <em>conciencia y máxima</em>
             </h1>
-            <p className="eth27-lead">
-              La sesión sigue el tránsito desde una cultura de honor y vergüenza
-              hacia una conciencia capaz de juzgar sus propias acciones, incluso
-              cuando nadie observa. Demócrito aparece aquí no sólo como atomista,
-              sino como autor de sentencias destinadas a orientar la deliberación.
+
+            <p className="ethos27-lead">
+              La sesión estudia cómo una emoción puede entrar en deliberación,
+              cómo una máxima moral orienta decisiones concretas y cómo la
+              vergüenza deja de depender sólo de la mirada pública para
+              convertirse en juicio sobre la propia acción.
             </p>
 
-            <div className="eth27-hero-question">
-              <span>Pregunta central</span>
+            <div className="ethos27-question" id="problema">
+              <span>PROBLEMA DE LA SESIÓN</span>
               <strong>
-                ¿Cómo pasamos de actuar por la mirada de otros a deliberar
-                racionalmente sobre lo que nosotros mismos debemos hacer?
+                ¿Cómo pasamos de actuar por miedo al “qué dirán” a poder juzgar
+                racionalmente nuestras acciones incluso cuando nadie nos observa?
               </strong>
             </div>
           </div>
 
-          <aside className="eth27-hero-axis">
-            <span>GENEALOGÍA</span>
-            <div><b>EMOCIÓN</b><small>motivación</small></div>
-            <i>↓</i>
-            <div><b>MÁXIMA</b><small>orientación práctica</small></div>
-            <i>↓</i>
-            <div><b>CONCIENCIA</b><small>testigo interior</small></div>
-            <i>↓</i>
-            <div className="active"><b>AUTONOMÍA</b><small>deliberación racional</small></div>
-          </aside>
+          <figure className="ethos27-figure">
+            <div className="ethos27-figure-frame">
+              <img
+                src={`${import.meta.env.BASE_URL}images/ethics/open/2026-08-27/democritus-abdera.jpg`}
+                alt="Retrato grabado de Demócrito de Abdera"
+              />
+            </div>
+            <figcaption>
+              <span>IMAGO IV · DEMOCRITUS</span>
+              <strong>Demócrito de Abdera</strong>
+              <small>
+                Rijksmuseum · 1768–1817 · CC0 1.0
+              </small>
+            </figcaption>
+          </figure>
         </div>
       </header>
 
-      <div className="eth27-layout">
-        <aside className="eth27-index">
+      <div className="ethos27-layout">
+        <aside className="ethos27-index">
           <p>Index lectionis</p>
-          {sections.map(([n, id, label]) => (
-            <button type="button" key={id} onClick={() => goToSection(id)}>
-              <span>{n}</span>{label}
+          {sections.map(([number, id, label]) => (
+            <button key={id} type="button" onClick={() => goToSection(id)}>
+              <span>{number}</span>
+              <b>{label}</b>
             </button>
           ))}
         </aside>
 
-        <article className="eth27-article">
-          <section id="mapa">
-            <SectionHead n="00" eyebrow="Via sessionis">
-              De la emoción a la autonomía moral
-            </SectionHead>
-            <p>
-              La clase enlaza tres niveles: primero, una emoción puede movilizar
-              la acción; segundo, la sabiduría práctica ofrece máximas para
-              deliberar; tercero, la persona interioriza el juicio moral y deja
-              de depender únicamente del castigo o de la reputación.
-            </p>
-
-            <div className="eth27-main-chain">
-              <div><span>01</span><strong>EMOCIÓN</strong><small>da energía</small></div>
-              <b>→</b>
-              <div><span>02</span><strong>DELIBERACIÓN</strong><small>ordena la respuesta</small></div>
-              <b>→</b>
-              <div><span>03</span><strong>MÁXIMA</strong><small>orienta</small></div>
-              <b>→</b>
-              <div><span>04</span><strong>CONCIENCIA</strong><small>evalúa</small></div>
-              <b>→</b>
-              <div className="core"><span>05</span><strong>AUTONOMÍA</strong><small>decide</small></div>
-            </div>
-
-            <div className="eth27-callout">
-              <span>TESIS</span>
-              <strong>
-                La moral madura cuando una persona puede preguntarse “¿actué
-                correctamente?” incluso si nadie conoce su acción y aunque la
-                presión social le diga otra cosa.
-              </strong>
-            </div>
-          </section>
-
+        <article className="ethos27-article">
           <section id="emocion">
-            <SectionHead n="01" eyebrow="Pathos et logos">
-              Emoción y racionalidad no son necesariamente enemigas
-            </SectionHead>
-            <p>
-              El enojo puede ser una fuerza que permite reconocer una injusticia
-              y sostener una acción difícil. El problema aparece cuando la emoción
-              ocupa todo el lugar y sustituye la deliberación.
+            <Heading number="01" eyebrow="Pathos et deliberatio">
+              La emoción puede motivar sin sustituir la deliberación
+            </Heading>
+
+            <p className="ethos27-prose">
+              El enojo puede reconocer una injusticia y suministrar energía para
+              actuar. El problema aparece cuando la emoción ocupa todo el lugar
+              y deja de valorar alternativas, consecuencias o razones.
             </p>
 
-            <div className="eth27-toggle">
-              <button
-                type="button"
-                className={emotionView === 'emotion' ? 'active' : ''}
-                onClick={() => setEmotionView('emotion')}
-              >
-                Emoción
-              </button>
-              <button
-                type="button"
-                className={emotionView === 'reason' ? 'active' : ''}
-                onClick={() => setEmotionView('reason')}
-              >
-                Deliberación
-              </button>
+            <div className="ethos27-schema-title">
+              <span>ESQUEMA</span><i />
+            </div>
+            <div className="ethos27-schema">
+              <AnimatedConceptSchema schema={emotionDeliberationSchema} />
             </div>
 
-            <div className={`eth27-emotion ${emotionView}`}>
-              {emotionView === 'emotion' ? (
-                <>
-                  <span>ACCIDENTE AUTOMOVILÍSTICO</span>
-                  <h3>“Esto fue injusto y no quiero aceptar un acuerdo rápido.”</h3>
-                  <p>
-                    El enojo puede suministrar la motivación necesaria para
-                    defender un derecho aun cuando el procedimiento implique
-                    tiempo, gastos y trámites.
-                  </p>
-                </>
-              ) : (
-                <>
-                  <span>ORGANIZACIÓN RACIONAL</span>
-                  <h3>La energía emocional debe convertirse en una estrategia pensada.</h3>
-                  <p>
-                    emoción → motivación → valoración de opciones → deliberación
-                    racional → decisión → acción.
-                  </p>
-                </>
-              )}
-            </div>
-
-            <div className="eth27-spinoza">
-              <span>SPINOZA · IDEA ADECUADA</span>
-              <strong>
-                Antes de decidir sobre una situación cargada emocionalmente, hay
-                que intentar comprender con mayor claridad qué está ocurriendo.
-              </strong>
-              <div>
-                <b>me hace daño</b><i>→</i>
-                <b>no cambia</b><i>→</i>
-                <b>probablemente continuará</b><i>→</i>
-                <b>puedo deliberar</b>
-              </div>
-            </div>
+            <p className="ethos27-schema-caption">
+              El esquema conserva la secuencia de la nota: emoción → motivación
+              → opciones → deliberación → decisión → acción.
+            </p>
           </section>
 
           <section id="maximas">
-            <SectionHead n="02" eyebrow="Democritus · sententiae">
-              La máxima como tecnología moral
-            </SectionHead>
-            <p>
-              De Demócrito se conservan sentencias morales que funcionan de una
-              manera distinta a un tratado sistemático: son breves, memorizables
-              y utilizables en situaciones concretas. Su valor no está sólo en
-              describir una norma, sino en ayudar a decidir.
+            <Heading number="02" eyebrow="Democritus · Sententiae">
+              La máxima como instrumento breve de orientación práctica
+            </Heading>
+
+            <p className="ethos27-prose">
+              Demócrito aparece en la sesión no sólo como atomista, sino como
+              autor de sentencias morales breves y memorizables. La máxima
+              funciona cuando deja de ser una frase abstracta y entra en una
+              situación donde hay que decidir qué hacer.
             </p>
 
-            <div className="eth27-maxim-tabs">
-              {maxims.map((item) => (
+            <div className="ethos27-tabs" role="tablist" aria-label="Máximas trabajadas en clase">
+              {democritusMaxims.map((item) => (
                 <button
                   type="button"
                   key={item.id}
                   className={maxim.id === item.id ? 'active' : ''}
                   onClick={() => setMaximId(item.id)}
+                  aria-pressed={maxim.id === item.id}
                 >
                   <span>{item.label}</span>
                   <strong>{item.title}</strong>
@@ -321,384 +172,221 @@ export default function EthicsClass27Aug() {
               ))}
             </div>
 
-            <article className="eth27-maxim-focus">
-              <span>{maxim.label} · formulación aproximada trabajada en clase</span>
+            <article className="ethos27-maxim">
+              <span>FORMULACIÓN APROXIMADA TRABAJADA EN CLASE</span>
               <blockquote>“{maxim.text}”</blockquote>
-              <p>{maxim.key}</p>
-              <div className="eth27-maxim-use">
-                <small>FUNCIÓN PRÁCTICA</small>
-                <strong>
-                  situación concreta → recordar la máxima → deliberar → elegir una acción
-                </strong>
+              <p>{maxim.use}</p>
+              <div>
+                <b>situación</b><i>→</i>
+                <b>máxima</b><i>→</i>
+                <b>deliberación</b><i>→</i>
+                <strong>decisión</strong>
               </div>
             </article>
-
-            <aside className="eth27-note">
-              <strong>Sabiduría práctica</strong>
-              <p>
-                La comparación con Proverbios, Eclesiastés y otros textos
-                sapienciales sirve para entender estas frases como instrumentos
-                de formación del carácter y de orientación de decisiones.
-              </p>
-            </aside>
           </section>
 
           <section id="verguenza">
-            <SectionHead n="03" eyebrow="Aidōs">
+            <Heading number="03" eyebrow="Aidōs">
               De la vergüenza pública a la vergüenza ante uno mismo
-            </SectionHead>
-            <p>
-              La sociedad homérica está fuertemente articulada por honor,
-              reputación y expectativas de rol. Pero la clase insiste en que la
-              vergüenza adquiere profundidad moral cuando depende también del
-              reconocimiento interno de la propia falta.
+            </Heading>
+
+            <p className="ethos27-prose">
+              La clase distingue dos formas de regulación. Una depende de la
+              reputación y de la mirada de la comunidad; otra aparece cuando la
+              persona puede reconocer una acción como indigna aunque nadie la
+              haya visto.
             </p>
 
-            <div className="eth27-toggle">
-              <button
-                type="button"
-                className={shameView === 'external' ? 'active' : ''}
-                onClick={() => setShameView('external')}
-              >
-                Mirada externa
-              </button>
-              <button
-                type="button"
-                className={shameView === 'internal' ? 'active' : ''}
-                onClick={() => setShameView('internal')}
-              >
-                Conciencia propia
-              </button>
-            </div>
-
-            <div className={`eth27-shame ${shameView}`}>
-              {shameView === 'external' ? (
-                <>
-                  <span>HONOR / REPUTACIÓN</span>
-                  <h3>“¿Qué van a decir de mí?”</h3>
-                  <p>
-                    La comunidad puede exigir un comportamiento conforme con el
-                    papel social: rey, padre, madre, ciudadano, responsable de otros.
-                  </p>
-                </>
-              ) : (
-                <>
-                  <span>VERGÜENZA REFLEXIVA</span>
-                  <h3>“Aunque nadie me vea, yo sé lo que hice.”</h3>
-                  <p>
-                    La conciencia puede juzgar la propia acción sin necesidad de
-                    policía, denuncia, castigo o exposición pública.
-                  </p>
-                </>
-              )}
-            </div>
-
-            <div className="eth27-achilles">
+            <div className="ethos27-shame-pair">
               <article>
-                <span>AQUILES → AGAMENÓN</span>
-                <strong>“cara de perro”</strong>
-                <p>
-                  El insulto expresa la acusación de actuar sin vergüenza: una
-                  conducta indigna de alguien que ocupa la posición de rey.
-                </p>
+                <span>VERGÜENZA EXTERNA</span>
+                <strong>“¿qué dirán de mí?”</strong>
+                <p>honor · reputación · papel social · vigilancia</p>
               </article>
-              <article className="core">
-                <span>SECUENCIA MORAL</span>
-                <strong>acción → conciencia → valoración → vergüenza</strong>
-                <p>
-                  Para avergonzarme moralmente debo poder comprender mi acción y
-                  reconocer por qué es indigna o dañina.
-                </p>
-              </article>
-            </div>
-          </section>
-
-          <section id="dignidad">
-            <SectionHead n="04" eyebrow="Dignitas et vulnerabilitas">
-              Vileza, dignidad y abuso de una posición de poder
-            </SectionHead>
-            <p>
-              No basta decir que una acción es vil “porque está mal”. La clase
-              intenta precisar qué rasgo moral posee: muchas acciones viles
-              degradan la humanidad del otro y explotan una asimetría de fuerza,
-              autoridad o dependencia.
-            </p>
-
-            <div className="eth27-power">
-              <div><span>PODER / FUERZA</span><strong>adulto · autoridad · posición superior</strong></div>
-              <b>+</b>
-              <div><span>VULNERABILIDAD</span><strong>niño · anciano · persona dependiente</strong></div>
-              <b>→</b>
-              <div className="danger"><span>ABUSO</span><strong>humillación · daño · degradación</strong></div>
-            </div>
-
-            <div className="eth27-columns">
-              <article>
-                <span>DIGNIDAD</span>
-                <h3>La humanidad del otro impone obligaciones</h3>
-                <p>
-                  Valor, necesidades, derechos y vulnerabilidad exigen límites a
-                  lo que puedo hacer con otra persona.
-                </p>
-              </article>
-              <article>
-                <span>JUSTICIA DISCURSIVA</span>
-                <h3>Respetar también al ausente</h3>
-                <p>
-                  No inventar, degradar o reducir a insultos a quien no está
-                  presente y carece de oportunidad inmediata para responder.
-                </p>
-              </article>
-            </div>
-          </section>
-
-          <section id="conciencia">
-            <SectionHead n="05" eyebrow="Testis interior">
-              La persona aprende a convertirse en testigo de sí misma
-            </SectionHead>
-            <p>
-              Una máxima como “incluso cuando estés solo…” desplaza la vigilancia
-              hacia la interioridad. La norma ya no depende únicamente de la
-              policía, del castigo o de la reputación.
-            </p>
-
-            <div className="eth27-watch">
-              <span>POLICÍA</span><b>↓</b>
-              <span>REPUTACIÓN</span><b>↓</b>
-              <span>OPINIÓN PÚBLICA</span><b>↓</b>
-              <strong>CONCIENCIA</strong>
-            </div>
-
-            <div className="eth27-interiority">
-              <article>
-                <span>RELIGIÓN</span>
-                <strong>acciones + palabras + pensamientos pueden sentirse observados</strong>
-                <p>
-                  Esta interiorización puede producir una presión enorme si cada
-                  deseo o pensamiento se interpreta inmediatamente como falta.
-                </p>
-              </article>
-              <article>
-                <span>ÉTICA</span>
-                <strong>la conciencia necesita formación, no simple culpa</strong>
-                <p>
-                  Sentirse mal no basta; hay que aprender a distinguir daño,
-                  indignidad, obligación, abuso y presión social injustificada.
-                </p>
+              <b>⟶</b>
+              <article className="active">
+                <span>VERGÜENZA INTERNA</span>
+                <strong>“aunque nadie me vea, yo sé lo que hice”</strong>
+                <p>reconocimiento · juicio propio · responsabilidad</p>
               </article>
             </div>
 
-            <aside className="eth27-note">
-              <strong><em>Demian</em> como referencia de clase</strong>
+            <aside className="ethos27-note">
+              <span>PUNTO DE LA CLASE</span>
               <p>
-                La novela aparece para pensar el conflicto entre deseos,
-                identidad, educación religiosa, culpa y vergüenza sin reducirlo
-                a la fórmula simplista “religión = mala”.
+                Interiorizar una norma no basta por sí solo: una conciencia puede
+                estar mal formada. La sesión exige distinguir daño, indignidad,
+                obligación, abuso y presión social injustificada.
               </p>
             </aside>
           </section>
 
-          <section id="reparacion">
-            <SectionHead n="06" eyebrow="Reparatio">
-              Responsabilidad, perdón y posibilidad de continuar
-            </SectionHead>
-            <p>
-              Reconocer una falta puede abrir una secuencia de arrepentimiento,
-              disculpa y reparación. Pero el perdón no significa negar el daño ni
-              borrar automáticamente consecuencias jurídicas.
+          <section id="dignidad">
+            <Heading number="04" eyebrow="Dignitas et vulnerabilitas">
+              La asimetría de poder puede volver más grave una acción
+            </Heading>
+
+            <p className="ethos27-prose">
+              Muchas acciones viles no son sólo “malas” en abstracto: degradan
+              al otro y explotan una posición de fuerza, autoridad o dependencia.
+              La dignidad y la vulnerabilidad ponen límites al uso de otras
+              personas como medios.
             </p>
 
-            <div className="eth27-repair-chain">
-              <span>RECONOCER</span><b>→</b>
-              <span>ARREPENTIRSE</span><b>→</b>
-              <span>DISCULPARSE</span><b>→</b>
-              <span>REPARAR</span><b>→</b>
-              <strong>REINTEGRAR</strong>
-            </div>
-
-            <div className="eth27-columns">
-              <article>
-                <span>VÍCTIMA</span>
-                <h3>No quedar completamente atrapada por el daño</h3>
-                <p>
-                  Procesar no significa decir que nada ocurrió; busca recuperar
-                  capacidad de actuar libremente después de la experiencia.
-                </p>
-              </article>
-              <article>
-                <span>VICTIMARIO</span>
-                <h3>Responsabilidad sin identidad eterna de “criminal”</h3>
-                <p>
-                  Una sociedad que excluye indefinidamente puede obstaculizar la
-                  reintegración y favorecer marginalización o reincidencia.
-                </p>
-              </article>
-            </div>
-          </section>
-
-          <section id="casos">
-            <SectionHead n="07" eyebrow="Laboratorium">
-              Poner la máxima a trabajar
-            </SectionHead>
-            <p>
-              La pregunta filosófica deja de ser “¿qué significa esta sentencia?”
-              y se vuelve “¿qué me ayuda a decidir en esta situación?”. Ésta es
-              precisamente la operación que prepara la tarea.
-            </p>
-
-            <div className="eth27-case-tabs">
-              {cases.map((item) => (
-                <button
-                  type="button"
-                  key={item.id}
-                  className={moralCase.id === item.id ? 'active' : ''}
-                  onClick={() => {
-                    setCaseId(item.id)
-                    setMaximId(item.best)
-                  }}
-                >
-                  {item.title}
-                </button>
-              ))}
-            </div>
-
-            <article className="eth27-case">
-              <span>CASO</span>
-              <h3>{moralCase.title}</h3>
-              <p>{moralCase.facts}</p>
+            <div className="ethos27-power">
               <div>
-                <small>PROBLEMA MORAL</small>
-                <strong>{moralCase.question}</strong>
+                <span>PODER / FUERZA</span>
+                <strong>autoridad · posición superior</strong>
               </div>
+              <b>+</b>
               <div>
-                <small>ANÁLISIS</small>
-                <strong>{moralCase.analysis}</strong>
+                <span>VULNERABILIDAD</span>
+                <strong>dependencia · fragilidad</strong>
               </div>
-              <div className="maxim">
-                <small>MÁXIMA ÚTIL</small>
-                <strong>{maxims.find((item) => item.id === moralCase.best)?.text}</strong>
+              <b>→</b>
+              <div className="active">
+                <span>ABUSO</span>
+                <strong>humillación · daño · degradación</strong>
               </div>
-            </article>
-          </section>
-
-          <section id="transicion">
-            <SectionHead n="08" eyebrow="Autonomia moralis">
-              De una cultura de vergüenza a una conciencia ética
-            </SectionHead>
-            <p>
-              La comunidad sigue siendo importante porque forma hábitos,
-              lenguaje y criterios; pero la madurez moral exige poder revisar
-              también críticamente lo que la comunidad aprueba o condena.
-            </p>
-
-            <div className="eth27-progress-tabs">
-              {progression.map(([title], index) => (
-                <button
-                  type="button"
-                  key={title}
-                  className={progressIndex === index ? 'active' : ''}
-                  onClick={() => setProgressIndex(index)}
-                >
-                  <span>{String(index + 1).padStart(2, '0')}</span>
-                  <strong>{title}</strong>
-                </button>
-              ))}
             </div>
 
-            <div className="eth27-progress-focus">
-              <span>{progression[progressIndex][0]}</span>
-              <h3>{progression[progressIndex][1]}</h3>
-            </div>
-
-            <div className="eth27-three">
-              <article><span>NO BASTA</span><strong>que la sociedad me condene</strong><p>La presión social puede ser injusta.</p></article>
-              <article><span>NO BASTA</span><strong>que yo me sienta tranquilo</strong><p>La conciencia puede estar mal formada.</p></article>
-              <article className="core"><span>HACE FALTA</span><strong>deliberar y justificar</strong><p>¿Hubo daño, abuso, indignidad u obligación incumplida?</p></article>
-            </div>
-
-            <h3 className="eth27-subtitle">Lexicon de la sesión</h3>
-            <div className="eth27-glossary">
-              {concepts.map(([name, text]) => (
-                <article key={name}>
-                  <span>{name}</span>
-                  <p>{text}</p>
+            <div className="ethos27-cases">
+              {deliberationCases.map((item) => (
+                <article key={item.id}>
+                  <span>{item.number}</span>
+                  <strong>{item.title}</strong>
+                  <p>{item.body}</p>
                 </article>
               ))}
             </div>
           </section>
 
-          <section id="tarea">
-            <SectionHead n="09" eyebrow="Praxis">
-              Tarea: convertir una máxima en herramienta de deliberación
-            </SectionHead>
-            <p>
-              No basta con explicar teóricamente una sentencia. Hay que mostrar
-              qué hace dentro de una decisión concreta: qué acción está en juego,
-              qué alternativas existen, cómo orienta la máxima y qué decisión
-              permite justificar.
+          <section id="conciencia">
+            <Heading number="05" eyebrow="Testis interior">
+              La conciencia sustituye la vigilancia sólo si aprende a deliberar
+            </Heading>
+
+            <p className="ethos27-prose">
+              La madurez moral no consiste simplemente en llevar al interior la
+              policía o la opinión pública. El juicio propio tiene que poder
+              revisar críticamente aquello que la comunidad aprueba o condena.
             </p>
 
-            <div className="eth27-task-builder">
-              <div className="eth27-task-maxims">
-                <span>1 · ELIJA UNA MÁXIMA</span>
-                {maxims.map((item) => (
-                  <button
-                    type="button"
-                    key={item.id}
-                    className={taskMaxim === item.id ? 'active' : ''}
-                    onClick={() => setTaskMaxim(item.id)}
-                  >
-                    <strong>{item.title}</strong>
-                    <small>{item.text}</small>
-                  </button>
-                ))}
-              </div>
+            <div className="ethos27-schema-title">
+              <span>ESQUEMA</span><i />
+            </div>
+            <div className="ethos27-schema is-compact">
+              <AnimatedConceptSchema schema={shameAutonomySchema} />
+            </div>
 
+            <div className="ethos27-three">
               <article>
-                <span>PLANTILLA DE TRABAJO</span>
-                <div><small>MÁXIMA ELEGIDA</small><strong>“{chosenTaskMaxim.text}”</strong></div>
-                <div><small>SITUACIÓN CONCRETA</small><strong>Describa una acción individual o una relación moral concreta.</strong></div>
-                <div><small>PROBLEMA MORAL</small><strong>¿Qué debería hacer?</strong></div>
-                <div><small>APLICACIÓN</small><strong>La máxima me permite considerar que…</strong></div>
-                <div><small>DECISIÓN</small><strong>Por tanto, debería…</strong></div>
-                <div><small>JUSTIFICACIÓN</small><strong>Esta decisión es coherente con la máxima porque…</strong></div>
+                <span>NO BASTA</span>
+                <strong>que la sociedad me condene</strong>
+                <p>La presión social puede ser injusta.</p>
+              </article>
+              <article>
+                <span>NO BASTA</span>
+                <strong>que yo me sienta tranquilo</strong>
+                <p>La conciencia también puede estar mal formada.</p>
+              </article>
+              <article className="active">
+                <span>HACE FALTA</span>
+                <strong>deliberar y justificar</strong>
+                <p>¿Hubo daño, abuso, indignidad u obligación incumplida?</p>
               </article>
             </div>
+          </section>
 
-            <div className="eth27-task-card">
+          <section id="reparacion">
+            <Heading number="06" eyebrow="Reparatio">
+              Reconocer una falta puede abrir reparación y reintegración
+            </Heading>
+
+            <p className="ethos27-prose">
+              Arrepentimiento, disculpa y reparación no borran automáticamente
+              consecuencias jurídicas. La sesión distingue asumir la
+              responsabilidad de fijar para siempre a una persona en una
+              identidad única de “criminal”.
+            </p>
+
+            <div className="ethos27-repair">
+              <span>reconocer</span><b>→</b>
+              <span>arrepentirse</span><b>→</b>
+              <span>disculparse</span><b>→</b>
+              <span>reparar</span><b>→</b>
+              <strong>reintegrar</strong>
+            </div>
+          </section>
+
+          <section id="tarea">
+            <Heading number="07" eyebrow="Praxis">
+              Aplicar una máxima moral a un caso concreto
+            </Heading>
+
+            <p className="ethos27-prose">
+              La tarea convierte la máxima en herramienta de deliberación. Hay
+              que escoger una sentencia trabajada en clase y construir un caso
+              donde ayude a justificar una decisión concreta.
+            </p>
+
+            <div className="ethos27-task">
+              <span>TAREA REGISTRADA</span>
+              <strong>Máxima moral + caso concreto</strong>
               <div>
-                <span>TAREA · PRÓXIMA CLASE</span>
-                <h3>Aplicar una máxima moral a un caso concreto</h3>
-                <p>
-                  Escoger una sentencia trabajada en clase —por el contexto, una
-                  de las de Demócrito— y construir un ejemplo donde sirva para
-                  deliberar y tomar una decisión.
-                </p>
+                <p><b>1.</b> Elegir una máxima.</p>
+                <p><b>2.</b> Describir una situación concreta.</p>
+                <p><b>3.</b> Identificar el problema moral.</p>
+                <p><b>4.</b> Aplicar la máxima a la deliberación.</p>
+                <p><b>5.</b> Justificar la decisión.</p>
               </div>
-              <div className="eth27-task-date">
-                <strong>I</strong>
-                <span>IX · MMXXVI</span>
-                <small>20:25</small>
-              </div>
-              <Link to="/tareas">Ver en calendario →</Link>
+              <Link to="/tareas">Ver en tareas →</Link>
             </div>
 
-            <div className="eth27-final">
-              <span>EMOCIÓN</span><b>→</b>
-              <span>MÁXIMA</span><b>→</b>
-              <span>CONCIENCIA</span><b>→</b>
-              <span>DELIBERACIÓN</span><b>→</b>
-              <strong>AUTONOMÍA MORAL</strong>
+            <div className="ethos27-source-note">
+              <span>FUENTE DOCUMENTAL</span>
+              <p>
+                La página conserva los núcleos registrados de la sesión:
+                emoción y razón, máximas de Demócrito, vergüenza externa e
+                interna, dignidad, conciencia, reparación, reintegración y tarea.
+              </p>
             </div>
           </section>
         </article>
       </div>
 
-      <footer className="eth27-footer">
+      <section className="ethos27-image-source">
+        <div>
+          <span>IMAGEN CURATORIAL</span>
+          <h2>Demócrito de Abdera</h2>
+          <p>
+            El retrato se selecciona porque Demócrito es uno de los focos reales
+            de esta sesión: sus máximas sirven como instrumentos de formación del
+            carácter y de orientación práctica.
+          </p>
+        </div>
+        <dl>
+          <div><dt>Obra</dt><dd>Portret van Democritus van Abdera</dd></div>
+          <div><dt>Fecha</dt><dd>1768–1817</dd></div>
+          <div><dt>Institución</dt><dd>Rijksmuseum</dd></div>
+          <div><dt>Derechos</dt><dd>CC0 1.0 / dominio público</dd></div>
+        </dl>
+        <a
+          href="https://commons.wikimedia.org/wiki/File:Portret_van_Democritus_van_Abdera,_RP-P-1907-5356.jpg"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Ver ficha de procedencia y derechos ↗
+        </a>
+      </section>
+
+      <footer className="ethos27-footer">
         <Link to="/semestre/5/etica">← Ética</Link>
-        <span>Aidōs · Syneidēsis · Praxis</span>
-        <span>XXVII · VIII · MMXXVI</span>
+        <span>ETHOS · Vergüenza, conciencia y máxima</span>
+        <span>27 · VIII · 2026</span>
       </footer>
+
+      <div className="ethos27-meander" aria-hidden="true" />
     </main>
   )
 }
