@@ -216,6 +216,54 @@
       "institution": "Biblioteca Universitaria de Basilea",
       "license": "dominio público / Public Domain Mark 1.0",
       "use": "Ontología 2026-05-20 · esencia, esse y accidentes"
+    },
+    {
+      "id": "ontology-2026-08-17-newton-principia",
+      "target": "public/images/ontologia/open/2026-08-17/newton-principia-1687.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Newton%27s_Principia_title_page.png",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Newton%27s_Principia_title_page.png?width=1280",
+      "title": "Philosophiæ Naturalis Principia Mathematica, portada",
+      "creator": "Isaac Newton",
+      "date": "1687",
+      "institution": "edición histórica",
+      "license": "dominio público / Public Domain Mark 1.0",
+      "use": "Ontología II 2026-08-17 · transformación moderna de la imagen del mundo"
+    },
+    {
+      "id": "ontology-2026-08-19-descartes-hals",
+      "target": "public/images/ontologia/open/2026-08-19/descartes-hals.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Frans_Hals,_Portrait_of_Ren%C3%A9_Descartes.jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Frans_Hals%2C_Portrait_of_Ren%C3%A9_Descartes.jpg?width=1280",
+      "title": "Retrato de René Descartes",
+      "creator": "Frans Hals",
+      "date": "ca. 1649",
+      "institution": "reproducción de obra en dominio público",
+      "license": "dominio público / Public Domain Mark 1.0",
+      "use": "Ontología II 2026-08-19 · cogito y sustancia"
+    },
+    {
+      "id": "ontology-2026-08-24-spinoza-portrait",
+      "target": "public/images/ontologia/open/2026-08-24/spinoza-retrato.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Baruch_Spinoza_portrait_HAB_original.jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Baruch_Spinoza_portrait_HAB_original.jpg?width=1280",
+      "title": "Retrato de Baruch Spinoza",
+      "creator": "autor no identificado",
+      "date": "siglo XVII",
+      "institution": "Herzog August Bibliothek, Wolfenbüttel",
+      "license": "dominio público / Public Domain Mark 1.0",
+      "use": "Ontología II 2026-08-24 · sustancia, necesidad y libertad"
+    },
+    {
+      "id": "ontology-2026-08-26-leibniz-francke",
+      "target": "public/images/ontologia/open/2026-08-26/leibniz-francke.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_(ca._1695).jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_%28ca._1695%29.jpg?width=1280",
+      "title": "Retrato de Gottfried Wilhelm Leibniz",
+      "creator": "Christoph Bernhard Francke",
+      "date": "ca. 1695",
+      "institution": "Herzog Anton Ulrich Museum, Brunswick",
+      "license": "dominio público / Public Domain Mark 1.0",
+      "use": "Ontología II 2026-08-26 · contingencia, mónada y armonía"
     }
   ]
 }
