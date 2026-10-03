@@ -228,6 +228,18 @@
       "institution": "edición histórica",
       "license": "dominio público / Public Domain Mark 1.0",
       "use": "Ontología II 2026-08-17 · transformación moderna de la imagen del mundo"
+    },
+    {
+      "id": "ontology-2026-08-19-descartes-hals",
+      "target": "public/images/ontologia/open/2026-08-19/descartes-hals.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Frans_Hals,_Portrait_of_Ren%C3%A9_Descartes.jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Frans_Hals%2C_Portrait_of_Ren%C3%A9_Descartes.jpg?width=1280",
+      "title": "Retrato de René Descartes",
+      "creator": "Frans Hals",
+      "date": "ca. 1649",
+      "institution": "reproducción de obra en dominio público",
+      "license": "dominio público / Public Domain Mark 1.0",
+      "use": "Ontología II 2026-08-19 · cogito, sustancia y problemas de representación"
     }
   ]
 }
