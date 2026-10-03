@@ -449,9 +449,69 @@ export default function OntologiaII() {
 
       </section>
 
-      <section className="ontology-program-route">
+      <section className="ontology-program-classes ontology-program-thresholds">
         <div className="ontology-program-heading">
           <span>II</span>
+          <div>
+            <p>Limina documentata</p>
+            <h2>Umbrales de estudio</h2>
+          </div>
+        </div>
+
+        <Link
+          to="/tareas/ontologia-ii/hartmann-cosa-en-si"
+          className="ontology-program-class-card"
+        >
+          <div className="ontology-program-date">
+            <strong>XXX</strong>
+            <span>IX · MMXXVI</span>
+          </div>
+
+          <div className="ontology-program-class-copy">
+            <span>Lectura · después de Kant</span>
+            <h3>Hartmann · el problema de la cosa en sí</h3>
+            <p>
+              Reinhold, Schulze, representación, afección y causalidad.
+              La consigna y el dossier de preparación se mantienen diferenciados.
+            </p>
+          </div>
+
+          <div className="ontology-program-enter">
+            <span>Abrir lectio</span>
+            <b>↗</b>
+          </div>
+        </Link>
+
+        <Link
+          to="/estudios/ontologia-ii/hegel-fenomenologia-prologo"
+          className="ontology-program-class-card"
+        >
+          <div className="ontology-program-date">
+            <strong>IV</strong>
+            <span>UMBRAL</span>
+          </div>
+
+          <div className="ontology-program-class-copy">
+            <span>Dossier programático · Hegel</span>
+            <h3>Fenomenología del espíritu · Prólogo</h3>
+            <p>
+              Verdad como sistema, sustancia y sujeto, negatividad,
+              devenir del saber, formación, proposición especulativa
+              y labor del concepto.
+            </p>
+          </div>
+
+          <div className="ontology-program-enter">
+            <span>Abrir dossier</span>
+            <b>↗</b>
+          </div>
+        </Link>
+      </section>
+
+
+      <section className="ontology-program-route">
+        <div className="ontology-program-heading">
+          <span>III</span>
           <div>
             <p>Itinerarium</p>
             <h2>Mapa del curso</h2>
@@ -479,7 +539,7 @@ export default function OntologiaII() {
 
       <section className="ontology-program-library">
         <div className="ontology-program-heading">
-          <span>III</span>
+          <span>IV</span>
           <div>
             <p>Bibliotheca ontologica</p>
             <h2>Lecturas y materiales</h2>

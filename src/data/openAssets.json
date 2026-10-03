@@ -360,6 +360,18 @@
       "institution": "reproducción de obra en dominio público",
       "license": "dominio público / Public Domain Mark 1.0",
       "use": "Ontología II · tarea Hartmann · crítica de Schulze a Reinhold"
+    },
+    {
+      "id": "ontology-hegel-phenomenology-1807-title",
+      "target": "public/images/ontologia/open/hegel/fenomenologia-1807.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Ph%C3%A4nomenologie_des_Geistes.jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ph%C3%A4nomenologie_des_Geistes.jpg?width=1280",
+      "title": "Portada de Phänomenologie des Geistes",
+      "creator": "Georg Wilhelm Friedrich Hegel; autor material de la portada no identificado",
+      "date": "1807",
+      "institution": "primera edición, Bamberg/Würzburg",
+      "license": "dominio público",
+      "use": "Ontología II · umbral programático Hegel · Prólogo de la Fenomenología del espíritu"
     }
   ]
 }

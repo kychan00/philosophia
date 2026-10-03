@@ -1,0 +1,50 @@
+.hegel-preface-page{background:#2b211b}
+.hegel-preface-brochure{overflow:hidden}
+.hegel-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:24px;border:1px solid var(--oa-line);background:var(--oa-line)}
+.hegel-meta>div{padding:12px;background:rgba(255,255,255,.22)}
+.hegel-meta span{display:block;color:var(--oa-wine);font-size:.52rem;letter-spacing:.12em;text-transform:uppercase}
+.hegel-meta strong{display:block;margin-top:5px;font-family:'Cormorant Garamond',Georgia,serif;font-size:1rem;font-weight:600}
+.hegel-documentary{display:grid;grid-template-columns:.72fr 1.28fr;gap:42px;padding:50px 54px;background:#eee5d7;border-top:1px solid var(--oa-line)}
+.hegel-documentary small,.hegel-movements small,.hegel-subject small,.hegel-glossary small,.hegel-warning small,.hegel-next small{color:var(--oa-wine);font-size:.56rem;letter-spacing:.14em}
+.hegel-documentary h2,.hegel-movements h2,.hegel-subject h2,.hegel-glossary h2,.hegel-warning h2,.hegel-next h2{margin:6px 0 0;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2.6rem,5vw,4.2rem);font-weight:500;line-height:.96}
+.hegel-documentary>div:last-child{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.05rem;line-height:1.55}
+.hegel-atlas .animated-concept-schema{min-height:1080px!important}
+.hegel-movements{padding:58px 54px;background:var(--oa-paper)}
+.hegel-movements header{max-width:860px}
+.hegel-movements header p,.hegel-glossary header p{color:var(--oa-muted);font-family:'Cormorant Garamond',Georgia,serif;font-size:1rem;line-height:1.5}
+.hegel-movement-layout{display:grid;grid-template-columns:.82fr 1.18fr;gap:28px;margin-top:30px}
+.hegel-movement-tabs{display:grid}
+.hegel-movement-tabs button{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:12px 0;border:0;border-bottom:1px solid var(--oa-line);background:transparent;color:var(--oa-ink);text-align:left;cursor:pointer}
+.hegel-movement-tabs button span{color:var(--oa-gold);font-family:'Cormorant Garamond',Georgia,serif}
+.hegel-movement-tabs button strong{font-size:.78rem;font-weight:600}
+.hegel-movement-tabs button.active strong{color:var(--oa-wine)}
+.hegel-movement-card{position:sticky;top:20px;align-self:start;min-height:420px;padding:34px;border:1px solid var(--oa-line);background:#eee5d7}
+.hegel-movement-card>span{color:var(--oa-wine);font-size:.56rem;letter-spacing:.14em}
+.hegel-movement-card h3{margin:20px 0 16px;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2.2rem,4vw,3.6rem);font-weight:500;line-height:.95}
+.hegel-movement-card p{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.12rem;line-height:1.58}
+.hegel-movement-card div{margin-top:28px;padding-top:18px;border-top:1px solid var(--oa-line);color:var(--oa-wine);font-family:'Cormorant Garamond',Georgia,serif;font-size:1rem}
+.hegel-subject{padding:58px 54px;background:#6a271b;color:#f7eee3}
+.hegel-subject-title{max-width:760px}
+.hegel-subject small{color:#e2c4a7}
+.hegel-subject-chain{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr auto 1fr;gap:10px;align-items:center;margin-top:32px}
+.hegel-subject-chain article{min-height:150px;padding:16px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06)}
+.hegel-subject-chain article.active{background:rgba(255,255,255,.14)}
+.hegel-subject-chain span{color:#e2c4a7;font-size:.55rem}
+.hegel-subject-chain strong{display:block;margin-top:16px;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.35rem}
+.hegel-subject-chain p{font-size:.72rem;line-height:1.4;color:rgba(247,238,227,.78)}
+.hegel-subject-chain>b{color:#e2c4a7}
+.hegel-subject blockquote{max-width:830px;margin:34px 0 0;padding-left:18px;border-left:3px solid #e2c4a7;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.15rem;line-height:1.5}
+.hegel-glossary{padding:58px 54px;background:#f2ebdf}
+.hegel-glossary>div{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:28px;background:var(--oa-line);border:1px solid var(--oa-line)}
+.hegel-glossary article{padding:18px;background:#f7f2e8}
+.hegel-glossary article span{color:var(--oa-wine);font-family:'Cormorant Garamond',Georgia,serif;font-size:1.25rem}
+.hegel-glossary article p{margin:7px 0 0;color:var(--oa-muted);line-height:1.48;font-size:.84rem}
+.hegel-warning{display:grid;grid-template-columns:.78fr 1.22fr;gap:42px;padding:54px;background:var(--oa-paper)}
+.hegel-warning ul{margin:0;padding:0;list-style:none;border-top:1px solid var(--oa-line)}
+.hegel-warning li{padding:14px 0;border-bottom:1px solid var(--oa-line);font-family:'Cormorant Garamond',Georgia,serif;font-size:1.05rem}
+.hegel-warning li::before{content:'— ';color:var(--oa-gold)}
+.hegel-next{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end;padding:48px 54px;background:#eee5d7;border-top:1px solid var(--oa-line)}
+.hegel-next p{max-width:820px;color:var(--oa-muted);font-family:'Cormorant Garamond',Georgia,serif;font-size:1rem;line-height:1.5}
+.hegel-next>a{padding:12px 15px;border:1px solid var(--oa-wine);color:var(--oa-wine);font-size:.7rem;letter-spacing:.06em}
+@media(max-width:900px){.hegel-documentary,.hegel-movement-layout,.hegel-warning{grid-template-columns:1fr}.hegel-movement-card{position:static}.hegel-subject-chain{grid-template-columns:1fr}.hegel-subject-chain>b{justify-self:center;transform:rotate(90deg)}}
+@media(max-width:650px){.hegel-meta,.hegel-glossary>div{grid-template-columns:1fr}.hegel-documentary,.hegel-movements,.hegel-subject,.hegel-glossary,.hegel-warning,.hegel-next{padding-left:24px;padding-right:24px}.hegel-next{grid-template-columns:1fr}}
