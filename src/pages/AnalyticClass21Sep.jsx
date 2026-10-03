@@ -156,7 +156,7 @@ export default function AnalyticClass21Sep() {
         <div className="ac9-hero-inner">
           <div>
             <p className="ac9-kicker">
-              FI264 · Novena clase · 21 de septiembre de 2026
+              FI264 · Décima clase · 21 de septiembre de 2026
             </p>
 
             <h1>
