@@ -1,4 +1,4 @@
-import { effectiveRelationStyle } from './schemaTypes'
+import { CONCEPT_SCHEMA_SHAPES, effectiveRelationStyle } from './schemaTypes'
 
 function center(position) {
   return {
@@ -7,23 +7,98 @@ function center(position) {
   }
 }
 
-function boundaryPoint(from, toward) {
-  const dx = toward.x - from.centerX
-  const dy = toward.y - from.centerY
+function rectangleBoundary(position, toward) {
+  const origin = center(position)
+  const dx = toward.x - origin.x
+  const dy = toward.y - origin.y
 
-  if (!dx && !dy) {
-    return { x: from.centerX, y: from.centerY }
-  }
+  if (!dx && !dy) return origin
 
-  const halfW = from.width / 2
-  const halfH = from.height / 2
+  const halfW = position.width / 2
+  const halfH = position.height / 2
   const scaleX = dx ? halfW / Math.abs(dx) : Infinity
   const scaleY = dy ? halfH / Math.abs(dy) : Infinity
   const scale = Math.min(scaleX, scaleY)
 
   return {
-    x: from.centerX + dx * scale,
-    y: from.centerY + dy * scale,
+    x: origin.x + dx * scale,
+    y: origin.y + dy * scale,
+  }
+}
+
+function ellipseBoundary(position, toward) {
+  const origin = center(position)
+  const dx = toward.x - origin.x
+  const dy = toward.y - origin.y
+  const rx = position.width / 2
+  const ry = position.height / 2
+
+  if (!dx && !dy) return origin
+
+  const denominator = Math.sqrt(
+    (dx * dx) / (rx * rx) +
+    (dy * dy) / (ry * ry),
+  )
+
+  if (!denominator) return origin
+
+  return {
+    x: origin.x + dx / denominator,
+    y: origin.y + dy / denominator,
+  }
+}
+
+function diamondBoundary(position, toward) {
+  const origin = center(position)
+  const dx = toward.x - origin.x
+  const dy = toward.y - origin.y
+  const halfW = position.width / 2
+  const halfH = position.height / 2
+
+  if (!dx && !dy) return origin
+
+  const denominator =
+    Math.abs(dx) / halfW +
+    Math.abs(dy) / halfH
+
+  if (!denominator) return origin
+
+  const scale = 1 / denominator
+
+  return {
+    x: origin.x + dx * scale,
+    y: origin.y + dy * scale,
+  }
+}
+
+function boundaryPoint(position, toward) {
+  switch (position.shape) {
+    case CONCEPT_SCHEMA_SHAPES.CIRCLE:
+      return ellipseBoundary(position, toward)
+    case CONCEPT_SCHEMA_SHAPES.DIAMOND:
+      return diamondBoundary(position, toward)
+    default:
+      return rectangleBoundary(position, toward)
+  }
+}
+
+function sideBoundary(position, toward, vertical) {
+  const origin = center(position)
+
+  if (vertical) {
+    return {
+      x: origin.x,
+      y: toward.y >= origin.y
+        ? position.y + position.height
+        : position.y,
+    }
+  }
+
+  return {
+    x: toward.x >= origin.x
+      ? position.x + position.width
+      : position.x,
+    y: origin.y,
   }
 }
 
@@ -34,7 +109,7 @@ function moveToward(point, toward, distance) {
 
   if (!length) return point
 
-  const amount = Math.min(distance, length * 0.32)
+  const amount = Math.min(distance, length * 0.38)
 
   return {
     x: point.x + (dx / length) * amount,
@@ -42,20 +117,38 @@ function moveToward(point, toward, distance) {
   }
 }
 
-function makeEndpoints(edge, from, to, arrow) {
+function makeEndpoints(edge, from, to, arrow, routing) {
   const fromCenter = center(from)
   const toCenter = center(to)
+  const dx = toCenter.x - fromCenter.x
+  const dy = toCenter.y - fromCenter.y
 
-  const rawStart = boundaryPoint(from, toCenter)
-  const rawEnd = boundaryPoint(to, fromCenter)
+  let rawStart
+  let rawEnd
 
-  const defaultStartGap = arrow === 'bidirectional' ? 14 : 6
+  if (routing === 'orthogonal') {
+    const explicit = edge.orthogonal
+    const vertical =
+      explicit === 'vertical-first'
+        ? true
+        : explicit === 'horizontal-first'
+          ? false
+          : Math.abs(dy) >= Math.abs(dx) * 0.72
+
+    rawStart = sideBoundary(from, toCenter, vertical)
+    rawEnd = sideBoundary(to, fromCenter, vertical)
+  } else {
+    rawStart = boundaryPoint(from, toCenter)
+    rawEnd = boundaryPoint(to, fromCenter)
+  }
+
+  const defaultStartGap = arrow === 'bidirectional' ? 23 : 10
   const defaultEndGap =
     arrow === 'none'
-      ? 6
+      ? 10
       : arrow === 'double'
-        ? 17
-        : 14
+        ? 29
+        : 23
 
   const startGap = Number.isFinite(edge.startGap)
     ? edge.startGap
@@ -71,33 +164,56 @@ function makeEndpoints(edge, from, to, arrow) {
   }
 }
 
-function automaticLabelOffset(start, end, edge) {
+function longestSegment(points) {
+  let best = null
+
+  for (let index = 0; index < points.length - 1; index += 1) {
+    const a = points[index]
+    const b = points[index + 1]
+    const length = Math.hypot(b.x - a.x, b.y - a.y)
+
+    if (!best || length > best.length) {
+      best = { a, b, length }
+    }
+  }
+
+  return best
+}
+
+function segmentLabelGeometry(points) {
+  const segment = longestSegment(points)
+
+  if (!segment) {
+    return { x: 0, y: 0, orientation: 'horizontal' }
+  }
+
+  return {
+    x: (segment.a.x + segment.b.x) / 2,
+    y: (segment.a.y + segment.b.y) / 2,
+    orientation:
+      Math.abs(segment.b.x - segment.a.x) >=
+      Math.abs(segment.b.y - segment.a.y)
+        ? 'horizontal'
+        : 'vertical',
+  }
+}
+
+function automaticLabelOffset(orientation, edge) {
   if (edge.labelPlacement === 'on-line') {
     return { x: 0, y: 0 }
   }
 
-  const dx = end.x - start.x
-  const dy = end.y - start.y
+  const distance = Number.isFinite(edge.labelDistance)
+    ? Math.abs(edge.labelDistance)
+    : 20
 
-  if (Math.abs(dx) >= Math.abs(dy)) {
-    return {
-      x: 0,
-      y: Number.isFinite(edge.labelDistance)
-        ? -Math.abs(edge.labelDistance)
-        : -22,
-    }
-  }
-
-  return {
-    x: Number.isFinite(edge.labelDistance)
-      ? Math.abs(edge.labelDistance)
-      : 28,
-    y: 0,
-  }
+  return orientation === 'horizontal'
+    ? { x: 0, y: -distance }
+    : { x: distance + 3, y: 0 }
 }
 
 function edgePath(edge, from, to, routing, arrow) {
-  const { start, end } = makeEndpoints(edge, from, to, arrow)
+  const { start, end } = makeEndpoints(edge, from, to, arrow, routing)
 
   if (routing === 'curved') {
     const dx = end.x - start.x
@@ -108,51 +224,86 @@ function edgePath(edge, from, to, routing, arrow) {
 
     return {
       d: `M ${start.x} ${start.y} Q ${controlX} ${controlY} ${end.x} ${end.y}`,
-      labelX: (start.x + 2 * controlX + end.x) / 4,
-      labelY: (start.y + 2 * controlY + end.y) / 4,
+      label: {
+        x: (start.x + 2 * controlX + end.x) / 4,
+        y: (start.y + 2 * controlY + end.y) / 4,
+        orientation:
+          Math.abs(dx) >= Math.abs(dy)
+            ? 'horizontal'
+            : 'vertical',
+      },
       start,
       end,
     }
   }
 
   if (routing === 'orthogonal') {
-    const verticalFirst = edge.orthogonal === 'vertical-first'
+    const dx = end.x - start.x
+    const dy = end.y - start.y
 
-    if (verticalFirst) {
-      const midY = (start.y + end.y) / 2
-
+    if (Math.abs(dx) < 1 || Math.abs(dy) < 1) {
+      const points = [start, end]
       return {
-        d: `M ${start.x} ${start.y} L ${start.x} ${midY} L ${end.x} ${midY} L ${end.x} ${end.y}`,
-        labelX: (start.x + end.x) / 2,
-        labelY: midY,
+        d: `M ${start.x} ${start.y} L ${end.x} ${end.y}`,
+        label: segmentLabelGeometry(points),
         start,
         end,
       }
     }
 
-    const midX = (start.x + end.x) / 2
+    const explicit = edge.orthogonal
+    const verticalFirst =
+      explicit === 'vertical-first'
+        ? true
+        : explicit === 'horizontal-first'
+          ? false
+          : Math.abs(dy) >= Math.abs(dx) * 0.72
+
+    let points
+
+    if (verticalFirst) {
+      const midY = (start.y + end.y) / 2
+      points = [
+        start,
+        { x: start.x, y: midY },
+        { x: end.x, y: midY },
+        end,
+      ]
+    } else {
+      const midX = (start.x + end.x) / 2
+      points = [
+        start,
+        { x: midX, y: start.y },
+        { x: midX, y: end.y },
+        end,
+      ]
+    }
 
     return {
-      d: `M ${start.x} ${start.y} L ${midX} ${start.y} L ${midX} ${end.y} L ${end.x} ${end.y}`,
-      labelX: midX,
-      labelY: (start.y + end.y) / 2,
+      d: points
+        .map((point, index) =>
+          `${index === 0 ? 'M' : 'L'} ${point.x} ${point.y}`,
+        )
+        .join(' '),
+      label: segmentLabelGeometry(points),
       start,
       end,
     }
   }
 
+  const points = [start, end]
+
   return {
     d: `M ${start.x} ${start.y} L ${end.x} ${end.y}`,
-    labelX: (start.x + end.x) / 2,
-    labelY: (start.y + end.y) / 2,
+    label: segmentLabelGeometry(points),
     start,
     end,
   }
 }
 
 function labelMetrics(label) {
-  const width = Math.max(46, String(label).length * 5.9 + 18)
-  return { width, height: 20 }
+  const width = Math.max(52, String(label).length * 6.1 + 22)
+  return { width, height: 23 }
 }
 
 export default function ConceptEdge({
@@ -178,18 +329,17 @@ export default function ConceptEdge({
   )
 
   const autoOffset = automaticLabelOffset(
-    geometry.start,
-    geometry.end,
+    geometry.label.orientation,
     edge,
   )
 
   const labelX =
-    geometry.labelX +
+    geometry.label.x +
     autoOffset.x +
     (edge.labelOffsetX || 0)
 
   const labelY =
-    geometry.labelY +
+    geometry.label.y +
     autoOffset.y +
     (edge.labelOffsetY || 0)
 
@@ -242,7 +392,7 @@ export default function ConceptEdge({
             y={-labelBox.height / 2}
             width={labelBox.width}
             height={labelBox.height}
-            rx="3"
+            rx="5"
           />
           <text
             className="concept-schema-edge__label"

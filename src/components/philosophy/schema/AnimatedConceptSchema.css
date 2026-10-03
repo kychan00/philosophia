@@ -333,3 +333,39 @@
     white-space:normal;
   }
 }
+
+
+/* PHILOSOPHIA · REGLA GEOMÉTRICA GLOBAL DE ESQUEMAS */
+.concept-schema-node__label{
+  font-size:13.5px;
+  font-weight:650;
+}
+
+.concept-schema-node__caption{
+  font-size:8.5px;
+  font-weight:550;
+  letter-spacing:.07em;
+}
+
+.concept-schema-edge__label-plate{
+  fill:var(--concept-schema-paper);
+  stroke:rgba(55,45,36,.18);
+  stroke-width:.75;
+}
+
+.concept-schema-edge__label{
+  font-size:9.2px;
+  font-weight:600;
+}
+
+.concept-schema-edge{
+  stroke-width:1.45;
+}
+
+.animated-concept-schema__edges{
+  pointer-events:none;
+}
+
+.animated-concept-schema__nodes{
+  pointer-events:none;
+}

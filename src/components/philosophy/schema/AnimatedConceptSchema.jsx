@@ -8,36 +8,92 @@ import {
   NODE_ROLE_META,
   RELATION_KIND_META,
   effectiveNodeRole,
+  effectiveNodeShape,
   relationKindFromEdge,
 } from './schemaTypes'
 import './AnimatedConceptSchema.css'
 
 const METRICS = {
-  paddingX: 52,
-  paddingY: 42,
-  nodeWidth: 188,
-  nodeHeight: 66,
-  flowGap: 82,
-  hierarchyXGap: 78,
-  hierarchyYGap: 88,
-  radialRadius: 178,
+  paddingX: 58,
+  paddingY: 48,
+  nodeWidth: 210,
+  nodeHeight: 94,
+  flowGap: 76,
+  hierarchyXGap: 64,
+  hierarchyYGap: 104,
+  radialRadius: 218,
+}
+
+function wrapForMeasure(value, maxChars) {
+  const words = String(value || '').trim().split(/\s+/).filter(Boolean)
+  if (!words.length) return []
+
+  const lines = []
+  let current = ''
+
+  words.forEach((word) => {
+    const candidate = current ? `${current} ${word}` : word
+
+    if (candidate.length > maxChars && current) {
+      lines.push(current)
+      current = word
+    } else {
+      current = candidate
+    }
+  })
+
+  if (current) lines.push(current)
+  return lines
+}
+
+function longestLineLength(lines) {
+  return lines.reduce((max, line) => Math.max(max, line.length), 0)
 }
 
 function nodeSize(node) {
-  switch (node.shape) {
-    case CONCEPT_SCHEMA_SHAPES.CIRCLE:
-      return { width: 112, height: 112 }
-    case CONCEPT_SCHEMA_SHAPES.DIAMOND:
-      return { width: 154, height: 88 }
-    case CONCEPT_SCHEMA_SHAPES.HEXAGON:
-      return { width: 184, height: 82 }
-    case CONCEPT_SCHEMA_SHAPES.PILL:
-      return { width: 174, height: 56 }
-    case CONCEPT_SCHEMA_SHAPES.RECT:
-      return { width: 184, height: 64 }
-    case CONCEPT_SCHEMA_SHAPES.ROUNDED_RECT:
-    default:
-      return { width: METRICS.nodeWidth, height: METRICS.nodeHeight }
+  const shape = effectiveNodeShape(node)
+
+  const base = {
+    [CONCEPT_SCHEMA_SHAPES.CIRCLE]: { width: 154, height: 154, wrapAt: 14, captionWrapAt: 18, safeX: 0.7 },
+    [CONCEPT_SCHEMA_SHAPES.DIAMOND]: { width: 220, height: 126, wrapAt: 18, captionWrapAt: 20, safeX: 0.66 },
+    [CONCEPT_SCHEMA_SHAPES.HEXAGON]: { width: 220, height: 112, wrapAt: 20, captionWrapAt: 24, safeX: 0.76 },
+    [CONCEPT_SCHEMA_SHAPES.PILL]: { width: 214, height: 92, wrapAt: 20, captionWrapAt: 25, safeX: 0.82 },
+    [CONCEPT_SCHEMA_SHAPES.RECT]: { width: 214, height: 94, wrapAt: 21, captionWrapAt: 26, safeX: 0.86 },
+    [CONCEPT_SCHEMA_SHAPES.ROUNDED_RECT]: { width: 214, height: 96, wrapAt: 21, captionWrapAt: 26, safeX: 0.86 },
+  }[shape] || { width: METRICS.nodeWidth, height: METRICS.nodeHeight, wrapAt: 20, captionWrapAt: 24, safeX: 0.82 }
+
+  const labelLines = wrapForMeasure(node.label, node.wrapAt || base.wrapAt)
+  const captionLines = node.caption
+    ? wrapForMeasure(node.caption, node.captionWrapAt || base.captionWrapAt)
+    : []
+
+  const labelWidth = longestLineLength(labelLines) * 7.6
+  const captionWidth = longestLineLength(captionLines) * 5.2
+  const textWidth = Math.max(labelWidth, captionWidth)
+  const requiredWidth = textWidth / base.safeX + 42
+
+  const textHeight =
+    labelLines.length * 16 +
+    captionLines.length * 10 +
+    (captionLines.length ? 11 : 0) +
+    34
+
+  let width = Math.max(base.width, requiredWidth)
+  let height = Math.max(base.height, textHeight)
+
+  if (shape === CONCEPT_SCHEMA_SHAPES.CIRCLE) {
+    const diameter = Math.max(width, height)
+    width = diameter
+    height = diameter
+  }
+
+  if (Number.isFinite(node.width)) width = Math.max(width, node.width)
+  if (Number.isFinite(node.height)) height = Math.max(height, node.height)
+
+  return {
+    width: Math.ceil(width),
+    height: Math.ceil(height),
+    shape,
   }
 }
 
@@ -48,6 +104,7 @@ function enrich(node, centerX, centerY) {
     y: centerY - size.height / 2,
     width: size.width,
     height: size.height,
+    shape: size.shape,
     centerX,
     centerY,
   }
@@ -56,6 +113,9 @@ function enrich(node, centerX, centerY) {
 function buildFlowLayout(schema) {
   const direction = schema.direction === 'vertical' ? 'vertical' : 'horizontal'
   const sizes = schema.nodes.map(nodeSize)
+  const flowGap = Number.isFinite(schema.flowGap)
+    ? schema.flowGap
+    : METRICS.flowGap
 
   if (direction === 'vertical') {
     const maxWidth = Math.max(
@@ -64,7 +124,7 @@ function buildFlowLayout(schema) {
     )
     const contentHeight =
       sizes.reduce((sum, size) => sum + size.height, 0) +
-      Math.max(0, schema.nodes.length - 1) * METRICS.flowGap
+      Math.max(0, schema.nodes.length - 1) * flowGap
     const width = Math.max(420, maxWidth + METRICS.paddingX * 2)
     const height = contentHeight + METRICS.paddingY * 2
     let cursorY = METRICS.paddingY
@@ -76,7 +136,7 @@ function buildFlowLayout(schema) {
         node.id,
         enrich(node, width / 2, cursorY + size.height / 2),
       )
-      cursorY += size.height + METRICS.flowGap
+      cursorY += size.height + flowGap
     })
 
     return { width, height, positions }
@@ -84,7 +144,7 @@ function buildFlowLayout(schema) {
 
   const contentWidth =
     sizes.reduce((sum, size) => sum + size.width, 0) +
-    Math.max(0, schema.nodes.length - 1) * METRICS.flowGap
+    Math.max(0, schema.nodes.length - 1) * flowGap
   const maxHeight = Math.max(
     ...sizes.map((size) => size.height),
     METRICS.nodeHeight,
@@ -100,7 +160,7 @@ function buildFlowLayout(schema) {
       node.id,
       enrich(node, cursorX + size.width / 2, height / 2),
     )
-    cursorX += size.width + METRICS.flowGap
+    cursorX += size.width + flowGap
   })
 
   return { width, height, positions }
@@ -156,41 +216,49 @@ function hierarchyLevels(schema) {
 
 function buildHierarchyLayout(schema) {
   const levels = hierarchyLevels(schema)
-  const widest = Math.max(...levels.map((item) => item.ids.length), 1)
+  const nodeMap = new Map(schema.nodes.map((node) => [node.id, node]))
+  const xGap = Number.isFinite(schema.hierarchyXGap)
+    ? schema.hierarchyXGap
+    : METRICS.hierarchyXGap
+  const yGap = Number.isFinite(schema.hierarchyYGap)
+    ? schema.hierarchyYGap
+    : METRICS.hierarchyYGap
+
+  const rows = levels.map(({ ids }) => {
+    const nodes = ids.map((id) => nodeMap.get(id)).filter(Boolean)
+    const sizes = nodes.map(nodeSize)
+    const width =
+      sizes.reduce((sum, size) => sum + size.width, 0) +
+      Math.max(0, sizes.length - 1) * xGap
+    const height = Math.max(...sizes.map((size) => size.height), METRICS.nodeHeight)
+
+    return { nodes, sizes, width, height }
+  })
 
   const width =
-    METRICS.paddingX * 2 +
-    widest * METRICS.nodeWidth +
-    Math.max(0, widest - 1) * METRICS.hierarchyXGap
+    Math.max(...rows.map((row) => row.width), METRICS.nodeWidth) +
+    METRICS.paddingX * 2
 
   const height =
-    METRICS.paddingY * 2 +
-    levels.length * METRICS.nodeHeight +
-    Math.max(0, levels.length - 1) * METRICS.hierarchyYGap
+    rows.reduce((sum, row) => sum + row.height, 0) +
+    Math.max(0, rows.length - 1) * yGap +
+    METRICS.paddingY * 2
 
-  const nodeMap = new Map(schema.nodes.map((node) => [node.id, node]))
   const positions = new Map()
+  let cursorY = METRICS.paddingY
 
-  levels.forEach(({ ids }, levelIndex) => {
-    const nodes = ids.map((id) => nodeMap.get(id)).filter(Boolean)
-    const rowWidth =
-      nodes.length * METRICS.nodeWidth +
-      Math.max(0, nodes.length - 1) * METRICS.hierarchyXGap
-    const startX = (width - rowWidth) / 2
+  rows.forEach((row) => {
+    let cursorX = (width - row.width) / 2
+    const centerY = cursorY + row.height / 2
 
-    nodes.forEach((node, nodeIndex) => {
-      const centerX =
-        startX +
-        nodeIndex * (METRICS.nodeWidth + METRICS.hierarchyXGap) +
-        METRICS.nodeWidth / 2
-
-      const centerY =
-        METRICS.paddingY +
-        levelIndex * (METRICS.nodeHeight + METRICS.hierarchyYGap) +
-        METRICS.nodeHeight / 2
-
-      positions.set(node.id, enrich(node, centerX, centerY))
+    row.nodes.forEach((currentNode, nodeIndex) => {
+      const size = row.sizes[nodeIndex]
+      const centerX = cursorX + size.width / 2
+      positions.set(currentNode.id, enrich(currentNode, centerX, centerY))
+      cursorX += size.width + xGap
     })
+
+    cursorY += row.height + yGap
   })
 
   return { width, height, positions }
@@ -204,9 +272,21 @@ function buildRadialLayout(schema) {
 
   const centerNode = schema.nodes.find((node) => node.id === centerId)
   const satellites = schema.nodes.filter((node) => node.id !== centerId)
-  const radius = schema.radius || METRICS.radialRadius
-  const width = radius * 2 + METRICS.paddingX * 2 + METRICS.nodeWidth
-  const height = radius * 2 + METRICS.paddingY * 2 + METRICS.nodeHeight
+  const sizes = schema.nodes.map(nodeSize)
+  const maxWidth = Math.max(...sizes.map((size) => size.width), METRICS.nodeWidth)
+  const maxHeight = Math.max(...sizes.map((size) => size.height), METRICS.nodeHeight)
+  const automaticRadius =
+    Math.max(maxWidth, maxHeight) * 1.18 +
+    Math.max(0, satellites.length - 4) * 10
+
+  const radius = Math.max(
+    Number.isFinite(schema.radius) ? schema.radius : 0,
+    METRICS.radialRadius,
+    automaticRadius,
+  )
+
+  const width = radius * 2 + METRICS.paddingX * 2 + maxWidth
+  const height = radius * 2 + METRICS.paddingY * 2 + maxHeight
   const centerX = width / 2
   const centerY = height / 2
 
@@ -226,7 +306,7 @@ function buildRadialLayout(schema) {
       : startAngle + index * step
 
     const nodeRadius = Number.isFinite(node.radius)
-      ? node.radius
+      ? Math.max(node.radius, radius * 0.78)
       : radius
 
     const angle = (angleValue * Math.PI) / 180

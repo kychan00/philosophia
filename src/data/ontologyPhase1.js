@@ -9,7 +9,9 @@ const phaseImages = {
 const radialOntology = {
   layout: 'radial',
   centerId: 'ontology',
-  radius: 185,
+  radius: 286,
+  minHeight: 620,
+  fitPadding: 52,
   sizeHint: 'wide',
   nodes: [
     { id:'ontology', label:'ontología', caption:'¿qué hay?', shapeRole:'concept', emphasis:true, tone:'accent' },
@@ -29,7 +31,11 @@ const radialOntology = {
 
 const pncFlow = {
   layout:'flow',
-  sizeHint:'wide',
+  direction:'vertical',
+  flowGap:58,
+  minHeight:760,
+  fitPadding:48,
+  sizeHint:'tall',
   nodes:[
     {id:'pnc',label:'no contradicción',caption:'mismo · tiempo · sentido',shapeRole:'concept',emphasis:true,tone:'accent'},
     {id:'principle',label:'primer principio',caption:'condición de demostrar',shapeRole:'structure'},
@@ -51,6 +57,10 @@ const pncFlow = {
 const entityHierarchy = {
   layout:'hierarchy',
   rootId:'entity',
+  hierarchyXGap:58,
+  hierarchyYGap:118,
+  minHeight:700,
+  fitPadding:54,
   sizeHint:'tall',
   nodes:[
     {id:'entity',label:'entidad',caption:'sujeto · unidad',shapeRole:'concept',emphasis:true,tone:'accent'},
@@ -61,12 +71,12 @@ const entityHierarchy = {
     {id:'determination',label:'determinación',caption:'qué es la cosa',shapeRole:'result',tone:'accent'},
   ],
   edges:[
-    {from:'entity',to:'subject',label:'funciona como',relationKind:'hierarchical'},
-    {from:'entity',to:'accident',label:'recibe',relationKind:'hierarchical'},
-    {from:'accident',to:'coincidence',label:'puede coincidir',relationKind:'hierarchical'},
-    {from:'accident',to:'infinite',label:'sin sujeto conduce a',relationKind:'hierarchical'},
-    {from:'subject',to:'determination',label:'preserva',relationKind:'hierarchical'},
-    {from:'infinite',to:'determination',label:'amenaza',relationKind:'secondary'},
+    {from:'entity',to:'subject',label:'funciona como',relationKind:'hierarchical',labelDistance:18},
+    {from:'entity',to:'accident',label:'recibe',relationKind:'hierarchical',labelDistance:18},
+    {from:'accident',to:'coincidence',label:'puede coincidir',relationKind:'hierarchical',labelDistance:18},
+    {from:'accident',to:'infinite',label:'sin sujeto conduce a',relationKind:'hierarchical',labelDistance:20},
+    {from:'subject',to:'determination',label:'preserva',relationKind:'hierarchical',labelDistance:18},
+    {from:'infinite',to:'determination',label:'amenaza',relationKind:'secondary',labelDistance:18},
   ],
   animation:{mode:'branch',nodeDuration:.3,edgeDuration:.3},
 }

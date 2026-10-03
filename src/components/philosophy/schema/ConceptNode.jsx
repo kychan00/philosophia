@@ -4,8 +4,10 @@ import {
   effectiveNodeShape,
 } from './schemaTypes'
 
-function wrapLabel(label, maxChars = 18) {
-  const words = String(label).split(/\s+/)
+function wrapText(value, maxChars) {
+  const words = String(value || '').trim().split(/\s+/).filter(Boolean)
+  if (!words.length) return []
+
   const lines = []
   let current = ''
 
@@ -21,8 +23,27 @@ function wrapLabel(label, maxChars = 18) {
   })
 
   if (current) lines.push(current)
+  return lines
+}
 
-  return lines.slice(0, 3)
+function safeWidthRatio(shape) {
+  switch (shape) {
+    case CONCEPT_SCHEMA_SHAPES.CIRCLE:
+      return 0.68
+    case CONCEPT_SCHEMA_SHAPES.DIAMOND:
+      return 0.58
+    case CONCEPT_SCHEMA_SHAPES.HEXAGON:
+      return 0.72
+    case CONCEPT_SCHEMA_SHAPES.PILL:
+      return 0.8
+    default:
+      return 0.84
+  }
+}
+
+function charsForWidth(width, fontSize, ratio) {
+  const averageGlyph = fontSize * 0.58
+  return Math.max(8, Math.floor((width * ratio) / averageGlyph))
 }
 
 function Shape({ shape, width, height }) {
@@ -33,11 +54,12 @@ function Shape({ shape, width, height }) {
   switch (shape) {
     case CONCEPT_SCHEMA_SHAPES.CIRCLE:
       return (
-        <circle
+        <ellipse
           {...common}
           cx={width / 2}
           cy={height / 2}
-          r={Math.min(width, height) / 2 - 3}
+          rx={width / 2 - 3}
+          ry={height / 2 - 3}
         />
       )
 
@@ -84,7 +106,7 @@ function Shape({ shape, width, height }) {
           {...common}
           width={width}
           height={height}
-          rx="5"
+          rx="7"
         />
       )
   }
@@ -94,10 +116,29 @@ export default function ConceptNode({ node, position }) {
   const { x, y, width, height } = position
   const role = effectiveNodeRole(node)
   const shape = effectiveNodeShape(node)
-  const lines = wrapLabel(node.label, node.wrapAt || 18)
-  const lineHeight = 15
-  const firstY =
-    height / 2 - ((lines.length - 1) * lineHeight) / 2
+  const ratio = safeWidthRatio(shape)
+
+  const labelChars =
+    node.wrapAt || charsForWidth(width, 13, ratio)
+
+  const captionChars =
+    node.captionWrapAt || charsForWidth(width, 8.5, ratio)
+
+  const labelLines = wrapText(node.label, labelChars)
+  const captionLines = node.caption
+    ? wrapText(node.caption, captionChars)
+    : []
+
+  const labelLineHeight = 15.5
+  const captionLineHeight = 10.5
+  const contentGap = captionLines.length ? 9 : 0
+  const labelHeight = Math.max(labelLineHeight, labelLines.length * labelLineHeight)
+  const captionHeight = captionLines.length * captionLineHeight
+  const totalHeight = labelHeight + contentGap + captionHeight
+  const contentTop = height / 2 - totalHeight / 2
+  const labelStartY = contentTop + labelLineHeight / 2
+  const captionStartY =
+    contentTop + labelHeight + contentGap + captionLineHeight / 2
 
   return (
     <g
@@ -123,29 +164,36 @@ export default function ConceptNode({ node, position }) {
       <text
         className="concept-schema-node__label"
         x={width / 2}
-        y={firstY}
         textAnchor="middle"
         dominantBaseline="middle"
       >
-        {lines.map((line, index) => (
+        {labelLines.map((line, index) => (
           <tspan
-            key={`${node.id}-line-${index}`}
+            key={`${node.id}-label-${index}`}
             x={width / 2}
-            dy={index === 0 ? 0 : lineHeight}
+            y={labelStartY + index * labelLineHeight}
           >
             {line}
           </tspan>
         ))}
       </text>
 
-      {node.caption && (
+      {captionLines.length > 0 && (
         <text
           className="concept-schema-node__caption"
           x={width / 2}
-          y={height - 8}
           textAnchor="middle"
+          dominantBaseline="middle"
         >
-          {node.caption}
+          {captionLines.map((line, index) => (
+            <tspan
+              key={`${node.id}-caption-${index}`}
+              x={width / 2}
+              y={captionStartY + index * captionLineHeight}
+            >
+              {line}
+            </tspan>
+          ))}
         </text>
       )}
     </g>
