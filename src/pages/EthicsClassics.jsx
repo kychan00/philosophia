@@ -263,13 +263,12 @@ export default function EthicsClassics() {
             <span>IX · MMXXVI</span>
           </div>
           <div className="ethicsx-class-card-copy">
-            <span>Sexta clase · Justicia, prudencia y alteridad</span>
+            <span>Sexta clase · Justicia, prudencia y escucha</span>
             <h3>Derechos, trabajo, arrogancia y aprendizaje del error</h3>
             <p>
-              Exigencia de justicia, vergüenza e ideología, responsabilidad
-              profesional, escasez y miedo, mortalidad y trabajo, Demócrito 86,
-              pluralidad interpretativa, negatividad, contingencia y comprensión
-              de las circunstancias del otro.
+              Justicia laboral, ideología e introyección, responsabilidad
+              profesional, escasez, trabajo y mortalidad, Demócrito 86,
+              pluralidad interpretativa, error, contingencia y alteridad.
             </p>
           </div>
           <div className="ethicsx-class-card-enter">

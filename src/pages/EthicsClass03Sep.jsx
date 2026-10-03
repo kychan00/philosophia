@@ -10,16 +10,17 @@ import {
 import './EthicsClass03Sep.css'
 
 const sections = [
-  ['00', 'problema', 'Problema'],
-  ['01', 'justicia', 'Justicia'],
-  ['02', 'escasez', 'Escasez e introyección'],
-  ['03', 'profesion', 'Profesión y servicio'],
-  ['04', 'mortalidad', 'Trabajo y mortalidad'],
-  ['05', 'democrito', 'Demócrito y escucha'],
-  ['06', 'pluralidad', 'Pluralidad y error'],
-  ['07', 'prudencia', 'Prudencia y contingencia'],
-  ['08', 'alteridad', 'Alteridad'],
-  ['09', 'cierre', 'Ejercicio moral'],
+  ['00', 'mapa', 'Del principio a la decisión'],
+  ['01', 'justicia', 'Justicia laboral'],
+  ['02', 'ideologia', 'Ideología e introyección'],
+  ['03', 'profesion', 'Profesión'],
+  ['04', 'escasez', 'Escasez'],
+  ['05', 'mortalidad', 'Trabajo y mortalidad'],
+  ['06', 'democrito', 'Demócrito y escucha'],
+  ['07', 'pluralidad', 'Pluralidad'],
+  ['08', 'error', 'Error'],
+  ['09', 'prudencia', 'Prudencia y contingencia'],
+  ['10', 'alteridad', 'Alteridad'],
 ]
 
 function goToSection(id) {
@@ -85,18 +86,18 @@ export default function EthicsClass03Sep() {
             </h1>
 
             <p className="ethos03-lead">
-              La sesión lleva las máximas morales hacia casos laborales,
-              profesionales y cotidianos: exigir derechos, atender la
-              vulnerabilidad, escuchar interpretaciones distintas, aprender del
-              error y prepararse para consecuencias contingentes.
+              La sesión lleva la deliberación moral hacia circunstancias
+              concretas: desigualdad, vulnerabilidad, responsabilidad
+              profesional, temporalidad, pluralidad interpretativa, error y
+              contingencia.
             </p>
 
-            <div className="ethos03-question" id="problema">
+            <div className="ethos03-question">
               <span>PROBLEMA DE LA SESIÓN</span>
               <strong>
-                ¿Cómo cambia una decisión moral cuando el principio entra en
-                contacto con desigualdad, vulnerabilidad, consecuencias,
-                contingencia y la perspectiva del otro?
+                ¿Cómo cambia una decisión moral cuando un principio entra en
+                contacto con circunstancias, consecuencias y la perspectiva del
+                otro?
               </strong>
             </div>
           </div>
@@ -131,6 +132,34 @@ export default function EthicsClass03Sep() {
         </aside>
 
         <article className="ethos03-article">
+          <section id="mapa">
+            <Heading number="00" eyebrow="Principium · circumstantiae">
+              Del principio a las circunstancias y de las circunstancias a la decisión
+            </Heading>
+
+            <p className="ethos03-prose">
+              La deliberación no conecta una máxima con una acción de manera
+              mecánica. La sesión obliga a considerar vulnerabilidad,
+              desigualdad, responsabilidad profesional, temporalidad, pluralidad
+              interpretativa, error y contingencia antes de decidir.
+            </p>
+
+            <div className="ethos03-schema-title">
+              <span>DEL PRINCIPIO A LA DECISIÓN</span><i />
+            </div>
+            <div className="ethos03-schema">
+              <AnimatedConceptSchema schema={practicalDeliberationSchema} />
+            </div>
+
+            <aside className="ethos03-note">
+              <span>ESTRUCTURA DE LA SESIÓN</span>
+              <p>
+                Principio o sentencia → caso → circunstancias → consecuencias →
+                deliberación → decisión.
+              </p>
+            </aside>
+          </section>
+
           <section id="justicia">
             <Heading number="01" eyebrow="Iustitia">
               Exigir justicia puede comenzar por dejar de consentir lo injusto
@@ -174,32 +203,24 @@ export default function EthicsClass03Sep() {
             </aside>
           </section>
 
-          <section id="escasez">
-            <Heading number="02" eyebrow="Inopia · introiectio">
-              La dominación también puede interiorizarse
+          <section id="ideologia">
+            <Heading number="02" eyebrow="Ideologia · introiectio">
+              El control puede interiorizarse hasta no necesitar ser enteramente externo
             </Heading>
 
             <p className="ethos03-prose">
-              La sesión examina discursos laborales que hacen sentir al
-              trabajador que “debe” algo al empleador por recibir trabajo. La
-              precariedad y el miedo a perder ingreso o estabilidad pueden
-              estrechar el horizonte de decisión hasta volver difícil reclamar
-              aquello que formalmente corresponde.
+              La sesión examina discursos laborales que pueden hacer sentir al
+              trabajador que debe algo al empleador simplemente por recibir
+              trabajo. Cuando esa relación se interioriza, la obediencia deja de
+              depender únicamente de una presión visible.
             </p>
 
-            <div className="ethos03-scarcity">
-              <span>escasez</span><b>→</b>
-              <span>miedo</span><b>→</b>
-              <span>cesión</span><b>→</b>
-              <span>introyección</span><b>→</b>
-              <strong>dificultad para exigir</strong>
-            </div>
-
             <div className="ethos03-warning">
-              <span>VULNERABILIDAD</span>
+              <span>INTROYECCIÓN</span>
               <strong>
-                Una persona puede seguir actuando desde la lógica de la escasez
-                incluso después de que su situación material haya cambiado.
+                Un discurso de dependencia puede convertirse en una forma de
+                autocontención: la persona limita por sí misma aquello que se
+                siente autorizada a exigir.
               </strong>
             </div>
           </section>
@@ -238,8 +259,36 @@ export default function EthicsClass03Sep() {
             </article>
           </section>
 
+          <section id="escasez">
+            <Heading number="04" eyebrow="Inopia">
+              La escasez modifica el horizonte práctico de decisión
+            </Heading>
+
+            <p className="ethos03-prose">
+              La pobreza no elimina un derecho, pero puede reducir de manera
+              concreta la capacidad de reclamarlo. El miedo a perder ingreso,
+              empleo o estabilidad estrecha el margen desde el que una persona
+              puede decidir.
+            </p>
+
+            <div className="ethos03-scarcity">
+              <span>escasez</span><b>→</b>
+              <span>miedo</span><b>→</b>
+              <span>cesión</span><b>→</b>
+              <strong>dificultad para exigir</strong>
+            </div>
+
+            <div className="ethos03-warning">
+              <span>VULNERABILIDAD</span>
+              <strong>
+                La deliberación moral debe considerar no sólo qué derecho existe,
+                sino desde qué condiciones materiales puede ejercerlo una persona.
+              </strong>
+            </div>
+          </section>
+
           <section id="mortalidad">
-            <Heading number="04" eyebrow="Labor · tempus · mortalitas">
+            <Heading number="05" eyebrow="Labor · tempus · mortalitas">
               La vida limitada cambia el peso de salario, prestigio, salud y tiempo
             </Heading>
 
@@ -260,7 +309,7 @@ export default function EthicsClass03Sep() {
           </section>
 
           <section id="democrito">
-            <Heading number="05" eyebrow="Democritus · audire">
+            <Heading number="06" eyebrow="Democritus · audire">
               Escuchar no obliga a abandonar la propia posición
             </Heading>
 
@@ -272,7 +321,7 @@ export default function EthicsClass03Sep() {
             </p>
 
             <div className="ethos03-schema-title">
-              <span>ESQUEMA</span><i />
+              <span>ESCUCHA Y REVISIÓN</span><i />
             </div>
             <div className="ethos03-schema">
               <AnimatedConceptSchema schema={listeningSchema} />
@@ -289,8 +338,8 @@ export default function EthicsClass03Sep() {
           </section>
 
           <section id="pluralidad">
-            <Heading number="06" eyebrow="Interpretatio · error">
-              Pluralidad interpretativa y error pueden ampliar el conocimiento
+            <Heading number="07" eyebrow="Interpretatio">
+              Dos interpretaciones pueden estar bien construidas y ser incompatibles
             </Heading>
 
             <p className="ethos03-prose">
@@ -317,6 +366,19 @@ export default function EthicsClass03Sep() {
               </article>
             </div>
 
+          </section>
+
+          <section id="error">
+            <Heading number="08" eyebrow="Error · cognitio">
+              El fracaso puede revelar supuestos que el acierto deja ocultos
+            </Heading>
+
+            <p className="ethos03-prose">
+              Analizar un error permite reconstruir el recorrido que condujo a
+              él, identificar supuestos y reconocer relaciones que antes no eran
+              visibles. El error se vuelve así una ocasión de aprendizaje.
+            </p>
+
             <div className="ethos03-error">
               <span>error</span><b>→</b>
               <span>¿cómo ocurrió?</span><b>+</b>
@@ -326,7 +388,7 @@ export default function EthicsClass03Sep() {
           </section>
 
           <section id="prudencia">
-            <Heading number="07" eyebrow="Prudentia · contingentia">
+            <Heading number="09" eyebrow="Prudentia · contingentia">
               Prepararse para el peor caso puede aumentar el margen de acción
             </Heading>
 
@@ -355,7 +417,7 @@ export default function EthicsClass03Sep() {
           </section>
 
           <section id="alteridad">
-            <Heading number="08" eyebrow="Alteritas">
+            <Heading number="10" eyebrow="Alteritas">
               Comprender al otro exige preguntar por historia y circunstancias
             </Heading>
 
@@ -378,38 +440,14 @@ export default function EthicsClass03Sep() {
               </article>
             </div>
 
-            <div className="ethos03-schema-title">
-              <span>ESQUEMA</span><i />
-            </div>
-            <div className="ethos03-schema is-compact">
-              <AnimatedConceptSchema schema={practicalDeliberationSchema} />
-            </div>
-          </section>
-
-          <section id="cierre">
-            <Heading number="09" eyebrow="Exercitium">
-              El ejercicio moral conecta sentencia, caso y aplicación
-            </Heading>
-
-            <p className="ethos03-prose">
-              Al cierre se mantiene la estructura de trabajo del curso: una
-              máxima o postura no se evalúa sólo por su formulación, sino por lo
-              que permite hacer cuando entra en una situación concreta.
-            </p>
-
-            <div className="ethos03-final">
-              <span>1 · sentencia moral</span><b>→</b>
-              <span>2 · desarrollo del caso</span><b>→</b>
-              <strong>3 · aplicación de la sentencia</strong>
-            </div>
-
             <div className="ethos03-source-note">
-              <span>FUENTE DOCUMENTAL</span>
+              <span>SÍNTESIS DOCUMENTAL</span>
               <p>
-                La página conserva los núcleos registrados para el 3 de
-                septiembre: justicia laboral, ideología e introyección,
+                La sesión articula justicia laboral, ideología e introyección,
                 responsabilidad profesional, escasez, trabajo y mortalidad,
-                Demócrito, pluralidad, error, contingencia y alteridad.
+                escucha, pluralidad interpretativa, aprendizaje del error,
+                contingencia y alteridad dentro de una misma estructura de
+                deliberación práctica.
               </p>
             </div>
           </section>
