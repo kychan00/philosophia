@@ -1,0 +1,63 @@
+.hegel-logic-page{background:#2b211b}
+.hegel-logic-brochure{overflow:hidden}
+.hegel-logic-axis{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:24px;font-family:'Cormorant Garamond',Georgia,serif}
+.hegel-logic-axis span{padding:7px 10px;border:1px solid var(--oa-line);background:rgba(255,255,255,.18);font-size:.92rem}
+.hegel-logic-axis b{color:var(--oa-gold);font-weight:500}
+.hegel-logic-documentary{display:grid;grid-template-columns:.72fr 1.28fr;gap:42px;padding:50px 54px;background:#eee5d7;border-top:1px solid var(--oa-line)}
+.hegel-logic-documentary small,.hegel-logic-lab small,.hegel-logic-distinction small,.hegel-logic-becoming small,.hegel-logic-dasein small,.hegel-logic-warning small,.hegel-logic-source small{color:var(--oa-wine);font-size:.56rem;letter-spacing:.14em}
+.hegel-logic-documentary h2,.hegel-logic-lab h2,.hegel-logic-distinction h2,.hegel-logic-becoming h2,.hegel-logic-dasein h2,.hegel-logic-warning h2,.hegel-logic-source h2{margin:6px 0 0;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2.5rem,5vw,4.2rem);font-weight:500;line-height:.96}
+.hegel-logic-documentary>div:last-child{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.05rem;line-height:1.56}
+.hegel-logic-atlas .animated-concept-schema{min-height:900px!important}
+.hegel-logic-lab{padding:58px 54px;background:var(--oa-paper)}
+.hegel-logic-lab header{max-width:830px}
+.hegel-logic-lab header p{color:var(--oa-muted);font-family:'Cormorant Garamond',Georgia,serif;line-height:1.5}
+.hegel-logic-lab-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:28px;margin-top:30px}
+.hegel-logic-tabs{display:grid}
+.hegel-logic-tabs button{display:grid;grid-template-columns:42px 1fr;gap:10px;align-items:center;padding:14px 0;border:0;border-bottom:1px solid var(--oa-line);background:transparent;color:var(--oa-ink);text-align:left;cursor:pointer}
+.hegel-logic-tabs button>span{color:var(--oa-gold);font-family:'Cormorant Garamond',Georgia,serif;font-size:1.15rem}
+.hegel-logic-tabs button strong{display:block;font-size:.85rem}
+.hegel-logic-tabs button small{display:block;margin-top:3px;color:var(--oa-muted);letter-spacing:.08em}
+.hegel-logic-tabs button.active strong{color:var(--oa-wine)}
+.hegel-logic-card{position:sticky;top:20px;align-self:start;min-height:460px;padding:34px;border:1px solid var(--oa-line);background:#eee5d7}
+.hegel-logic-card>span{color:var(--oa-wine);font-size:.56rem;letter-spacing:.14em}
+.hegel-logic-card h3{margin:18px 0 4px;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2.2rem,4vw,3.6rem);font-weight:500}
+.hegel-logic-card>small{color:var(--oa-muted)}
+.hegel-logic-card-section{margin-top:26px;padding-top:18px;border-top:1px solid var(--oa-line)}
+.hegel-logic-card-section b{color:var(--oa-wine);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase}
+.hegel-logic-card-section p{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.05rem;line-height:1.58}
+.hegel-logic-distinction{padding:58px 54px;background:#f2ebdf}
+.hegel-logic-distinction-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:30px;background:var(--oa-line);border:1px solid var(--oa-line)}
+.hegel-logic-distinction-grid article{min-height:240px;padding:22px;background:#f7f2e8}
+.hegel-logic-distinction-grid span{color:var(--oa-gold);font-size:.55rem;letter-spacing:.12em}
+.hegel-logic-distinction-grid strong{display:block;margin-top:16px;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.35rem}
+.hegel-logic-distinction-grid p{color:var(--oa-muted);line-height:1.5}
+.hegel-logic-becoming{display:grid;grid-template-columns:.8fr 1.2fr;gap:42px;padding:58px 54px;background:#6a271b;color:#f7eee3}
+.hegel-logic-becoming small{color:#e2c4a7}
+.hegel-logic-becoming>div:first-child p{color:rgba(247,238,227,.78);font-family:'Cormorant Garamond',Georgia,serif;line-height:1.55}
+.hegel-logic-becoming-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hegel-logic-becoming-grid article{padding:20px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06)}
+.hegel-logic-becoming-grid span{color:#e2c4a7;font-size:.55rem;letter-spacing:.12em}
+.hegel-logic-becoming-grid strong{display:block;margin:14px 0 22px;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.6rem}
+.hegel-logic-becoming-grid div{display:flex;gap:10px;align-items:center}
+.hegel-logic-becoming-grid i{color:#e2c4a7;font-style:normal}
+.hegel-logic-dasein{padding:58px 54px;background:var(--oa-paper)}
+.hegel-logic-dasein-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:10px;align-items:center;margin-top:30px}
+.hegel-logic-dasein-flow article{min-height:150px;padding:16px;border:1px solid var(--oa-line);background:#f2ebdf}
+.hegel-logic-dasein-flow article.active{border-color:var(--oa-wine);background:rgba(122,45,30,.07)}
+.hegel-logic-dasein-flow span{color:var(--oa-gold);font-size:.55rem}
+.hegel-logic-dasein-flow strong{display:block;margin-top:16px;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.3rem}
+.hegel-logic-dasein-flow p{color:var(--oa-muted);font-size:.75rem;line-height:1.4}
+.hegel-logic-dasein-flow>b{color:var(--oa-wine)}
+.hegel-logic-dasein>p{max-width:820px;margin-top:28px;color:var(--oa-muted);font-family:'Cormorant Garamond',Georgia,serif;font-size:1.05rem;line-height:1.55}
+.hegel-logic-warning{display:grid;grid-template-columns:.78fr 1.22fr;gap:42px;padding:54px;background:#eee5d7}
+.hegel-logic-warning ul{margin:0;padding:0;list-style:none;border-top:1px solid var(--oa-line)}
+.hegel-logic-warning li{padding:14px 0;border-bottom:1px solid var(--oa-line);font-family:'Cormorant Garamond',Georgia,serif;font-size:1.03rem}
+.hegel-logic-warning li::before{content:'— ';color:var(--oa-gold)}
+.hegel-logic-source{display:grid;grid-template-columns:.72fr 1.28fr;gap:42px;padding:54px;background:#f2ebdf}
+.hegel-logic-source>div:last-child{display:grid;gap:1px;background:var(--oa-line);border:1px solid var(--oa-line)}
+.hegel-logic-source article{padding:16px;background:#f7f2e8}
+.hegel-logic-source article span{color:var(--oa-wine);font-size:.55rem;letter-spacing:.11em}
+.hegel-logic-source article strong{display:block;margin-top:5px;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.2rem}
+.hegel-logic-source article p{margin:6px 0 0;color:var(--oa-muted)}
+@media(max-width:900px){.hegel-logic-documentary,.hegel-logic-lab-grid,.hegel-logic-becoming,.hegel-logic-warning,.hegel-logic-source{grid-template-columns:1fr}.hegel-logic-card{position:static}.hegel-logic-distinction-grid{grid-template-columns:1fr}.hegel-logic-dasein-flow{grid-template-columns:1fr}.hegel-logic-dasein-flow>b{justify-self:center;transform:rotate(90deg)}}
+@media(max-width:650px){.hegel-logic-documentary,.hegel-logic-lab,.hegel-logic-distinction,.hegel-logic-becoming,.hegel-logic-dasein,.hegel-logic-warning,.hegel-logic-source{padding-left:24px;padding-right:24px}.hegel-logic-becoming-grid{grid-template-columns:1fr}}

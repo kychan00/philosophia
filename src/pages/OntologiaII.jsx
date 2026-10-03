@@ -506,6 +506,30 @@ export default function OntologiaII() {
             <b>↗</b>
           </div>
         </Link>
+
+        <Link
+          to="/estudios/ontologia-ii/hegel-ciencia-logica-ser-nada-devenir"
+          className="ontology-program-class-card"
+        >
+          <div className="ontology-program-date">
+            <strong>IV</strong>
+            <span>LOGICA</span>
+          </div>
+
+          <div className="ontology-program-class-copy">
+            <span>Dossier programático · Hegel</span>
+            <h3>Ciencia de la lógica · ser, nada y devenir</h3>
+            <p>
+              Comienzo de la Doctrina del ser: ser puro, nada pura,
+              devenir y tránsito al ser determinado o Dasein.
+            </p>
+          </div>
+
+          <div className="ontology-program-enter">
+            <span>Abrir dossier</span>
+            <b>↗</b>
+          </div>
+        </Link>
       </section>
 
 

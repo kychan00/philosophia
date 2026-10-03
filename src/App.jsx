@@ -77,6 +77,7 @@ const KantAnalyticSystem = lazy(() => import('./pages/KantAnalyticSystem'))
 const KantDialecticSystem = lazy(() => import('./pages/KantDialecticSystem'))
 const HartmannThingInItselfTask = lazy(() => import('./pages/HartmannThingInItselfTask'))
 const HegelPhenomenologyPrefaceStudy = lazy(() => import('./pages/HegelPhenomenologyPrefaceStudy'))
+const HegelLogicBeingNothingBecomingStudy = lazy(() => import('./pages/HegelLogicBeingNothingBecomingStudy'))
 const MethodsResearch = lazy(() => import('./pages/MethodsResearch'))
 const MethodsClass17Aug = lazy(() => import('./pages/MethodsClass17Aug'))
 const MethodsClass19Aug = lazy(() => import('./pages/MethodsClass19Aug'))
@@ -326,6 +327,10 @@ function App() {
         <Route
           path="/estudios/ontologia-ii/hegel-fenomenologia-prologo"
           element={<HegelPhenomenologyPrefaceStudy />}
+        />
+        <Route
+          path="/estudios/ontologia-ii/hegel-ciencia-logica-ser-nada-devenir"
+          element={<HegelLogicBeingNothingBecomingStudy />}
         />
         <Route
           path="/tareas/ontologia-ii/kant-critica-razon-pura-prologos"

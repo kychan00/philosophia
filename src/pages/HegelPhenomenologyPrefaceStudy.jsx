@@ -349,8 +349,8 @@ export default function HegelPhenomenologyPrefaceStudy() {
             </p>
           </div>
 
-          <Link to="/semestre/5/ontologia-ii">
-            Volver al mapa del curso ↗
+          <Link to="/estudios/ontologia-ii/hegel-ciencia-logica-ser-nada-devenir">
+            Continuar con ser · nada · devenir ↗
           </Link>
         </section>
 
