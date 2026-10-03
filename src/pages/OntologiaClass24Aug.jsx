@@ -1,4 +1,8 @@
 import { Link } from 'react-router'
+import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema'
+import '../components/OntologyArchiveClass.css'
+import './OntologiaClass17AugArchive.css'
+import './OntologiaClass24AugArchive.css'
 
 const sections = [
   ['01', 'retoma', 'Retoma de Spinoza'],
@@ -976,6 +980,38 @@ const pointGroups = {
   ],
 }
 
+const atlasSchema = {
+  layout: 'hierarchy',
+  rootId: 'substance',
+  hierarchyXGap: 52,
+  hierarchyYGap: 118,
+  minHeight: 940,
+  fitPadding: 56,
+  sizeHint: 'tall',
+  nodes: [
+    { id: 'substance', label: 'sustancia', caption: 'una · eterna · infinita', shapeRole: 'concept', emphasis: true, tone: 'accent' },
+    { id: 'attributes', label: 'atributos', caption: 'pensamiento · extensión', shapeRole: 'structure' },
+    { id: 'modes', label: 'modos', caption: 'ideas · cuerpos · seres particulares', shapeRole: 'mediation' },
+    { id: 'nature', label: 'Deus sive Natura', caption: 'Dios o Naturaleza', shapeRole: 'concept' },
+    { id: 'immanence', label: 'causalidad inmanente', caption: 'todo permanece en la sustancia', shapeRole: 'structure' },
+    { id: 'necessity', label: 'necesidad', caption: 'orden causal', shapeRole: 'mediation' },
+    { id: 'affects', label: 'afectos', caption: 'deseo · alegría · tristeza', shapeRole: 'term' },
+    { id: 'knowledge', label: 'conocimiento', caption: 'comprender las causas', shapeRole: 'mediation' },
+    { id: 'freedom', label: 'libertad', caption: 'conocimiento de la necesidad', shapeRole: 'result', tone: 'accent' },
+  ],
+  edges: [
+    { from: 'substance', to: 'attributes', label: 'se expresa mediante', relationKind: 'hierarchical' },
+    { from: 'substance', to: 'modes', label: 'se determina en', relationKind: 'hierarchical' },
+    { from: 'substance', to: 'nature', label: 'se formula como', relationKind: 'hierarchical' },
+    { from: 'nature', to: 'immanence', label: 'implica', relationKind: 'hierarchical' },
+    { from: 'immanence', to: 'necessity', label: 'ordena según', relationKind: 'hierarchical' },
+    { from: 'necessity', to: 'affects', label: 'incluye al ser humano y sus', relationKind: 'hierarchical' },
+    { from: 'affects', to: 'knowledge', label: 'pueden comprenderse mediante', relationKind: 'hierarchical' },
+    { from: 'knowledge', to: 'freedom', label: 'hace posible', relationKind: 'hierarchical' },
+  ],
+  animation: { mode: 'branch', nodeDuration: .28, edgeDuration: .3 },
+}
+
 function PointList({ group }) {
   return (
     <div className="ontology24-long-points">
@@ -993,217 +1029,349 @@ function PointList({ group }) {
 }
 
 export default function OntologiaClass24Aug() {
+  const heroImage = `${import.meta.env.BASE_URL}images/ontologia/open/2026-08-24/spinoza-retrato.jpg`
+
   return (
-    <main className="ontology24-page">
-      <nav className="ontology-class-v2-nav">
-        <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
-        <Link to="/" className="ontology-class-v2-brand">Φ · Philosophia</Link>
-        <span>XXIV · VIII · MMXXVI</span>
-      </nav>
+    <main className="ontology24-page oa-page oaf-page">
+      <div className="oa-backdrop" aria-hidden="true" />
 
-      <header className="ontology24-hero">
-        <p>Ontología II · Tercera clase</p>
-        <h1>Spinoza<em>sustancia · necesidad · libertad</em></h1>
-        <p className="ontology24-lead">
-          La clase reconstruye el movimiento completo del sistema: de la pregunta por
-          la sustancia a la inmanencia de Dios, de ahí a la necesidad causal y,
-          finalmente, al problema de cómo puede ser libre un ser humano que también
-          pertenece a ese orden necesario.
-        </p>
-        <div className="ontology24-axis">
-          <span>sustancia</span><b>→</b><span>atributos</span><b>→</b><span>modos</span>
-          <b>→</b><span>necesidad</span><b>→</b><span>afectos</span>
-          <b>→</b><span>conocimiento</span><b>→</b><span>libertad</span>
-        </div>
-      </header>
+      <div className="oa-brochure oaf-brochure">
+        <nav className="oa-nav">
+          <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
+          <Link to="/" className="oa-brand">Φ · Philosophia</Link>
+          <span>XXIV · VIII · MMXXVI</span>
+        </nav>
 
-      <section className="ontology24-spinoza-bridge">
-        <div className="ontology24-spinoza-bridge-mark" aria-hidden="true">
-          I
-        </div>
+        <header className="oa-cover oaf-cover">
+          <div className="oa-cover-copy">
+            <span className="oa-kicker">Archivum ontologicum · fol. XV · Deus sive Natura</span>
 
-        <div className="ontology24-spinoza-bridge-copy">
-          <span>TRABAJO PREVIO · ETHICA · PARS I</span>
+            <h1>
+              Spinoza
+              <em>sustancia · necesidad · libertad</em>
+            </h1>
 
-          <h2>
-            De la lectura de <em>De Dios</em>
-            <small>a la clase del 24 de agosto</small>
-          </h2>
-
-          <p>
-            Esta sesión parte directamente del trabajo realizado sobre la
-            <em> Ética demostrada según el orden geométrico</em>. Allí se
-            reconstruyeron definiciones, axiomas y proposiciones de la Parte I
-            como una red de dependencias: sustancia, atributos, modos,
-            causalidad, necesidad y Dios.
-          </p>
-
-          <p>
-            Puede volver a ese trabajo para consultar el mapa completo,
-            recorrer las conexiones D/A/P y revisar visualmente cómo se
-            fundamentan las tesis que el profesor desarrolla en esta clase.
-          </p>
-
-          <div className="ontology24-spinoza-bridge-route">
-            <span>D / A / P</span>
-            <b>→</b>
-            <span>SUSTANCIA</span>
-            <b>→</b>
-            <span>DIOS</span>
-            <b>→</b>
-            <span>NECESIDAD</span>
-            <b>→</b>
-            <span>CLASE</span>
-          </div>
-        </div>
-
-        <div className="ontology24-spinoza-bridge-actions">
-          <Link
-            to="/tareas/ontologia-ii/spinoza-etica-parte-i"
-            className="ontology24-spinoza-bridge-primary"
-          >
-            <span>Abrir trabajo de Spinoza</span>
-            <b>↗</b>
-          </Link>
-
-          <Link
-            to="/tareas/ontologia-ii/spinoza-etica-parte-i/figuras/3d"
-            className="ontology24-spinoza-bridge-secondary"
-          >
-            Explorar sistema 3D →
-          </Link>
-
-          <small>
-            Tarea asignada el 19 de agosto · lectura para esta sesión
-          </small>
-        </div>
-      </section>
-
-      <div className="ontology24-layout">
-        <aside className="ontology24-index">
-          <p>Index lectionis · 50 puncta</p>
-          {sections.map(([n,id,label]) => (
-            <button key={id} type="button" onClick={() => goTo(id)}>
-              <span>{n}</span>{label}
-            </button>
-          ))}
-        </aside>
-
-        <article className="ontology24-article">
-          <section id="retoma">
-            <span className="ontology24-number">I</span>
-            <p className="ontology24-eyebrow">Initium</p>
-            <h2>Retoma de Spinoza y del orden geométrico</h2>
-            <PointList group="retoma" />
-          </section>
-
-          <section id="estructura">
-            <span className="ontology24-number">II</span>
-            <p className="ontology24-eyebrow">Substantia · attributa · modi</p>
-            <h2>Qué existe y cómo se organiza la realidad</h2>
-            <PointList group="estructura" />
-          </section>
-
-          <section id="tradicion">
-            <span className="ontology24-number">III</span>
-            <p className="ontology24-eyebrow">Traditio ontologica</p>
-            <h2>La sustancia dentro de una historia del ser</h2>
-            <PointList group="tradicion" />
-          </section>
-
-          <section id="inmanencia">
-            <span className="ontology24-number">IV</span>
-            <p className="ontology24-eyebrow">Deus sive Natura</p>
-            <h2>Inmanencia, causalidad y necesidad</h2>
-            <PointList group="inmanencia" />
-          </section>
-
-          <section id="necesidad">
-            <span className="ontology24-number">V</span>
-            <p className="ontology24-eyebrow">Necessitas · libertas</p>
-            <h2>Cómo puede ser libre un ser determinado</h2>
-            <PointList group="necesidad" />
-          </section>
-
-          <section id="afectos">
-            <span className="ontology24-number">VI</span>
-            <p className="ontology24-eyebrow">Vita practica</p>
-            <h2>Felicidad, afectos y conocimiento de sí</h2>
-            <PointList group="afectos" />
-          </section>
-
-          <section id="dialogos">
-            <span className="ontology24-number">VII</span>
-            <p className="ontology24-eyebrow">Dialogi</p>
-            <h2>Freud, Feuerbach, Kant, Platón y Sartre</h2>
-            <PointList group="dialogos" />
-          </section>
-
-          <section id="arquitectura">
-            <span className="ontology24-number">VIII</span>
-            <p className="ontology24-eyebrow">Architectura systematis</p>
-            <h2>De la ontología a la ética</h2>
-            <PointList group="arquitectura" />
-          </section>
-
-          <section id="tarea" className="ontology24-homework">
-            <span className="ontology24-number">IX</span>
-            <p className="ontology24-eyebrow">Lectio ad diem XXVI</p>
-            <h2>Tarea para la próxima clase · Leibniz</h2>
-
-            <p className="ontology24-homework-lead">
-              La sesión cierra prácticamente el bloque dedicado a Spinoza y prepara el
-              paso al siguiente racionalista: <strong>Gottfried Wilhelm Leibniz</strong>.
-              La indicación final del profesor fue estudiar a Leibniz para la
-              <strong> próxima clase, miércoles 26 de agosto de 2026</strong>.
+            <p className="oa-subtitle">
+              substantia · attributum · modus · necessitas · libertas
             </p>
 
-            <div className="ontology24-books">
-              <article>
-                <span>I</span>
-                <div>
-                  <b>Discurso de metafísica</b>
-                  <small>G. W. Leibniz</small>
-                  <p>
-                    Texto de entrada para comprender la noción leibniziana de
-                    sustancia individual, perfección, causalidad y orden del mundo.
-                  </p>
-                </div>
-              </article>
+            <p className="oaf-lead">
+              La clase reconstruye el movimiento completo del sistema: de la pregunta por
+              la sustancia a la inmanencia de Dios, de ahí a la necesidad causal y,
+              finalmente, al problema de cómo puede ser libre un ser humano que también
+              pertenece a ese orden necesario.
+            </p>
 
-              <article>
-                <span>II</span>
-                <div>
-                  <b>Monadología</b>
-                  <small>G. W. Leibniz</small>
-                  <p>
-                    Lectura central para entrar en la teoría de las mónadas y en la
-                    arquitectura metafísica que sucederá al monismo de Spinoza.
-                  </p>
-                </div>
-              </article>
-            </div>
-
-            <div className="ontology24-callout">
-              <span>Consigna</span>
+            <div className="oa-question">
+              <small>QUAESTIO</small>
               <strong>
-                Estudiar a Leibniz a partir del Discurso de metafísica y la
-                Monadología para la clase del 26 de agosto.
+                ¿Cómo puede hablarse de libertad dentro de una realidad en la que
+                todo se sigue necesariamente de la sustancia?
               </strong>
             </div>
 
-            <p className="ontology24-task-note">
-              En estas notas no quedó fijado un número de páginas específico.
-            </p>
-          </section>
-        </article>
-      </div>
+            <div className="oaf-axis" aria-label="Eje conceptual">
+              <span>substantia</span><b>→</b>
+              <span>attributa</span><b>→</b>
+              <span>modi</span><b>→</b>
+              <span>necessitas</span><b>→</b>
+              <span>libertas</span>
+            </div>
+          </div>
 
-      <footer className="ontology-program-footer">
-        <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
-        <span>☙ &nbsp; Deus sive Natura &nbsp; ❧</span>
-        <span>24 de agosto · MMXXVI</span>
-      </footer>
+          <figure className="oa-cover-object">
+            <div className="oa-cover-frame">
+              <span className="oa-tape oa-tape-a" aria-hidden="true" />
+              <span className="oa-tape oa-tape-b" aria-hidden="true" />
+              <img
+                src={heroImage}
+                alt="Retrato histórico de Baruch Spinoza conservado en la Biblioteca Herzog August"
+              />
+            </div>
+
+            <figcaption>
+              <span>IMAGO XV · BARUCH SPINOZA</span>
+              <strong>Retrato de Baruch Spinoza</strong>
+              <small>Siglo XVII · Biblioteca Herzog August · Wolfenbüttel.</small>
+              <small className="oa-image-rights">Dominio público</small>
+              <a
+                className="oa-image-source"
+                href="https://commons.wikimedia.org/wiki/File:Baruch_Spinoza_portrait_HAB_original.jpg"
+                target="_blank"
+                rel="noreferrer"
+              >
+                fuente de imagen ↗
+              </a>
+            </figcaption>
+          </figure>
+        </header>
+
+        <section className="oaf-prologue">
+          <div className="oaf-prologue-copy">
+            <small>INTRODUCTIO</small>
+            <h2>De la ontología a la ética</h2>
+
+            <div className="oaf-questions">
+              <p>¿Qué existe y cuál es la estructura de la realidad?</p>
+              <p>¿Qué significa que Dios sea causa inmanente?</p>
+              <p>¿Cómo puede ser libre un ser determinado?</p>
+            </div>
+
+            <p>
+              La sesión desarrolla una cadena continua: sustancia, atributos,
+              modos, inmanencia, necesidad, afectos, conocimiento y libertad.
+              El problema ético sólo aparece después de fijar la arquitectura
+              ontológica del sistema.
+            </p>
+          </div>
+
+          <div className="oaf-armarium">
+            <small>ARMARIUM VERBORUM</small>
+            <h2>Vocabulario de la sesión</h2>
+
+            <div>
+              <article>
+                <span>Latín</span>
+                <strong>substantia</strong>
+                <p>Aquello que es en sí y se concibe por sí.</p>
+              </article>
+              <article>
+                <span>Latín</span>
+                <strong>attributum</strong>
+                <p>Expresión de la esencia de la sustancia.</p>
+              </article>
+              <article>
+                <span>Latín</span>
+                <strong>modus</strong>
+                <p>Determinación finita que es en otra cosa.</p>
+              </article>
+              <article>
+                <span>Latín</span>
+                <strong>causa immanens</strong>
+                <p>Causalidad cuyos efectos permanecen dentro del orden de la sustancia.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section className="oa-wine oaf-atlas">
+          <div className="oa-wine-title">
+            <span>SCHEMA · ATLAS</span>
+            <h2>atlas</h2>
+          </div>
+
+          <p>
+            Este Atlas resume únicamente la ruta de navegación. Los cincuenta
+            puntos de la clase se conservan completos debajo y siguen siendo el
+            cuerpo principal de la sesión.
+          </p>
+
+          <div className="oa-schema-card">
+            <AnimatedConceptSchema schema={atlasSchema} />
+          </div>
+        </section>
+
+        <section className="ontology24-spinoza-bridge oaf-spinoza-bridge">
+          <div className="ontology24-spinoza-bridge-mark" aria-hidden="true">
+            I
+          </div>
+
+          <div className="ontology24-spinoza-bridge-copy">
+            <span>TRABAJO PREVIO · ETHICA · PARS I</span>
+
+            <h2>
+              De la lectura de <em>De Dios</em>
+              <small>a la clase del 24 de agosto</small>
+            </h2>
+
+            <p>
+              Esta sesión parte directamente del trabajo realizado sobre la
+              <em> Ética demostrada según el orden geométrico</em>. Allí se
+              reconstruyeron definiciones, axiomas y proposiciones de la Parte I
+              como una red de dependencias: sustancia, atributos, modos,
+              causalidad, necesidad y Dios.
+            </p>
+
+            <p>
+              Puede volver a ese trabajo para consultar el mapa completo,
+              recorrer las conexiones D/A/P y revisar visualmente cómo se
+              fundamentan las tesis que el profesor desarrolla en esta clase.
+            </p>
+
+            <div className="ontology24-spinoza-bridge-route">
+              <span>D / A / P</span>
+              <b>→</b>
+              <span>SUSTANCIA</span>
+              <b>→</b>
+              <span>DIOS</span>
+              <b>→</b>
+              <span>NECESIDAD</span>
+              <b>→</b>
+              <span>CLASE</span>
+            </div>
+          </div>
+
+          <div className="ontology24-spinoza-bridge-actions">
+            <Link
+              to="/tareas/ontologia-ii/spinoza-etica-parte-i"
+              className="ontology24-spinoza-bridge-primary"
+            >
+              <span>Abrir trabajo de Spinoza</span>
+              <b>↗</b>
+            </Link>
+
+            <Link
+              to="/tareas/ontologia-ii/spinoza-etica-parte-i/figuras/3d"
+              className="ontology24-spinoza-bridge-secondary"
+            >
+              Explorar sistema 3D →
+            </Link>
+
+            <small>
+              Tarea asignada el 19 de agosto · lectura para esta sesión
+            </small>
+          </div>
+        </section>
+
+        <div className="ontology24-layout oaf-layout oaf-spinoza-layout">
+          <aside className="ontology24-index oaf-index">
+            <p>Index lectionis · 50 puncta</p>
+            {sections.map(([n,id,label]) => (
+              <button key={id} type="button" onClick={() => goTo(id)}>
+                <span>{n}</span>{label}
+              </button>
+            ))}
+          </aside>
+
+          <article className="ontology24-article oaf-article">
+            <section id="retoma" className="oaf-section">
+              <span className="ontology24-number oaf-number">I</span>
+              <p className="ontology24-eyebrow oaf-eyebrow">INITIUM</p>
+              <h2>Retoma de Spinoza y del orden geométrico</h2>
+              <PointList group="retoma" />
+            </section>
+
+            <section id="estructura" className="oaf-section">
+              <span className="ontology24-number oaf-number">II</span>
+              <p className="ontology24-eyebrow oaf-eyebrow">SUBSTANTIA · ATTRIBUTA · MODI</p>
+              <h2>Qué existe y cómo se organiza la realidad</h2>
+              <PointList group="estructura" />
+            </section>
+
+            <section id="tradicion" className="oaf-section">
+              <span className="ontology24-number oaf-number">III</span>
+              <p className="ontology24-eyebrow oaf-eyebrow">TRADITIO ONTOLOGICA</p>
+              <h2>La sustancia dentro de una historia del ser</h2>
+              <PointList group="tradicion" />
+            </section>
+
+            <section id="inmanencia" className="oaf-section oaf-wine-section">
+              <span className="ontology24-number oaf-number">IV</span>
+              <p className="ontology24-eyebrow oaf-eyebrow">DEUS SIVE NATURA</p>
+              <h2>Inmanencia, causalidad y necesidad</h2>
+              <PointList group="inmanencia" />
+            </section>
+
+            <section id="necesidad" className="oaf-section">
+              <span className="ontology24-number oaf-number">V</span>
+              <p className="ontology24-eyebrow oaf-eyebrow">NECESSITAS · LIBERTAS</p>
+              <h2>Cómo puede ser libre un ser determinado</h2>
+              <PointList group="necesidad" />
+            </section>
+
+            <section id="afectos" className="oaf-section">
+              <span className="ontology24-number oaf-number">VI</span>
+              <p className="ontology24-eyebrow oaf-eyebrow">VITA PRACTICA</p>
+              <h2>Felicidad, afectos y conocimiento de sí</h2>
+              <PointList group="afectos" />
+            </section>
+
+            <section id="dialogos" className="oaf-section">
+              <span className="ontology24-number oaf-number">VII</span>
+              <p className="ontology24-eyebrow oaf-eyebrow">DIALOGI</p>
+              <h2>Freud, Feuerbach, Kant, Platón y Sartre</h2>
+              <PointList group="dialogos" />
+            </section>
+
+            <section id="arquitectura" className="oaf-section oaf-wine-section">
+              <span className="ontology24-number oaf-number">VIII</span>
+              <p className="ontology24-eyebrow oaf-eyebrow">ARCHITECTURA SYSTEMATIS</p>
+              <h2>De la ontología a la ética</h2>
+              <PointList group="arquitectura" />
+            </section>
+
+            <section id="tarea" className="ontology24-homework oaf-section">
+              <span className="ontology24-number oaf-number">IX</span>
+              <p className="ontology24-eyebrow oaf-eyebrow">LECTIO AD DIEM XXVI</p>
+              <h2>Tarea para la próxima clase · Leibniz</h2>
+
+              <p className="ontology24-homework-lead">
+                La sesión cierra prácticamente el bloque dedicado a Spinoza y prepara el
+                paso al siguiente racionalista: <strong>Gottfried Wilhelm Leibniz</strong>.
+                La indicación final del profesor fue estudiar a Leibniz para la
+                <strong> próxima clase, miércoles 26 de agosto de 2026</strong>.
+              </p>
+
+              <div className="ontology24-books">
+                <article>
+                  <span>I</span>
+                  <div>
+                    <b>Discurso de metafísica</b>
+                    <small>G. W. Leibniz</small>
+                    <p>
+                      Texto de entrada para comprender la noción leibniziana de
+                      sustancia individual, perfección, causalidad y orden del mundo.
+                    </p>
+                  </div>
+                </article>
+
+                <article>
+                  <span>II</span>
+                  <div>
+                    <b>Monadología</b>
+                    <small>G. W. Leibniz</small>
+                    <p>
+                      Lectura central para entrar en la teoría de las mónadas y en la
+                      arquitectura metafísica que sucederá al monismo de Spinoza.
+                    </p>
+                  </div>
+                </article>
+              </div>
+
+              <div className="ontology24-callout">
+                <span>Consigna</span>
+                <strong>
+                  Estudiar a Leibniz a partir del Discurso de metafísica y la
+                  Monadología para la clase del 26 de agosto.
+                </strong>
+              </div>
+
+              <p className="ontology24-task-note">
+                En estas notas no quedó fijado un número de páginas específico.
+              </p>
+            </section>
+          </article>
+        </div>
+
+        <section className="oaf-documentum">
+          <div>
+            <small>DOCUMENTUM</small>
+            <h2>Criterio documental</h2>
+          </div>
+          <p>
+            La edición conserva literalmente el bloque de cincuenta puntos de la
+            página anterior, además del puente al trabajo previo de la Parte I de la
+            Ética y la tarea de Leibniz. ARCHIVUM modifica la presentación, no el
+            contenido documentado de la clase.
+          </p>
+        </section>
+
+        <footer className="oa-footer">
+          <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
+          <span>☙ Deus sive Natura · necessitas · libertas ❧</span>
+          <span>XXIV · VIII · MMXXVI</span>
+        </footer>
+      </div>
     </main>
   )
 }

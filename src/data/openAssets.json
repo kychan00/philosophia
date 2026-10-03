@@ -240,6 +240,18 @@
       "institution": "reproducción de obra en dominio público",
       "license": "dominio público / Public Domain Mark 1.0",
       "use": "Ontología II 2026-08-19 · cogito, sustancia y problemas de representación"
+    },
+    {
+      "id": "ontology-2026-08-24-spinoza-portrait",
+      "target": "public/images/ontologia/open/2026-08-24/spinoza-retrato.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Baruch_Spinoza_portrait_HAB_original.jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Baruch_Spinoza_portrait_HAB_original.jpg?width=1280",
+      "title": "Retrato de Baruch Spinoza",
+      "creator": "autor no identificado",
+      "date": "siglo XVII",
+      "institution": "Herzog August Bibliothek, Wolfenbüttel",
+      "license": "dominio público / Public Domain Mark 1.0",
+      "use": "Ontología II 2026-08-24 · sustancia, necesidad, libertad y afectos"
     }
   ]
 }

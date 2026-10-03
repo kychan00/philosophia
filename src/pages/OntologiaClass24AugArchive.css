@@ -1,0 +1,33 @@
+.oaf-spinoza-bridge{margin:0;border-left:0;border-right:0;background:#eee5d7}
+.oaf-spinoza-layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:54px;padding:64px 54px 20px;background:var(--oa-paper)}
+.oaf-spinoza-layout .ontology24-index{position:sticky;top:20px;align-self:start;max-height:calc(100vh - 40px);overflow:auto;padding:0;background:transparent;border:0}
+.oaf-spinoza-layout .ontology24-index p{margin:0 0 10px;color:var(--oa-wine);font-size:.56rem;letter-spacing:.16em}
+.oaf-spinoza-layout .ontology24-index button{width:100%;display:grid;grid-template-columns:35px 1fr;gap:8px;padding:10px 0;border:0;border-bottom:1px solid var(--oa-line);background:transparent;color:var(--oa-muted);font-size:.68rem;text-align:left}
+.oaf-spinoza-layout .ontology24-index button span{color:var(--oa-gold);font-family:'Cormorant Garamond',Georgia,serif}
+.oaf-spinoza-layout .ontology24-article{min-width:0;padding:0;background:transparent}
+.oaf-spinoza-layout .ontology24-article>section{scroll-margin-top:24px}
+.oaf-spinoza-layout .ontology24-long-points{margin-top:26px}
+.oaf-spinoza-layout .ontology24-long-point{display:grid;grid-template-columns:58px minmax(0,1fr);gap:20px;padding:26px 0;border-top:1px solid var(--oa-line)}
+.oaf-spinoza-layout .ontology24-long-point:last-child{border-bottom:1px solid var(--oa-line)}
+.oaf-spinoza-layout .ontology24-long-point-number{color:var(--oa-gold);font-family:'Cormorant Garamond',Georgia,serif;font-size:1.35rem}
+.oaf-spinoza-layout .ontology24-long-point h3{margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.55rem;font-weight:600;line-height:1.05}
+.oaf-spinoza-layout .ontology24-long-point p{margin:12px 0 0;color:#574f47;font-family:'Cormorant Garamond',Georgia,serif;font-size:1rem;line-height:1.58}
+.oaf-spinoza-layout .ontology24-mini-chain,
+.oaf-spinoza-layout .ontology24-flow,
+.oaf-spinoza-layout .ontology24-dual,
+.oaf-spinoza-layout .ontology24-triad,
+.oaf-spinoza-layout .ontology24-architecture,
+.oaf-spinoza-layout .ontology24-schema,
+.oaf-spinoza-layout .ontology24-callout{margin-top:18px}
+.oaf-spinoza-layout .oaf-wine-section .ontology24-long-point{border-color:rgba(255,255,255,.18)}
+.oaf-spinoza-layout .oaf-wine-section .ontology24-long-point p{color:rgba(247,238,227,.84)}
+.oaf-spinoza-layout .oaf-wine-section .ontology24-long-point h3{color:#f7eee3}
+.oaf-spinoza-layout .oaf-wine-section .ontology24-long-point-number{color:#e2c4a7}
+.oaf-spinoza-layout .oaf-wine-section .ontology24-callout,
+.oaf-spinoza-layout .oaf-wine-section .ontology24-schema,
+.oaf-spinoza-layout .oaf-wine-section .ontology24-architecture{border-color:rgba(255,255,255,.2)}
+.oaf-spinoza-layout .ontology24-homework{background:transparent}
+.oaf-spinoza-layout .ontology24-homework-lead,
+.oaf-spinoza-layout .ontology24-task-note{color:#574f47}
+@media(max-width:980px){.oaf-spinoza-layout{grid-template-columns:1fr}.oaf-spinoza-layout .ontology24-index{position:static;max-height:none;display:grid;grid-template-columns:repeat(2,1fr);gap:0 18px}.oaf-spinoza-layout .ontology24-index p{grid-column:1/-1}}
+@media(max-width:680px){.oaf-spinoza-layout{padding-left:24px;padding-right:24px}.oaf-spinoza-layout .ontology24-index{grid-template-columns:1fr}.oaf-spinoza-layout .ontology24-long-point{grid-template-columns:1fr;gap:6px}.oaf-spinoza-layout .ontology24-long-point-number{font-size:1rem}}
