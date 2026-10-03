@@ -1,0 +1,18 @@
+.oaf-sep7-page{background:#2b211b}
+.oaf-sep7-brochure{overflow:hidden}
+.oaf-sep7-brochure>.ontsep7-layout{max-width:none;margin:0;background:var(--oa-paper)}
+.oaf-sep7-brochure .ontsep7-index{top:20px;background:#eee5d7}
+.oaf-sep7-brochure .ontsep7-article>section{background:var(--oa-paper)}
+.oaf-sep7-brochure .ontsep7-article>section:nth-child(even){background:#f2ebdf}
+.oaf-sep7-brochure .ontsep7-heading h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2.75rem,5vw,4.5rem);line-height:.95}
+.oaf-sep7-brochure .ontsep7-heading>span{font-family:'Cormorant Garamond',Georgia,serif;color:rgba(122,45,30,.14)}
+.oaf-sep7-brochure .ontsep7-heading p,.oaf-sep7-brochure .ontsep7-index>p{color:var(--oa-wine)}
+.oaf-sep7-brochure .ontsep7-tabs button.active,.oaf-sep7-brochure .ontsep7-architecture-tabs button.active{border-color:var(--oa-wine);background:rgba(122,45,30,.08)}
+.oaf-sep7-brochure .ontsep7-callout,.oaf-sep7-brochure .ontsep7-thesis,.oaf-sep7-brochure .ontsep7-dictation{border-left-color:var(--oa-wine)}
+.oaf-sep7-brochure .ontsep7-copernicus .active,.oaf-sep7-brochure .ontsep7-subject .active,.oaf-sep7-brochure .ontsep7-definitions .active,.oaf-sep7-brochure .ontsep7-ontology .active{border-color:var(--oa-wine);background:rgba(122,45,30,.06)}
+.oaf-sep7-brochure .ontsep7-sap b,.oaf-sep7-brochure .ontsep7-dialectic b,.oaf-sep7-brochure .ontsep7-ontology>b,.oaf-sep7-brochure .ontsep7-piaget>b{color:var(--oa-wine)}
+.oaf-sep7-atlas .animated-concept-schema{min-height:1040px!important}
+.oaf-sep7-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.oaf-sep7-actions button,.oaf-sep7-actions a{padding:10px 13px;border:1px solid var(--oa-line);background:rgba(255,255,255,.22);color:var(--oa-ink);font:inherit;font-size:.62rem;letter-spacing:.07em;text-transform:uppercase;cursor:pointer}
+.oaf-sep7-actions a{color:var(--oa-wine)}
+@media(max-width:780px){.oaf-sep7-actions{display:grid}.oaf-sep7-actions button,.oaf-sep7-actions a{text-align:center}}

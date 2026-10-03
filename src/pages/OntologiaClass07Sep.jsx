@@ -1,5 +1,9 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
+import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema'
+import '../components/OntologyArchiveClass.css'
+import './OntologiaClass17AugArchive.css'
+import './OntologiaClass07SepArchive.css'
 import './OntologiaClass07Sep.css'
 
 const sections = [
@@ -97,6 +101,37 @@ const positions = [
   },
 ]
 
+const atlasSchema = {
+  layout: 'flow',
+  direction: 'vertical',
+  flowGap: 50,
+  minHeight: 1040,
+  fitPadding: 56,
+  sizeHint: 'tall',
+  nodes: [
+    { id: 'crisis', label: 'crisis de la metafísica', caption: 'dogmatismo · escepticismo', shapeRole: 'concept', emphasis: true, tone: 'accent' },
+    { id: 'critique', label: 'crítica', caption: 'condiciones · alcance · límites', shapeRole: 'structure' },
+    { id: 'factum', label: 'factum de la ciencia', caption: 'Newton · universalidad · necesidad', shapeRole: 'concept' },
+    { id: 'sap', label: 'sintético a priori', caption: 'amplía + universal / necesario', shapeRole: 'mediation' },
+    { id: 'faculties', label: 'facultades', caption: 'sensibilidad · entendimiento · razón', shapeRole: 'structure' },
+    { id: 'transcendental', label: 'sujeto trascendental', caption: 'condiciones a priori del conocer', shapeRole: 'concept' },
+    { id: 'phenomenon', label: 'fenómeno', caption: 'objeto bajo nuestras condiciones', shapeRole: 'mediation' },
+    { id: 'thing', label: 'cosa en sí', caption: 'considerada independientemente', shapeRole: 'mediation' },
+    { id: 'limit', label: 'límite de la razón', caption: 'pensar ≠ conocer', shapeRole: 'result', tone: 'accent' },
+  ],
+  edges: [
+    { from: 'crisis', to: 'critique', label: 'exige', relationKind: 'derives' },
+    { from: 'critique', to: 'factum', label: 'parte del', relationKind: 'derives' },
+    { from: 'factum', to: 'sap', label: 'plantea el problema de', relationKind: 'derives' },
+    { from: 'sap', to: 'faculties', label: 'requiere explicar', relationKind: 'derives' },
+    { from: 'faculties', to: 'transcendental', label: 'configuran', relationKind: 'derives' },
+    { from: 'transcendental', to: 'phenomenon', label: 'hace posible el', relationKind: 'derives' },
+    { from: 'phenomenon', to: 'thing', label: 'se distingue de', relationKind: 'secondary' },
+    { from: 'thing', to: 'limit', label: 'marca', relationKind: 'derives' },
+  ],
+  animation: { mode: 'sequence', nodeDuration: .27, edgeDuration: .29 },
+}
+
 const goToSection = (id) =>
   document.getElementById(id)?.scrollIntoView({
     behavior: 'smooth',
@@ -135,57 +170,120 @@ export default function OntologiaClass07Sep() {
   )
 
   return (
-    <main className="ontsep7-page">
-      <nav className="ontsep7-nav">
-        <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
-        <Link to="/" className="ontsep7-brand">Φ · Philosophia</Link>
-        <span>VII · IX · MMXXVI</span>
-      </nav>
+    <main className="ontsep7-page oa-page oaf-page oaf-sep7-page">
+      <div className="oa-backdrop" aria-hidden="true" />
 
-      <header className="ontsep7-hero">
-        <div className="ontsep7-grid" aria-hidden="true" />
-        <div className="ontsep7-ghost" aria-hidden="true">a priori</div>
+      <div className="oa-brochure oaf-brochure oaf-sep7-brochure">
+        <nav className="oa-nav">
+          <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
+          <Link to="/" className="oa-brand">Φ · Philosophia</Link>
+          <span>VII · IX · MMXXVI</span>
+        </nav>
 
-        <div className="ontsep7-hero-inner">
-          <div>
-            <p className="ontsep7-kicker">FI190 · Ontología II · 7 de septiembre de 2026</p>
-            <h1>Kant:<em>condiciones del conocer</em></h1>
-            <p className="ontsep7-lead">
+        <header className="oa-cover oaf-cover">
+          <div className="oa-cover-copy">
+            <span className="oa-kicker">Archivum ontologicum · fol. XVIII · critica</span>
+
+            <h1>
+              Kant
+              <em>condiciones del conocer</em>
+            </h1>
+
+            <p className="oa-subtitle">
+              critica · factum · a priori · phaenomenon · res in se
+            </p>
+
+            <p className="oaf-lead">
               La pregunta ontológica cambia de eje: antes de afirmar cómo es la
               realidad en sí misma, Kant obliga a examinar cómo puede algo
               convertirse en objeto de conocimiento para nosotros.
             </p>
 
-            <div className="ontsep7-question">
-              <span>PREGUNTA RECTORA</span>
+            <div className="oa-question">
+              <small>QUAESTIO</small>
               <strong>
                 ¿Cómo son posibles conocimientos universales y necesarios si
                 nuestro conocimiento se relaciona con la experiencia?
               </strong>
             </div>
 
-            <div className="ontsep7-hero-actions">
+            <div className="oaf-axis" aria-label="Giro kantiano">
+              <span>crisis</span><b>→</b>
+              <span>crítica</span><b>→</b>
+              <span>a priori</span><b>→</b>
+              <span>fenómeno</span><b>→</b>
+              <span>límite</span>
+            </div>
+
+            <div className="oaf-sep7-actions">
               <button type="button" onClick={() => goToSection('mapa')}>Recorrer la clase ↓</button>
               <Link to="/tareas/ontologia-ii/kant-critica-razon-pura-prologos">Abrir mapa de los prólogos ↗</Link>
             </div>
           </div>
 
-          <aside className="ontsep7-hero-schema">
-            <span>GIRO KANTIANO</span>
+          <figure className="oa-cover-object">
+            <div className="oa-cover-frame">
+              <span className="oa-tape oa-tape-a" aria-hidden="true" />
+              <span className="oa-tape oa-tape-b" aria-hidden="true" />
+              <img
+                src={`${import.meta.env.BASE_URL}images/ontologia/open/2026-09-07/kant-retrato-1790.jpg`}
+                alt="Retrato de Immanuel Kant hacia 1790"
+              />
+            </div>
+            <figcaption>
+              <span>IMAGO XVIII · IMMANUEL KANT</span>
+              <strong>Retrato de Immanuel Kant</strong>
+              <small>ca. 1790 · autor no identificado · escuela de Anton Graff.</small>
+              <small className="oa-image-rights">Dominio público</small>
+              <a
+                className="oa-image-source"
+                href="https://commons.wikimedia.org/wiki/File:Immanuel_Kant_portrait_c1790_(3x4_close_cropped).jpg"
+                target="_blank"
+                rel="noreferrer"
+              >
+                fuente de imagen ↗
+              </a>
+            </figcaption>
+          </figure>
+        </header>
+
+        <section className="oaf-prologue">
+          <div className="oaf-prologue-copy">
+            <small>INTRODUCTIO</small>
+            <h2>De la crisis de la metafísica al giro trascendental</h2>
+            <div className="oaf-questions">
+              <p>¿Cómo explicar la necesidad de la ciencia?</p>
+              <p>¿Qué condiciones hacen posible un objeto para nosotros?</p>
+              <p>¿Dónde termina el conocimiento legítimo?</p>
+            </div>
+            <p>
+              Hume desestabiliza la necesidad causal; Newton representa el hecho
+              de una ciencia universal y necesaria. Kant transforma ese choque en
+              una investigación sobre condiciones, facultades y límites.
+            </p>
+          </div>
+
+          <div className="oaf-armarium">
+            <small>ARMARIUM VERBORUM</small>
+            <h2>Vocabulario trascendental</h2>
             <div>
-              <small>SUPUESTO TRADICIONAL</small>
-              <strong>sujeto → objeto</strong>
-              <p>El conocimiento debe conformarse al objeto.</p>
+              <article><span>Latín</span><strong>critica</strong><p>Examen de condiciones, alcance y límites de la razón.</p></article>
+              <article><span>Latín</span><strong>factum</strong><p>El conocimiento científico tomado como hecho que exige explicación.</p></article>
+              <article><span>Latín</span><strong>a priori</strong><p>Condición independiente de una experiencia particular.</p></article>
+              <article><span>Latín</span><strong>res in se</strong><p>Cosa considerada independientemente de nuestras condiciones de conocimiento.</p></article>
             </div>
-            <b>⇅</b>
-            <div className="active">
-              <small>ENSAYO CRÍTICO</small>
-              <strong>objeto conocido → condiciones del sujeto</strong>
-              <p>El objeto de experiencia aparece bajo formas y conceptos a priori.</p>
-            </div>
-          </aside>
-        </div>
-      </header>
+          </div>
+        </section>
+
+        <section className="oa-wine oaf-atlas oaf-sep7-atlas">
+          <div className="oa-wine-title"><span>SCHEMA · ATLAS</span><h2>atlas</h2></div>
+          <p>
+            El Atlas sirve como mapa de orientación. Las matrices interactivas,
+            dictados, distinciones y las catorce secciones de la clase permanecen
+            completas debajo.
+          </p>
+          <div className="oa-schema-card"><AnimatedConceptSchema schema={atlasSchema} /></div>
+        </section>
 
       <div className="ontsep7-layout">
         <aside className="ontsep7-index">
@@ -267,7 +365,7 @@ export default function OntologiaClass07Sep() {
             <Heading n="03" eyebrow="Hume ↔ Newton">El choque que obliga a explicar la necesidad de la ciencia</Heading>
             <div className="ontsep7-versus">
               <article><span>HUME</span><h3>La experiencia muestra sucesiones.</h3><p>Repetir A → B genera hábito y expectativa, pero no permite observar una conexión necesaria como tal.</p></article>
-              <b>VS.</b>
+              <b>versus</b>
               <article className="active"><span>NEWTON</span><h3>La física formula leyes universales y necesarias.</h3><p>Kant acepta el hecho del conocimiento científico y pregunta qué condiciones lo hacen posible.</p></article>
             </div>
             <div className="ontsep7-equation"><span>HECHO DE LA CIENCIA</span><strong>universalidad + necesidad <b>≠</b> simple acumulación de experiencias</strong></div>
@@ -506,6 +604,25 @@ export default function OntologiaClass07Sep() {
             <Link className="ontsep7-kant-link" to="/tareas/ontologia-ii/kant-critica-razon-pura-prologos">Continuar con el sistema interactivo de los prólogos de Kant <b>↗</b></Link>
           </section>
         </article>
+      </div>
+
+      <section className="oaf-documentum">
+        <div><small>DOCUMENTUM</small><h2>Criterio documental</h2></div>
+        <p>
+          Esta edición conserva las catorce secciones y las interacciones de la
+          página anterior: posiciones dogmatismo/escepticismo/criticismo, matriz
+          de juicios, arquitectura de la Crítica y fenómeno/cosa en sí. También
+          mantiene íntegros los dictados y conexiones con Hume, Newton, Berkeley
+          y Piaget. ARCHIVUM añade contexto visual y un Atlas; no sustituye el
+          desarrollo de clase.
+        </p>
+      </section>
+
+      <footer className="oa-footer">
+        <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
+        <span>☙ critica · a priori · phaenomenon · res in se ❧</span>
+        <span>VII · IX · MMXXVI</span>
+      </footer>
       </div>
     </main>
   )

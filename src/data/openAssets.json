@@ -276,6 +276,18 @@
       "institution": "National Library of Wales",
       "license": "Public Domain Mark 1.0 / dominio público",
       "use": "Ontología II 2026-09-02 · empirismo, experiencia y cualidades"
+    },
+    {
+      "id": "ontology-2026-09-07-kant-portrait",
+      "target": "public/images/ontologia/open/2026-09-07/kant-retrato-1790.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Immanuel_Kant_portrait_c1790_(3x4_close_cropped).jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Immanuel_Kant_portrait_c1790_%283x4_close_cropped%29.jpg?width=1280",
+      "title": "Retrato de Immanuel Kant",
+      "creator": "autor no identificado; posiblemente Elisabeth von Stägemann, escuela de Anton Graff",
+      "date": "ca. 1790",
+      "institution": "reproducción histórica",
+      "license": "dominio público / Public Domain Mark 1.0",
+      "use": "Ontología II 2026-09-07 · condiciones del conocer y giro trascendental"
     }
   ]
 }
