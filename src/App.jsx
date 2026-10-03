@@ -46,7 +46,7 @@ const PhilosophyLogicClass21 = lazy(() => import('./pages/PhilosophyLogicClass21
 const PhilosophyLogicClass22 = lazy(() => import('./pages/PhilosophyLogicClass22'))
 const PhilosophyLogicClass23 = lazy(() => import('./pages/PhilosophyLogicClass23'))
 const FifthSemester = lazy(() => import('./pages/FifthSemester'))
-const OntologiaII = lazy(() => import('./pages/OntologiaII'))
+const OntologiaII = lazy(() => import('./pages/OntologiaII'))\nconst OntologyBeingPrototype = lazy(() => import('./pages/OntologyBeingPrototype'))
 const OntologiaClass17Aug = lazy(() => import('./pages/OntologiaClass17Aug'))
 const OntologiaClass19Aug = lazy(() => import('./pages/OntologiaClass19Aug'))
 const OntologiaClass24Aug = lazy(() => import('./pages/OntologiaClass24Aug'))
@@ -246,6 +246,10 @@ function App() {
         <Route
           path="/semestre/5/ontologia-ii"
           element={<OntologiaII />}
+        />
+        <Route
+          path="/semestre/5/ontologia-ii/laboratorio/el-ser"
+          element={<OntologyBeingPrototype />}
         />
         <Route
           path="/semestre/5/ontologia-ii/clase/17-agosto"
