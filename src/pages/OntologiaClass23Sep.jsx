@@ -1,5 +1,9 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
+import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema'
+import '../components/OntologyArchiveClass.css'
+import './OntologiaClass17AugArchive.css'
+import './OntologiaClass23SepArchive.css'
 import './OntologiaClass07Sep.css'
 import './OntologiaClass14Sep.css'
 import './OntologiaClass21Sep.css'
@@ -51,6 +55,37 @@ const boardViews = [
   },
 ]
 
+const atlasSchema = {
+  layout: 'flow',
+  direction: 'vertical',
+  flowGap: 50,
+  minHeight: 1040,
+  fitPadding: 56,
+  sizeHint: 'tall',
+  nodes: [
+    { id: 'knowledge', label: 'conocimiento', caption: 'sensibilidad + entendimiento', shapeRole: 'concept', emphasis: true, tone: 'accent' },
+    { id: 'reason', label: 'razón', caption: 'ideas · incondicionado', shapeRole: 'structure' },
+    { id: 'ideas', label: 'ideas trascendentales', caption: 'alma · mundo · Dios', shapeRole: 'concept' },
+    { id: 'limit', label: 'límite', caption: 'pensar ≠ conocer', shapeRole: 'mediation' },
+    { id: 'dialectic', label: 'Dialéctica trascendental', caption: 'ilusión · metafísica especulativa', shapeRole: 'structure' },
+    { id: 'ontological', label: 'argumento ontológico', caption: 'concepto → existencia ?', shapeRole: 'mediation' },
+    { id: 'predicate', label: 'existencia', caption: 'no es predicado real', shapeRole: 'concept' },
+    { id: 'thalers', label: '100 táleros', caption: 'posibles / reales', shapeRole: 'mediation' },
+    { id: 'hartmann', label: 'cosa en sí', caption: 'Hartmann · siguiente lectura', shapeRole: 'result', tone: 'accent' },
+  ],
+  edges: [
+    { from: 'knowledge', to: 'reason', label: 'se distingue de', relationKind: 'derives' },
+    { from: 'reason', to: 'ideas', label: 'produce', relationKind: 'derives' },
+    { from: 'ideas', to: 'limit', label: 'obliga a fijar', relationKind: 'derives' },
+    { from: 'limit', to: 'dialectic', label: 'es examinado por', relationKind: 'derives' },
+    { from: 'dialectic', to: 'ontological', label: 'critica', relationKind: 'derives' },
+    { from: 'ontological', to: 'predicate', label: 'falla porque', relationKind: 'derives' },
+    { from: 'predicate', to: 'thalers', label: 'se ilustra con', relationKind: 'derives' },
+    { from: 'thalers', to: 'hartmann', label: 'abre el paso hacia', relationKind: 'derives' },
+  ],
+  animation: { mode: 'sequence', nodeDuration: .27, edgeDuration: .29 },
+}
+
 const goTo = (id) =>
   document.getElementById(id)?.scrollIntoView({
     behavior: 'smooth',
@@ -80,73 +115,121 @@ export default function OntologiaClass23Sep() {
   const base = import.meta.env.BASE_URL
 
   return (
-    <main className="ontsep7-page ontsep14-page ontsep21-page ontsep23-page">
-      <nav className="ontsep7-nav">
-        <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
-        <Link to="/" className="ontsep7-brand">Φ · Philosophia</Link>
-        <span>XXIII · IX · MMXXVI</span>
-      </nav>
+    <main className="ontsep7-page ontsep14-page ontsep21-page ontsep23-page oa-page oaf-page oaf-sep23-page">
+      <div className="oa-backdrop" aria-hidden="true" />
 
-      <header className="ontsep7-hero ontsep21-hero ontsep23-hero">
-        <div className="ontsep7-grid" aria-hidden="true" />
-        <div className="ontsep7-ghost ontsep23-ghost" aria-hidden="true">
-          Grenze
-        </div>
+      <div className="oa-brochure oaf-brochure oaf-sep23-brochure">
+        <nav className="oa-nav">
+          <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
+          <Link to="/" className="oa-brand">Φ · Philosophia</Link>
+          <span>XXIII · IX · MMXXVI</span>
+        </nav>
 
-        <div className="ontsep7-hero-inner">
-          <div>
-            <p className="ontsep7-kicker">
-              FI190 · Ontología II · Décima clase · 23 de septiembre de 2026
-            </p>
+        <header className="oa-cover oaf-cover">
+          <div className="oa-cover-copy">
+            <span className="oa-kicker">Archivum ontologicum · fol. XXII · dialectica transcendentalis</span>
 
             <h1>
               La frontera
               <em>de la razón</em>
             </h1>
 
-            <p className="ontsep7-lead">
-              Kant entra en la Dialéctica trascendental para examinar qué sucede
-              cuando la razón pretende convertir en conocimiento aquello que rebasa
-              las condiciones de la experiencia posible: Dios, alma y mundo.
+            <p className="oa-subtitle">
+              ratio · ideae · incondicionatum · dialectica · existentia
             </p>
 
-            <div className="ontsep7-question ontsep23-question">
-              <span>PREGUNTA RECTORA</span>
+            <p className="oaf-lead">
+              Kant entra en la Dialéctica trascendental para examinar qué sucede
+              cuando la razón pretende convertir en conocimiento aquello que rebasa
+              las condiciones de la experiencia posible: alma, mundo y Dios.
+            </p>
+
+            <div className="oa-question">
+              <small>QUAESTIO</small>
               <strong>
                 ¿Qué diferencia hay entre poder pensar una idea y poder conocer
                 objetivamente aquello que esa idea representa?
               </strong>
             </div>
 
-            <div className="ontsep7-hero-actions">
-              <button type="button" onClick={() => goTo('pizarra')}>
-                Ver pizarra ↓
-              </button>
+            <div className="oaf-axis" aria-label="Eje conceptual">
+              <span>ratio</span><b>→</b>
+              <span>ideae</span><b>→</b>
+              <span>limen</span><b>→</b>
+              <span>dialectica</span><b>→</b>
+              <span>existentia</span>
+            </div>
+
+            <div className="oaf-sep7-actions">
+              <button type="button" onClick={() => goTo('pizarra')}>Ver pizarra ↓</button>
               <Link to="/tareas/ontologia-ii/kant-dialectica-trascendental">
                 Abrir sistema 2D ↗
               </Link>
             </div>
           </div>
 
-          <aside className="ontsep23-hero-schema">
-            <span>TRÁNSITO DE LA SESIÓN</span>
+          <figure className="oa-cover-object">
+            <div className="oa-cover-frame">
+              <span className="oa-tape oa-tape-a" aria-hidden="true" />
+              <span className="oa-tape oa-tape-b" aria-hidden="true" />
+              <img
+                src={`${import.meta.env.BASE_URL}images/ontologia/open/2026-09-23/kant-dialektik-1781-p333.png`}
+                alt="Página 333 de la primera edición de la Crítica de la razón pura, Sistema de las ideas trascendentales"
+              />
+            </div>
+            <figcaption>
+              <span>IMAGO XXII · SYSTEMA IDEARUM TRANSCENDENTALIUM</span>
+              <strong>Sistema de las ideas trascendentales</strong>
+              <small>Immanuel Kant · <em>Critik der reinen Vernunft</em> · Riga · 1781 · p. 333.</small>
+              <small className="oa-image-rights">Dominio público</small>
+              <a
+                className="oa-image-source"
+                href="https://de.wikisource.org/wiki/Seite:Kant_Critik_der_reinen_Vernunft_333.png"
+                target="_blank"
+                rel="noreferrer"
+              >
+                fuente del escaneo ↗
+              </a>
+            </figcaption>
+          </figure>
+        </header>
+
+        <section className="oaf-prologue">
+          <div className="oaf-prologue-copy">
+            <small>INTRODUCTIO</small>
+            <h2>De poder pensar a poder conocer</h2>
+            <div className="oaf-questions">
+              <p>¿Qué diferencia razón y entendimiento?</p>
+              <p>¿Qué estatuto tienen alma, mundo y Dios?</p>
+              <p>¿Por qué existencia no funciona como predicado real?</p>
+            </div>
+            <p>
+              La sesión pasa de las facultades y las ideas trascendentales al
+              límite del conocimiento teórico, y desde allí concentra la crítica
+              en la prueba ontológica y en la diferencia entre concepto y existencia.
+            </p>
+          </div>
+
+          <div className="oaf-armarium">
+            <small>ARMARIUM VERBORUM</small>
+            <h2>Vocabulario de la Dialéctica</h2>
             <div>
-              <small>CONOCIMIENTO</small>
-              <strong>sensibilidad + entendimiento</strong>
+              <article><span>Latín</span><strong>ratio</strong><p>Razón; facultad que busca lo incondicionado y produce ideas.</p></article>
+              <article><span>Latín</span><strong>idea</strong><p>Concepto de la razón cuyo objeto no puede darse congruentemente en experiencia.</p></article>
+              <article><span>Latín</span><strong>incondicionatum</strong><p>Lo incondicionado hacia lo cual asciende la razón.</p></article>
+              <article><span>Latín</span><strong>existentia</strong><p>Existencia; no añade una determinación real al concepto del objeto.</p></article>
             </div>
-            <b>↓</b>
-            <div className="active">
-              <small>RAZÓN</small>
-              <strong>ideas e incondicionado</strong>
-            </div>
-            <b>↓</b>
-            <div>
-              <small>CRÍTICA</small>
-              <strong>límites de la metafísica</strong>
-            </div>
-          </aside>
-        </div>
-      </header>
+          </div>
+        </section>
+
+        <section className="oa-wine oaf-atlas oaf-sep23-atlas">
+          <div className="oa-wine-title"><span>SCHEMA · ATLAS</span><h2>atlas</h2></div>
+          <p>
+            El Atlas sólo orienta. Las fotografías de pizarra, el selector de
+            reconstrucción y las doce secciones originales permanecen completas debajo.
+          </p>
+          <div className="oa-schema-card"><AnimatedConceptSchema schema={atlasSchema} /></div>
+        </section>
 
       <div className="ontsep7-layout">
         <aside className="ontsep7-index ontsep23-index">
@@ -284,7 +367,7 @@ export default function OntologiaClass23Sep() {
                     <span>RACIONALISTAS</span>
                     <strong>Descartes · Spinoza · Leibniz</strong>
                   </div>
-                  <b>VS.</b>
+                  <b>versus</b>
                   <div>
                     <span>ESCÉPTICO</span>
                     <strong>Hume</strong>
@@ -644,10 +727,24 @@ export default function OntologiaClass23Sep() {
         </article>
       </div>
 
-      <footer className="ontsep7-footer ontsep23-footer">
-        <Link to="/semestre/5/ontologia-ii">← Volver a Ontología II</Link>
-        <span>FI190 · XXIII · IX · MMXXVI</span>
+      <section className="oaf-documentum">
+        <div><small>DOCUMENTUM</small><h2>Criterio documental</h2></div>
+        <p>
+          Esta edición conserva las doce secciones originales, las dos fotografías
+          de pizarra y el selector de reconstrucción con sus cuatro vistas:
+          arquitectura, dogmatismo, ideas y límite. También mantiene completa la
+          digresión contemporánea, señalada expresamente como comentario del profesor,
+          y la tarea de Hartmann. ARCHIVUM añade contexto curatorial y Atlas; no
+          recorta ni sustituye la clase.
+        </p>
+      </section>
+
+      <footer className="oa-footer">
+        <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
+        <span>☙ ratio · ideae · dialectica · existentia ❧</span>
+        <span>XXIII · IX · MMXXVI</span>
       </footer>
+      </div>
     </main>
   )
 }

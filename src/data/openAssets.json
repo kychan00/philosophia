@@ -324,6 +324,18 @@
       "institution": "edición de Johann Friedrich Hartknoch, Riga; escaneo en Wikisource/Wikimedia",
       "license": "dominio público",
       "use": "Ontología II 2026-09-21 · lógica trascendental, juicios, categorías y deducción"
+    },
+    {
+      "id": "ontology-2026-09-23-kant-dialektik-p333",
+      "target": "public/images/ontologia/open/2026-09-23/kant-dialektik-1781-p333.png",
+      "source_page": "https://de.wikisource.org/wiki/Seite:Kant_Critik_der_reinen_Vernunft_333.png",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Kant_Critik_der_reinen_Vernunft_333.png",
+      "title": "Critik der reinen Vernunft, p. 333 · System der transscendentalen Ideen",
+      "creator": "Immanuel Kant",
+      "date": "1781",
+      "institution": "edición de Johann Friedrich Hartknoch, Riga; escaneo en Wikisource/Wikimedia",
+      "license": "dominio público",
+      "use": "Ontología II 2026-09-23 · Dialéctica trascendental, ideas de la razón y límites del conocer"
     }
   ]
 }

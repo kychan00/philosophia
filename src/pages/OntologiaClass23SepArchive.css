@@ -1,0 +1,14 @@
+.oaf-sep23-page{background:#2b211b}
+.oaf-sep23-brochure{overflow:hidden}
+.oaf-sep23-brochure>.ontsep7-layout{max-width:none;margin:0;background:var(--oa-paper)}
+.oaf-sep23-brochure .ontsep23-index{top:20px;background:#eee5d7}
+.oaf-sep23-brochure .ontsep23-article>section{background:var(--oa-paper)}
+.oaf-sep23-brochure .ontsep23-article>section:nth-child(even){background:#f2ebdf}
+.oaf-sep23-brochure .ontsep23-heading h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2.75rem,5vw,4.5rem);line-height:.95}
+.oaf-sep23-brochure .ontsep23-heading>span{font-family:'Cormorant Garamond',Georgia,serif;color:rgba(122,45,30,.14)}
+.oaf-sep23-brochure .ontsep23-board-switcher button.active{border-color:var(--oa-wine);background:rgba(122,45,30,.08)}
+.oaf-sep23-brochure .ontsep23-thesis,.oaf-sep23-brochure .ontsep23-warning,.oaf-sep23-brochure .ontsep23-digression{border-left-color:var(--oa-wine)}
+.oaf-sep23-brochure .ontsep23-session-map b,.oaf-sep23-brochure .ontsep23-faculties>b,.oaf-sep23-brochure .ontsep23-limit>b,.oaf-sep23-brochure .ontsep23-dialectic>b,.oaf-sep23-brochure .ontsep23-argument>b,.oaf-sep23-brochure .ontsep23-predicate>b,.oaf-sep23-brochure .ontsep23-thalers>b{color:var(--oa-wine)}
+.oaf-sep23-brochure .ontsep23-session-map .active,.oaf-sep23-brochure .ontsep23-two-paths .active,.oaf-sep23-brochure .ontsep23-triad .active,.oaf-sep23-brochure .ontsep23-faculties .active,.oaf-sep23-brochure .ontsep23-limit .active,.oaf-sep23-brochure .ontsep23-dialectic .active,.oaf-sep23-brochure .ontsep23-predicate .active{border-color:var(--oa-wine);background:rgba(122,45,30,.06)}
+.oaf-sep23-atlas .animated-concept-schema{min-height:1040px!important}
+@media(max-width:780px){.oaf-sep23-brochure .ontsep23-article>section{padding-left:24px;padding-right:24px}}
