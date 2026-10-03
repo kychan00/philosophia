@@ -275,3 +275,79 @@
     transform:rotate(90deg);
   }
 }
+
+/* ============================================================
+   FIX RESPONSIVE DEFINITIVO · ÍNDICE VS. CONTENIDO
+   La clase 28 hereda estilos de ac9/ac21/ac23. Este archivo se
+   importa al final, así que en móvil anulamos de forma explícita
+   cualquier sticky heredado y devolvemos el índice al flujo.
+   ============================================================ */
+.ac28-article > section {
+  scroll-margin-top: 96px;
+}
+
+@media (max-width: 1100px) {
+  .ac28-layout {
+    display: block !important;
+    width: min(100% - 2rem, 1420px) !important;
+  }
+
+  .ac28-index {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    z-index: 0 !important;
+
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+
+    overflow: visible !important;
+    overscroll-behavior: auto !important;
+
+    margin: 0 0 1.5rem !important;
+    padding: 2rem 0 0 !important;
+
+    background: transparent !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+
+    transform: none !important;
+    contain: none !important;
+  }
+
+  .ac28-index > p {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .ac28-index button {
+    display: grid !important;
+    width: 100% !important;
+  }
+
+  .ac28-article {
+    position: relative !important;
+    z-index: 1 !important;
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .ac28-layout {
+    width: calc(100% - 2rem) !important;
+  }
+
+  .ac28-index {
+    padding-top: 1.25rem !important;
+    margin-bottom: .75rem !important;
+  }
+
+  .ac28-article > section {
+    scroll-margin-top: 80px;
+  }
+}
+
