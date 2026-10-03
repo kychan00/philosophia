@@ -48,6 +48,18 @@
       "institution": "Rijksmuseum",
       "license": "CC0 1.0 Universal / public domain",
       "use": "Clase de Ética 2026-08-27 · Demócrito, máximas y conciencia moral"
+    },
+    {
+      "id": "ethics-2026-09-01-sappho-bust",
+      "target": "public/images/ethics/open/2026-09-01/sappho-bust.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Bust_Sappho_Musei_Capitolini_MC1164.jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bust_Sappho_Musei_Capitolini_MC1164.jpg?width=1280",
+      "title": "Bust Sappho Musei Capitolini MC1164",
+      "creator": "Marie-Lan Nguyen",
+      "date": "2011",
+      "institution": "Musei Capitolini",
+      "license": "Public Domain Mark 1.0 / photographer released to the public domain",
+      "use": "Clase de Ética 2026-09-01 · Safo, pasión corporal y Eros"
     }
   ]
 }
