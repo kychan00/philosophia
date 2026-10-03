@@ -1,1010 +1,795 @@
-.onto-being-page {
-  --ob-paper: #f3efe5;
-  --ob-paper-2: #e9e1d2;
-  --ob-marble: #fbfaf6;
-  --ob-ink: #17191a;
-  --ob-muted: #67645e;
-  --ob-blue: #253f59;
-  --ob-blue-deep: #16283a;
-  --ob-oxide: #77453a;
-  --ob-gold: #a88446;
-  --ob-line: rgba(23, 25, 26, 0.18);
-  --ob-line-soft: rgba(23, 25, 26, 0.09);
-  position: relative;
+.obm-page {
+  --cream: #f3efe4;
+  --cream-2: #ebe5d8;
+  --paper: #f7f3ea;
+  --ink: #26201b;
+  --muted: #6d6258;
+  --wine: #7a2d1e;
+  --wine-dark: #652317;
+  --gold: #a98045;
+  --sage: #6f7d70;
+  --line: rgba(60, 48, 40, 0.18);
   min-height: 100vh;
+  position: relative;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 82% 7%, rgba(37, 63, 89, 0.08), transparent 26%),
-    radial-gradient(circle at 14% 28%, rgba(168, 132, 70, 0.08), transparent 28%),
-    linear-gradient(180deg, #f8f5ee 0%, var(--ob-paper) 48%, #ece5d8 100%);
-  color: var(--ob-ink);
+  color: var(--ink);
+  background: #8f887c;
 }
 
-.onto-being-page,
-.onto-being-page button {
+.obm-page,
+.obm-page button {
   font-family: Inter, system-ui, sans-serif;
 }
 
-.onto-being-page h1,
-.onto-being-page h2,
-.onto-being-page h3,
-.onto-being-page blockquote,
-.onto-being-object strong {
+.obm-page h1,
+.obm-page h2,
+.obm-page h3,
+.obm-page strong,
+.obm-page blockquote {
   font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
-.onto-being-grain {
+.obm-backdrop {
   position: fixed;
   inset: 0;
-  pointer-events: none;
-  opacity: 0.22;
-  z-index: 1;
-  background-image:
-    radial-gradient(rgba(28, 27, 24, 0.08) 0.55px, transparent 0.55px);
-  background-size: 5px 5px;
-  mix-blend-mode: multiply;
-}
-
-.onto-being-meander {
-  height: 18px;
-  border-bottom: 1px solid rgba(37, 63, 89, 0.28);
   background:
-    linear-gradient(90deg, transparent 0 8px, var(--ob-blue) 8px 10px, transparent 10px 18px) 0 0/18px 9px,
-    linear-gradient(90deg, var(--ob-blue) 0 2px, transparent 2px 16px, var(--ob-blue) 16px 18px) 0 9px/18px 9px;
-  opacity: 0.68;
+    linear-gradient(rgba(65, 58, 49, .42), rgba(65, 58, 49, .42)),
+    url('/philosophia/images/ethics/open/2026-08-18/achilles-agamemnon.jpg') center/cover no-repeat;
+  filter: saturate(.58) sepia(.12);
+  transform: scale(1.04);
 }
 
-.onto-being-nav {
+.obm-backdrop-wash {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 12%, rgba(146, 160, 154, .38), transparent 32%),
+    radial-gradient(circle at 76% 84%, rgba(123, 52, 36, .25), transparent 35%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.obm-brochure {
   position: relative;
+  z-index: 2;
+  width: min(1180px, calc(100% - 40px));
+  margin: 54px auto;
+  box-shadow: 0 30px 90px rgba(26, 20, 16, .34);
+}
+
+.obm-nav {
+  min-height: 54px;
+  padding: 0 28px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  background: rgba(247, 243, 234, .97);
+  border-bottom: 1px solid var(--line);
+  font-size: .64rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.obm-nav > :last-child {
+  justify-self: end;
+}
+
+.obm-brand {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1rem;
+  letter-spacing: .03em;
+  text-transform: none;
+}
+
+.obm-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+}
+
+.obm-column {
+  min-width: 0;
+}
+
+.obm-column-left {
+  background: rgba(247, 243, 234, .98);
+}
+
+.obm-column-right {
+  background: rgba(244, 239, 229, .985);
+  border-left: 1px solid rgba(65, 50, 39, .18);
+}
+
+.obm-cover {
+  padding: 48px 54px 42px;
+}
+
+.obm-cover-title {
+  position: relative;
+  display: inline-block;
+}
+
+.obm-kicker {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: .58rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.obm-cover h1 {
+  margin: 0;
+  max-width: 430px;
+  font-size: clamp(4.6rem, 8vw, 7.2rem);
+  line-height: .78;
+  font-weight: 500;
+  letter-spacing: -.055em;
+}
+
+.obm-cover h1 em {
+  font-weight: 400;
+}
+
+.obm-title-swatch {
+  position: absolute;
+  top: 42px;
+  right: -130px;
+  width: 120px;
+  height: 34px;
+  background:
+    linear-gradient(rgba(35,29,24,.16), rgba(35,29,24,.16)),
+    url('/philosophia/images/ethics/open/2026-08-27/democritus-abdera.jpg') center 35%/cover;
+}
+
+.obm-hero-art {
+  position: relative;
+  margin: 34px 0 0;
+}
+
+.obm-hero-art img {
+  display: block;
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  object-position: center 32%;
+  filter: saturate(.78) sepia(.06) contrast(.94);
+  box-shadow: 0 7px 22px rgba(53, 39, 29, .12);
+}
+
+.obm-tape {
+  position: absolute;
+  z-index: 2;
+  width: 48px;
+  height: 18px;
+  background: rgba(224, 217, 197, .83);
+  box-shadow: 0 1px 2px rgba(30,24,20,.15);
+}
+
+.obm-tape-a {
+  top: -6px;
+  right: -10px;
+  transform: rotate(38deg);
+}
+
+.obm-tape-b {
+  bottom: 7px;
+  left: -12px;
+  transform: rotate(-28deg);
+}
+
+.obm-cover-line {
+  margin: 16px auto 0;
+  max-width: 320px;
+  text-align: center;
+  color: #5b5148;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.08rem;
+}
+
+.obm-ticket-button {
+  display: block;
+  margin: 18px auto 0;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 4px;
+  color: #f8f0e3;
+  background: var(--wine);
+  font-size: .68rem;
+  letter-spacing: .03em;
+  cursor: pointer;
+}
+
+.obm-welcome,
+.obm-philology {
+  padding: 46px 54px;
+}
+
+.obm-welcome h2,
+.obm-script-heading h2,
+.obm-goal h2,
+.obm-collection h2,
+.obm-genealogy > h2,
+.obm-contact h2 {
+  margin: 0;
+  font-size: clamp(3rem, 5vw, 4.8rem);
+  line-height: .86;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -.045em;
+}
+
+.obm-small-caps {
+  margin: 3px 0 26px;
+  color: #6b6158;
+  font-size: .68rem;
+  letter-spacing: .07em;
+}
+
+.obm-collage-note {
+  display: grid;
+  grid-template-columns: 1fr 150px;
+  gap: 24px;
+  align-items: end;
+}
+
+.obm-collage-note p {
+  margin: 0 0 16px;
+  color: #554d46;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.42;
+}
+
+.obm-collage-note img {
+  width: 150px;
+  height: 185px;
+  object-fit: cover;
+  object-position: center top;
+  filter: sepia(.16) saturate(.7);
+  clip-path: polygon(4% 0, 98% 3%, 95% 96%, 2% 100%);
+}
+
+.obm-philology {
+  padding-top: 28px;
+}
+
+.obm-script-heading > span {
+  display: block;
+  color: var(--wine);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  font-style: italic;
+}
+
+.obm-word-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.obm-word-grid article {
+  min-height: 208px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: rgba(255,255,255,.16);
+}
+
+.obm-word-grid article > span {
+  color: var(--muted);
+  font-size: .56rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.obm-word-grid strong {
+  margin-top: 18px;
+  font-size: 2.2rem;
+  font-weight: 500;
+}
+
+.obm-word-grid em {
+  color: var(--wine);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.obm-word-grid p {
+  margin: auto 0 0;
+  color: var(--muted);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: .93rem;
+  line-height: 1.4;
+}
+
+.obm-goal {
+  position: relative;
+  overflow: hidden;
+  min-height: 640px;
+  padding: 46px 54px 52px;
+}
+
+.obm-goal-art {
+  position: absolute;
+  inset: 160px 0 0;
+}
+
+.obm-goal-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(.72) sepia(.06);
+}
+
+.obm-goal::after {
+  content: '';
+  position: absolute;
+  inset: 150px 0 0;
+  background: linear-gradient(180deg, rgba(247,243,234,.94), rgba(247,243,234,.08) 35%, rgba(247,243,234,.15));
+}
+
+.obm-goal h2 {
+  position: relative;
+  z-index: 2;
+}
+
+.obm-goal h2 em {
+  display: block;
+  margin-left: 140px;
+}
+
+.obm-goal-paper {
+  position: absolute;
   z-index: 3;
-  max-width: 1320px;
-  margin: 0 auto;
+  left: 54px;
+  right: 54px;
+  bottom: 44px;
+  padding: 18px 20px;
+  background: rgba(239, 232, 215, .9);
+  box-shadow: 0 7px 24px rgba(44,33,24,.11);
+  transform: rotate(-1.3deg);
+  clip-path: polygon(0 3%, 5% 0, 14% 2%, 22% 0, 33% 2%, 43% 0, 54% 2%, 63% 0, 74% 2%, 84% 0, 94% 2%, 100% 0, 99% 96%, 91% 100%, 82% 97%, 70% 100%, 58% 97%, 45% 100%, 33% 97%, 21% 100%, 10% 97%, 0 100%);
+}
+
+.obm-goal-paper p {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.03rem;
+  line-height: 1.38;
+}
+
+.obm-collection {
+  padding: 46px 48px 54px;
+}
+
+.obm-collection > p {
+  max-width: 410px;
+  margin: 8px auto 28px;
+  text-align: center;
+  color: var(--muted);
+  font-size: .68rem;
+  line-height: 1.45;
+}
+
+.obm-collection h2 {
+  text-align: center;
+}
+
+.obm-collection-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px 22px;
+}
+
+.obm-collection-grid article {
+  text-align: center;
+}
+
+.obm-mini-frame {
+  width: 96px;
+  height: 118px;
+  margin: 0 auto 12px;
+  padding: 6px;
+  background: linear-gradient(135deg, #c9a45f, #856126 48%, #d4b776);
+  box-shadow: 0 4px 10px rgba(47,34,22,.16);
+}
+
+.obm-mini-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 3px solid #efe6d6;
+  filter: sepia(.1) saturate(.78);
+}
+
+.obm-collection-grid article > span {
+  display: block;
+  color: var(--gold);
+  font-size: .55rem;
+}
+
+.obm-collection-grid strong {
+  display: block;
+  margin-top: 3px;
+  font-size: .92rem;
+  font-weight: 600;
+}
+
+.obm-collection-grid small {
+  display: block;
+  color: var(--muted);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: .72rem;
+}
+
+.obm-burgundy {
+  color: #f5ecdf;
+  background:
+    linear-gradient(rgba(122,45,30,.97), rgba(111,37,24,.985)),
+    var(--wine);
+}
+
+.obm-atlas {
+  padding: 46px 44px 44px;
+}
+
+.obm-burgundy-heading span {
+  display: block;
+  color: #e3c9ae;
+  font-size: .6rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.obm-burgundy-heading h2 {
+  margin: 2px 0 0;
+  color: #f6ecdf;
+  font-size: 3.8rem;
+  line-height: .88;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.obm-burgundy-intro {
+  max-width: 440px;
+  margin: 18px 0;
+  color: rgba(247,238,226,.8);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  line-height: 1.45;
+}
+
+.obm-schema-card {
+  padding: 10px;
+  border: 1px solid rgba(246,236,223,.45);
+  background: rgba(248,242,232,.96);
+}
+
+.obm-page .obm-schema-card .animated-concept-schema {
+  --mx-paper: #f7f1e6;
+  --mx-ink: #2b231e;
+  --mx-muted: #776b61;
+  --mx-red: #7a2d1e;
+  --mx-gold: #a98045;
+  min-height: 420px;
+  border: 0;
+  background: transparent;
+}
+
+.obm-tickets {
+  padding: 44px 44px 52px;
+  border-top: 1px solid rgba(247,238,226,.2);
+}
+
+.obm-lens-tabs {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.obm-lens-tabs button {
+  padding: 11px 12px;
+  border: 1px solid rgba(247,238,226,.38);
+  color: #f3e9dc;
+  background: transparent;
+  text-align: left;
+  font-size: .67rem;
+  cursor: pointer;
+}
+
+.obm-lens-tabs button span {
+  margin-right: 8px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+}
+
+.obm-lens-tabs button.is-active {
+  color: var(--wine-dark);
+  background: #f1e8d9;
+}
+
+.obm-lens-card {
+  margin-top: 20px;
+  padding: 22px;
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 18px;
+  border: 1px solid rgba(247,238,226,.5);
+}
+
+.obm-lens-number {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 80px;
+  color: var(--wine);
+  background: #eadfce;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.7rem;
+}
+
+.obm-lens-card small {
+  color: #dec6ae;
+}
+
+.obm-lens-card h3 {
+  margin: 3px 0 9px;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.obm-lens-card strong {
+  display: block;
+  font-size: 1.08rem;
+  line-height: 1.3;
+}
+
+.obm-lens-card p {
+  color: rgba(247,238,226,.78);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  line-height: 1.45;
+}
+
+.obm-lens-card blockquote {
+  margin: 15px 0 0;
+  color: #f3ddc7;
+  font-size: .96rem;
+  font-style: italic;
+  line-height: 1.35;
+}
+
+.obm-genealogy {
+  padding: 44px 48px 52px;
+}
+
+.obm-genealogy-list {
+  margin-top: 26px;
+}
+
+.obm-genealogy-list article {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 14px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+
+.obm-genealogy-list > article > span {
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.obm-genealogy-list small {
+  color: var(--muted);
+  font-size: .58rem;
+  letter-spacing: .09em;
+}
+
+.obm-genealogy-list h3 {
+  margin: 2px 0;
+  font-size: 1.38rem;
+  font-weight: 500;
+}
+
+.obm-genealogy-list strong {
+  display: block;
+  color: var(--wine);
+  font-size: .92rem;
+  font-weight: 600;
+}
+
+.obm-genealogy-list p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: .9rem;
+  line-height: 1.4;
+}
+
+.obm-contact {
+  position: relative;
+  padding: 48px;
+  border-top: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.obm-contact-seal {
+  position: absolute;
+  right: 34px;
+  top: 22px;
+  color: rgba(122,45,30,.12);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 7rem;
+}
+
+.obm-contact > div:nth-child(2) > p {
+  margin: 6px 0 24px;
+  color: var(--muted);
+  font-size: .66rem;
+}
+
+.obm-distinction-list article {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 12px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+
+.obm-distinction-list > article > span {
+  color: var(--wine);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+}
+
+.obm-distinction-list strong {
+  font-size: 1.02rem;
+}
+
+.obm-distinction-list p {
+  margin: 4px 0;
+  color: var(--muted);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  line-height: 1.4;
+}
+
+.obm-distinction-list small {
+  color: #8a7d70;
+  font-size: .62rem;
+}
+
+.obm-footer {
   min-height: 72px;
   padding: 0 28px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  border-bottom: 1px solid var(--ob-line);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.onto-being-nav > :last-child {
-  justify-self: end;
-}
-
-.onto-being-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: none;
-}
-
-.onto-being-brand span {
-  color: var(--ob-gold);
-  font-size: 1.45rem;
-}
-
-.onto-being-lab {
-  color: var(--ob-oxide);
-  font-weight: 600;
-}
-
-.onto-being-hero {
-  position: relative;
-  z-index: 2;
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 88px 28px 78px;
-  display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.72fr);
-  gap: clamp(54px, 8vw, 120px);
-  align-items: center;
-}
-
-.onto-being-hero::before {
-  content: '';
-  position: absolute;
-  left: 28px;
-  right: 28px;
-  bottom: 0;
-  height: 1px;
-  background: linear-gradient(90deg, var(--ob-blue), rgba(37,63,89,.08));
-}
-
-.onto-being-kicker,
-.onto-being-heading p,
-.onto-being-schema-label span,
-.onto-being-caption > span,
-.onto-being-curator-note > span,
-.onto-being-final > span {
-  margin: 0;
-  color: var(--ob-blue);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.onto-being-inventory {
-  margin-top: 14px;
-  display: flex;
   gap: 20px;
-  color: var(--ob-muted);
-  font-size: 0.68rem;
-  letter-spacing: 0.13em;
+  color: #e8dbc9;
+  background: #4e2018;
+  font-size: .63rem;
+  letter-spacing: .07em;
 }
 
-.onto-being-hero h1 {
-  margin: 26px 0 4px;
-  font-size: clamp(5.2rem, 11vw, 10.4rem);
-  line-height: 0.72;
-  font-weight: 500;
-  letter-spacing: -0.06em;
-}
-
-.onto-being-hero h1 em {
-  display: block;
-  margin-left: clamp(48px, 8vw, 118px);
-  color: var(--ob-blue);
-  font-weight: 400;
-}
-
-.onto-being-subtitle {
-  margin: 30px 0 0;
-  color: var(--ob-oxide);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.1rem, 2vw, 1.55rem);
-  font-style: italic;
-  letter-spacing: 0.08em;
-}
-
-.onto-being-lead {
-  max-width: 760px;
-  margin: 28px 0 0;
-  color: #343432;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.28rem, 2vw, 1.62rem);
-  line-height: 1.48;
-}
-
-.onto-being-question {
-  margin-top: 34px;
-  padding: 20px 24px;
-  border-left: 3px solid var(--ob-gold);
-  background: rgba(251, 250, 246, 0.58);
-}
-
-.onto-being-question span {
-  display: block;
-  margin-bottom: 7px;
-  color: var(--ob-muted);
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
-}
-
-.onto-being-question strong {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.35rem, 2vw, 1.75rem);
-  font-weight: 600;
-}
-
-.onto-being-object {
-  position: relative;
-}
-
-.onto-being-object-frame {
-  padding: 14px;
-  border: 1px solid rgba(168, 132, 70, 0.75);
-  box-shadow:
-    0 0 0 6px rgba(168, 132, 70, 0.09),
-    0 26px 64px rgba(22, 40, 58, 0.14);
-  background: #d7ccba;
-}
-
-.onto-being-stone {
-  min-height: 460px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: rgba(29, 32, 33, 0.82);
-  background:
-    radial-gradient(circle at 30% 22%, rgba(255,255,255,.9), transparent 24%),
-    linear-gradient(138deg, rgba(255,255,255,.46), transparent 36%),
-    repeating-linear-gradient(107deg, rgba(34,39,42,.025) 0 1px, transparent 1px 9px),
-    #ded7ca;
-  border: 10px solid #efe9dd;
-  box-shadow: inset 0 0 45px rgba(45, 40, 33, 0.14);
-}
-
-.onto-being-stone span {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.15rem;
-  letter-spacing: 0.16em;
-}
-
-.onto-being-stone strong {
-  margin: -6px 0 -2px;
-  font-size: clamp(7rem, 14vw, 11rem);
-  line-height: 1;
-  font-weight: 400;
-  text-shadow: 0 2px 0 rgba(255,255,255,.75), 0 -1px 0 rgba(64,58,50,.18);
-}
-
-.onto-being-stone small {
-  color: var(--ob-muted);
-  font-size: 0.72rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-
-.onto-being-caption {
-  margin-top: 18px;
-  padding-top: 14px;
-  border-top: 1px solid var(--ob-line);
-}
-
-.onto-being-caption strong {
-  display: block;
-  margin-top: 6px;
-  font-size: 1.45rem;
-}
-
-.onto-being-caption p {
-  margin: 4px 0 0;
-  color: var(--ob-muted);
-  font-size: 0.82rem;
-  line-height: 1.5;
-}
-
-.onto-being-axis {
-  position: relative;
-  z-index: 2;
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 21px 28px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 14px;
-  color: var(--ob-blue);
-  border-bottom: 1px solid var(--ob-line);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1rem;
-  font-style: italic;
-}
-
-.onto-being-axis b {
-  color: var(--ob-gold);
-  font-weight: 400;
-}
-
-.onto-being-layout {
-  position: relative;
-  z-index: 2;
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 70px 28px 90px;
-  display: grid;
-  grid-template-columns: 210px minmax(0, 1fr);
-  gap: clamp(44px, 6vw, 90px);
-}
-
-.onto-being-index {
-  position: sticky;
-  top: 22px;
-  align-self: start;
-  padding: 20px 0;
-  border-top: 2px solid var(--ob-blue);
-  border-bottom: 1px solid var(--ob-line);
-}
-
-.onto-being-index > p {
-  margin: 0 0 12px;
-  color: var(--ob-blue);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
-}
-
-.onto-being-index button {
-  width: 100%;
-  padding: 9px 0;
-  display: grid;
-  grid-template-columns: 32px 1fr;
-  gap: 10px;
-  text-align: left;
-  border: 0;
-  border-top: 1px solid var(--ob-line-soft);
-  background: transparent;
-  color: var(--ob-muted);
-  font-size: 0.72rem;
-  cursor: pointer;
-  transition: color 160ms ease, transform 160ms ease;
-}
-
-.onto-being-index button:hover {
-  color: var(--ob-blue);
-  transform: translateX(4px);
-}
-
-.onto-being-index button span {
-  color: var(--ob-gold);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-}
-
-.onto-being-article {
-  min-width: 0;
-}
-
-.onto-being-article > section {
-  scroll-margin-top: 30px;
-  padding: 10px 0 86px;
-}
-
-.onto-being-intro-card {
-  margin-bottom: 18px;
-  padding: 28px 32px !important;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 24px;
-  align-items: end;
-  border: 1px solid var(--ob-line);
-  background: rgba(251, 250, 246, 0.58);
-}
-
-.onto-being-intro-card p {
-  margin: 0;
-  max-width: 720px;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.25rem;
-  line-height: 1.5;
-}
-
-.onto-being-intro-card > span {
-  color: var(--ob-oxide);
-  font-size: 0.63rem;
-  letter-spacing: 0.14em;
-}
-
-.onto-being-heading {
-  display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 16px;
-  margin-bottom: 30px;
-}
-
-.onto-being-heading > span {
-  padding-top: 4px;
-  color: var(--ob-gold);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1rem;
-  border-top: 1px solid var(--ob-gold);
-}
-
-.onto-being-heading h2 {
-  max-width: 820px;
-  margin: 5px 0 0;
-  color: var(--ob-blue-deep);
-  font-size: clamp(2.4rem, 5vw, 4.4rem);
-  line-height: 0.96;
-  font-weight: 500;
-  letter-spacing: -0.03em;
-}
-
-.onto-being-prose {
-  max-width: 780px;
-  margin: 0 0 30px 72px;
-  color: #3d3d3a;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.24rem;
-  line-height: 1.62;
-}
-
-.onto-being-philology {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid var(--ob-line);
-  border-left: 1px solid var(--ob-line);
-}
-
-.onto-being-philology article {
-  min-height: 250px;
-  padding: 22px 20px;
-  display: flex;
-  flex-direction: column;
-  border-right: 1px solid var(--ob-line);
-  border-bottom: 1px solid var(--ob-line);
-  background: rgba(251, 250, 246, 0.4);
-}
-
-.onto-being-philology article > span {
-  color: var(--ob-muted);
-  font-size: 0.64rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.onto-being-philology strong {
-  margin-top: 28px;
-  color: var(--ob-blue);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  font-weight: 500;
-}
-
-.onto-being-philology em {
-  color: var(--ob-oxide);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-}
-
-.onto-being-philology p {
-  margin: auto 0 0;
-  color: var(--ob-muted);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  line-height: 1.48;
-}
-
-.onto-being-curator-note {
-  margin: 24px 0 0 72px;
-  max-width: 760px;
-  padding: 20px 22px;
-  border-left: 2px solid var(--ob-oxide);
-  background: rgba(119, 69, 58, 0.045);
-}
-
-.onto-being-curator-note p {
-  margin: 8px 0 0;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.08rem;
-  line-height: 1.5;
-}
-
-.onto-being-schema-shell {
-  margin-top: 34px;
-  padding: 18px 18px 8px;
-  border: 1px solid rgba(37,63,89,.25);
-  background:
-    linear-gradient(rgba(251,250,246,.72), rgba(251,250,246,.72)),
-    repeating-linear-gradient(90deg, rgba(37,63,89,.035) 0 1px, transparent 1px 28px);
-  box-shadow: 0 18px 50px rgba(22, 40, 58, 0.07);
-}
-
-.onto-being-schema-label {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 0 2px 12px;
-  border-bottom: 1px solid var(--ob-line);
-}
-
-.onto-being-schema-label b {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.15rem;
-  font-weight: 600;
-}
-
-.onto-being-page .animated-concept-schema {
-  --mx-paper: #f8f5ed;
-  --mx-ink: #1a2025;
-  --mx-muted: #6a6965;
-  --mx-red: #253f59;
-  --mx-gold: #a88446;
-  border: 0;
-  background: transparent;
-}
-
-.onto-being-schema-legend {
-  max-width: 760px;
-  margin: 20px 0 0 72px;
-  color: var(--ob-muted);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.05rem;
-  line-height: 1.5;
-}
-
-.onto-being-genealogy {
-  position: relative;
-  margin-top: 16px;
-  border-top: 1px solid var(--ob-line);
-}
-
-.onto-being-genealogy article {
-  display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 18px;
-  padding: 24px 0;
-  border-bottom: 1px solid var(--ob-line);
-}
-
-.onto-being-genealogy-index {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 10px;
-  align-items: start;
-  color: var(--ob-gold);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-}
-
-.onto-being-genealogy-index i {
-  height: 1px;
-  margin-top: 9px;
-  background: var(--ob-gold);
-}
-
-.onto-being-genealogy article > div:last-child {
-  display: grid;
-  grid-template-columns: 140px minmax(170px, .72fr) minmax(180px, .8fr) minmax(240px, 1.5fr);
-  gap: 20px;
-  align-items: baseline;
-}
-
-.onto-being-genealogy p,
-.onto-being-genealogy h3,
-.onto-being-genealogy strong,
-.onto-being-genealogy span {
-  margin: 0;
-}
-
-.onto-being-genealogy p {
-  color: var(--ob-muted);
-  font-size: .68rem;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-
-.onto-being-genealogy h3 {
-  color: var(--ob-blue-deep);
+.obm-footer strong {
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 400;
 }
 
-.onto-being-genealogy strong {
-  color: var(--ob-oxide);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.02rem;
-  font-weight: 600;
-}
-
-.onto-being-genealogy article > div:last-child > span {
-  color: var(--ob-muted);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  line-height: 1.45;
-}
-
-.onto-being-lenses {
-  display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  min-height: 430px;
-  border: 1px solid var(--ob-line);
-  background: rgba(251,250,246,.44);
-}
-
-.onto-being-lens-tabs {
-  display: flex;
-  flex-direction: column;
-  border-right: 1px solid var(--ob-line);
-}
-
-.onto-being-lens-tabs button {
-  flex: 1;
-  padding: 15px 18px;
-  display: grid;
-  grid-template-columns: 28px 1fr;
-  gap: 10px;
-  align-items: center;
-  border: 0;
-  border-bottom: 1px solid var(--ob-line-soft);
-  background: transparent;
-  color: var(--ob-muted);
-  text-align: left;
-  cursor: pointer;
-}
-
-.onto-being-lens-tabs button span {
-  color: var(--ob-gold);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-}
-
-.onto-being-lens-tabs button.is-active {
-  color: var(--ob-marble);
-  background: var(--ob-blue-deep);
-}
-
-.onto-being-lens-panel {
-  position: relative;
-  overflow: hidden;
-  padding: clamp(34px, 6vw, 68px);
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 36px;
-  align-items: center;
-}
-
-.onto-being-lens-monogram {
-  display: grid;
-  place-items: center;
-  width: 140px;
-  height: 180px;
-  color: rgba(37,63,89,.82);
-  border: 1px solid rgba(168,132,70,.55);
-  background:
-    radial-gradient(circle at 50% 35%, #faf8f2, #ddd5c7);
-  box-shadow: inset 0 0 32px rgba(23,25,26,.09);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 6rem;
-}
-
-.onto-being-lens-panel p {
-  margin: 0;
-  color: var(--ob-muted);
-  font-size: .68rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-
-.onto-being-lens-panel h3 {
-  margin: 4px 0 16px;
-  color: var(--ob-blue-deep);
-  font-size: clamp(2.5rem, 5vw, 4.2rem);
-  line-height: .95;
-  font-weight: 500;
-}
-
-.onto-being-lens-panel strong {
-  display: block;
-  max-width: 700px;
-  color: var(--ob-oxide);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.28rem;
-  line-height: 1.35;
-}
-
-.onto-being-lens-panel > div:last-child > span {
-  display: block;
-  max-width: 700px;
-  margin-top: 14px;
-  color: var(--ob-muted);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.05rem;
-  line-height: 1.55;
-}
-
-.onto-being-lens-panel blockquote {
-  margin: 26px 0 0;
-  padding: 16px 0 0;
-  border-top: 1px solid var(--ob-line);
-  color: var(--ob-blue-deep);
-  font-size: 1.18rem;
-  font-style: italic;
-  line-height: 1.42;
-}
-
-.onto-being-lens-panel blockquote small {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--ob-gold);
-  font-family: Inter, system-ui, sans-serif;
-  font-size: .62rem;
-  font-style: normal;
-  letter-spacing: .14em;
-}
-
-.onto-being-distinction-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  border-top: 1px solid var(--ob-line);
-  border-left: 1px solid var(--ob-line);
-}
-
-.onto-being-distinction-grid article {
-  min-height: 250px;
-  padding: 28px;
-  border-right: 1px solid var(--ob-line);
-  border-bottom: 1px solid var(--ob-line);
-  background: rgba(251,250,246,.36);
-}
-
-.onto-being-distinction-grid article > span {
-  color: var(--ob-gold);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-}
-
-.onto-being-distinction-grid h3 {
-  margin: 26px 0 10px;
-  color: var(--ob-blue-deep);
-  font-size: 2rem;
-  font-weight: 500;
-}
-
-.onto-being-distinction-grid p {
-  color: #45443f;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.08rem;
-  line-height: 1.5;
-}
-
-.onto-being-distinction-grid small {
-  display: block;
-  margin-top: 22px;
-  padding-top: 12px;
-  color: var(--ob-muted);
-  border-top: 1px solid var(--ob-line-soft);
-  font-size: .68rem;
-  line-height: 1.45;
-}
-
-.onto-being-method {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  border-top: 1px solid var(--ob-line);
-  border-left: 1px solid var(--ob-line);
-}
-
-.onto-being-method article {
-  min-height: 220px;
-  padding: 22px 18px;
-  border-right: 1px solid var(--ob-line);
-  border-bottom: 1px solid var(--ob-line);
-}
-
-.onto-being-method span {
-  color: var(--ob-gold);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-}
-
-.onto-being-method strong {
-  display: block;
-  margin-top: 42px;
-  color: var(--ob-blue-deep);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.42rem;
-}
-
-.onto-being-method p {
-  margin: 10px 0 0;
-  color: var(--ob-muted);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  line-height: 1.45;
-}
-
-.onto-being-final {
-  margin-top: 36px;
-  padding: 34px;
-  color: var(--ob-marble);
-  background:
-    radial-gradient(circle at 100% 0, rgba(168,132,70,.18), transparent 34%),
-    var(--ob-blue-deep);
-  box-shadow: 0 22px 60px rgba(22,40,58,.15);
-}
-
-.onto-being-final > span {
-  color: #d6bd88;
-}
-
-.onto-being-final strong {
-  display: block;
-  max-width: 780px;
-  margin-top: 18px;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.65rem, 3vw, 2.45rem);
-  line-height: 1.2;
-  font-weight: 500;
-}
-
-.onto-being-final p {
-  max-width: 760px;
-  margin: 18px 0 0;
-  color: rgba(251,250,246,.74);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.05rem;
-  line-height: 1.55;
-}
-
-.onto-being-footer {
-  position: relative;
-  z-index: 2;
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 26px 28px 42px;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  border-top: 1px solid var(--ob-line);
-  color: var(--ob-muted);
-  font-size: .7rem;
-  letter-spacing: .08em;
-}
-
-.onto-being-footer > :last-child {
+.obm-footer > :last-child {
   justify-self: end;
 }
 
-.onto-being-footer > :nth-child(2) {
-  color: var(--ob-gold);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1rem;
-}
+@media (max-width: 980px) {
+  .obm-brochure {
+    width: min(760px, calc(100% - 24px));
+    margin: 24px auto;
+  }
 
-@media (max-width: 1080px) {
-  .onto-being-hero {
+  .obm-columns {
     grid-template-columns: 1fr;
   }
 
-  .onto-being-object {
-    max-width: 600px;
-    margin: 0 auto;
+  .obm-column-right {
+    border-left: 0;
+    border-top: 1px solid var(--line);
   }
 
-  .onto-being-philology {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .onto-being-genealogy article > div:last-child {
-    grid-template-columns: 120px 1fr;
-  }
-
-  .onto-being-genealogy article > div:last-child > strong,
-  .onto-being-genealogy article > div:last-child > span {
-    grid-column: 2;
-  }
-
-  .onto-being-method {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .onto-being-method article:last-child {
-    grid-column: span 2;
-  }
-}
-
-@media (max-width: 820px) {
-  .onto-being-nav {
-    grid-template-columns: 1fr auto;
-  }
-
-  .onto-being-nav > :last-child {
-    display: none;
-  }
-
-  .onto-being-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .onto-being-index {
-    position: static;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .onto-being-index > p {
-    grid-column: 1 / -1;
-  }
-
-  .onto-being-intro-card {
-    grid-template-columns: 1fr;
-  }
-
-  .onto-being-prose,
-  .onto-being-curator-note,
-  .onto-being-schema-legend {
-    margin-left: 0;
-  }
-
-  .onto-being-lenses {
-    grid-template-columns: 1fr;
-  }
-
-  .onto-being-lens-tabs {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    border-right: 0;
-    border-bottom: 1px solid var(--ob-line);
-  }
-
-  .onto-being-lens-tabs button {
-    display: block;
-    padding: 12px 8px;
-    text-align: center;
-    font-size: .64rem;
-  }
-
-  .onto-being-lens-tabs button span {
-    display: block;
-    margin-bottom: 4px;
-  }
-
-  .onto-being-lens-panel {
-    grid-template-columns: 110px 1fr;
-    padding: 30px;
-  }
-
-  .onto-being-lens-monogram {
-    width: 104px;
-    height: 140px;
-    font-size: 4.5rem;
+  .obm-title-swatch {
+    right: -90px;
+    width: 80px;
   }
 }
 
 @media (max-width: 620px) {
-  .onto-being-nav,
-  .onto-being-hero,
-  .onto-being-layout,
-  .onto-being-footer {
-    padding-left: 18px;
-    padding-right: 18px;
+  .obm-brochure {
+    width: 100%;
+    margin: 0;
   }
 
-  .onto-being-hero {
-    padding-top: 58px;
+  .obm-nav {
+    padding: 0 16px;
+    grid-template-columns: 1fr auto;
   }
 
-  .onto-being-hero h1 {
-    font-size: clamp(4.6rem, 26vw, 7rem);
+  .obm-nav > :last-child {
+    display: none;
   }
 
-  .onto-being-hero h1 em {
-    margin-left: 30px;
+  .obm-cover,
+  .obm-welcome,
+  .obm-philology,
+  .obm-collection,
+  .obm-atlas,
+  .obm-tickets,
+  .obm-genealogy,
+  .obm-contact {
+    padding-left: 24px;
+    padding-right: 24px;
   }
 
-  .onto-being-stone {
-    min-height: 340px;
+  .obm-cover h1 {
+    font-size: 4.5rem;
   }
 
-  .onto-being-philology,
-  .onto-being-distinction-grid,
-  .onto-being-method {
-    grid-template-columns: 1fr;
+  .obm-title-swatch {
+    display: none;
   }
 
-  .onto-being-method article:last-child {
-    grid-column: auto;
+  .obm-hero-art img {
+    height: 360px;
   }
 
-  .onto-being-genealogy article {
-    grid-template-columns: 44px 1fr;
+  .obm-collage-note {
+    grid-template-columns: 1fr 104px;
   }
 
-  .onto-being-genealogy article > div:last-child {
-    grid-template-columns: 1fr;
+  .obm-collage-note img {
+    width: 104px;
+    height: 145px;
   }
 
-  .onto-being-genealogy article > div:last-child > strong,
-  .onto-being-genealogy article > div:last-child > span {
-    grid-column: auto;
-  }
-
-  .onto-being-lens-tabs {
+  .obm-word-grid,
+  .obm-collection-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .onto-being-lens-panel {
+  .obm-goal {
+    min-height: 560px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .obm-goal-paper {
+    left: 24px;
+    right: 24px;
+  }
+
+  .obm-goal h2 em {
+    margin-left: 90px;
+  }
+
+  .obm-lens-card {
     grid-template-columns: 1fr;
   }
 
-  .onto-being-lens-monogram {
-    width: 90px;
-    height: 112px;
-  }
-
-  .onto-being-footer {
+  .obm-footer {
+    padding: 18px 20px;
     grid-template-columns: 1fr;
-    gap: 12px;
     text-align: center;
   }
 
-  .onto-being-footer > :last-child {
+  .obm-footer > :last-child {
     justify-self: center;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .onto-being-index button {
-    transition: none;
+  .obm-page * {
+    scroll-behavior: auto !important;
   }
 }
