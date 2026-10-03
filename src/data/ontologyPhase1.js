@@ -86,7 +86,7 @@ export const ontologyPhase1 = {
     objectLabel:'IMAGO I · APERTURA',
     objectTitle:'La escuela de Atenas',
     objectNote:'Rafael · 1511 · pieza curatorial para el mapa histórico de problemas de la sesión.',
-    objectRights:'Dominio público · Public Domain Mark 1.0',
+    objectRights:'Dominio público',
     welcome:[
       'La apertura del curso distingue desde el inicio la pregunta ontológica de la pregunta epistemológica: qué hay no es lo mismo que cómo sabemos lo que hay.',
       'El recorrido se plantea históricamente. Cambian los vocabularios y las doctrinas, pero persisten problemas sobre ser, entidad, sustancia, existencia, identidad y estructura de lo real.',
@@ -185,7 +185,7 @@ export const ontologyPhase1 = {
     objectLabel:'IMAGO III · METAPHYSICA',
     objectTitle:'Metaphysica · edición de Bekker',
     objectNote:'Primera página · 1837 · pieza directamente relacionada con el texto trabajado.',
-    objectRights:'Dominio público · Public Domain Mark 1.0',
+    objectRights:'Dominio público',
     welcome:[
       'La sesión no presenta el principio de no contradicción como una regla formal aislada. Busca su fondo ontológico: qué debe ser verdadero de la realidad para que podamos afirmar algo sin contradicción.',
       'La lógica interesa porque permite hablar correctamente de las cosas; el problema aparece cuando el discurso se separa de aquello de lo que habla.',
@@ -237,7 +237,7 @@ export const ontologyPhase1 = {
     objectLabel:'IMAGO IV · CONTEXTUS',
     objectTitle:'Miscelánea manuscrita aristotélica',
     objectNote:'Roma · 1457 · Biblioteca Nacional de Austria. Contexto curatorial; no forma parte de la fuente de clase.',
-    objectRights:'Dominio público · Public Domain Mark 1.0',
+    objectRights:'Dominio público',
     welcome:[
       'La nota disponible contiene sólo un esquema breve. El problema seguro es una distinción entre sujeto, predicación y accidente dentro de los sentidos de “ser”.',
     ],
@@ -278,8 +278,8 @@ export const ontologyPhase1 = {
     imageSource:'https://commons.wikimedia.org/wiki/File:Florentine_15th_Century,_Bust_of_Aristotle,_15th_century,_NGA_43846.jpg',
     objectLabel:'IMAGO V · ARISTOTELES',
     objectTitle:'Busto de Aristóteles',
-    objectNote:'Florencia · siglo XV · National Gallery of Art.',
-    objectRights:'CC0 1.0 Universal · National Gallery of Art',
+    objectNote:'Florencia · siglo XV · Galería Nacional de Arte.',
+    objectRights:'CC0 1.0 Universal · Galería Nacional de Arte',
     welcome:[
       'La sesión pregunta qué permanece como sujeto mientras atribuimos determinaciones. Sócrates sirve como unidad de referencia: puede recibir predicados sin convertirse en la suma de esos accidentes.',
       'El problema no es meramente gramatical. Si la predicación pierde el sujeto, también se vuelve difícil conservar la determinación ontológica de aquello de lo que se habla.',
