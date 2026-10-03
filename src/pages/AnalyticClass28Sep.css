@@ -1,0 +1,277 @@
+/* ============================================================
+   FILOSOFÍA ANALÍTICA · CLASE 28 SEP 2026
+   ============================================================ */
+
+.ac28-page{
+  --ac28-blue:#3f6277;
+  --ac28-blue-dark:#2e495a;
+  --ac28-gold:#a57a39;
+  --ac28-rust:#934f3f;
+}
+
+.ac28-hero{min-height:82vh}
+.ac28-ghost{
+  color:var(--ac28-blue);
+  opacity:.045;
+  font-size:clamp(8rem,20vw,18rem);
+}
+
+.ac28-heading>span{
+  background:var(--ac28-blue)!important;
+  color:#f3ead8!important;
+  opacity:1!important;
+}
+
+.ac28-question{border-left-color:var(--ac28-blue)}
+.ac28-hero-schema .active{
+  border-color:var(--ac28-blue)!important;
+  background:rgba(63,98,119,.08)!important;
+}
+
+.ac28-flow,
+.ac28-paraphrase,
+.ac28-logic-strip{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:.55rem;
+  margin:1.35rem 0;
+}
+
+.ac28-flow span,
+.ac28-flow strong,
+.ac28-paraphrase span,
+.ac28-paraphrase strong,
+.ac28-logic-strip span,
+.ac28-logic-strip strong{
+  padding:.7rem .85rem;
+  border:1px solid rgba(25,25,20,.22);
+  background:rgba(255,255,255,.24);
+  font:800 .68rem Arial,sans-serif;
+}
+
+.ac28-flow strong,
+.ac28-paraphrase strong,
+.ac28-logic-strip strong{
+  background:var(--ac28-blue);
+  color:#fff;
+}
+
+.ac28-flow>b,
+.ac28-paraphrase>b,
+.ac28-logic-strip>b{
+  color:var(--ac28-rust);
+}
+
+.ac28-function,
+.ac28-before-after,
+.ac28-forms,
+.ac28-proposition,
+.ac28-names{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  gap:.75rem;
+  align-items:center;
+  margin:1.35rem 0;
+}
+
+.ac28-function article,
+.ac28-before-after article,
+.ac28-forms article,
+.ac28-proposition article,
+.ac28-names article{
+  padding:1.05rem;
+  border:1px solid rgba(25,25,20,.2);
+  background:rgba(255,255,255,.24);
+}
+
+.ac28-function article.active,
+.ac28-before-after article.active,
+.ac28-forms article.active,
+.ac28-proposition article.active,
+.ac28-names article.active{
+  border-color:var(--ac28-blue);
+  background:rgba(63,98,119,.075);
+}
+
+.ac28-function span,
+.ac28-before-after span,
+.ac28-forms span,
+.ac28-proposition span,
+.ac28-names span{
+  display:block;
+  color:var(--ac28-blue);
+  font:900 .55rem Arial,sans-serif;
+  letter-spacing:.1em;
+}
+
+.ac28-function strong,
+.ac28-before-after strong,
+.ac28-forms strong,
+.ac28-proposition strong,
+.ac28-names strong{
+  display:block;
+  margin:.45rem 0;
+  font-size:1.1rem;
+}
+
+.ac28-function p,
+.ac28-before-after p,
+.ac28-forms p,
+.ac28-proposition p,
+.ac28-names p{
+  margin:0;
+  line-height:1.5;
+}
+
+.ac28-function>b,
+.ac28-before-after>b,
+.ac28-forms>b,
+.ac28-proposition>b,
+.ac28-names>b{
+  color:var(--ac28-rust);
+  font:900 .65rem Arial,sans-serif;
+}
+
+.ac28-note{border-left-color:var(--ac28-blue)!important}
+
+.ac28-switcher button.active{
+  background:var(--ac28-blue)!important;
+  border-color:var(--ac28-blue)!important;
+}
+
+.ac28-stage,
+.ac28-france{
+  margin:1.2rem 0;
+  padding:1.2rem;
+  border:1px solid rgba(25,25,20,.22);
+  border-left:4px solid var(--ac28-blue);
+  background:rgba(63,98,119,.065);
+}
+
+.ac28-stage span,
+.ac28-france span{
+  color:var(--ac28-blue);
+  font:900 .55rem Arial,sans-serif;
+  letter-spacing:.1em;
+}
+
+.ac28-stage h3,
+.ac28-france h3{
+  margin:.45rem 0;
+  font-size:1.45rem;
+}
+
+.ac28-stage p,
+.ac28-france p{
+  margin:.25rem 0 .75rem;
+  line-height:1.55;
+}
+
+.ac28-stage code{
+  display:block;
+  width:max-content;
+  max-width:100%;
+  padding:.55rem .7rem;
+  background:#202927;
+  color:#efe4d2;
+  overflow:auto;
+}
+
+.ac28-description{
+  display:grid;
+  gap:.7rem;
+  margin:1.4rem 0;
+  padding:1.25rem;
+  border:1px solid rgba(25,25,20,.22);
+  background:#202927;
+  color:#f1e6d2;
+}
+
+.ac28-description>span{
+  color:#d3aa6a;
+  font:900 .55rem Arial,sans-serif;
+  letter-spacing:.1em;
+}
+
+.ac28-description>strong{font-size:1.35rem}
+
+.ac28-description>b{
+  color:#d3aa6a;
+  font:800 .58rem Arial,sans-serif;
+  letter-spacing:.08em;
+}
+
+.ac28-description>div{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:.45rem .7rem;
+  align-items:start;
+}
+
+.ac28-description em{
+  display:grid;
+  place-items:center;
+  width:1.6rem;
+  height:1.6rem;
+  border:1px solid #d3aa6a;
+  border-radius:50%;
+  color:#d3aa6a;
+  font-style:normal;
+  font-weight:800;
+}
+
+.ac28-description p{margin:.05rem 0;line-height:1.5}
+
+.ac28-paradox{border-left-color:var(--ac28-gold)!important}
+
+.ac28-thesis{border-left-color:var(--ac28-blue)!important}
+
+.ac28-truth{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:.7rem;
+  margin:1.3rem 0;
+}
+
+.ac28-truth article{
+  padding:1rem;
+  border:1px solid rgba(25,25,20,.22);
+  background:rgba(255,255,255,.22);
+}
+
+.ac28-truth span{
+  display:block;
+  color:var(--ac28-blue);
+  font:900 .54rem Arial,sans-serif;
+  letter-spacing:.1em;
+}
+
+.ac28-truth strong{
+  display:block;
+  margin-top:.5rem;
+  font-size:1rem;
+  line-height:1.35;
+}
+
+.ac28-ending{border-color:var(--ac28-blue)!important}
+
+@media(max-width:900px){
+  .ac28-function,
+  .ac28-before-after,
+  .ac28-forms,
+  .ac28-proposition,
+  .ac28-names,
+  .ac28-truth{
+    grid-template-columns:1fr;
+  }
+
+  .ac28-function>b,
+  .ac28-before-after>b,
+  .ac28-forms>b,
+  .ac28-proposition>b,
+  .ac28-names>b{
+    justify-self:center;
+    transform:rotate(90deg);
+  }
+}
