@@ -55,7 +55,7 @@ export default function AnalyticClass31Aug() {
         <div className="an31-ghost" aria-hidden="true">p ↔ q</div>
         <div className="an31-hero-inner">
           <div>
-            <p className="an31-kicker">FI264 · Cuarta clase · 31 de agosto</p>
+            <p className="an31-kicker">FI264 · Quinta clase · 31 de agosto</p>
             <h1>Lenguaje,<em>justificación y conocimiento</em></h1>
             <p className="an31-lead">
               La sesión vuelve al problema de definir la filosofía analítica y lo
