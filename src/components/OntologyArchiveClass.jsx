@@ -3,9 +3,9 @@ import { Link } from 'react-router'
 import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema'
 import './OntologyArchiveClass.css'
 
+const courseRoot = '/semestre/4/ontologia'
+
 export default function OntologyArchiveClass({ data }) {
-  const courseRoot = data.courseRoot || '/semestre/4/ontologia'
-  const courseLabel = data.courseLabel || 'Ontología'
   const [activeLens, setActiveLens] = useState(data.lenses?.[0]?.id || '')
 
   const selectedLens =
@@ -20,7 +20,7 @@ export default function OntologyArchiveClass({ data }) {
       <div className="oa-backdrop" aria-hidden="true" />
       <div className="oa-brochure">
         <nav className="oa-nav">
-          <Link to={courseRoot}>← {courseLabel}</Link>
+          <Link to={courseRoot}>← Ontología</Link>
           <Link to="/" className="oa-brand">Φ · Philosophia</Link>
           <span>{data.dateRoman}</span>
         </nav>
@@ -227,19 +227,6 @@ export default function OntologyArchiveClass({ data }) {
                 <div className="oa-preparation">
                   <span>LECTIO / PREPARATIO</span>
                   {data.preparation.map((item) => <strong key={item}>{item}</strong>)}
-                </div>
-              )}
-
-              {data.relatedSystems?.length > 0 && (
-                <div className="oa-related">
-                  <span>SYSTEMATA RELATA</span>
-                  {data.relatedSystems.map((item) => (
-                    <Link key={item.route} to={item.route}>
-                      <strong>{item.title}</strong>
-                      <small>{item.note}</small>
-                      <b>↗</b>
-                    </Link>
-                  ))}
                 </div>
               )}
             </section>

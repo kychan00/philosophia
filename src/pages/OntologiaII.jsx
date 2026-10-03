@@ -118,12 +118,12 @@ const readings = [
 ]
 
 const symbols = [
-  ['ens', '8%', '8%'],
-  ['substantia', '18%', '76%'],
+  ['ὄν', '8%', '8%'],
+  ['οὐσία', '18%', '79%'],
   ['esse', '43%', '4%'],
-  ['ratio', '58%', '84%'],
-  ['verbum', '78%', '10%'],
-  ['mundus', '87%', '77%'],
+  ['Sein', '58%', '84%'],
+  ['λόγος', '78%', '10%'],
+  ['Welt', '87%', '77%'],
 ]
 
 export default function OntologiaII() {
@@ -155,7 +155,7 @@ export default function OntologiaII() {
 
       <header className="ontology-program-hero">
         <div className="ontology-program-being" aria-hidden="true">
-          ens
+          ὄν
         </div>
 
         <div className="ontology-program-hero-inner">
@@ -163,7 +163,7 @@ export default function OntologiaII() {
             Ontologia · Problemata contemporanea
           </p>
 
-          <div className="ontology-program-seal">esse</div>
+          <div className="ontology-program-seal">ὄν</div>
 
           <h1>
             Ontología
@@ -231,8 +231,8 @@ export default function OntologiaII() {
           </div>
 
           <div className="ontology-program-class-copy">
-            <span>Fase IV · Apertura del racionalismo</span>
-            <h3>Del principio de no contradicción al ser moderno</h3>
+            <span>Primera clase · Mapa del curso</span>
+            <h3>Clase del 17 de agosto</h3>
             <p>
               Principios lógicos, sentidos del ser, modernidad,
               Descartes, Spinoza, Leibniz, teleología, libertad
@@ -256,7 +256,7 @@ export default function OntologiaII() {
           </div>
 
           <div className="ontology-program-class-copy">
-            <span>Fase IV · Descartes</span>
+            <span>Segunda clase · Descartes y Spinoza</span>
             <h3>Del cogito a la sustancia</h3>
             <p>
               Duda metódica, cogito, res cogitans, res extensa,
@@ -279,7 +279,7 @@ export default function OntologiaII() {
             <span>VIII · MMXXVI</span>
           </div>
           <div className="ontology-program-class-copy">
-            <span>Fase IV · Spinoza</span>
+            <span>Tercera clase · Spinoza</span>
             <h3>Una sustancia: necesidad y libertad</h3>
             <p>Sustancia, atributos y modos; Deus sive Natura; causa inmanente, necesidad, pasiones, libertad como conocimiento de las causas y tránsito hacia Leibniz.</p>
           </div>
@@ -295,7 +295,7 @@ export default function OntologiaII() {
             <span>VIII · MMXXVI</span>
           </div>
           <div className="ontology-program-class-copy">
-            <span>Fase IV · Leibniz</span>
+            <span>Cuarta clase · Leibniz</span>
             <h3>Contingencia, mónadas y armonía</h3>
             <p>
               Descartes y Spinoza como antecedentes; verdades de razón y de
@@ -579,7 +579,7 @@ export default function OntologiaII() {
 
       <footer className="ontology-program-footer">
         <Link to="/semestre/5">← Quinto semestre</Link>
-        <span>☙ &nbsp; ens · esse &nbsp; ❧</span>
+        <span>☙ &nbsp; τὸ ὄν &nbsp; ❧</span>
         <span>Ontología II · MMXXVI</span>
       </footer>
 
