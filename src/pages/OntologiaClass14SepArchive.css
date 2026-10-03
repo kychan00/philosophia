@@ -1,0 +1,13 @@
+.oaf-sep14-page{background:#2b211b}
+.oaf-sep14-brochure{overflow:hidden}
+.oaf-sep14-brochure>.ontsep7-layout{max-width:none;margin:0;background:var(--oa-paper)}
+.oaf-sep14-brochure .ontsep7-index{top:20px;background:#eee5d7}
+.oaf-sep14-brochure .ontsep7-article>section{background:var(--oa-paper)}
+.oaf-sep14-brochure .ontsep7-article>section:nth-child(even){background:#f2ebdf}
+.oaf-sep14-brochure .ontsep14-heading h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2.75rem,5vw,4.5rem);line-height:.95}
+.oaf-sep14-brochure .ontsep14-heading>span{font-family:'Cormorant Garamond',Georgia,serif;color:rgba(122,45,30,.14)}
+.oaf-sep14-brochure .ontsep14-triad .active,.oaf-sep14-brochure .ontsep14-two .active,.oaf-sep14-brochure .ontsep14-relation .active,.oaf-sep14-brochure .ontsep14-logic .active{border-color:var(--oa-wine);background:rgba(122,45,30,.06)}
+.oaf-sep14-brochure .ontsep14-callout,.oaf-sep14-brochure .ontsep14-warning,.oaf-sep14-brochure .ontsep7-thesis{border-left-color:var(--oa-wine)}
+.oaf-sep14-brochure .ontsep14-relation>b,.oaf-sep14-brochure .ontsep14-math strong{color:var(--oa-wine)}
+.oaf-sep14-atlas .animated-concept-schema{min-height:1040px!important}
+@media(max-width:780px){.oaf-sep14-brochure .ontsep7-article>section{padding-left:24px;padding-right:24px}}

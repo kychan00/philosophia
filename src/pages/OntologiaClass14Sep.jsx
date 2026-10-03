@@ -1,4 +1,8 @@
 import { Link } from 'react-router'
+import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema'
+import '../components/OntologyArchiveClass.css'
+import './OntologiaClass17AugArchive.css'
+import './OntologiaClass14SepArchive.css'
 import './OntologiaClass07Sep.css'
 import './OntologiaClass09Sep.css'
 import './OntologiaClass14Sep.css'
@@ -19,6 +23,37 @@ const sections = [
   ['12', 'tarea', 'Próxima clase'],
 ]
 
+const atlasSchema = {
+  layout: 'flow',
+  direction: 'vertical',
+  flowGap: 50,
+  minHeight: 1040,
+  fitPadding: 56,
+  sizeHint: 'tall',
+  nodes: [
+    { id: 'sap', label: 'sintético a priori', caption: 'problema de la ciencia', shapeRole: 'concept', emphasis: true, tone: 'accent' },
+    { id: 'sensibility', label: 'sensibilidad', caption: 'objetos dados', shapeRole: 'structure' },
+    { id: 'intuition', label: 'intuición pura', caption: 'espacio · tiempo', shapeRole: 'concept' },
+    { id: 'phenomenon', label: 'fenómeno', caption: 'materia + forma', shapeRole: 'mediation' },
+    { id: 'expositions', label: 'exposiciones', caption: 'metafísica · trascendental', shapeRole: 'structure' },
+    { id: 'thing', label: 'cosa en sí', caption: 'límite del conocer', shapeRole: 'mediation' },
+    { id: 'categories', label: 'categorías', caption: 'uso legítimo en fenómenos', shapeRole: 'concept' },
+    { id: 'affection', label: 'afección', caption: 'problema de causalidad', shapeRole: 'mediation' },
+    { id: 'analytic', label: 'Analítica trascendental', caption: 'siguiente etapa', shapeRole: 'result', tone: 'accent' },
+  ],
+  edges: [
+    { from: 'sap', to: 'sensibility', label: 'requiere explicar', relationKind: 'derives' },
+    { from: 'sensibility', to: 'intuition', label: 'aporta', relationKind: 'derives' },
+    { from: 'intuition', to: 'phenomenon', label: 'da forma al', relationKind: 'derives' },
+    { from: 'phenomenon', to: 'expositions', label: 'se justifica mediante', relationKind: 'derives' },
+    { from: 'expositions', to: 'thing', label: 'delimita frente a', relationKind: 'derives' },
+    { from: 'thing', to: 'categories', label: 'marca el límite de', relationKind: 'derives' },
+    { from: 'categories', to: 'affection', label: 'produce la aporía de', relationKind: 'derives' },
+    { from: 'affection', to: 'analytic', label: 'prepara el paso a', relationKind: 'derives' },
+  ],
+  animation: { mode: 'sequence', nodeDuration: .27, edgeDuration: .29 },
+}
+
 const goToSection = (id) =>
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 
@@ -33,46 +68,121 @@ function Heading({ n, eyebrow, children }) {
 
 export default function OntologiaClass14Sep() {
   return (
-    <main className="ontsep7-page ontsep9-page ontsep14-page">
-      <nav className="ontsep7-nav">
-        <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
-        <Link to="/" className="ontsep7-brand">Φ · Philosophia</Link>
-        <span>XIV · IX · MMXXVI</span>
-      </nav>
+    <main className="ontsep7-page ontsep9-page ontsep14-page oa-page oaf-page oaf-sep14-page">
+      <div className="oa-backdrop" aria-hidden="true" />
 
-      <header className="ontsep7-hero ontsep9-hero ontsep14-hero">
-        <div className="ontsep7-grid" aria-hidden="true" />
-        <div className="ontsep7-ghost ontsep14-ghost" aria-hidden="true">Erscheinung</div>
-        <div className="ontsep7-hero-inner">
-          <div>
-            <p className="ontsep7-kicker">FI190 · Ontología II · 14 de septiembre de 2026</p>
-            <h1>Kant:<em>fenómeno, espacio, tiempo y cosa en sí</em></h1>
-            <p className="ontsep7-lead">
-              La Estética trascendental muestra cómo la sensibilidad aporta las formas
-              puras de espacio y tiempo. Desde ahí se delimita el fenómeno como objeto
-              posible de conocimiento y aparece el problema de la cosa en sí.
+      <div className="oa-brochure oaf-brochure oaf-sep14-brochure">
+        <nav className="oa-nav">
+          <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
+          <Link to="/" className="oa-brand">Φ · Philosophia</Link>
+          <span>XIV · IX · MMXXVI</span>
+        </nav>
+
+        <header className="oa-cover oaf-cover">
+          <div className="oa-cover-copy">
+            <span className="oa-kicker">Archivum ontologicum · fol. XX · aesthetica transcendentalis</span>
+
+            <h1>
+              Kant
+              <em>fenómeno, espacio, tiempo y cosa en sí</em>
+            </h1>
+
+            <p className="oa-subtitle">
+              sensibilitas · intuitus · spatium · tempus · phaenomenon
             </p>
-            <div className="ontsep7-question">
-              <span>PREGUNTA RECTORA</span>
-              <strong>¿Qué pone el sujeto para que algo pueda aparecer como objeto de conocimiento?</strong>
+
+            <p className="oaf-lead">
+              La Estética trascendental muestra cómo la sensibilidad aporta las
+              formas puras de espacio y tiempo. Desde ahí se delimita el fenómeno
+              como objeto posible de conocimiento y aparece el problema de la cosa en sí.
+            </p>
+
+            <div className="oa-question">
+              <small>QUAESTIO</small>
+              <strong>
+                ¿Qué pone el sujeto para que algo pueda aparecer como objeto de conocimiento?
+              </strong>
             </div>
-            <div className="ontsep7-hero-actions">
+
+            <div className="oaf-axis" aria-label="Eje conceptual">
+              <span>sensibilitas</span><b>→</b>
+              <span>spatium / tempus</span><b>→</b>
+              <span>phaenomenon</span><b>→</b>
+              <span>res in se</span><b>→</b>
+              <span>limen</span>
+            </div>
+
+            <div className="oaf-sep7-actions">
               <button type="button" onClick={() => goToSection('mapa')}>Recorrer la clase ↓</button>
               <Link to="/tareas/ontologia-ii/kant-critica-razon-pura-estetica-trascendental">
                 Abrir Estética trascendental ↗
               </Link>
             </div>
           </div>
-          <aside className="ontsep7-hero-schema ontsep14-schema">
-            <span>ESTRUCTURA DEL FENÓMENO</span>
-            <div><small>MATERIA</small><strong>sensaciones</strong><p>Lo dado al sujeto.</p></div>
-            <b>+</b>
-            <div className="active"><small>FORMA</small><strong>espacio + tiempo</strong><p>Intuiciones puras a priori.</p></div>
-            <b>=</b>
-            <div><small>FENÓMENO</small><strong>objeto conocido</strong><p>Lo que aparece bajo nuestras condiciones.</p></div>
-          </aside>
-        </div>
-      </header>
+
+          <figure className="oa-cover-object">
+            <div className="oa-cover-frame">
+              <span className="oa-tape oa-tape-a" aria-hidden="true" />
+              <span className="oa-tape oa-tape-b" aria-hidden="true" />
+              <img
+                src={`${import.meta.env.BASE_URL}images/ontologia/open/2026-09-14/kant-aesthetik-1781-p19.png`}
+                alt="Página 19 de la primera edición de la Crítica de la razón pura, inicio de la Estética trascendental"
+              />
+            </div>
+            <figcaption>
+              <span>IMAGO XX · AESTHETICA TRANSCENDENTALIS</span>
+              <strong>Inicio de la Estética trascendental</strong>
+              <small>Immanuel Kant · <em>Critik der reinen Vernunft</em> · Riga · 1781 · p. 19.</small>
+              <small className="oa-image-rights">Dominio público</small>
+              <a
+                className="oa-image-source"
+                href="https://de.wikisource.org/wiki/Seite:Kant_Critik_der_reinen_Vernunft_019.png"
+                target="_blank"
+                rel="noreferrer"
+              >
+                fuente del escaneo ↗
+              </a>
+            </figcaption>
+          </figure>
+        </header>
+
+        <section className="oaf-prologue">
+          <div className="oaf-prologue-copy">
+            <small>INTRODUCTIO</small>
+            <h2>Cómo puede algo aparecer para nosotros</h2>
+            <div className="oaf-questions">
+              <p>¿Qué recibe la sensibilidad?</p>
+              <p>¿Qué aportan espacio y tiempo?</p>
+              <p>¿Hasta dónde alcanzan las categorías?</p>
+            </div>
+            <p>
+              La clase avanza desde sensibilidad e intuición hacia fenómeno,
+              espacio y tiempo, y desde ahí establece la diferencia con la cosa
+              en sí y el problema de la afección.
+            </p>
+          </div>
+
+          <div className="oaf-armarium">
+            <small>ARMARIUM VERBORUM</small>
+            <h2>Vocabulario de la Estética</h2>
+            <div>
+              <article><span>Latín</span><strong>sensibilitas</strong><p>Facultad mediante la cual los objetos nos son dados.</p></article>
+              <article><span>Latín</span><strong>intuitus</strong><p>Intuición; relación inmediata mediante la cual algo puede ser dado.</p></article>
+              <article><span>Latín</span><strong>spatium · tempus</strong><p>Espacio y tiempo como formas puras a priori de la sensibilidad.</p></article>
+              <article><span>Latín</span><strong>phaenomenon</strong><p>Objeto tal como aparece bajo nuestras condiciones de conocimiento.</p></article>
+            </div>
+          </div>
+        </section>
+
+        <section className="oa-wine oaf-atlas oaf-sep14-atlas">
+          <div className="oa-wine-title"><span>SCHEMA · ATLAS</span><h2>atlas</h2></div>
+          <p>
+            El Atlas orienta el recorrido, pero las trece secciones de la clase,
+            formalización, ejemplos, tarea y desarrollo de la afección permanecen
+            íntegros debajo.
+          </p>
+          <div className="oa-schema-card"><AnimatedConceptSchema schema={atlasSchema} /></div>
+        </section>
 
       <div className="ontsep7-layout">
         <aside className="ontsep7-index">
@@ -235,10 +345,23 @@ export default function OntologiaClass14Sep() {
         </article>
       </div>
 
-      <footer className="ontsep7-footer ontsep14-footer">
-        <Link to="/semestre/5/ontologia-ii">← Volver a Ontología II</Link>
-        <span>FI190 · XIV · IX · MMXXVI</span>
+      <section className="oaf-documentum">
+        <div><small>DOCUMENTUM</small><h2>Criterio documental</h2></div>
+        <p>
+          Esta edición conserva las trece secciones de la página anterior:
+          sintético a priori, sensibilidad e intuición, fenómeno, espacio y tiempo,
+          exposiciones metafísica/trascendental, cosa en sí, categorías, Hume,
+          afección, formalización, paso a la Analítica y tarea. ARCHIVUM añade la
+          capa curatorial y el Atlas; no sustituye ni recorta el contenido.
+        </p>
+      </section>
+
+      <footer className="oa-footer">
+        <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
+        <span>☙ sensibilitas · spatium · tempus · phaenomenon ❧</span>
+        <span>XIV · IX · MMXXVI</span>
       </footer>
+      </div>
     </main>
   )
 }

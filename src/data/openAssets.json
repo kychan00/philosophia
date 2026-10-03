@@ -300,6 +300,18 @@
       "institution": "edición de Johann Friedrich Hartknoch, Riga",
       "license": "dominio público / Public Domain Mark 1.0",
       "use": "Ontología II 2026-09-09 · Introducción, juicios sintéticos a priori y condiciones del conocer"
+    },
+    {
+      "id": "ontology-2026-09-14-kant-aesthetik-p19",
+      "target": "public/images/ontologia/open/2026-09-14/kant-aesthetik-1781-p19.png",
+      "source_page": "https://de.wikisource.org/wiki/Seite:Kant_Critik_der_reinen_Vernunft_019.png",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Kant_Critik_der_reinen_Vernunft_019.png",
+      "title": "Inicio de la Transscendentale Aesthetik, Critik der reinen Vernunft, p. 19",
+      "creator": "Immanuel Kant",
+      "date": "1781",
+      "institution": "edición de Johann Friedrich Hartknoch, Riga; escaneo en Wikisource/Wikimedia",
+      "license": "dominio público",
+      "use": "Ontología II 2026-09-14 · Estética trascendental, espacio, tiempo y fenómeno"
     }
   ]
 }
