@@ -105,7 +105,7 @@ export default function AnalyticClass09Sep() {
 
         <div className="ac9-hero-inner">
           <div>
-            <p className="ac9-kicker">FI264 · Séptima clase · 9 de septiembre de 2026</p>
+            <p className="ac9-kicker">FI264 · Octava clase · 9 de septiembre de 2026</p>
             <h1>
               Frege, Kant y
               <em>la objetividad del pensamiento</em>
