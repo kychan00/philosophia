@@ -1,0 +1,50 @@
+.hartmann-task-page{background:#2b211b}
+.hartmann-task-brochure{overflow:hidden}
+.hartmann-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:24px;background:var(--oa-line);border:1px solid var(--oa-line)}
+.hartmann-meta>div{padding:12px;background:rgba(255,255,255,.22)}
+.hartmann-meta span{display:block;color:var(--oa-wine);font-size:.52rem;letter-spacing:.12em;text-transform:uppercase}
+.hartmann-meta strong{display:block;margin-top:5px;font-family:'Cormorant Garamond',Georgia,serif;font-size:1rem;font-weight:600}
+.hartmann-assignment{display:grid;grid-template-columns:.75fr 1.25fr;gap:40px;padding:52px 54px;border-top:1px solid var(--oa-line);background:#eee5d7}
+.hartmann-assignment small,.hartmann-dossier small,.hartmann-comparison>small,.hartmann-related small{color:var(--oa-wine);font-size:.56rem;letter-spacing:.14em}
+.hartmann-assignment h2,.hartmann-dossier h2,.hartmann-comparison h2,.hartmann-related h2{margin:6px 0 0;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2.6rem,5vw,4.2rem);font-weight:500;line-height:.96}
+.hartmann-assignment-copy{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.08rem;line-height:1.55}
+.hartmann-assignment-copy ol{margin:18px 0;padding-left:24px}
+.hartmann-assignment-copy aside{margin-top:20px;padding:16px 18px;border-left:3px solid var(--oa-gold);background:rgba(255,255,255,.28)}
+.hartmann-assignment-copy aside p{margin:6px 0 0;color:var(--oa-muted)}
+.hartmann-reading-range{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin:22px 0;background:var(--oa-line);border:1px solid var(--oa-line)}
+.hartmann-reading-range article{min-height:120px;padding:16px;background:#f5efe4;display:flex;flex-direction:column;justify-content:space-between}
+.hartmann-reading-range span{color:var(--oa-gold);font-size:.65rem;letter-spacing:.09em}
+.hartmann-reading-range strong{font-size:1.18rem;font-weight:500}
+.hartmann-atlas .animated-concept-schema{min-height:980px!important}
+.hartmann-dossier{padding:58px 54px;background:var(--oa-paper)}
+.hartmann-dossier header{max-width:820px}
+.hartmann-dossier header>p{color:var(--oa-muted);font-family:'Cormorant Garamond',Georgia,serif;font-size:1rem}
+.hartmann-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:30px;background:var(--oa-line);border:1px solid var(--oa-line)}
+.hartmann-grid article{min-height:280px;padding:24px;background:#f4eee3}
+.hartmann-grid article:nth-child(2),.hartmann-grid article:nth-child(3){background:#ece2d2}
+.hartmann-grid span{color:var(--oa-wine);font-size:.54rem;letter-spacing:.13em}
+.hartmann-grid h3{margin:14px 0 10px;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.7rem;font-weight:600}
+.hartmann-grid p{margin:0;color:#574f47;font-family:'Cormorant Garamond',Georgia,serif;font-size:1rem;line-height:1.58}
+.hartmann-confrontation{display:grid;grid-template-columns:.8fr 1.2fr;gap:0;border-top:1px solid var(--oa-line);border-bottom:1px solid var(--oa-line)}
+.hartmann-schulze-portrait{display:grid;grid-template-rows:minmax(0,430px) auto;background:#ded1bb}
+.hartmann-schulze-portrait img{width:100%;height:100%;object-fit:cover;filter:sepia(.12) contrast(.96)}
+.hartmann-schulze-portrait>div{padding:18px}
+.hartmann-schulze-portrait span{color:var(--oa-wine);font-size:.54rem;letter-spacing:.12em}
+.hartmann-schulze-portrait strong{display:block;margin-top:5px;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.45rem}
+.hartmann-schulze-portrait small{display:block;margin-top:4px;color:var(--oa-muted)}
+.hartmann-schulze-portrait a{display:inline-block;margin-top:8px;color:var(--oa-wine);font-size:.58rem;letter-spacing:.08em}
+.hartmann-comparison{padding:46px;background:#f3ede2}
+.hartmann-comparison>div{margin-top:24px;border-top:1px solid var(--oa-line)}
+.hartmann-comparison article{padding:18px 0;border-bottom:1px solid var(--oa-line)}
+.hartmann-comparison article span{display:block;color:var(--oa-gold);font-size:.55rem;letter-spacing:.12em}
+.hartmann-comparison article strong{display:block;margin-top:5px;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.35rem}
+.hartmann-comparison article p{margin:7px 0 0;color:var(--oa-muted);font-family:'Cormorant Garamond',Georgia,serif;line-height:1.5}
+.hartmann-related{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;padding:52px 54px;background:#eee5d7}
+.hartmann-related>div>p{color:var(--oa-muted);font-family:'Cormorant Garamond',Georgia,serif;line-height:1.5}
+.hartmann-related-actions{display:grid;gap:10px}
+.hartmann-related-actions a{position:relative;padding:16px 40px 16px 16px;border:1px solid var(--oa-line);background:rgba(255,255,255,.25)}
+.hartmann-related-actions strong{display:block;color:var(--oa-ink);font-size:1rem}
+.hartmann-related-actions span{display:block;margin-top:4px;color:var(--oa-muted);font-size:.72rem}
+.hartmann-related-actions b{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--oa-wine)}
+@media(max-width:850px){.hartmann-assignment,.hartmann-confrontation,.hartmann-related{grid-template-columns:1fr}.hartmann-grid{grid-template-columns:1fr}}
+@media(max-width:620px){.hartmann-assignment,.hartmann-dossier,.hartmann-comparison,.hartmann-related{padding-left:24px;padding-right:24px}.hartmann-meta,.hartmann-reading-range{grid-template-columns:1fr}}

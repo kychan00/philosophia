@@ -527,7 +527,7 @@ export const tasks = [
     sourceClass:
       'Clase del 23 de septiembre · Dialéctica trascendental y crítica de la metafísica',
     sourceRoute: '/semestre/5/ontologia-ii/clase/23-septiembre',
-    studyRoute: '/tareas/ontologia-ii/kant-dialectica-trascendental',
+    studyRoute: '/tareas/ontologia-ii/hartmann-cosa-en-si',
   },
 
   {

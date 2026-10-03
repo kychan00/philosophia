@@ -75,6 +75,7 @@ const KantIntroductionMap = lazy(() => import('./pages/KantIntroductionMap'))
 const KantAestheticMap = lazy(() => import('./pages/KantAestheticMap'))
 const KantAnalyticSystem = lazy(() => import('./pages/KantAnalyticSystem'))
 const KantDialecticSystem = lazy(() => import('./pages/KantDialecticSystem'))
+const HartmannThingInItselfTask = lazy(() => import('./pages/HartmannThingInItselfTask'))
 const MethodsResearch = lazy(() => import('./pages/MethodsResearch'))
 const MethodsClass17Aug = lazy(() => import('./pages/MethodsClass17Aug'))
 const MethodsClass19Aug = lazy(() => import('./pages/MethodsClass19Aug'))
@@ -316,6 +317,10 @@ function App() {
         <Route
           path="/tareas/ontologia-ii/kant-dialectica-trascendental"
           element={<KantDialecticSystem />}
+        />
+        <Route
+          path="/tareas/ontologia-ii/hartmann-cosa-en-si"
+          element={<HartmannThingInItselfTask />}
         />
         <Route
           path="/tareas/ontologia-ii/kant-critica-razon-pura-prologos"

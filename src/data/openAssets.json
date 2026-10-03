@@ -336,6 +336,30 @@
       "institution": "edición de Johann Friedrich Hartknoch, Riga; escaneo en Wikisource/Wikimedia",
       "license": "dominio público",
       "use": "Ontología II 2026-09-23 · Dialéctica trascendental, ideas de la razón y límites del conocer"
+    },
+    {
+      "id": "ontology-2026-09-30-reinhold",
+      "target": "public/images/ontologia/open/2026-09-30/reinhold-1825.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Karl_Leonhard_Reinhold_(1757-1823).jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Karl_Leonhard_Reinhold_%281757-1823%29.jpg?width=1280",
+      "title": "Retrato de Karl Leonhard Reinhold",
+      "creator": "Carl Ermer según Peter Copmann",
+      "date": "1825",
+      "institution": "publicado en Karl Leonhard Reinhold's Leben und litterarisches Wirken",
+      "license": "dominio público / Public Domain Mark 1.0",
+      "use": "Ontología II · tarea Hartmann · recepción poskantiana de la cosa en sí"
+    },
+    {
+      "id": "ontology-2026-09-30-schulze",
+      "target": "public/images/ontologia/open/2026-09-30/schulze.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gottlob_Ernst_Schulze.jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Gottlob_Ernst_Schulze.jpg?width=1000",
+      "title": "Retrato de Gottlob Ernst Schulze",
+      "creator": "autor no identificado",
+      "date": "obra histórica",
+      "institution": "reproducción de obra en dominio público",
+      "license": "dominio público / Public Domain Mark 1.0",
+      "use": "Ontología II · tarea Hartmann · crítica de Schulze a Reinhold"
     }
   ]
 }
