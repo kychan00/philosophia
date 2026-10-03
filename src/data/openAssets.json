@@ -216,6 +216,18 @@
       "institution": "Biblioteca Universitaria de Basilea",
       "license": "dominio público / Public Domain Mark 1.0",
       "use": "Ontología 2026-05-20 · esencia, esse y accidentes"
+    },
+    {
+      "id": "ontology-2026-08-17-newton-principia",
+      "target": "public/images/ontologia/open/2026-08-17/newton-principia-1687.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Newton%27s_Principia_title_page.png",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Newton%27s_Principia_title_page.png?width=1280",
+      "title": "Philosophiæ Naturalis Principia Mathematica, portada",
+      "creator": "Isaac Newton",
+      "date": "1687",
+      "institution": "edición histórica",
+      "license": "dominio público / Public Domain Mark 1.0",
+      "use": "Ontología II 2026-08-17 · transformación moderna de la imagen del mundo"
     }
   ]
 }
