@@ -1,5 +1,9 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
+import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema'
+import '../components/OntologyArchiveClass.css'
+import './OntologiaClass17AugArchive.css'
+import './OntologiaClass02SepArchive.css'
 
 const sections = [
   ['00', 'mapa', 'Mapa histórico'],
@@ -76,6 +80,35 @@ const kantGrid = [
   ['A posteriori', 'procede de la experiencia', 'particular / contingente'],
 ]
 
+const atlasSchema = {
+  layout: 'flow',
+  direction: 'vertical',
+  flowGap: 50,
+  minHeight: 980,
+  fitPadding: 54,
+  sizeHint: 'tall',
+  nodes: [
+    { id: 'empiricism', label: 'experiencia', caption: 'origen del conocimiento', shapeRole: 'concept', emphasis: true, tone: 'accent' },
+    { id: 'locke', label: 'Locke', caption: 'ideas · cualidades', shapeRole: 'structure' },
+    { id: 'berkeley', label: 'Berkeley', caption: 'esse est percipi', shapeRole: 'concept' },
+    { id: 'mediation', label: 'mediación', caption: 'representación · redes · algoritmos · IA', shapeRole: 'mediation' },
+    { id: 'hume', label: 'Hume', caption: 'inducción · causalidad · hábito', shapeRole: 'structure' },
+    { id: 'crisis', label: 'crisis de necesidad', caption: 'probabilidad ≠ conexión necesaria', shapeRole: 'mediation' },
+    { id: 'kant', label: 'Kant', caption: 'juicio sintético a priori', shapeRole: 'result', tone: 'accent' },
+    { id: 'ontology', label: 'pregunta ontológica', caption: 'realidad · representación · sujeto', shapeRole: 'term' },
+  ],
+  edges: [
+    { from: 'empiricism', to: 'locke', label: 'se formula en', relationKind: 'derives' },
+    { from: 'locke', to: 'berkeley', label: 'se radicaliza en', relationKind: 'derives' },
+    { from: 'berkeley', to: 'mediation', label: 'reabre el problema de', relationKind: 'derives' },
+    { from: 'mediation', to: 'hume', label: 'conduce a la crítica de', relationKind: 'derives' },
+    { from: 'hume', to: 'crisis', label: 'produce', relationKind: 'derives' },
+    { from: 'crisis', to: 'kant', label: 'provoca la respuesta de', relationKind: 'derives' },
+    { from: 'kant', to: 'ontology', label: 'reformula', relationKind: 'derives' },
+  ],
+  animation: { mode: 'sequence', nodeDuration: .27, edgeDuration: .29 },
+}
+
 const goToSection = (id) =>
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 
@@ -109,54 +142,100 @@ export default function OntologiaClass02Sep() {
     lockeQualities.find((item) => item.id === qualityId) || lockeQualities[0]
 
   return (
-    <main className="ontsep2-page">
-      <nav className="ontsep2-nav">
-        <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
-        <Link to="/" className="ontsep2-brand">Φ · Philosophia</Link>
-        <span>II · IX · MMXXVI</span>
-      </nav>
+    <main className="ontsep2-page oa-page oaf-page oaf-sep2-page">
+      <div className="oa-backdrop" aria-hidden="true" />
 
-      <header className="ontsep2-hero">
-        <div className="ontsep2-stars" aria-hidden="true" />
-        <div className="ontsep2-ghost" aria-hidden="true">A → B</div>
-        <div className="ontsep2-hero-inner">
-          <div>
-            <p className="ontsep2-kicker">FI190 · Ontología II · 2 de septiembre</p>
-            <h1>
-              Experiencia,
-              <em>causalidad y realidad</em>
-            </h1>
-            <p className="ontsep2-lead">
+      <div className="oa-brochure oaf-brochure oaf-sep2-brochure">
+        <nav className="oa-nav">
+          <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
+          <Link to="/" className="oa-brand">Φ · Philosophia</Link>
+          <span>II · IX · MMXXVI</span>
+        </nav>
+
+        <header className="oa-cover oaf-cover">
+          <div className="oa-cover-copy">
+            <span className="oa-kicker">Archivum ontologicum · fol. XVII · experientia</span>
+            <h1>Experiencia<em>causalidad y realidad</em></h1>
+            <p className="oa-subtitle">experientia · perceptio · causalitas · necessitas · a priori</p>
+            <p className="oaf-lead">
               Locke, Berkeley, Hume y Kant reconstruyen una crisis progresiva:
               cuanto más radicalmente hacemos depender el conocimiento de la
               experiencia, más difícil resulta explicar universalidad, necesidad
               y objetividad.
             </p>
-
-            <div className="ontsep2-question">
-              <span>PREGUNTA RECTORA</span>
+            <div className="oa-question">
+              <small>QUAESTIO</small>
               <strong>
                 ¿Cómo puede existir conocimiento universal y necesario si todo
                 conocimiento comienza con experiencias particulares?
               </strong>
             </div>
+            <div className="oaf-axis" aria-label="Secuencia conceptual">
+              <span>Locke · experiencia</span><b>→</b>
+              <span>Berkeley · percepción</span><b>→</b>
+              <span>Hume · probabilidad</span><b>→</b>
+              <span>Kant · sintético a priori</span>
+            </div>
           </div>
 
-          <aside className="ontsep2-axis">
-            <span>SECUENCIA</span>
-            {[
-              ['LOCKE', 'experiencia'],
-              ['BERKELEY', 'percepción'],
-              ['HUME', 'probabilidad'],
-              ['KANT', 'sintético a priori'],
-            ].map(([a, b], i) => (
-              <div key={a} className={i === 3 ? 'active' : ''}>
-                <b>{a}</b><small>{b}</small>
-              </div>
-            ))}
-          </aside>
-        </div>
-      </header>
+          <figure className="oa-cover-object">
+            <div className="oa-cover-frame">
+              <span className="oa-tape oa-tape-a" aria-hidden="true" />
+              <span className="oa-tape oa-tape-b" aria-hidden="true" />
+              <img
+                src={`${import.meta.env.BASE_URL}images/ontologia/open/2026-09-02/locke-retrato.jpg`}
+                alt="Retrato de John Locke conservado en la Biblioteca Nacional de Gales"
+              />
+            </div>
+            <figcaption>
+              <span>IMAGO XVII · IOANNES LOCKE</span>
+              <strong>Retrato de John Locke</strong>
+              <small>Pierre-Alexandre Aveline · Biblioteca Nacional de Gales.</small>
+              <small className="oa-image-rights">Dominio público</small>
+              <a className="oa-image-source"
+                 href="https://commons.wikimedia.org/wiki/File:Portrait_of_John_Locke_(4673782).jpg"
+                 target="_blank" rel="noreferrer">fuente de imagen ↗</a>
+            </figcaption>
+          </figure>
+        </header>
+
+        <section className="oaf-prologue">
+          <div className="oaf-prologue-copy">
+            <small>INTRODUCTIO</small>
+            <h2>De la experiencia a las condiciones del conocimiento</h2>
+            <div className="oaf-questions">
+              <p>¿Qué proviene del objeto y qué depende del sujeto?</p>
+              <p>¿Qué garantiza el mundo exterior?</p>
+              <p>¿De dónde surge la necesidad de la ciencia?</p>
+            </div>
+            <p>
+              La sesión recorre una radicalización progresiva del empirismo y
+              termina en Kant: experiencia, percepción, causalidad, inducción,
+              universalidad, necesidad y juicios sintéticos a priori.
+            </p>
+          </div>
+
+          <div className="oaf-armarium">
+            <small>ARMARIUM VERBORUM</small>
+            <h2>Vocabulario de entrada</h2>
+            <div>
+              <article><span>Latín</span><strong>experientia</strong><p>Experiencia como origen del contenido cognoscitivo.</p></article>
+              <article><span>Latín</span><strong>perceptio</strong><p>Percepción como modo inmediato en que algo aparece al sujeto.</p></article>
+              <article><span>Latín</span><strong>causalitas</strong><p>Problema de si la conexión necesaria pertenece a las cosas o a nuestra expectativa.</p></article>
+              <article><span>Latín</span><strong>a priori</strong><p>Independencia respecto de una experiencia particular; universalidad y necesidad.</p></article>
+            </div>
+          </div>
+        </section>
+
+        <section className="oa-wine oaf-atlas oaf-sep2-atlas">
+          <div className="oa-wine-title"><span>SCHEMA · ATLAS</span><h2>atlas</h2></div>
+          <p>
+            Este Atlas funciona como mapa previo. Los laboratorios interactivos,
+            ejemplos y problemas de Locke, Berkeley, Hume y Kant permanecen
+            completos debajo.
+          </p>
+          <div className="oa-schema-card"><AnimatedConceptSchema schema={atlasSchema} /></div>
+        </section>
 
       <div className="ontsep2-layout">
         <aside className="ontsep2-index">
@@ -215,7 +294,7 @@ export default function OntologiaClass02Sep() {
                 <p>Modelo: matemáticas.</p>
                 <strong>universal · necesario · demostrable</strong>
               </article>
-              <b>VS.</b>
+              <b>versus</b>
               <article className="core">
                 <span>EMPIRISMO</span>
                 <h3>experiencia como origen</h3>
@@ -352,7 +431,7 @@ export default function OntologiaClass02Sep() {
           </section>
 
           <section id="mediacion">
-            <Heading n="05" eyebrow="Media · algorithmus · AI">
+            <Heading n="05" eyebrow="Redes · algorithmus · IA">
               El problema clásico reaparece cuando nuestras representaciones están mediadas
             </Heading>
 
@@ -564,11 +643,22 @@ export default function OntologiaClass02Sep() {
         </article>
       </div>
 
-      <footer className="ontsep2-footer">
+      <section className="oaf-documentum">
+        <div><small>DOCUMENTUM</small><h2>Criterio documental</h2></div>
+        <p>
+          Esta edición conserva las once secciones y todas las interacciones de la
+          página anterior: mapa histórico, racionalismo/empirismo, Locke, Berkeley,
+          mundo exterior, mediación, Hume, ciencia, Kant, conexión ontológica y tarea.
+          ARCHIVUM añade contexto visual y un Atlas; no sustituye el contenido de clase.
+        </p>
+      </section>
+
+      <footer className="ontsep2-footer oa-footer">
         <Link to="/semestre/5/ontologia-ii">← Ontología II</Link>
         <span>Experientia · Causalitas · A priori</span>
         <span>II · IX · MMXXVI</span>
       </footer>
+      </div>
     </main>
   )
 }

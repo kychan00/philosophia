@@ -1,0 +1,16 @@
+.oaf-sep2-page{background:#2b211b}
+.oaf-sep2-brochure{overflow:hidden}
+.oaf-sep2-brochure>.ontsep2-layout{max-width:none;margin:0;background:var(--oa-paper)}
+.oaf-sep2-brochure .ontsep2-index{top:20px;background:#eee5d7}
+.oaf-sep2-brochure .ontsep2-article>section{background:var(--oa-paper)}
+.oaf-sep2-brochure .ontsep2-article>section:nth-child(even){background:#f2ebdf}
+.oaf-sep2-brochure .ontsep2-heading h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2.7rem,5vw,4.4rem);line-height:.96}
+.oaf-sep2-brochure .ontsep2-heading>span{font-family:'Cormorant Garamond',Georgia,serif;color:rgba(122,45,30,.14)}
+.oaf-sep2-brochure .ontsep2-heading p,.oaf-sep2-brochure .ontsep2-index>p,.oaf-sep2-brochure .ontsep2-callout>span,.oaf-sep2-brochure .ontsep2-kant-question>span,.oaf-sep2-brochure .ontsep2-next>span{color:var(--oa-wine)}
+.oaf-sep2-brochure .ontsep2-toggle button.active,.oaf-sep2-brochure .ontsep2-thinker-tabs button.active,.oaf-sep2-brochure .ontsep2-hume-tabs button.active,.oaf-sep2-brochure .ontsep2-kant-grid button.active{background:var(--oa-wine);border-color:var(--oa-wine);color:#fff}
+.oaf-sep2-brochure .ontsep2-callout,.oaf-sep2-brochure .ontsep2-kant-question,.oaf-sep2-brochure .ontsep2-next{border-left-color:var(--oa-wine);background:rgba(122,45,30,.055)}
+.oaf-sep2-brochure .ontsep2-flow b,.oaf-sep2-brochure .ontsep2-locke-chain b,.oaf-sep2-brochure .ontsep2-esse b,.oaf-sep2-brochure .ontsep2-solipsism b,.oaf-sep2-brochure .ontsep2-causality b,.oaf-sep2-brochure .ontsep2-synthetic b,.oaf-sep2-brochure .ontsep2-final b{color:var(--oa-wine)}
+.oaf-sep2-atlas .animated-concept-schema{min-height:980px!important}
+.oaf-sep2-brochure>.ontsep2-footer{max-width:none;margin:0;padding:2rem 54px;background:#6a271b;color:#f3eadd;border-top:0}
+.oaf-sep2-brochure>.ontsep2-footer a{color:inherit}
+@media(max-width:800px){.oaf-sep2-brochure>.ontsep2-footer{padding-left:24px;padding-right:24px}}

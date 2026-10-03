@@ -264,6 +264,18 @@
       "institution": "Herzog Anton Ulrich Museum, Brunswick",
       "license": "dominio público / Public Domain Mark 1.0",
       "use": "Ontología II 2026-08-26 · contingencia, mónadas, armonía y libertad"
+    },
+    {
+      "id": "ontology-2026-09-02-locke-portrait",
+      "target": "public/images/ontologia/open/2026-09-02/locke-retrato.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Portrait_of_John_Locke_(4673782).jpg",
+      "download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portrait_of_John_Locke_%284673782%29.jpg?width=1280",
+      "title": "Retrato de John Locke",
+      "creator": "Pierre-Alexandre Aveline",
+      "date": "siglo XVIII",
+      "institution": "National Library of Wales",
+      "license": "Public Domain Mark 1.0 / dominio público",
+      "use": "Ontología II 2026-09-02 · empirismo, experiencia y cualidades"
     }
   ]
 }
