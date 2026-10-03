@@ -21,6 +21,12 @@ const CafeCapitalismoEvent = lazy(() => import('./pages/CafeCapitalismoEvent'))
 const CafeMeritocraciaEvent = lazy(() => import('./pages/CafeMeritocraciaEvent'))
 const CafeMercadotecniaEvent = lazy(() => import('./pages/CafeMercadotecniaEvent'))
 const FourthSemester = lazy(() => import('./pages/FourthSemester'))
+const OntologiaI = lazy(() => import('./pages/OntologiaI'))
+const OntologyClass21Jan = lazy(() => import('./pages/OntologyClass21Jan'))
+const OntologyClass23Mar = lazy(() => import('./pages/OntologyClass23Mar'))
+const OntologyClass25Mar = lazy(() => import('./pages/OntologyClass25Mar'))
+const OntologyClass13Apr = lazy(() => import('./pages/OntologyClass13Apr'))
+const OntologyClass15Apr = lazy(() => import('./pages/OntologyClass15Apr'))
 const PhilosophyLogic = lazy(() => import('./pages/PhilosophyLogic'))
 const PhilosophyLogicClass01 = lazy(() => import('./pages/PhilosophyLogicClass01'))
 const PhilosophyLogicClass02 = lazy(() => import('./pages/PhilosophyLogicClass02'))
@@ -47,7 +53,6 @@ const PhilosophyLogicClass22 = lazy(() => import('./pages/PhilosophyLogicClass22
 const PhilosophyLogicClass23 = lazy(() => import('./pages/PhilosophyLogicClass23'))
 const FifthSemester = lazy(() => import('./pages/FifthSemester'))
 const OntologiaII = lazy(() => import('./pages/OntologiaII'))
-const OntologyBeingPrototype = lazy(() => import('./pages/OntologyBeingPrototype'))
 const OntologiaClass17Aug = lazy(() => import('./pages/OntologiaClass17Aug'))
 const OntologiaClass19Aug = lazy(() => import('./pages/OntologiaClass19Aug'))
 const OntologiaClass24Aug = lazy(() => import('./pages/OntologiaClass24Aug'))
@@ -147,6 +152,12 @@ function App() {
           element={<CafeMercadotecniaEvent />}
         />
         <Route path="/semestre/4" element={<FourthSemester />} />
+        <Route path="/semestre/4/ontologia" element={<OntologiaI />} />
+        <Route path="/semestre/4/ontologia/clase/21-enero" element={<OntologyClass21Jan />} />
+        <Route path="/semestre/4/ontologia/clase/23-marzo" element={<OntologyClass23Mar />} />
+        <Route path="/semestre/4/ontologia/clase/25-marzo" element={<OntologyClass25Mar />} />
+        <Route path="/semestre/4/ontologia/clase/13-abril" element={<OntologyClass13Apr />} />
+        <Route path="/semestre/4/ontologia/clase/15-abril" element={<OntologyClass15Apr />} />
         <Route
           path="/semestre/4/filosofia-de-la-logica"
           element={<PhilosophyLogic />}
@@ -247,10 +258,6 @@ function App() {
         <Route
           path="/semestre/5/ontologia-ii"
           element={<OntologiaII />}
-        />
-        <Route
-          path="/semestre/5/ontologia-ii/laboratorio/el-ser"
-          element={<OntologyBeingPrototype />}
         />
         <Route
           path="/semestre/5/ontologia-ii/clase/17-agosto"

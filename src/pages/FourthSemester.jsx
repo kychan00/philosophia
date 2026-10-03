@@ -167,6 +167,34 @@ export default function FourthSemester() {
 
             <div className="subject-corner subject-corner--bottom">❦</div>
           </Link>
+
+          <Link
+            to="/semestre/4/ontologia"
+            className="subject-card subject-card--active"
+            aria-label="Entrar a Ontología"
+          >
+            <div className="subject-corner subject-corner--top">❦</div>
+            <div className="subject-card-top">
+              <span className="subject-number">02</span>
+              <span className="subject-state">Fase I disponible</span>
+            </div>
+            <div className="subject-sigil" aria-hidden="true">ὄν</div>
+            <div className="subject-card-bottom">
+              <span className="subject-latin">ONTOLOGIA · IV</span>
+              <h3>Ontología</h3>
+              <span className="subject-subtitle">
+                Archivo museográfico · problemas clásicos
+              </span>
+              <div className="subject-schedule">
+                <div><span>Fase I</span><strong>5 folios</strong></div>
+                <div><span>Periodo</span><strong>2026-A</strong></div>
+                <div><span>Estado</span><strong>En migración</strong></div>
+              </div>
+              <p className="subject-professor">FI189 · Jesús López Salas</p>
+              <span className="subject-action">Entrar <span>↗</span></span>
+            </div>
+            <div className="subject-corner subject-corner--bottom">❦</div>
+          </Link>
         </div>
       </section>
 
