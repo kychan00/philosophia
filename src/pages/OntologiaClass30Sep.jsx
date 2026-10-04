@@ -60,7 +60,7 @@ const goTo = (id) =>
 
 function Section({ n, id, eyebrow, title, children, wine = false }) {
   return (
-    <section id={id} className={\`oaf-section\${wine ? ' oaf-wine-section' : ''}\`}>
+    <section id={id} className={`oaf-section${wine ? ' oaf-wine-section' : ''}`}>
       <span className="oaf-number" aria-hidden="true">{n}</span>
       <p className="oaf-eyebrow">{eyebrow}</p>
       <h2>{title}</h2>
@@ -70,7 +70,7 @@ function Section({ n, id, eyebrow, title, children, wine = false }) {
 }
 
 export default function OntologiaClass30Sep() {
-  const reinholdImage = \`\${import.meta.env.BASE_URL}images/ontologia/open/2026-09-30/reinhold-1825.jpg\`
+  const reinholdImage = `${import.meta.env.BASE_URL}images/ontologia/open/2026-09-30/reinhold-1825.jpg`
 
   return (
     <main className="oa-page oaf-page oaf-sep30-page">
