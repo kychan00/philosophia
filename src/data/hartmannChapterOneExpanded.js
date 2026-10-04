@@ -238,7 +238,7 @@ export const hartmannChapterMicroNodes = [
     'La misma estructura que garantiza el mundo exterior se proyecta hacia lo suprasensible. De este modo, la crítica del racionalismo desemboca en una filosofía religiosa donde la interioridad ofrece una certeza que el discurso conceptual no puede producir.','J07'),
   micro('J09','Jacobi','Polémica con Fichte y Schelling','53–54',['realism'],
     'Jacobi rechaza que religión y moral sean completamente absorbidas por un sistema racional.',
-    ['Critica racionalismo e idealismo sistemático.','Pole-miza con Fichte y Schelling.','Rechaza formas de panteísmo.','Se instala conscientemente en el punto de vista de la fe.'],
+    ['Critica racionalismo e idealismo sistemático.','Polemiza con Fichte y Schelling.','Rechaza formas de panteísmo.','Se instala conscientemente en el punto de vista de la fe.'],
     'El cierre muestra que la objeción de Jacobi no es local. Su resistencia a la reducción de realidad, libertad y religión a un sistema se vuelve una crítica general contra la autosuficiencia de la razón filosófica.','J08',true),
 
   micro('D01','Bardili','Posición histórica y transición','54–55',['foundation','logic'],
