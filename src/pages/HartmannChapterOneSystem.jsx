@@ -17,6 +17,7 @@ import {
   hartmannChapterCrossRelations,
   hartmannChapterEdges,
   hartmannChapterGuidedRoute,
+  hartmannChapterExposition,
   hartmannChapterNodeById,
   hartmannChapterNodes,
   hartmannChapterRoutes,
@@ -572,6 +573,25 @@ function StudyCanvas() {
                 <p>{selected.data.explanation}</p>
               </section>
 
+              {selected.data.explicitNotes?.length > 0 && (
+                <section className="hartmann2d-explicit-notes">
+                  <small>NOTAE EXPLICITAE · FUENTE</small>
+                  <span className="hartmann2d-source-ref">{selected.data.sourceRef}</span>
+                  <ul>
+                    {selected.data.explicitNotes.map((note, index) => (
+                      <li key={selected.id + '-note-' + index}>{note}</li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+
+              {selected.data.textExplanation && (
+                <section className="hartmann2d-text-explanation">
+                  <small>EXPOSITIO TEXTUALIS</small>
+                  <p>{selected.data.textExplanation}</p>
+                </section>
+              )}
+
               <section>
                 <small>QUAESTIO STUDII</small>
                 <p>{selected.data.question}</p>
@@ -622,6 +642,31 @@ function StudyCanvas() {
             </>
           )}
         </aside>
+      </section>
+
+      <section className="hartmann2d-exposition">
+        <header>
+          <div>
+            <small>EXPOSITIO</small>
+            <h2>Explicación textual del capítulo</h2>
+          </div>
+          <p>
+            El mapa permite navegar por conceptos; esta lectura continua explica
+            cómo cambia el problema de autor en autor sin reducir el capítulo a una red de nodos.
+          </p>
+        </header>
+
+        <div className="hartmann2d-exposition-grid">
+          {hartmannChapterExposition.map((section) => (
+            <article key={section.id} id={'expositio-' + section.id}>
+              <span>{section.author}</span>
+              <h3>{section.title}</h3>
+              {section.paragraphs.map((paragraph, index) => (
+                <p key={section.id + '-p-' + index}>{paragraph}</p>
+              ))}
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="hartmann2d-history">
@@ -684,7 +729,31 @@ function StudyCanvas() {
             </div>
             <h2>{folio.data.title}</h2>
             <blockquote>{folio.data.excerpt}</blockquote>
-            <p>{folio.data.explanation}</p>
+
+            <section className="hartmann2d-folio-section">
+              <small>EXPLICATIO</small>
+              <p>{folio.data.explanation}</p>
+            </section>
+
+            {folio.data.explicitNotes?.length > 0 && (
+              <section className="hartmann2d-folio-section hartmann2d-explicit-notes">
+                <small>NOTAE EXPLICITAE · FUENTE</small>
+                <span className="hartmann2d-source-ref">{folio.data.sourceRef}</span>
+                <ul>
+                  {folio.data.explicitNotes.map((note, index) => (
+                    <li key={folio.id + '-folio-note-' + index}>{note}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {folio.data.textExplanation && (
+              <section className="hartmann2d-folio-section hartmann2d-text-explanation">
+                <small>EXPOSITIO TEXTUALIS</small>
+                <p>{folio.data.textExplanation}</p>
+              </section>
+            )}
+
             <div className="hartmann2d-folio-question">
               <small>PREGUNTA</small>
               <strong>{folio.data.question}</strong>
