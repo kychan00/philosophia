@@ -1,0 +1,27 @@
+name: Validate expanded Hartmann 2D
+
+on:
+  push:
+    branches:
+      - feat/hartmann-chapter1-expanded-nodes
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        env:
+          VITE_ONESIGNAL_APP_ID: ${{ vars.ONESIGNAL_APP_ID }}
+        run: npm run build
