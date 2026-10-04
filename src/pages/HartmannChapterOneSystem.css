@@ -230,6 +230,8 @@
 .hartmann2d-node-diagram{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-top:14px}
 .hartmann2d-node-diagram span{padding:5px 7px;border:1px solid var(--ph2d-line);background:var(--ph2d-paper2);font-size:.58rem;font-weight:700}
 .hartmann2d-node-footer{margin-top:16px;padding-top:11px;border-top:1px solid var(--ph2d-line);display:flex;justify-content:space-between;gap:10px;align-items:center;color:var(--ph2d-muted);font-size:.59rem}
+.hartmann2d-node-footer>div{display:flex;flex-direction:column;gap:3px}
+.hartmann2d-node-footer em{font-style:normal;color:var(--ph2d-gold);font-size:.52rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
 .hartmann2d-node-footer button{border:0;background:transparent;color:var(--ph2d-red);padding:0;cursor:pointer;font-size:.58rem;font-weight:800}
 .hartmann2d-route-badge{
   position:absolute;
@@ -246,6 +248,79 @@
 }
 .hartmann2d-route-badge strong{color:var(--ph2d-red)}
 .hartmann2d-handle{width:7px!important;height:7px!important;border:1px solid var(--ph2d-gold)!important;background:var(--ph2d-paper)!important;opacity:.52}
+.hartmann2d-explicit-notes{background:rgba(156,116,52,.055);padding:16px!important;border:1px solid rgba(156,116,52,.18)!important}
+.hartmann2d-explicit-notes ul{margin-top:12px!important}
+.hartmann2d-source-ref{display:block;margin-top:7px;color:var(--ph2d-gold);font-size:.62rem;font-weight:800;letter-spacing:.05em}
+.hartmann2d-text-explanation p{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.02rem!important;line-height:1.58!important;color:var(--ph2d-ink)!important}
+.hartmann2d-exposition{
+  width:min(1480px,calc(100% - 40px));
+  margin:46px auto 0;
+  padding:38px 0 24px;
+  border-top:1px solid var(--ph2d-line);
+}
+.hartmann2d-exposition>header{
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:34px;
+  align-items:end;
+  margin-bottom:24px;
+}
+.hartmann2d-exposition>header small{
+  color:var(--ph2d-gold);
+  font-size:.62rem;
+  font-weight:800;
+  letter-spacing:.15em;
+}
+.hartmann2d-exposition>header h2{
+  margin:8px 0 0;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:2.7rem;
+  line-height:1;
+  font-weight:500;
+}
+.hartmann2d-exposition>header p{
+  margin:0;
+  color:var(--ph2d-muted);
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:1.12rem;
+  line-height:1.55;
+}
+.hartmann2d-exposition-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1px;
+  background:var(--ph2d-line);
+  border:1px solid var(--ph2d-line);
+}
+.hartmann2d-exposition article{
+  background:var(--ph2d-paper);
+  padding:28px;
+}
+.hartmann2d-exposition article>span{
+  color:var(--ph2d-red);
+  font-size:.62rem;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.hartmann2d-exposition article h3{
+  margin:8px 0 14px;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:1.8rem;
+  line-height:1.05;
+  font-weight:600;
+}
+.hartmann2d-exposition article p{
+  margin:0;
+  color:var(--ph2d-muted);
+  line-height:1.66;
+  font-size:.9rem;
+}
+.hartmann2d-exposition article p+p{margin-top:12px}
+.hartmann2d-folio-section{margin-top:22px;padding-top:18px;border-top:1px solid var(--ph2d-line)}
+.hartmann2d-folio-section small{display:block;color:var(--ph2d-gold);font-size:.58rem;font-weight:800;letter-spacing:.13em}
+.hartmann2d-folio-section p,.hartmann2d-folio-section li{color:var(--ph2d-muted);line-height:1.62}
+.hartmann2d-folio-section ul{padding-left:20px}
 .hartmann2d-history{
   padding:34px 0;
   display:grid;
@@ -349,6 +424,9 @@
   .hartmann2d-route-footer span{grid-column:1/-1;grid-row:1;text-align:left}
   .hartmann2d-route-footer button:first-child{grid-column:1;grid-row:2}
   .hartmann2d-route-footer button:last-child{grid-column:2;grid-row:2}
+  .hartmann2d-exposition{width:calc(100% - 24px)}
+  .hartmann2d-exposition>header{grid-template-columns:1fr}
+  .hartmann2d-exposition-grid{grid-template-columns:1fr}
   .hartmann2d-continuity>div:last-child{grid-template-columns:1fr}
   .hartmann2d-footer{grid-template-columns:1fr;gap:6px;padding:18px}
   .hartmann2d-footer span:last-child{text-align:left}
