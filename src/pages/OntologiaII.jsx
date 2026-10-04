@@ -447,6 +447,31 @@ export default function OntologiaII() {
           </div>
         </Link>
 
+        <Link
+          to="/semestre/5/ontologia-ii/clase/30-septiembre"
+          className="ontology-program-class-card"
+        >
+          <div className="ontology-program-date">
+            <strong>XXX</strong>
+            <span>IX · MMXXVI</span>
+          </div>
+
+          <div className="ontology-program-class-copy">
+            <span>Undécima clase · Postkantismo</span>
+            <h3>La cosa en sí y las aporías del kantismo</h3>
+            <p>
+              Kant frente a Berkeley, fenómeno como materia y forma, afección,
+              cosa en sí y causalidad; Reinhold, Schulze, regularidad y necesidad,
+              tránsito hacia Maimon, Beck y el idealismo alemán.
+            </p>
+          </div>
+
+          <div className="ontology-program-enter">
+            <span>Abrir folio</span>
+            <b>↗</b>
+          </div>
+        </Link>
+
       </section>
 
       <section className="ontology-program-classes ontology-program-thresholds">
