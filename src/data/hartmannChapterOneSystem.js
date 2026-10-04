@@ -1,3 +1,5 @@
+import { hartmannChapterExposition, hartmannChapterMicroNodes } from './hartmannChapterOneExpanded'
+
 export const hartmannChapterRoutes = [
   { id: 'all', label: 'Todo el capítulo' },
   { id: 'reinhold', label: 'Reinhold' },
@@ -172,7 +174,7 @@ function makeNode(id, x, y, data) {
   }
 }
 
-export const hartmannChapterNodes = [
+const hartmannMacroNodes = [
   makeNode('H01', 0, 0, {
     phase: 'Reinhold', title: 'Tesis de la conciencia', page: '22–23',
     branch: ['reinhold', 'foundation'],
@@ -283,7 +285,48 @@ export const hartmannChapterNodes = [
   }),
 ]
 
-export const hartmannChapterEdges = [
+const phaseLaneX = {
+  Reinhold: 0,
+  Schulze: 900,
+  Maimon: 1800,
+  Beck: 2700,
+  Jacobi: 3600,
+  Bardili: 4500,
+}
+
+const phaseMacroIndex = new Map()
+
+const positionedMacroNodes = hartmannMacroNodes.map((node) => {
+  const phase = node.data.phase
+  const index = phaseMacroIndex.get(phase) || 0
+  phaseMacroIndex.set(phase, index + 1)
+
+  return {
+    ...node,
+    position: {
+      x: phaseLaneX[phase] ?? node.position.x,
+      y: index * 340,
+    },
+    data: {
+      ...node.data,
+      explicitNotes: [
+        node.data.excerpt,
+        ...(node.data.consequences || []),
+      ],
+      textExplanation: node.data.explanation,
+      sourceRef: 'Hartmann · cap. I · pp. ' + node.data.page,
+    },
+  }
+})
+
+export const hartmannChapterNodes = [
+  ...positionedMacroNodes,
+  ...hartmannChapterMicroNodes,
+]
+
+export { hartmannChapterExposition }
+
+const hartmannMacroEdges = [
   ['E01','H01','H02','despliega'],
   ['E02','H02','H03','provoca crítica'],
   ['E03','H03','H04','culmina en'],
@@ -296,6 +339,21 @@ export const hartmannChapterEdges = [
   ['E10','H10','H11','contrasta con'],
   ['E11','H11','H12','encuentra su límite en'],
 ].map(([id,source,target,label]) => ({ id, source, target, label }))
+
+const hartmannMicroEdges = hartmannChapterMicroNodes
+  .filter((node) => node.data.dependsOn?.length)
+  .map((node) => ({
+    id: 'ME-' + node.id,
+    source: node.data.dependsOn[0],
+    target: node.id,
+    label: 'explicita',
+    relation: 'secondary',
+  }))
+
+export const hartmannChapterEdges = [
+  ...hartmannMacroEdges,
+  ...hartmannMicroEdges,
+]
 
 export const hartmannChapterCrossRelations = [
   { source: 'H02', target: 'H04', label: 'la afección se vuelve aporía' },

@@ -45,7 +45,12 @@ export default function HartmannChapterNode({ data, selected }) {
       )}
 
       <footer className="hartmann2d-node-footer">
-        <span>Hartmann · p. {data.page}</span>
+        <div>
+          <span>Hartmann · p. {data.page}</span>
+          {data.explicitNotes?.length > 0 && (
+            <em>{data.explicitNotes.length} notas explícitas</em>
+          )}
+        </div>
         <button
           type="button"
           className="nodrag nopan"
