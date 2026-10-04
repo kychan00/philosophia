@@ -262,16 +262,22 @@ export default function HartmannThingInItselfTask() {
         <section className="hartmann-related">
           <div>
             <small>SYSTEMATA RELATA</small>
-            <h2>Volver a Kant antes de continuar</h2>
+            <h2>Seguir el capítulo como sistema 2D</h2>
             <p>
-              La tarea parte del problema abierto por la Dialéctica y la cosa en sí.
-              El sistema kantiano existente permanece intacto y sirve como mapa previo.
+              El dossier textual ampliado conserva ahora el capítulo I completo,
+              pp. 19–65. El nuevo sistema organiza a Reinhold, Schulze, Maimon,
+              Beck, Jacobi y Bardili sin sustituir la lectura del texto.
             </p>
           </div>
           <div className="hartmann-related-actions">
+            <Link to="/tareas/ontologia-ii/hartmann-cosa-en-si/sistema">
+              <strong>Kantianos y antikantianos · sistema 2D</strong>
+              <span>capítulo I · Hartmann · pp. 19–65</span>
+              <b>↗</b>
+            </Link>
             <Link to="/tareas/ontologia-ii/kant-dialectica-trascendental">
               <strong>Dialéctica trascendental · sistema 2D</strong>
-              <span>material relacionado · sin modificaciones</span>
+              <span>material kantiano relacionado</span>
               <b>↗</b>
             </Link>
             <Link to="/semestre/5/ontologia-ii/clase/23-septiembre">
