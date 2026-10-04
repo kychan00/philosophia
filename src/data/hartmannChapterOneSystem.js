@@ -1,4 +1,6 @@
-import { hartmannChapterExposition, hartmannChapterMicroNodes } from './hartmannChapterOneExpanded'\n\nexport const hartmannChapterRoutes = [
+import { hartmannChapterExposition, hartmannChapterMicroNodes } from './hartmannChapterOneExpanded'
+
+export const hartmannChapterRoutes = [
   { id: 'all', label: 'Todo el capítulo' },
   { id: 'reinhold', label: 'Reinhold' },
   { id: 'schulze', label: 'Schulze' },
