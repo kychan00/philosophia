@@ -1,4 +1,5 @@
 import { hartmannChapterExposition, hartmannChapterMicroNodes } from './hartmannChapterOneExpanded'
+import { hartmannExplicitTextByNode } from './hartmannChapterOneExplicitText'
 
 export const hartmannChapterRoutes = [
   { id: 'all', label: 'Todo el capítulo' },
@@ -322,7 +323,20 @@ const positionedMacroNodes = hartmannMacroNodes.map((node) => {
 export const hartmannChapterNodes = [
   ...positionedMacroNodes,
   ...hartmannChapterMicroNodes,
-]
+].map((node) => {
+  const explicit = hartmannExplicitTextByNode[node.id] || null
+
+  return {
+    ...node,
+    data: {
+      ...node.data,
+      explicitText: explicit?.text || '',
+      explicitTextSource: explicit?.sourceLabel || '',
+      explicitTextSourcePath: explicit?.sourcePath || '',
+      explicitTextSections: explicit?.sections || [],
+    },
+  }
+})
 
 export { hartmannChapterExposition }
 

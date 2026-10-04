@@ -573,9 +573,24 @@ function StudyCanvas() {
                 <p>{selected.data.explanation}</p>
               </section>
 
+              {selected.data.explicitText && (
+                <section className="hartmann2d-explicit-text">
+                  <div className="hartmann2d-explicit-text-head">
+                    <small>TEXTO EXPLÍCITO · OBSIDIAN</small>
+                    <span>
+                      {selected.data.explicitTextSource}
+                      {selected.data.explicitTextSections?.length
+                        ? ' · §§ ' + selected.data.explicitTextSections.join(', ')
+                        : ''}
+                    </span>
+                  </div>
+                  <pre>{selected.data.explicitText}</pre>
+                </section>
+              )}
+
               {selected.data.explicitNotes?.length > 0 && (
                 <section className="hartmann2d-explicit-notes">
-                  <small>NOTAE EXPLICITAE · FUENTE</small>
+                  <small>NOTAE STUDII · SÍNTESIS</small>
                   <span className="hartmann2d-source-ref">{selected.data.sourceRef}</span>
                   <ul>
                     {selected.data.explicitNotes.map((note, index) => (
@@ -735,9 +750,24 @@ function StudyCanvas() {
               <p>{folio.data.explanation}</p>
             </section>
 
+            {folio.data.explicitText && (
+              <section className="hartmann2d-folio-section hartmann2d-explicit-text">
+                <div className="hartmann2d-explicit-text-head">
+                  <small>TEXTO EXPLÍCITO · OBSIDIAN</small>
+                  <span>
+                    {folio.data.explicitTextSource}
+                    {folio.data.explicitTextSections?.length
+                      ? ' · §§ ' + folio.data.explicitTextSections.join(', ')
+                      : ''}
+                  </span>
+                </div>
+                <pre>{folio.data.explicitText}</pre>
+              </section>
+            )}
+
             {folio.data.explicitNotes?.length > 0 && (
               <section className="hartmann2d-folio-section hartmann2d-explicit-notes">
-                <small>NOTAE EXPLICITAE · FUENTE</small>
+                <small>NOTAE STUDII · SÍNTESIS</small>
                 <span className="hartmann2d-source-ref">{folio.data.sourceRef}</span>
                 <ul>
                   {folio.data.explicitNotes.map((note, index) => (
