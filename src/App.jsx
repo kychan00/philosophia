@@ -79,6 +79,7 @@ const KantAestheticMap = lazy(() => import('./pages/KantAestheticMap'))
 const KantAnalyticSystem = lazy(() => import('./pages/KantAnalyticSystem'))
 const KantDialecticSystem = lazy(() => import('./pages/KantDialecticSystem'))
 const HartmannThingInItselfTask = lazy(() => import('./pages/HartmannThingInItselfTask'))
+const HartmannChapterOneSystem = lazy(() => import('./pages/HartmannChapterOneSystem'))
 const HegelPhenomenologyPrefaceStudy = lazy(() => import('./pages/HegelPhenomenologyPrefaceStudy'))
 const HegelLogicBeingNothingBecomingStudy = lazy(() => import('./pages/HegelLogicBeingNothingBecomingStudy'))
 const MarxCritiqueHegelStudy = lazy(() => import('./pages/MarxCritiqueHegelStudy'))
@@ -332,6 +333,10 @@ function App() {
         <Route
           path="/tareas/ontologia-ii/hartmann-cosa-en-si"
           element={<HartmannThingInItselfTask />}
+        />
+        <Route
+          path="/tareas/ontologia-ii/hartmann-cosa-en-si/sistema"
+          element={<HartmannChapterOneSystem />}
         />
         <Route
           path="/estudios/ontologia-ii/hegel-fenomenologia-prologo"
