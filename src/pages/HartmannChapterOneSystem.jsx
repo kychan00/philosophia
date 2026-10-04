@@ -675,10 +675,10 @@ function StudyCanvas() {
           <h2>Historial de navegación</h2>
         </div>
         <div>
-          {history.length ? history.map((id) => {
+          {history.length ? history.map((id, index) => {
             const item = hartmannChapterNodeById(id)
             return (
-              <button type="button" key={id + history.indexOf(id)} onClick={() => jumpTo(id)}>
+              <button type="button" key={id + '-' + index} onClick={() => jumpTo(id)}>
                 <span>{id}</span>{item?.data?.title}
               </button>
             )
