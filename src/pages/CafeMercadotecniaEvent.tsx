@@ -6,6 +6,7 @@ import {
   marketingOpenProblems,
 } from '../data/cafeMercadotecniaMemory'
 import './CafeMercadotecniaEvent.css'
+import './CafeMercadotecniaMemory.css'
 
 const ASSET = '/philosophia/images/cafe-filosofico/mercadotecnia'
 
