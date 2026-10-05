@@ -30,17 +30,6 @@ export default function CafeMercadotecniaDefinitions() {
         <span>Café Filosófico · 05 OCT 2026</span>
       </nav>
 
-      <header className="mktdefs-hero">
-        <p>CAFÉ FILOSÓFICO · MATERIAL DE APOYO</p>
-        <h1>Definiciones</h1>
-        <h2>Mercadotecnia</h2>
-        <p className="mktdefs-intro">
-          Base conceptual para acompañar la discusión del café:
-          origen del término, definiciones de referencia y diferencia
-          entre marketing tradicional y neuromarketing.
-        </p>
-      </header>
-
       <section className="mktdefs-attendance" aria-label="Formulario de asistencia">
         <div>
           <span>ASISTENCIA · CAFÉ FILOSÓFICO</span>
@@ -58,6 +47,17 @@ export default function CafeMercadotecniaDefinitions() {
           Abrir formulario de asistencia ↗
         </a>
       </section>
+
+      <header className="mktdefs-hero">
+        <p>CAFÉ FILOSÓFICO · MATERIAL DE APOYO</p>
+        <h1>Definiciones</h1>
+        <h2>Mercadotecnia</h2>
+        <p className="mktdefs-intro">
+          Base conceptual para acompañar la discusión del café:
+          origen del término, definiciones de referencia y diferencia
+          entre marketing tradicional y neuromarketing.
+        </p>
+      </header>
 
       <section className="mktdefs-section">
         <div className="mktdefs-number">01</div>
