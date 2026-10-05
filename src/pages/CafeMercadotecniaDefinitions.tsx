@@ -41,6 +41,24 @@ export default function CafeMercadotecniaDefinitions() {
         </p>
       </header>
 
+      <section className="mktdefs-attendance" aria-label="Formulario de asistencia">
+        <div>
+          <span>ASISTENCIA · CAFÉ FILOSÓFICO</span>
+          <h2>Registra tu asistencia</h2>
+          <p>
+            Antes de continuar con las definiciones, abre el formulario y registra tu participación en la sesión.
+          </p>
+        </div>
+
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdSnVBLYQmhkxf8_RJY9EpPYuplN6ikNSsGCSBPdA_OozGjPQ/viewform?usp=publish-editor"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Abrir formulario de asistencia ↗
+        </a>
+      </section>
+
       <section className="mktdefs-section">
         <div className="mktdefs-number">01</div>
         <div className="mktdefs-content">
