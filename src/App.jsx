@@ -23,6 +23,7 @@ const CafeCapitalismoEvent = lazy(() => import('./pages/CafeCapitalismoEvent'))
 const CafeMeritocraciaEvent = lazy(() => import('./pages/CafeMeritocraciaEvent'))
 const CafeMercadotecniaEvent = lazy(() => import('./pages/CafeMercadotecniaEvent'))
 const CafeMercadotecniaDefinitions = lazy(() => import('./pages/CafeMercadotecniaDefinitions'))
+const CafeMercadotecniaSystem2D = lazy(() => import('./pages/CafeMercadotecniaSystem2D'))
 const FourthSemester = lazy(() => import('./pages/FourthSemester'))
 const OntologiaI = lazy(() => import('./pages/OntologiaI'))
 const OntologyClass21Jan = lazy(() => import('./pages/OntologyClass21Jan'))
@@ -171,6 +172,10 @@ function App() {
         <Route
           path="/cafe-filosofico/2026/10/05/mercadotecnia/definiciones"
           element={<CafeMercadotecniaDefinitions />}
+        />
+        <Route
+          path="/cafe-filosofico/2026/10/05/mercadotecnia/sistema-2d"
+          element={<CafeMercadotecniaSystem2D />}
         />
         <Route path="/semestre/4" element={<FourthSemester />} />
         <Route path="/semestre/4/ontologia" element={<OntologiaI />} />

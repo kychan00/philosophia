@@ -113,6 +113,17 @@ export default function CafeMercadotecniaEvent() {
         <article className="is-dark"><span>04</span><strong>ELECCIÓN</strong></article>
       </section>
 
+      <section className="marketing-definitions-link marketing-map-link">
+        <div>
+          <span>MEMORIA ARGUMENTAL</span>
+          <h2>Sistema 2D</h2>
+          <p>Recorra posiciones, objeciones, ejemplos, autores y problemas abiertos de la conversación.</p>
+        </div>
+        <Link to="/cafe-filosofico/2026/10/05/mercadotecnia/sistema-2d">
+          Abrir mapa dialógico →
+        </Link>
+      </section>
+
       <section className="marketing-definitions-link">
         <div>
           <span>MATERIAL PARA LA SESIÓN</span>
