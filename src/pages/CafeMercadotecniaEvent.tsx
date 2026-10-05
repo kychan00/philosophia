@@ -119,7 +119,7 @@ export default function CafeMercadotecniaEvent() {
         <div className="marketing-definition-grid">
           <article className="marketing-definition-card is-etymology">
             <div className="marketing-card-tag">
-              <span>ETYMOLOGIA</span>
+              <span>ETIMOLOGÍA</span>
               <b>origen de la palabra</b>
             </div>
 
