@@ -65,6 +65,61 @@ body:has(.mktdefs-page) .academic-bell{display:none!important}
   font-size:clamp(19px,2.2vw,27px)!important;
   line-height:1.45!important;
 }
+.mktdefs-attendance{
+  width:min(1120px,calc(100% - 40px));
+  margin:26px auto 0;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:28px;
+  align-items:center;
+  padding:26px 28px;
+  border:2px solid var(--ink);
+  background:var(--red);
+  color:#fff7ea;
+  box-shadow:7px 7px 0 var(--ink);
+}
+.mktdefs-attendance span{
+  display:block;
+  color:#f3cf9f;
+  font:700 10px Arial,sans-serif;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.mktdefs-attendance h2{
+  margin:7px 0 0;
+  font-size:clamp(32px,4.6vw,58px);
+  line-height:.95;
+  letter-spacing:-.035em;
+}
+.mktdefs-attendance p{
+  max-width:720px;
+  margin:12px 0 0;
+  color:#f4dfc3;
+  font-size:17px;
+  line-height:1.45;
+}
+.mktdefs-attendance a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:58px;
+  padding:0 22px;
+  border:2px solid #fff7ea;
+  background:#fff7ea;
+  color:var(--ink);
+  text-decoration:none;
+  text-align:center;
+  font:700 10px Arial,sans-serif;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  box-shadow:4px 4px 0 var(--ink);
+  transition:transform .16s ease,box-shadow .16s ease;
+}
+.mktdefs-attendance a:hover{
+  transform:translate(-2px,-2px);
+  box-shadow:6px 6px 0 var(--ink);
+}
+
 .mktdefs-section{
   width:min(1120px,calc(100% - 40px));
   margin:0 auto;
@@ -314,6 +369,27 @@ body:has(.mktdefs-page) .academic-bell{display:none!important}
     font-size:18px!important;
     line-height:1.5!important;
   }
+  .mktdefs-attendance{
+    width:calc(100% - 28px);
+    grid-template-columns:1fr;
+    gap:20px;
+    margin-top:20px;
+    padding:22px 18px;
+    box-shadow:5px 5px 0 var(--ink);
+  }
+  .mktdefs-attendance h2{
+    font-size:clamp(30px,9vw,40px);
+  }
+  .mktdefs-attendance p{
+    font-size:16px;
+  }
+  .mktdefs-attendance a{
+    width:100%;
+    min-height:60px;
+    padding:0 16px;
+    font-size:10px;
+  }
+
   .mktdefs-section,
   .mktdefs-section.is-dark,
   .mktdefs-section.is-accent{
