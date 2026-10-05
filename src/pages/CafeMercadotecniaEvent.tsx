@@ -1,6 +1,12 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
+import {
+  marketingMemoryNodes,
+  marketingMemoryTrackLabels,
+  marketingOpenProblems,
+} from '../data/cafeMercadotecniaMemory'
 import './CafeMercadotecniaEvent.css'
+import './CafeMercadotecniaMemory.css'
 
 const ASSET = '/philosophia/images/cafe-filosofico/mercadotecnia'
 
@@ -94,7 +100,7 @@ export default function CafeMercadotecniaEvent() {
             alt="Cartel del Café Filosófico interdisciplinario sobre mercadotecnia"
           />
           <figcaption>
-            <span>PRÓXIMO ENCUENTRO</span>
+            <span>MEMORIA DEL ENCUENTRO</span>
             <p>Lunes 5 de octubre · 1:00 · Edificio C · Aula 5</p>
           </figcaption>
         </figure>
@@ -359,32 +365,71 @@ export default function CafeMercadotecniaEvent() {
         </div>
       </section>
 
-      <section className="marketing-section">
+      <section className="marketing-section marketing-memory">
         <div className="marketing-section-head">
           <span>05</span>
           <div>
-            <p>PLANTILLA DEL ENCUENTRO</p>
-            <h2>Lo que quedará documentado después del Café</h2>
+            <p>MEMORIA DEL ENCUENTRO</p>
+            <h2>Lo que realmente apareció en la conversación</h2>
           </div>
         </div>
 
-        <div className="marketing-future">
-          <article><span>01</span><strong>Mapa dialógico</strong><p>Tesis, objeciones, ejemplos y preguntas de la conversación.</p></article>
-          <article><span>02</span><strong>Registro visual</strong><p>Fotografías y fragmentos audiovisuales del encuentro.</p></article>
-          <article><span>03</span><strong>Problemas abiertos</strong><p>Las preguntas que permanezcan sin cerrar al terminar la sesión.</p></article>
+        <div className="marketing-memory-intro">
+          <strong>05 OCT 2026 · EDICIÓN 03</strong>
+          <p>
+            Esta memoria distingue lo preparado antes del Café de las posiciones,
+            objeciones y problemas que surgieron durante la conversación. Ninguna
+            intervención se presenta como doctrina oficial del encuentro.
+          </p>
         </div>
+
+        <div className="marketing-memory-grid">
+          {marketingMemoryNodes.map((node) => (
+            <article key={node.id} className={'marketing-memory-card kind-' + node.kind}>
+              <header>
+                <span>{node.code}</span>
+                <div>
+                  <small>{marketingMemoryTrackLabels[node.track]}</small>
+                  <b>{node.kind}</b>
+                </div>
+              </header>
+              <h3>{node.title}</h3>
+              <p>{node.summary}</p>
+              <blockquote>{node.excerpt}</blockquote>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="marketing-section marketing-open">
+        <div className="marketing-section-head">
+          <span>06</span>
+          <div>
+            <p>PROBLEMAS ABIERTOS</p>
+            <h2>La conversación no termina aquí</h2>
+          </div>
+        </div>
+
+        <ol className="marketing-open-list">
+          {marketingOpenProblems.map((problem, index) => (
+            <li key={problem}>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <p>{problem}</p>
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section className="marketing-section marketing-invite">
         <div>
-          <span>LUNES · 05 OCT · 1:00</span>
+          <span>MEMORIA · 05 OCT 2026</span>
           <h2>Mercadotecnia</h2>
           <p>¿Sugerencia, persuasión o manipulación?</p>
         </div>
 
         <aside>
           <strong>Edificio C · Aula 5</strong>
-          <span>Café gratis</span>
+          <span>Edición realizada</span>
         </aside>
       </section>
 
