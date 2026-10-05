@@ -78,7 +78,7 @@ const atlasSchema = {
 export default function HegelLogicBeingNothingBecomingStudy() {
   const [activeId, setActiveId] = useState('werden')
   const active = moments.find((item) => item.id === activeId) || moments[2]
-  const cover = `${import.meta.env.BASE_URL}images/ontologia/open/hegel/wissenschaft-logik-1813.jpg`
+  const cover = 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Wissenschaft_der_Logik.jpg'
 
   return (
     <main className="oa-page oaf-page hegel-logic-page">
