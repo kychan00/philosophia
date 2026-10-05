@@ -298,11 +298,16 @@
     padding:46px 0 34px;
   }
   .mktdefs-hero h1{
-    font-size:clamp(54px,18vw,82px);
-    line-height:.82;
+    max-width:100%;
+    font-size:clamp(44px,13vw,58px);
+    line-height:.88;
+    letter-spacing:-.045em;
+    overflow-wrap:normal;
   }
   .mktdefs-hero h2{
-    font-size:clamp(34px,11vw,50px);
+    max-width:100%;
+    font-size:clamp(32px,9.5vw,44px);
+    line-height:.95;
   }
   .mktdefs-intro{
     font-size:18px!important;
