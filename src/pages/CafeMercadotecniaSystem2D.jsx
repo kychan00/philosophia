@@ -138,8 +138,7 @@ function SystemCanvas() {
 
   useEffect(() => {
     window.setTimeout(() => {
-      const visible = marketingDialogueNodes.filter((node) => route === 'all' || node.data.branch.includes(route))
-      fitView({ nodes: visible.map((node) => ({ id: node.id })), padding: .16, duration: 650, maxZoom: .9 })
+      fitView({ padding: .16, duration: 650, maxZoom: .9 })
     }, 0)
   }, [route, fitView])
 
@@ -154,25 +153,55 @@ function SystemCanvas() {
   const toggleFullscreen = useCallback(async () => {
     const el = workspaceRef.current
     if (!el) return
+
+    const activeElement =
+      document.fullscreenElement ||
+      document.webkitFullscreenElement ||
+      null
+
     try {
-      if (document.fullscreenElement) {
-        await document.exitFullscreen()
-      } else if (el.requestFullscreen) {
-        await el.requestFullscreen()
-      } else {
-        setWorkspaceFullscreen((value) => !value)
+      if (activeElement) {
+        const exit = document.exitFullscreen || document.webkitExitFullscreen
+        if (exit) await Promise.resolve(exit.call(document))
+        return
       }
+
+      const request = el.requestFullscreen || el.webkitRequestFullscreen
+      if (request) {
+        await Promise.resolve(request.call(el))
+        return
+      }
+
+      setWorkspaceFullscreen((value) => !value)
     } catch {
       setWorkspaceFullscreen((value) => !value)
     }
+
     window.setTimeout(() => fitView({ padding: .06, duration: 420 }), 100)
   }, [fitView])
 
   useEffect(() => {
-    const sync = () => setWorkspaceFullscreen(document.fullscreenElement === workspaceRef.current)
+    const sync = () => {
+      const activeElement =
+        document.fullscreenElement ||
+        document.webkitFullscreenElement ||
+        null
+
+      setWorkspaceFullscreen(activeElement === workspaceRef.current)
+
+      window.setTimeout(() => {
+        fitView({ padding: .06, duration: 420 })
+      }, 100)
+    }
+
     document.addEventListener('fullscreenchange', sync)
-    return () => document.removeEventListener('fullscreenchange', sync)
-  }, [])
+    document.addEventListener('webkitfullscreenchange', sync)
+
+    return () => {
+      document.removeEventListener('fullscreenchange', sync)
+      document.removeEventListener('webkitfullscreenchange', sync)
+    }
+  }, [fitView])
 
   useEffect(() => {
     const onKey = (event) => {
@@ -184,6 +213,14 @@ function SystemCanvas() {
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [])
+
+  const selectedConsequences = useMemo(
+    () =>
+      selectedId
+        ? marketingDialogueNodes.filter((node) => node.data.dependsOn.includes(selectedId))
+        : [],
+    [selectedId],
+  )
 
   const routeIndex = selectedId ? routeSequence.indexOf(selectedId) : -1
   const prevId = routeIndex > 0 ? routeSequence[routeIndex - 1] : null
@@ -287,6 +324,16 @@ function SystemCanvas() {
                     const node = marketingDialogueNodeById(id)
                     return <button type="button" key={id} onClick={() => selectById(id)}>{node?.data.code} · {node?.data.title}</button>
                   }) : <em>Punto de partida</em>}
+                </div>
+              </section>
+              <section>
+                <small>ABRE HACIA</small>
+                <div className="cafe2d-relations">
+                  {selectedConsequences.length ? selectedConsequences.map((node) => (
+                    <button type="button" key={node.id} onClick={() => selectById(node.id)}>
+                      {node.data.code} · {node.data.title}
+                    </button>
+                  )) : <em>Cierre de esta línea</em>}
                 </div>
               </section>
               <button type="button" className="cafe2d-open-folio" onClick={() => setFolioId(selected.id)}>Abrir folio completo</button>
