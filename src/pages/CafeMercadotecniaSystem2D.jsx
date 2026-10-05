@@ -52,6 +52,21 @@ function SystemCanvas() {
   )
 
   const routeIds = useMemo(() => new Set(routeSequence), [routeSequence])
+
+  const routeSupport = useMemo(() => {
+    if (route === 'all') return new Set()
+    const support = new Set()
+
+    marketingDialogueNodes.forEach((node) => {
+      if (!routeIds.has(node.id)) return
+      node.data.dependsOn.forEach((id) => {
+        if (!routeIds.has(id)) support.add(id)
+      })
+    })
+
+    return support
+  }, [route, routeIds])
+
   const routeNumberById = useMemo(
     () => new Map(routeSequence.map((id, index) => [id, index + 1])),
     [routeSequence],
@@ -71,17 +86,18 @@ function SystemCanvas() {
     () =>
       marketingDialogueNodes.map((node) => {
         const routeActive = route === 'all' || routeIds.has(node.id)
+        const support = routeSupport.has(node.id)
         const guidedCurrent = guidedMode && node.id === guidedStep?.id
         const guidedNextNode = guidedMode && node.id === guidedNext?.id
         const dimmed = guidedMode
           ? !guidedCurrent && !guidedNextNode
           : selectedId
             ? !relatedIds.has(node.id)
-            : !routeActive
+            : !routeActive && !support
 
         return {
           ...node,
-          hidden: !guidedMode && route !== 'all' && !routeActive,
+          hidden: !guidedMode && route !== 'all' && !routeActive && !support,
           draggable: false,
           data: {
             ...node.data,
@@ -96,13 +112,15 @@ function SystemCanvas() {
           },
         }
       }),
-    [route, routeIds, routeNumberById, routeSequence.length, guidedMode, guidedStep, guidedNext, selectedId, relatedIds],
+    [route, routeIds, routeSupport, routeNumberById, routeSequence.length, guidedMode, guidedStep, guidedNext, selectedId, relatedIds],
   )
 
   const edges = useMemo(
     () =>
       marketingDialogueEdges.map((edge) => {
-        const visible = route === 'all' || (routeIds.has(edge.source) && routeIds.has(edge.target))
+        const sourceVisible = routeIds.has(edge.source) || routeSupport.has(edge.source)
+        const targetVisible = routeIds.has(edge.target) || routeSupport.has(edge.target)
+        const visible = route === 'all' || (sourceVisible && targetVisible)
         const touches = selectedId && (edge.source === selectedId || edge.target === selectedId)
         const guidedActive = guidedMode && (
           (edge.source === guidedStep?.id && edge.target === guidedNext?.id) ||
@@ -121,7 +139,7 @@ function SystemCanvas() {
           markerEnd: { type: MarkerType.ArrowClosed, width: 11, height: 11, color: stroke },
         }
       }),
-    [route, routeIds, selectedId, guidedMode, guidedStep, guidedNext],
+    [route, routeIds, routeSupport, selectedId, guidedMode, guidedStep, guidedNext],
   )
 
   const selectNode = useCallback((node) => {
