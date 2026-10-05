@@ -5,9 +5,20 @@ import './CafeMercadotecniaDefinitions.css'
 export default function CafeMercadotecniaDefinitions() {
   useEffect(() => {
     const previous = document.title
+    const bell = document.querySelector('.academic-bell')
+    const previousBellDisplay = bell instanceof HTMLElement ? bell.style.display : ''
+
     document.title = 'Definiciones · Café Filosófico · Mercadotecnia'
+
+    if (bell instanceof HTMLElement) {
+      bell.style.display = 'none'
+    }
+
     return () => {
       document.title = previous
+      if (bell instanceof HTMLElement) {
+        bell.style.display = previousBellDisplay
+      }
     }
   }, [])
 
