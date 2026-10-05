@@ -107,6 +107,17 @@ export default function CafeMercadotecniaEvent() {
         <article className="is-dark"><span>04</span><strong>ELECCIÓN</strong></article>
       </section>
 
+      <section className="marketing-definitions-link">
+        <div>
+          <span>MATERIAL PARA LA SESIÓN</span>
+          <h2>Definiciones</h2>
+          <p>Versión clara y directa para consultar durante el Café Filosófico.</p>
+        </div>
+        <Link to="/cafe-filosofico/2026/10/05/mercadotecnia/definiciones">
+          Abrir definiciones →
+        </Link>
+      </section>
+
       <section className="marketing-section marketing-foundations">
         <div className="marketing-section-head">
           <span>01</span>
