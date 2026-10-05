@@ -67,6 +67,45 @@
 .marketing-stamp{display:inline-block;padding:7px 10px;border:2px solid var(--red);color:var(--red);font:700 9px Arial,sans-serif;letter-spacing:.12em}
 .marketing-question-focus small{display:block;margin-top:22px;font:700 9px Arial,sans-serif;letter-spacing:.13em}
 .marketing-question-focus blockquote{max-width:980px;margin:12px 0 0;font:700 italic clamp(28px,3.2vw,46px)/1.08 Georgia,serif}
+.marketing-definitions-link{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:28px;
+  align-items:end;
+  margin:42px 6vw 0;
+  padding:28px 30px;
+  border:2px solid var(--ink);
+  background:#efe1c6;
+}
+.marketing-definitions-link span{
+  color:var(--red);
+  font:700 9px Arial,sans-serif;
+  letter-spacing:.15em;
+}
+.marketing-definitions-link h2{
+  margin:7px 0 0;
+  font-size:clamp(34px,4vw,58px);
+  line-height:.92;
+}
+.marketing-definitions-link p{
+  margin:10px 0 0;
+  color:var(--muted);
+  font-size:16px;
+}
+.marketing-definitions-link a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:54px;
+  padding:0 22px;
+  border:2px solid var(--ink);
+  background:var(--ink);
+  color:var(--paper-light);
+  text-decoration:none;
+  font:700 10px Arial,sans-serif;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
 .marketing-foundations{padding-top:72px}
 .marketing-definition-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);gap:14px}
 .marketing-definition-card{position:relative;min-width:0;padding:28px;border:2px solid var(--ink);background:#efe1c6}
@@ -161,8 +200,40 @@
   .marketing-question-tabs{grid-template-columns:1fr}.marketing-question-tabs button{min-height:210px;border-right:0;border-bottom:1px solid var(--ink)}
   .marketing-definition-grid,.marketing-authority-grid{grid-template-columns:1fr}
   .marketing-working-definition>div:first-child{grid-template-columns:1fr}
-  .marketing-working-flow{grid-template-columns:1fr}
-  .marketing-working-flow>b{width:auto;height:32px;margin:-1px 0;transform:rotate(90deg)}
+  .marketing-working-definition{padding:22px 16px}
+  .marketing-working-definition>p{font-size:20px;line-height:1.38}
+  .marketing-working-flow{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-top:22px;
+    padding:8px;
+    border:1px solid var(--ink);
+    background:rgba(255,255,255,.14);
+  }
+  .marketing-working-flow article{
+    width:100%;
+    padding:18px;
+    border:1px solid rgba(17,17,15,.24);
+    background:#efe1c6;
+  }
+  .marketing-working-flow article strong{
+    margin-top:10px;
+    font-size:clamp(24px,8vw,32px);
+    line-height:1;
+    overflow-wrap:anywhere;
+  }
+  .marketing-working-flow>b{
+    display:grid;
+    place-items:center;
+    width:34px;
+    height:28px;
+    margin:0 auto;
+    background:transparent;
+    color:var(--red);
+    transform:rotate(90deg);
+    font-size:20px;
+  }
   .marketing-neuro>header{grid-template-columns:1fr}
   .marketing-neuro h3,.marketing-neuro>header>p{grid-column:1}
   .marketing-neuro-comparison{grid-template-columns:1fr}
@@ -180,6 +251,19 @@
 @media(max-width:760px){
   .marketing-page{
     overflow-x:hidden;
+  }
+
+  .marketing-definitions-link{
+    grid-template-columns:1fr;
+    gap:20px;
+    margin:32px 18px 0;
+    padding:22px 18px;
+  }
+  .marketing-definitions-link h2{
+    font-size:clamp(34px,11vw,48px);
+  }
+  .marketing-definitions-link a{
+    width:100%;
   }
 
   .marketing-definition-card,.marketing-authority-grid>article,.marketing-working-definition,.marketing-neuro{
