@@ -99,7 +99,7 @@
 .marketing-working-definition>div:first-child>span{padding-top:9px;color:var(--red);font:700 9px Arial,sans-serif;letter-spacing:.14em}
 .marketing-working-definition h3{margin:0}
 .marketing-working-definition>p{max-width:920px;margin:24px 0 0;font:700 italic 22px/1.35 Georgia,serif}
-.marketing-working-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;align-items:stretch;margin-top:28px;border:1px solid var(--ink);background:var(--ink)}
+.marketing-working-flow{display:grid;grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr) 34px minmax(0,1fr) 34px minmax(0,1fr);gap:0;align-items:stretch;margin-top:28px;border:1px solid var(--ink);background:var(--ink)}
 .marketing-working-flow article{min-width:0;padding:18px;background:#efe1c6}
 .marketing-working-flow article span{display:block;color:var(--red);font:700 8px Arial,sans-serif}
 .marketing-working-flow article strong{display:block;margin-top:38px;font-size:22px}
