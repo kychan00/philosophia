@@ -1,7 +1,7 @@
 import { Handle, Position } from '@xyflow/react'
 
 export default function CafeMercadotecniaNode({ data, selected }) {
-  const classes = ['cafe2d-node', data.critical ? 'is-critical' : '', selected ? 'is-selected' : '', data.highlighted ? 'is-highlighted' : '', data.dimmed ? 'is-dimmed' : '', data.guidedCurrent ? 'is-guided-current' : '', data.guidedNext ? 'is-guided-next' : '', data.routeActive ? 'is-route-active' : ''].filter(Boolean).join(' ')
+  const classes = ['cafe2d-node', data.critical ? 'is-critical' : '', data.micro ? 'is-micro' : '', selected ? 'is-selected' : '', data.highlighted ? 'is-highlighted' : '', data.dimmed ? 'is-dimmed' : '', data.guidedCurrent ? 'is-guided-current' : '', data.guidedNext ? 'is-guided-next' : '', data.routeActive ? 'is-route-active' : ''].filter(Boolean).join(' ')
 
   return (
     <article className={classes}>
@@ -12,7 +12,7 @@ export default function CafeMercadotecniaNode({ data, selected }) {
       <div className="cafe2d-meta"><span>{data.phase}</span><b>{data.code}</b></div>
       <strong className="cafe2d-title">{data.title}</strong>
       <blockquote>{data.excerpt}</blockquote>
-      <div className="cafe2d-footer"><span>{data.kind}</span><button type="button" className="nodrag nopan" onClick={(event) => { event.stopPropagation(); data.onOpenFolio?.() }}>abrir folio</button></div>
+      <div className="cafe2d-footer"><span>Sesión · 05 OCT</span><button type="button" className="nodrag nopan" onClick={(event) => { event.stopPropagation(); data.onOpenFolio?.() }}>abrir folio</button></div>
       <Handle type="source" position={Position.Right} className="cafe2d-handle" />
     </article>
   )
