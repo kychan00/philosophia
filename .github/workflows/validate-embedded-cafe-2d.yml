@@ -1,0 +1,21 @@
+name: Validate embedded Mercadotecnia 2D
+
+on:
+  push:
+    branches:
+      - fix/embed-cafe-mercadotecnia-2d
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+          cache: npm
+      - run: npm ci
+      - run: npx vite build
