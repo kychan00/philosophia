@@ -156,8 +156,22 @@ function SystemCanvas({ embedded = false }) {
 
   const selectById = useCallback((id) => {
     const node = marketingDialogueNodeById(id)
-    if (node) selectNode(node)
-  }, [selectNode])
+    if (!node) return
+
+    if (guidedMode) {
+      const guideIndex = guidedSequence.indexOf(id)
+
+      if (guideIndex >= 0) {
+        setGuidedIndex(guideIndex)
+        return
+      }
+
+      setGuidedMode(false)
+      setGuidedIndex(0)
+    }
+
+    selectNode(node)
+  }, [selectNode, guidedMode, guidedSequence])
 
   useEffect(() => {
     window.setTimeout(() => {
@@ -380,7 +394,7 @@ function SystemCanvas({ embedded = false }) {
             nodes={nodes}
             edges={edges}
             nodeTypes={nodeTypes}
-            onNodeClick={(_, node) => selectNode(node)}
+            onNodeClick={(_, node) => selectById(node.id)}
             fitView
             minZoom={.18}
             maxZoom={1.65}
