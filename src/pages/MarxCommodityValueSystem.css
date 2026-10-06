@@ -961,3 +961,55 @@
 .marx-inspector-route-progress strong{
   min-height:1.1rem;
 }
+
+
+/* PHILOSOPHIA · INSPECTOR CONTENT CONTRACT · ANTI-REGRESSION */
+.marx-inspector-scroll>blockquote,
+.marx-inspector>blockquote{
+  margin:.6rem 0 1.25rem;
+  padding:1rem;
+  border-left:3px solid var(--mx-gold);
+  background:rgba(255,255,255,.24);
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;
+  line-height:1.45;
+}
+.marx-inspector-concepts,
+.marx-inspector-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.35rem;
+  margin-top:.55rem;
+}
+.marx-inspector-concepts b,
+.marx-inspector-tags b{
+  display:inline-flex;
+  max-width:100%;
+  padding:.38rem .48rem;
+  border:1px solid var(--mx-line);
+  background:rgba(255,255,255,.24);
+  font-size:.63rem;
+  font-weight:600;
+  line-height:1.25;
+  overflow-wrap:anywhere;
+}
+.marx-inspector-question>span,
+.marx-inspector section>span{
+  display:block;
+}
+.marx-inspector-question>strong{
+  display:block;
+  margin-top:.55rem;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.18rem;
+  font-weight:600;
+  line-height:1.3;
+}
+.marx-inspector-folio{
+  width:100%;
+  padding:.75rem;
+  border:1px solid var(--mx-red);
+  background:var(--mx-red);
+  color:#fff7ed;
+  cursor:pointer;
+}
