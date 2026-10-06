@@ -348,7 +348,7 @@ function SystemCanvas({ embedded = false }) {
       <section className="cafe2d-guide-launcher">
         <div>
           <span>LECTURA GUIADA</span>
-          <strong>10 pasos para recorrer el argumento sin perderse</strong>
+          <strong>{marketingDialogueGuidedRoute.length} pasos · recorrido completo de todos los nodos</strong>
         </div>
         <button type="button" onClick={() => setGuidedMode((value) => !value)}>
           {guidedMode ? 'Salir de la guía' : 'Iniciar guía'}
