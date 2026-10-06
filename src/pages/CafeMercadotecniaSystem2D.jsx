@@ -25,7 +25,7 @@ import {
 
 const nodeTypes = { text: CafeMercadotecniaNode, core: CafeMercadotecniaNode }
 
-function SystemCanvas() {
+function SystemCanvas({ embedded = false }) {
   const [route, setRoute] = useState('all')
   const [selectedId, setSelectedId] = useState(null)
   const [folioId, setFolioId] = useState(null)
@@ -245,23 +245,45 @@ function SystemCanvas() {
   const nextId = routeIndex >= 0 && routeIndex < routeSequence.length - 1 ? routeSequence[routeIndex + 1] : routeSequence[0] || null
   const routeLabel = marketingDialogueRoutes.find((item) => item.id === route)?.label || 'Ruta'
 
-  return (
-    <main className="cafe2d-page">
-      <nav className="cafe2d-nav">
-        <Link to="/cafe-filosofico/2026/10/05/mercadotecnia">← MERCADOTECNIA</Link>
-        <strong>MAPA DIALÓGICO 2D</strong>
-        <span>EDICIÓN 03 · 05 OCT 2026</span>
-      </nav>
+  const Root = embedded ? 'section' : 'main'
 
-      <header className="cafe2d-hero">
-        <p>CAFÉ FILOSÓFICO · MEMORIA ARGUMENTAL</p>
-        <h1>Mercadotecnia</h1>
-        <h2>Deseo · persuasión · libertad</h2>
-        <p>
-          Reconstrucción 2D de la conversación real: posiciones, distinciones,
-          ejemplos, autores y problemas abiertos conectados por dependencia argumental.
-        </p>
-      </header>
+  return (
+    <Root className={'cafe2d-page' + (embedded ? ' is-embedded' : '')}>
+      {!embedded && (
+        <>
+          <nav className="cafe2d-nav">
+            <Link to="/cafe-filosofico/2026/10/05/mercadotecnia">← MERCADOTECNIA</Link>
+            <strong>MAPA DIALÓGICO 2D</strong>
+            <span>EDICIÓN 03 · 05 OCT 2026</span>
+          </nav>
+
+          <header className="cafe2d-hero">
+            <p>CAFÉ FILOSÓFICO · MEMORIA ARGUMENTAL</p>
+            <h1>Mercadotecnia</h1>
+            <h2>Deseo · persuasión · libertad</h2>
+            <p>
+              Reconstrucción 2D de la conversación real: posiciones, distinciones,
+              ejemplos, autores y problemas abiertos conectados por dependencia argumental.
+            </p>
+          </header>
+        </>
+      )}
+
+      {embedded && (
+        <header className="cafe2d-embedded-head">
+          <div>
+            <span>SISTEMA 2D · MEMORIA ARGUMENTAL</span>
+            <h2>Mapa dialógico del Café</h2>
+            <p>
+              Recorra directamente aquí las posiciones, objeciones, ejemplos,
+              autores y problemas abiertos de la sesión.
+            </p>
+          </div>
+          <Link to="/cafe-filosofico/2026/10/05/mercadotecnia/sistema-2d">
+            Abrir en vista completa →
+          </Link>
+        </header>
+      )}
 
       <section className="cafe2d-source">
         <div><span>FRONTERA DE FUENTE</span><strong>{marketingDialogueSource.title}</strong></div>
@@ -386,10 +408,12 @@ function SystemCanvas() {
         </p>
       </section>
 
-      <footer className="cafe2d-footer">
-        <Link to="/cafe-filosofico/2026/10/05/mercadotecnia">← Volver a la memoria</Link>
-        <strong>PHILOSOPHIA · CAFÉ FILOSÓFICO</strong>
-      </footer>
+      {!embedded && (
+        <footer className="cafe2d-footer">
+          <Link to="/cafe-filosofico/2026/10/05/mercadotecnia">← Volver a la memoria</Link>
+          <strong>PHILOSOPHIA · CAFÉ FILOSÓFICO</strong>
+        </footer>
+      )}
 
       {folio && (
         <div className="cafe2d-folio-backdrop" role="presentation" onMouseDown={() => setFolioId(null)}>
@@ -406,10 +430,10 @@ function SystemCanvas() {
           </article>
         </div>
       )}
-    </main>
+    </Root>
   )
 }
 
-export default function CafeMercadotecniaSystem2D() {
-  return <ReactFlowProvider><SystemCanvas /></ReactFlowProvider>
+export default function CafeMercadotecniaSystem2D({ embedded = false }) {
+  return <ReactFlowProvider><SystemCanvas embedded={embedded} /></ReactFlowProvider>
 }
