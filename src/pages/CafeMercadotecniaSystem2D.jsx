@@ -352,7 +352,16 @@ function SystemCanvas({ embedded = false }) {
 
       <section className="cafe2d-routes">
         {marketingDialogueRoutes.map((item) => (
-          <button key={item.id} type="button" className={route === item.id ? 'is-active' : ''} onClick={() => { setRoute(item.id); setSelectedId(null) }}>
+          <button
+            key={item.id}
+            type="button"
+            className={route === item.id ? 'is-active' : ''}
+            onClick={() => {
+              setGuidedMode(false)
+              setRoute(item.id)
+              setSelectedId(null)
+            }}
+          >
             <strong>{item.label}</strong><span>{item.description}</span>
           </button>
         ))}
@@ -361,7 +370,7 @@ function SystemCanvas({ embedded = false }) {
       <section ref={workspaceRef} className={'cafe2d-workspace' + (workspaceFullscreen ? ' is-fullscreen' : '')}>
         <div className="cafe2d-canvas-wrap">
           <div className="cafe2d-toolbar">
-            <span>{routeLabel}</span>
+            <span>{navigationLabel}</span>
             <button type="button" onClick={toggleFullscreen}>{workspaceFullscreen ? 'Salir de pantalla completa' : 'Pantalla completa'}</button>
           </div>
           <ReactFlow
