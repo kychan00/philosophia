@@ -137,18 +137,11 @@ export const marketingDialogueRoutes = [
   { id:'ethics', label:'Ética', description:'Rentabilidad, límites y posibilidad de marketing ético.' },
 ]
 
-export const marketingDialogueGuidedRoute = [
-  { id:'D00', focus:'Problema rector', explanation:'Comience por distinguir informar, influir, persuadir y manipular.' },
-  { id:'D06', focus:'Primera distinción', explanation:'La sesión niega que toda persuasión sea automáticamente manipulación.' },
-  { id:'D09', focus:'Necesidades', explanation:'El diálogo cambia de la técnica a aquello sobre lo que la técnica opera.' },
-  { id:'D14', focus:'Deseo', explanation:'Aparece una distinción decisiva entre necesidad y deseo.' },
-  { id:'D18', focus:'Pertenencia', explanation:'Una marca puede capturar una necesidad social previa.' },
-  { id:'D21', focus:'Mercancía', explanation:'Marx permite preguntar qué relaciones quedan ocultas en el objeto.' },
-  { id:'D23', focus:'Libertad', explanation:'Spinoza aparece como criterio: conocer las causas que nos determinan.' },
-  { id:'D24', focus:'Perfilado', explanation:'La pregunta cambia cuando otra entidad conoce nuestros patrones.' },
-  { id:'D26', focus:'Recurrencia', explanation:'La rentabilidad puede incentivar que la necesidad permanezca abierta.' },
-  { id:'D29', focus:'Síntesis', explanation:'La sesión termina proponiendo conocimiento causal como herramienta crítica.' },
-]
+export const marketingDialogueGuidedRoute = marketingDialogueNodes.map((node) => ({
+  id: node.id,
+  focus: node.data.title,
+  explanation: node.data.explanation,
+}))
 
 export function marketingDialogueNodeById(id) {
   return marketingDialogueNodes.find((node) => node.id === id) || null
