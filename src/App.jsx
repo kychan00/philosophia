@@ -108,6 +108,7 @@ const AnalyticHackerSystem = lazy(() => import('./pages/AnalyticHackerSystem'))
 const CriticalTheory = lazy(() => import('./pages/CriticalTheory'))
 const CriticalTheoryTask1 = lazy(() => import('./pages/CriticalTheoryTask1'))
 const MarxCommodityValueSystem = lazy(() => import('./pages/MarxCommodityValueSystem'))
+const LukacsReificationSystem = lazy(() => import('./pages/LukacsReificationSystem'))
 const CriticalTheoryClass18Aug = lazy(() => import('./pages/CriticalTheoryClass18Aug'))
 const CriticalTheoryClass20Aug = lazy(() => import('./pages/CriticalTheoryClass20Aug'))
 const CriticalTheoryClass25Aug = lazy(() => import('./pages/CriticalTheoryClass25Aug'))
@@ -483,6 +484,10 @@ function App() {
         <Route
           path="/tareas/teoria-critica/marx-capital-fetichismo-parte-i"
           element={<MarxCommodityValueSystem />}
+        />
+        <Route
+          path="/tareas/teoria-critica/lukacs-cosificacion"
+          element={<LukacsReificationSystem />}
         />
         <Route
           path="/semestre/5/teoria-critica/clase/18-agosto"

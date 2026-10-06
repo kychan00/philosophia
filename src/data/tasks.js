@@ -576,6 +576,27 @@ export const tasks = [
     studyRoute: '/tareas/teoria-critica/marx-capital-fetichismo-parte-i',
   },
 
+  {
+    id: 'teoria-critica-2026-10-06-lukacs-cosificacion',
+    subject: 'Teoría Crítica',
+    subjectCode: 'FI265',
+    assignedDate: '2026-10-05',
+    dueDate: '2026-10-06',
+    title: 'Lukács · La cosificación y la conciencia de clase del proletariado',
+    type: 'Lectura / estudio 2D',
+    weight: null,
+    priority: 'Alta',
+    description:
+      'Estudiar el fragmento proporcionado de Historia y conciencia de clase mediante el sistema 2D: forma mercancía, cosificación objetiva y subjetiva, trabajo abstracto, racionalización, fragmentación, derecho, burocracia, crisis, pérdida de totalidad y umbral de las antinomias del pensamiento burgués.',
+    readingScope:
+      'Georg Lukács · La cosificación y la conciencia de clase del proletariado · I. El fenómeno de la cosificación',
+    readingPages:
+      'PDF proporcionado · 27 páginas · cierre de la sección I e inicio visible de la sección II',
+    sourceClass: 'Tarea para la clase del 6 de octubre',
+    sourceRoute: '/semestre/5/teoria-critica',
+    studyRoute: '/tareas/teoria-critica/lukacs-cosificacion',
+  },
+
 ]
 
 export default tasks
