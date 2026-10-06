@@ -18,6 +18,61 @@
   font-family:Georgia,'Times New Roman',serif;
 }
 .cafe2d-page *{box-sizing:border-box}
+.cafe2d-page.is-embedded{
+  min-height:0;
+  margin:76px 0 0;
+  padding:0 0 72px;
+  border-top:2px solid var(--ph2d-ink);
+  border-bottom:2px solid var(--ph2d-ink);
+  background:
+    linear-gradient(rgba(55,45,36,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(55,45,36,.035) 1px,transparent 1px),
+    var(--ph2d-bg);
+  background-size:28px 28px;
+}
+.cafe2d-embedded-head{
+  width:min(1260px,calc(100% - 40px));
+  margin:0 auto;
+  padding:54px 0 24px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:28px;
+  align-items:end;
+}
+.cafe2d-embedded-head span{
+  color:var(--ph2d-red);
+  font:700 9px Arial,sans-serif;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.cafe2d-embedded-head h2{
+  margin:8px 0 0;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:clamp(42px,5vw,72px);
+  line-height:.9;
+  letter-spacing:-.035em;
+}
+.cafe2d-embedded-head p{
+  max-width:760px;
+  margin:14px 0 0;
+  color:var(--ph2d-muted);
+  font-size:17px;
+  line-height:1.5;
+}
+.cafe2d-embedded-head>a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:52px;
+  padding:0 18px;
+  border:1px solid var(--ph2d-ink);
+  background:var(--ph2d-ink);
+  color:var(--ph2d-paper);
+  text-decoration:none;
+  font:700 9px Arial,sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
 .cafe2d-nav{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:center;padding:17px 4vw;background:var(--ph2d-ink);color:var(--ph2d-paper);font:700 10px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
 .cafe2d-nav a{color:inherit;text-decoration:none}.cafe2d-nav span{text-align:right}
 .cafe2d-hero{width:min(1260px,calc(100% - 40px));margin:0 auto;padding:74px 0 52px;border-bottom:1px solid var(--ph2d-line)}
@@ -78,6 +133,22 @@
   .cafe2d-inspector-scroll{max-height:none}
 }
 @media(max-width:760px){
+  .cafe2d-page.is-embedded{
+    margin-top:54px;
+    padding-bottom:48px;
+  }
+  .cafe2d-embedded-head{
+    width:calc(100% - 28px);
+    grid-template-columns:1fr;
+    gap:18px;
+    padding:38px 0 18px;
+  }
+  .cafe2d-embedded-head h2{
+    font-size:clamp(36px,11vw,50px);
+  }
+  .cafe2d-embedded-head>a{
+    width:100%;
+  }
   .cafe2d-nav{grid-template-columns:1fr auto;padding:14px 16px}.cafe2d-nav span{display:none}
   .cafe2d-hero{width:calc(100% - 28px);padding:48px 0 36px}.cafe2d-hero h1{font-size:clamp(52px,17vw,82px)}.cafe2d-hero h2{font-size:clamp(30px,10vw,44px)}.cafe2d-hero>p:last-child{font-size:17px}
   .cafe2d-source,.cafe2d-guide-launcher,.cafe2d-guide,.cafe2d-routes,.cafe2d-history,.cafe2d-context{width:calc(100% - 28px)}
