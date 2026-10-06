@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
+import { createPortal } from 'react-dom'
 import {
   Background,
   Controls,
@@ -71,6 +72,8 @@ function StudyCanvas() {
   })
   const workspaceRef = useRef(null)
   const [workspaceFullscreen, setWorkspaceFullscreen] = useState(false)
+  const overlayHost =
+    workspaceFullscreen && workspaceRef.current ? workspaceRef.current : document.body
   const { fitView, setCenter, getNodes } = useReactFlow()
 
   const selected = lukacsReificationNodeById(selectedId)
@@ -807,7 +810,7 @@ function StudyCanvas() {
         <Link to="/semestre/5/teoria-critica">Teoría Crítica ↗</Link>
       </footer>
 
-      {folio && (
+      {folio && createPortal((
         <div
           className="marx-folio-overlay"
           role="presentation"
@@ -900,9 +903,9 @@ function StudyCanvas() {
             </div>
           </article>
         </div>
-      )}
+      ), overlayHost)}
 
-      {relationSheet && relationSource && relationTarget && (
+      {relationSheet && relationSource && relationTarget && createPortal((
         <div
           className="marx-relation-overlay"
           role="presentation"
@@ -971,7 +974,7 @@ function StudyCanvas() {
             </div>
           </article>
         </div>
-      )}
+      ), overlayHost)}
     </main>
   )
 }
