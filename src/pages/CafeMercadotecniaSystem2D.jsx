@@ -90,7 +90,7 @@ function SystemCanvas({ embedded = false }) {
         const guidedCurrent = guidedMode && node.id === guidedStep?.id
         const guidedNextNode = guidedMode && node.id === guidedNext?.id
         const dimmed = guidedMode
-          ? !guidedCurrent && !guidedNextNode
+          ? !guidedCurrent && !guidedNextNode && node.id !== selectedId
           : selectedId
             ? !relatedIds.has(node.id)
             : !routeActive && !support
@@ -134,7 +134,7 @@ function SystemCanvas({ embedded = false }) {
           style: {
             stroke,
             strokeWidth: guidedActive ? 3 : touches ? 2.7 : 1.1,
-            opacity: guidedMode ? (guidedActive ? 1 : .06) : touches ? 1 : .34,
+            opacity: guidedMode ? (guidedActive ? 1 : touches ? .5 : .06) : touches ? 1 : .34,
           },
           markerEnd: { type: MarkerType.ArrowClosed, width: 11, height: 11, color: stroke },
         }
@@ -240,10 +240,39 @@ function SystemCanvas({ embedded = false }) {
     [selectedId],
   )
 
+  const guidedSequence = useMemo(
+    () => marketingDialogueGuidedRoute.map((step) => step.id),
+    [],
+  )
+
   const routeIndex = selectedId ? routeSequence.indexOf(selectedId) : -1
-  const prevId = routeIndex > 0 ? routeSequence[routeIndex - 1] : null
-  const nextId = routeIndex >= 0 && routeIndex < routeSequence.length - 1 ? routeSequence[routeIndex + 1] : routeSequence[0] || null
+  const navigationSequence = guidedMode ? guidedSequence : routeSequence
+  const navigationIndex = guidedMode ? guidedIndex : routeIndex
+  const prevId = navigationIndex > 0 ? navigationSequence[navigationIndex - 1] : null
+  const nextId =
+    navigationIndex >= 0 && navigationIndex < navigationSequence.length - 1
+      ? navigationSequence[navigationIndex + 1]
+      : navigationIndex < 0
+        ? navigationSequence[0] || null
+        : null
   const routeLabel = marketingDialogueRoutes.find((item) => item.id === route)?.label || 'Ruta'
+  const navigationLabel = guidedMode ? 'Lectura guiada' : routeLabel
+
+  const goPrevious = useCallback(() => {
+    if (guidedMode) {
+      setGuidedIndex((index) => Math.max(0, index - 1))
+      return
+    }
+    if (prevId) selectById(prevId)
+  }, [guidedMode, prevId, selectById])
+
+  const goNext = useCallback(() => {
+    if (guidedMode) {
+      setGuidedIndex((index) => Math.min(marketingDialogueGuidedRoute.length - 1, index + 1))
+      return
+    }
+    if (nextId) selectById(nextId)
+  }, [guidedMode, nextId, selectById])
 
   const Root = embedded ? 'section' : 'main'
 
@@ -295,7 +324,17 @@ function SystemCanvas({ embedded = false }) {
           <span>LECTURA GUIADA</span>
           <strong>10 pasos para recorrer el argumento sin perderse</strong>
         </div>
-        <button type="button" onClick={() => setGuidedMode((value) => !value)}>
+        <button
+          type="button"
+          onClick={() => {
+            if (guidedMode) {
+              setGuidedMode(false)
+              return
+            }
+            setGuidedIndex(0)
+            setGuidedMode(true)
+          }}
+        >
           {guidedMode ? 'Salir de la guía' : 'Iniciar guía'}
         </button>
       </section>
@@ -340,9 +379,13 @@ function SystemCanvas({ embedded = false }) {
           </ReactFlow>
 
           <footer className="cafe2d-route-footer">
-            <button type="button" disabled={!prevId} onClick={() => prevId && selectById(prevId)}>← Anterior</button>
-            <span>{routeLabel.toUpperCase()} · {routeIndex >= 0 ? String(routeIndex + 1).padStart(2,'0') : '—'} / {routeSequence.length}</span>
-            <button type="button" disabled={!nextId} onClick={() => nextId && selectById(nextId)}>{routeIndex >= 0 ? 'Siguiente →' : 'Empezar →'}</button>
+            <button type="button" disabled={!prevId} onClick={goPrevious}>← Anterior</button>
+            <span>
+              {navigationLabel.toUpperCase()} · {navigationIndex >= 0 ? String(navigationIndex + 1).padStart(2,'0') : '—'} / {navigationSequence.length}
+            </span>
+            <button type="button" disabled={!nextId} onClick={goNext}>
+              {navigationIndex >= 0 ? 'Siguiente →' : 'Empezar →'}
+            </button>
           </footer>
         </div>
 
