@@ -15,6 +15,7 @@ import './MarxCommodityValueSystem.css'
 
 import MarxCommodityNode from '../components/marx/MarxCommodityNode'
 import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema'
+import { SYSTEM_2D_THEME, resolveSystem2DEdgeColor } from '../components/philosophy/system2d/system2dTheme'
 import {
   marxCommodityConceptualEdges,
   marxCommodityCrossRelationById,
@@ -477,24 +478,13 @@ function StudyCanvas() {
           )
 
         const conceptual = edge.layer === 'conceptual'
-        const conceptualColors = {
-          foundation: '#526c59',
-          manifestation: '#496a78',
-          inversion: '#8b3d34',
-          analogy: '#7a5a8c',
-          history: '#6c6650',
-          development: '#9c7434',
-        }
-
-        const stroke = guidedActive
-          ? '#526c59'
-          : conceptual
-            ? conceptualColors[edge.conceptualType] || '#7a5a8c'
-            : edge.relation === 'critical'
-              ? '#8b3d34'
-              : touchesSelected
-                ? '#9c7434'
-                : '#61584d'
+        const stroke = resolveSystem2DEdgeColor({
+          guidedActive,
+          conceptual,
+          conceptualType: edge.conceptualType,
+          relation: edge.relation,
+          touchesSelected,
+        })
 
         return {
           ...edge,
@@ -511,7 +501,7 @@ function StudyCanvas() {
             : undefined,
           labelBgStyle: conceptual
             ? {
-                fill: '#f7f0e4',
+                fill: SYSTEM_2D_THEME.background.paper,
                 fillOpacity: 0.9,
               }
             : undefined,

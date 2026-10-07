@@ -15,6 +15,7 @@ import './MarxCommodityValueSystem.css'
 
 import LukacsReificationNode from '../components/lukacs/LukacsReificationNode'
 import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema'
+import { SYSTEM_2D_THEME, resolveSystem2DEdgeColor } from '../components/philosophy/system2d/system2dTheme'
 import {
   lukacsReificationConceptualEdges,
   lukacsReificationCrossRelationById,
@@ -249,23 +250,13 @@ function StudyCanvas() {
           )
         const touchesSelected =
           selectedId && (edge.source === selectedId || edge.target === selectedId)
-        const colors = {
-          foundation:'#526c59',
-          manifestation:'#496a78',
-          analogy:'#7a5a8c',
-          development:'#9c7434',
-          inversion:'#8b3d34',
-          history:'#6c6650',
-        }
-        const stroke = guidedActive
-          ? '#526c59'
-          : conceptual
-            ? colors[edge.conceptualType] || '#7a5a8c'
-            : edge.relation === 'critical'
-              ? '#8b3d34'
-              : touchesSelected
-                ? '#9c7434'
-                : '#61584d'
+        const stroke = resolveSystem2DEdgeColor({
+          guidedActive,
+          conceptual,
+          conceptualType: edge.conceptualType,
+          relation: edge.relation,
+          touchesSelected,
+        })
 
         return {
           ...edge,
@@ -273,7 +264,7 @@ function StudyCanvas() {
           type:'smoothstep',
           label: conceptual ? edge.label : undefined,
           labelStyle: conceptual ? { fill:stroke, fontSize:9, fontWeight:800 } : undefined,
-          labelBgStyle: conceptual ? { fill:'#f7f0e4', fillOpacity:0.9 } : undefined,
+          labelBgStyle: conceptual ? { fill:SYSTEM_2D_THEME.background.paper, fillOpacity:0.9 } : undefined,
           style:{
             stroke,
             strokeDasharray: conceptual ? '8 6' : undefined,
