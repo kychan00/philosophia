@@ -472,6 +472,31 @@ export default function OntologiaII() {
           </div>
         </Link>
 
+        <Link
+          to="/semestre/5/ontologia-ii/clase/7-octubre"
+          className="ontology-program-class-card"
+        >
+          <div className="ontology-program-date">
+            <strong>VII</strong>
+            <span>X · MMXXVI</span>
+          </div>
+
+          <div className="ontology-program-class-copy">
+            <span>Duodécima clase · Idealismo postkantiano</span>
+            <h3>Del concepto límite al absoluto</h3>
+            <p>
+              Maimon, Beck, Jacobi y Bardili; límite, fe y realismo lógico;
+              Fichte, ciencia y moral; Schelling, estética, intuición intelectual,
+              absoluto y umbral de Hegel.
+            </p>
+          </div>
+
+          <div className="ontology-program-enter">
+            <span>Abrir folio</span>
+            <b>↗</b>
+          </div>
+        </Link>
+
       </section>
 
       <section className="ontology-program-classes ontology-program-thresholds">
