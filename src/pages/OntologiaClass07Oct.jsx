@@ -66,7 +66,7 @@ function Section({ n, id, eyebrow, title, children, wine = false }) {
 }
 
 export default function OntologiaClass07Oct() {
-  const schellingImage = `${import.meta.env.BASE_URL}images/ontologia/open/2026-10-07/schelling-1848.png`
+  const schellingImage = 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Friedrich_Wilhelm_Joseph_Schelling%2C_1848_taken_by_Hermann_Biow.png'
 
   return (
     <main className="oa-page oaf-page oaf-sep30-page oaf-oct07-page">
