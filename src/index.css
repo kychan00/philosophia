@@ -9750,6 +9750,43 @@ a {
   box-shadow: inset 0 0 0 2px rgba(61, 89, 119, .5);
 }
 
+.tasks-calendar-day.is-absence {
+  background:
+    linear-gradient(rgba(108, 106, 101, .10), rgba(108, 106, 101, .10)),
+    rgba(228, 226, 220, .74);
+  filter: saturate(.35);
+}
+
+.tasks-calendar-day.is-absence .calendar-class {
+  border-left-color: #85827c;
+  background: rgba(255,255,255,.22);
+  color: #6f6c65;
+  opacity: .72;
+}
+
+.tasks-calendar-day-flags {
+  display: flex;
+  gap: .28rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.calendar-absence-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: .22rem .42rem;
+  border: 1px solid rgba(82,79,74,.22);
+  border-radius: 999px;
+  background: #d8d6d1;
+  color: #57544f !important;
+  font-size: .52rem !important;
+  font-weight: 800;
+  letter-spacing: .08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
 .tasks-calendar-day-number {
   display: flex;
   justify-content: space-between;
