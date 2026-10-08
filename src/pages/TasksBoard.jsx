@@ -55,6 +55,23 @@ const SUBJECT_NO_CLASS_DATES = {
   '2026-10-08': new Set(['Teoría Crítica']), // La maestra no asistirá.
 }
 
+const PERSONAL_CLASS_REPLACEMENTS = {
+  '2026-09-22': new Set(['Ética']), // Asistencia a clase abierta de Amilcar Paris Mandoki.
+}
+
+const ACADEMIC_EVENTS = {
+  '2026-09-22': [
+    {
+      id: 'amilcar-paris-ia-2026-09-22',
+      kind: 'Clase abierta',
+      title: '¿Por qué estudiar filosofía en la era de la IA?',
+      speaker: 'Mtro. Amilcar Paris Mandoki',
+      time: '18:00–19:30',
+      place: 'Librería Carlos Fuentes',
+    },
+  ],
+}
+
 const ABSENCE_DATES = {
   '2026-10-05': 'Falta',
   '2026-10-06': 'Falta',
@@ -234,11 +251,13 @@ function classesForDate(date) {
   }
 
   const subjectCancellations = SUBJECT_NO_CLASS_DATES[key]
+  const personalReplacements = PERSONAL_CLASS_REPLACEMENTS[key]
 
   return CLASS_SCHEDULE.filter(
     (course) =>
       course.weekdays.includes(date.getDay()) &&
-      !subjectCancellations?.has(course.subject),
+      !subjectCancellations?.has(course.subject) &&
+      !personalReplacements?.has(course.subject),
   )
 }
 
@@ -563,6 +582,7 @@ export default function TasksBoard() {
               const dayTasks = calendarTasks[key] || []
               const dayClasses = classesForDate(date)
               const dayCafeEvents = cafeEvents.filter((event) => event.date === key)
+              const dayAcademicEvents = ACADEMIC_EVENTS[key] || []
               const today = dateKey(new Date()) === key
               const absenceLabel = ABSENCE_DATES[key] || null
               const noClassNotice = NO_CLASS_DAY_DETAILS[key] || null
@@ -606,6 +626,24 @@ export default function TasksBoard() {
                         <strong>{course.subject}</strong>
                         <span>{course.time}</span>
                       </Link>
+                    ))}
+
+                    {dayAcademicEvents.map((event) => (
+                      <div
+                        key={event.id}
+                        className="calendar-academic-event"
+                        title={`${event.kind} · ${event.title} · ${event.speaker}`}
+                      >
+                        <span className="calendar-academic-event-mark" aria-hidden="true">
+                          🎤
+                        </span>
+                        <span className="calendar-academic-event-copy">
+                          <small>{event.kind}</small>
+                          <strong>{event.title}</strong>
+                          <span>{event.speaker}</span>
+                          <span>{event.time} · {event.place}</span>
+                        </span>
+                      </div>
                     ))}
 
                     {dayCafeEvents.map((event) => (
