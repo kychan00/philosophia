@@ -68,6 +68,7 @@ const ACADEMIC_EVENTS = {
       speaker: 'Mtro. Amilcar Paris Mandoki',
       time: '18:00–19:30',
       place: 'Librería Carlos Fuentes',
+      route: '/eventos/2026/09/22/filosofia-en-la-era-de-la-ia',
     },
   ],
 }
@@ -629,8 +630,9 @@ export default function TasksBoard() {
                     ))}
 
                     {dayAcademicEvents.map((event) => (
-                      <div
+                      <Link
                         key={event.id}
+                        to={event.route}
                         className="calendar-academic-event"
                         title={`${event.kind} · ${event.title} · ${event.speaker}`}
                       >
@@ -643,7 +645,8 @@ export default function TasksBoard() {
                           <span>{event.speaker}</span>
                           <span>{event.time} · {event.place}</span>
                         </span>
-                      </div>
+                        <span className="calendar-academic-event-arrow" aria-hidden="true">↗</span>
+                      </Link>
                     ))}
 
                     {dayCafeEvents.map((event) => (
