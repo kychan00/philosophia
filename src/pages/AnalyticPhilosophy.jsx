@@ -438,6 +438,31 @@ export default function AnalyticPhilosophy() {
           </div>
         </Link>
 
+        <Link
+          to="/semestre/5/filosofia-analitica/clase/7-octubre"
+          className="analytic-class-card"
+        >
+          <div className="analytic-date">
+            <strong>VII</strong>
+            <span>X · MMXXVI</span>
+          </div>
+
+          <div className="analytic-class-copy">
+            <span>Decimocuarta clase · Wittgenstein y positivismo lógico</span>
+            <h3>Clarificación, metafísica, verificación y forma lógica</h3>
+            <p>
+              Hacker pp. 126–130: recepción del Tractatus en el Círculo de Viena,
+              decir y mostrar, principio de verificación, empirismo consistente,
+              Carnap y el problema de convertir lo inefable en inexistente.
+            </p>
+          </div>
+
+          <div className="analytic-enter">
+            <span>Abrir análisis</span>
+            <b>↗</b>
+          </div>
+        </Link>
+
 </section>
 
       <section className="analytic-course-map">
