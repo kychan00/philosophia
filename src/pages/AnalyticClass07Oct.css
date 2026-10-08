@@ -1,0 +1,157 @@
+/* ============================================================
+   FILOSOFÍA ANALÍTICA · CLASE 07 OCT 2026
+   ============================================================ */
+
+.ac07-page{
+  --ac07-ink:#23343e;
+  --ac07-blue:#405d6e;
+  --ac07-blue-dark:#2c434f;
+  --ac07-gold:#a67b3a;
+  --ac07-rust:#8c4d42;
+  --ac07-paper:#f0e8d9;
+}
+
+.ac07-hero{min-height:84vh}
+.ac07-ghost{color:var(--ac07-blue);opacity:.045;font-size:clamp(9rem,22vw,20rem)}
+.ac07-heading>span{background:var(--ac07-blue)!important;color:#f4ead7!important;opacity:1!important}
+.ac07-question{border-left-color:var(--ac07-blue)}
+.ac07-hero-schema .active{border-color:var(--ac07-blue)!important;background:rgba(64,93,110,.08)!important}
+.ac07-thesis,.ac07-note{border-left-color:var(--ac07-blue)!important}
+.ac07-ending{border-color:var(--ac07-blue)!important}
+
+.ac07-flow,.ac07-route,.ac07-history{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:.55rem;
+  margin:1.35rem 0;
+}
+
+.ac07-flow span,.ac07-flow strong,
+.ac07-route span,.ac07-route strong,
+.ac07-history span,.ac07-history strong{
+  padding:.72rem .9rem;
+  border:1px solid rgba(25,25,20,.22);
+  background:rgba(255,255,255,.26);
+  font:800 .68rem Arial,sans-serif;
+}
+
+.ac07-flow strong,.ac07-route strong,.ac07-history strong{
+  background:var(--ac07-blue);
+  border-color:var(--ac07-blue);
+  color:#fff;
+}
+
+.ac07-flow>b,.ac07-route>b,.ac07-history>b{color:var(--ac07-rust)}
+
+.ac07-dual,.ac07-compare,.ac07-distinction{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  gap:.8rem;
+  align-items:center;
+  margin:1.35rem 0;
+}
+
+.ac07-dual article,.ac07-compare article,.ac07-distinction article,
+.ac07-theme-grid article,.ac07-verification article,.ac07-empiricism article{
+  padding:1.05rem;
+  border:1px solid rgba(25,25,20,.2);
+  background:rgba(255,255,255,.24);
+}
+
+.ac07-dual article.active,.ac07-compare article.active,.ac07-distinction article.active,
+.ac07-verification article.active,.ac07-empiricism article.active{
+  border-color:var(--ac07-blue);
+  background:rgba(64,93,110,.075);
+}
+
+.ac07-dual span,.ac07-compare span,.ac07-distinction span,
+.ac07-theme-grid span,.ac07-verification span,.ac07-empiricism span{
+  display:block;
+  color:var(--ac07-blue);
+  font:900 .55rem Arial,sans-serif;
+  letter-spacing:.1em;
+}
+
+.ac07-dual strong,.ac07-compare strong,.ac07-distinction strong,
+.ac07-theme-grid strong,.ac07-verification strong,.ac07-empiricism strong{
+  display:block;
+  margin:.45rem 0;
+  font-size:1.08rem;
+}
+
+.ac07-dual p,.ac07-compare p,.ac07-distinction p,
+.ac07-theme-grid p,.ac07-verification p,.ac07-empiricism p{
+  margin:0;
+  line-height:1.5;
+}
+
+.ac07-dual>b,.ac07-compare>b,.ac07-distinction>b,
+.ac07-verification>b,.ac07-empiricism>b{
+  color:var(--ac07-rust);
+  font:900 .65rem Arial,sans-serif;
+}
+
+.ac07-theme-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.8rem;
+  margin:1.35rem 0;
+}
+
+.ac07-theme-grid article.pending{
+  grid-column:1/-1;
+  border-style:dashed;
+  background:rgba(166,123,58,.07);
+}
+
+.ac07-ladder{
+  margin:1.35rem 0;
+  padding:1.2rem;
+  border:1px solid rgba(25,25,20,.22);
+  border-left:4px solid var(--ac07-gold);
+  background:rgba(166,123,58,.065);
+}
+.ac07-ladder span{
+  display:block;
+  color:var(--ac07-gold);
+  font:900 .55rem Arial,sans-serif;
+  letter-spacing:.1em;
+}
+.ac07-ladder strong{display:block;margin:.45rem 0;font-size:1.18rem}
+.ac07-ladder p{margin:0;line-height:1.55}
+
+.ac07-verification,.ac07-empiricism{
+  display:grid;
+  grid-template-columns:1fr auto 1fr auto 1fr;
+  gap:.75rem;
+  align-items:center;
+  margin:1.35rem 0;
+}
+
+.ac07-article > section{scroll-margin-top:96px}
+
+@media(max-width:1000px){
+  .ac07-verification,.ac07-empiricism{grid-template-columns:1fr}
+  .ac07-verification>b,.ac07-empiricism>b{justify-self:center;transform:rotate(90deg)}
+}
+
+@media(max-width:900px){
+  .ac07-dual,.ac07-compare,.ac07-distinction,.ac07-theme-grid{grid-template-columns:1fr}
+  .ac07-dual>b,.ac07-compare>b,.ac07-distinction>b{justify-self:center;transform:rotate(90deg)}
+  .ac07-theme-grid article.pending{grid-column:auto}
+}
+
+@media(max-width:760px){
+  .ac07-flow span,.ac07-flow strong,
+  .ac07-route span,.ac07-route strong,
+  .ac07-history span,.ac07-history strong{
+    width:100%;
+  }
+  .ac07-flow>b,.ac07-route>b,.ac07-history>b{
+    width:100%;
+    text-align:center;
+    transform:rotate(90deg);
+  }
+  .ac07-article > section{scroll-margin-top:80px}
+}
