@@ -26933,6 +26933,73 @@ a {
 }
 
 /* ============================================================
+   ACADEMIC EVENTS - MAIN ACADEMIC CALENDAR
+   ============================================================ */
+
+.calendar-academic-event {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.45rem;
+  align-items: start;
+  width: 100%;
+  padding: 0.5rem 0.52rem;
+  border: 1px solid rgba(26, 54, 93, 0.24);
+  border-left: 3px solid #1a365d;
+  border-radius: 7px;
+  color: #1a365d;
+  background:
+    linear-gradient(100deg, rgba(26, 54, 93, 0.11), rgba(250, 248, 245, 0.84)),
+    #f5f3ee;
+  box-shadow: 0 2px 8px rgba(26, 54, 93, 0.055);
+}
+
+.calendar-academic-event-mark {
+  font-size: 0.76rem;
+  line-height: 1.2;
+}
+
+.calendar-academic-event-copy {
+  min-width: 0;
+}
+
+.calendar-academic-event-copy small {
+  display: block;
+  margin-bottom: 0.12rem;
+  color: #1a365d;
+  font-size: 0.5rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.calendar-academic-event-copy strong {
+  display: block;
+  color: #243b5a;
+  font-size: 0.69rem;
+  font-weight: 700;
+  line-height: 1.18;
+}
+
+.calendar-academic-event-copy > span {
+  display: block;
+  margin-top: 0.12rem;
+  color: #5c6470;
+  font-size: 0.55rem;
+  line-height: 1.25;
+}
+
+@media (max-width: 760px) {
+  .calendar-academic-event {
+    padding: 0.42rem 0.44rem;
+  }
+
+  .calendar-academic-event-copy strong {
+    font-size: 0.64rem;
+  }
+}
+
+/* ============================================================
    CAFE FILOSOFICO - MAIN ACADEMIC CALENDAR
    ============================================================ */
 
