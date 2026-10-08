@@ -47,6 +47,11 @@ const SUBJECT_NO_CLASS_DATES = {
   '2026-10-08': new Set(['Teoría Crítica']), // La maestra no asistirá.
 }
 
+const ABSENCE_DATES = {
+  '2026-10-05': 'Falta',
+  '2026-10-06': 'Falta',
+}
+
 function parseDate(value) {
   if (!value) return null
 
@@ -551,15 +556,21 @@ export default function TasksBoard() {
               const dayClasses = classesForDate(date)
               const dayCafeEvents = cafeEvents.filter((event) => event.date === key)
               const today = dateKey(new Date()) === key
+              const absenceLabel = ABSENCE_DATES[key] || null
 
               return (
                 <div
                   key={key}
-                  className={`tasks-calendar-day ${today ? 'is-today' : ''}`}
+                  className={`tasks-calendar-day ${today ? 'is-today' : ''} ${absenceLabel ? 'is-absence' : ''}`}
                 >
                   <div className="tasks-calendar-day-number">
                     <span>{date.getDate()}</span>
-                    {today && <small>hoy</small>}
+                    <div className="tasks-calendar-day-flags">
+                      {absenceLabel && (
+                        <small className="calendar-absence-badge">{absenceLabel}</small>
+                      )}
+                      {today && <small>hoy</small>}
+                    </div>
                   </div>
 
                   <div className="tasks-calendar-events">
