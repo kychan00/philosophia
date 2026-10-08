@@ -43,6 +43,14 @@ const NO_CLASS_DATES = new Set([
   '2026-10-12', // Aniversario UdeG · Día de la Raza · Romería
 ])
 
+const NO_CLASS_DAY_DETAILS = {
+  '2026-10-12': {
+    label: 'Sin clases',
+    icons: '🇲🇽 🙏 🛡️',
+    title: 'Día de la Raza · Romería · Aniversario UdeG',
+  },
+}
+
 const SUBJECT_NO_CLASS_DATES = {
   '2026-10-08': new Set(['Teoría Crítica']), // La maestra no asistirá.
 }
@@ -557,11 +565,12 @@ export default function TasksBoard() {
               const dayCafeEvents = cafeEvents.filter((event) => event.date === key)
               const today = dateKey(new Date()) === key
               const absenceLabel = ABSENCE_DATES[key] || null
+              const noClassNotice = NO_CLASS_DAY_DETAILS[key] || null
 
               return (
                 <div
                   key={key}
-                  className={`tasks-calendar-day ${today ? 'is-today' : ''} ${absenceLabel ? 'is-absence' : ''}`}
+                  className={`tasks-calendar-day ${today ? 'is-today' : ''} ${absenceLabel ? 'is-absence' : ''} ${noClassNotice ? 'is-no-class' : ''}`}
                 >
                   <div className="tasks-calendar-day-number">
                     <span>{date.getDate()}</span>
@@ -569,11 +578,24 @@ export default function TasksBoard() {
                       {absenceLabel && (
                         <small className="calendar-absence-badge">{absenceLabel}</small>
                       )}
+                      {noClassNotice && (
+                        <small className="calendar-no-class-badge">{noClassNotice.label}</small>
+                      )}
                       {today && <small>hoy</small>}
                     </div>
                   </div>
 
                   <div className="tasks-calendar-events">
+                    {noClassNotice && (
+                      <div className="calendar-no-class-notice" title={noClassNotice.title}>
+                        <span className="calendar-no-class-icons" aria-hidden="true">
+                          {noClassNotice.icons}
+                        </span>
+                        <strong>{noClassNotice.label}</strong>
+                        <small>{noClassNotice.title}</small>
+                      </div>
+                    )}
+
                     {dayClasses.map((course) => (
                       <Link
                         key={`${key}-${course.code}`}

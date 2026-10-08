@@ -9787,6 +9787,57 @@ a {
   text-transform: uppercase;
 }
 
+
+.tasks-calendar-day.is-no-class {
+  background:
+    linear-gradient(135deg, rgba(1, 17, 38, .055), transparent 48%),
+    rgba(242, 185, 80, .065);
+}
+
+.calendar-no-class-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: .22rem .42rem;
+  border: 1px solid rgba(1,17,38,.16);
+  border-radius: 999px;
+  background: rgba(242,185,80,.18);
+  color: #4f431f !important;
+  font-size: .52rem !important;
+  font-weight: 900;
+  letter-spacing: .08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.calendar-no-class-notice {
+  display: grid;
+  gap: .22rem;
+  padding: .56rem .58rem;
+  border: 1px solid rgba(1,17,38,.14);
+  border-left: 4px solid #011126;
+  border-radius: 4px;
+  background: rgba(255,255,255,.42);
+  color: #2f3540;
+}
+
+.calendar-no-class-icons {
+  font-size: 1.05rem;
+  line-height: 1;
+  letter-spacing: .12em;
+}
+
+.calendar-no-class-notice strong {
+  font: 900 .66rem/1.15 Arial, sans-serif;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.calendar-no-class-notice small {
+  color: #665b3c;
+  font-size: .55rem;
+  line-height: 1.3;
+}
+
 .tasks-calendar-day-number {
   display: flex;
   justify-content: space-between;
