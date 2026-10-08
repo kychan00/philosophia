@@ -39,6 +39,10 @@ const STATUS_ORDER = {
   completed: 6,
 }
 
+const NO_CLASS_DATES = new Set([
+  '2026-10-12', // Aniversario UdeG · Día de la Raza · Romería
+])
+
 function parseDate(value) {
   if (!value) return null
 
@@ -205,6 +209,10 @@ function classesForDate(date) {
   const key = dateKey(date)
 
   if (key < '2026-08-17' || key > '2026-12-31') {
+    return []
+  }
+
+  if (NO_CLASS_DATES.has(key)) {
     return []
   }
 
