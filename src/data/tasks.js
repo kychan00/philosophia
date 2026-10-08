@@ -597,6 +597,45 @@ export const tasks = [
     studyRoute: '/tareas/teoria-critica/lukacs-cosificacion',
   },
 
+
+  {
+    id: 'ontologia-2026-10-14-croce-dialectica',
+    subject: 'Ontología II',
+    subjectCode: 'FI190',
+    assignedDate: '2026-10-07',
+    dueDate: '2026-10-14',
+    dueTime: '12:55',
+    title: 'Croce · La dialéctica o la síntesis de los contrarios',
+    type: 'Lectura / preparación',
+    weight: null,
+    priority: 'Alta',
+    description:
+      'Leer el capítulo I de Lo vivo y lo muerto de la filosofía de Hegel, de Benedetto Croce, como preparación para la entrada a Hegel. La entrega se coloca en la siguiente sesión efectiva: el lunes 12 de octubre no hay clases y la siguiente clase es el miércoles 14.',
+    readingScope:
+      'Benedetto Croce · Lo vivo y lo muerto de la filosofía de Hegel · capítulo I · “La dialéctica o la síntesis de los contrarios”',
+    sourceClass: 'Clase del 7 de octubre · tarea para la siguiente sesión efectiva',
+    sourceRoute: '/semestre/5/ontologia-ii/clase/7-octubre',
+  },
+
+  {
+    id: 'metodos-2026-10-14-segundo-reporte-protocolo',
+    subject: 'Métodos de Investigación',
+    subjectCode: 'FI104',
+    assignedDate: '2026-10-07',
+    dueDate: '2026-10-14',
+    dueTime: '17:25',
+    title: 'Segundo reporte · protocolo en formación',
+    type: 'Reporte / avance de protocolo',
+    weight: null,
+    priority: 'Alta',
+    description:
+      'Preparar un pequeño protocolo con objeto de estudio, problemática y problema de investigación. La entrega se coloca en la siguiente sesión efectiva: el lunes 12 de octubre no hay clases y la siguiente clase es el miércoles 14.',
+    readingScope:
+      'Objeto de estudio + problemática + problema de investigación',
+    sourceClass: 'Clase del 7 de octubre · tarea para la siguiente sesión efectiva',
+    sourceRoute: '/semestre/5/metodos-de-investigacion',
+  },
+
 ]
 
 export default tasks
