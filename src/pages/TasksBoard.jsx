@@ -43,6 +43,10 @@ const NO_CLASS_DATES = new Set([
   '2026-10-12', // Aniversario UdeG · Día de la Raza · Romería
 ])
 
+const SUBJECT_NO_CLASS_DATES = {
+  '2026-10-08': new Set(['Teoría Crítica']), // La maestra no asistirá.
+}
+
 function parseDate(value) {
   if (!value) return null
 
@@ -216,8 +220,12 @@ function classesForDate(date) {
     return []
   }
 
-  return CLASS_SCHEDULE.filter((course) =>
-    course.weekdays.includes(date.getDay()),
+  const subjectCancellations = SUBJECT_NO_CLASS_DATES[key]
+
+  return CLASS_SCHEDULE.filter(
+    (course) =>
+      course.weekdays.includes(date.getDay()) &&
+      !subjectCancellations?.has(course.subject),
   )
 }
 
