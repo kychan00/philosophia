@@ -636,6 +636,25 @@ export const tasks = [
     sourceRoute: '/semestre/5/metodos-de-investigacion',
   },
 
+
+  {
+    id: 'etica-2026-10-08-reduccion-absurdo',
+    subject: 'Ética · Escuelas clásicas',
+    subjectCode: 'FI194',
+    assignedDate: '2026-10-08',
+    dueDate: null,
+    title: 'Dos argumentos formales reducibles al absurdo',
+    type: 'Argumentación formal',
+    weight: null,
+    priority: 'Alta',
+    description:
+      'Construir dos argumentos formales que puedan ser trabajados mediante reducción al absurdo: formular una regla o afirmación, derivar una consecuencia, introducir un caso contrario posible y mostrar la contradicción que obliga a revisar una premisa, generalización o concepto.',
+    readingScope:
+      'Dialéctica socrática · reducción al absurdo · afirmación universal · contraejemplo · contradicción',
+    sourceClass: 'Clase del 8 de octubre · fecha de entrega no recuperada',
+    sourceRoute: '/semestre/5/etica',
+  },
+
 ]
 
 export default tasks
