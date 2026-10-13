@@ -1,0 +1,371 @@
+.water-cafe-page{
+  --water-sky:#87d9ea;
+  --water-deep:#0c4d68;
+  --water-ink:#12181b;
+  --water-paper:#ead2a4;
+  --water-paper-blue:#8ed6e4;
+  --water-sand:#d9a86a;
+  --water-cream:#f1e4c8;
+  --water-line:rgba(18,24,27,.28);
+  min-height:100vh;
+  overflow:hidden;
+  color:var(--water-ink);
+  background:
+    radial-gradient(circle at 78% 10%,rgba(255,255,255,.35),transparent 25%),
+    linear-gradient(180deg,#287f9e 0%,#65bdd1 38%,#d9b17b 82%,#ba7643 100%);
+  font-family:Georgia,'Times New Roman',serif;
+}
+
+.water-cafe-page *{box-sizing:border-box}
+
+.water-cafe-grain{
+  position:fixed;
+  z-index:50;
+  inset:0;
+  pointer-events:none;
+  opacity:.12;
+  mix-blend-mode:multiply;
+  background:
+    radial-gradient(circle at 20% 30%,#000 0 .4px,transparent .65px) 0 0/19px 23px,
+    radial-gradient(circle at 70% 60%,#000 0 .35px,transparent .6px) 0 0/31px 29px;
+}
+
+.water-cafe-topbar{
+  position:relative;
+  z-index:5;
+  display:grid;
+  grid-template-columns:1fr auto auto;
+  gap:28px;
+  align-items:center;
+  padding:15px 4vw;
+  border-bottom:1px solid rgba(255,255,255,.16);
+  background:#0b3344;
+  color:#f8ebce;
+  font:800 10px/1.2 Arial,sans-serif;
+  letter-spacing:.14em;
+}
+.water-cafe-topbar a{color:inherit;text-decoration:none}
+
+.water-cafe-hero{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(340px,.95fr);
+  min-height:780px;
+}
+
+.water-cafe-copy{
+  position:relative;
+  z-index:2;
+  padding:70px 5vw 80px;
+}
+
+.water-cafe-kicker{
+  margin:0 0 28px;
+  color:#f4e4bd;
+  font:800 10px Arial,sans-serif;
+  letter-spacing:.18em;
+}
+
+.water-cafe-paper-title{
+  width:min(760px,96%);
+  padding:28px 34px 34px;
+  transform:rotate(-1deg);
+  background:
+    linear-gradient(rgba(255,255,255,.15),rgba(255,255,255,.05)),
+    var(--water-paper-blue);
+  box-shadow:0 22px 48px rgba(5,34,44,.28);
+  clip-path:polygon(1% 5%,6% 2%,13% 4%,20% 2%,29% 5%,39% 2%,51% 4%,62% 2%,74% 5%,87% 2%,99% 5%,98% 94%,91% 97%,81% 95%,72% 98%,61% 95%,49% 98%,37% 95%,26% 97%,13% 95%,2% 98%);
+}
+.water-cafe-paper-title span{
+  display:block;
+  color:#163341;
+  font:900 clamp(24px,3.4vw,52px)/.95 Arial,sans-serif;
+  letter-spacing:.02em;
+}
+.water-cafe-paper-title h1{
+  margin:10px 0 0;
+  color:#0b2631;
+  font:900 clamp(68px,10vw,148px)/.78 Arial,sans-serif;
+  letter-spacing:-.07em;
+}
+
+.water-cafe-deck{
+  max-width:720px;
+  margin:34px 0 0;
+  color:#f8eed8;
+  font-size:clamp(20px,2.1vw,30px);
+  line-height:1.35;
+}
+
+.water-cafe-meta{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+  max-width:760px;
+  margin-top:36px;
+}
+.water-cafe-meta article{
+  display:grid;
+  grid-template-columns:72px minmax(0,1fr);
+  gap:14px;
+  align-items:center;
+  padding:15px 17px;
+  border:1px solid rgba(248,235,206,.42);
+  background:rgba(7,49,65,.36);
+  color:#fff3dc;
+  backdrop-filter:blur(6px);
+}
+.water-cafe-meta span{
+  color:#e6cc91;
+  font:900 9px Arial,sans-serif;
+  letter-spacing:.12em;
+}
+.water-cafe-meta strong{font-size:19px;line-height:1.15}
+.water-cafe-meta .is-coffee{
+  color:#101619;
+  background:#f0cb72;
+  border-color:#f0cb72;
+}
+.water-cafe-meta .is-coffee span{color:#4b391a}
+
+.water-cafe-status{
+  max-width:760px;
+  margin-top:24px;
+  padding:18px 20px;
+  border-left:5px solid #f0cb72;
+  background:rgba(10,41,53,.52);
+  color:#f8eed8;
+}
+.water-cafe-status span{
+  color:#f0cb72;
+  font:900 9px Arial,sans-serif;
+  letter-spacing:.14em;
+}
+.water-cafe-status p{margin:8px 0 0;line-height:1.5}
+
+.water-cafe-poster{
+  position:relative;
+  align-self:center;
+  justify-self:center;
+  width:min(72%,520px);
+  margin:46px auto 68px;
+  padding:14px;
+  background:#ead2a4;
+  box-shadow:0 30px 60px rgba(5,25,33,.38);
+  transform:rotate(1.2deg);
+}
+.water-cafe-tape{
+  position:absolute;
+  z-index:3;
+  top:-15px;
+  left:50%;
+  width:126px;
+  height:30px;
+  transform:translateX(-50%) rotate(-4deg);
+  background:rgba(234,210,164,.82);
+}
+.water-cafe-poster img{display:block;width:100%;height:auto}
+.water-cafe-poster figcaption{padding:13px 4px 1px}
+.water-cafe-poster figcaption span{
+  color:#0c4d68;
+  font:900 8px Arial,sans-serif;
+  letter-spacing:.14em;
+}
+.water-cafe-poster figcaption p{margin:5px 0 0;font-size:15px}
+
+.water-cafe-band{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  width:min(1320px,90vw);
+  margin:10px auto 0;
+  border:2px solid #102a35;
+  background:#e1c18a;
+}
+.water-cafe-band article{
+  min-height:150px;
+  padding:20px;
+  border-right:1px solid #102a35;
+}
+.water-cafe-band article:last-child{border-right:0}
+.water-cafe-band article.is-dark{
+  color:#f9ecd0;
+  background:#0c4d68;
+}
+.water-cafe-band span{
+  font:900 9px Arial,sans-serif;
+  letter-spacing:.12em;
+}
+.water-cafe-band strong{
+  display:block;
+  margin-top:65px;
+  font:900 clamp(16px,2vw,26px)/.95 Arial,sans-serif;
+}
+
+.water-cafe-section{
+  width:min(1280px,88vw);
+  margin:0 auto;
+  padding:86px 0 14px;
+}
+
+.water-cafe-section-head{
+  display:grid;
+  grid-template-columns:58px minmax(0,1fr);
+  gap:18px;
+  align-items:start;
+  margin-bottom:30px;
+}
+.water-cafe-section-head>span{
+  display:grid;
+  place-items:center;
+  width:52px;
+  height:52px;
+  border:2px solid #0c4d68;
+  color:#0c4d68;
+  background:#f2dfb9;
+  font:900 10px Arial,sans-serif;
+}
+.water-cafe-section-head p{
+  margin:4px 0 0;
+  color:#0c4d68;
+  font:900 9px Arial,sans-serif;
+  letter-spacing:.15em;
+}
+.water-cafe-section-head h2{
+  margin:7px 0 0;
+  max-width:900px;
+  color:#102a35;
+  font-size:clamp(34px,5vw,70px);
+  line-height:.92;
+  letter-spacing:-.045em;
+}
+
+.water-cafe-questions{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+.water-cafe-questions article{
+  min-height:320px;
+  padding:26px;
+  border:1px solid var(--water-line);
+  background:#f2e4c8;
+  box-shadow:0 18px 35px rgba(80,51,24,.12);
+}
+.water-cafe-questions article:nth-child(2){
+  background:#a7deea;
+}
+.water-cafe-questions span{
+  color:#0c4d68;
+  font:900 28px Arial,sans-serif;
+}
+.water-cafe-questions p{
+  margin:90px 0 0;
+  color:#17232a;
+  font:700 clamp(22px,2.5vw,34px)/1.08 Georgia,serif;
+}
+
+.water-cafe-moderators{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  border:1px solid var(--water-line);
+  background:#f2e4c8;
+}
+.water-cafe-moderators article{
+  min-height:170px;
+  padding:20px;
+  border-right:1px solid var(--water-line);
+}
+.water-cafe-moderators article:last-child{border-right:0}
+.water-cafe-moderators span{
+  color:#0c4d68;
+  font:900 9px Arial,sans-serif;
+  letter-spacing:.12em;
+}
+.water-cafe-moderators strong{
+  display:block;
+  margin-top:70px;
+  font-size:20px;
+  line-height:1.05;
+}
+
+.water-cafe-invite{
+  display:grid;
+  grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);
+  gap:24px;
+  width:min(1280px,88vw);
+  margin:76px auto;
+  padding:34px;
+  border:2px solid #102a35;
+  background:#e7c17b;
+}
+.water-cafe-invite span{
+  color:#0c4d68;
+  font:900 9px Arial,sans-serif;
+  letter-spacing:.13em;
+}
+.water-cafe-invite h2{
+  margin:10px 0 0;
+  font-size:clamp(42px,6vw,86px);
+  line-height:.88;
+  letter-spacing:-.055em;
+}
+.water-cafe-invite p{margin:14px 0 0;font-size:22px}
+.water-cafe-invite aside{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:24px;
+  background:#0c4d68;
+  color:#f9ecd0;
+}
+.water-cafe-invite aside strong{font:900 30px Arial,sans-serif}
+.water-cafe-invite aside span{margin-top:8px;color:#f0cb72}
+
+.water-cafe-footer{
+  display:flex;
+  justify-content:space-between;
+  gap:24px;
+  align-items:flex-end;
+  padding:24px 4vw;
+  background:#0b3344;
+  color:#f8ebce;
+  font:800 9px Arial,sans-serif;
+  letter-spacing:.11em;
+}
+.water-cafe-footer a{color:inherit;text-decoration:none}
+.water-cafe-footer div{text-align:right}
+.water-cafe-footer strong,.water-cafe-footer span{display:block}
+.water-cafe-footer span{margin-top:5px;color:#e6cc91}
+
+@media(max-width:980px){
+  .water-cafe-hero{grid-template-columns:1fr}
+  .water-cafe-poster{width:min(70%,500px);margin-top:0}
+  .water-cafe-questions{grid-template-columns:1fr}
+  .water-cafe-questions article{min-height:220px}
+  .water-cafe-questions p{margin-top:54px}
+  .water-cafe-moderators{grid-template-columns:repeat(2,1fr)}
+  .water-cafe-moderators article{border-bottom:1px solid var(--water-line)}
+  .water-cafe-invite{grid-template-columns:1fr}
+}
+
+@media(max-width:760px){
+  .water-cafe-topbar{grid-template-columns:1fr;gap:7px}
+  .water-cafe-copy{padding:48px 18px 58px}
+  .water-cafe-paper-title{width:100%;padding:24px 20px 28px}
+  .water-cafe-paper-title h1{font-size:clamp(62px,21vw,100px)}
+  .water-cafe-meta{grid-template-columns:1fr}
+  .water-cafe-poster{width:82%}
+  .water-cafe-band{grid-template-columns:repeat(2,minmax(0,1fr));width:calc(100% - 36px)}
+  .water-cafe-band article:nth-child(2){border-right:0}
+  .water-cafe-band article:nth-child(-n+2){border-bottom:1px solid #102a35}
+  .water-cafe-section{width:calc(100% - 36px);padding-top:62px}
+  .water-cafe-section-head{grid-template-columns:48px minmax(0,1fr);gap:12px}
+  .water-cafe-section-head>span{width:42px;height:42px}
+  .water-cafe-section-head h2{font-size:clamp(32px,10vw,46px)}
+  .water-cafe-moderators{grid-template-columns:1fr}
+  .water-cafe-moderators article{min-height:120px;border-right:0}
+  .water-cafe-moderators strong{margin-top:38px}
+  .water-cafe-invite{width:calc(100% - 36px);margin:58px 18px;padding:26px 20px}
+  .water-cafe-footer{align-items:flex-start;flex-direction:column}
+  .water-cafe-footer div{text-align:left}
+}
