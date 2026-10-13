@@ -92,7 +92,7 @@ export default function CafeAguaEvent() {
         <figure className="water-cafe-poster">
           <div className="water-cafe-tape" aria-hidden="true" />
           <img
-            src={`${ASSET}/poster-original.jpg`}
+            src={`${ASSET}/poster-original.svg`}
             alt="Cartel del Café Filosófico interdisciplinario Hablemos sobre el agua"
           />
           <figcaption>
