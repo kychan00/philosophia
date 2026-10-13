@@ -63,6 +63,19 @@ export const cafeEvents: CafeEvent[] = [
     themes: ['mercadotecnia', 'persuasión', 'manipulación', 'consumo', 'libertad'],
   },
 
+  {
+    id: 'cafe-2026-10-19-agua',
+    date: '2026-10-19',
+    slug: 'agua',
+    eyebrow: 'Café filosófico · interdisciplinario',
+    title: 'Hablemos sobre el agua',
+    deck:
+      'Próximo encuentro sobre el agua como derecho, recurso, servicio o bien común; el agua embotellada y la responsabilidad frente a daños que aparecen después.',
+    route: '/cafe-filosofico/2026/10/19/agua',
+    status: 'proximo',
+    themes: ['agua', 'derecho', 'recurso', 'bien común', 'responsabilidad'],
+  },
+
 
 ]
 
