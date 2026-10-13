@@ -49,8 +49,22 @@ const sessions = [
     route: '/cafe-filosofico/2026/10/05/mercadotecnia',
     image: `${import.meta.env.BASE_URL}images/cafe-filosofico/mercadotecnia/poster-original.jpg`,
     imageMode: 'poster',
+    badge: 'MEMORIA PUBLICADA',
+    actionLabel: 'Explorar memoria',
+  },
+
+  {
+    edition: 'EDICIÓN 04',
+    date: '19 OCT 2026',
+    title: 'Hablemos sobre el agua',
+    description:
+      'Próximo encuentro sobre el agua como derecho, recurso, servicio o bien común; el consumo de agua embotellada y la responsabilidad frente a daños que todavía no son visibles.',
+    tags: ['Agua', 'Derecho', 'Recurso', 'Bien común', 'Responsabilidad'],
+    route: '/cafe-filosofico/2026/10/19/agua',
+    image: `${import.meta.env.BASE_URL}images/cafe-filosofico/agua/poster-original.jpg`,
+    imageMode: 'poster',
     badge: 'PRÓXIMO ENCUENTRO',
-    actionLabel: 'Explorar problema',
+    actionLabel: 'Ver invitación',
   },
 
 
