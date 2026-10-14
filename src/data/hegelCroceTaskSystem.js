@@ -140,6 +140,10 @@ const raw = [
   ['L22','Clase · 14 oct','Q14 · primer concepto concreto','El Devenir es el primer concepto concreto porque contiene Ser y Nada como momentos distintos de una unidad móvil.','Ser y Nada aislados permanecen abstractos; Devenir incluye relación, diferencia y movimiento.','afinar Q14',['Devenir','concepto concreto'],['class14','hegel','questions'],['Q14','L21','H09','C36'],true,false,'Clase · 14 oct · Q14'],
   ['L23','Clase · 14 oct','Dasein · determinación es negación','La clase anticipa el ser determinado: ser algo implica no ser aquello que queda fuera de su determinación.','“Determinado” no significa causalmente determinado por otro; significa poseer cualidad y diferencia. La fórmula “toda determinación es negación” prepara algo/otro y el desarrollo categorial.','abrir el paso a Dasein',['Dasein','determinación','negación'],['class14','hegel'],['H17','H20','L22'],true,false,'Clase · 14 oct · continuidad'],
   ['L24','Clase · 14 oct','Q16–Q18 · identidad sin borrosidad','El delirio báquico no significa que todas las diferencias se vuelvan borrosas: cada momento conserva determinación, pero su verdad está en el todo.','La clase concluye que el principio de identidad se conserva de forma concreta: Ser es Ser y Nada es Nada como momentos, sin convertirlos en verdades aisladas.','cerrar identidad y oposición',['delirio báquico','identidad','momento'],['class14','questions','dialectic'],['Q16','Q17','Q18','C37','C38','H18'],true,false,'Clase · 14 oct · Q16–Q18'],
+  ['L25','Clase · 14 oct','Continuidad · material para dos sesiones','La apertura de la clase indica que el material y el cuestionario seguirán funcionando como hilo conductor durante las sesiones inmediatas.','La indicación permite cerrar la tarea del 7 de octubre como trabajada hoy y, al mismo tiempo, registrar que el bloque Croce/Hegel no termina con esta sesión.','registrar continuidad sin inventar entrega',['continuidad','cuestionario','sesiones'],['class14','orientation','questions'],['L01','L24'],true,false,'Clase · 14 oct · continuidad'],
+  ['L26','Clase · 14 oct','Capítulo II · referencia probable','La grabación degradada parece mencionar los capítulos primero y segundo de Croce al describir el material que se trabajará.','Como el ASR no permite recuperar una orden literal inequívoca, el capítulo II se registra como continuidad probable, no como fecha de entrega confirmada.','preservar la incertidumbre documental',['Croce','capítulo II','incertidumbre'],['class14','croce'],['L25'],false,true,'Clase · 14 oct · continuidad probable'],
+  ['L27','Clase · 14 oct','Cuestionario II · 17 preguntas','El cuestionario adjunto contiene una segunda sección titulada “Aclaraciones Concernientes a la Historia de la Dialéctica” con 17 preguntas.','La existencia documental de esa segunda sección refuerza la continuidad de estudio, pero no demuestra por sí sola una entrega para una fecha concreta.','distinguir material disponible de obligación confirmada',['cuestionario','capítulo II','17 preguntas'],['class14','questions'],['L26','A03'],true,false,'Cuestionario adjunto · cap. II'],
+  ['L28','Clase · 14 oct','Sin nueva entrega cerrada','No se recupera una fecha de entrega ni una instrucción inequívoca de entregar el capítulo II en la siguiente sesión.','La próxima sesión programada puede usarse como horizonte de preparación, pero no debe convertirse en fecha de entrega sin confirmación del profesor.','cerrar la revisión de tarea con cautela',['tarea','fecha','fuente'],['class14','orientation'],['L25','L26','L27','L02'],true,false,'Clase · 14 oct · control documental'],
 
   ['D01','Henrich · contexto','Henrich · propósito','Henrich advierte que comprender a Hegel exige reconstruir argumentos, no sustituir la lectura por un comentario.','El libro busca perspectivas para entender la obra como un todo y resolver problemas de interpretación.','situar el texto de consulta',['Henrich','interpretación'],['henrich'],['A05'],true,false,'Henrich · Prefacio · p. 9'],
   ['D02','Henrich · contexto','Hegel y Hölderlin','Primer bloque del índice.','Ruta contextual hacia los impulsos de unificación, libertad y oposición que preceden al sistema maduro.','mapear el índice',['Hölderlin'],['henrich'],['D01'],false,false,'Henrich · índice · p. 291'],
@@ -334,6 +338,9 @@ export const hegelCroceCrossRelations = [
   ['R26','L23','H17','Clase → Dasein','La sesión adelanta ser determinado, cualidad y negación.','development'],
   ['R27','L24','C38','Clase → identidad concreta','La explicación del delirio báquico culmina en una identidad que conserva diferencia.','manifestation'],
   ['R28','L24','H18','Clase → no borrar los momentos','La clase insiste en que unidad no significa borrosidad ni desaparición de la identidad de los momentos.','foundation'],
+  ['R29','L25','A03','Continuidad → cuestionario','La clase confirma que el cuestionario seguirá organizando las sesiones inmediatas.','development'],
+  ['R30','L26','L27','Capítulo II → cuestionario II','La referencia oral probable al capítulo II encuentra apoyo documental en la segunda sección del cuestionario, sin convertirla en una entrega fechada.','history'],
+  ['R31','L28','L02','Tarea / examen → fechas no confirmadas','Tanto la continuidad de lectura como el examen quedan registrados sin fabricar una fecha exacta ausente de la grabación.','foundation'],
 ]
 
 export const hegelCroceConceptualEdges = hegelCroceCrossRelations.map(([id,source,target,title,synthesis,type])=>({
@@ -366,13 +373,14 @@ export const hegelCroceSource = {
   title:'Hegel · Croce · dialéctica, Ser, Nada y Devenir',
   assignedDate:'7 oct 2026',
   dueDate:'14 oct 2026',
-  boundary:'El sistema parte de los materiales adjuntos y la consigna del profesor. Croce se usa como interpretación del capítulo I; Hegel como fuente primaria para Ser/Nada/Devenir; Henrich como consulta general e índice. La clase del 14 de octubre se incorpora como una capa separada de explicación oral: sus ejemplos no se convierten en doctrina textual ni en hechos externos verificados.',
+  boundary:'El sistema parte de los materiales adjuntos y la consigna del profesor. Croce se usa como interpretación del capítulo I; Hegel como fuente primaria para Ser/Nada/Devenir; Henrich como consulta general e índice. La clase del 14 de octubre se incorpora como una capa separada de explicación oral: sus ejemplos no se convierten en doctrina textual ni en hechos externos verificados. La continuidad hacia el capítulo II se marca como probable y sin fecha de entrega confirmada.',
   readings:[
     'Benedetto Croce · Lo vivo y lo muerto de la filosofía de Hegel · cap. I',
     'Cuestionario · capítulo I · 18 preguntas',
     'G. W. F. Hegel · Ciencia de la Lógica · Libro I · Ser / Nada / Devenir',
     'Dieter Henrich · Hegel en su contexto · revisión general, mínimo índice',
     'Clase de Ontología II · 14 oct 2026 · explicación oral del cuestionario y comienzo de la lógica',
+    'Continuidad probable · Croce cap. II + cuestionario II · sin entrega fechada',
   ],
 }
 
