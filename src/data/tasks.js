@@ -621,6 +621,25 @@ export const tasks = [
   },
 
   {
+    id: 'ontologia-2026-10-14-croce-cap2-continuidad',
+    subject: 'Ontología II',
+    subjectCode: 'FI190',
+    assignedDate: '2026-10-14',
+    dueDate: null,
+    title: 'Croce · capítulo II · continuidad del cuestionario',
+    type: 'Continuidad de lectura',
+    weight: null,
+    priority: 'Media',
+    description:
+      'Continuar el bloque Croce/Hegel. La grabación parece remitir al capítulo II de Croce y el cuestionario adjunto contiene una segunda sección de 17 preguntas, pero no se recupera una fecha de entrega ni una orden inequívoca de entregarlo en la siguiente sesión.',
+    readingScope:
+      'Benedetto Croce · capítulo II · Aclaraciones concernientes a la historia de la Dialéctica · cuestionario de 17 preguntas',
+    sourceClass: 'Clase del 14 de octubre · continuidad anunciada, sin fecha de entrega confirmada',
+    sourceRoute: '/semestre/5/ontologia-ii/clase/14-octubre',
+    studyRoute: '/tareas/ontologia-ii/hegel-croce-dialectica',
+  },
+
+  {
     id: 'metodos-2026-10-14-segundo-reporte-protocolo',
     subject: 'Métodos de Investigación',
     subjectCode: 'FI104',
