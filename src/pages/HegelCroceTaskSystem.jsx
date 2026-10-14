@@ -15,6 +15,7 @@ import './MarxCommodityValueSystem.css'
 import './HegelCroceTaskSystem.css'
 
 import HegelCroceNode from '../components/hegel/HegelCroceNode'
+import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema'
 import { SYSTEM_2D_THEME, resolveSystem2DEdgeColor } from '../components/philosophy/system2d/system2dTheme'
 import {
   hegelCroceConceptualEdges,
@@ -290,10 +291,10 @@ function HegelCroceTaskCanvas() {
       <section className="marx-guided-launch">
         <div>
           <span>LECTIO ORDINATA</span>
-          <strong>Ruta guiada · {hegelCroceGuidedRoute.length} pasos nucleares</strong>
+          <strong>Ruta guiada completa · {hegelCroceGuidedRoute.length} / {hegelCroceStats.nodes} nodos</strong>
           <p>
-            El mapa completo conserva los {hegelCroceStats.nodes} nodos. La guía recorre
-            sólo las mediaciones decisivas y mantiene visible el nodo actual y el siguiente.
+            La guía recorre los {hegelCroceStats.nodes} nodos sin saltarse detalles: consigna, Croce,
+            las 18 preguntas, Hegel y Henrich. El nodo actual y el siguiente permanecen visibles.
           </p>
         </div>
         <button
@@ -602,7 +603,7 @@ function HegelCroceTaskCanvas() {
               <button key={id} type="button" onClick={()=>selectById(id)}>
                 <span>{id}</span>
                 <strong>{node?.data.title.replace(/^Q\d+ · /,'')}</strong>
-                <small>{node?.data.explanation}</small>
+                <small>{node?.data.excerpt}</small>
               </button>
             )
           })}
@@ -668,6 +669,14 @@ function HegelCroceTaskCanvas() {
                 <div className="marx-inspector-concepts">
                   {folio.data.concepts.map((concept)=><b key={concept}>{concept}</b>)}
                 </div>
+              </section>
+
+              <section className="marx-folio-schema-panel">
+                <span>ESQUEMA DEL NODO</span>
+                <AnimatedConceptSchema
+                  key={`hegel-croce-schema-${folio.id}`}
+                  schema={folio.data.schema}
+                />
               </section>
             </div>
 
