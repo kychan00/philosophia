@@ -130,6 +130,14 @@ const phaseIndex = new Map(hegelCrocePhases.map((phase,index)=>[phase,index]))
 
 const routeSet = (branches) => Array.from(new Set(branches))
 
+const sourceModeForPhase = (phase) => {
+  if (phase === 'Cuestionario') return 'PREGUNTA LITERAL COMPLETA'
+  if (phase === 'Ser · Nada · Devenir') return 'FUENTE PRIMARIA · RECONSTRUCCIÓN FIEL'
+  if (phase === 'Henrich · contexto') return 'ÍNDICE / PREFACIO · ORIENTACIÓN'
+  if (phase === 'Consigna') return 'CONSIGNA VERIFICADA · ORGANIZACIÓN'
+  return 'CROCE · RECONSTRUCCIÓN FIEL'
+}
+
 export const hegelCroceNodes = raw.map((item) => {
   const [id,phase,title,excerpt,explanation,role,concepts,branch,dependsOn,critical,micro,page] = item
   const siblings = raw.filter((candidate) => candidate[1] === phase)
@@ -158,6 +166,7 @@ export const hegelCroceNodes = raw.map((item) => {
       micro,
       page,
       sourceShort: phase === 'Ser · Nada · Devenir' ? 'Hegel' : phase.startsWith('Henrich') ? 'Henrich' : phase === 'Consigna' ? 'Tarea' : phase === 'Cuestionario' ? 'Cuestionario' : 'Croce',
+      sourceMode: sourceModeForPhase(phase),
       question: critical
         ? '¿Puede explicar este nodo sin repetir sólo su definición?'
         : '¿Qué papel cumple este detalle en el movimiento general?',
@@ -328,6 +337,8 @@ export const hegelCroceSource = {
 
 export const hegelCroceStats = {
   nodes: hegelCroceNodes.length,
+  schemas: hegelCroceNodes.filter((node) => Boolean(node.data.schema)).length,
+  guidedSteps: hegelCroceGuidedRoute.length,
   edges: hegelCroceEdges.length,
   crossRelations: hegelCroceCrossRelations.length,
   questions:18,
