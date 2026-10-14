@@ -6,6 +6,7 @@ export const hegelCroceRoutes = [
   { id: 'dialectic', label: 'Dialéctica' },
   { id: 'questions', label: 'Cuestionario · 18' },
   { id: 'hegel', label: 'Hegel · Ser/Nada/Devenir' },
+  { id: 'class14', label: 'Clase · 14 oct' },
   { id: 'henrich', label: 'Henrich · mapa' },
 ]
 
@@ -17,6 +18,7 @@ export const hegelCrocePhases = [
   'Síntesis dialéctica',
   'Cuestionario',
   'Ser · Nada · Devenir',
+  'Clase · 14 oct',
   'Henrich · contexto',
 ]
 
@@ -114,6 +116,31 @@ const raw = [
   ['H23','Ser · Nada · Devenir','Pregunta de control','¿Por qué Ser puro no puede quedarse quieto como Ser?','Porque, en su pura indeterminación, no contiene una diferencia que lo mantenga separado de la Nada pura.','probar comprensión',['pregunta'],['hegel'],['H04','H07'],false,true,'Control de lectura'],
   ['H24','Ser · Nada · Devenir','Pregunta de control final','¿Por qué el Devenir es más concreto que Ser y Nada?','Porque contiene la unidad, la diferencia y el tránsito de ambos momentos en lugar de aislar una abstracción vacía.','probar comprensión',['pregunta','devenir'],['hegel'],['H09','H14','C36'],true,true,'Control de lectura'],
 
+  ['L01','Clase · 14 oct','El cuestionario como hilo conductor','El profesor usa el cuestionario para fijar las ideas principales de Croce y preparar la entrada a Hegel.','La sesión no trata el cuestionario como una lista de respuestas aisladas, sino como estructura de lectura para reconstruir método, oposición y comienzo de la lógica.','ubicar la función pedagógica de la tarea',['cuestionario','lectura guiada'],['class14','questions','orientation'],['A03'],true,false,'Clase · 14 oct · apertura'],
+  ['L02','Clase · 14 oct','Examen anunciado','El profesor anuncia un examen aproximadamente dentro de quince días, sin fijar en la grabación una fecha exacta.','La información se registra como horizonte de evaluación, no como fecha cerrada.','registrar continuidad del curso',['examen','evaluación'],['class14','orientation'],['L01'],false,true,'Clase · 14 oct · aviso'],
+  ['L03','Clase · 14 oct','Q1 · totalidad y método','El objeto de estudio filosófico se presenta como la totalidad; por eso su método no puede tomarse prestado de una ciencia particular.','La explicación oral radicaliza Q1: un método adecuado a un sector de la realidad no basta para una disciplina que pretende pensar la totalidad.','afinar la respuesta a Q1',['totalidad','método filosófico'],['class14','croce','questions'],['Q01','C01','C02'],true,false,'Clase · 14 oct · Q1'],
+  ['L04','Clase · 14 oct','Descartes · modelo matemático','El método cartesiano aparece como ejemplo histórico de una filosofía fuertemente inspirada por el modelo matemático.','La clase usa a Descartes para mostrar por qué Croce exige distinguir un método filosófico propio de la mera adopción de un método científico particular.','dar contraste histórico',['Descartes','método matemático'],['class14'],['L03'],false,true,'Clase · 14 oct · ejemplo'],
+  ['L05','Clase · 14 oct','Spinoza · orden geométrico','La Ética de Spinoza aparece como segundo ejemplo de una filosofía construida según un orden geométrico.','El ejemplo sirve para continuar el contraste entre método filosófico y modelos tomados de matemáticas.','dar contraste histórico',['Spinoza','orden geométrico'],['class14'],['L03'],false,true,'Clase · 14 oct · ejemplo'],
+  ['L06','Clase · 14 oct','Vico · historicidad del método','Vico aparece como ejemplo de resistencia a aplicar sin más el modelo matemático al conocimiento histórico.','La clase lo usa para mostrar que el objeto estudiado condiciona el método y que la historia exige categorías que no se agotan en el cálculo matemático.','abrir la pluralidad metodológica',['Vico','historia','método'],['class14'],['L03'],false,true,'Clase · 14 oct · ejemplo'],
+  ['L07','Clase · 14 oct','Q2 · lógico como conceptual','La clase conserva los tres caracteres de Croce, pero explica “lógico” pedagógicamente como trabajo conceptual y definición de conceptos.','No se sustituye el término textual “lógico”: se registra la glosa oral “conceptual” como explicación del profesor.','afinar la primera característica',['lógico','conceptual'],['class14','croce','questions'],['Q02','C06'],true,false,'Clase · 14 oct · Q2'],
+  ['L08','Clase · 14 oct','Q2 · universal como totalidad','La universalidad se explica desde el objeto filosófico: pensar la totalidad y no sólo una región particular.','La clase conecta universalidad y totalidad para preparar la noción de universal concreto.','afinar la segunda característica',['universal','totalidad'],['class14','croce'],['L07','C07'],true,false,'Clase · 14 oct · Q2'],
+  ['L09','Clase · 14 oct','Q2 · concreto y oposiciones','Lo concreto se explica ontológicamente como la totalidad real articulada por una multiplicidad de diferencias y oposiciones.','La clase rechaza entender “concreto” como simple dato sensible: es totalidad internamente diferenciada.','afinar la tercera característica',['concreto','oposición','totalidad'],['class14','croce','dialectic'],['L08','C08','C25'],true,false,'Clase · 14 oct · Q2'],
+  ['L10','Clase · 14 oct','Lógica formal / lógica dialéctica','La dificultad de Hegel se relaciona con el paso desde determinaciones fijas de la lógica formal hacia una lógica dialéctica.','El profesor usa una analogía con lógicas contemporáneas capaces de tratar contradicciones; se conserva como comparación pedagógica y no como clasificación histórica literal.','marcar el cambio de lógica',['lógica formal','lógica dialéctica'],['class14','dialectic'],['L09','C30','C31'],true,false,'Clase · 14 oct · explicación'],
+  ['L11','Clase · 14 oct','Q3 · unidad de los contrarios','La clase concentra el problema central de Hegel en la posibilidad de pensar la unidad de los contrarios.','La formulación oral hace explícita la tarea: mantener oposición real sin perder la unidad que permite pensar la totalidad.','afinar Q3',['unidad','contrarios'],['class14','questions','opposites'],['Q03','C09','C15'],true,false,'Clase · 14 oct · Q3'],
+  ['L12','Clase · 14 oct','Q4 · distinto no es contrario','El profesor recuerda la lógica de oposición aristotélica para mostrar que diferencia y contrariedad no son equivalentes.','La clase usa el cuadrado de oposición como apoyo pedagógico: dos términos pueden ser distintos sin excluirse como contrarios.','afinar Q4',['distinción','contrariedad','Aristóteles'],['class14','questions','opposites'],['Q04','C12'],true,false,'Clase · 14 oct · Q4'],
+  ['L13','Clase · 14 oct','Q5 · monismo y diferencia de grado','El monismo se explica como primacía de la unidad: las oposiciones quedan reducidas o reinterpretadas dentro de una sola realidad.','El profesor usa la idea de diferencias de grado y a Spinoza como ejemplo pedagógico; la definición doctrinal principal sigue siendo la de Croce.','afinar Q5',['monismo','unidad','grado'],['class14','questions','opposites'],['Q05','C16','C19'],true,false,'Clase · 14 oct · Q5'],
+  ['L14','Clase · 14 oct','Q6 · dualismo y oposición real','El dualismo se explica como afirmación de que la oposición es real y no una simple diferencia de grado.','El maniqueísmo funciona como ejemplo pedagógico de dos polos realmente enfrentados.','afinar Q6',['dualismo','oposición','maniqueísmo'],['class14','questions','opposites'],['Q06','C20','C21'],true,false,'Clase · 14 oct · Q6'],
+  ['L15','Clase · 14 oct','Q7–Q8 · oscilación de extremos','La historia de la filosofía se presenta como alternancia entre soluciones que privilegian unidad y soluciones que privilegian oposición.','La función del recorrido no es memorizar una lista de autores, sino reconocer que ambos extremos reaparecen porque ninguno resuelve por sí solo la relación unidad/oposición.','integrar Q7 y Q8',['monismo','dualismo','historia'],['class14','questions','opposites'],['Q07','Q08','C22'],true,false,'Clase · 14 oct · Q7–Q8'],
+  ['L16','Clase · 14 oct','Intelecto y razón','El entendimiento o intelecto fija determinaciones; la razón piensa los momentos opuestos en su unidad.','La clase vincula el entendimiento con identidad, no contradicción y tercero excluido, y reserva a la razón la tarea de reconstruir mediación y totalidad.','precisar la arquitectura cognitiva',['intelecto','razón','mediación'],['class14','dialectic'],['C30','C31','Q12','Q15'],true,false,'Clase · 14 oct · Q12/Q15'],
+  ['L17','Clase · 14 oct','Aplicación · desarrollo / subdesarrollo','La clase usa desarrollo y subdesarrollo como ejemplo de términos que no deben pensarse como condiciones históricas completamente independientes.','La función filosófica del ejemplo es mostrar una relación interna entre opuestos; las afirmaciones geopolíticas concretas no se incorporan como hechos verificados.','aplicar unidad relacional',['desarrollo','subdesarrollo','relación'],['class14','dialectic'],['L11','L16'],false,false,'Clase · 14 oct · aplicación'],
+  ['L18','Clase · 14 oct','Aplicación · burguesía / proletariado','Marx aparece como ejemplo de una herencia dialéctica aplicada a relaciones sociales de producción.','La clase usa burguesía/proletariado para mostrar cómo términos opuestos se constituyen dentro de una relación y cómo el conflicto puede abrir una transformación ulterior.','mostrar una recepción dialéctica',['Marx','burguesía','proletariado'],['class14','dialectic'],['L17'],false,false,'Clase · 14 oct · aplicación'],
+  ['L19','Clase · 14 oct','Q13 · comienzo de la ciencia','La sesión entra directamente a la Ciencia de la Lógica y plantea la cuestión de cómo debe comenzar la ciencia.','El comienzo exige la determinación más inmediata y vacía posible: Ser puro.','abrir el texto primario',['comienzo','ciencia','Ser puro'],['class14','hegel','questions'],['Q13','H01','H02'],true,false,'Clase · 14 oct · Q13'],
+  ['L20','Clase · 14 oct','Ser puro · indeterminación','El Ser puro se explica como absoluta indeterminación: todavía no es un ente concreto ni una suma de propiedades.','La clase contrasta esta posición con la tradición eleática de identidad rígida para mostrar el paso que Hegel quiere realizar.','precisar Ser puro',['Ser puro','indeterminación','identidad'],['class14','hegel'],['L19','H02','H04'],true,false,'Clase · 14 oct · Hegel'],
+  ['L21','Clase · 14 oct','Verdad como movimiento','La verdad no consiste en aislar Ser y Nada, sino en el movimiento por el cual cada uno pasa a su opuesto.','La clase formula el centro de la secuencia como negación recíproca y tránsito; el resultado es Devenir.','formular el núcleo del devenir',['verdad','movimiento','negación'],['class14','hegel','dialectic'],['L20','H07','H08','H09'],true,false,'Clase · 14 oct · Q13/Q14'],
+  ['L22','Clase · 14 oct','Q14 · primer concepto concreto','El Devenir es el primer concepto concreto porque contiene Ser y Nada como momentos distintos de una unidad móvil.','Ser y Nada aislados permanecen abstractos; Devenir incluye relación, diferencia y movimiento.','afinar Q14',['Devenir','concepto concreto'],['class14','hegel','questions'],['Q14','L21','H09','C36'],true,false,'Clase · 14 oct · Q14'],
+  ['L23','Clase · 14 oct','Dasein · determinación es negación','La clase anticipa el ser determinado: ser algo implica no ser aquello que queda fuera de su determinación.','“Determinado” no significa causalmente determinado por otro; significa poseer cualidad y diferencia. La fórmula “toda determinación es negación” prepara algo/otro y el desarrollo categorial.','abrir el paso a Dasein',['Dasein','determinación','negación'],['class14','hegel'],['H17','H20','L22'],true,false,'Clase · 14 oct · continuidad'],
+  ['L24','Clase · 14 oct','Q16–Q18 · identidad sin borrosidad','El delirio báquico no significa que todas las diferencias se vuelvan borrosas: cada momento conserva determinación, pero su verdad está en el todo.','La clase concluye que el principio de identidad se conserva de forma concreta: Ser es Ser y Nada es Nada como momentos, sin convertirlos en verdades aisladas.','cerrar identidad y oposición',['delirio báquico','identidad','momento'],['class14','questions','dialectic'],['Q16','Q17','Q18','C37','C38','H18'],true,false,'Clase · 14 oct · Q16–Q18'],
+
   ['D01','Henrich · contexto','Henrich · propósito','Henrich advierte que comprender a Hegel exige reconstruir argumentos, no sustituir la lectura por un comentario.','El libro busca perspectivas para entender la obra como un todo y resolver problemas de interpretación.','situar el texto de consulta',['Henrich','interpretación'],['henrich'],['A05'],true,false,'Henrich · Prefacio · p. 9'],
   ['D02','Henrich · contexto','Hegel y Hölderlin','Primer bloque del índice.','Ruta contextual hacia los impulsos de unificación, libertad y oposición que preceden al sistema maduro.','mapear el índice',['Hölderlin'],['henrich'],['D01'],false,false,'Henrich · índice · p. 291'],
   ['D03','Henrich · contexto','Presupuestos históricos del sistema','Segundo bloque del índice.','Invita a leer el sistema no como aparición aislada, sino desde condiciones históricas e intelectuales de formación.','mapear el índice',['historia','sistema'],['henrich'],['D01'],false,false,'Henrich · índice · p. 291'],
@@ -134,6 +161,7 @@ const sourceModeForPhase = (phase) => {
   if (phase === 'Cuestionario') return 'PREGUNTA LITERAL COMPLETA'
   if (phase === 'Ser · Nada · Devenir') return 'FUENTE PRIMARIA · RECONSTRUCCIÓN FIEL'
   if (phase === 'Henrich · contexto') return 'ÍNDICE / PREFACIO · ORIENTACIÓN'
+  if (phase === 'Clase · 14 oct') return 'CLASE · 14 OCT · EXPLICACIÓN DEL PROFESOR'
   if (phase === 'Consigna') return 'CONSIGNA VERIFICADA · ORGANIZACIÓN'
   return 'CROCE · RECONSTRUCCIÓN FIEL'
 }
@@ -142,7 +170,7 @@ export const hegelCroceNodes = raw.map((item) => {
   const [id,phase,title,excerpt,explanation,role,concepts,branch,dependsOn,critical,micro,page] = item
   const siblings = raw.filter((candidate) => candidate[1] === phase)
   const local = siblings.findIndex((candidate) => candidate[0] === id)
-  const columns = phase === 'Cuestionario' ? 6 : phase === 'Ser · Nada · Devenir' ? 6 : 5
+  const columns = phase === 'Cuestionario' ? 6 : phase === 'Ser · Nada · Devenir' ? 6 : phase === 'Clase · 14 oct' ? 6 : 5
   const x = (local % columns) * 390
   const y = (phaseIndex.get(phase) || 0) * 980 + Math.floor(local / columns) * 310
 
@@ -158,14 +186,14 @@ export const hegelCroceNodes = raw.map((item) => {
       explanation,
       role,
       concepts,
-      authors: phase.startsWith('Henrich') ? ['Dieter Henrich'] : phase === 'Ser · Nada · Devenir' ? ['G. W. F. Hegel'] : phase === 'Consigna' ? [] : ['Benedetto Croce'],
+      authors: phase.startsWith('Henrich') ? ['Dieter Henrich'] : phase === 'Ser · Nada · Devenir' ? ['G. W. F. Hegel'] : phase === 'Clase · 14 oct' ? ['José Alejandro Fuerte · clase'] : phase === 'Consigna' ? [] : ['Benedetto Croce'],
       branch:routeSet(['all',...branch]),
       dependsOn,
       produces:[],
       critical,
       micro,
       page,
-      sourceShort: phase === 'Ser · Nada · Devenir' ? 'Hegel' : phase.startsWith('Henrich') ? 'Henrich' : phase === 'Consigna' ? 'Tarea' : phase === 'Cuestionario' ? 'Cuestionario' : 'Croce',
+      sourceShort: phase === 'Ser · Nada · Devenir' ? 'Hegel' : phase.startsWith('Henrich') ? 'Henrich' : phase === 'Clase · 14 oct' ? 'Clase 14 oct' : phase === 'Consigna' ? 'Tarea' : phase === 'Cuestionario' ? 'Cuestionario' : 'Croce',
       sourceMode: sourceModeForPhase(phase),
       question: critical
         ? '¿Puede explicar este nodo sin repetir sólo su definición?'
@@ -294,6 +322,18 @@ export const hegelCroceCrossRelations = [
   ['R14','A03','Q01','Consigna → cuestionario','El cuestionario transforma el capítulo de Croce en 18 controles de comprensión.','development'],
   ['R15','A04','H02','Consigna → Hegel','La lectura primaria asignada empieza por Ser puro.','development'],
   ['R16','A05','D10','Consigna → Henrich','La revisión mínima pedida consiste en ubicarse en el índice y reconocer rutas útiles.','development'],
+  ['R17','L03','C01','Clase → método filosófico','La explicación de clase precisa que la totalidad del objeto exige un método filosófico propio.','manifestation'],
+  ['R18','L07','C06','Clase → lógico / conceptual','La clase glosa “lógico” como trabajo conceptual sin sustituir el término de Croce.','manifestation'],
+  ['R19','L09','C25','Clase → universal concreto','La totalidad con diferencias y oposiciones internas converge con el universal concreto de Croce.','manifestation'],
+  ['R20','L13','C16','Clase → monismo','La explicación oral de unidad y diferencia de grado funciona como apoyo pedagógico de la salida monista.','manifestation'],
+  ['R21','L14','C20','Clase → dualismo','La oposición real explicada en clase refuerza la estructura de la salida dualista.','manifestation'],
+  ['R22','L16','C31','Clase → razón','La razón es presentada como capacidad de pensar los opuestos en su unidad.','manifestation'],
+  ['R23','L19','H01','Clase → comienzo de la lógica','La sesión transforma el dossier de estudio en contenido efectivamente trabajado en clase.','history'],
+  ['R24','L20','H02','Clase → Ser puro','La indeterminación del Ser puro es retomada directamente por el profesor.','manifestation'],
+  ['R25','L21','H09','Clase → Devenir','La verdad como movimiento se ancla en el tránsito hegeliano de Ser y Nada.','manifestation'],
+  ['R26','L23','H17','Clase → Dasein','La sesión adelanta ser determinado, cualidad y negación.','development'],
+  ['R27','L24','C38','Clase → identidad concreta','La explicación del delirio báquico culmina en una identidad que conserva diferencia.','manifestation'],
+  ['R28','L24','H18','Clase → no borrar los momentos','La clase insiste en que unidad no significa borrosidad ni desaparición de la identidad de los momentos.','foundation'],
 ]
 
 export const hegelCroceConceptualEdges = hegelCroceCrossRelations.map(([id,source,target,title,synthesis,type])=>({
@@ -326,12 +366,13 @@ export const hegelCroceSource = {
   title:'Hegel · Croce · dialéctica, Ser, Nada y Devenir',
   assignedDate:'7 oct 2026',
   dueDate:'14 oct 2026',
-  boundary:'El sistema se construye sólo con los materiales adjuntos y la consigna del profesor. Croce se usa como interpretación del capítulo I; Hegel como fuente primaria para Ser/Nada/Devenir; Henrich únicamente como consulta general e índice, salvo el prefacio utilizado para orientar su propósito.',
+  boundary:'El sistema parte de los materiales adjuntos y la consigna del profesor. Croce se usa como interpretación del capítulo I; Hegel como fuente primaria para Ser/Nada/Devenir; Henrich como consulta general e índice. La clase del 14 de octubre se incorpora como una capa separada de explicación oral: sus ejemplos no se convierten en doctrina textual ni en hechos externos verificados.',
   readings:[
     'Benedetto Croce · Lo vivo y lo muerto de la filosofía de Hegel · cap. I',
     'Cuestionario · capítulo I · 18 preguntas',
     'G. W. F. Hegel · Ciencia de la Lógica · Libro I · Ser / Nada / Devenir',
     'Dieter Henrich · Hegel en su contexto · revisión general, mínimo índice',
+    'Clase de Ontología II · 14 oct 2026 · explicación oral del cuestionario y comienzo de la lógica',
   ],
 }
 
