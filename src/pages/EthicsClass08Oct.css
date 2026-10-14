@@ -1,0 +1,165 @@
+.eth08-page{
+  --eth10-blue:#3f6571;
+  --eth10-blue-soft:rgba(63,101,113,.12);
+  --eth10-blue-faint:rgba(63,101,113,.055);
+  --eth10-line:rgba(63,101,113,.28);
+}
+
+.eth08-hero{min-height:790px}
+.eth08-ghost{
+  right:2vw;
+  top:10%;
+  font-size:clamp(4rem,10vw,10rem);
+  color:rgba(63,101,113,.075);
+  text-transform:none;
+}
+
+.eth08-map-band strong{background:#3f6571;border-color:#3f6571}
+
+.eth08-sequence{
+  display:grid;
+  grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;
+  gap:.7rem;
+  align-items:center;
+  margin:1.6rem 0;
+}
+.eth08-sequence article{
+  min-height:180px;
+  padding:1.3rem;
+  border:1px solid var(--eth10-line);
+  background:rgba(255,255,255,.34);
+}
+.eth08-sequence article.active{
+  color:#fff;
+  background:#3f6571;
+  border-color:#3f6571;
+}
+.eth08-sequence span{
+  display:block;
+  color:var(--eth10-blue);
+  font-size:.62rem;
+  font-weight:800;
+  letter-spacing:.14em;
+}
+.eth08-sequence .active span{color:#dbe9ec}
+.eth08-sequence strong{
+  display:block;
+  margin:4.4rem 0 .45rem;
+  font-family:Georgia,serif;
+  font-size:1.35rem;
+}
+.eth08-sequence p{margin:0;color:var(--eth10-muted);line-height:1.5}
+.eth08-sequence .active p{color:#e9f0f2}
+.eth08-sequence>b{color:var(--eth10-blue);font-family:Georgia,serif;font-size:1.4rem}
+
+.eth08-steps{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:.8rem;
+  margin:1.6rem 0;
+}
+.eth08-steps article{
+  min-height:170px;
+  padding:1.2rem;
+  border:1px solid var(--eth10-line);
+  background:rgba(255,255,255,.34);
+}
+.eth08-steps span{
+  color:var(--eth10-blue);
+  font-family:Georgia,serif;
+  font-size:1.2rem;
+}
+.eth08-steps strong{
+  display:block;
+  margin:2.5rem 0 .45rem;
+  font-family:Georgia,serif;
+  font-size:1.25rem;
+}
+.eth08-steps p{margin:0;color:var(--eth10-muted);line-height:1.5}
+
+.eth08-chain{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:.55rem;
+  margin:1.6rem 0;
+}
+.eth08-chain span,.eth08-chain strong{
+  padding:.78rem .9rem;
+  border:1px solid var(--eth10-line);
+  background:rgba(255,255,255,.35);
+  font-size:.76rem;
+  letter-spacing:.05em;
+}
+.eth08-chain strong{color:#fff;background:#3f6571;border-color:#3f6571}
+.eth08-chain>b{color:var(--eth10-blue)}
+
+.eth08-civic-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:.8rem;
+  margin:1.6rem 0;
+}
+.eth08-civic-grid article{
+  min-height:180px;
+  padding:1.2rem;
+  border:1px solid var(--eth10-line);
+  background:linear-gradient(145deg,rgba(63,101,113,.08),rgba(255,255,255,.34));
+}
+.eth08-civic-grid span{
+  color:var(--eth10-blue);
+  font-size:.62rem;
+  font-weight:800;
+  letter-spacing:.14em;
+}
+.eth08-civic-grid strong{
+  display:block;
+  margin:4rem 0 .45rem;
+  font-family:Georgia,serif;
+  font-size:1.25rem;
+}
+.eth08-civic-grid p{margin:0;color:var(--eth10-muted);line-height:1.5}
+
+.eth08-task-link{
+  display:inline-block;
+  margin-top:1rem;
+  padding:.75rem .9rem;
+  border:1px solid var(--eth10-blue);
+  color:var(--eth10-blue);
+  text-decoration:none;
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.eth08-task-link:hover{color:#fff;background:var(--eth10-blue)}
+
+.eth08-source{
+  margin-top:1.2rem;
+  padding:1.35rem 1.5rem;
+  border:1px dashed var(--eth10-line);
+  color:var(--eth10-muted);
+}
+.eth08-source span{
+  display:block;
+  margin-bottom:.55rem;
+  color:var(--eth10-blue);
+  font-size:.62rem;
+  font-weight:800;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+.eth08-source p{margin:0;line-height:1.6}
+
+@media(max-width:980px){
+  .eth08-sequence{grid-template-columns:1fr}
+  .eth08-sequence>b{justify-self:center;transform:rotate(90deg)}
+  .eth08-steps{grid-template-columns:repeat(2,1fr)}
+  .eth08-civic-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:760px){
+  .eth08-steps,.eth08-civic-grid{grid-template-columns:1fr}
+  .eth08-chain span,.eth08-chain strong{width:100%}
+  .eth08-chain>b{width:100%;text-align:center;transform:rotate(90deg)}
+}
