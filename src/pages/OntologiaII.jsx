@@ -497,6 +497,31 @@ export default function OntologiaII() {
           </div>
         </Link>
 
+        <Link
+          to="/semestre/5/ontologia-ii/clase/14-octubre"
+          className="ontology-program-class-card"
+        >
+          <div className="ontology-program-date">
+            <strong>XIV</strong>
+            <span>X · MMXXVI</span>
+          </div>
+
+          <div className="ontology-program-class-copy">
+            <span>Decimotercera clase · Croce y Hegel</span>
+            <h3>Los contrarios y el comienzo de la lógica</h3>
+            <p>
+              Método filosófico, lógico/universal/concreto, distintos y contrarios,
+              monismo y dualismo, intelecto y razón; Ser puro, Nada pura, Devenir,
+              Dasein e identidad concreta.
+            </p>
+          </div>
+
+          <div className="ontology-program-enter">
+            <span>Abrir folio</span>
+            <b>↗</b>
+          </div>
+        </Link>
+
       </section>
 
       <section className="ontology-program-classes ontology-program-thresholds">
