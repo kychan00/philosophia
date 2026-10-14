@@ -88,6 +88,7 @@ const HartmannThingInItselfTask = lazy(() => import('./pages/HartmannThingInItse
 const HartmannChapterOneSystem = lazy(() => import('./pages/HartmannChapterOneSystem'))
 const HegelPhenomenologyPrefaceStudy = lazy(() => import('./pages/HegelPhenomenologyPrefaceStudy'))
 const HegelLogicBeingNothingBecomingStudy = lazy(() => import('./pages/HegelLogicBeingNothingBecomingStudy'))
+const HegelCroceTaskSystem = lazy(() => import('./pages/HegelCroceTaskSystem'))
 const MarxCritiqueHegelStudy = lazy(() => import('./pages/MarxCritiqueHegelStudy'))
 const MethodsResearch = lazy(() => import('./pages/MethodsResearch'))
 const MethodsClass17Aug = lazy(() => import('./pages/MethodsClass17Aug'))
@@ -373,6 +374,10 @@ function App() {
         <Route
           path="/estudios/ontologia-ii/hegel-ciencia-logica-ser-nada-devenir"
           element={<HegelLogicBeingNothingBecomingStudy />}
+        />
+        <Route
+          path="/tareas/ontologia-ii/hegel-croce-dialectica"
+          element={<HegelCroceTaskSystem />}
         />
         <Route
           path="/estudios/ontologia-ii/marx-critica-dialectica-hegeliana"
