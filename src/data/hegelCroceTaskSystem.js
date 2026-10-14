@@ -70,24 +70,24 @@ const raw = [
   ['C37','Síntesis dialéctica','Delirio báquico','La imagen hegeliana describe una verdad en la que cada momento aislado se disuelve, sin que el todo sea caos.','Croce la lee como una “locura” sólo para el pensamiento que toma abstracciones inmóviles por realidad.','interpretar la metáfora',['delirio báquico','movimiento'],['dialectic'],['C33'],false,false,'Croce · cap. I · pp. 30–31'],
   ['C38','Síntesis dialéctica','Principio de identidad fortalecido','Croce sostiene que Hegel no destruye la identidad; intenta volverla concreta.','La identidad verdadera no sería A aislado de toda diferencia, sino una unidad capaz de incluir distinción y oposición sin desintegrarse.','cerrar el capítulo',['identidad','universal concreto'],['dialectic'],['C25','C33'],true,false,'Croce · cap. I · pp. 31–36'],
 
-  ['Q01','Cuestionario','Q1 · ¿Por qué una lógica filosófica?','Porque comprender filosóficamente no equivale a repetir el método de matemáticas, ciencias o arte.','Respuesta: la filosofía es una actividad específica de comprensión y debe explicitar el método inmanente que corresponde a esa actividad.','resolver pregunta 1',['método filosófico'],['questions'],['C01','C02'],true,false,'Cuestionario · Q1'],
-  ['Q02','Cuestionario','Q2 · Tres caracteres','Lógico · universal · concreto.','Respuesta: lógico frente a lo alógico; universal frente a la mera generalización empírica; concreto frente al esquema vacío.','resolver pregunta 2',['lógico','universal','concreto'],['questions'],['C06','C07','C08'],true,false,'Cuestionario · Q2'],
-  ['Q03','Cuestionario','Q3 · Punto central de la disputa','El problema de los contrarios.','Respuesta: Croce sitúa allí la polémica principal en torno a la lógica hegeliana.','resolver pregunta 3',['contrarios'],['questions'],['C09'],true,false,'Cuestionario · Q3'],
-  ['Q04','Cuestionario','Q4 · Distintos / contrarios','Distintos se articulan orgánicamente; contrarios se presentan como polos antitéticos.','Respuesta: la distinción admite unidad sin exclusión; la oposición plantea un conflicto que exige mediación dialéctica.','resolver pregunta 4',['distintos','contrarios'],['questions'],['C10','C11','C12'],true,false,'Cuestionario · Q4'],
-  ['Q05','Cuestionario','Q5 · Monismo','El monismo reduce uno de los polos al otro.','Respuesta: sensualismo, empirismo, materialismo y mecanicismo buscan unidad sacrificando la oposición o degradando un término a apariencia.','resolver pregunta 5',['monismo'],['questions'],['C16','C17','C18','C19'],true,false,'Cuestionario · Q5'],
-  ['Q06','Cuestionario','Q6 · Dualismo','El dualismo afirma ambos términos pero los deja separados.','Respuesta: conserva la oposición que el monismo borra, aunque paga el precio de perder una unidad efectiva.','resolver pregunta 6',['dualismo'],['questions'],['C20','C21'],true,false,'Cuestionario · Q6'],
-  ['Q07','Cuestionario','Q7 · Comentario monismo/dualismo','Ambas respuestas son unilaterales.','Respuesta: una sacrifica oposición por unidad; la otra, unidad por oposición. La dialéctica busca pensar ambas exigencias juntas.','resolver pregunta 7',['unidad','oposición'],['questions'],['C19','C21','C24'],true,false,'Cuestionario · Q7'],
-  ['Q08','Cuestionario','Q8 · Alternancia histórica','Monismo y dualismo reaparecen como correcciones recíprocas.','Respuesta: cada uno hace visible la carencia del otro sin resolver definitivamente el problema.','resolver pregunta 8',['historia','oscilación'],['questions'],['C22'],false,false,'Cuestionario · Q8'],
-  ['Q09','Cuestionario','Q9 · Peculiaridad de Hegel','La unidad no excluye la oposición: la contiene como momento de su vida.','Respuesta: el universal concreto es unidad en movimiento, no uniformidad sin diferencia.','resolver pregunta 9',['Hegel','universal concreto'],['questions'],['C24','C25','C26'],true,false,'Cuestionario · Q9'],
-  ['Q10','Cuestionario','Q10 · Opuestos como momentos','Un momento aislado no es la verdad completa.','Respuesta: los opuestos pertenecen al proceso total y sólo adquieren su sentido pleno dentro de la unidad dialéctica.','resolver pregunta 10',['momento'],['questions'],['C27'],true,false,'Cuestionario · Q10'],
-  ['Q11','Cuestionario','Q11 · Aufhebung','Superar es negar la autosuficiencia de los extremos y conservarlos en una unidad nueva.','Respuesta: la síntesis es negación de la negación porque supera la primera oposición sin volver simplemente al inicio.','resolver pregunta 11',['Aufhebung'],['questions'],['C28','C29'],true,false,'Cuestionario · Q11'],
-  ['Q12','Cuestionario','Q12 · Kant y Hegel','Intelecto fija determinaciones; razón busca su unidad, pero Hegel transforma el alcance de la dialéctica.','Respuesta: en la lectura de Croce, Hegel convierte la dialéctica en estructura positiva del desenvolvimiento, no sólo en examen crítico de antinomias.','resolver pregunta 12',['Kant','Hegel','intelecto','razón'],['questions'],['C30','C31','C33'],true,false,'Cuestionario · Q12'],
-  ['Q13','Cuestionario','Q13 · Primera tríada','Ser · Nada · Devenir.','Respuesta: la primera tríada muestra que los extremos puros no se sostienen aisladamente y que su verdad está en el tránsito.','resolver pregunta 13',['Ser','Nada','Devenir'],['questions'],['C35','H01'],true,false,'Cuestionario · Q13'],
-  ['Q14','Cuestionario','Q14 · Devenir como verdad','El Devenir conserva diferencia y unidad de Ser y Nada como tránsito.','Respuesta: por eso Croce lo llama primer concepto concreto frente a las abstracciones vacías de los dos primeros momentos.','resolver pregunta 14',['devenir','verdad'],['questions'],['C36','H09'],true,false,'Cuestionario · Q14'],
-  ['Q15','Cuestionario','Q15 · Posición del intelecto','Es necesario para distinguir, pero se vuelve abstracto si absolutiza la separación.','Respuesta: la razón necesita del trabajo del intelecto, pero no puede detenerse en sus oposiciones fijas.','resolver pregunta 15',['intelecto','razón'],['questions'],['C30','C31'],true,false,'Cuestionario · Q15'],
-  ['Q16','Cuestionario','Q16 · Delirio báquico','La verdad es movimiento de momentos que no subsisten aislados.','Respuesta: la metáfora une máxima movilidad y orden del todo; lo que parece locura al entendimiento fijo es estructura para la razón especulativa.','resolver pregunta 16',['delirio báquico'],['questions'],['C37'],false,false,'Cuestionario · Q16'],
-  ['Q17','Cuestionario','Q17 · Principio de identidad','La identidad no se elimina; se vuelve concreta.','Respuesta: Croce interpreta que Hegel fortalece la identidad al impedir que se confunda con inmovilidad y aislamiento.','resolver pregunta 17',['identidad'],['questions'],['C38'],true,false,'Cuestionario · Q17'],
-  ['Q18','Cuestionario','Q18 · Nexo de contrarios','La realidad no se desintegra por oposición; se desarrolla mediante ella.','Respuesta: el universal concreto expresa unidad en distinción y oposición, y ése es el principio de identidad que Croce considera adecuado a lo real.','resolver pregunta 18',['realidad','nexo','identidad'],['questions'],['C38','C24'],true,false,'Cuestionario · Q18'],
+  ['Q01','Cuestionario','Q1 · Lógica filosófica','¿Cómo justifica B. Croce, siguiendo la exposición de Hegel, la necesidad de una lógica filosófica o método filosófico?','Respuesta de estudio: la filosofía es una actividad específica de comprensión y debe explicitar el método inmanente que corresponde a esa actividad; no puede limitarse a copiar el método de una ciencia particular.','resolver pregunta 1',['método filosófico'],['questions'],['C01','C02'],true,false,'Cuestionario · cap. I · Q1'],
+  ['Q02','Cuestionario','Q2 · Tres caracteres','Señalar los tres caracteres del pensamiento filosófico según Hegel.','Respuesta de estudio: lógico, universal y concreto; lógico frente a lo alógico, universal frente a la mera generalización empírica y concreto frente al esquema vacío.','resolver pregunta 2',['lógico','universal','concreto'],['questions'],['C06','C07','C08'],true,false,'Cuestionario · cap. I · Q2'],
+  ['Q03','Cuestionario','Q3 · Punto central de las disputas','De acuerdo con B. Croce: ¿cuál es el punto central en el que se han centrado las disputas en torno a Hegel?','Respuesta de estudio: Croce sitúa en el problema de los contrarios el núcleo de las disputas en torno a la lógica hegeliana.','resolver pregunta 3',['contrarios'],['questions'],['C09'],true,false,'Cuestionario · cap. I · Q3'],
+  ['Q04','Cuestionario','Q4 · Distintos / contrarios','Señalar la diferencia entre «conceptos distintos» y «conceptos contrarios».','Respuesta de estudio: los distintos se articulan dentro de una unidad sin excluirse mutuamente; los contrarios se presentan como polos antitéticos cuya oposición exige mediación dialéctica.','resolver pregunta 4',['distintos','contrarios'],['questions'],['C10','C11','C12'],true,false,'Cuestionario · cap. I · Q4'],
+  ['Q05','Cuestionario','Q5 · Posturas monistas','Explicar la posición ante el problema de los contrarios de las siguientes corrientes filosóficas: sensualismo, empirismo, materialismo, mecanicismo (posturas monistas).','Respuesta de estudio: Croce presenta estas posiciones como intentos de conservar la unidad reduciendo o degradando uno de los términos de la oposición; así, sacrifican la oposición en favor de una unidad abstracta.','resolver pregunta 5',['monismo','sensualismo','empirismo','materialismo','mecanicismo'],['questions'],['C16','C17','C18','C19'],true,false,'Cuestionario · cap. I · Q5'],
+  ['Q06','Cuestionario','Q6 · Teorías dualistas','¿De qué manera enfrentan las teorías dualistas el problema de los contrarios? ¿Qué diferencia observas entre dualistas y monistas en torno al problema de los contrarios?','Respuesta de estudio: el dualismo conserva ambos polos como reales y opuestos, pero los deja separados; frente al monismo, salva la oposición y pierde una unidad efectiva.','resolver pregunta 6',['dualismo','monismo'],['questions'],['C20','C21'],true,false,'Cuestionario · cap. I · Q6'],
+  ['Q07','Cuestionario','Q7 · Monismo y dualismo','Comentar la siguiente cita: “Ahora bien, frente al abstracto monismo, la concepción dualista tiene, sin duda, algún valor […] pero intrínsecamente no satisface más que la anterior porque si la primera sacrifica la oposición en favor de la unidad, la segunda sacrifica la unidad en favor de la oposición”.','Respuesta de estudio: la cita formula la insuficiencia recíproca de las dos salidas. El monismo conserva unidad borrando oposición; el dualismo conserva oposición perdiendo unidad. La exigencia dialéctica es pensar ambas juntas.','resolver pregunta 7',['unidad','oposición','monismo','dualismo'],['questions'],['C19','C21','C24'],true,false,'Cuestionario · cap. I · Q7'],
+  ['Q08','Cuestionario','Q8 · Alternancia histórica','¿De qué manera se alternan en la historia de la filosofía sistemas monistas y dualistas?','Respuesta de estudio: Croce describe una alternancia en la que cada posición reaparece como corrección de la unilateralidad de la otra, sin resolver definitivamente la relación entre unidad y oposición.','resolver pregunta 8',['historia','oscilación'],['questions'],['C22'],false,false,'Cuestionario · cap. I · Q8'],
+  ['Q09','Cuestionario','Q9 · Posición de Hegel','Explicar lo peculiar de la posición de Hegel frente al problema de los contrarios. Te puedes apoyar en la siguiente cita: “¿Y por qué el universal filosófico no podría ser, como la expresión estética, al mismo tiempo, uno y diverso, concorde y discorde, continuo y discreto, estático y dinámico? […] El concepto filosófico es universal concreto y por tal razón es precisamente de la realidad tal cual es, una y múltiple, divisa e indivisa […] Y la única verdad es que la unidad no tiene enfrente suyo a la oposición, sino que la tiene en sí misma, y que sin oposición la realidad no sería tal, porque no sería entonces desenvolvimiento, vida”.','Respuesta de estudio: lo peculiar de Hegel, según la reconstrucción de Croce, consiste en no escoger entre unidad y oposición: el universal concreto es una unidad que contiene diferencia y oposición como condición de su desenvolvimiento.','resolver pregunta 9',['Hegel','universal concreto','unidad','oposición'],['questions'],['C24','C25','C26'],true,false,'Cuestionario · cap. I · Q9'],
+  ['Q10','Cuestionario','Q10 · Opuestos como momentos','Explicar en qué sentido los opuestos son «momentos» dentro de la unidad dialéctica.','Respuesta de estudio: un momento no es una verdad autosuficiente; los opuestos sólo adquieren su sentido pleno como momentos internos del movimiento total de la unidad dialéctica.','resolver pregunta 10',['momento'],['questions'],['C27'],true,false,'Cuestionario · cap. I · Q10'],
+  ['Q11','Cuestionario','Q11 · Aufhebung','Explicar el concepto de Aufhebung conforme a la síntesis –entendida como negación de la negación-.','Respuesta de estudio: la Aufhebung niega la pretensión de autosuficiencia de los extremos considerados por separado y, al mismo tiempo, los conserva dentro de una unidad más concreta; la negación de la negación no es un simple regreso al inicio.','resolver pregunta 11',['Aufhebung','negación de la negación'],['questions'],['C28','C29'],true,false,'Cuestionario · cap. I · Q11'],
+  ['Q12','Cuestionario','Q12 · Kant y Hegel','Explicar la semejanza y la diferencia entre Kant y Hegel a partir de las nociones de «Intelecto» y «Razón». Más aún: ¿qué diferencia hay entre ambos autores sobre el significado del término “Dialéctica”?','Respuesta de estudio: en la lectura de Croce, el intelecto fija determinaciones y la razón reconstruye su unidad; Hegel transforma la dialéctica en una estructura positiva del desenvolvimiento, mientras la referencia a Kant sirve para marcar el carácter crítico de la dialéctica trascendental.','resolver pregunta 12',['Kant','Hegel','intelecto','razón','dialéctica'],['questions'],['C30','C31','C33'],true,false,'Cuestionario · cap. I · Q12'],
+  ['Q13','Cuestionario','Q13 · Primera tríada','¿Cuál es la primera tríada en la Ciencia de la Lógica? Y: ¿cómo se ejemplifica allí la dialéctica de Hegel y su posición ante el problema de los contrarios?','Respuesta de estudio: la primera tríada es Ser, Nada y Devenir. El movimiento muestra que Ser y Nada, tomados en pureza y aislamiento, no se sostienen como verdades completas; su verdad aparece en el tránsito del Devenir.','resolver pregunta 13',['Ser','Nada','Devenir'],['questions'],['C35','H01'],true,false,'Cuestionario · cap. I · Q13'],
+  ['Q14','Cuestionario','Q14 · Devenir como verdad','¿En qué sentido el «Devenir» constituye la «Verdad» del Ser y la Nada? Más aún: ¿por qué el Devenir es el «primer concepto filosófico»?','Respuesta de estudio: el Devenir contiene a la vez la unidad, la diferencia y el tránsito de Ser y Nada; por eso Croce lo presenta como el primer concepto concreto frente a las abstracciones vacías de los dos primeros momentos.','resolver pregunta 14',['devenir','verdad','concepto concreto'],['questions'],['C36','H09'],true,false,'Cuestionario · cap. I · Q14'],
+  ['Q15','Cuestionario','Q15 · Intelecto y lógica dialéctica','¿Cuál es la posición del intelecto ante la lógica dialéctica de Hegel?','Respuesta de estudio: el intelecto es necesario para distinguir y fijar determinaciones, pero se vuelve abstracto cuando pretende que esas oposiciones separadas sean la verdad última; la razón no prescinde de él, sino que lo supera.','resolver pregunta 15',['intelecto','razón'],['questions'],['C30','C31'],true,false,'Cuestionario · cap. I · Q15'],
+  ['Q16','Cuestionario','Q16 · Delirio báquico','Comentar la siguiente cita de Hegel: “La verdad es un delirio báquico en el cual no hay componente que no esté ebrio; y como cada momento, al separarse de los otros, en seguida se disuelve, así este delirio es, al mismo tiempo, la más simple y transparente quietud”.','Respuesta de estudio: la imagen presenta una verdad en movimiento, donde los momentos no subsisten aisladamente; la máxima movilidad no equivale a caos, pues el conjunto mantiene una unidad transparente.','resolver pregunta 16',['delirio báquico','movimiento','momento'],['questions'],['C37'],false,false,'Cuestionario · cap. I · Q16'],
+  ['Q17','Cuestionario','Q17 · Principio de identidad','¿Cómo queda integrado el principio de identidad en la dialéctica hegeliana?','Respuesta de estudio: Croce sostiene que Hegel no destruye el principio de identidad, sino que intenta volverlo concreto: identidad capaz de incluir distinción y oposición sin reducirse a inmovilidad.','resolver pregunta 17',['identidad'],['questions'],['C38'],true,false,'Cuestionario · cap. I · Q17'],
+  ['Q18','Cuestionario','Q18 · Nexo de contrarios','Comentar el siguiente pasaje: “La realidad es nexo de contrarios y ella no dispersa ni desintegra a causa de la oposición; antes bien, se engendra eternamente en y por la oposición […] El universal concreto, unidad en la distinción y en la oposición, es el verdadero y perfecto principio de identidad”.','Respuesta de estudio: el pasaje resume la tesis de Croce: la oposición no destruye necesariamente la unidad, sino que pertenece al modo en que la realidad se desarrolla; el universal concreto expresa esa identidad que incluye distinción y oposición.','resolver pregunta 18',['realidad','nexo','identidad','universal concreto'],['questions'],['C38','C24'],true,false,'Cuestionario · cap. I · Q18'],
 
   ['H01','Ser · Nada · Devenir','El comienzo de la lógica','Hegel busca un comienzo sin presupuestos ni contenido determinado.','Si el comienzo ya trajera una determinación externa, no sería comienzo puro.','situar el problema',['comienzo','inmediatez'],['hegel'],['A04'],true,false,'Hegel · Doctrina del ser · comienzo'],
   ['H02','Ser · Nada · Devenir','Ser puro','Ser puro: sin ninguna otra determinación.','Su inmediatez indeterminada no contiene diferencia interna ni externa por la cual fijarlo como algo determinado.','definir el primer momento',['Ser puro','Sein'],['hegel'],['H01'],true,false,'Hegel · p. 77'],
@@ -175,6 +175,90 @@ hegelCroceNodes.forEach((node)=>{
   })
 })
 
+function buildNodeSchema(node) {
+  const dependencies = node.data.dependsOn
+    .map((id) => nodeMap.get(id))
+    .filter(Boolean)
+    .slice(0, 2)
+
+  const consequences = node.data.produces
+    .map((id) => nodeMap.get(id))
+    .filter(Boolean)
+    .slice(0, 2)
+
+  const schemaNodes = [
+    ...dependencies.map((item) => ({
+      id:`dep-${item.id}`,
+      label:item.data.title,
+      caption:`${item.data.code} · antecedente en la reconstrucción`,
+      shapeRole:'term',
+    })),
+    {
+      id:'focus',
+      label:node.data.title,
+      caption:`${node.data.code} · ${node.data.phase}`,
+      shapeRole:node.data.critical ? 'mediation' : 'concept',
+      emphasis:true,
+      tone:'accent',
+    },
+    ...consequences.map((item) => ({
+      id:`next-${item.id}`,
+      label:item.data.title,
+      caption:`${item.data.code} · continuidad en la reconstrucción`,
+      shapeRole:'result',
+    })),
+  ]
+
+  const schemaEdges = [
+    ...dependencies.map((item) => ({
+      from:`dep-${item.id}`,
+      to:'focus',
+      label:'antecede en el sistema',
+      relationKind:'derives',
+    })),
+    ...consequences.map((item) => ({
+      from:'focus',
+      to:`next-${item.id}`,
+      label:'abre hacia',
+      relationKind:'derives',
+    })),
+  ]
+
+  if (!schemaEdges.length && node.data.concepts.length) {
+    node.data.concepts.slice(0, 3).forEach((concept, index) => {
+      const id=`concept-${index}`
+      schemaNodes.push({
+        id,
+        label:concept,
+        caption:'concepto registrado en este nodo',
+        shapeRole:'term',
+      })
+      schemaEdges.push({
+        from:'focus',
+        to:id,
+        label:'articula',
+        relationKind:'secondary',
+      })
+    })
+  }
+
+  return {
+    layout:'flow',
+    direction:'horizontal',
+    flowGap:42,
+    minHeight:360,
+    fitPadding:38,
+    ariaLabel:`Esquema documental del nodo ${node.data.code}: ${node.data.title}`,
+    nodes:schemaNodes,
+    edges:schemaEdges,
+    animation:{mode:'sequence',nodeDuration:.28,edgeDuration:.32},
+  }
+}
+
+hegelCroceNodes.forEach((node) => {
+  node.data.schema = buildNodeSchema(node)
+})
+
 export const hegelCroceEdges = hegelCroceNodes.flatMap((node)=>
   node.data.dependsOn.filter((id)=>nodeMap.has(id)).map((sourceId,index)=>({
     id:`${sourceId}-${node.id}-${index}`,
@@ -216,13 +300,7 @@ export const hegelCroceCrossRelationById = (id) => {
 
 export const hegelCroceNodeById = (id)=>nodeMap.get(id)||null
 
-const guidedIds = [
-  'A01','A02','C01','C06','C07','C08','C09','C12','C15','C16','C19','C20','C21',
-  'C24','C25','C27','C28','C29','C30','C31','C33','C35','C36','C38',
-  'A03','Q02','Q04','Q07','Q09','Q11','Q13','Q14','Q17','Q18',
-  'A04','H01','H02','H06','H07','H08','H09','H14','H18','H20','H22','H24',
-  'A05','D01','D04','D08','D09','D10','A06'
-]
+const guidedIds = hegelCroceNodes.map((node) => node.id)
 
 export const hegelCroceGuidedRoute = guidedIds.map((id,index)=>{
   const node=nodeMap.get(id)
