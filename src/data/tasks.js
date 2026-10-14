@@ -605,16 +605,19 @@ export const tasks = [
     assignedDate: '2026-10-07',
     dueDate: '2026-10-14',
     dueTime: '12:55',
-    title: 'Croce · La dialéctica o la síntesis de los contrarios',
-    type: 'Lectura / preparación',
+    title: 'Hegel · Croce · dialéctica, Ser, Nada y Devenir',
+    type: 'Lectura / estudio 2D',
     weight: null,
     priority: 'Alta',
     description:
-      'Leer el capítulo I de Lo vivo y lo muerto de la filosofía de Hegel, de Benedetto Croce, como preparación para la entrada a Hegel. La entrega se coloca en la siguiente sesión efectiva: el lunes 12 de octubre no hay clases y la siguiente clase es el miércoles 14.',
+      'Preparar la entrada a Hegel con cuatro materiales: capítulo I de Croce y su cuestionario, Ciencia de la Lógica sobre Ser Puro, Nada Pura y Devenir, y revisión general de Hegel en su contexto de Dieter Henrich, al menos su índice.',
     readingScope:
-      'Benedetto Croce · Lo vivo y lo muerto de la filosofía de Hegel · capítulo I · “La dialéctica o la síntesis de los contrarios”',
-    sourceClass: 'Clase del 7 de octubre · tarea para la siguiente sesión efectiva',
+      'Croce cap. I + cuestionario de 18 preguntas + Hegel, Ciencia de la Lógica: Ser/Nada/Devenir + Henrich: revisión general/índice',
+    readingPages:
+      'Croce: capítulo I · Hegel: Libro I, primer capítulo, Ser/Nada/Devenir · Henrich: índice como mínimo',
+    sourceClass: 'Correo del profesor del 7 de octubre · preparación para el 14 de octubre',
     sourceRoute: '/semestre/5/ontologia-ii/clase/7-octubre',
+    studyRoute: '/tareas/ontologia-ii/hegel-croce-dialectica',
   },
 
   {
