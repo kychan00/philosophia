@@ -297,6 +297,26 @@ export default function EthicsClassics() {
           <div className="ethicsx-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
         </Link>
 
+        <Link
+          to="/semestre/5/etica/clase/8-octubre"
+          className="ethicsx-class-card"
+        >
+          <div className="ethicsx-class-card-date">
+            <strong>VIII</strong>
+            <span>X · MMXXVI</span>
+          </div>
+          <div className="ethicsx-class-card-copy">
+            <span>Clase · Dialéctica, absurdo y crítica cívica</span>
+            <h3>De la reducción al absurdo a la crítica cívica</h3>
+            <p>
+              Logos, dialéctica socrática, contraejemplos, generalizaciones,
+              prejuicios, redes, responsabilidad estructural, ciudadanía y
+              derecho al agua.
+            </p>
+          </div>
+          <div className="ethicsx-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
+        </Link>
+
 
 
       </section>
