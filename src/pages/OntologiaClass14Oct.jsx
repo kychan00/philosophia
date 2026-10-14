@@ -264,9 +264,16 @@ export default function OntologiaClass14Oct(){
                 introducidas o trabajadas transversalmente. El cuestionario continuará como hilo
                 conductor de las sesiones inmediatas.
               </p>
+              <p className="oaf-oct14-source-warning">
+                La apertura de la sesión parece referirse también al capítulo II de Croce, y el
+                cuestionario adjunto contiene efectivamente una segunda sección con 17 preguntas.
+                Como la grabación no permite recuperar una orden literal de entrega ni una fecha,
+                se registra sólo como continuidad probable de lectura, no como fecha límite.
+              </p>
               <div className="oaf-oct14-next">
                 <Link to="/tareas/ontologia-ii/hegel-croce-dialectica">Sistema 2D ampliado · clase 14 oct ↗</Link>
-                <span>Examen anunciado · fecha exacta pendiente</span>
+                <span>Continuidad · Croce cap. II / cuestionario · sin entrega confirmada</span>
+                <span>Examen anunciado · aproximadamente 15 días · fecha exacta pendiente</span>
               </div>
             </Section>
           </article>
