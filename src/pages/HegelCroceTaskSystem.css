@@ -1,0 +1,150 @@
+.hegel-task-shell{
+  --hegel-blue:#385d6b;
+  --hegel-oxblood:#7c3f37;
+  --hegel-gold:#9a7435;
+  --hegel-ink:#211d18;
+  --hegel-paper:#f7f0e4;
+  background:
+    radial-gradient(circle at 85% 5%,rgba(56,93,107,.08),transparent 24rem),
+    linear-gradient(rgba(56,93,107,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(56,93,107,.025) 1px,transparent 1px),
+    var(--hegel-paper);
+  background-size:auto,72px 72px,72px 72px,auto;
+}
+
+.hegel-task-hero em{color:var(--hegel-blue)}
+.hegel-task-hero aside{border-top-color:var(--hegel-blue)}
+.hegel-task-boundary{border-color:rgba(56,93,107,.22)}
+
+.hegel-task-plan{
+  width:min(1480px,calc(100% - 4rem));
+  margin:2rem auto;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  border:1px solid rgba(56,93,107,.24);
+  background:rgba(255,255,255,.3);
+}
+.hegel-task-plan article{
+  min-height:170px;
+  padding:1.35rem;
+  border-right:1px solid rgba(56,93,107,.2);
+}
+.hegel-task-plan article:last-child{border-right:0}
+.hegel-task-plan span{
+  color:var(--hegel-blue);
+  font-size:.63rem;
+  font-weight:800;
+  letter-spacing:.15em;
+}
+.hegel-task-plan strong{
+  display:block;
+  margin:3.5rem 0 .5rem;
+  font-family:Georgia,serif;
+  font-size:1.35rem;
+}
+.hegel-task-plan p{margin:0;color:#6f675e;line-height:1.5}
+
+.hegel-task-workspace .marx-flow-panel{background:#efe7d9}
+.hegel-task-workspace .react-flow__background{opacity:.52}
+
+.hegel-croce-node .marx-flow-meta>span{color:var(--hegel-blue)}
+.hegel-croce-node.is-critical{border-color:rgba(124,63,55,.62)}
+.hegel-croce-node.is-critical .marx-flow-meta>b{background:var(--hegel-oxblood)}
+.hegel-croce-node.is-guided-current{box-shadow:0 0 0 4px rgba(56,93,107,.18),0 22px 55px rgba(30,30,25,.18)}
+.hegel-croce-node.is-guided-next{box-shadow:0 0 0 3px rgba(154,116,53,.13)}
+
+.hegel-task-questions{
+  width:min(1480px,calc(100% - 4rem));
+  margin:5rem auto;
+  border-top:1px solid rgba(56,93,107,.28);
+  padding-top:2rem;
+}
+.hegel-task-questions header{max-width:900px;margin-bottom:1.5rem}
+.hegel-task-questions header>span{
+  color:var(--hegel-blue);
+  font-size:.68rem;
+  font-weight:800;
+  letter-spacing:.15em;
+}
+.hegel-task-questions h2{
+  margin:.45rem 0 .7rem;
+  font-family:Georgia,serif;
+  font-size:clamp(2.3rem,4vw,4.7rem);
+  font-weight:500;
+  line-height:.95;
+}
+.hegel-task-questions header p{color:#6f675e;font-size:1.05rem;line-height:1.6}
+.hegel-task-questions>div{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:.8rem;
+}
+.hegel-task-questions button{
+  min-height:190px;
+  padding:1.25rem;
+  border:1px solid rgba(56,93,107,.24);
+  background:rgba(255,255,255,.38);
+  color:var(--hegel-ink);
+  text-align:left;
+  cursor:pointer;
+}
+.hegel-task-questions button:hover{border-color:var(--hegel-blue);transform:translateY(-2px)}
+.hegel-task-questions button span{
+  color:var(--hegel-blue);
+  font-size:.7rem;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+.hegel-task-questions button strong{
+  display:block;
+  margin:2.2rem 0 .55rem;
+  font-family:Georgia,serif;
+  font-size:1.25rem;
+}
+.hegel-task-questions button small{display:block;color:#6f675e;line-height:1.5}
+
+.hegel-task-sources{
+  width:min(1480px,calc(100% - 4rem));
+  margin:0 auto 5rem;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  border:1px solid rgba(56,93,107,.24);
+}
+.hegel-task-sources article{min-height:190px;padding:1.35rem;border-right:1px solid rgba(56,93,107,.2)}
+.hegel-task-sources article:last-child{border-right:0}
+.hegel-task-sources span{color:var(--hegel-blue);font-size:.64rem;font-weight:800;letter-spacing:.15em}
+.hegel-task-sources strong{display:block;margin:4rem 0 .5rem;font-family:Georgia,serif;font-size:1.3rem}
+.hegel-task-sources p{margin:0;color:#6f675e;line-height:1.5}
+
+.hegel-task-folio-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.6rem;
+  padding:0 2rem 2rem;
+}
+.hegel-task-folio-links button,.hegel-task-relation-pair button{
+  padding:.75rem .9rem;
+  border:1px solid rgba(56,93,107,.3);
+  background:#f7f0e4;
+  color:#2f5260;
+  cursor:pointer;
+}
+.hegel-task-relation>p{padding:0 2rem;font-size:1.1rem;line-height:1.7}
+.hegel-task-relation-pair{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:center;padding:1rem 2rem 2rem}
+.hegel-task-relation-pair span{font-size:1.5rem;color:var(--hegel-gold)}
+
+@media(max-width:1000px){
+  .hegel-task-plan,.hegel-task-sources{grid-template-columns:repeat(2,1fr)}
+  .hegel-task-plan article:nth-child(2),.hegel-task-sources article:nth-child(2){border-right:0}
+  .hegel-task-questions>div{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:760px){
+  .hegel-task-plan,.hegel-task-sources,.hegel-task-questions{
+    width:min(100% - 2rem,1480px);
+  }
+  .hegel-task-plan,.hegel-task-sources,.hegel-task-questions>div{grid-template-columns:1fr}
+  .hegel-task-plan article,.hegel-task-sources article{border-right:0;border-bottom:1px solid rgba(56,93,107,.2)}
+  .hegel-task-relation-pair{grid-template-columns:1fr}
+  .hegel-task-relation-pair span{text-align:center;transform:rotate(90deg)}
+}
