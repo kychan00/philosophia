@@ -254,18 +254,18 @@ function HegelCroceTaskCanvas() {
 
       <header className="marx-study-hero hegel-task-hero">
         <div>
-          <p>14 OCT 2026 · LECTURA PARA HOY</p>
+          <p>14 OCT 2026 · TAREA TRABAJADA EN CLASE</p>
           <h1>Hegel · Croce <em>dialéctica, Ser, Nada y Devenir</em></h1>
           <p className="marx-study-lead">
-            Un sistema de estudio construido desde los cuatro materiales enviados:
-            Croce, el cuestionario, la Ciencia de la Lógica y el mapa de consulta de Henrich.
+            Un sistema de estudio construido desde los materiales enviados y ampliado con la clase del 14 de octubre:
+            Croce, cuestionario, Ciencia de la Lógica, Henrich y la explicación oral del profesor como capa separada.
           </p>
         </div>
         <aside>
           <span>TAREA · ONTOLOGÍA II</span>
           <strong>{hegelCroceStats.nodes} nodos · {hegelCroceStats.schemas} esquemas · {hegelCroceStats.crossRelations} relaciones II</strong>
           <b>{hegelCroceStats.questions} preguntas resueltas</b>
-          <small>Entrega / preparación: 14 oct 2026</small>
+          <small>Trabajada en clase · 14 oct 2026</small>
         </aside>
       </header>
 
@@ -276,7 +276,7 @@ function HegelCroceTaskCanvas() {
           <p>{hegelCroceSource.boundary}</p>
         </div>
         <div>
-          <span>MATERIALES ASIGNADOS</span>
+          <span>MATERIALES + CLASE</span>
           {hegelCroceSource.readings.map((reading)=><p key={reading}>{reading}</p>)}
         </div>
       </section>
