@@ -263,7 +263,7 @@ function HegelCroceTaskCanvas() {
         </div>
         <aside>
           <span>TAREA · ONTOLOGÍA II</span>
-          <strong>{hegelCroceStats.nodes} nodos · {hegelCroceStats.crossRelations} relaciones II</strong>
+          <strong>{hegelCroceStats.nodes} nodos · {hegelCroceStats.schemas} esquemas · {hegelCroceStats.crossRelations} relaciones II</strong>
           <b>{hegelCroceStats.questions} preguntas resueltas</b>
           <small>Entrega / preparación: 14 oct 2026</small>
         </aside>
@@ -454,9 +454,9 @@ function HegelCroceTaskCanvas() {
                 <h2>{selected.data.title}</h2>
 
                 <section className="marx-inspector-text">
-                  <span>IDEA FUENTE</span>
+                  <span>{selected.data.sourceMode}</span>
                   <blockquote>{selected.data.excerpt}</blockquote>
-                  <small>{selected.data.page}</small>
+                  <small>{selected.data.sourceShort} · {selected.data.page}</small>
                 </section>
 
                 <section>
@@ -529,7 +529,7 @@ function HegelCroceTaskCanvas() {
                 </section>
 
                 <button type="button" className="marx-open-folio" onClick={()=>setFolioId(selected.id)}>
-                  Abrir folio + conexiones ↗
+                  Abrir folio + esquema ↗
                 </button>
               </>
             ) : (
@@ -656,7 +656,7 @@ function HegelCroceTaskCanvas() {
 
             <div className="marx-folio-grid">
               <section className="marx-folio-source">
-                <span>IDEA FUENTE</span>
+                <span>{folio.data.sourceMode}</span>
                 <blockquote>{folio.data.excerpt}</blockquote>
                 <small>{folio.data.sourceShort} · {folio.data.page}</small>
               </section>
