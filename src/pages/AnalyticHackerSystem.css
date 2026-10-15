@@ -1077,3 +1077,62 @@
     grid-column: 1;
   }
 }
+
+/* iPad regression fix: route map gets its own usable width and the inspector
+   moves below it rather than forcing the map into a narrow two-column slot. */
+@media (max-width: 1180px) {
+  .hacker-study-workspace:not(:fullscreen):not(.is-fullscreen) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+  .hacker-flow-panel {
+    width: 100%;
+    min-width: 0;
+    grid-template-rows: auto minmax(0, 1fr);
+    border-right: 0;
+    border-bottom: 1px solid var(--h-ink);
+  }
+  .hacker-flow-caption {
+    min-height: 0;
+    height: auto;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    row-gap: 12px;
+  }
+  .hacker-flow-caption > div:first-child { min-width: 0; flex: 1 1 270px; }
+  .hacker-flow-caption strong { overflow-wrap: anywhere; line-height: 1.3; }
+  .hacker-flow-caption-actions { flex: 0 1 auto; flex-wrap: wrap; }
+  .hacker-flow-canvas { height: clamp(380px, 53dvh, 610px); width: 100%; }
+  .hacker-inspector { width: 100%; min-width: 0; height: auto; overflow: visible; }
+  .hacker-study-shell { overflow-x: clip; }
+  .hacker-study-workspace:fullscreen,
+  .hacker-study-workspace.is-fullscreen {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    height: 100dvh;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 60dvh) minmax(0, 40dvh);
+    overflow: hidden;
+  }
+  .hacker-study-workspace:fullscreen .hacker-flow-panel,
+  .hacker-study-workspace.is-fullscreen .hacker-flow-panel,
+  .hacker-study-workspace:fullscreen .hacker-inspector,
+  .hacker-study-workspace.is-fullscreen .hacker-inspector {
+    height: auto;
+    min-height: 0;
+  }
+  .hacker-study-workspace:fullscreen .hacker-flow-canvas,
+  .hacker-study-workspace.is-fullscreen .hacker-flow-canvas {
+    height: 100%;
+    min-height: 0;
+  }
+  .hacker-study-workspace:fullscreen .hacker-inspector,
+  .hacker-study-workspace.is-fullscreen .hacker-inspector { overflow-y: auto; }
+}

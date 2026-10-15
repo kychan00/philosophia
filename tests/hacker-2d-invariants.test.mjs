@@ -41,3 +41,21 @@ test('Per-section rail uses canonical order; selection does not run global fitVi
 test('Source notices avoid referring to private recording or transcription workflows', () => {
   assert.doesNotMatch(page, /transcripci[oó]n|grabaci[oó]n/i)
 })
+
+test('Starting a thematic guide cannot revert nodes to the whole-map positions', () => {
+  assert.match(page, /position:\s*route !== 'all'\s*\? thematicLayout\.get\(node\.id\)/)
+  assert.doesNotMatch(page, /route !== 'all' && !guidedMode\s*\? thematicLayout/)
+  assert.match(page, /hidden:\s*route !== 'all' &&\s*!topicActive &&\s*!topicSupport/)
+})
+test('The selected guide node is focused only after the rendered layout commits', () => {
+  assert.match(page, /window\.requestAnimationFrame\(\(\) => \{/)
+  assert.match(page, /thematicLayout\.get\(node\.id\) \|\| node\.position/)
+  assert.match(page, /\[selectedId, route, guidedMode, guidedIndex, thematicLayout, setCenter\]/)
+  assert.doesNotMatch(page, /setCenter\(node\.position\.x \+ 115/)
+})
+test('iPad guide layout uses one readable map column', () => {
+  const css = readFileSync(new URL('../src/pages/AnalyticHackerSystem.css', import.meta.url), 'utf8')
+  assert.match(css, /@media \(max-width: 1180px\)/)
+  assert.match(css, /grid-template-columns: minmax\(0, 1fr\);/)
+  assert.match(css, /height: clamp\(380px, 53dvh, 610px\)/)
+})

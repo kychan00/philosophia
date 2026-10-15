@@ -243,12 +243,11 @@ function StudyCanvas() {
       return {
         ...node,
         position:
-          route !== 'all' && !guidedMode
+          route !== 'all'
             ? thematicLayout.get(node.id) || node.position
             : node.position,
         hidden:
           route !== 'all' &&
-          !guidedMode &&
           !topicActive &&
           !topicSupport,
         draggable: false,
@@ -384,15 +383,48 @@ function StudyCanvas() {
     conceptColor,
   ])
 
+  // Wait for React Flow to commit the active route's coordinates before moving
+  // the camera. Immediate setCenter calls used obsolete full-map coordinates.
   useEffect(() => {
-    if (guidedMode || route === 'all') return
+    if (!selectedId) return
+    let nextFrame = null
+    const firstFrame = window.requestAnimationFrame(() => {
+      nextFrame = window.requestAnimationFrame(() => {
+        const node = hackerNodeById(selectedId)
+        if (!node) return
+        const position = route !== 'all'
+          ? thematicLayout.get(node.id) || node.position
+          : node.position
+        setCenter(position.x + 112.5, position.y + 72.5, {
+          zoom: 1.02,
+          duration: 350,
+        })
+      })
+    })
+    return () => {
+      window.cancelAnimationFrame(firstFrame)
+      if (nextFrame !== null) window.cancelAnimationFrame(nextFrame)
+    }
+  }, [selectedId, route, guidedMode, guidedIndex, thematicLayout, setCenter])
+
+  useEffect(() => {
+    if (guidedMode || route === 'all' || selectedId) return
     const timer = window.setTimeout(() => {
+      const width = workspaceRef.current
+        ?.querySelector('.hacker-flow-canvas')?.getBoundingClientRect().width || 0
+      if (width < 900) {
+        // On tablets a full-route fit can shrink each node to an unreadable dot.
+        const node = [...routeNodes].sort((a, b) => orderIndex(a.id) - orderIndex(b.id))[0]
+        if (!node) return
+        const point = thematicLayout.get(node.id) || node.position
+        setCenter(point.x + 112.5, point.y + 72.5, { zoom: 0.92, duration: 400 })
+        return
+      }
       const active = getNodes().filter((node) => node.data.topicActive || node.data.topicSupport)
-      if (!active.length) return
-      fitView({ nodes: active, padding: 0.18, duration: 600, maxZoom: 0.95 })
-    }, 80)
+      if (active.length) fitView({ nodes: active, padding: 0.18, duration: 600, maxZoom: 0.95 })
+    }, 140)
     return () => window.clearTimeout(timer)
-  }, [route, guidedMode, getNodes, fitView])
+  }, [route, guidedMode, selectedId, routeNodes, thematicLayout, getNodes, fitView, setCenter])
 
   const selectNode = useCallback((node) => {
     if (!node) return
@@ -401,11 +433,8 @@ function StudyCanvas() {
       if (current[current.length - 1] === node.id) return current
       return [...current.slice(-9), node.id]
     })
-    setCenter(node.position.x + 115, node.position.y + 75, {
-      zoom: 1.08,
-      duration: 420,
-    })
-  }, [setCenter])
+    // The post-render effect above centers the displayed (not source) position.
+  }, [])
 
   const selectById = useCallback((id) => {
     const node = hackerNodeById(id)
@@ -437,11 +466,8 @@ function StudyCanvas() {
       } catch {}
     }
 
-    setCenter(node.position.x + 115, node.position.y + 75, {
-      zoom: 1.08,
-      duration: 460,
-    })
-  }, [activeGuidedRoute, guidedScope, setCenter])
+    // Camera focus is applied after React Flow renders this guide step.
+  }, [activeGuidedRoute, guidedScope])
 
   const startTopicGuide = useCallback((routeId) => {
     const routeSteps = buildGuidedRouteFor(routeId)
@@ -455,11 +481,8 @@ function StudyCanvas() {
     setRoute(routeId)
     setSelectedId(node.id)
 
-    setCenter(node.position.x + 115, node.position.y + 75, {
-      zoom: 1.08,
-      duration: 460,
-    })
-  }, [setCenter])
+    // Keep thematic coordinates while guided; deferred effect follows selection.
+  }, [])
 
   const startGlobalGuide = useCallback(() => {
     const safe = Math.min(
@@ -476,11 +499,8 @@ function StudyCanvas() {
     setRoute('all')
     setSelectedId(node.id)
 
-    setCenter(node.position.x + 115, node.position.y + 75, {
-      zoom: 1.08,
-      duration: 460,
-    })
-  }, [guidedIndex, guidedScope, setCenter])
+    // Global guide uses its source-map coordinates in the deferred focus effect.
+  }, [guidedIndex, guidedScope])
 
   const reset = useCallback(() => {
     setGuidedMode(false)
