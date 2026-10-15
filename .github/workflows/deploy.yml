@@ -42,6 +42,9 @@ jobs:
       - name: Validate editorial pilot
         run: npm run test:editorial
 
+      - name: Validate library catalogue
+        run: node --test tests/library-catalog.test.mjs
+
       - name: Build
         env:
           VITE_ONESIGNAL_APP_ID: ${{ vars.ONESIGNAL_APP_ID }}
