@@ -30,24 +30,6 @@ export default function CafeMercadotecniaDefinitions() {
         <span>Café Filosófico · 05 OCT 2026</span>
       </nav>
 
-      <section className="mktdefs-attendance" aria-label="Formulario de asistencia">
-        <div>
-          <span>ASISTENCIA · CAFÉ FILOSÓFICO</span>
-          <h2>Registra tu asistencia</h2>
-          <p>
-            Antes de continuar con las definiciones, abre el formulario y registra tu participación en la sesión.
-          </p>
-        </div>
-
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSdSnVBLYQmhkxf8_RJY9EpPYuplN6ikNSsGCSBPdA_OozGjPQ/viewform?usp=publish-editor"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Abrir formulario de asistencia ↗
-        </a>
-      </section>
-
       <header className="mktdefs-hero">
         <p>CAFÉ FILOSÓFICO · MATERIAL DE APOYO</p>
         <h1>Definiciones</h1>
