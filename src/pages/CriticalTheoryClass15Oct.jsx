@@ -92,7 +92,7 @@ export default function CriticalTheoryClass15Oct() {
             <p className="ct1510-deck">Lukács, racionalización, forma mercancía y libertad: del cuerpo cronometrado a las relaciones afectivas y la decisión moral.</p>
             <p className="ct1510-scope">Esta página reconstruye lo explicado en clase. Las comparaciones con Illouz, Adorno, Marcuse y Arendt son intervenciones docentes y conexiones de estudio; no se presentan como párrafos del libro de Lukács.</p>
             <div className="ct1510-cta">
-              <a href="#ct1510-atlas">Explorar la constelación ↓</a>
+              <button type="button" onClick={() => document.getElementById('ct1510-atlas')?.scrollIntoView({ behavior: 'smooth' })}>Explorar la constelación ↓</button>
               <Link to="/tareas/teoria-critica/lukacs-cosificacion">Abrir los 58 nodos de Lukács ↗</Link>
             </div>
           </div>
