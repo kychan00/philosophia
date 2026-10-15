@@ -4,6 +4,8 @@
 
 ## Guía, modo estudio y antes/después por sección
 
+**Complemento visual:** [Regla editorial inspirada en Hacker](./REGLA_SISTEMAS_2D_DISENO_EDITORIAL_HACKER.md). Marx conserva la arquitectura; Kant orienta la pedagogía y Hacker aporta composición editorial.
+
 > [!important] Obligatorio para todo sistema 2D nuevo o refactorizado
 > **Cada sección, fase, mapa o ruta temática debe contar con su propia guía de aprendizaje, su modo estudio y una explicación explícita de lo que la precede, lo que desarrolla y lo que habilita después.** La navegación global no sustituye la navegación interna de las secciones.
 
