@@ -68,7 +68,7 @@ export const books = [
     "id": "Aristóteles - Ética Nicomáquea",
     "autor": "Aristóteles",
     "titulo": "Ética Nicomáquea",
-    "categoria": "ontología",
+    "categoria": "ética",
     "estado": "documentada"
   },
   {

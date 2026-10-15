@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
 import { books, authors, categories } from '../data/libraryCatalog'
+import { isWorkByAuthor, normalizeLibraryText, worksByAuthor } from '../data/libraryCatalogUtils'
 import './PhilosophiaLibrary.css'
 
 const labels = {
@@ -10,28 +11,40 @@ const labels = {
 }
 const marks = {'crítica':'K','ontología':'Ω','analítica':'λ',
   'epistemología':'Σ','ética':'ἦ','investigación':'§'}
-const simplify = (v) => String(v||'').normalize('NFD')
-  .replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('es')
 
 export default function PhilosophiaLibrary() {
   const [tab, setTab] = useState('obras')
   const [term, setTerm] = useState('')
   const [category, setCategory] = useState('todas')
   const [order, setOrder] = useState('autor')
+  const [selectedAuthor, setSelectedAuthor] = useState(null)
   const results = useMemo(() => {
     if(tab === 'autores')
-      return authors.filter(a => simplify(a).includes(simplify(term)))
+      return authors.filter(a => normalizeLibraryText(a).includes(normalizeLibraryText(term)))
         .sort((a,b)=>a.localeCompare(b,'es'))
     return books.filter(b =>
       (tab !== 'recomendaciones' || b.estado === 'recomendada')
       && (category === 'todas' || b.categoria === category)
-      && simplify(b.autor+' '+b.titulo+' '+labels[b.categoria])
-        .includes(simplify(term))
+      && (!selectedAuthor || isWorkByAuthor(b, selectedAuthor))
+      && normalizeLibraryText(b.autor+' '+b.titulo+' '+labels[b.categoria])
+        .includes(normalizeLibraryText(term))
     ).sort((a,b)=> order === 'titulo'
       ? a.titulo.localeCompare(b.titulo,'es')
       : a.autor.localeCompare(b.autor,'es') || a.titulo.localeCompare(b.titulo,'es'))
-  }, [tab, term, category, order])
-  const changeTab = (next) => { setTab(next); setTerm(''); setCategory('todas') }
+  }, [tab, term, category, order, selectedAuthor])
+  const changeTab = (next) => {
+    setTab(next)
+    setTerm('')
+    setCategory('todas')
+    setSelectedAuthor(null)
+  }
+  const showWorksByAuthor = (author) => {
+    setTab('obras')
+    setTerm('')
+    setCategory('todas')
+    setSelectedAuthor(author)
+    setOrder('autor')
+  }
   return <main className="library-shell">
     <nav className="library-nav" aria-label="Navegación">
       <Link to="/">← Archivo principal</Link>
@@ -75,6 +88,12 @@ export default function PhilosophiaLibrary() {
             {label} <span>{count}</span>
           </button>)}
       </div>
+      {selectedAuthor && <div className="library-active-author" role="status">
+        <span>Obras de <strong>{selectedAuthor}</strong></span>
+        <button type="button" onClick={()=>setSelectedAuthor(null)}>
+          Mostrar todas las obras <span aria-hidden="true">×</span>
+        </button>
+      </div>}
       <div className="library-controls">
         <label><span>BUSCAR</span>
           <input type="search" value={term} onChange={e=>setTerm(e.target.value)}
@@ -98,11 +117,21 @@ export default function PhilosophiaLibrary() {
       </div>
       {tab==='autores'
         ? <div className="library-authors">
-          {results.map((author,i)=><article className="library-author" key={author}>
-            <span>{String(i+1).padStart(2,'0')}</span>
-            <strong aria-hidden="true">{author[0]}</strong>
-            <h3>{author}</h3><p>Ficha de autor registrada</p>
-          </article>)}
+          {results.map((author,i)=>{
+            const workCount = worksByAuthor(books, author).length
+            return <article className="library-author" key={author}>
+              <span>{String(i+1).padStart(2,'0')}</span>
+              <strong aria-hidden="true">{author[0]}</strong>
+              <h3>{author}</h3>
+              {workCount > 0
+                ? <button type="button" className="library-author-works"
+                    onClick={()=>showWorksByAuthor(author)}
+                    aria-label={`Ver ${workCount} ${workCount===1?'obra':'obras'} de ${author}`}>
+                    Ver {workCount} {workCount===1?'obra':'obras'} <span aria-hidden="true">↗</span>
+                  </button>
+                : <p>Sin obra asociada a esta ficha en el catálogo</p>}
+            </article>
+          })}
         </div>
         : <div className="library-books">
           {results.map((book,i)=><article className={'library-book library-book--'+book.categoria}
