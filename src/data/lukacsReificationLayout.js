@@ -22,7 +22,7 @@ export function layoutLukacsNodes(nodes) {
     const oldAverage = sorted.reduce((s, n) => s + n.position.y, 0) / sorted.length
     const newAverage = placed.reduce((s, y) => s + y, 0) / placed.length
     sorted.forEach((node, i) => positions.set(node.id, {
-      ...node, position: { ...node.position, y: placed[i] + oldAverage - newAverage },
+      ...node, position: { ...node.position, y: Math.round((placed[i] + oldAverage - newAverage) * 1000) / 1000 },
     }))
   }
   return nodes.map((node) => positions.get(node.id))
