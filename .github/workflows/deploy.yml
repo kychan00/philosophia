@@ -43,7 +43,7 @@ jobs:
         run: npm run test:editorial
 
       - name: Validate library catalogue
-        run: node --test tests/library-catalog.test.mjs
+        run: node --test tests/library-catalog.test.mjs tests/library-navigation.test.mjs
 
       - name: Build
         env:
