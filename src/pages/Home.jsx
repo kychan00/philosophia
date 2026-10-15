@@ -1,4 +1,6 @@
+import { Link } from 'react-router'
 import SemesterCard from '../components/SemesterCard'
+import './PhilosophiaLibrary.css'
 
 const semesters = [
   { roman: 'I', title: 'Primer semestre' },
@@ -233,6 +235,14 @@ export default function Home() {
             />
           ))}
         </div>
+      </section>
+
+      <section className="library-home-card" aria-labelledby="library-home-title">
+        <div><span>ARCHIVUM · NUEVA SECCIÓN</span>
+          <h2 id="library-home-title">Biblioteca <em>PHILOSOPHIA</em></h2>
+          <p>Autores, obras y recomendaciones unidos a las rutas de estudio filosófico.</p>
+        </div>
+        <Link to="/biblioteca">Explorar la biblioteca ↗</Link>
       </section>
 
       <footer className="site-footer">
