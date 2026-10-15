@@ -187,7 +187,7 @@ export default function AnalyticClass14Oct() {
           </div>
           <div className="ac1410-task"><span>CONSIGNA ORAL DE CLASE</span>
             <strong>Preparar el reporte de lectura de Hacker.</strong>
-            <p>Se menciona la entrega en miércoles por la tarde; no queda inequívoco cuál miércoles ni la hora exacta. Confirmar en la plataforma o con el profesor.</p></div>
+            <p><strong>Entrega confirmada para la próxima clase: lunes 19 de octubre de 2026.</strong> La sesión está programada de 19:00 a 20:25, aula FH-25; no se ha indicado una hora límite más precisa.</p></div>
           <p className="ac1410-provenance">Los desarrollos y ejemplos de la sesión son notas docentes organizadas para estudio. El texto principal de Hacker y los comentarios del aula permanecen diferenciados.</p>
           <Link className="ac1410-return" to="/semestre/5/filosofia-analitica/reporte/hacker">Explorar los nodos ampliados de Hacker ↗</Link>
         </section>

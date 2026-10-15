@@ -535,12 +535,14 @@ export const tasks = [
     subject: 'Filosofía Analítica',
     subjectCode: 'FI264',
     assignedDate: '2026-09-21',
-    dueDate: '2026-09-28',
+    // Fecha corregida con la confirmación del usuario del 14 de octubre.
+    // El ID histórico se conserva para no perder estados de la tarea.
+    dueDate: '2026-10-19',
     title: 'Segundo reporte · Peter M. S. Hacker',
     type: 'Reporte de lectura',
     weight: null,
     description:
-      'Preparar el segundo reporte sobre “El surgimiento de la filosofía analítica del siglo XX”, de Peter M. S. Hacker. El sistema total organiza los 53 puntos principales de la sistematización, relaciones históricas y conceptuales, ejemplos propios y citas suministradas.',
+      'Entregar en la próxima clase, lunes 19 de octubre de 2026, el segundo reporte sobre “El surgimiento de la filosofía analítica del siglo XX”, de Peter M. S. Hacker. Filosofía Analítica se reúne de 19:00 a 20:25; no hay una hora límite más precisa indicada. La entrega se confirmó el 14 de octubre.',
     readingScope:
       'Peter M. S. Hacker · “El surgimiento de la filosofía analítica del siglo XX”',
     readingPages: 'pp. 95–132',

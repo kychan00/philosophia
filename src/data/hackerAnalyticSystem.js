@@ -1377,7 +1377,7 @@ const class14OctNodes = [
     ['after','class14oct'],['H52.8','HC14O-10'],['ética','derecho','estética','lenguaje ordinario']),
   n('HC14O-12','15.12','classpoint','Cierre de Hacker y comienzo de Glock',
     'El recorrido termina en los límites del programa positivista y abre otra historia del análisis.',
-    'El profesor da por terminada la lectura de Hacker y anuncia para la próxima sesión el capítulo II, «Breve panorama histórico», de Hans-Johann Glock; también solicita el reporte de Hacker, sin quedar inequívoca la fecha exacta de entrega.',
+    'El profesor da por terminada la lectura de Hacker y anuncia para la próxima sesión el capítulo II, «Breve panorama histórico», de Hans-Johann Glock. La entrega del reporte de Hacker fue confirmada por el estudiante para la próxima clase: lunes 19 de octubre de 2026. No consta una hora límite dentro de la sesión.',
     'Nodo de continuidad del curso, no contenido del ensayo de Hacker.', 'Clase · 14 oct 2026',
     ['after','class14oct'],['H53','HC14O-11'],['Hacker','Glock','reporte de lectura','continuidad'],{critical:true}),
 ];

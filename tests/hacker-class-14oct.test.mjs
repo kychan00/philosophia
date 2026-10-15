@@ -38,3 +38,16 @@ test('Página, índice e inspector enlazan la nueva clase sin eliminar anotacion
   assert.match(lesson,/Glock/)
   assert.doesNotMatch(lesson,/grabaci[oó]n|transcripci[oó]n/i)
 })
+
+test('La entrega del reporte de Hacker es la próxima clase: 19 oct 2026', async () => {
+  const { tasks } = await import('../src/data/tasks.js')
+  const assignment = tasks.find((task) => task.id === 'analitica-2026-09-28-segundo-reporte-hacker')
+  assert.equal(assignment?.dueDate, '2026-10-19')
+  assert.equal(assignment?.dueTime, undefined)
+  assert.match(assignment.description, /19 de octubre de 2026/)
+  const lesson = readFileSync(new URL('../src/pages/AnalyticClass14Oct.jsx', import.meta.url), 'utf8')
+  assert.match(lesson, /lunes 19 de octubre de 2026/)
+  assert.doesNotMatch(lesson, /no queda inequívoco cuál miércoles/)
+  const closure = byId.get('HC14O-12')
+  assert.match(closure.data.explanation, /19 de octubre de 2026/)
+})
