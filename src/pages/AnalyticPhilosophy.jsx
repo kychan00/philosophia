@@ -463,6 +463,21 @@ export default function AnalyticPhilosophy() {
           </div>
         </Link>
 
+
+        <Link to="/semestre/5/filosofia-analitica/clase/14-octubre" className="analytic-class-card">
+          <div className="analytic-date">
+            <strong>XIV</strong>
+            <span>X · MMXXVI</span>
+          </div>
+          <div className="analytic-class-copy">
+            <span>Decimoquinta clase · Cierre de Peter Hacker</span>
+            <h3>Las ocho críticas al positivismo lógico</h3>
+            <p>Unidad de las ciencias; fenomenalismo y fisicalismo; significado y verdad; Popper,
+              ciencias sociales y transición al análisis del lenguaje ordinario. Próxima lectura: Glock.</p>
+          </div>
+          <div className="analytic-enter"><span>Abrir análisis</span><b>↗</b></div>
+        </Link>
+
 </section>
 
       <section className="analytic-course-map">

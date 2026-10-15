@@ -803,6 +803,16 @@ function StudyCanvas() {
                 </section>
               )}
 
+
+              {selected.data.additionalClassNotes?.map((item) => (
+                <section className="hacker-class-note" key={item.date + item.label}>
+                  <span>EXPLICACIÓN DOCENTE · {item.date}</span>
+                  <strong>{item.label}</strong>
+                  <p>{item.note}</p>
+                  <Link to={item.route}>Consultar clase del 14 de octubre ↗</Link>
+                </section>
+              ))}
+
               <section>
                 <span>Función en Hacker</span>
                 <p>{selected.data.role}</p>

@@ -4,6 +4,7 @@ export const hackerRoutes = [
   { id: 'class21', label: 'Clase 21 Sep' },
   { id: 'class23', label: 'Clase 23 Sep' },
   { id: 'class30', label: 'Clase 30 Sep' },
+  { id: 'class14oct', label: 'Clase 14 Oct' },
   { id: 'identity', label: 'Definición' },
   { id: 'moore', label: 'Moore' },
   { id: 'russell', label: 'Russell' },
@@ -18,6 +19,7 @@ export const hackerRouteColors = {
   class21: '#466f68',
   class23: '#49687d',
   class30: '#355f73',
+  class14oct: '#617d55',
   identity: '#9a702e',
   moore: '#59745c',
   russell: '#49687d',
@@ -1296,6 +1298,109 @@ Object.entries(class30Notes).forEach(([id, [label, note]]) => {
   }
 })
 
+/*
+ * Clase del 14 de octubre de 2026.
+ * Cada aporte docente se conserva como capa distinta del artículo de Hacker.
+ * No sustituye los ocho problemas H52.1–H52.8 del texto.
+ */
+const class14OctAnnotations = {
+  H50: ['UNIDAD METODOLÓGICA Y UNIFICACIÓN REDUCTIVA', 'La sesión contrapone la división del trabajo científico en Comte —disciplinas distintas con orientación positiva común— con el programa del Círculo de Viena: reducir enunciados significativos a una base uniforme. No identificar sin matices ambas versiones del positivismo.'],
+  H51: ['PESO HISTÓRICO DEL POSITIVISMO', 'El profesor señala la disolución y emigración provocadas por la guerra y, separadamente, la acumulación de objeciones internas. Son explicaciones diferentes: circunstancias históricas y dificultades conceptuales.'],
+  H52: ['OCHO PROBLEMAS, NO UN SOLO RECHAZO', 'La clase dedica su tramo central a distinguir las ocho críticas del pasaje final de Hacker. El balance abre paso a análisis lingüísticos menos restrictivos.'],
+  'H52.1': ['BASE DEL REDUCCIONISMO', 'Se reconstruye la disputa entre una base fenomenalista y otra fisicalista. El profesor la introduce mediante una comparación pedagógica entre realismos y fenomenalismo; esta clasificación es explicación de clase, no cita ni taxonomía propuesta aquí por Hacker.'],
+  'H52.2': ['CULTURA, LENGUAJE Y EL SOLIPSISMO', 'El profesor examina el peligro de prescindir de nombres, conceptos compartidos y mediaciones culturales para reducir todo a la vivencia inmediata de un único sujeto. Se discute si el lenguaje permite una objetividad intersubjetiva.'],
+  'H52.3': ['EXTENSIONALIDAD Y CONTENIDO CONCEPTUAL', 'Se recuerda la tesis de reducir proposiciones complejas a elementos más simples y la resistencia de relaciones semánticas y usos ordinarios. No se equipara esta dificultad a una mera falta de cálculo.'],
+  'H52.4': ['SIGNIFICADO NO ES VERDAD NI CIENTIFICIDAD', 'Se plantea el imperativo «Cierra la puerta»: tiene sentido, pero no es verdadero ni falso. «Dios es amor» puede ser significativo para hablantes sin superar un criterio de contrastación científica. Popper es introducido como crítico de la equivalencia entre significado y verificación.'],
+  'H52.5': ['CONVENCIONES Y NECESIDAD', 'La clase cuestiona que la verdad lógico-matemática quede satisfactoriamente explicada mediante mera convención. Mantiene separado el convencionalismo vienés de las tesis tractarianas.'],
+  'H52.6': ['INFERENCIAS MÁS ALLÁ DE UN SOLO CÁLCULO', 'El profesor distingue deducción, inducción y abducción; sostiene que el descubrimiento y la argumentación científica no se agotan en una única formalización. Se trata de una ampliación docente, no de una cita de Hacker.'],
+  'H52.7': ['CIENCIAS SOCIALES Y DEMARCACIÓN', 'La clase presenta el conflicto entre monismo metodológico y autonomía de las ciencias sociales, con referencia a la hermenéutica y al problema de la demarcación. Los ejemplos de métodos cualitativos y cuantitativos son aportes del debate de clase.'],
+  'H52.8': ['ÉTICA, DERECHO, POLÍTICA Y ESTÉTICA', 'Si el análisis sólo admite proposiciones científicamente verificables, la discusión del deber ser y los enunciados valorativos quedan injustificadamente excluidos del campo filosófico.'],
+  H53: ['CONTINUIDAD HACIA EL LENGUAJE ORDINARIO', 'La sesión termina con la liberación del análisis de la exigencia de reducción lógico-científica: significados, usos y conversaciones pasan a ser objetos de investigación. Se anuncia el capítulo II de Glock como lectura posterior.'],
+};
+const class14OctNodes = [
+  n('HC14O-01','15.1','classpoint','Comte y Viena: dos proyectos de unidad',
+    'Compartir orientación positiva no equivale a reducirlo todo a la física.',
+    'La explicación docente distingue las ciencias diferenciadas de Comte, coordinadas por un método común, del programa vienés que considera la reducción de enunciados a una base uniforme.',
+    'Precisa la procedencia histórica y el alcance del quinto programa.', 'Clase · 14 oct 2026',
+    ['vienna','class14oct'],['H50'],['Comte','Viena','unidad metodológica','fisicalismo'],{critical:true}),
+  n('HC14O-02','15.2','classpoint','Reducción y proposiciones elementales',
+    'La ambición reduccionista intenta remontar lo complejo a proposiciones empíricas básicas.',
+    'La clase enlaza el quinto programa con la herencia del atomismo lógico y con la pretensión de contrastación inmediata de las proposiciones elementales.',
+    'Conecta el proyecto de unidad con su principal dificultad.', 'Clase · 14 oct 2026',
+    ['vienna','class14oct'],['HC14O-01','H52.1'],['atomismo lógico','enunciados elementales','reduccionismo']),
+  n('HC14O-03','15.3','classpoint','Fenomenalismo frente a fisicalismo',
+    '¿La base del conocimiento es experiencia inmediata o lenguaje físico?',
+    'La discusión interna contrapone una descripción de lo dado en la experiencia y otra de los hechos físicos. Se insiste en que no se alcanzó una reducción universal convincente.',
+    'Sitúa la primera dificultad en su disyuntiva epistemológica.', 'Clase · 14 oct 2026',
+    ['vienna','class14oct'],['H52.1'],['fenomenalismo','fisicalismo','objetividad'],{critical:true}),
+  n('HC14O-04','15.4','classpoint','Realismos: esquema explicativo docente',
+    'Ingenuo, natural y crítico se comparan como respuestas al acceso objetivo a la realidad.',
+    'La clase contrapone la confianza inmediata en los sentidos, la objetividad lograda por un proceso de conocimiento y la objetividad limitada a ciertos rasgos estructurales. La terminología y los límites del esquema son pedagógicos y requieren discusión independiente.',
+    'Proporciona la analogía epistemológica usada en el aula; no es división textual de Hacker.',
+    'Clase · 14 oct 2026',['vienna','class14oct'],['HC14O-03'],
+    ['realismo ingenuo','realismo natural','realismo crítico','objeto y representación']),
+  n('HC14O-05','15.5','classpoint','Sal, color y cualidades sensibles',
+    'La composición química puede describirse sin identificarla con el sabor percibido.',
+    'Los ejemplos de salinidad y color sirven para distinguir las condiciones físico-estructurales del objeto de su manifestación sensible para un sujeto. El uso del par cualidades primarias/secundarias es ilustración docente, no conclusión que deba atribuirse literalmente a Hacker.',
+    'Ejemplo de estudio sobre experiencia, estructura y representación.', 'Clase · 14 oct 2026',
+    ['vienna','class14oct'],['HC14O-04'],
+    ['cualidades primarias','cualidades secundarias','percepción','representación']),
+  n('HC14O-06','15.6','classpoint','Solipsismo y mediaciones culturales',
+    'La referencia privada al «esto» encuentra dificultades para comunicar y contrastar.',
+    'Se problematiza una reducción a vivencias individuales y se pregunta qué papel desempeñan lenguaje, aprendizaje cultural y conceptos compartidos al afirmar objetividad.',
+    'Desarrolla el ejemplo docente de la segunda dificultad.', 'Clase · 14 oct 2026',
+    ['vienna','class14oct'],['H52.2','HC14O-05'],['solipsismo','lenguaje','intersubjetividad','concepto']),
+  n('HC14O-07','15.7','classpoint','Sentido, verdad y verificación',
+    'Una orden puede tener significado sin poseer valor de verdad.',
+    'El profesor utiliza los imperativos y enunciados religiosos para impugnar la equiparación entre significado y verificación científica. Distingue significado, verdad y demarcación.',
+    'Articula el núcleo de la cuarta objeción.', 'Clase · 14 oct 2026',
+    ['vienna','class14oct'],['H52.4'],['significado','verdad','verificación','imperativos'],{critical:true}),
+  n('HC14O-08','15.8','classpoint','Popper: falsabilidad y conjeturas',
+    'Una proposición puede tener sentido sin ser una tesis científica contrastable.',
+    'La clase presenta la falsabilidad como alternativa de demarcación y destaca la elaboración de hipótesis y la posibilidad de refutarlas. No reduce la teoría de Popper a que todo significado dependa de la falsación.',
+    'Diferencia el criterio de ciencia del criterio de sentido.', 'Clase · 14 oct 2026',
+    ['vienna','class14oct'],['HC14O-07'],['Popper','falsabilidad','conjeturas','demarcación'],{critical:true}),
+  n('HC14O-09','15.9','classpoint','Deducción, inducción y abducción',
+    'Los procesos científicos no se describen completamente con una única clase de inferencia.',
+    'El profesor amplía la crítica del cálculo clásico con inferencias inductivas y abductivas, hipótesis, investigación creativa y contingencias del descubrimiento. Distinguir el contexto de descubrimiento del de justificación es una precisión editorial para el estudio.',
+    'Conexión docente con los límites del formalismo lógico.', 'Clase · 14 oct 2026',
+    ['vienna','class14oct'],['H52.6','HC14O-08'],['deducción','inducción','abducción','descubrimiento']),
+  n('HC14O-10','15.10','classpoint','Ciencias sociales y comunidad científica',
+    'Se discute qué permite llamar ciencia a una investigación social.',
+    'La clase contrapone la posición metodológica de Comte con enfoques hermenéuticos y con la referencia a comunidades científicas y paradigmas. Las referencias a Kuhn son ampliación de la clase y no tesis de Hacker en este apartado.',
+    'Profundiza el problema de demarcación tras la séptima objeción.', 'Clase · 14 oct 2026',
+    ['vienna','class14oct'],['H52.7','HC14O-09'],['ciencias sociales','Comte','Kuhn','paradigma']),
+  n('HC14O-11','15.11','classpoint','Ética y lenguaje ordinario',
+    'El análisis no queda agotado por la descripción científica de los hechos.',
+    'La discusión del deber ser, las normas, el derecho y la conversación corriente plantea tareas para la filosofía que la reducción lógico-científica deja fuera.',
+    'Explica por qué la octava crítica abre un cambio de programa filosófico.', 'Clase · 14 oct 2026',
+    ['after','class14oct'],['H52.8','HC14O-10'],['ética','derecho','estética','lenguaje ordinario']),
+  n('HC14O-12','15.12','classpoint','Cierre de Hacker y comienzo de Glock',
+    'El recorrido termina en los límites del programa positivista y abre otra historia del análisis.',
+    'El profesor da por terminada la lectura de Hacker y anuncia para la próxima sesión el capítulo II, «Breve panorama histórico», de Hans-Johann Glock; también solicita el reporte de Hacker, sin quedar inequívoca la fecha exacta de entrega.',
+    'Nodo de continuidad del curso, no contenido del ensayo de Hacker.', 'Clase · 14 oct 2026',
+    ['after','class14oct'],['H53','HC14O-11'],['Hacker','Glock','reporte de lectura','continuidad'],{critical:true}),
+];
+class14OctNodes.forEach((node) => {
+  node.data.classSeen = true
+  node.data.classOnly = true
+  node.data.classLabel = 'EXPLICACIÓN DE CLASE · 14 OCTUBRE'
+  node.data.classNote = node.data.explanation
+  node.data.classHeader = 'FILOSOFÍA ANALÍTICA · 15.ª CLASE · 14 OCT 2026'
+  node.data.classRoute = '/semestre/5/filosofia-analitica/clase/14-octubre'
+  node.data.classLinkLabel = 'Consultar clase del 14 de octubre ↗'
+})
+Object.entries(class14OctAnnotations).forEach(([id, [label, note]]) => {
+  const node = [...mainNodes, ...turnNodes, ...collapseNodes].find((item) => item.id === id)
+  if (!node) throw new Error('Nodo del artículo no encontrado: ' + id)
+  node.data.branch.push('class14oct')
+  // Preserve previous classNote/classRoute: a new class must never overwrite them.
+  node.data.additionalClassNotes = [
+    ...(node.data.additionalClassNotes || []),
+    { label, note, date: '14 OCT 2026', route: '/semestre/5/filosofia-analitica/clase/14-octubre' },
+  ]
+})
+
 export const hackerNodes = [
   ...mainNodes,
   ...turnNodes,
@@ -1304,6 +1409,7 @@ export const hackerNodes = [
   ...class21Nodes,
   ...class23Nodes,
   ...class30Nodes,
+  ...class14OctNodes,
 ]
 
 const hackerArticleSource = {
@@ -2088,6 +2194,8 @@ const order = [
   'HC21-01','HC21-02','HC21-03','HC21-04','HC21-05','HC21-06','HC21-07','HC21-08','HC21-09','HC21-10','HC21-11','HC21-12','HC21-13','HC21-14','HC21-15',
   'HC23-01','HC23-02','HC23-03','HC23-04','HC23-05','HC23-06','HC23-07','HC23-08','HC23-09','HC23-10','HC23-11','HC23-12',
   'HC30-01','HC30-02','HC30-03','HC30-04','HC30-05','HC30-06','HC30-07','HC30-08','HC30-09','HC30-10',
+  'HC14O-01','HC14O-02','HC14O-03','HC14O-04','HC14O-05','HC14O-06',
+  'HC14O-07','HC14O-08','HC14O-09','HC14O-10','HC14O-11','HC14O-12',
 ]
 
 export const hackerOrder = order

@@ -1,0 +1,56 @@
+/* Filosofía analítica · notas del 14 de octubre de 2026. */
+/* Cromática de procedencia y jerarquía editorial armonizada con Hacker. */
+.ac1410-page { --ac1410-gold:#a87d32; --ac1410-green:#59745c; --ac1410-rust:#9b4b38; --ac1410-blue:#49687d; --ac1410-ink:#262723; }
+.ac1410-hero { min-height: min(790px,90vh); }
+.ac1410-ghost { color:var(--ac1410-green);opacity:.045; }
+.ac1410-heading>span{background:var(--ac1410-green)!important;color:#fff!important}
+.ac1410-question{border-left-color:var(--ac1410-gold);}
+.ac1410-schema .active{border-color:var(--ac1410-green)!important;background:rgba(89,116,92,.10)!important}
+.ac1410-schema b small{font:600 .65rem Arial,sans-serif;letter-spacing:0;text-transform:none;color:var(--ac1410-green)}
+.ac1410-actions{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0 0}
+.ac1410-actions a,.ac1410-return,.ac1410-index-link{display:inline-block;padding:12px 16px;text-decoration:none;border:1px solid var(--ac1410-green);color:var(--ac1410-ink);font:700 .75rem Arial,sans-serif;background:rgba(89,116,92,.08)}
+.ac1410-actions a:first-child,.ac1410-return{background:var(--ac1410-green);color:#fff}
+.ac1410-index-link{margin:18px 0;width:100%}
+.ac1410-article>section{scroll-margin-top:95px}
+.ac1410-article h3{font-size:1.18rem;margin:0 0 9px}
+.ac1410-article p{line-height:1.68}
+.ac1410-commitments{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:24px 0}
+.ac1410-commitments>div{border:1px solid rgba(38,39,35,.24);padding:20px;background:rgba(255,255,255,.30);border-top:4px solid var(--ac1410-gold);min-width:0}
+.ac1410-commitments>div:last-child{grid-column:1/-1}
+.ac1410-commitments span,.ac1410-compare span,.ac1410-distinction span,.ac1410-questionbox span,.ac1410-task span{display:block;font:800 .65rem Arial,sans-serif;letter-spacing:.1em;color:var(--ac1410-green)}
+.ac1410-commitments strong,.ac1410-compare strong,.ac1410-distinction strong,.ac1410-questionbox strong,.ac1410-task strong{display:block;font-size:1.1rem;margin:10px 0}
+.ac1410-commitments p,.ac1410-compare p,.ac1410-distinction p{margin-bottom:0}
+.ac1410-compare,.ac1410-distinction{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:22px 0}
+.ac1410-compare>div,.ac1410-distinction>div{border:1px solid rgba(38,39,35,.25);border-top:4px solid var(--ac1410-green);background:rgba(255,255,255,.26);padding:20px;min-width:0}
+.ac1410-compare>div:nth-child(2){border-top-color:var(--ac1410-gold)}
+.ac1410-distinction>div:nth-child(2){border-top-color:var(--ac1410-blue)}
+.ac1410-objections{display:grid;gap:12px;margin:26px 0}
+.ac1410-objection{display:grid;grid-template-columns:56px minmax(0,1fr);gap:16px;border:1px solid rgba(38,39,35,.25);background:rgba(255,255,255,.25);padding:20px;min-width:0}
+.ac1410-objection:nth-child(odd){border-left:4px solid var(--ac1410-rust)}
+.ac1410-objection:nth-child(even){border-left:4px solid var(--ac1410-green)}
+.ac1410-objection-no{font:900 1.8rem Georgia,serif;color:var(--ac1410-rust)}
+.ac1410-objection small{font:800 .6rem Arial,sans-serif;letter-spacing:.1em;color:var(--ac1410-green)}
+.ac1410-objection p{margin:7px 0 14px}
+.ac1410-provenance{border-left:3px solid var(--ac1410-gold);padding:9px 14px;background:rgba(168,125,50,.07);font-size:.87rem}
+.ac1410-flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:24px 0}
+.ac1410-flow span{padding:13px 15px;border:1px solid rgba(38,39,35,.25);background:rgba(89,116,92,.11);font:700 .72rem Arial,sans-serif}
+.ac1410-flow b{color:var(--ac1410-rust)}
+.ac1410-questionbox,.ac1410-task{margin:24px 0;padding:22px;border:1px solid var(--ac1410-gold);background:rgba(168,125,50,.08)}
+.ac1410-task{border-color:var(--ac1410-green);background:rgba(89,116,92,.08)}
+.ac1410-return{margin:16px 0 0}
+.ac1410-footer{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;padding:24px 5vw;border-top:1px solid rgba(38,39,35,.25);font:700 .75rem Arial,sans-serif}
+.ac1410-footer a{color:inherit}
+@media(max-width:1180px){
+ .ac1410-hero{min-height:auto}
+ .ac1410-layout{grid-template-columns:minmax(0,1fr)}
+ .ac1410-index{position:static;max-height:none}
+}
+@media(max-width:760px){
+ .ac1410-commitments,.ac1410-compare,.ac1410-distinction{grid-template-columns:minmax(0,1fr)}
+ .ac1410-commitments>div:last-child{grid-column:auto}
+ .ac1410-objection{grid-template-columns:40px minmax(0,1fr);gap:10px;padding:14px}
+ .ac1410-actions a{width:100%;text-align:center}
+ .ac1410-flow{flex-direction:column;align-items:stretch}
+ .ac1410-flow b{text-align:center;transform:rotate(90deg)}
+ .ac1410-footer{flex-direction:column}
+}

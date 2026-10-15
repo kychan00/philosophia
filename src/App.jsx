@@ -18,6 +18,7 @@ const AnalyticClass23Sep = lazy(() => import('./pages/AnalyticClass23Sep'))
 const AnalyticClass28Sep = lazy(() => import('./pages/AnalyticClass28Sep'))
 const AnalyticClass30Sep = lazy(() => import('./pages/AnalyticClass30Sep'))
 const AnalyticClass07Oct = lazy(() => import('./pages/AnalyticClass07Oct'))
+const AnalyticClass14Oct = lazy(() => import('./pages/AnalyticClass14Oct'))
 const Home = lazy(() => import('./pages/Home'))
 const CafeFilosofico = lazy(() => import('./pages/CafeFilosofico'))
 const CafeCapitalismoEvent = lazy(() => import('./pages/CafeCapitalismoEvent'))
@@ -500,6 +501,10 @@ function App() {
         <Route
           path="/semestre/5/filosofia-analitica/clase/7-octubre"
           element={<AnalyticClass07Oct />}
+        />
+        <Route
+          path="/semestre/5/filosofia-analitica/clase/14-octubre"
+          element={<AnalyticClass14Oct />}
         />
 
         <Route
