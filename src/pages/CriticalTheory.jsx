@@ -227,6 +227,15 @@ export default function CriticalTheory() {
           </div>
           <div className="ct-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
         </Link>
+        <Link to="/semestre/5/teoria-critica/clase/15-octubre" className="ct-class-card">
+          <div className="ct-class-card-date"><strong>XV</strong><span>X · MMXXVI</span></div>
+          <div className="ct-class-card-copy">
+            <span>Lukács · Lectura colectiva y vínculos contemporáneos</span>
+            <h3>Cosificación, vida social y responsabilidad moral</h3>
+            <p>Forma mercancía, Taylorismo, sujeto–objeto, Weber, Illouz, Adorno, Marcuse, animales, burocracia, Arendt y libertad como resistencia.</p>
+          </div>
+          <div className="ct-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
+        </Link>
       </section>
 
       <section className="ct-section">
