@@ -37,3 +37,7 @@ test('Per-section rail uses canonical order; selection does not run global fitVi
   assert.match(page, /\}, \[route, guidedMode, getNodes, fitView\]\)/)
   assert.doesNotMatch(page, /\}, \[route, guidedMode, getNodes, fitView, nodes\]\)/)
 })
+
+test('Source notices avoid referring to private recording or transcription workflows', () => {
+  assert.doesNotMatch(page, /transcripci[oó]n|grabaci[oó]n/i)
+})

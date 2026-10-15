@@ -824,7 +824,7 @@ function StudyCanvas() {
                     ))}
 
                     <div className="hacker-source-note">
-                      Transcripción tomada del PDF original proporcionado para el reporte.
+                      Pasajes del material bibliográfico empleado en el reporte, con localizador propio.
                     </div>
                   </div>
                 </details>
