@@ -1,12 +1,10 @@
 import { Link } from 'react-router'
-import './AnaliticaClase7Septiembre.css'
+import {
+  AnalyticEditorialHeading,
+  AnalyticEditorialIndex,
+} from '../components/analytic/AnalyticEditorialElements'
+import '../components/analytic/AnalyticEditorialElements.css'
 import './AnalyticClass09Sep.css'
-import './AnalyticClass14Sep.css'
-import './AnalyticClass21Sep.css'
-import './AnalyticClass23Sep.css'
-import './AnalyticClass28Sep.css'
-import './AnalyticClass30Sep.css'
-import './AnalyticClass07Oct.css'
 import './AnalyticClass14Oct.css'
 
 const sections = [
@@ -40,20 +38,20 @@ const objections = [
 ]
 
 function Heading({ n, eyebrow, children }) {
-  return <div className="ac9-heading ac14-heading ac21-heading ac23-heading ac28-heading ac30-heading ac07-heading ac1410-heading">
-    <span>{n}</span><div><p>{eyebrow}</p><h2>{children}</h2></div>
-  </div>
+  return <AnalyticEditorialHeading n={n} eyebrow={eyebrow} className="ac1410-heading">
+    {children}
+  </AnalyticEditorialHeading>
 }
 const goTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior:'smooth', block:'start' })
 
 export default function AnalyticClass14Oct() {
-  return <main className="ac7-page ac9-page ac14-page ac21-page ac23-page ac28-page ac30-page ac07-page ac1410-page">
+  return <main className="analytic-editorial-page ac9-page ac1410-page">
     <nav className="ac9-topbar">
       <Link to="/semestre/5/filosofia-analitica">← Filosofía Analítica</Link>
       <Link to="/" className="ac9-brand">Φ · Philosophia</Link>
       <span>XIV · X · MMXXVI</span>
     </nav>
-    <header className="ac9-hero ac14-hero ac21-hero ac23-hero ac28-hero ac30-hero ac07-hero ac1410-hero">
+    <header className="ac9-hero ac1410-hero">
       <div className="ac9-grid" aria-hidden="true" />
       <div className="ac9-ghost ac1410-ghost" aria-hidden="true">⊭</div>
       <div className="ac9-hero-inner">
@@ -64,17 +62,17 @@ export default function AnalyticClass14Oct() {
             Cierre de la lectura de Peter M. S. Hacker. Del ideal de una ciencia unificada
             a las objeciones contra el reduccionismo, el verificacionismo y los límites del análisis formal.
           </p>
-          <div className="ac9-question ac07-question ac1410-question">
+          <div className="ac9-question ac1410-question">
             <span>PROBLEMA DE LA SESIÓN</span>
             <strong>¿Por qué un programa que quiso precisar el significado científico terminó
               enfrentándose al lenguaje, la experiencia y la pluralidad de las ciencias?</strong>
           </div>
           <div className="ac1410-actions">
             <Link to="/semestre/5/filosofia-analitica/reporte/hacker">Explorar sistema 2D de Hacker ↗</Link>
-            <a href="#criticas">Examinar las ocho críticas ↓</a>
+            <button type="button" onClick={() => goTo('criticas')}>Examinar las ocho críticas ↓</button>
           </div>
         </div>
-        <aside className="ac9-hero-schema ac07-hero-schema ac1410-schema" aria-label="Esquema del recorrido">
+        <aside className="ac9-hero-schema ac1410-schema" aria-label="Esquema del recorrido">
           <span>ARQUITECTURA ARGUMENTAL · ESQUEMA DE CLASE</span>
           <div><small>PUNTO DE PARTIDA</small><strong>Programa positivista</strong><p>Verificación · reducción · unidad de la ciencia</p></div>
           <b>↓ <small>encuentra dificultades en</small></b>
@@ -84,13 +82,16 @@ export default function AnalyticClass14Oct() {
         </aside>
       </div>
     </header>
-    <div className="ac9-layout ac21-layout ac23-layout ac28-layout ac30-layout ac07-layout ac1410-layout">
-      <aside className="ac9-index ac21-index ac23-index ac28-index ac30-index ac07-index ac1410-index">
-        <p>INDEX · XIV OCTOBRIS</p>
-        {sections.map(([number,id,label]) => <button type="button" key={id} onClick={() => goTo(id)}><span>{number}</span>{label}</button>)}
+    <div className="ac9-layout ac1410-layout">
+      <AnalyticEditorialIndex
+        sections={sections}
+        onNavigate={goTo}
+        heading="INDEX · XIV OCTOBRIS"
+        className="ac1410-index"
+      >
         <Link className="ac1410-index-link" to="/semestre/5/filosofia-analitica/reporte/hacker">Sistema 2D ↗</Link>
-      </aside>
-      <article className="ac9-article ac21-article ac23-article ac28-article ac30-article ac07-article ac1410-article">
+      </AnalyticEditorialIndex>
+      <article className="ac9-article ac1410-article">
         <section id="programa">
           <Heading n="01" eyebrow="Recapitulatio">Cinco compromisos del positivismo lógico</Heading>
           <p>La clase recupera el cierre del <em>Tractatus</em> y la recepción del Círculo de Viena

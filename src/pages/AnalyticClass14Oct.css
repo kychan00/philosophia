@@ -1,6 +1,12 @@
 /* Filosofía analítica · notas del 14 de octubre de 2026. */
 /* Cromática de procedencia y jerarquía editorial armonizada con Hacker. */
-.ac1410-page { --ac1410-gold:#a87d32; --ac1410-green:#59745c; --ac1410-rust:#9b4b38; --ac1410-blue:#49687d; --ac1410-ink:#262723; }
+.ac1410-page {
+  --ac1410-gold: var(--analytic-editorial-gold);
+  --ac1410-green: var(--analytic-editorial-green);
+  --ac1410-rust: var(--analytic-editorial-rust);
+  --ac1410-blue: var(--analytic-editorial-blue);
+  --ac1410-ink: var(--analytic-editorial-ink);
+}
 .ac1410-hero { min-height: min(790px,90vh); }
 .ac1410-ghost { color:var(--ac1410-green);opacity:.045; }
 .ac1410-heading>span{background:var(--ac1410-green)!important;color:#fff!important}
@@ -8,7 +14,7 @@
 .ac1410-schema .active{border-color:var(--ac1410-green)!important;background:rgba(89,116,92,.10)!important}
 .ac1410-schema b small{font:600 .65rem Arial,sans-serif;letter-spacing:0;text-transform:none;color:var(--ac1410-green)}
 .ac1410-actions{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0 0}
-.ac1410-actions a,.ac1410-return,.ac1410-index-link{display:inline-block;padding:12px 16px;text-decoration:none;border:1px solid var(--ac1410-green);color:var(--ac1410-ink);font:700 .75rem Arial,sans-serif;background:rgba(89,116,92,.08)}
+.ac1410-actions :is(a,button),.ac1410-return,.ac1410-index-link{display:inline-block;padding:12px 16px;text-decoration:none;border:1px solid var(--ac1410-green);color:var(--ac1410-ink);font:700 .75rem Arial,sans-serif;background:rgba(89,116,92,.08)}
 .ac1410-actions a:first-child,.ac1410-return{background:var(--ac1410-green);color:#fff}
 .ac1410-index-link{margin:18px 0;width:100%}
 .ac1410-article>section{scroll-margin-top:95px}
@@ -49,8 +55,47 @@
  .ac1410-commitments,.ac1410-compare,.ac1410-distinction{grid-template-columns:minmax(0,1fr)}
  .ac1410-commitments>div:last-child{grid-column:auto}
  .ac1410-objection{grid-template-columns:40px minmax(0,1fr);gap:10px;padding:14px}
- .ac1410-actions a{width:100%;text-align:center}
+ .ac1410-actions :is(a,button){width:100%;text-align:center}
  .ac1410-flow{flex-direction:column;align-items:stretch}
  .ac1410-flow b{text-align:center;transform:rotate(90deg)}
  .ac1410-footer{flex-direction:column}
+}
+
+/* Piloto desacoplado: evita heredar hojas de las siete clases previas. */
+.ac1410-heading > span {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  min-height: 76px;
+  padding: 8px;
+  box-sizing: border-box;
+  line-height: 1;
+  opacity: 1;
+}
+.ac1410-layout { align-items: start; }
+.ac1410-article > section { scroll-margin-top: 96px; }
+.ac1410-actions button { cursor: pointer; font-family: inherit; }
+.ac1410-index button { overflow-wrap: anywhere; }
+
+@media (max-width: 1100px) {
+  .ac1410-layout {
+    display: block;
+    width: min(100% - 2rem, 1420px);
+  }
+  .ac1410-index {
+    position: static;
+    top: auto;
+    max-height: none;
+    overflow: visible;
+  }
+  .ac1410-article { position: relative; min-width: 0; width: 100%; }
+}
+
+@media (max-width: 760px) {
+  .ac1410-heading > span {
+    width: 58px;
+    min-height: 58px;
+    font-size: 2.3rem;
+  }
+  .ac1410-article > section { scroll-margin-top: 80px; }
 }

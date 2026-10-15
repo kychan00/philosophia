@@ -39,6 +39,9 @@ jobs:
       - name: Validate 2D invariants
         run: npm run test:2d
 
+      - name: Validate editorial pilot
+        run: npm run test:editorial
+
       - name: Build
         env:
           VITE_ONESIGNAL_APP_ID: ${{ vars.ONESIGNAL_APP_ID }}

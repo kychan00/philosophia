@@ -1,0 +1,36 @@
+/*
+ * Identidad editorial reutilizable de Filosofía Analítica.
+ * Los tonos documentales viven aquí; el significado de cada nodo 2D pertenece
+ * exclusivamente a System2DTheme, no a estos tokens de las clases.
+ */
+.analytic-editorial-page {
+  --analytic-editorial-paper: #f3efe6;
+  --analytic-editorial-ink: #262723;
+  --analytic-editorial-gold: #a87d32;
+  --analytic-editorial-green: #59745c;
+  --analytic-editorial-rust: #9b4b38;
+  --analytic-editorial-blue: #49687d;
+  font-family: Georgia, 'Times New Roman', serif;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.analytic-editorial-page :is(a, button):focus-visible {
+  outline: 3px solid var(--analytic-editorial-gold);
+  outline-offset: 3px;
+}
+
+.analytic-editorial-index button {
+  min-height: 44px;
+}
+
+.analytic-editorial-heading > div,
+.analytic-editorial-index {
+  min-width: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .analytic-editorial-page {
+    scroll-behavior: auto;
+  }
+}
