@@ -1,3 +1,4 @@
+import SectionPedagogy from '../components/philosophy/system2d/SectionPedagogy'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
 import {
@@ -416,6 +417,15 @@ function SystemCanvas({ embedded = false }) {
         </div>
 
         <aside className="cafe2d-inspector">
+          <SectionPedagogy
+            nodes={marketingDialogueNodes}
+            routes={marketingDialogueRoutes}
+            activeRoute={route}
+            selectedId={selectedId}
+            onSectionChange={(id) => { setGuidedMode(false); setRoute(id); setSelectedId(null) }}
+            onFocusNode={(id) => selectNode(marketingDialogueNodeById(id))}
+          />
+
           {selected ? (
             <div className="cafe2d-inspector-scroll">
               <div className="cafe2d-inspector-head"><span>{selected.data.phase}</span><b>{selected.data.code}</b></div>

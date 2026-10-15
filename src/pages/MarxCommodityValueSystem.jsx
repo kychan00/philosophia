@@ -1,3 +1,4 @@
+import SectionPedagogy from '../components/philosophy/system2d/SectionPedagogy'
 import { useCallback, useEffect, useMemo, useState, useRef} from 'react'
 import { Link } from 'react-router'
 import { createPortal } from 'react-dom'
@@ -961,6 +962,15 @@ function StudyCanvas() {
           className={studyMode ? 'marx-inspector is-study-mode' : 'marx-inspector'}
         >
           <div className="marx-inspector-scroll">
+          <SectionPedagogy
+            nodes={marxCommodityNodes}
+            routes={marxCommodityRoutes}
+            activeRoute={route}
+            selectedId={selectedId}
+            onSectionChange={(id) => { setGuidedMode(false); setRoute(id); setSelectedId(null) }}
+            onFocusNode={(id) => selectById(id)}
+          />
+
           {selected ? (
             <>
               <div className="marx-inspector-head">

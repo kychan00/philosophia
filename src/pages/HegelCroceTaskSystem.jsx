@@ -1,3 +1,4 @@
+import SectionPedagogy from '../components/philosophy/system2d/SectionPedagogy'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
 import { createPortal } from 'react-dom'
@@ -444,6 +445,15 @@ function HegelCroceTaskCanvas() {
 
         <aside className="marx-inspector">
           <div className="marx-inspector-scroll">
+          <SectionPedagogy
+            nodes={hegelCroceNodes}
+            routes={hegelCroceRoutes}
+            activeRoute={route}
+            selectedId={selectedId}
+            onSectionChange={(id) => { setGuidedMode(false); setRoute(id); setSelectedId(null) }}
+            onFocusNode={(id) => selectById(id)}
+          />
+
             {selected ? (
               <>
                 <div className="marx-inspector-head">

@@ -1,3 +1,4 @@
+import SectionPedagogy from '../components/philosophy/system2d/SectionPedagogy'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
 import {
@@ -550,6 +551,15 @@ function StudyCanvas() {
         </div>
 
         <aside className="hartmann2d-inspector">
+          <SectionPedagogy
+            nodes={hartmannChapterNodes}
+            routes={hartmannChapterRoutes}
+            activeRoute={route}
+            selectedId={selectedId}
+            onSectionChange={(id) => { setGuidedMode(false); setRoute(id); setSelectedId(null) }}
+            onFocusNode={(id) => selectNode(hartmannChapterNodeById(id))}
+          />
+
           {!selected ? (
             <div className="hartmann2d-empty">
               <span>INSPECTOR</span>

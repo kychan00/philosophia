@@ -1,3 +1,4 @@
+import SectionPedagogy from '../components/philosophy/system2d/SectionPedagogy'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
 import {
@@ -736,6 +737,15 @@ function StudyCanvas() {
         </div>
 
         <aside className="hacker-inspector">
+          <SectionPedagogy
+            nodes={hackerNodes}
+            routes={hackerRoutes}
+            activeRoute={route}
+            selectedId={selectedId}
+            onSectionChange={(id) => { setGuidedMode(false); setRoute(id); setSelectedId(null) }}
+            onFocusNode={(id) => selectById(id)}
+          />
+
           {selected ? (
             <>
               <div className="hacker-inspector-head">
