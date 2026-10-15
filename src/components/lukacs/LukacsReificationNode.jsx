@@ -35,8 +35,8 @@ export default function LukacsReificationNode({ data, selected }) {
         <b>{data.code}</b>
       </div>
 
-      <strong className="marx-flow-title">{data.title}</strong>
-      <p className="lukacs-node-summary"><b>SÍNTESIS</b> {data.excerpt}</p>
+      <strong className="marx-flow-title nodrag nopan nowheel" tabIndex={0}>{data.title}</strong>
+      <p className="lukacs-node-summary nodrag nopan nowheel" tabIndex={0}><b>SÍNTESIS</b> {data.excerpt}</p>
 
       {data.sourcePassage && (
         <section className="lukacs-node-reading" aria-label="Pasaje directo de la lectura">
@@ -47,7 +47,7 @@ export default function LukacsReificationNode({ data, selected }) {
       )}
 
       {data.diagram?.length > 0 && (
-        <div className="marx-node-diagram" aria-label="Esquema del nodo">
+        <div className="marx-node-diagram nodrag nopan nowheel" tabIndex={0} aria-label="Esquema del nodo">
           {data.diagram.map((part, index) => (
             <span key={`${data.code}-${index}-${part}`}>{part}</span>
           ))}
