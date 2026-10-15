@@ -3,12 +3,12 @@
    ============================================================ */
 
 .ac07-page{
-  --ac07-ink:#23343e;
-  --ac07-blue:#405d6e;
-  --ac07-blue-dark:#2c434f;
-  --ac07-gold:#a67b3a;
-  --ac07-rust:#8c4d42;
-  --ac07-paper:#f0e8d9;
+  --ac07-ink:var(--analytic-editorial-slate-dark);
+  --ac07-blue:var(--analytic-editorial-slate);
+  --ac07-blue-dark:var(--analytic-editorial-slate-dark);
+  --ac07-gold:var(--analytic-editorial-ochre);
+  --ac07-rust:var(--analytic-editorial-terra);
+  --ac07-paper:var(--analytic-editorial-paper);
 }
 
 .ac07-hero{min-height:84vh}
@@ -154,4 +154,71 @@
     transform:rotate(90deg);
   }
   .ac07-article > section{scroll-margin-top:80px}
+}
+
+/* Folio propio: estilos que antes se obtenían de otras clases del curso. */
+.ac07-hero{min-height:84vh}
+.ac07-heading>span{
+  display:grid;place-items:center;width:76px;min-height:76px;
+  padding:8px;box-sizing:border-box;line-height:1;opacity:1;
+}
+.ac07-layout{align-items:start}
+.ac07-index{min-width:0}
+.ac07-article{min-width:0}
+.ac07-summary-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:.75rem;margin:1.3rem 0;
+}
+.ac07-summary-grid article{
+  min-width:0;padding:1rem;border:1px solid rgba(25,25,20,.2);
+  background:rgba(255,255,255,.22);
+}
+.ac07-summary-grid span{display:block;color:var(--ac07-blue);font:900 .65rem Arial,sans-serif;letter-spacing:.1em}
+.ac07-summary-grid strong{display:block;margin:.45rem 0;font-size:1.1rem}
+.ac07-summary-grid p{margin:0;line-height:1.5}
+.ac07-thesis,.ac07-note{
+  display:block;margin:22px 0;padding:18px 20px;
+  border:1px solid rgba(25,25,20,.22);border-left:5px solid var(--ac07-blue);
+  background:rgba(64,93,110,.075);
+}
+.ac07-thesis>span,.ac07-note>span,.ac07-ending>span,.ac07-no-task>span{
+  display:block;color:var(--ac07-rust);
+  font:800 .7rem Arial,sans-serif;letter-spacing:.1em;
+}
+.ac07-thesis>strong,.ac07-note>strong{display:block;margin:8px 0;font-size:1.17rem;line-height:1.4}
+.ac07-thesis>p,.ac07-note>p{margin:8px 0 0;line-height:1.6}
+.ac07-ending{
+  margin:20px 0;padding:22px;border:2px solid var(--ac07-blue);
+  background:rgba(64,93,110,.09);
+}
+.ac07-ending strong{display:block;margin-top:8px;font-size:clamp(1.3rem,3vw,2rem);line-height:1.2}
+.ac07-ending p{margin:8px 0 0;line-height:1.5}
+.ac07-actions{display:flex;flex-wrap:wrap;gap:10px}
+.ac07-actions a{
+  display:inline-flex;align-items:center;min-height:44px;
+  padding:10px 14px;border:1px solid var(--ac07-ink);
+  color:inherit;text-decoration:none;
+  font:700 .85rem Arial,sans-serif;
+}
+.ac07-actions a:first-child{background:var(--ac07-ink);color:#f3efe6}
+.ac07-no-task{
+  margin-top:18px;padding:14px 16px;
+  border-left:4px solid var(--ac07-gold);background:rgba(166,123,58,.09);
+}
+.ac07-no-task strong{display:block;margin-top:8px;line-height:1.55}
+@media(max-width:1100px){
+  .ac07-layout{display:block;width:min(100% - 2rem,1420px)}
+  .ac07-index{
+    display:block;position:static;top:auto;max-height:none;overflow:visible;
+    width:100%;margin:0 0 1.5rem;padding:1.5rem 0 0;
+    background:transparent;transform:none;box-shadow:none;
+  }
+  .ac07-index button{display:grid;width:100%}
+  .ac07-article{position:relative;min-width:0;width:100%}
+}
+@media(max-width:980px){.ac07-summary-grid{grid-template-columns:1fr}}
+@media(max-width:760px){
+  .ac07-heading>span{width:58px;min-height:58px;font-size:2.3rem}
+  .ac07-thesis,.ac07-note{padding:15px 16px}
+  .ac07-index{margin-bottom:.75rem}
 }

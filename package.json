@@ -12,7 +12,7 @@
     "predev": "npm run assets:open",
     "prebuild": "npm run assets:open",
     "test:2d": "node --test tests/hacker-2d-invariants.test.mjs tests/section-2d-model.test.mjs tests/hacker-palette-2d.test.mjs tests/hacker-class-14oct.test.mjs",
-    "test:editorial": "node --test tests/analytic-editorial-pilot.test.mjs"
+    "test:editorial": "node --test tests/analytic-editorial-pilot.test.mjs tests/analytic-editorial-07oct.test.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.8",

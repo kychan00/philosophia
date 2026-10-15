@@ -10,6 +10,10 @@
   --analytic-editorial-green: #59745c;
   --analytic-editorial-rust: #9b4b38;
   --analytic-editorial-blue: #49687d;
+  --analytic-editorial-slate: #405d6e;
+  --analytic-editorial-slate-dark: #2c434f;
+  --analytic-editorial-ochre: #a67b3a;
+  --analytic-editorial-terra: #8c4d42;
   font-family: Georgia, 'Times New Roman', serif;
   min-width: 0;
   overflow-wrap: break-word;

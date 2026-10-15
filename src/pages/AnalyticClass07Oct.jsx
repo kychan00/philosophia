@@ -1,11 +1,10 @@
 import { Link } from 'react-router'
-import './AnaliticaClase7Septiembre.css'
+import {
+  AnalyticEditorialHeading,
+  AnalyticEditorialIndex,
+} from '../components/analytic/AnalyticEditorialElements'
+import '../components/analytic/AnalyticEditorialElements.css'
 import './AnalyticClass09Sep.css'
-import './AnalyticClass14Sep.css'
-import './AnalyticClass21Sep.css'
-import './AnalyticClass23Sep.css'
-import './AnalyticClass28Sep.css'
-import './AnalyticClass30Sep.css'
 import './AnalyticClass07Oct.css'
 
 const sections = [
@@ -29,25 +28,24 @@ const goTo = (id) =>
 
 function Heading({ n, eyebrow, children }) {
   return (
-    <div className="ac9-heading ac14-heading ac21-heading ac23-heading ac28-heading ac30-heading ac07-heading">
-      <span>{n}</span>
-      <div><p>{eyebrow}</p><h2>{children}</h2></div>
-    </div>
+    <AnalyticEditorialHeading n={n} eyebrow={eyebrow} className="ac07-heading">
+      {children}
+    </AnalyticEditorialHeading>
   )
 }
 
 export default function AnalyticClass07Oct() {
   return (
-    <main className="ac7-page ac9-page ac14-page ac21-page ac23-page ac28-page ac30-page ac07-page">
+    <main className="analytic-editorial-page ac9-page ac07-page">
       <nav className="ac9-topbar">
         <Link to="/semestre/5/filosofia-analitica">← Filosofía Analítica</Link>
         <Link to="/" className="ac9-brand">Φ · Philosophia</Link>
         <span>VII · X · MMXXVI</span>
       </nav>
 
-      <header className="ac9-hero ac14-hero ac21-hero ac23-hero ac28-hero ac30-hero ac07-hero">
+      <header className="ac9-hero ac07-hero">
         <div className="ac9-grid" aria-hidden="true" />
-        <div className="ac9-ghost ac14-ghost ac21-ghost ac23-ghost ac28-ghost ac30-ghost ac07-ghost" aria-hidden="true">⊢</div>
+        <div className="ac9-ghost ac07-ghost" aria-hidden="true">⊢</div>
 
         <div className="ac9-hero-inner">
           <div>
@@ -62,7 +60,7 @@ export default function AnalyticClass07Oct() {
               dónde empieza la distancia entre Wittgenstein y el programa positivista.
             </p>
 
-            <div className="ac9-question ac21-question ac23-question ac28-question ac30-question ac07-question">
+            <div className="ac9-question ac07-question">
               <span>PREGUNTA RECTORA</span>
               <strong>
                 ¿Qué tomó el positivismo lógico del Tractatus y qué cambió al convertir
@@ -71,7 +69,7 @@ export default function AnalyticClass07Oct() {
             </div>
           </div>
 
-          <aside className="ac9-hero-schema ac14-hero-schema ac21-hero-schema ac23-hero-schema ac28-hero-schema ac30-hero-schema ac07-hero-schema">
+          <aside className="ac9-hero-schema ac07-hero-schema">
             <span>RUTA DE LA SESIÓN</span>
             <div>
               <small>WITTGENSTEIN</small>
@@ -94,17 +92,15 @@ export default function AnalyticClass07Oct() {
         </div>
       </header>
 
-      <div className="ac9-layout ac21-layout ac23-layout ac28-layout ac30-layout ac07-layout">
-        <aside className="ac9-index ac21-index ac23-index ac28-index ac30-index ac07-index">
-          <p>Index analyticorum</p>
-          {sections.map(([n,id,label]) => (
-            <button type="button" key={id} onClick={() => goTo(id)}>
-              <span>{n}</span>{label}
-            </button>
-          ))}
-        </aside>
+      <div className="ac9-layout ac07-layout">
+        <AnalyticEditorialIndex
+          sections={sections}
+          onNavigate={goTo}
+          heading="Index analyticorum"
+          className="ac07-index"
+        />
 
-        <article className="ac9-article ac21-article ac23-article ac28-article ac30-article ac07-article">
+        <article className="ac9-article ac07-article">
           <section id="mapa">
             <Heading n="00" eyebrow="Tabula sessionis">De Wittgenstein al programa de Viena</Heading>
 
@@ -116,7 +112,7 @@ export default function AnalyticClass07Oct() {
               <strong>empirismo consistente</strong>
             </div>
 
-            <div className="ac23-summary-grid ac28-summary-grid ac30-summary-grid ac07-summary-grid">
+            <div className="ac07-summary-grid">
               <article><span>LECTURA</span><strong>Hacker · pp. 126–130</strong><p>Tramo final dedicado al positivismo lógico y su recepción del Tractatus.</p></article>
               <article><span>CLAVE</span><strong>influencia ≠ identidad</strong><p>El Círculo de Viena recibe a Wittgenstein, pero lo reinterpreta.</p></article>
               <article><span>PENDIENTE</span><strong>quinto tema</strong><p>La clase desarrolla cuatro de los cinco temas señalados por Hacker.</p></article>
@@ -215,7 +211,7 @@ export default function AnalyticClass07Oct() {
               <b>≠</b>
               <article className="active"><span>B</span><strong>no existe</strong><p>Esta conclusión añade una tesis ontológica más fuerte.</p></article>
             </div>
-            <aside className="ac9-thesis ac21-thesis ac23-thesis ac28-thesis ac30-thesis ac07-thesis">
+            <aside className="ac07-thesis">
               <span>DISTINCIÓN CENTRAL</span>
               <strong>No poder formular algo como proposición factual no demuestra por sí solo su inexistencia.</strong>
             </aside>
@@ -275,7 +271,7 @@ export default function AnalyticClass07Oct() {
               <b>→</b>
               <article><span>METAFÍSICA</span><strong>queda excluida</strong><p>Si no hay condiciones de verificación, el positivista rechaza el enunciado.</p></article>
             </div>
-            <aside className="ac9-note ac21-note ac23-note ac28-note ac30-note ac07-note">
+            <aside className="ac07-note">
               <span>CONTINUIDAD</span>
               <strong>Popper aparecerá como una de las críticas posteriores al programa verificacionista.</strong>
             </aside>
@@ -332,7 +328,7 @@ export default function AnalyticClass07Oct() {
 
           <section id="pendiente">
             <Heading n="12" eyebrow="Continuatio">Lo que queda pendiente</Heading>
-            <div className="ac21-ending ac23-ending ac28-ending ac30-ending ac07-ending">
+            <div className="ac07-ending">
               <span>CIERRE DOCUMENTAL</span>
               <strong>Cuatro de cinco temas desarrollados · Hacker pp. 126–130</strong>
               <p>
@@ -341,7 +337,7 @@ export default function AnalyticClass07Oct() {
               </p>
             </div>
 
-            <div className="ac21-actions">
+            <div className="ac07-actions">
               <Link to="/semestre/5/filosofia-analitica/reporte/hacker">
                 Abrir sistema total de Hacker →
               </Link>
@@ -350,9 +346,9 @@ export default function AnalyticClass07Oct() {
               </Link>
             </div>
 
-            <div className="ac21-no-task">
+            <div className="ac07-no-task">
               <span>TAREA</span>
-              <strong>No se recupera una tarea nueva inequívocamente formulada en la grabación.</strong>
+              <strong>No consta una consigna nueva inequívoca en las notas disponibles de esta sesión.</strong>
             </div>
           </section>
         </article>
