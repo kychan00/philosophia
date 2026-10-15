@@ -1065,3 +1065,12 @@
 @media (prefers-reduced-motion: reduce) {
   .marx-flow-node[data-topic-tone] { transition: none; }
 }
+
+/* Hacker's gold means selection; green guide current remains stronger and
+   the critical double border remains a separately labeled semantic state. */
+.marx-flow-node.is-selected[data-topic-tone] {
+  border-color: var(--ph2d-topic-gold);
+  box-shadow:
+    inset 0 0 0 3px var(--ph2d-topic-gold),
+    0 17px 35px rgba(var(--ph2d-shadow-rgb), .15);
+}

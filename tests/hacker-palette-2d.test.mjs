@@ -29,4 +29,5 @@ test('Hacker-inspired accent preserves original selected, guided and critical se
   assert.match(marxCss, /\.marx-flow-node\.is-guided-current\[data-topic-tone\]/)
   assert.match(marxCss, /\.marx-flow-node\.is-selected\[data-topic-tone\]/)
   assert.match(marxCss, /--ph2d-node-accent/)
+  assert.match(marxCss, /border-color: var\(--ph2d-topic-gold\)/)
 })
