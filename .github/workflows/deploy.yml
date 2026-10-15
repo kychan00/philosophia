@@ -50,6 +50,9 @@ jobs:
           VITE_ONESIGNAL_APP_ID: ${{ vars.ONESIGNAL_APP_ID }}
         run: npm run build
 
+      - name: Validate library in headless browser (phone and iPad)
+        run: node tests/library-browser-smoke.mjs
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6
 
