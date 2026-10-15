@@ -1,4 +1,16 @@
 export const SYSTEM_2D_THEME = Object.freeze({
+  nodeTopics: Object.freeze({
+    moss: '#59745c',
+    gold: '#c99532',
+    blue: '#49687d',
+    rust: '#9b4b38',
+    ochre: '#9a702e',
+    violet: '#6f6d85',
+    sage: '#617d55',
+    bronze: '#8b633e',
+    plum: '#6b5a78',
+    class: '#d7b568',
+  }),
   background: Object.freeze({
     app: '#ebe3d5',
     paper: '#f7f0e4',

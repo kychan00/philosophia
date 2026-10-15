@@ -1,8 +1,24 @@
 import { Handle, Position } from '@xyflow/react'
 
+// Colors express phase membership, not a claim of philosophical derivation.
+export const MARX_PHASE_TONES = Object.freeze({
+  'Mercancía': 'moss',
+  'Sustancia del valor': 'gold',
+  'Dualidad del trabajo': 'blue',
+  'Forma simple': 'rust',
+  'Forma equivalente': 'ochre',
+  'Forma desplegada': 'violet',
+  'Forma general': 'sage',
+  'Dinero': 'bronze',
+  'Umbral': 'plum',
+})
+
 export default function MarxCommodityNode({ data, selected }) {
+  const topicTone = MARX_PHASE_TONES[data.phase] || 'moss'
   return (
     <div
+      data-topic-tone={topicTone}
+      style={{ '--ph2d-node-accent': `var(--ph2d-topic-${topicTone})` }}
       className={[
         'marx-flow-node',
         data.critical ? 'is-critical' : '',

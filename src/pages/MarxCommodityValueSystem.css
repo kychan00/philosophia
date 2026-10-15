@@ -1015,3 +1015,53 @@
   color:#fff7ed;
   cursor:pointer;
 }
+
+/* PHILOSOPHIA 2D · cromática de Hacker (piloto Marx).
+   The phase determines the accent; node state (guided, selected, critical)
+   is still governed by the original Marx contract. */
+.marx-flow-node[data-topic-tone] {
+  background: var(--ph2d-node-surface);
+  background: linear-gradient(145deg,
+    color-mix(in srgb, var(--ph2d-node-accent) 13%, var(--ph2d-node-surface)) 0%,
+    var(--ph2d-node-surface) 76%);
+}
+.marx-flow-node[data-topic-tone]::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  background: var(--ph2d-node-accent);
+  content: '';
+  pointer-events: none;
+}
+.marx-flow-node[data-topic-tone] .marx-flow-meta {
+  align-items: center;
+  gap: .5rem;
+}
+.marx-flow-node[data-topic-tone] .marx-flow-meta b {
+  background: var(--ph2d-node-surface);
+  background: color-mix(in srgb, var(--ph2d-node-accent) 23%, var(--ph2d-node-surface));
+  border: 1px solid var(--ph2d-node-accent);
+  color: var(--ph2d-ink);
+  padding: .27rem .37rem;
+  font-weight: 800;
+  border-radius: 2px;
+}
+.marx-flow-node.is-critical[data-topic-tone] {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(var(--ph2d-red-rgb),.08), transparent 72%),
+    var(--ph2d-node-surface);
+  border: 3px double rgba(var(--ph2d-red-rgb),.72);
+}
+.marx-flow-node.is-micro[data-topic-tone] {
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--ph2d-node-accent) 10%, var(--ph2d-node-surface)), var(--ph2d-node-surface) 75%);
+}
+/* Do not dim selected nodes even when a source route highlights neighbors. */
+.marx-flow-node.is-selected[data-topic-tone],
+.marx-flow-node.is-guided-current[data-topic-tone] {
+  opacity: 1 !important;
+  filter: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marx-flow-node[data-topic-tone] { transition: none; }
+}

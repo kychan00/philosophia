@@ -28,6 +28,19 @@
   --ph2d-green-rgb:82,108,89;
   --ph2d-purple-rgb:122,90,140;
   --ph2d-shadow-rgb:45,37,29;
+
+  /* Node topic family tones sampled from Hacker's own route accents.
+     New additive tokens: existing selected/guide/edge palette is unchanged. */
+  --ph2d-topic-moss:#59745c;
+  --ph2d-topic-gold:#c99532;
+  --ph2d-topic-blue:#49687d;
+  --ph2d-topic-rust:#9b4b38;
+  --ph2d-topic-ochre:#9a702e;
+  --ph2d-topic-violet:#6f6d85;
+  --ph2d-topic-sage:#617d55;
+  --ph2d-topic-bronze:#8b633e;
+  --ph2d-topic-plum:#6b5a78;
+  --ph2d-topic-class:#d7b568;
 }
 
 .marx-study-shell,
