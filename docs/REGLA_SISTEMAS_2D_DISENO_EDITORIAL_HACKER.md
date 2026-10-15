@@ -25,6 +25,12 @@
 
 Consultar la [regla de diseño adaptable para iPad](./REGLA_SISTEMAS_2D_IPAD_TABLET.md). La composición Hacker debe reconstruirse con layouts fluidos, inspector no invasivo, mapa usable en vertical/horizontal y controles táctiles legibles. Una captura de Hacker/Viena de octubre de 2026 motivó la prohibición de anchos forzados y cabeceras de altura fija.
 
+## Regla cromática de nodos · Hacker también es el referente de color
+
+El color ya no se limita a ambientación editorial: cada **familia conceptual** debe poder distinguirse mediante un acento reutilizable de Hacker. La paleta se consume **desde tokens compartidos**, no copiando el objeto `--h-*` original dentro de cada sistema. Selección dorada, guía verde y señales de procedencia accesibles.
+
+Ver [regla cromática oficial y piloto de Marx](./REGLA_SISTEMAS_2D_CROMATICA_HACKER.md).
+
 ## Implementación y prohibiciones
 
 - Conservar `src/pages/MarxCommodityValueSystem.jsx` y su shell como patrón.
