@@ -255,6 +255,21 @@ export default function MethodsResearch() {
           <div className="methods-class-copy"><span>Novena clase · Géneros y delimitación</span><h3>Del género académico al objeto de investigación</h3><p>Comentario, disertación, ensayo, artículo, tesis e informe; protocolo frente a avance; delimitación del objeto y ejercicio sobre miedo, educación y Nussbaum.</p></div>
           <div className="methods-enter"><span>Abrir folio</span><b>↗</b></div>
         </Link>
+        <Link
+          to="/semestre/5/metodos-de-investigacion/clase/14-octubre"
+          className="methods-class-card"
+        >
+          <div className="methods-date"><strong>XIV</strong><span>X · MMXXVI</span></div>
+          <div className="methods-class-copy">
+            <span>Fenomenología · libertad y educación</span>
+            <h3>De la libertad como concepto a la libertad vivida</h3>
+            <p>
+              Objeto de estudio, tensión emancipación–disciplina, Freire, Foucault y Rousseau;
+              epoché, reducción eidética, descripción corporal e intencionalidad.
+            </p>
+          </div>
+          <div className="methods-enter"><span>Abrir folio</span><b>↗</b></div>
+        </Link>
       </section>
 
       <footer className="methods-footer">
