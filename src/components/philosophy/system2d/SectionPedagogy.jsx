@@ -1,34 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
+import { buildSectionPedagogy } from './SectionPedagogyModel.js'
 import './SectionPedagogy.css'
 
-// Route membership and documented node relations are the only sources of this view.
-export function buildSectionPedagogy(nodes = [], routes = [], nodeOrder = []) {
-  const orderIndex = new Map(nodeOrder.map((id, index) => [id, index]))
-  const byId = new Map(nodes.map((node) => [node.id, node]))
-  return routes.filter((route) => route.id !== 'all').map((route) => {
-    const members = nodes.filter((node) => {
-      const branch = node.data?.branch
-      return Array.isArray(branch) ? branch.includes(route.id) : branch === route.id
-    }).sort((left, right) =>
-      (orderIndex.get(left.id) ?? Number.MAX_SAFE_INTEGER)
-      - (orderIndex.get(right.id) ?? Number.MAX_SAFE_INTEGER)
-    )
-    const memberIds = new Set(members.map((node) => node.id))
-    const prior = [...new Set(members.flatMap((node) => node.data?.dependsOn || []))]
-      .filter((id) => !memberIds.has(id) && byId.has(id)).map((id) => byId.get(id))
-    const later = [...new Set([
-      ...members.flatMap((node) => node.data?.produces || []),
-      ...nodes.filter((node) => !memberIds.has(node.id)
-        && (node.data?.dependsOn || []).some((id) => memberIds.has(id))).map((node) => node.id),
-    ])].filter((id) => !memberIds.has(id) && byId.has(id)).map((id) => byId.get(id))
-    const questions = members.filter((node) => (
-      node.data?.question || node.data?.nextQuestion ||
-      node.data?.explanation || node.data?.detail
-    ))
-    return { ...route, members, prior, later, questions }
-  }).filter((section) => section.members.length)
-}
-
+// Pure section derivation is shared with Node tests and all seven systems.
+export { buildSectionPedagogy } from './SectionPedagogyModel.js'
 const title = (node) => node?.data?.title || node?.id || 'Nodo'
 const location = (node) => node?.data?.sourceRef || node?.data?.page
   || node?.data?.source || 'Localizador no documentado'
@@ -60,7 +35,9 @@ export default function SectionPedagogy({
   const questionIndex = Math.max(0, Math.min(studyIndex, questions.length - 1))
   const studyNode = questions[questionIndex]
   const questionText = studyNode?.data?.question || studyNode?.data?.nextQuestion
-  const reviewed = questions.filter((node) => marks[section.id + ':' + node.id] === 'reviewed').length
+  const reviewed = section ? questions.filter((node) =>
+    marks[section.id + ':' + node.id] === 'reviewed'
+  ).length : 0
 
   useEffect(() => {
     if (!section || !selectedId) return
@@ -103,7 +80,7 @@ export default function SectionPedagogy({
     if (now === 'study' && questions.length) goStudy(questionIndex)
   }
   return (
-    <section className="ph2d-pedagogy" aria-label="Guía y estudio por sección">
+    <section className="ph2d-pedagogy" aria-label="Guía y estudio por sección" data-ph2d-section={section.id}>
       <header className="ph2d-pedagogy-head">
         <span>PEDAGOGÍA POR SECCIÓN</span>
         <strong>Comprender · recorrer · comprobar</strong>
@@ -120,7 +97,7 @@ export default function SectionPedagogy({
         <div>
           <small>ANTES · DEPENDENCIAS DOCUMENTADAS</small>
           {section.prior.length ? (
-            <ul>{section.prior.slice(0, 4).map((node) => <li key={node.id}>{title(node)}</li>)}</ul>
+            <ul>{section.prior.map((node) => <li key={node.id}>{title(node)}</li>)}</ul>
           ) : <p>No consta dependencia externa en este recorrido.</p>}
         </div>
         <div>
@@ -131,7 +108,7 @@ export default function SectionPedagogy({
         <div>
           <small>DESPUÉS · CONTINUIDADES DOCUMENTADAS</small>
           {section.later.length ? (
-            <ul>{section.later.slice(0, 4).map((node) => <li key={node.id}>{title(node)}</li>)}</ul>
+            <ul>{section.later.map((node) => <li key={node.id}>{title(node)}</li>)}</ul>
           ) : <p>No consta consecuencia externa en este recorrido.</p>}
         </div>
       </div>
@@ -145,7 +122,7 @@ export default function SectionPedagogy({
       </div>
       {mode === 'guide' && current && (
         <div className="ph2d-pedagogy-work">
-          <span>GUÍA EXHAUSTIVA · {currentIndex + 1} / {members.length}</span>
+          <span aria-live="polite">GUÍA EXHAUSTIVA · {currentIndex + 1} / {members.length}</span>
           <progress value={currentIndex + 1} max={members.length} />
           <strong>{title(current)}</strong>
           <nav className="ph2d-pedagogy-rail" aria-label="Pasos de la sección">
@@ -172,9 +149,9 @@ export default function SectionPedagogy({
       )}
       {mode === 'study' && studyNode && (
         <div className="ph2d-pedagogy-work">
-          <span>MODO ESTUDIO · {questionIndex + 1} / {questions.length} · {reviewed} revisadas</span>
+          <span aria-live="polite">MODO ESTUDIO · {questionIndex + 1} / {questions.length} · {reviewed} revisadas</span>
           <progress value={reviewed} max={questions.length} />
-          <small>{questionText ? 'PREGUNTA REGISTRADA EN EL DATASET' : 'EJERCICIO EDITORIAL · NO ES CONSIGNA DEL PROFESOR'}</small>
+          <small>{studyNode.data?.questionProvenance === 'teacher' ? 'PREGUNTA DE CLASE · PROCEDENCIA ACREDITADA' : 'EJERCICIO DE ESTUDIO · SIN ATRIBUCIÓN DOCENTE'}</small>
           <strong>{questionText || ('Explique desde el texto el papel de «' + title(studyNode) + '».')}</strong>
           <p>Intente responder antes de consultar la explicación.</p>
           {!revealed ? (

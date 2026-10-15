@@ -423,7 +423,10 @@ function SystemCanvas({ embedded = false }) {
             activeRoute={route}
             selectedId={selectedId}
             onSectionChange={(id) => { setGuidedMode(false); setRoute(id); setSelectedId(null) }}
-            onFocusNode={(id) => selectNode(marketingDialogueNodeById(id))}
+            onFocusNode={(id) => {
+              setGuidedMode(false)
+              selectNode(marketingDialogueNodeById(id))
+            }}
           />
 
           {selected ? (

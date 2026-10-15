@@ -451,7 +451,10 @@ function HegelCroceTaskCanvas() {
             activeRoute={route}
             selectedId={selectedId}
             onSectionChange={(id) => { setGuidedMode(false); setRoute(id); setSelectedId(null) }}
-            onFocusNode={(id) => selectById(id)}
+            onFocusNode={(id) => {
+              setGuidedMode(false)
+              selectById(id)
+            }}
           />
 
             {selected ? (

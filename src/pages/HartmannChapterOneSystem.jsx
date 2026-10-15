@@ -557,7 +557,10 @@ function StudyCanvas() {
             activeRoute={route}
             selectedId={selectedId}
             onSectionChange={(id) => { setGuidedMode(false); setRoute(id); setSelectedId(null) }}
-            onFocusNode={(id) => selectNode(hartmannChapterNodeById(id))}
+            onFocusNode={(id) => {
+              setGuidedMode(false)
+              selectNode(hartmannChapterNodeById(id))
+            }}
           />
 
           {!selected ? (

@@ -69,3 +69,24 @@
   background:var(--ph2d-paper2);
 }
 .ph2d-pedagogy-rail button[aria-current="step"] > span { color:var(--ph2d-green); }
+
+/* Shared tablet contract: readable type, scroll contained to the topic rail,
+   and no hidden dependencies in the before/after academic outline. */
+.ph2d-pedagogy-arc ul {
+  max-height: 11rem;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+.ph2d-pedagogy button { min-height: 44px; }
+.ph2d-pedagogy-head strong { line-height: 1.35; }
+.ph2d-pedagogy-arc p,
+.ph2d-pedagogy-arc li,
+.ph2d-pedagogy-work p { font-size: max(14px, 0.92rem); }
+@media (max-width: 1180px) {
+  .ph2d-pedagogy { width: 100%; max-width: 100%; min-width: 0; overflow-wrap: anywhere; }
+  .ph2d-pedagogy-work,
+  .ph2d-pedagogy-arc { min-width: 0; }
+  .ph2d-pedagogy-rail { max-width: 100%; scroll-padding-inline: 12px; }
+  .ph2d-pedagogy .ph2d-pedagogy-rail button { flex-basis: min(148px, 48vw); }
+  .ph2d-pedagogy-select select { min-height: 44px; font-size: 16px; }
+}

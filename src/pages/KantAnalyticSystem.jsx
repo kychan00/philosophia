@@ -1117,6 +1117,8 @@ function Workspace() {
                   changeMode(id)
                 }}
                 onFocusNode={(compositeId) => {
+                  setGuideOpen(false)
+                  setStudyOpen(false)
                   const divider = compositeId.indexOf(':')
                   const sectionId = compositeId.slice(0, divider)
                   const nodeId = compositeId.slice(divider + 1)
