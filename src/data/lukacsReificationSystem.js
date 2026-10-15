@@ -1,4 +1,5 @@
 import { lukacsSourcePassages } from './lukacsReificationSourcePassages.js'
+import { layoutLukacsNodes } from './lukacsReificationLayout.js'
 
 const isArrow = (item) => ['→', '⇢', '↔', '≠', '+'].includes(item)
 
@@ -85,7 +86,7 @@ const N = ({
   },
 })
 
-export const lukacsReificationNodes = [
+const lukacsUnpackedNodes = [
   N({
     id:'L01', code:'§1.01', title:'La mercancía como problema estructural', page:'apertura',
     phase:'Mercancía', branch:['genesis','totality'],
@@ -729,6 +730,9 @@ export const lukacsReificationNodes = [
     critical:true, position:P(11400,220),
   }),
 ]
+
+// Inspector, rutas, guía y cámara usan exactamente las mismas coordenadas.
+export const lukacsReificationNodes = layoutLukacsNodes(lukacsUnpackedNodes)
 
 const nodeMap = new Map(lukacsReificationNodes.map((node) => [node.id, node]))
 
