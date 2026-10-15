@@ -478,7 +478,9 @@ function StudyCanvas() {
             <div>
               <span>{guidedCurrent.data.phase} · p. {guidedCurrent.data.page}</span>
               <strong>{guidedCurrent.data.code} · {guidedCurrent.data.title}</strong>
-              <blockquote>{guidedCurrent.data.excerpt}</blockquote>
+              <p className="lukacs-guided-summary">Síntesis: {guidedCurrent.data.excerpt}</p>
+              <span className="lukacs-source-caption">PASO DEL TEXTO · PDF P. {guidedCurrent.data.sourcePdfPage}</span>
+              <blockquote className="lukacs-source-long">{guidedCurrent.data.sourcePassage}</blockquote>
             </div>
             <aside>
               <span>FUNCIÓN EN EL ARGUMENTO</span>
@@ -631,9 +633,14 @@ function StudyCanvas() {
                 <h2>{selected.data.title}</h2>
 
                 <section className="marx-inspector-text">
-                  <span>TEXTO / IDEA EXPLÍCITA</span>
-                  <blockquote>{selected.data.excerpt}</blockquote>
-                  <small>Lukács · p. {selected.data.page}</small>
+                  <span>PASAJE DEL TEXTO · PDF P. {selected.data.sourcePdfPage}</span>
+                  <blockquote className="lukacs-source-long">{selected.data.sourcePassage}</blockquote>
+                  <small>{selected.data.sourceAttribution} · página impresa: {selected.data.sourcePrintedPage} · verificar en PDF si persisten erratas</small>
+                </section>
+
+                <section className="lukacs-editorial-summary">
+                  <span>SÍNTESIS EDITORIAL (NO CITA)</span>
+                  <p>{selected.data.excerpt}</p>
                 </section>
 
                 <section>
@@ -833,9 +840,10 @@ function StudyCanvas() {
 
             <div className="marx-folio-grid">
               <section className="marx-folio-source">
-                <span>TEXTO / IDEA EXPLÍCITA</span>
-                <blockquote>{folio.data.excerpt}</blockquote>
-                <small>{lukacsReificationSource.author} · {lukacsReificationSource.title}</small>
+                <span>PASAJE DEL TEXTO · PDF P. {folio.data.sourcePdfPage}</span>
+                <blockquote className="lukacs-source-long">{folio.data.sourcePassage}</blockquote>
+                <small>{folio.data.sourceAttribution} · página impresa {folio.data.sourcePrintedPage} · la digitalización puede contener erratas</small>
+                <p className="lukacs-folio-summary"><strong>Síntesis editorial:</strong> {folio.data.excerpt}</p>
               </section>
 
               <section>

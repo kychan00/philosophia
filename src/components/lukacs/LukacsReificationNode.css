@@ -1,0 +1,15 @@
+/* Lukács · lectura literal ampliada, aislada del Cuerpo Marx compartido. */
+.lukacs-flow-node .lukacs-node-summary{margin:.15rem 0 .75rem;font-size:.69rem;line-height:1.48;color:var(--mx-muted)}
+.lukacs-flow-node .lukacs-node-summary b{font-size:.55rem;letter-spacing:.1em;color:var(--mx-gold)}
+.lukacs-flow-node .lukacs-node-reading{margin:.55rem 0 0;padding:.65rem .7rem .55rem;background:rgba(var(--ph2d-paper-rgb),.78);border:1px solid rgba(var(--ph2d-gold-rgb),.28);border-left:3px solid var(--mx-gold);border-radius:3px;min-width:0}
+.lukacs-flow-node .lukacs-node-reading>span,.lukacs-flow-node .lukacs-node-reading>small{display:block;color:var(--mx-muted);font-size:.52rem;letter-spacing:.08em}
+.lukacs-flow-node .lukacs-node-reading>span{font-weight:700;margin-bottom:.35rem}
+.lukacs-flow-node .lukacs-node-reading>small{margin-top:.25rem;letter-spacing:0;line-height:1.3}
+.lukacs-flow-node .lukacs-node-reading blockquote{max-height:156px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;white-space:normal;line-height:1.54;padding:0 .45rem 0 0;margin:0;border:0;font-size:.73rem;color:var(--mx-ink);outline-offset:2px}
+.lukacs-flow-node .lukacs-node-reading blockquote:focus-visible{outline:2px solid var(--mx-green)}
+.lukacs-source-long{white-space:pre-line;line-height:1.7!important;font-size:1rem!important;color:var(--mx-ink)!important;overflow-wrap:anywhere}
+.lukacs-editorial-summary p,.lukacs-folio-summary,.lukacs-guided-summary{line-height:1.7;color:var(--mx-muted)}
+.lukacs-folio-summary{margin-top:1rem;padding:.7rem 0 0;border-top:1px solid var(--mx-line)}
+.lukacs-source-caption{display:block;color:var(--mx-gold);font-size:.62rem;letter-spacing:.1em;margin:.6rem 0 .2rem}
+@media(max-width:780px){.lukacs-flow-node .lukacs-node-reading blockquote{max-height:176px;font-size:.78rem}.lukacs-source-long{font-size:.94rem!important}}
+@media(prefers-reduced-motion:reduce){.lukacs-flow-node .lukacs-node-reading blockquote{scroll-behavior:auto}}
