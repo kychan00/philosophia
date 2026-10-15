@@ -19,6 +19,7 @@ const preview = spawn(process.execPath,
     '--port','4173','--strictPort'], {stdio: 'ignore'})
 const profile = mkdtempSync(join(tmpdir(), 'philosophia-library-'))
 let browser, socket
+let browserDiagnostics = ''
 const pending = new Map()
 let seq = 0
 
@@ -67,13 +68,21 @@ try {
     const result = await fetch('http://127.0.0.1:4173/philosophia/')
     return result.ok
   }, 'servidor Vite preview')
+  console.log('Chromium seleccionado:', chromeBin)
+  const version = spawnSync(chromeBin,['--version'],{encoding:'utf8'})
+  console.log('Versión:', version.stdout?.trim() || version.stderr?.trim())
   browser = spawn(chromeBin, [
-    '--headless=new','--no-sandbox','--disable-dev-shm-usage',
-    '--disable-gpu','--no-first-run','--remote-debugging-port=0',
+    '--headless=new','--no-sandbox','--disable-setuid-sandbox',
+    '--disable-dev-shm-usage','--disable-gpu','--no-first-run',
+    '--disable-extensions','--remote-debugging-port=0',
     '--user-data-dir='+profile,'about:blank'
-  ],{stdio:'ignore'})
+  ],{stdio:['ignore','pipe','pipe']})
+  browser.stderr?.on('data',chunk=>{browserDiagnostics=(browserDiagnostics+chunk.toString()).slice(-6000)})
+  browser.stdout?.on('data',chunk=>{browserDiagnostics=(browserDiagnostics+chunk.toString()).slice(-6000)})
+  browser.on('error',error=>{browserDiagnostics+=' browser error: '+error.message})
   const activePort = join(profile,'DevToolsActivePort')
-  await until(async()=>existsSync(activePort),'puerto de DevTools')
+  try { await until(async()=>existsSync(activePort),'puerto de DevTools') }
+  catch(error){throw new Error(error.message+'; exitCode='+browser.exitCode+'; browser logs='+browserDiagnostics)}
   const port=Number(readFileSync(activePort,'utf8').split('\n')[0])
   const tabs=await (await fetch('http://127.0.0.1:'+port+'/json/list')).json()
   const target=tabs.find(tab=>tab.type==='page')
