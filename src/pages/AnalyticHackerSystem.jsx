@@ -392,7 +392,7 @@ function StudyCanvas() {
       fitView({ nodes: active, padding: 0.18, duration: 600, maxZoom: 0.95 })
     }, 80)
     return () => window.clearTimeout(timer)
-  }, [route, guidedMode, getNodes, fitView, nodes])
+  }, [route, guidedMode, getNodes, fitView])
 
   const selectNode = useCallback((node) => {
     if (!node) return
@@ -510,7 +510,7 @@ function StudyCanvas() {
       </nav>
 
       <header className="hacker-study-hero">
-        <div className="hacker-study-mark">82</div>
+        <div className="hacker-study-mark" aria-label="Número de nodos">{hackerNodes.length}</div>
         <div>
           <p>PETER M. S. HACKER · SISTEMA TOTAL</p>
           <h1>El surgimiento de <em>la filosofía analítica del siglo XX</em></h1>
@@ -530,7 +530,7 @@ function StudyCanvas() {
       <section className="hacker-study-intro">
         <div>
           <span>MAPPA ANALYTICA</span>
-          <strong>82 nodos · un solo plano 2D</strong>
+          <strong>{hackerNodes.length} nodos · un solo plano 2D</strong>
         </div>
         <p>
           La navegación replica la lógica del sistema de Spinoza:
@@ -740,10 +740,14 @@ function StudyCanvas() {
           <SectionPedagogy
             nodes={hackerNodes}
             routes={hackerRoutes}
+            nodeOrder={hackerOrder}
             activeRoute={route}
             selectedId={selectedId}
             onSectionChange={(id) => { setGuidedMode(false); setRoute(id); setSelectedId(null) }}
-            onFocusNode={(id) => selectById(id)}
+            onFocusNode={(id) => {
+              setGuidedMode(false)
+              selectById(id)
+            }}
           />
 
           {selected ? (

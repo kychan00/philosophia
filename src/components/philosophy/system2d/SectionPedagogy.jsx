@@ -2,13 +2,17 @@ import { useEffect, useMemo, useState } from 'react'
 import './SectionPedagogy.css'
 
 // Route membership and documented node relations are the only sources of this view.
-export function buildSectionPedagogy(nodes = [], routes = []) {
+export function buildSectionPedagogy(nodes = [], routes = [], nodeOrder = []) {
+  const orderIndex = new Map(nodeOrder.map((id, index) => [id, index]))
   const byId = new Map(nodes.map((node) => [node.id, node]))
   return routes.filter((route) => route.id !== 'all').map((route) => {
     const members = nodes.filter((node) => {
       const branch = node.data?.branch
       return Array.isArray(branch) ? branch.includes(route.id) : branch === route.id
-    })
+    }).sort((left, right) =>
+      (orderIndex.get(left.id) ?? Number.MAX_SAFE_INTEGER)
+      - (orderIndex.get(right.id) ?? Number.MAX_SAFE_INTEGER)
+    )
     const memberIds = new Set(members.map((node) => node.id))
     const prior = [...new Set(members.flatMap((node) => node.data?.dependsOn || []))]
       .filter((id) => !memberIds.has(id) && byId.has(id)).map((id) => byId.get(id))
@@ -30,9 +34,9 @@ const location = (node) => node?.data?.sourceRef || node?.data?.page
   || node?.data?.source || 'Localizador no documentado'
 
 export default function SectionPedagogy({
-  nodes, routes, activeRoute, selectedId, onSectionChange, onFocusNode,
+  nodes, routes, nodeOrder, activeRoute, selectedId, onSectionChange, onFocusNode,
 }) {
-  const sections = useMemo(() => buildSectionPedagogy(nodes, routes), [nodes, routes])
+  const sections = useMemo(() => buildSectionPedagogy(nodes, routes, nodeOrder), [nodes, routes, nodeOrder])
   const [sectionId, setSectionId] = useState(() =>
     activeRoute !== 'all' ? activeRoute : sections[0]?.id,
   )
@@ -144,6 +148,17 @@ export default function SectionPedagogy({
           <span>GUÍA EXHAUSTIVA · {currentIndex + 1} / {members.length}</span>
           <progress value={currentIndex + 1} max={members.length} />
           <strong>{title(current)}</strong>
+          <nav className="ph2d-pedagogy-rail" aria-label="Pasos de la sección">
+            {members.map((node, index) => (
+              <button key={node.id} type="button" title={title(node)}
+                aria-current={index === currentIndex ? 'step' : undefined}
+                className={index === currentIndex ? 'is-current' : ''}
+                onClick={() => goGuide(index)}>
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <strong>{title(node)}</strong>
+              </button>
+            ))}
+          </nav>
           <p>{current.data?.explanation || current.data?.detail ||
             'Sin explicación documentada: consultar el folio y la fuente.'}</p>
           <small>Fuente / posición: {location(current)}</small>

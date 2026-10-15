@@ -2112,20 +2112,19 @@ function phaseFor(id) {
   return 'Colapso y salida'
 }
 
-export const hackerGuidedRoute = order
-  .filter((id) => !nodeMap.get(id)?.data.classOnly)
-  .map((id, index) => {
+const articleReadingOrder = order.filter((id) => !nodeMap.get(id)?.data.classOnly)
+export const hackerGuidedRoute = articleReadingOrder.map((id, index) => {
   const node = nodeMap.get(id)
-  const next = nodeMap.get(order[index + 1])
-    return {
-      id,
-      phase: phaseFor(id),
-      why: node?.data.role || '',
-      nextQuestion:
-        node?.data.nextQuestion ||
-        (next ? `¿Cómo conduce esto a “${next.data.title}”?` : 'Fin de la ruta del artículo.'),
-    }
-  })
+  const next = nodeMap.get(articleReadingOrder[index + 1])
+  return {
+    id,
+    phase: phaseFor(id),
+    why: node?.data.role || '',
+    // Reading adjacency alone never establishes philosophical entailment.
+    nextQuestion: node?.data.nextQuestion ||
+      (next ? `Siguiente tema de lectura: ${next.data.title}` : 'Fin de la ruta del artículo.'),
+  }
+})
 
 // ============================================================
 // HACKER_LAYOUT_COLLISION_SAFE

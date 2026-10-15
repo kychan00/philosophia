@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "assets:open": "node scripts/fetch-open-assets.mjs",
     "predev": "npm run assets:open",
-    "prebuild": "npm run assets:open"
+    "prebuild": "npm run assets:open",
+    "test:2d": "node --test tests/hacker-2d-invariants.test.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.8",
