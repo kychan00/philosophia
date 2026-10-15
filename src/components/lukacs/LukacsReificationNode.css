@@ -13,3 +13,45 @@
 .lukacs-source-caption{display:block;color:var(--mx-gold);font-size:.62rem;letter-spacing:.1em;margin:.6rem 0 .2rem}
 @media(max-width:780px){.lukacs-flow-node .lukacs-node-reading blockquote{max-height:176px;font-size:.78rem}.lukacs-source-long{font-size:.94rem!important}}
 @media(prefers-reduced-motion:reduce){.lukacs-flow-node .lukacs-node-reading blockquote{scroll-behavior:auto}}
+
+/* BUG-005: geometría estable de nodos con texto largo (600 px + 90 px de aire).
+   Toda la lectura permanece disponible en las regiones desplazables. */
+.lukacs-flow-node{
+  box-sizing:border-box;
+  width:310px;min-width:310px;max-width:310px;
+  height:600px;min-height:600px;max-height:600px;
+  display:flex;flex-direction:column;
+  overflow-wrap:anywhere;
+}
+.lukacs-flow-node .marx-flow-meta{flex:0 0 auto}
+.lukacs-flow-node .marx-flow-title{
+  flex:0 1 auto;min-height:0;max-height:96px;
+  overflow-y:auto;scrollbar-width:thin;
+}
+.lukacs-flow-node .lukacs-node-summary{
+  flex:0 1 auto;min-height:0;max-height:108px;
+  overflow-y:auto;scrollbar-width:thin;
+}
+.lukacs-flow-node .lukacs-node-reading{
+  display:flex;flex-direction:column;
+  flex:1 1 auto;min-height:105px;
+  overflow:hidden;
+}
+.lukacs-flow-node .lukacs-node-reading blockquote{
+  flex:1 1 auto;min-height:0;max-height:none;
+  overflow-y:auto;overflow-wrap:anywhere;
+  -webkit-overflow-scrolling:touch;
+}
+.lukacs-flow-node .marx-node-diagram{
+  flex:0 1 auto;min-height:0;max-height:100px;
+  overflow-y:auto;scrollbar-width:thin;
+}
+.lukacs-flow-node .marx-flow-footer{
+  flex:0 0 auto;min-height:44px;margin-top:.55rem;
+}
+.lukacs-flow-node .marx-flow-footer button{
+  min-height:44px;min-width:64px;padding:.45rem .15rem;
+}
+@media(max-width:780px){
+  .lukacs-flow-node .lukacs-node-reading blockquote{font-size:.95rem}
+}
