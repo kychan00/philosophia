@@ -1,3 +1,4 @@
+import SectionPedagogy from '../components/philosophy/system2d/SectionPedagogy'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
 import {
@@ -7,6 +8,31 @@ import { CLASS_21_SEP, GUIDE_STEPS, MAPS, PHASES, SOURCE_LABELS, STUDY_QUESTIONS
 import './KantAnalyticSystem.css'
 
 const NODE_WIDTH = 310
+
+// These adapters reuse Kant's own maps. The original global guide and quiz stay intact.
+const PEDAGOGICAL_ROUTES = Object.entries(MAPS).map(([id, map]) => ({ id, label: map.label }))
+const PEDAGOGICAL_NODES = Object.entries(MAPS).flatMap(([section, map]) =>
+  map.nodes.map((item) => {
+    const question = STUDY_QUESTIONS.find(
+      (q) => q.mode === section && q.nodeId === item.id,
+    )
+    return {
+      id: section + ':' + item.id,
+      data: {
+        title: item.title,
+        branch: [section],
+        question: question?.prompt || null,
+        explanation: item.detail || item.short,
+        sourceRef: [item.kantRef, item.hartnackRef].filter(Boolean).join(' | ')
+          || 'Referencia específica no documentada',
+        dependsOn: map.edges.filter((edge) => edge[1] === item.id)
+          .map((edge) => section + ':' + edge[0]),
+        produces: map.edges.filter((edge) => edge[0] === item.id)
+          .map((edge) => section + ':' + edge[1]),
+      },
+    }
+  }),
+)
 
 const SOURCE_FILTERS = [
   ['all', 'TODO'],
@@ -203,6 +229,7 @@ function Inspector({
   onDragEnd,
   readings,
   onOpenReading,
+  studySectionPanel,
 }) {
   if (!item) return null
 
@@ -245,6 +272,7 @@ function Inspector({
 
       {(!isFullscreen || !minimized) && (
         <>
+          {studySectionPanel}
           <p className="kas-inspector-short">{item.short}</p>
 
                 {item.detail && (
@@ -1077,6 +1105,30 @@ function Workspace() {
             onDragEnd={endPanelDrag}
             readings={selected ? resolveNodeReadings(mode, selected) : null}
             onOpenReading={setSourceReader}
+            studySectionPanel={(
+              <SectionPedagogy
+                nodes={PEDAGOGICAL_NODES}
+                routes={PEDAGOGICAL_ROUTES}
+                activeRoute={mode}
+                selectedId={selectedId ? mode + ':' + selectedId : null}
+                onSectionChange={(id) => {
+                  setGuideOpen(false)
+                  setStudyOpen(false)
+                  changeMode(id)
+                }}
+                onFocusNode={(compositeId) => {
+                  const divider = compositeId.indexOf(':')
+                  const sectionId = compositeId.slice(0, divider)
+                  const nodeId = compositeId.slice(divider + 1)
+                  if (mode !== sectionId) {
+                    changeMode(sectionId, nodeId)
+                    window.setTimeout(() => focusNode(nodeId), 140)
+                  } else {
+                    focusNode(nodeId)
+                  }
+                }}
+              />
+            )}
           />
 
           {studyOpen && currentStudy && (
