@@ -21,6 +21,10 @@
 6. **Orientación:** estado actual / siguiente / apoyos visibles; historial de visitas y arquitectura final de lectura cuando sea útil.
 7. **Consistencia:** contadores del dataset, no del texto estático; no duplicar CSS ni estados independientes del inspector/guía.
 
+## Aceptación obligatoria en iPad y tabletas
+
+Consultar la [regla de diseño adaptable para iPad](./REGLA_SISTEMAS_2D_IPAD_TABLET.md). La composición Hacker debe reconstruirse con layouts fluidos, inspector no invasivo, mapa usable en vertical/horizontal y controles táctiles legibles. Una captura de Hacker/Viena de octubre de 2026 motivó la prohibición de anchos forzados y cabeceras de altura fija.
+
 ## Implementación y prohibiciones
 
 - Conservar `src/pages/MarxCommodityValueSystem.jsx` y su shell como patrón.
