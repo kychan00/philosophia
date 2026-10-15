@@ -34,7 +34,7 @@ test('Hacker headline node count is derived from source data', () => {
 test('Per-section rail uses canonical order; selection does not run global fitView', () => {
   assert.match(page, /nodeOrder=\{hackerOrder\}/)
   assert.match(moduleCode, /aria-current=\{index === currentIndex/)
-  assert.match(page, /\}, \[route, guidedMode, getNodes, fitView\]\)/)
+  assert.match(page, /\[route, guidedMode, selectedId, routeNodes, thematicLayout, getNodes, fitView, setCenter\]/)
   assert.doesNotMatch(page, /\}, \[route, guidedMode, getNodes, fitView, nodes\]\)/)
 })
 
