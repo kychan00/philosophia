@@ -29,7 +29,7 @@ function apaEditorName(record) {
 function joinPeople(records, mapper) {
   const people=records.map(mapper)
   if(people.length<=1) return people.join('')
-  return people.slice(0,-1).join(', ')+(people.length>2?',':'')+' & '+people.at(-1)
+  return people.slice(0,-1).join(', ')+', & '+people.at(-1)
 }
 
 function period(text) {
@@ -58,8 +58,8 @@ export function formatApaRecord(book, authors) {
   const add=(text,italic=false)=>{if(text)components.push({text,italic})}
   const title=meta.title || book.titulo
   if(kind==='chapter'){
-    add(author+' ('+year+'). '+period(title))
-    if(meta.translators?.length) add(' ('+joinPeople(meta.translators,apaEditorName)+(meta.translators.length===1?', Trad.':', Trads.')+')')
+    add(author+' ('+year+'). '+(meta.translators?.length ? title.replace(/[.!?]$/u,'') : period(title)))
+    if(meta.translators?.length) add(' ('+joinPeople(meta.translators,apaEditorName)+(meta.translators.length===1?', Trad.':', Trads.')+').')
     add(' En ')
     if(meta.editor) add(apaEditorName(meta.editor)+' (Ed.), ')
     add(meta.bookTitle || '[Título del volumen por verificar]',true)
