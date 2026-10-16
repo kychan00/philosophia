@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs'
 import {
   lukacsOntologyNodes,
   lukacsOntologyRoutes,
+  lukacsOntologyComparisons,
   lukacsOntologyCrossRelations,
   lukacsOntologySource,
 } from '../src/data/lukacsOntologySystem.js'
@@ -53,7 +54,7 @@ test('las lagunas de la copia y el cierre perdido permanecen explícitos', () =>
 
 test('relaciones transversales resuelven nodos y distinguen voces', () => {
   const ids = new Set(lukacsOntologyNodes.map(node => node.id))
-  assert.equal(lukacsOntologyCrossRelations.length, 8)
+  assert.equal(lukacsOntologyCrossRelations.length, 16)
   for (const relation of lukacsOntologyCrossRelations) {
     assert.ok(ids.has(relation.source))
     assert.ok(ids.has(relation.target))
@@ -61,6 +62,21 @@ test('relaciones transversales resuelven nodos y distinguen voces', () => {
   }
   const voiceRelation = lukacsOntologyCrossRelations.find(r => r.id === 'LO01')
   assert.match(voiceRelation.distinction, /Ballestero/)
+})
+
+test('confrontaciones HCC permanecen parciales y ancladas en nodos documentados', () => {
+  const ids = new Set(lukacsOntologyNodes.map(node => node.id))
+  assert.equal(lukacsOntologyComparisons.length, 8)
+  for (const comparison of lukacsOntologyComparisons) {
+    assert.ok(ids.has(comparison.anchor), comparison.id + ': ancla inexistente')
+    assert.ok(comparison.ontologyRef)
+    assert.ok(comparison.hccRef)
+    assert.ok(comparison.synthesis)
+    assert.ok(comparison.distinction)
+    assert.match(comparison.boundary, /RECONSTRUCCIÓN|CONEXIÓN TRANSVERSAL/)
+  }
+  const individual = lukacsOntologyComparisons.find(c => c.id === 'HC08')
+  assert.match(individual.distinction, /No se concluye/)
 })
 
 test('página pública usa etiquetas documentales y no presenta paráfrasis como pasajes directos', () => {
@@ -71,4 +87,6 @@ test('página pública usa etiquetas documentales y no presenta paráfrasis como
   assert.match(page, /Ballestero ≠ Lukács/)
   assert.match(page, /lukacsOntologyNodes\.length/)
   assert.match(page, /estructura nuclear/)
+  assert.match(page, /CONFRONTACIÓN HCC · FASE 7/)
+  assert.match(page, /RECONSTRUCCIÓN COMPARATIVA/)
 })
