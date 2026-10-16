@@ -275,6 +275,8 @@ export default function PhilosophiaLibrary() {
             {book.edicion&&<small>{book.edicion}</small>}
             {book.url&&<a href={book.url} target="_blank" rel="noopener noreferrer">
               Consultar fuente ↗</a>}
+            {book.studyUrl&&<Link to={book.studyUrl} className="library-study-link">
+              Abrir estudio 2D ↗</Link>}
             <ApaCitation book={book}/>
             <button type="button" className="library-timeline-toggle"
               aria-expanded={isExpanded}
