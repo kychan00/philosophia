@@ -43,7 +43,8 @@ export const books = [
     "estado": "recomendada",
     "lectura": "Fases 1–6 documentadas sobre la fuente disponible · comparación parcial",
     "edicion": "Akal, 2007",
-    "url": "https://archive.org/details/lukacs-gyorgy-marx-ontologia-del-ser-social-akal-ediciones-sa-2007"
+    "url": "https://archive.org/details/lukacs-gyorgy-marx-ontologia-del-ser-social-akal-ediciones-sa-2007",
+    "studyUrl": "/estudios/teoria-critica/lukacs-ontologia-ser-social"
   },
   {
     "id": "Marx - El capital - Tomo I - Scaron 2008",
