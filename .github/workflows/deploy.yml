@@ -48,6 +48,9 @@ jobs:
       - name: Lint library source
         run: npx eslint src/data/libraryCatalog.js src/data/libraryCatalogUtils.js src/pages/PhilosophiaLibrary.jsx src/data/libraryTimelines.js src/data/libraryAcademicConnections.js src/data/libraryApa.js src/data/libraryApaMetadata.js src/data/libraryGraph.js src/pages/LibraryCartography.jsx
 
+      - name: Lint Lukács ontology system
+        run: npx eslint src/data/lukacsOntologySystem.js src/components/lukacs/LukacsOntologyNode.jsx src/pages/LukacsOntologySystem.jsx tests/lukacs-ontology-system.test.mjs tests/lukacs-ontology-browser-smoke.mjs
+
       - name: Build
         env:
           VITE_ONESIGNAL_APP_ID: ${{ vars.ONESIGNAL_APP_ID }}
@@ -55,6 +58,9 @@ jobs:
 
       - name: Validate library in headless browser (phone and iPad)
         run: node tests/library-browser-smoke.mjs
+
+      - name: Validate Lukács ontology in headless browser (phone and iPad)
+        run: node tests/lukacs-ontology-browser-smoke.mjs
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6
