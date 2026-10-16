@@ -78,6 +78,19 @@ function arrange(items,centerId){
     (groups[kind]||[]).map((n,i,g)=>({...n,isCenter:n.id===centerId,
       position:{x:col*294,y:(i+(maxRows-g.length)/2)*150}})))
 }
+// La panorámica usa matrices por tipo para evitar columnas de 80+ tarjetas
+// que hacían microscópico el grafo al encuadrarlo en un iPad.
+function arrangeOverview(items){
+ const groups={}
+ for(const n of items)(groups[n.kind]??=[]).push(n)
+ const sequence=['autor','obra','concepto']
+ return sequence.flatMap((kind,band)=>{
+  const ordered=(groups[kind]||[]).sort((a,b)=>a.label.localeCompare(b.label,'es'))
+  return ordered.map((n,i)=>({...n,isCenter:false,
+   position:{x:band*1410+(i%5)*274,y:Math.floor(i/5)*160}}))
+ })
+}
+
 export function projectLibraryGraph(graph,{
  centerId='obra:Lukács - Historia y conciencia de clase',mode='foco',
  concepts=true,classes=true,activities=true,maxFocusNodes=34
@@ -87,7 +100,7 @@ export function projectLibraryGraph(graph,{
  if(mode==='general'){
    const arr=graph.nodes.filter(n=>['autor','obra','concepto'].includes(n.kind)&&eligible(n,opts))
    const ids=new Set(arr.map(n=>n.id))
-   return {nodes:arrange(arr,null),edges:graph.edges.filter(e=>ids.has(e.source)&&ids.has(e.target))}
+   return {nodes:arrangeOverview(arr),edges:graph.edges.filter(e=>ids.has(e.source)&&ids.has(e.target))}
  }
  if(!byId.has(centerId))throw Error('Nodo central ausente: '+centerId)
  const adj=new Map()
