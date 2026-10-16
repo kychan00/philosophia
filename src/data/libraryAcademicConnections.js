@@ -53,7 +53,7 @@ export const libraryAcademicConnections = {
           "status": "consta en ficha de obra",
           "type": "recomendación",
           "note": "Akal 2007: fases 1–6 documentadas sobre todas las páginas recuperables; comparación parcial con Historia y conciencia de clase; la copia conserva páginas ocultas",
-          "url": null
+          "url": "/estudios/teoria-critica/lukacs-ontologia-ser-social"
         }
       ]
     },
