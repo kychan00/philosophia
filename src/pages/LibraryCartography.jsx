@@ -8,7 +8,7 @@ import '@xyflow/react/dist/style.css'
 import { books, authors } from '../data/libraryCatalog.js'
 import { formatApaRecord } from '../data/libraryApa.js'
 import {
-  buildLibraryGraph, projectLibraryGraph, searchGraphNodes, connectedGraphNodes,
+  buildLibraryGraph, projectLibraryGraph, searchGraphNodes, connectedGraphRelations,
 } from '../data/libraryGraph.js'
 import './LibraryCartography.css'
 
@@ -33,7 +33,7 @@ function KnowledgeNode({data,selected}){
 }
 const nodeTypes={record:KnowledgeNode}
 const edgeColors={
-  autor_de:'#4589ff',ficha_enlaza_concepto:'#e6ad46',
+  autor_de:'#4589ff',ficha_enlaza_concepto:'#e6ad46',ficha_concepto_enlaza_otro:'#f2c66c',
   mencionado_en_clase:'#9b89e5',registrado_en_tarea:'#e58b56',
   procedencia_documental:'#8b9baa',
 }
@@ -64,7 +64,7 @@ function Canvas({projection,onSelect}){
     className="bc-flow">
     <Background color="#393f46" gap={24} size={1} />
     <MiniMap pannable zoomable maskColor="#111820aa"
-      nodeColor={n=>edgeColors[n.data?.kind]||'#617483'}
+      nodeColor={n=>({autor:'#4589ff',obra:'#42be9c',concepto:'#e6ad46',clase:'#9b89e5',tarea:'#e58b56',fuente:'#8b9baa'}[n.data?.kind]||'#617483')}
       style={{background:'#111820',border:'1px solid #3b4a59'}}/>
     <Controls showInteractive={false} />
   </ReactFlow>
@@ -72,7 +72,7 @@ function Canvas({projection,onSelect}){
 const defaultId='obra:Lukács - Historia y conciencia de clase'
 
 function Inspector({current,onFocus,onSelect}) {
-  const related=useMemo(()=>current?connectedGraphNodes(graph,current.id):[],[current])
+  const relations=useMemo(()=>current?connectedGraphRelations(graph,current.id):[],[current])
   const citation=current?.kind==='obra' ? formatApaRecord(byBook.get(current.bookId),authors) : null
   return <aside className="bc-inspector" aria-label="Ficha del nodo seleccionado">
     <div className="bc-inspector-top"><span>INSPECTOR / FICHA ACTIVA</span><b>{current?markers[current.kind]:'—'}</b></div>
@@ -98,13 +98,17 @@ function Inspector({current,onFocus,onSelect}) {
         {current.url&&<Link to={current.url}>Abrir actividad pública ↗</Link>}
       </div>
       <section className="bc-relations">
-        <h3>RELACIONES DOCUMENTADAS <b>{related.length}</b></h3>
-        {related.length?<ul>{related.slice(0,24).map(n=><li key={n.id}>
-          <button type="button" onClick={()=>onSelect(n.id)}>
-            <span>{markers[n.kind]}</span>{n.label}
+        <h3>RELACIONES DOCUMENTADAS <b>{relations.length}</b></h3>
+        {relations.length?<ul>{relations.slice(0,24).map(relation=><li key={relation.id}>
+          <button type="button" onClick={()=>onSelect(relation.other.id)}>
+            <span>{markers[relation.other.kind]}</span>
+            <span className="bc-relation-label">{relation.other.label}
+              <small>{relation.label} · {relation.direction==='saliente'?'Desde esta ficha':'Hacia esta ficha'}</small>
+            </span>
           </button>
+          <p className="bc-relation-evidence">{relation.evidence}</p>
         </li>)}</ul>:<p>La ficha existe, pero no se han registrado conexiones adicionales.</p>}
-        {related.length>24&&<small>Se muestran las primeras 24 relaciones. Use la búsqueda para localizar otras.</small>}
+        {relations.length>24&&<small>Se muestran las primeras 24 relaciones. Use la búsqueda para localizar otras.</small>}
       </section>
     </div>:<p className="bc-placeholder">Seleccione una tarjeta del mapa o utilice el buscador para abrir su ficha.</p>}
   </aside>
