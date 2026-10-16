@@ -41,7 +41,7 @@ export const books = [
     "titulo": "Marx, ontología del ser social",
     "categoria": "crítica",
     "estado": "recomendada",
-    "lectura": "Fase 1 documentada",
+    "lectura": "Fases 1–6 documentadas sobre la fuente disponible · comparación parcial",
     "edicion": "Akal, 2007",
     "url": "https://archive.org/details/lukacs-gyorgy-marx-ontologia-del-ser-social-akal-ediciones-sa-2007"
   },
