@@ -1893,6 +1893,13 @@ export const libraryTimelines = {
         "title": "Ética - De la sanción divina a la justicia humana",
         "url": null,
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-08",
+        "area": "Ética",
+        "title": "Ética - De la reducción al absurdo a la crítica cívica",
+        "url": "/semestre/5/etica/clase/8-octubre",
+        "type": "autor mencionado"
       }
     ],
     "Berkeley, George": [
@@ -2495,6 +2502,24 @@ export const libraryTimelines = {
         "area": "Ética",
         "title": "Ética - Pasión, posesión y dominio de sí",
         "url": "/semestre/5/etica/clase/1-septiembre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Antístenes": [
+      {
+        "date": "2026-10-08",
+        "area": "Ética",
+        "title": "Ética - De la reducción al absurdo a la crítica cívica",
+        "url": "/semestre/5/etica/clase/8-octubre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Diógenes de Sinope": [
+      {
+        "date": "2026-10-08",
+        "area": "Ética",
+        "title": "Ética - De la reducción al absurdo a la crítica cívica",
+        "url": "/semestre/5/etica/clase/8-octubre",
         "type": "autor mencionado"
       }
     ]
