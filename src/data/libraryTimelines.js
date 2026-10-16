@@ -286,6 +286,74 @@ export const libraryTimelines = {
         "title": "Teoría Crítica - Marx, trabajo, objetivación y enajenación",
         "url": "/semestre/5/teoria-critica/clase/10-septiembre",
         "type": "enlace a la obra"
+      },
+      {
+        "date": "2026-09-24",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - De la enajenación a la mercancía",
+        "url": null,
+        "type": "título citado en nota"
+      }
+    ],
+    "Marx - El capital - Tomo I - Scaron 2008": [
+      {
+        "date": "2026-09-24",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - De la enajenación a la mercancía",
+        "url": null,
+        "type": "enlace a la obra"
+      }
+    ],
+    "Adorno - Minima Moralia": [
+      {
+        "date": "2026-10-15",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Lukács, cosificación y vida social",
+        "url": "/semestre/5/teoria-critica/clase/15-octubre",
+        "type": "enlace a la obra"
+      }
+    ],
+    "Illouz - Intimidades congeladas": [
+      {
+        "date": "2026-10-15",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Lukács, cosificación y vida social",
+        "url": "/semestre/5/teoria-critica/clase/15-octubre",
+        "type": "enlace a la obra"
+      }
+    ],
+    "Illouz - El consumo de la utopía romántica": [
+      {
+        "date": "2026-10-15",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Lukács, cosificación y vida social",
+        "url": "/semestre/5/teoria-critica/clase/15-octubre",
+        "type": "enlace a la obra"
+      }
+    ],
+    "Lukács - Historia y conciencia de clase": [
+      {
+        "date": "2026-10-15",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Lukács, cosificación y vida social",
+        "url": "/semestre/5/teoria-critica/clase/15-octubre",
+        "type": "enlace a la obra"
+      }
+    ],
+    "Mondolfo - La conciencia moral de Homero a Demócrito y Epicuro": [
+      {
+        "date": "2026-08-25",
+        "area": "Ética",
+        "title": "Ética - De la purificación a la ética humana",
+        "url": "/semestre/5/etica/clase/25-agosto",
+        "type": "enlace a la obra"
+      },
+      {
+        "date": "2026-09-17",
+        "area": "Ética",
+        "title": "Ética - De la sanción divina a la justicia humana",
+        "url": null,
+        "type": "enlace a la obra"
       }
     ]
   },
@@ -310,6 +378,13 @@ export const libraryTimelines = {
         "area": "Ontología",
         "title": "Ontología - principio de no contradicción y fundamento ontológico",
         "url": "/semestre/4/ontologia/clase/25-marzo",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-08-18",
+        "area": "Ética",
+        "title": "Ética - Del destino a la responsabilidad",
+        "url": "/semestre/5/etica/clase/18-agosto",
         "type": "autor mencionado"
       }
     ],
@@ -410,6 +485,20 @@ export const libraryTimelines = {
         "area": "Ontología",
         "title": "Ontología - Aristóteles - entidad como sentido fundamental de ser",
         "url": "/semestre/4/ontologia/clase/20-abril",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-01",
+        "area": "Ética",
+        "title": "Ética - Pasión, posesión y dominio de sí",
+        "url": "/semestre/5/etica/clase/1-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-17",
+        "area": "Ética",
+        "title": "Ética - De la sanción divina a la justicia humana",
+        "url": null,
         "type": "autor mencionado"
       }
     ],
@@ -1506,6 +1595,13 @@ export const libraryTimelines = {
         "title": "Teoría Crítica - Saber absoluto, experiencia y dialéctica",
         "url": "/semestre/5/teoria-critica/clase/3-septiembre",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-15",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Lukács, cosificación y vida social",
+        "url": "/semestre/5/teoria-critica/clase/15-octubre",
+        "type": "autor mencionado"
       }
     ],
     "Leibniz, G. W.": [
@@ -1700,6 +1796,20 @@ export const libraryTimelines = {
         "title": "Teoría Crítica - Marx, trabajo, objetivación y enajenación",
         "url": "/semestre/5/teoria-critica/clase/10-septiembre",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-24",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - De la enajenación a la mercancía",
+        "url": null,
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-15",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Lukács, cosificación y vida social",
+        "url": "/semestre/5/teoria-critica/clase/15-octubre",
+        "type": "autor mencionado"
       }
     ],
     "Kuhn, Thomas": [
@@ -1761,6 +1871,27 @@ export const libraryTimelines = {
         "area": "Ontología",
         "title": "Ontología - Tomás de Aquino - ente, esencia y sustancias compuestas",
         "url": "/semestre/4/ontologia/clase/18-mayo",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-08-20",
+        "area": "Ética",
+        "title": "Ética - Responsabilidad y vida examinada",
+        "url": "/semestre/5/etica/clase/20-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-08-25",
+        "area": "Ética",
+        "title": "Ética - De la purificación a la ética humana",
+        "url": "/semestre/5/etica/clase/25-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-17",
+        "area": "Ética",
+        "title": "Ética - De la sanción divina a la justicia humana",
+        "url": null,
         "type": "autor mencionado"
       }
     ],
@@ -1978,6 +2109,13 @@ export const libraryTimelines = {
         "title": "Ontología II - Locke, Berkeley, Hume y Kant",
         "url": "/semestre/5/ontologia-ii/clase/2-septiembre",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-17",
+        "area": "Ética",
+        "title": "Ética - De la sanción divina a la justicia humana",
+        "url": null,
+        "type": "autor mencionado"
       }
     ],
     "Hartmann, Nicolai": [
@@ -2158,6 +2296,34 @@ export const libraryTimelines = {
         "title": "Teoría Crítica - Marx, trabajo, objetivación y enajenación",
         "url": "/semestre/5/teoria-critica/clase/10-septiembre",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-17",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Cuatro momentos de la enajenación",
+        "url": null,
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-22",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Totalidad social, reproducción y enajenación",
+        "url": null,
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-24",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - De la enajenación a la mercancía",
+        "url": null,
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-15",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Lukács, cosificación y vida social",
+        "url": "/semestre/5/teoria-critica/clase/15-octubre",
+        "type": "autor mencionado"
       }
     ],
     "Tomás de Aquino": [
@@ -2206,6 +2372,13 @@ export const libraryTimelines = {
         "title": "Teoría Crítica - Genealogía de la crítica",
         "url": "/semestre/5/teoria-critica/clase/20-agosto",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-15",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Lukács, cosificación y vida social",
+        "url": "/semestre/5/teoria-critica/clase/15-octubre",
+        "type": "autor mencionado"
       }
     ],
     "Adorno, Theodor W.": [
@@ -2221,6 +2394,107 @@ export const libraryTimelines = {
         "area": "Teoría Crítica",
         "title": "Teoría Crítica - Negatividad, devenir y dialéctica",
         "url": "/semestre/5/teoria-critica/clase/1-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-15",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Lukács, cosificación y vida social",
+        "url": "/semestre/5/teoria-critica/clase/15-octubre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Homero": [
+      {
+        "date": "2026-10-15",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Lukács, cosificación y vida social",
+        "url": "/semestre/5/teoria-critica/clase/15-octubre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-08-18",
+        "area": "Ética",
+        "title": "Ética - Del destino a la responsabilidad",
+        "url": "/semestre/5/etica/clase/18-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-08-25",
+        "area": "Ética",
+        "title": "Ética - De la purificación a la ética humana",
+        "url": "/semestre/5/etica/clase/25-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-17",
+        "area": "Ética",
+        "title": "Ética - De la sanción divina a la justicia humana",
+        "url": null,
+        "type": "autor mencionado"
+      }
+    ],
+    "Illouz, Eva": [
+      {
+        "date": "2026-10-15",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Lukács, cosificación y vida social",
+        "url": "/semestre/5/teoria-critica/clase/15-octubre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Demócrito": [
+      {
+        "date": "2026-08-25",
+        "area": "Ética",
+        "title": "Ética - De la purificación a la ética humana",
+        "url": "/semestre/5/etica/clase/25-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-08-27",
+        "area": "Ética",
+        "title": "Ética - Vergüenza, conciencia y máxima",
+        "url": "/semestre/5/etica/clase/27-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-03",
+        "area": "Ética",
+        "title": "Ética - Justicia, prudencia y escucha",
+        "url": "/semestre/5/etica/clase/3-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-17",
+        "area": "Ética",
+        "title": "Ética - De la sanción divina a la justicia humana",
+        "url": null,
+        "type": "autor mencionado"
+      }
+    ],
+    "Mondolfo, Rodolfo": [
+      {
+        "date": "2026-08-25",
+        "area": "Ética",
+        "title": "Ética - De la purificación a la ética humana",
+        "url": "/semestre/5/etica/clase/25-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-17",
+        "area": "Ética",
+        "title": "Ética - De la sanción divina a la justicia humana",
+        "url": null,
+        "type": "autor mencionado"
+      }
+    ],
+    "Safo": [
+      {
+        "date": "2026-09-01",
+        "area": "Ética",
+        "title": "Ética - Pasión, posesión y dominio de sí",
+        "url": "/semestre/5/etica/clase/1-septiembre",
         "type": "autor mencionado"
       }
     ]
