@@ -39,7 +39,7 @@ test('años constatados y capítulos en volumen editado, sin adjudicar fecha dig
  assert.match(cite('Hacker - El surgimiento de la filosofía analítica del siglo XX').text,/\(2013\).*95–132/)
  assert.match(cite('Luciano - El banquete o los lapitas').text,/\(s\. f\.\)/)
  assert.match(cite('Spinoza - Ética demostrada según el orden geométrico - Vidal Peña').text,/\(s\. f\.\)/)
- assert.match(cite('Platón - Cármides').text,/\(1927\).*Lamb, Trad\./)
+ assert.match(cite('Platón - Cármides').text,/\(1927\).*W\. R\. M\. Lamb, Trad\./)
  assert.match(cite('Hipócrates - Sobre la dieta').text,/\(1997\).*Tratados hipocráticos/)
  assert.equal(cite('Platón - Leyes').status,'pendiente')
  assert.ok(!cite('BonJour - Teoría coherentista del conocimiento empírico').parts.some(p=>p.italic))
