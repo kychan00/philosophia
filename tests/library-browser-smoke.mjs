@@ -164,9 +164,8 @@ try {
     await send('Emulation.setDeviceMetricsOverride',{
       width,height,deviceScaleFactor:2,mobile:width<=1112
     })
-    await send('Page.navigate',{url:base+'/cartografia'})
-    await until(()=>evaluate("document.querySelectorAll('.bc-flow .react-flow__node').length>5"),
-      'Cartografía táctil '+width+'×'+height,100)
+    await until(()=>evaluate("window.innerWidth==="+width+" && document.querySelectorAll('.bc-flow .react-flow__node').length>5"),
+      'Cartografía adaptada '+width+'×'+height,100)
     const state=await evaluate("(()=>{const open=document.querySelector('.bc-open-inspector'), inspector=document.querySelector('.bc-inspector'), recenter=document.querySelector('.bc-recenter'),ctrl=document.querySelector('.bc-flow .react-flow__controls-button');return {overflow:document.documentElement.scrollWidth-window.innerWidth,compact:document.querySelector('.bc-shell').dataset.compact==='true',inspectorHidden:inspector?.getAttribute('aria-hidden')==='true',openWidth:open?.getBoundingClientRect().width,openHeight:open?.getBoundingClientRect().height,recenterHeight:recenter?.getBoundingClientRect().height,zoomHeight:ctrl?.getBoundingClientRect().height}})()")
     assert.ok(state.overflow<=2,'Desbordamiento táctil '+width+'×'+height+': '+JSON.stringify(state))
     assert.equal(state.compact,width<=1120,'Umbral responsive '+width)
@@ -193,9 +192,8 @@ try {
   await send('Emulation.setDeviceMetricsOverride',{
     width:768,height:1024,deviceScaleFactor:2,mobile:true
   })
-  await send('Page.navigate',{url:base+'/cartografia'})
-  await until(()=>evaluate("document.querySelectorAll('.bc-flow .react-flow__node').length>5"),
-    'Reabrir cartografía en tablet')
+  await until(()=>evaluate("window.innerWidth===768 && document.querySelectorAll('.bc-flow .react-flow__node').length>5"),
+    'Restaurar cartografía en tablet')
   const countBefore=await evaluate("document.querySelectorAll('.bc-flow .react-flow__node').length")
   await evaluate("document.querySelector('.bc-flow .react-flow__node')?.click()")
   await until(()=>evaluate("document.querySelector('.bc-inspector')?.getAttribute('data-inspector-open')==='true"),
