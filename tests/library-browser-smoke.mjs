@@ -55,8 +55,8 @@ async function setViewport(width,height) {
     width,height,deviceScaleFactor:2,mobile:width<=768
   })
   await send('Page.navigate',{url:base})
-  await until(()=>evaluate("document.querySelectorAll('.library-book').length === 60"),
-    'Catálogo de 60 obras '+width+'×'+height)
+  await until(()=>evaluate("document.querySelectorAll('.library-book').length === 62"),
+    'Catálogo de 62 obras '+width+'×'+height)
   const metrics = await evaluate("({width: window.innerWidth, scrollWidth: document.documentElement.scrollWidth, height: window.innerHeight})")
   assert.ok(metrics.scrollWidth <= metrics.width+2,
     'Overflow horizontal en '+width+'×'+height+': '+JSON.stringify(metrics))
@@ -113,7 +113,7 @@ try {
     'Lukács con dos obras')
   assert.equal(await evaluate("document.querySelector('.library-active-author')?.textContent.includes('Lukács')"),true)
   assert.equal(await evaluate("(document.querySelector('.library-active-author button')?.click(), true)"),true)
-  await until(()=>evaluate("document.querySelectorAll('.library-book').length===60"),
+  await until(()=>evaluate("document.querySelectorAll('.library-book').length===62"),
     'Restaurar catálogo completo')
   console.log('OK navegación autores ↔ obras')
 } finally {

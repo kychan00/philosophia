@@ -45,6 +45,9 @@ jobs:
       - name: Validate library catalogue
         run: node --test tests/library-catalog.test.mjs tests/library-navigation.test.mjs
 
+      - name: Lint library source
+        run: npx eslint src/data/libraryCatalog.js src/data/libraryCatalogUtils.js src/pages/PhilosophiaLibrary.jsx
+
       - name: Build
         env:
           VITE_ONESIGNAL_APP_ID: ${{ vars.ONESIGNAL_APP_ID }}

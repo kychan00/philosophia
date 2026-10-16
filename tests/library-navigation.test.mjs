@@ -19,9 +19,9 @@ test('cada filtro de autor sólo devuelve obras atribuidas', () => {
   const lukacs = worksByAuthor(books, 'Lukács, Georg')
   assert.equal(lukacs.length, 2)
   assert.ok(lukacs.every(book => book.autor === 'Lukács'))
-  assert.equal(worksByAuthor(books, 'Illouz, Eva').length, 1)
+  assert.equal(worksByAuthor(books, 'Illouz, Eva').length, 2)
   assert.equal(worksByAuthor(books, 'Kant, Immanuel').length, 1)
-  assert.equal(worksByAuthor(books, 'Adorno, Theodor W.').length, 0)
+  assert.equal(worksByAuthor(books, 'Adorno, Theodor W.').length, 1)
 })
 
 test('la autoría compartida no genera relaciones falsas', () => {

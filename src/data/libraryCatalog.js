@@ -2,6 +2,22 @@
 // No contiene apuntes ni inventario personal de ejemplares.
 export const books = [
   {
+    "id": "Adorno - Minima Moralia",
+    "autor": "Adorno",
+    "titulo": "Minima Moralia",
+    "categoria": "crítica",
+    "estado": "recomendada",
+    "lectura": "Pendiente"
+  },
+  {
+    "id": "Illouz - Intimidades congeladas",
+    "autor": "Illouz",
+    "titulo": "Intimidades congeladas",
+    "categoria": "crítica",
+    "estado": "recomendada",
+    "lectura": "Pendiente"
+  },
+  {
     "id": "Illouz - El consumo de la utopía romántica",
     "autor": "Illouz",
     "titulo": "El consumo de la utopía romántica",
