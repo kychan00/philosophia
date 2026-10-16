@@ -194,6 +194,20 @@ export const libraryTimelines = {
         "title": "Ontología - Introducción y mapa de problemas ontológicos",
         "url": "/semestre/4/ontologia/clase/21-enero",
         "type": "enlace a la obra"
+      },
+      {
+        "date": "2026-05-18",
+        "area": "Ontología",
+        "title": "Ontología - Tomás de Aquino - ente, esencia y sustancias compuestas",
+        "url": "/semestre/4/ontologia/clase/18-mayo",
+        "type": "enlace a la obra"
+      },
+      {
+        "date": "2026-05-20",
+        "area": "Ontología",
+        "title": "Ontología - Tomás de Aquino - esencia, esse y accidentes",
+        "url": "/semestre/4/ontologia/clase/20-mayo",
+        "type": "enlace a la obra"
       }
     ],
     "Aristóteles - Metafísica - Libro IV": [
@@ -225,6 +239,52 @@ export const libraryTimelines = {
         "area": "Ontología",
         "title": "Ontología - entidad como sujeto y sustrato",
         "url": "/semestre/4/ontologia/clase/27-abril",
+        "type": "enlace a la obra"
+      },
+      {
+        "date": "2026-04-29",
+        "area": "Ontología",
+        "title": "Ontología - materia, forma y prioridad ontológica",
+        "url": "/semestre/4/ontologia/clase/29-abril",
+        "type": "enlace a la obra"
+      },
+      {
+        "date": "2026-05-06",
+        "area": "Ontología",
+        "title": "Ontología - Aristóteles - esencia y accidente",
+        "url": "/semestre/4/ontologia/clase/06-mayo",
+        "type": "enlace a la obra"
+      },
+      {
+        "date": "2026-05-11",
+        "area": "Ontología",
+        "title": "Ontología - Aristóteles - definición, analogía y compuestos",
+        "url": "/semestre/4/ontologia/clase/11-mayo",
+        "type": "enlace a la obra"
+      },
+      {
+        "date": "2026-05-18",
+        "area": "Ontología",
+        "title": "Ontología - Tomás de Aquino - ente, esencia y sustancias compuestas",
+        "url": "/semestre/4/ontologia/clase/18-mayo",
+        "type": "enlace a la obra"
+      }
+    ],
+    "Hegel - Fenomenología del espíritu": [
+      {
+        "date": "2026-09-03",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Saber absoluto, experiencia y dialéctica",
+        "url": "/semestre/5/teoria-critica/clase/3-septiembre",
+        "type": "título citado en nota"
+      }
+    ],
+    "Marx - Manuscritos económico-filosóficos de 1844": [
+      {
+        "date": "2026-09-10",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Marx, trabajo, objetivación y enajenación",
+        "url": "/semestre/5/teoria-critica/clase/10-septiembre",
         "type": "enlace a la obra"
       }
     ]
@@ -599,6 +659,34 @@ export const libraryTimelines = {
         "area": "Ontología",
         "title": "Ontología - entidad como sujeto y sustrato",
         "url": "/semestre/4/ontologia/clase/27-abril",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-04-29",
+        "area": "Ontología",
+        "title": "Ontología - materia, forma y prioridad ontológica",
+        "url": "/semestre/4/ontologia/clase/29-abril",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-05-06",
+        "area": "Ontología",
+        "title": "Ontología - Aristóteles - esencia y accidente",
+        "url": "/semestre/4/ontologia/clase/06-mayo",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-05-11",
+        "area": "Ontología",
+        "title": "Ontología - Aristóteles - definición, analogía y compuestos",
+        "url": "/semestre/4/ontologia/clase/11-mayo",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-05-18",
+        "area": "Ontología",
+        "title": "Ontología - Tomás de Aquino - ente, esencia y sustancias compuestas",
+        "url": "/semestre/4/ontologia/clase/18-mayo",
         "type": "autor mencionado"
       }
     ],
@@ -997,6 +1085,13 @@ export const libraryTimelines = {
         "area": "Filosofía Analítica",
         "title": "Filosofía Analítica - Crítica del positivismo lógico y cierre de Hacker",
         "url": "/semestre/5/filosofia-analitica/clase/14-octubre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-01",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Negatividad, devenir y dialéctica",
+        "url": "/semestre/5/teoria-critica/clase/1-septiembre",
         "type": "autor mencionado"
       }
     ],
@@ -1397,6 +1492,20 @@ export const libraryTimelines = {
         "title": "Ontología - Introducción y mapa de problemas ontológicos",
         "url": "/semestre/4/ontologia/clase/21-enero",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-01",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Negatividad, devenir y dialéctica",
+        "url": "/semestre/5/teoria-critica/clase/1-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-03",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Saber absoluto, experiencia y dialéctica",
+        "url": "/semestre/5/teoria-critica/clase/3-septiembre",
+        "type": "autor mencionado"
       }
     ],
     "Leibniz, G. W.": [
@@ -1556,6 +1665,41 @@ export const libraryTimelines = {
         "title": "Ontología II - Croce, contrarios y el comienzo de la lógica de Hegel",
         "url": "/semestre/5/ontologia-ii/clase/14-octubre",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-08-20",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Genealogía de la crítica",
+        "url": "/semestre/5/teoria-critica/clase/20-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-08-27",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Negatividad, razón y dominación",
+        "url": "/semestre/5/teoria-critica/clase/27-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-01",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Negatividad, devenir y dialéctica",
+        "url": "/semestre/5/teoria-critica/clase/1-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-03",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Saber absoluto, experiencia y dialéctica",
+        "url": "/semestre/5/teoria-critica/clase/3-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-10",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Marx, trabajo, objetivación y enajenación",
+        "url": "/semestre/5/teoria-critica/clase/10-septiembre",
+        "type": "autor mencionado"
       }
     ],
     "Kuhn, Thomas": [
@@ -1610,6 +1754,13 @@ export const libraryTimelines = {
         "area": "Ontología",
         "title": "Ontología - entidad, accidente y predicación",
         "url": "/semestre/4/ontologia/clase/15-abril",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-05-18",
+        "area": "Ontología",
+        "title": "Ontología - Tomás de Aquino - ente, esencia y sustancias compuestas",
+        "url": "/semestre/4/ontologia/clase/18-mayo",
         "type": "autor mencionado"
       }
     ],
@@ -1993,6 +2144,20 @@ export const libraryTimelines = {
         "title": "Ontología II - Croce, contrarios y el comienzo de la lógica de Hegel",
         "url": "/semestre/5/ontologia-ii/clase/14-octubre",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-08-20",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Genealogía de la crítica",
+        "url": "/semestre/5/teoria-critica/clase/20-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-10",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Marx, trabajo, objetivación y enajenación",
+        "url": "/semestre/5/teoria-critica/clase/10-septiembre",
+        "type": "autor mencionado"
       }
     ],
     "Tomás de Aquino": [
@@ -2001,6 +2166,61 @@ export const libraryTimelines = {
         "area": "Ontología",
         "title": "Ontología - Introducción y mapa de problemas ontológicos",
         "url": "/semestre/4/ontologia/clase/21-enero",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-05-18",
+        "area": "Ontología",
+        "title": "Ontología - Tomás de Aquino - ente, esencia y sustancias compuestas",
+        "url": "/semestre/4/ontologia/clase/18-mayo",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-05-20",
+        "area": "Ontología",
+        "title": "Ontología - Tomás de Aquino - esencia, esse y accidentes",
+        "url": "/semestre/4/ontologia/clase/20-mayo",
+        "type": "autor mencionado"
+      }
+    ],
+    "Fromm, Erich": [
+      {
+        "date": "2026-08-20",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Genealogía de la crítica",
+        "url": "/semestre/5/teoria-critica/clase/20-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-01",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Negatividad, devenir y dialéctica",
+        "url": "/semestre/5/teoria-critica/clase/1-septiembre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Lukács, Georg": [
+      {
+        "date": "2026-08-20",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Genealogía de la crítica",
+        "url": "/semestre/5/teoria-critica/clase/20-agosto",
+        "type": "autor mencionado"
+      }
+    ],
+    "Adorno, Theodor W.": [
+      {
+        "date": "2026-08-27",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Negatividad, razón y dominación",
+        "url": "/semestre/5/teoria-critica/clase/27-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-01",
+        "area": "Teoría Crítica",
+        "title": "Teoría Crítica - Negatividad, devenir y dialéctica",
+        "url": "/semestre/5/teoria-critica/clase/1-septiembre",
         "type": "autor mencionado"
       }
     ]
