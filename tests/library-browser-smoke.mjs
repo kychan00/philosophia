@@ -41,8 +41,8 @@ async function evaluate(expression) {
   return value.result?.value
 }
 
-async function until(predicate,label) {
-  for(let i=0;i<65;i++) {
+async function until(predicate,label,maxChecks=65) {
+  for(let i=0;i<maxChecks;i++) {
     try { if(await predicate()) return }
     catch { /* Navegación en curso, volver a consultar. */ }
     await pause(180)
@@ -81,7 +81,7 @@ try {
   browser.stdout?.on('data',chunk=>{browserDiagnostics=(browserDiagnostics+chunk.toString()).slice(-6000)})
   browser.on('error',error=>{browserDiagnostics+=' browser error: '+error.message})
   const activePort = join(profile,'DevToolsActivePort')
-  try { await until(async()=>existsSync(activePort),'puerto de DevTools') }
+  try { await until(async()=>existsSync(activePort),'puerto de DevTools',250) }
   catch(error){throw new Error(error.message+'; exitCode='+browser.exitCode+'; browser logs='+browserDiagnostics)}
   const port=Number(readFileSync(activePort,'utf8').split('\n')[0])
   const tabs=await (await fetch('http://127.0.0.1:'+port+'/json/list')).json()
