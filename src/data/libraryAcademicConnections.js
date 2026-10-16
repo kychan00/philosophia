@@ -49,10 +49,10 @@ export const libraryAcademicConnections = {
           "date": "2026-10-15",
           "dateLabel": "Fecha documentada de referencia",
           "area": "Teoría Crítica",
-          "title": "Recomendación bibliográfica y fase 1 de lectura parcial",
+          "title": "Recomendación bibliográfica y estudio por fases",
           "status": "consta en ficha de obra",
           "type": "recomendación",
-          "note": "Akal 2007: fase 1 de la introducción editorial, no lectura integral",
+          "note": "Akal 2007: fases 1–6 documentadas sobre todas las páginas recuperables; comparación parcial con Historia y conciencia de clase; la copia conserva páginas ocultas",
           "url": null
         }
       ]
