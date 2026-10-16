@@ -1,0 +1,64 @@
+import test from 'node:test'
+import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
+import {
+  lukacsOntologyNodes,
+  lukacsOntologyRoutes,
+  lukacsOntologyCrossRelations,
+  lukacsOntologySource,
+} from '../src/data/lukacsOntologySystem.js'
+
+test('ontología social conserva nodos documentales y rutas no vacías', () => {
+  assert.equal(lukacsOntologyNodes.length, 30)
+  assert.equal(new Set(lukacsOntologyNodes.map(node => node.id)).size, 30)
+  const ids = new Set(lukacsOntologyNodes.map(node => node.id))
+  for (const route of lukacsOntologyRoutes.filter(route => route.id !== 'all')) {
+    assert.ok(lukacsOntologyNodes.some(node => node.data.branch.includes(route.id)), route.id)
+  }
+  for (const node of lukacsOntologyNodes) {
+    assert.ok(node.data.sourceRef)
+    assert.ok(node.data.sourceAttribution)
+    assert.ok(node.data.excerpt)
+    assert.ok(node.data.question)
+    assert.ok(node.data.dependsOn.every(id => ids.has(id)), node.id + ': dependencia inexistente')
+    assert.ok(!/cita literal/i.test(node.data.sourcePassage), node.id + ': no debe fingir cita textual')
+  }
+})
+
+test('distingue introducción de Ballestero y texto principal de Lukács', () => {
+  const editorial = lukacsOntologyNodes.filter(node => node.data.phase === 'Introducción editorial')
+  const main = lukacsOntologyNodes.filter(node => node.data.phase !== 'Introducción editorial')
+  assert.ok(editorial.length >= 5)
+  assert.ok(editorial.every(node => /Ballestero/.test(node.data.sourceAttribution)))
+  assert.ok(main.every(node => /Lukács/.test(node.data.sourceAttribution)))
+})
+
+test('las lagunas de la copia y el cierre perdido permanecen explícitos', () => {
+  assert.match(lukacsOntologySource.boundary, /27 páginas ocultas/)
+  assert.match(lukacsOntologySource.hiddenPages, /217/)
+  const last = lukacsOntologyNodes.find(node => node.id === 'L07')
+  assert.ok(last)
+  assert.match(last.data.excerpt, /217/)
+  assert.match(last.data.sourceRef, /cierre p\. 217 no recuperado/)
+})
+
+test('relaciones transversales resuelven nodos y distinguen voces', () => {
+  const ids = new Set(lukacsOntologyNodes.map(node => node.id))
+  assert.equal(lukacsOntologyCrossRelations.length, 8)
+  for (const relation of lukacsOntologyCrossRelations) {
+    assert.ok(ids.has(relation.source))
+    assert.ok(ids.has(relation.target))
+    assert.ok(relation.synthesis && relation.distinction && relation.question)
+  }
+  const voiceRelation = lukacsOntologyCrossRelations.find(r => r.id === 'LO01')
+  assert.match(voiceRelation.distinction, /Ballestero/)
+})
+
+test('página pública usa etiquetas documentales y no presenta paráfrasis como pasajes directos', () => {
+  const page = readFileSync(new URL('../src/pages/LukacsOntologySystem.jsx', import.meta.url), 'utf8')
+  assert.match(page, /BASE DOCUMENTAL/)
+  assert.match(page, /NOTA DE LECTURA/)
+  assert.doesNotMatch(page, /PASAJE DEL TEXTO/)
+  assert.match(page, /Ballestero ≠ Lukács/)
+  assert.match(page, /lukacsOntologyNodes\.length/)
+})
