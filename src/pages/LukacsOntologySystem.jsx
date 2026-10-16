@@ -868,7 +868,7 @@ function StudyCanvas() {
                 <span>BASE DOCUMENTAL · PDF P. {folio.data.sourcePdfPage}</span>
                 <blockquote className="lukacs-source-long">{folio.data.sourcePassage}</blockquote>
                 <small>{folio.data.sourceAttribution} · página impresa {folio.data.sourcePrintedPage} · síntesis/paráfrasis; no cita literal</small>
-                <p className="lukacs-folio-summary"><strong>Síntesis editorial:</strong> {folio.data.excerpt}</p>
+                <p className="lukacs-folio-summary"><strong>SÍNTESIS EDITORIAL:</strong> {folio.data.excerpt}</p>
               </section>
 
               <section>
