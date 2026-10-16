@@ -156,6 +156,10 @@ try {
   assert.equal(await evaluate("([...document.querySelectorAll('.bc-modes button')].find(b=>b.textContent==='Red contextual')?.click(),true)"),true)
   await until(()=>evaluate("document.querySelector('.bc-canvas')?.getAttribute('data-mode')==='foco'"),'Foco contextual')
   console.log('OK navegación de modos en cartografía')
+  assert.ok(await evaluate("document.querySelectorAll('.bc-relation-evidence').length>0"),
+    'Inspector sin evidencia de relaciones')
+  console.log('OK procedencias en inspector')
+
 
 } finally {
   if(socket) socket.close()
