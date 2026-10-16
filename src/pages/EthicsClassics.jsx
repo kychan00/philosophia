@@ -338,6 +338,15 @@ export default function EthicsClassics() {
           <div className="ethicsx-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
         </Link>
 
+        <Link to="/semestre/5/etica/clase/15-octubre" className="ethicsx-class-card">
+          <div className="ethicsx-class-card-date"><strong>XV</strong><span>X · MMXXVI</span></div>
+          <div className="ethicsx-class-card-copy">
+            <span>Clase · Platón, medicina hipocrática y cuidado</span>
+            <h3>La medicina del alma: Cármides y el cuidado de sí</h3>
+            <p>Templanza, Zalmoxis, dieta como modo de vida, médicos libres y esclavizados, salud y responsabilidad.</p>
+          </div>
+          <div className="ethicsx-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
+        </Link>
       </section>
 
       <section className="ethicsx-section ethicsx-note">
