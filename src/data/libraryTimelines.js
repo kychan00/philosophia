@@ -26,6 +26,79 @@ export const libraryTimelines = {
         "title": "Filosofía Analítica - Føllesdal, genealogía, argumento y justificación",
         "url": "/semestre/5/filosofia-analitica/clase/26-agosto",
         "type": "título citado en nota"
+      },
+      {
+        "date": "2026-09-21",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Moore, platonismo, análisis y sentido común",
+        "url": "/semestre/5/filosofia-analitica/clase/21-septiembre",
+        "type": "título citado en nota"
+      }
+    ],
+    "Moore - Principia Ethica": [
+      {
+        "date": "2026-09-21",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Moore, platonismo, análisis y sentido común",
+        "url": "/semestre/5/filosofia-analitica/clase/21-septiembre",
+        "type": "título citado en nota"
+      }
+    ],
+    "Hacker - El surgimiento de la filosofía analítica del siglo XX": [
+      {
+        "date": "2026-09-28",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Russell, descripciones, referente y forma lógica",
+        "url": "/semestre/5/filosofia-analitica/clase/28-septiembre",
+        "type": "enlace a la obra"
+      },
+      {
+        "date": "2026-09-30",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Del origen al giro lingüístico",
+        "url": "/semestre/5/filosofia-analitica/clase/30-septiembre",
+        "type": "enlace a la obra"
+      },
+      {
+        "date": "2026-10-07",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Wittgenstein y positivismo lógico",
+        "url": "/semestre/5/filosofia-analitica/clase/7-octubre",
+        "type": "enlace a la obra"
+      },
+      {
+        "date": "2026-10-14",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Crítica del positivismo lógico y cierre de Hacker",
+        "url": "/semestre/5/filosofia-analitica/clase/14-octubre",
+        "type": "enlace a la obra"
+      }
+    ],
+    "Wittgenstein - Tractatus logico-philosophicus": [
+      {
+        "date": "2026-09-30",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Del origen al giro lingüístico",
+        "url": "/semestre/5/filosofia-analitica/clase/30-septiembre",
+        "type": "enlace a la obra"
+      }
+    ],
+    "Glock - Qué es la filosofía analítica - Capítulo II": [
+      {
+        "date": "2026-10-14",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Crítica del positivismo lógico y cierre de Hacker",
+        "url": "/semestre/5/filosofia-analitica/clase/14-octubre",
+        "type": "enlace a la obra"
+      }
+    ],
+    "Wittgenstein - Investigaciones filosóficas": [
+      {
+        "date": "2026-10-14",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Crítica del positivismo lógico y cierre de Hacker",
+        "url": "/semestre/5/filosofia-analitica/clase/14-octubre",
+        "type": "título citado en nota"
       }
     ]
   },
@@ -88,6 +161,13 @@ export const libraryTimelines = {
         "title": "Filosofía Analítica - Lenguaje, lógica y tradición analítica",
         "url": "/semestre/5/filosofia-analitica/clase/7-septiembre",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-01-19",
+        "area": "Filosofía de la Lógica",
+        "title": "Introducción, demarcación y verdad lógica",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/19-enero",
+        "type": "autor mencionado"
       }
     ],
     "Descartes, René": [
@@ -110,6 +190,13 @@ export const libraryTimelines = {
         "area": "Filosofía Analítica",
         "title": "Filosofía Analítica - Hermenéutica, positivismo y demarcación",
         "url": "/semestre/5/filosofia-analitica/clase/2-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-21",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Moore, platonismo, análisis y sentido común",
+        "url": "/semestre/5/filosofia-analitica/clase/21-septiembre",
         "type": "autor mencionado"
       }
     ],
@@ -162,6 +249,20 @@ export const libraryTimelines = {
         "title": "Filosofía Analítica - Lenguaje, lógica y tradición analítica",
         "url": "/semestre/5/filosofia-analitica/clase/7-septiembre",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-01-19",
+        "area": "Filosofía de la Lógica",
+        "title": "Introducción, demarcación y verdad lógica",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/19-enero",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-01-21",
+        "area": "Filosofía de la Lógica",
+        "title": "Lógica moderna, metalógica y lógicas no clásicas",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/21-enero",
+        "type": "autor mencionado"
       }
     ],
     "Audi, Robert": [
@@ -195,6 +296,27 @@ export const libraryTimelines = {
         "area": "Filosofía Analítica",
         "title": "Filosofía Analítica - Føllesdal, genealogía, argumento y justificación",
         "url": "/semestre/5/filosofia-analitica/clase/26-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-21",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Moore, platonismo, análisis y sentido común",
+        "url": "/semestre/5/filosofia-analitica/clase/21-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-01-19",
+        "area": "Filosofía de la Lógica",
+        "title": "Introducción, demarcación y verdad lógica",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/19-enero",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-02-09",
+        "area": "Filosofía de la Lógica",
+        "title": "Oración, enunciado, proposición y verdad",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/09-febrero",
         "type": "autor mencionado"
       }
     ],
@@ -244,6 +366,13 @@ export const libraryTimelines = {
         "title": "Filosofía Analítica - Taxonomía, análisis y lenguaje",
         "url": "/semestre/5/filosofia-analitica/clase/19-agosto",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-14",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Crítica del positivismo lógico y cierre de Hacker",
+        "url": "/semestre/5/filosofia-analitica/clase/14-octubre",
+        "type": "autor mencionado"
       }
     ],
     "Hacker, Peter M. S.": [
@@ -266,6 +395,41 @@ export const libraryTimelines = {
         "area": "Filosofía Analítica",
         "title": "Filosofía Analítica - Lenguaje, lógica y tradición analítica",
         "url": "/semestre/5/filosofia-analitica/clase/7-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-21",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Moore, platonismo, análisis y sentido común",
+        "url": "/semestre/5/filosofia-analitica/clase/21-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-28",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Russell, descripciones, referente y forma lógica",
+        "url": "/semestre/5/filosofia-analitica/clase/28-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-30",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Del origen al giro lingüístico",
+        "url": "/semestre/5/filosofia-analitica/clase/30-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-07",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Wittgenstein y positivismo lógico",
+        "url": "/semestre/5/filosofia-analitica/clase/7-octubre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-14",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Crítica del positivismo lógico y cierre de Hacker",
+        "url": "/semestre/5/filosofia-analitica/clase/14-octubre",
         "type": "autor mencionado"
       }
     ],
@@ -304,6 +468,55 @@ export const libraryTimelines = {
         "title": "Filosofía Analítica - Pensamiento, lenguaje, representación y límites",
         "url": "/semestre/5/filosofia-analitica/clase/14-septiembre",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-23",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Russell, relaciones y objetividad matemática",
+        "url": "/semestre/5/filosofia-analitica/clase/23-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-28",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Russell, descripciones, referente y forma lógica",
+        "url": "/semestre/5/filosofia-analitica/clase/28-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-30",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Del origen al giro lingüístico",
+        "url": "/semestre/5/filosofia-analitica/clase/30-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-01-19",
+        "area": "Filosofía de la Lógica",
+        "title": "Introducción, demarcación y verdad lógica",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/19-enero",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-01-21",
+        "area": "Filosofía de la Lógica",
+        "title": "Lógica moderna, metalógica y lógicas no clásicas",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/21-enero",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-01-26",
+        "area": "Filosofía de la Lógica",
+        "title": "Pluralidad de lógicas, demarcación y logicismo",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/26-enero",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-02-04",
+        "area": "Filosofía de la Lógica",
+        "title": "Sistemas formales, neutralidad tópica y lenguaje",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/04-febrero",
+        "type": "autor mencionado"
       }
     ],
     "Moore, G. E.": [
@@ -320,6 +533,34 @@ export const libraryTimelines = {
         "title": "Filosofía Analítica - Føllesdal, genealogía, argumento y justificación",
         "url": "/semestre/5/filosofia-analitica/clase/26-agosto",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-21",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Moore, platonismo, análisis y sentido común",
+        "url": "/semestre/5/filosofia-analitica/clase/21-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-28",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Russell, descripciones, referente y forma lógica",
+        "url": "/semestre/5/filosofia-analitica/clase/28-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-30",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Del origen al giro lingüístico",
+        "url": "/semestre/5/filosofia-analitica/clase/30-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-07",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Wittgenstein y positivismo lógico",
+        "url": "/semestre/5/filosofia-analitica/clase/7-octubre",
+        "type": "autor mencionado"
       }
     ],
     "Popper, Karl": [
@@ -328,6 +569,20 @@ export const libraryTimelines = {
         "area": "Filosofía Analítica",
         "title": "Filosofía Analítica - De Frege al giro lingüístico",
         "url": "/semestre/5/filosofia-analitica/clase/24-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-07",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Wittgenstein y positivismo lógico",
+        "url": "/semestre/5/filosofia-analitica/clase/7-octubre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-14",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Crítica del positivismo lógico y cierre de Hacker",
+        "url": "/semestre/5/filosofia-analitica/clase/14-octubre",
         "type": "autor mencionado"
       }
     ],
@@ -351,6 +606,55 @@ export const libraryTimelines = {
         "area": "Filosofía Analítica",
         "title": "Filosofía Analítica - Pensamiento, lenguaje, representación y límites",
         "url": "/semestre/5/filosofia-analitica/clase/14-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-21",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Moore, platonismo, análisis y sentido común",
+        "url": "/semestre/5/filosofia-analitica/clase/21-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-23",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Russell, relaciones y objetividad matemática",
+        "url": "/semestre/5/filosofia-analitica/clase/23-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-28",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Russell, descripciones, referente y forma lógica",
+        "url": "/semestre/5/filosofia-analitica/clase/28-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-30",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Del origen al giro lingüístico",
+        "url": "/semestre/5/filosofia-analitica/clase/30-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-07",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Wittgenstein y positivismo lógico",
+        "url": "/semestre/5/filosofia-analitica/clase/7-octubre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-14",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Crítica del positivismo lógico y cierre de Hacker",
+        "url": "/semestre/5/filosofia-analitica/clase/14-octubre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-01-26",
+        "area": "Filosofía de la Lógica",
+        "title": "Pluralidad de lógicas, demarcación y logicismo",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/26-enero",
         "type": "autor mencionado"
       }
     ],
@@ -389,6 +693,27 @@ export const libraryTimelines = {
         "title": "Filosofía Analítica - Pensamiento, lenguaje, representación y límites",
         "url": "/semestre/5/filosofia-analitica/clase/14-septiembre",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-30",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Del origen al giro lingüístico",
+        "url": "/semestre/5/filosofia-analitica/clase/30-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-07",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Wittgenstein y positivismo lógico",
+        "url": "/semestre/5/filosofia-analitica/clase/7-octubre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-14",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Crítica del positivismo lógico y cierre de Hacker",
+        "url": "/semestre/5/filosofia-analitica/clase/14-octubre",
+        "type": "autor mencionado"
       }
     ],
     "Heidegger, Martin": [
@@ -406,6 +731,13 @@ export const libraryTimelines = {
         "area": "Filosofía Analítica",
         "title": "Filosofía Analítica - Føllesdal, genealogía, argumento y justificación",
         "url": "/semestre/5/filosofia-analitica/clase/26-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-07",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Wittgenstein y positivismo lógico",
+        "url": "/semestre/5/filosofia-analitica/clase/7-octubre",
         "type": "autor mencionado"
       }
     ],
@@ -425,6 +757,13 @@ export const libraryTimelines = {
         "title": "Filosofía Analítica - Lenguaje, lógica y tradición analítica",
         "url": "/semestre/5/filosofia-analitica/clase/7-septiembre",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-30",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Del origen al giro lingüístico",
+        "url": "/semestre/5/filosofia-analitica/clase/30-septiembre",
+        "type": "autor mencionado"
       }
     ],
     "Kant, Immanuel": [
@@ -433,6 +772,134 @@ export const libraryTimelines = {
         "area": "Filosofía Analítica",
         "title": "Filosofía Analítica - Frege, Kant y objetividad",
         "url": "/semestre/5/filosofia-analitica/clase/9-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-21",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Moore, platonismo, análisis y sentido común",
+        "url": "/semestre/5/filosofia-analitica/clase/21-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-23",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Russell, relaciones y objetividad matemática",
+        "url": "/semestre/5/filosofia-analitica/clase/23-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-07",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Wittgenstein y positivismo lógico",
+        "url": "/semestre/5/filosofia-analitica/clase/7-octubre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-01-19",
+        "area": "Filosofía de la Lógica",
+        "title": "Introducción, demarcación y verdad lógica",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/19-enero",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-02-09",
+        "area": "Filosofía de la Lógica",
+        "title": "Oración, enunciado, proposición y verdad",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/09-febrero",
+        "type": "autor mencionado"
+      }
+    ],
+    "Leibniz, G. W.": [
+      {
+        "date": "2026-09-23",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Russell, relaciones y objetividad matemática",
+        "url": "/semestre/5/filosofia-analitica/clase/23-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-01-19",
+        "area": "Filosofía de la Lógica",
+        "title": "Introducción, demarcación y verdad lógica",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/19-enero",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-02-04",
+        "area": "Filosofía de la Lógica",
+        "title": "Sistemas formales, neutralidad tópica y lenguaje",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/04-febrero",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-02-09",
+        "area": "Filosofía de la Lógica",
+        "title": "Oración, enunciado, proposición y verdad",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/09-febrero",
+        "type": "autor mencionado"
+      }
+    ],
+    "Bentham, Jeremy": [
+      {
+        "date": "2026-09-30",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Del origen al giro lingüístico",
+        "url": "/semestre/5/filosofia-analitica/clase/30-septiembre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Rorty, Richard": [
+      {
+        "date": "2026-09-30",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Del origen al giro lingüístico",
+        "url": "/semestre/5/filosofia-analitica/clase/30-septiembre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Carnap, Rudolf": [
+      {
+        "date": "2026-10-07",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Wittgenstein y positivismo lógico",
+        "url": "/semestre/5/filosofia-analitica/clase/7-octubre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Comte, Auguste": [
+      {
+        "date": "2026-10-14",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Crítica del positivismo lógico y cierre de Hacker",
+        "url": "/semestre/5/filosofia-analitica/clase/14-octubre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Hegel, G. W. F.": [
+      {
+        "date": "2026-10-14",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Crítica del positivismo lógico y cierre de Hacker",
+        "url": "/semestre/5/filosofia-analitica/clase/14-octubre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Kuhn, Thomas": [
+      {
+        "date": "2026-10-14",
+        "area": "Filosofía Analítica",
+        "title": "Filosofía Analítica - Crítica del positivismo lógico y cierre de Hacker",
+        "url": "/semestre/5/filosofia-analitica/clase/14-octubre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Gödel, Kurt": [
+      {
+        "date": "2026-01-26",
+        "area": "Filosofía de la Lógica",
+        "title": "Pluralidad de lógicas, demarcación y logicismo",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/26-enero",
         "type": "autor mencionado"
       }
     ]
