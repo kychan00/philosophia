@@ -136,6 +136,97 @@ export const libraryTimelines = {
         "url": "/semestre/5/ontologia-ii/clase/24-agosto",
         "type": "enlace a la obra"
       }
+    ],
+    "Hartmann - La filosofía del idealismo alemán - Tomo I": [
+      {
+        "date": "2026-09-30",
+        "area": "Ontología II",
+        "title": "Ontología II - La cosa en sí y las aporías del kantismo",
+        "url": "/semestre/5/ontologia-ii/clase/30-septiembre",
+        "type": "enlace a la obra"
+      }
+    ],
+    "Kant - Crítica de la razón pura - Ribas": [
+      {
+        "date": "2026-09-30",
+        "area": "Ontología II",
+        "title": "Ontología II - La cosa en sí y las aporías del kantismo",
+        "url": "/semestre/5/ontologia-ii/clase/30-septiembre",
+        "type": "enlace a la obra"
+      },
+      {
+        "date": "2026-10-07",
+        "area": "Ontología II",
+        "title": "Ontología II - Del concepto límite al absoluto",
+        "url": "/semestre/5/ontologia-ii/clase/7-octubre",
+        "type": "enlace a la obra"
+      }
+    ],
+    "Croce - Lo vivo y lo muerto de la filosofía de Hegel": [
+      {
+        "date": "2026-10-07",
+        "area": "Ontología II",
+        "title": "Ontología II - Del concepto límite al absoluto",
+        "url": "/semestre/5/ontologia-ii/clase/7-octubre",
+        "type": "título citado en nota"
+      },
+      {
+        "date": "2026-10-14",
+        "area": "Ontología II",
+        "title": "Ontología II - Croce, contrarios y el comienzo de la lógica de Hegel",
+        "url": "/semestre/5/ontologia-ii/clase/14-octubre",
+        "type": "enlace a la obra"
+      }
+    ],
+    "Hegel - Ciencia de la lógica": [
+      {
+        "date": "2026-10-14",
+        "area": "Ontología II",
+        "title": "Ontología II - Croce, contrarios y el comienzo de la lógica de Hegel",
+        "url": "/semestre/5/ontologia-ii/clase/14-octubre",
+        "type": "enlace a la obra"
+      }
+    ],
+    "Tomás de Aquino - Del ente y de la esencia": [
+      {
+        "date": "2026-01-21",
+        "area": "Ontología",
+        "title": "Ontología - Introducción y mapa de problemas ontológicos",
+        "url": "/semestre/4/ontologia/clase/21-enero",
+        "type": "enlace a la obra"
+      }
+    ],
+    "Aristóteles - Metafísica - Libro IV": [
+      {
+        "date": "2026-03-25",
+        "area": "Ontología",
+        "title": "Ontología - principio de no contradicción y fundamento ontológico",
+        "url": "/semestre/4/ontologia/clase/25-marzo",
+        "type": "enlace a la obra"
+      },
+      {
+        "date": "2026-04-15",
+        "area": "Ontología",
+        "title": "Ontología - entidad, accidente y predicación",
+        "url": "/semestre/4/ontologia/clase/15-abril",
+        "type": "enlace a la obra"
+      }
+    ],
+    "Aristóteles - Metafísica - Libro VII": [
+      {
+        "date": "2026-04-20",
+        "area": "Ontología",
+        "title": "Ontología - Aristóteles - entidad como sentido fundamental de ser",
+        "url": "/semestre/4/ontologia/clase/20-abril",
+        "type": "enlace a la obra"
+      },
+      {
+        "date": "2026-04-27",
+        "area": "Ontología",
+        "title": "Ontología - entidad como sujeto y sustrato",
+        "url": "/semestre/4/ontologia/clase/27-abril",
+        "type": "enlace a la obra"
+      }
     ]
   },
   "authors": {
@@ -145,6 +236,20 @@ export const libraryTimelines = {
         "area": "Cosmología",
         "title": "Cosmología - cosmos griego y legado pitagórico",
         "url": null,
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-01-21",
+        "area": "Ontología",
+        "title": "Ontología - Introducción y mapa de problemas ontológicos",
+        "url": "/semestre/4/ontologia/clase/21-enero",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-03-25",
+        "area": "Ontología",
+        "title": "Ontología - principio de no contradicción y fundamento ontológico",
+        "url": "/semestre/4/ontologia/clase/25-marzo",
         "type": "autor mencionado"
       }
     ],
@@ -225,6 +330,27 @@ export const libraryTimelines = {
         "title": "Quine, holismo y problema de la verdad",
         "url": "/semestre/4/filosofia-de-la-logica/clase/20-abril",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-07",
+        "area": "Ontología II",
+        "title": "Ontología II - Del concepto límite al absoluto",
+        "url": "/semestre/5/ontologia-ii/clase/7-octubre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-01-21",
+        "area": "Ontología",
+        "title": "Ontología - Introducción y mapa de problemas ontológicos",
+        "url": "/semestre/4/ontologia/clase/21-enero",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-04-20",
+        "area": "Ontología",
+        "title": "Ontología - Aristóteles - entidad como sentido fundamental de ser",
+        "url": "/semestre/4/ontologia/clase/20-abril",
+        "type": "autor mencionado"
       }
     ],
     "Descartes, René": [
@@ -282,6 +408,34 @@ export const libraryTimelines = {
         "area": "Ontología II",
         "title": "Ontología II - Leibniz contra dos reducciones",
         "url": "/semestre/5/ontologia-ii/clase/26-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-23",
+        "area": "Ontología II",
+        "title": "Ontología II - La frontera de la razón",
+        "url": "/semestre/5/ontologia-ii/clase/23-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-30",
+        "area": "Ontología II",
+        "title": "Ontología II - La cosa en sí y las aporías del kantismo",
+        "url": "/semestre/5/ontologia-ii/clase/30-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-14",
+        "area": "Ontología II",
+        "title": "Ontología II - Croce, contrarios y el comienzo de la lógica de Hegel",
+        "url": "/semestre/5/ontologia-ii/clase/14-octubre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-01-21",
+        "area": "Ontología",
+        "title": "Ontología - Introducción y mapa de problemas ontológicos",
+        "url": "/semestre/4/ontologia/clase/21-enero",
         "type": "autor mencionado"
       }
     ],
@@ -396,6 +550,55 @@ export const libraryTimelines = {
         "area": "Ontología II",
         "title": "Ontología II - Kant, juicios y condiciones del conocer",
         "url": "/semestre/5/ontologia-ii/clase/9-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-21",
+        "area": "Ontología II",
+        "title": "Ontología II - Kant, lógica, juicios, categorías y esquematismo",
+        "url": "/semestre/5/ontologia-ii/clase/21-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-01-21",
+        "area": "Ontología",
+        "title": "Ontología - Introducción y mapa de problemas ontológicos",
+        "url": "/semestre/4/ontologia/clase/21-enero",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-03-23",
+        "area": "Ontología",
+        "title": "Ontología - fragmento gráfico sobre lo que es",
+        "url": "/semestre/4/ontologia/clase/23-marzo",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-03-25",
+        "area": "Ontología",
+        "title": "Ontología - principio de no contradicción y fundamento ontológico",
+        "url": "/semestre/4/ontologia/clase/25-marzo",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-04-15",
+        "area": "Ontología",
+        "title": "Ontología - entidad, accidente y predicación",
+        "url": "/semestre/4/ontologia/clase/15-abril",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-04-20",
+        "area": "Ontología",
+        "title": "Ontología - Aristóteles - entidad como sentido fundamental de ser",
+        "url": "/semestre/4/ontologia/clase/20-abril",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-04-27",
+        "area": "Ontología",
+        "title": "Ontología - entidad como sujeto y sustrato",
+        "url": "/semestre/4/ontologia/clase/27-abril",
         "type": "autor mencionado"
       }
     ],
@@ -721,6 +924,13 @@ export const libraryTimelines = {
         "title": "Tarski, semántica y lógicas no clásicas",
         "url": "/semestre/4/filosofia-de-la-logica/clase/18-mayo",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-01-21",
+        "area": "Ontología",
+        "title": "Ontología - Introducción y mapa de problemas ontológicos",
+        "url": "/semestre/4/ontologia/clase/21-enero",
+        "type": "autor mencionado"
       }
     ],
     "Moore, G. E.": [
@@ -983,6 +1193,13 @@ export const libraryTimelines = {
         "title": "Ontología II - Kant, fenómeno, espacio, tiempo y cosa en sí",
         "url": "/semestre/5/ontologia-ii/clase/14-septiembre",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-07",
+        "area": "Ontología II",
+        "title": "Ontología II - Del concepto límite al absoluto",
+        "url": "/semestre/5/ontologia-ii/clase/7-octubre",
+        "type": "autor mencionado"
       }
     ],
     "Schlick, Moritz": [
@@ -1145,6 +1362,41 @@ export const libraryTimelines = {
         "title": "Ontología II - Kant, fenómeno, espacio, tiempo y cosa en sí",
         "url": "/semestre/5/ontologia-ii/clase/14-septiembre",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-21",
+        "area": "Ontología II",
+        "title": "Ontología II - Kant, lógica, juicios, categorías y esquematismo",
+        "url": "/semestre/5/ontologia-ii/clase/21-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-23",
+        "area": "Ontología II",
+        "title": "Ontología II - La frontera de la razón",
+        "url": "/semestre/5/ontologia-ii/clase/23-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-30",
+        "area": "Ontología II",
+        "title": "Ontología II - La cosa en sí y las aporías del kantismo",
+        "url": "/semestre/5/ontologia-ii/clase/30-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-07",
+        "area": "Ontología II",
+        "title": "Ontología II - Del concepto límite al absoluto",
+        "url": "/semestre/5/ontologia-ii/clase/7-octubre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-01-21",
+        "area": "Ontología",
+        "title": "Ontología - Introducción y mapa de problemas ontológicos",
+        "url": "/semestre/4/ontologia/clase/21-enero",
+        "type": "autor mencionado"
       }
     ],
     "Leibniz, G. W.": [
@@ -1224,6 +1476,13 @@ export const libraryTimelines = {
         "title": "Ontología II - Leibniz contra dos reducciones",
         "url": "/semestre/5/ontologia-ii/clase/26-agosto",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-23",
+        "area": "Ontología II",
+        "title": "Ontología II - La frontera de la razón",
+        "url": "/semestre/5/ontologia-ii/clase/23-septiembre",
+        "type": "autor mencionado"
       }
     ],
     "Bentham, Jeremy": [
@@ -1260,6 +1519,13 @@ export const libraryTimelines = {
         "title": "Filosofía Analítica - Crítica del positivismo lógico y cierre de Hacker",
         "url": "/semestre/5/filosofia-analitica/clase/14-octubre",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-07",
+        "area": "Ontología II",
+        "title": "Ontología II - Del concepto límite al absoluto",
+        "url": "/semestre/5/ontologia-ii/clase/7-octubre",
+        "type": "autor mencionado"
       }
     ],
     "Hegel, G. W. F.": [
@@ -1268,6 +1534,27 @@ export const libraryTimelines = {
         "area": "Filosofía Analítica",
         "title": "Filosofía Analítica - Crítica del positivismo lógico y cierre de Hacker",
         "url": "/semestre/5/filosofia-analitica/clase/14-octubre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-30",
+        "area": "Ontología II",
+        "title": "Ontología II - La cosa en sí y las aporías del kantismo",
+        "url": "/semestre/5/ontologia-ii/clase/30-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-07",
+        "area": "Ontología II",
+        "title": "Ontología II - Del concepto límite al absoluto",
+        "url": "/semestre/5/ontologia-ii/clase/7-octubre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-14",
+        "area": "Ontología II",
+        "title": "Ontología II - Croce, contrarios y el comienzo de la lógica de Hegel",
+        "url": "/semestre/5/ontologia-ii/clase/14-octubre",
         "type": "autor mencionado"
       }
     ],
@@ -1317,6 +1604,13 @@ export const libraryTimelines = {
         "title": "Frege, validez, necesidad y platonismo",
         "url": "/semestre/4/filosofia-de-la-logica/clase/18-marzo",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-04-15",
+        "area": "Ontología",
+        "title": "Ontología - entidad, accidente y predicación",
+        "url": "/semestre/4/ontologia/clase/15-abril",
+        "type": "autor mencionado"
       }
     ],
     "Berkeley, George": [
@@ -1332,6 +1626,13 @@ export const libraryTimelines = {
         "area": "Ontología II",
         "title": "Ontología II - Locke, Berkeley, Hume y Kant",
         "url": "/semestre/5/ontologia-ii/clase/2-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-30",
+        "area": "Ontología II",
+        "title": "Ontología II - La cosa en sí y las aporías del kantismo",
+        "url": "/semestre/5/ontologia-ii/clase/30-septiembre",
         "type": "autor mencionado"
       }
     ],
@@ -1452,6 +1753,34 @@ export const libraryTimelines = {
         "title": "Ontología II - Leibniz contra dos reducciones",
         "url": "/semestre/5/ontologia-ii/clase/26-agosto",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-23",
+        "area": "Ontología II",
+        "title": "Ontología II - La frontera de la razón",
+        "url": "/semestre/5/ontologia-ii/clase/23-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-30",
+        "area": "Ontología II",
+        "title": "Ontología II - La cosa en sí y las aporías del kantismo",
+        "url": "/semestre/5/ontologia-ii/clase/30-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-07",
+        "area": "Ontología II",
+        "title": "Ontología II - Del concepto límite al absoluto",
+        "url": "/semestre/5/ontologia-ii/clase/7-octubre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-14",
+        "area": "Ontología II",
+        "title": "Ontología II - Croce, contrarios y el comienzo de la lógica de Hegel",
+        "url": "/semestre/5/ontologia-ii/clase/14-octubre",
+        "type": "autor mencionado"
       }
     ],
     "Hume, David": [
@@ -1475,6 +1804,20 @@ export const libraryTimelines = {
         "title": "Ontología II - Kant, fenómeno, espacio, tiempo y cosa en sí",
         "url": "/semestre/5/ontologia-ii/clase/14-septiembre",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-21",
+        "area": "Ontología II",
+        "title": "Ontología II - Kant, lógica, juicios, categorías y esquematismo",
+        "url": "/semestre/5/ontologia-ii/clase/21-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-23",
+        "area": "Ontología II",
+        "title": "Ontología II - La frontera de la razón",
+        "url": "/semestre/5/ontologia-ii/clase/23-septiembre",
+        "type": "autor mencionado"
       }
     ],
     "Locke, John": [
@@ -1483,6 +1826,181 @@ export const libraryTimelines = {
         "area": "Ontología II",
         "title": "Ontología II - Locke, Berkeley, Hume y Kant",
         "url": "/semestre/5/ontologia-ii/clase/2-septiembre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Hartmann, Nicolai": [
+      {
+        "date": "2026-09-23",
+        "area": "Ontología II",
+        "title": "Ontología II - La frontera de la razón",
+        "url": "/semestre/5/ontologia-ii/clase/23-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-30",
+        "area": "Ontología II",
+        "title": "Ontología II - La cosa en sí y las aporías del kantismo",
+        "url": "/semestre/5/ontologia-ii/clase/30-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-07",
+        "area": "Ontología II",
+        "title": "Ontología II - Del concepto límite al absoluto",
+        "url": "/semestre/5/ontologia-ii/clase/7-octubre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Beck, Jakob Sigismund": [
+      {
+        "date": "2026-09-30",
+        "area": "Ontología II",
+        "title": "Ontología II - La cosa en sí y las aporías del kantismo",
+        "url": "/semestre/5/ontologia-ii/clase/30-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-07",
+        "area": "Ontología II",
+        "title": "Ontología II - Del concepto límite al absoluto",
+        "url": "/semestre/5/ontologia-ii/clase/7-octubre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Fichte, Johann Gottlieb": [
+      {
+        "date": "2026-09-30",
+        "area": "Ontología II",
+        "title": "Ontología II - La cosa en sí y las aporías del kantismo",
+        "url": "/semestre/5/ontologia-ii/clase/30-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-07",
+        "area": "Ontología II",
+        "title": "Ontología II - Del concepto límite al absoluto",
+        "url": "/semestre/5/ontologia-ii/clase/7-octubre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Maimon, Salomon": [
+      {
+        "date": "2026-09-30",
+        "area": "Ontología II",
+        "title": "Ontología II - La cosa en sí y las aporías del kantismo",
+        "url": "/semestre/5/ontologia-ii/clase/30-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-07",
+        "area": "Ontología II",
+        "title": "Ontología II - Del concepto límite al absoluto",
+        "url": "/semestre/5/ontologia-ii/clase/7-octubre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Reinhold, Karl Leonhard": [
+      {
+        "date": "2026-09-30",
+        "area": "Ontología II",
+        "title": "Ontología II - La cosa en sí y las aporías del kantismo",
+        "url": "/semestre/5/ontologia-ii/clase/30-septiembre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Schelling, Friedrich Wilhelm Joseph": [
+      {
+        "date": "2026-09-30",
+        "area": "Ontología II",
+        "title": "Ontología II - La cosa en sí y las aporías del kantismo",
+        "url": "/semestre/5/ontologia-ii/clase/30-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-07",
+        "area": "Ontología II",
+        "title": "Ontología II - Del concepto límite al absoluto",
+        "url": "/semestre/5/ontologia-ii/clase/7-octubre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Schulze, Gottlob Ernst": [
+      {
+        "date": "2026-09-30",
+        "area": "Ontología II",
+        "title": "Ontología II - La cosa en sí y las aporías del kantismo",
+        "url": "/semestre/5/ontologia-ii/clase/30-septiembre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Bardili, Christoph Gottfried": [
+      {
+        "date": "2026-10-07",
+        "area": "Ontología II",
+        "title": "Ontología II - Del concepto límite al absoluto",
+        "url": "/semestre/5/ontologia-ii/clase/7-octubre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Croce, Benedetto": [
+      {
+        "date": "2026-10-07",
+        "area": "Ontología II",
+        "title": "Ontología II - Del concepto límite al absoluto",
+        "url": "/semestre/5/ontologia-ii/clase/7-octubre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-14",
+        "area": "Ontología II",
+        "title": "Ontología II - Croce, contrarios y el comienzo de la lógica de Hegel",
+        "url": "/semestre/5/ontologia-ii/clase/14-octubre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Jacobi, Friedrich Heinrich": [
+      {
+        "date": "2026-10-07",
+        "area": "Ontología II",
+        "title": "Ontología II - Del concepto límite al absoluto",
+        "url": "/semestre/5/ontologia-ii/clase/7-octubre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Nietzsche, Friedrich": [
+      {
+        "date": "2026-10-07",
+        "area": "Ontología II",
+        "title": "Ontología II - Del concepto límite al absoluto",
+        "url": "/semestre/5/ontologia-ii/clase/7-octubre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Henrich, Dieter": [
+      {
+        "date": "2026-10-14",
+        "area": "Ontología II",
+        "title": "Ontología II - Croce, contrarios y el comienzo de la lógica de Hegel",
+        "url": "/semestre/5/ontologia-ii/clase/14-octubre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Marx, Karl": [
+      {
+        "date": "2026-10-14",
+        "area": "Ontología II",
+        "title": "Ontología II - Croce, contrarios y el comienzo de la lógica de Hegel",
+        "url": "/semestre/5/ontologia-ii/clase/14-octubre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Tomás de Aquino": [
+      {
+        "date": "2026-01-21",
+        "area": "Ontología",
+        "title": "Ontología - Introducción y mapa de problemas ontológicos",
+        "url": "/semestre/4/ontologia/clase/21-enero",
         "type": "autor mencionado"
       }
     ]
