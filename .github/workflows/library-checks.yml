@@ -29,9 +29,9 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Test biblioteca, vínculos y gobernanza
-        run: node --test tests/library-catalog.test.mjs tests/library-navigation.test.mjs tests/library-timeline.test.mjs tests/library-academic-connections.test.mjs tests/library-governance.test.mjs
+        run: node --test tests/library-catalog.test.mjs tests/library-navigation.test.mjs tests/library-timeline.test.mjs tests/library-academic-connections.test.mjs tests/library-governance.test.mjs tests/library-apa.test.mjs
       - name: Lint del código de biblioteca
-        run: npx eslint src/data/libraryCatalog.js src/data/libraryCatalogUtils.js src/data/libraryTimelines.js src/data/libraryAcademicConnections.js src/pages/PhilosophiaLibrary.jsx
+        run: npx eslint src/data/libraryCatalog.js src/data/libraryCatalogUtils.js src/data/libraryTimelines.js src/data/libraryAcademicConnections.js src/data/libraryApa.js src/data/libraryApaMetadata.js src/pages/PhilosophiaLibrary.jsx
       - name: Build
         run: npm run build
       - name: 'Navegación en Chrome: teléfono y tableta'

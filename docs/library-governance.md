@@ -44,3 +44,12 @@
 ## Límites del control automático
 
 Los tests públicos verifican consistencia **dentro del snapshot web**; no disponen del vault privado en CI. La paridad exacta 63/86 contra el vault vigente se verifica mediante una auditoría cruzada al publicar. Las pruebas web no acreditan haber leído textos de origen ni cada referencia oral.
+
+## APA 7 por obra (implementado como referencia consultable)
+
+- Cada una de las 63 obras del catálogo tiene una entrada exacta en `src/data/libraryApaMetadata.js`, revisada contra la ficha académica (autor, título, género documental y campos constatados).
+- `src/data/libraryApa.js` genera referencias APA 7: iniciales, coautoría, títulos en cursivas cuando corresponden, capítulos en libros editados, traductores, obras sin fecha `s. f.`, manuscritos no publicados y URL si ya está registrada.
+- **Nunca** usar la fecha de registro de Obsidian, de una tarea o de un archivo ePUB como año de edición. Originales antiguos no se convierten automáticamente en una fecha de la edición consultada.
+- Una referencia sin fuente contenedora, año o editorial debe mostrar **«Referencia provisional»** y los campos pendientes. No se presenta como APA completo.
+- La copia ofrece HTML rico con cursivas y sangría francesa cuando el navegador lo permite, con respaldo de texto simple; los datos siguen siendo seleccionables.
+- Antes de registrar una obra nueva, actualizar los metadatos APA y exigir que las pruebas cubran exactamente todos los IDs. Al verificar nuevos datos, documentar la procedencia en el vault privado y distinguirla de inferencias.

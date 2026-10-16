@@ -105,6 +105,14 @@ try {
   for(const [width,height] of [[390,844],[768,1024],[1024,768]]) {
     await setViewport(width,height)
   }
+  // Referencia APA individual para todas las obras y sin overflow en tableta.
+  assert.equal(await evaluate("document.querySelectorAll('.library-apa-details').length"),books.length)
+  assert.equal(await evaluate("([...document.querySelectorAll('.library-book')].find(c=>c.querySelector('h3')?.textContent==='El consumo de la utopía romántica')?.querySelector('.library-apa-details summary')?.click(),true)"),true)
+  assert.equal(await evaluate("([...document.querySelectorAll('.library-book')].find(c=>c.querySelector('h3')?.textContent==='El consumo de la utopía romántica')?.querySelector('.library-apa-reference')?.textContent.includes('(2009)')"),true)
+  assert.equal(await evaluate("([...document.querySelectorAll('.library-book')].find(c=>c.querySelector('h3')?.textContent==='Minima Moralia')?.querySelector('.library-apa-details summary')?.click(),true)"),true)
+  assert.equal(await evaluate("([...document.querySelectorAll('.library-book')].find(c=>c.querySelector('h3')?.textContent==='Minima Moralia')?.querySelector('.library-apa-note')?.textContent.includes('provisional')"),true)
+  assert.equal(await evaluate("document.documentElement.scrollWidth <= window.innerWidth+2"),true)
+  console.log('OK APA 7 por obra y control de metadatos')
   // Cada cronología pertenece a su tarjeta y conserva el enlace de la clase.
   assert.equal(await evaluate("([...document.querySelectorAll('.library-book')].find(c=>c.querySelector('h3')?.textContent==='Minima Moralia')?.querySelector('.library-timeline-toggle')?.click(),true)"),true)
   await until(()=>evaluate("document.querySelectorAll('.library-book--expanded .library-timeline-entry').length===1"),
