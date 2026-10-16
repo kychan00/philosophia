@@ -1,6 +1,9 @@
-name: Biblioteca — controles de integridad
+name: Library integrity checks
 
 on:
+  push:
+    branches:
+      - feat/biblioteca-gobernanza-enlaces-20261015
   pull_request:
     branches: [main]
     paths:
