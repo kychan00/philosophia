@@ -109,6 +109,33 @@ export const libraryTimelines = {
         "url": "/semestre/5/metodos-de-investigacion/clase/14-septiembre",
         "type": "enlace a la obra"
       }
+    ],
+    "Wainerman y Sautu - La trastienda de la investigación": [
+      {
+        "date": "2026-10-07",
+        "area": "Métodos de Investigación",
+        "title": "Métodos - Del oficio del investigador a la reducción fenomenológica",
+        "url": null,
+        "type": "enlace a la obra"
+      }
+    ],
+    "Descartes - Discurso del método": [
+      {
+        "date": "2026-08-17",
+        "area": "Ontología II",
+        "title": "Ontología II - Del principio de no contradicción al ser moderno",
+        "url": "/semestre/5/ontologia-ii/clase/17-agosto",
+        "type": "título citado en nota"
+      }
+    ],
+    "Spinoza - Ética demostrada según el orden geométrico - Vidal Peña": [
+      {
+        "date": "2026-08-24",
+        "area": "Ontología II",
+        "title": "Ontología II - Spinoza, sustancia, necesidad y libertad",
+        "url": "/semestre/5/ontologia-ii/clase/24-agosto",
+        "type": "enlace a la obra"
+      }
     ]
   },
   "authors": {
@@ -235,6 +262,27 @@ export const libraryTimelines = {
         "title": "Métodos - Del objeto al conocimiento comunicable",
         "url": "/semestre/5/metodos-de-investigacion/clase/19-agosto",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-08-17",
+        "area": "Ontología II",
+        "title": "Ontología II - Del principio de no contradicción al ser moderno",
+        "url": "/semestre/5/ontologia-ii/clase/17-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-08-19",
+        "area": "Ontología II",
+        "title": "Ontología II - Del cogito a la sustancia",
+        "url": "/semestre/5/ontologia-ii/clase/19-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-08-26",
+        "area": "Ontología II",
+        "title": "Ontología II - Leibniz contra dos reducciones",
+        "url": "/semestre/5/ontologia-ii/clase/26-agosto",
+        "type": "autor mencionado"
       }
     ],
     "Aristóteles": [
@@ -334,6 +382,20 @@ export const libraryTimelines = {
         "area": "Filosofía de la Lógica",
         "title": "Quine, holismo y problema de la verdad",
         "url": "/semestre/4/filosofia-de-la-logica/clase/20-abril",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-08-17",
+        "area": "Ontología II",
+        "title": "Ontología II - Del principio de no contradicción al ser moderno",
+        "url": "/semestre/5/ontologia-ii/clase/17-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-09",
+        "area": "Ontología II",
+        "title": "Ontología II - Kant, juicios y condiciones del conocer",
+        "url": "/semestre/5/ontologia-ii/clase/9-septiembre",
         "type": "autor mencionado"
       }
     ],
@@ -914,6 +976,13 @@ export const libraryTimelines = {
         "title": "Fenomenología, evidencia y verdad",
         "url": "/semestre/4/filosofia-de-la-logica/clase/06-mayo",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-14",
+        "area": "Ontología II",
+        "title": "Ontología II - Kant, fenómeno, espacio, tiempo y cosa en sí",
+        "url": "/semestre/5/ontologia-ii/clase/14-septiembre",
+        "type": "autor mencionado"
       }
     ],
     "Schlick, Moritz": [
@@ -1041,6 +1110,41 @@ export const libraryTimelines = {
         "title": "Fenomenología, evidencia y verdad",
         "url": "/semestre/4/filosofia-de-la-logica/clase/06-mayo",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-08-17",
+        "area": "Ontología II",
+        "title": "Ontología II - Del principio de no contradicción al ser moderno",
+        "url": "/semestre/5/ontologia-ii/clase/17-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-02",
+        "area": "Ontología II",
+        "title": "Ontología II - Locke, Berkeley, Hume y Kant",
+        "url": "/semestre/5/ontologia-ii/clase/2-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-07",
+        "area": "Ontología II",
+        "title": "Ontología II - Kant, condiciones del conocer",
+        "url": "/semestre/5/ontologia-ii/clase/7-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-09",
+        "area": "Ontología II",
+        "title": "Ontología II - Kant, juicios y condiciones del conocer",
+        "url": "/semestre/5/ontologia-ii/clase/9-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-14",
+        "area": "Ontología II",
+        "title": "Ontología II - Kant, fenómeno, espacio, tiempo y cosa en sí",
+        "url": "/semestre/5/ontologia-ii/clase/14-septiembre",
+        "type": "autor mencionado"
       }
     ],
     "Leibniz, G. W.": [
@@ -1098,6 +1202,27 @@ export const libraryTimelines = {
         "area": "Filosofía de la Lógica",
         "title": "Quine, holismo y problema de la verdad",
         "url": "/semestre/4/filosofia-de-la-logica/clase/20-abril",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-08-17",
+        "area": "Ontología II",
+        "title": "Ontología II - Del principio de no contradicción al ser moderno",
+        "url": "/semestre/5/ontologia-ii/clase/17-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-08-24",
+        "area": "Ontología II",
+        "title": "Ontología II - Spinoza, sustancia, necesidad y libertad",
+        "url": "/semestre/5/ontologia-ii/clase/24-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-08-26",
+        "area": "Ontología II",
+        "title": "Ontología II - Leibniz contra dos reducciones",
+        "url": "/semestre/5/ontologia-ii/clase/26-agosto",
         "type": "autor mencionado"
       }
     ],
@@ -1201,6 +1326,13 @@ export const libraryTimelines = {
         "title": "Leibniz, analiticidad y entrada a Kant",
         "url": "/semestre/4/filosofia-de-la-logica/clase/13-abril",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-02",
+        "area": "Ontología II",
+        "title": "Ontología II - Locke, Berkeley, Hume y Kant",
+        "url": "/semestre/5/ontologia-ii/clase/2-septiembre",
+        "type": "autor mencionado"
       }
     ],
     "Ortega y Gasset, José": [
@@ -1242,6 +1374,13 @@ export const libraryTimelines = {
         "title": "Fenomenología, evidencia y verdad",
         "url": "/semestre/4/filosofia-de-la-logica/clase/06-mayo",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-10-07",
+        "area": "Métodos de Investigación",
+        "title": "Métodos - Del oficio del investigador a la reducción fenomenológica",
+        "url": null,
+        "type": "autor mencionado"
       }
     ],
     "Russ, Jacqueline": [
@@ -1250,6 +1389,100 @@ export const libraryTimelines = {
         "area": "Métodos de Investigación",
         "title": "Métodos - Del concepto al problema y al método",
         "url": "/semestre/5/metodos-de-investigacion/clase/14-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-21",
+        "area": "Métodos de Investigación",
+        "title": "Métodos - Russ y la construcción del problema",
+        "url": "/semestre/5/metodos-de-investigacion/clase/21-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-23",
+        "area": "Métodos de Investigación",
+        "title": "Métodos - Del género académico al objeto de investigación",
+        "url": "/semestre/5/metodos-de-investigacion/clase/23-septiembre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Sautu, Ruth": [
+      {
+        "date": "2026-10-07",
+        "area": "Métodos de Investigación",
+        "title": "Métodos - Del oficio del investigador a la reducción fenomenológica",
+        "url": null,
+        "type": "autor mencionado"
+      }
+    ],
+    "Wainerman, Catalina": [
+      {
+        "date": "2026-10-07",
+        "area": "Métodos de Investigación",
+        "title": "Métodos - Del oficio del investigador a la reducción fenomenológica",
+        "url": null,
+        "type": "autor mencionado"
+      }
+    ],
+    "Spinoza, Baruch": [
+      {
+        "date": "2026-08-17",
+        "area": "Ontología II",
+        "title": "Ontología II - Del principio de no contradicción al ser moderno",
+        "url": "/semestre/5/ontologia-ii/clase/17-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-08-19",
+        "area": "Ontología II",
+        "title": "Ontología II - Del cogito a la sustancia",
+        "url": "/semestre/5/ontologia-ii/clase/19-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-08-24",
+        "area": "Ontología II",
+        "title": "Ontología II - Spinoza, sustancia, necesidad y libertad",
+        "url": "/semestre/5/ontologia-ii/clase/24-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-08-26",
+        "area": "Ontología II",
+        "title": "Ontología II - Leibniz contra dos reducciones",
+        "url": "/semestre/5/ontologia-ii/clase/26-agosto",
+        "type": "autor mencionado"
+      }
+    ],
+    "Hume, David": [
+      {
+        "date": "2026-09-02",
+        "area": "Ontología II",
+        "title": "Ontología II - Locke, Berkeley, Hume y Kant",
+        "url": "/semestre/5/ontologia-ii/clase/2-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-07",
+        "area": "Ontología II",
+        "title": "Ontología II - Kant, condiciones del conocer",
+        "url": "/semestre/5/ontologia-ii/clase/7-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-09-14",
+        "area": "Ontología II",
+        "title": "Ontología II - Kant, fenómeno, espacio, tiempo y cosa en sí",
+        "url": "/semestre/5/ontologia-ii/clase/14-septiembre",
+        "type": "autor mencionado"
+      }
+    ],
+    "Locke, John": [
+      {
+        "date": "2026-09-02",
+        "area": "Ontología II",
+        "title": "Ontología II - Locke, Berkeley, Hume y Kant",
+        "url": "/semestre/5/ontologia-ii/clase/2-septiembre",
         "type": "autor mencionado"
       }
     ]
