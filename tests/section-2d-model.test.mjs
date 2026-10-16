@@ -3,6 +3,7 @@ import test from 'node:test'
 import { buildSectionPedagogy } from '../src/components/philosophy/system2d/SectionPedagogyModel.js'
 import { marxCommodityNodes, marxCommodityRoutes } from '../src/data/marxCommodityValueSystem.js'
 import { lukacsReificationNodes, lukacsReificationRoutes } from '../src/data/lukacsReificationSystem.js'
+import { lukacsOntologyNodes, lukacsOntologyRoutes } from '../src/data/lukacsOntologySystem.js'
 import { hegelCroceNodes, hegelCroceRoutes } from '../src/data/hegelCroceTaskSystem.js'
 import { marketingDialogueNodes, marketingDialogueRoutes } from '../src/data/cafeMercadotecniaSystem2D.js'
 import { hackerNodes, hackerRoutes, hackerOrder } from '../src/data/hackerAnalyticSystem.js'
@@ -10,7 +11,8 @@ import { readFileSync } from 'node:fs'
 
 const systems = [
   ['Marx', marxCommodityNodes, marxCommodityRoutes, []],
-  ['Lukács', lukacsReificationNodes, lukacsReificationRoutes, []],
+  ['Lukács · cosificación', lukacsReificationNodes, lukacsReificationRoutes, []],
+  ['Lukács · ontología social', lukacsOntologyNodes, lukacsOntologyRoutes, []],
   ['Hegel/Croce', hegelCroceNodes, hegelCroceRoutes, []],
   ['Mercadotecnia', marketingDialogueNodes, marketingDialogueRoutes, []],
   ['Hacker', hackerNodes, hackerRoutes, hackerOrder],
@@ -64,7 +66,7 @@ test('The UI shows every documented before/after reference without four-link tru
 
 test('All systems turn off a conflicting global guide when focusing from a section', () => {
   const files = [
-    'MarxCommodityValueSystem.jsx', 'LukacsReificationSystem.jsx',
+    'MarxCommodityValueSystem.jsx', 'LukacsReificationSystem.jsx', 'LukacsOntologySystem.jsx',
     'HegelCroceTaskSystem.jsx', 'HartmannChapterOneSystem.jsx',
     'CafeMercadotecniaSystem2D.jsx', 'AnalyticHackerSystem.jsx',
   ]
