@@ -32,5 +32,5 @@ test('four recommendations without invented editions or external URLs',()=>{
    assert.equal(book?.url,undefined)
    assert.equal(book?.edicion,undefined)
  }
- assert.ok(recommended.some(x=>x.autor==='Lukács'&&x.lectura==='Fase 1 documentada'))
+ assert.ok(recommended.some(x=>x.autor==='Lukács'&&x.lectura.startsWith('Fases 1–6 documentadas')&&x.lectura.includes('fuente disponible')))
 })
