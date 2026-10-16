@@ -131,6 +131,19 @@ try{
   assert.ok(await evaluate("document.querySelector('.marx-folio')?.textContent.includes('SÍNTESIS EDITORIAL')"))
   console.log('OK inspector + folio')
 
+  await evaluate("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))")
+  await until(()=>evaluate("!document.querySelector('.marx-folio')"),'cerrar folio')
+
+  assert.equal(await evaluate("([...document.querySelectorAll('.marx-study-routes button')].find(b=>b.textContent.trim()==='Economía política')?.click(),true)"),true)
+  await until(()=>evaluate("document.body.textContent.includes('Mercancía, valor y trabajo abstracto')"),'ruta Economía política')
+  assert.equal(await evaluate("(()=>{const n=[...document.querySelectorAll('.marx-flow-canvas .react-flow__node')].find(el=>el.textContent.includes('Mercancía, valor y trabajo abstracto'));if(!n)return false;n.dispatchEvent(new MouseEvent('click',{bubbles:true}));return true})()"),true)
+  await until(()=>evaluate("document.querySelector('.lukacs-comparison-panel')?.textContent.includes('HC01')"),'comparación HC01')
+  assert.equal(await evaluate("([...document.querySelectorAll('.lukacs-comparison-panel button')].find(b=>b.textContent.includes('HC01'))?.click(),true)"),true)
+  await until(()=>evaluate("document.querySelector('.marx-relation-sheet')?.textContent.includes('RECONSTRUCCIÓN COMPARATIVA')"),'folio comparativo HCC')
+  assert.equal(await evaluate("document.querySelector('.marx-relation-sheet')?.textContent.includes('No autoriza')"),true)
+  assert.equal(await evaluate("document.documentElement.scrollWidth<=window.innerWidth+2"),true)
+  console.log('OK confrontación HCC con frontera documental')
+
 } finally {
   if(socket) socket.close()
   if(browser){
