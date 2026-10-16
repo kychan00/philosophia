@@ -76,8 +76,7 @@ function StudyCanvas() {
   })
   const workspaceRef = useRef(null)
   const [workspaceFullscreen, setWorkspaceFullscreen] = useState(false)
-  const overlayHost =
-    workspaceFullscreen && workspaceRef.current ? workspaceRef.current : document.body
+  const [overlayHost, setOverlayHost] = useState(() => document.body)
   const { fitView, setCenter, getNodes } = useReactFlow()
 
   const selected = lukacsOntologyNodeById(selectedId)
@@ -93,7 +92,9 @@ function StudyCanvas() {
   useEffect(() => {
     const syncFullscreen = () => {
       const active = document.fullscreenElement || document.webkitFullscreenElement || null
-      setWorkspaceFullscreen(active === workspaceRef.current)
+      const isWorkspace = active === workspaceRef.current
+      setWorkspaceFullscreen(isWorkspace)
+      setOverlayHost(isWorkspace && workspaceRef.current ? workspaceRef.current : document.body)
       window.setTimeout(() => fitView({ padding: 0.06, duration: 420 }), 100)
     }
 
@@ -123,13 +124,17 @@ function StudyCanvas() {
         return
       }
 
-      setWorkspaceFullscreen((value) => !value)
+      const next = !workspaceFullscreen
+      setWorkspaceFullscreen(next)
+      setOverlayHost(next ? element : document.body)
     } catch {
-      setWorkspaceFullscreen((value) => !value)
+      const next = !workspaceFullscreen
+      setWorkspaceFullscreen(next)
+      setOverlayHost(next ? element : document.body)
     }
 
     window.setTimeout(() => fitView({ padding: 0.06, duration: 420 }), 100)
-  }, [fitView])
+  }, [fitView, workspaceFullscreen])
 
   const routeIds = useMemo(() => {
     if (route === 'all') return new Set(lukacsOntologyNodes.map((node) => node.id))
@@ -361,7 +366,7 @@ function StudyCanvas() {
 
       try {
         window.localStorage.setItem('philosophia-lukacs-ontology-step', String(safe))
-      } catch {}
+      } catch { /* localStorage puede estar deshabilitado */ }
 
       setCenter(node.position.x + 150, node.position.y + 90, {
         zoom:1.05,
