@@ -3,8 +3,8 @@ import assert from 'node:assert/strict'
 import { books, authors, categories } from '../src/data/libraryCatalog.js'
 
 test('catalogue completeness and unique names',()=>{
- assert.equal(books.length,63)
- assert.equal(authors.length,86)
+ assert.equal(books.length,68)
+ assert.equal(authors.length,87)
  assert.equal(new Set(books.map(x=>x.id)).size,books.length)
  assert.equal(new Set(authors).size,authors.length)
 })
