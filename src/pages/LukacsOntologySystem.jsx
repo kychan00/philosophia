@@ -19,6 +19,8 @@ import LukacsOntologyNode from '../components/lukacs/LukacsOntologyNode'
 import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema'
 import { SYSTEM_2D_THEME, resolveSystem2DEdgeColor } from '../components/philosophy/system2d/system2dTheme'
 import {
+  lukacsOntologyComparisonById,
+  lukacsOntologyComparisons,
   lukacsOntologyConceptualEdges,
   lukacsOntologyCrossRelationById,
   lukacsOntologyCrossRelations,
@@ -60,6 +62,7 @@ function StudyCanvas() {
   const [selectedId, setSelectedId] = useState(null)
   const [folioId, setFolioId] = useState(null)
   const [relationId, setRelationId] = useState(null)
+  const [comparisonId, setComparisonId] = useState(null)
   const [conceptualMode, setConceptualMode] = useState(false)
   const [detailMode, setDetailMode] = useState(false)
   const [guidedMode, setGuidedMode] = useState(false)
@@ -84,6 +87,8 @@ function StudyCanvas() {
   const relationSheet = lukacsOntologyCrossRelationById(relationId)
   const relationSource = relationSheet ? lukacsOntologyNodeById(relationSheet.source) : null
   const relationTarget = relationSheet ? lukacsOntologyNodeById(relationSheet.target) : null
+  const comparisonSheet = lukacsOntologyComparisonById(comparisonId)
+  const comparisonAnchor = comparisonSheet ? lukacsOntologyNodeById(comparisonSheet.anchor) : null
   const guidedStep = lukacsOntologyGuidedRoute[guidedIndex] || null
   const guidedCurrent = guidedStep ? lukacsOntologyNodeById(guidedStep.id) : null
   const guidedNext = lukacsOntologyGuidedRoute[guidedIndex + 1] || null
@@ -189,6 +194,14 @@ function StudyCanvas() {
         ? lukacsOntologyCrossRelations.filter(
             (relation) => relation.source === selectedId || relation.target === selectedId,
           )
+        : [],
+    [selectedId],
+  )
+
+  const selectedComparisons = useMemo(
+    () =>
+      selectedId
+        ? lukacsOntologyComparisons.filter((comparison) => comparison.anchor === selectedId)
         : [],
     [selectedId],
   )
@@ -388,16 +401,17 @@ function StudyCanvas() {
   }, [route, guidedMode, getNodes, fitView])
 
   useEffect(() => {
-    if (!folioId && !relationId) return undefined
+    if (!folioId && !relationId && !comparisonId) return undefined
     const onKey = (event) => {
       if (event.key === 'Escape') {
         setFolioId(null)
         setRelationId(null)
+        setComparisonId(null)
       }
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [folioId, relationId])
+  }, [folioId, relationId, comparisonId])
 
   return (
     <main className="marx-study-shell">
@@ -418,7 +432,7 @@ function StudyCanvas() {
         </div>
         <aside>
           <span>ESTUDIO DOCUMENTAL · OCT 2026</span>
-          <strong>{lukacsOntologyNodes.length} nodos · {lukacsOntologyCrossRelations.length} relaciones transversales</strong>
+          <strong>{lukacsOntologyNodes.length} nodos · {lukacsOntologyCrossRelations.length} Relaciones II · {lukacsOntologyComparisons.length} confrontaciones HCC</strong>
           <b>{lukacsOntologySource.assignedPages}</b>
           <small>Fuente: notas verificadas del vault PHILOSOPHIA · sin completar páginas ocultas</small>
         </aside>
@@ -734,7 +748,7 @@ function StudyCanvas() {
                 {selectedCrossRelations.length > 0 && (
                   <section className="marx-inspector-conceptual">
                     <span>RELACIONES DE SEGUNDO NIVEL</span>
-                    <p>Conexiones transversales reconstruidas desde distintos momentos del mismo texto.</p>
+                    <p>Conexiones transversales reconstruidas entre distintos momentos del volumen; no sustituyen la secuencia textual.</p>
                     <div>
                       {selectedCrossRelations.map((relation) => {
                         const otherId = relation.source === selected.id ? relation.target : relation.source
@@ -747,6 +761,22 @@ function StudyCanvas() {
                           </button>
                         )
                       })}
+                    </div>
+                  </section>
+                )}
+
+                {selectedComparisons.length > 0 && (
+                  <section className="marx-inspector-conceptual lukacs-comparison-panel">
+                    <span>CONFRONTACIÓN HCC · FASE 7</span>
+                    <p>Comparación editorial limitada al fragmento documentado de «El fenómeno de la cosificación». No equivale a comparar íntegramente ambos libros.</p>
+                    <div>
+                      {selectedComparisons.map((comparison) => (
+                        <button key={comparison.id} type="button" onClick={() => setComparisonId(comparison.id)}>
+                          <b>{comparison.id}</b>
+                          <strong>{comparison.title}</strong>
+                          <small>{comparison.hccRef}</small>
+                        </button>
+                      ))}
                     </div>
                   </section>
                 )}
@@ -936,6 +966,65 @@ function StudyCanvas() {
               <section className="marx-folio-question">
                 <span>PREGUNTA DE CONTROL</span>
                 <strong>{folio.data.question}</strong>
+              </section>
+            </div>
+          </article>
+        </div>
+      ), overlayHost)}
+
+      {comparisonSheet && comparisonAnchor && createPortal((
+        <div
+          className="marx-relation-overlay"
+          role="presentation"
+          onMouseDown={(event) => {
+            if (event.currentTarget === event.target) setComparisonId(null)
+          }}
+        >
+          <article className="marx-relation-sheet" role="dialog" aria-modal="true" aria-labelledby="lukacs-comparison-title">
+            <header>
+              <div>
+                <span>{comparisonSheet.id} · CONFRONTACIÓN DOCUMENTAL · FASE 7</span>
+                <h2 id="lukacs-comparison-title">{comparisonSheet.title}</h2>
+              </div>
+              <button type="button" onClick={() => setComparisonId(null)} aria-label="Cerrar comparación">×</button>
+            </header>
+
+            <div className="marx-relation-grid">
+              <section className="marx-relation-node">
+                <span>ONTOLOGÍA DEL SER SOCIAL</span>
+                <strong>{comparisonAnchor.data.code} · {comparisonAnchor.data.title}</strong>
+                <blockquote>{comparisonAnchor.data.excerpt}</blockquote>
+                <small>{comparisonSheet.ontologyRef}</small>
+                <button type="button" onClick={() => {
+                  setComparisonId(null)
+                  selectById(comparisonAnchor.id)
+                }}>Ir al nodo</button>
+              </section>
+
+              <section className="marx-relation-node">
+                <span>HISTORIA Y CONCIENCIA DE CLASE · FUENTE DISPONIBLE</span>
+                <strong>{comparisonSheet.hccRef}</strong>
+                <p>La comparación usa únicamente el dossier documentado en el vault; no crea un nodo ficticio ni atribuye esta síntesis como cita textual del libro.</p>
+              </section>
+
+              <section className="marx-relation-synthesis">
+                <span>RECONSTRUCCIÓN COMPARATIVA</span>
+                <p>{comparisonSheet.synthesis}</p>
+              </section>
+
+              <section className="marx-relation-warning">
+                <span>FRONTERA DOCUMENTAL</span>
+                <p>{comparisonSheet.boundary}</p>
+              </section>
+
+              <section className="marx-relation-warning">
+                <span>NO CONFUNDIR</span>
+                <p>{comparisonSheet.distinction}</p>
+              </section>
+
+              <section className="marx-relation-question">
+                <span>PREGUNTA DE CONTROL</span>
+                <strong>{comparisonSheet.question}</strong>
               </section>
             </div>
           </article>
