@@ -265,7 +265,7 @@ export default function LibraryCartography(){
         </div>
         <div className="bc-canvas-footer">Nodos fijos para evitar desplazamientos accidentales · utilice «Recentrar red» para recuperar la vista.</div>
       </section>
-      <div id="bc-inspector-panel" className="bc-inspector-mount">
+      <div id="bc-inspector-panel" className={'bc-inspector-mount'+(inspectorOpen?' bc-inspector-mount--open':'')}>
         <Inspector current={present} onFocus={focus} onSelect={selectNode}
           onClose={()=>setInspectorOpen(false)} compact={compact}
           open={inspectorOpen} inspectorRef={inspectorRef}/>
