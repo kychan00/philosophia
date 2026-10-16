@@ -159,6 +159,54 @@ try {
   assert.ok(await evaluate("document.querySelectorAll('.bc-relation-evidence').length>0"),
     'Inspector sin evidencia de relaciones')
   console.log('OK procedencias en inspector')
+  // Fase 5: anchos reales de iPad y Split View, sin confundir emulación con Safari físico.
+  for(const [width,height] of [[320,720],[600,840],[768,1024],[1024,768],[1112,834],[1366,1024]]){
+    await send('Emulation.setDeviceMetricsOverride',{
+      width,height,deviceScaleFactor:2,mobile:width<=1112
+    })
+    await send('Page.navigate',{url:base+'/cartografia'})
+    await until(()=>evaluate("document.querySelectorAll('.bc-flow .react-flow__node').length>5"),
+      'Cartografía táctil '+width+'×'+height,100)
+    const state=await evaluate("(()=>{const open=document.querySelector('.bc-open-inspector'), inspector=document.querySelector('.bc-inspector'), recenter=document.querySelector('.bc-recenter'),ctrl=document.querySelector('.bc-flow .react-flow__controls-button');return {overflow:document.documentElement.scrollWidth-window.innerWidth,compact:document.querySelector('.bc-shell').dataset.compact==='true',inspectorHidden:inspector?.getAttribute('aria-hidden')==='true',openWidth:open?.getBoundingClientRect().width,openHeight:open?.getBoundingClientRect().height,recenterHeight:recenter?.getBoundingClientRect().height,zoomHeight:ctrl?.getBoundingClientRect().height}})()")
+    assert.ok(state.overflow<=2,'Desbordamiento táctil '+width+'×'+height+': '+JSON.stringify(state))
+    assert.equal(state.compact,width<=1120,'Umbral responsive '+width)
+    assert.ok(state.openHeight>=43&&state.recenterHeight>=43&&state.zoomHeight>=43,
+      'Controles táctiles demasiado pequeños: '+JSON.stringify(state))
+    if(width<=1120){
+      assert.equal(state.inspectorHidden,true,'Inspector compacto no inicia cerrado')
+      await evaluate("document.querySelector('.bc-open-inspector').click()")
+      await until(()=>evaluate("document.querySelector('.bc-inspector')?.getAttribute('data-inspector-open')==='true"),
+        'Abrir inspector táctil '+width)
+      const opened=await evaluate("({modal:document.querySelector('.bc-inspector')?.getAttribute('aria-modal'),backdrop:!!document.querySelector('.bc-inspector-backdrop'),closeHeight:document.querySelector('.bc-close-inspector')?.getBoundingClientRect().height,heading:!!document.querySelector('.bc-inspector h2')})")
+      assert.ok(opened.modal==='true'&&opened.backdrop&&opened.closeHeight>=43&&opened.heading,
+        'Inspector accesible incompleto: '+JSON.stringify(opened))
+      await evaluate("document.querySelector('.bc-close-inspector').click()")
+      await until(()=>evaluate("document.querySelector('.bc-inspector')?.getAttribute('aria-hidden')==='true"),
+        'Cerrar inspector táctil '+width)
+      assert.equal(await evaluate("!!document.querySelector('.bc-inspector-backdrop')"),false)
+    }else{
+      assert.equal(state.inspectorHidden,false,'Inspector escritorio visible')
+    }
+    console.log('OK adaptación táctil',width,height,state)
+  }
+  // Prueba de apertura por nodo y cierre mediante Escape; la cámara conserva el conjunto de nodos.
+  await send('Emulation.setDeviceMetricsOverride',{
+    width:768,height:1024,deviceScaleFactor:2,mobile:true
+  })
+  await send('Page.navigate',{url:base+'/cartografia'})
+  await until(()=>evaluate("document.querySelectorAll('.bc-flow .react-flow__node').length>5"),
+    'Reabrir cartografía en tablet')
+  const countBefore=await evaluate("document.querySelectorAll('.bc-flow .react-flow__node').length")
+  await evaluate("document.querySelector('.bc-flow .react-flow__node')?.click()")
+  await until(()=>evaluate("document.querySelector('.bc-inspector')?.getAttribute('data-inspector-open')==='true"),
+    'Toque sobre nodo abre ficha')
+  await evaluate("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))")
+  await until(()=>evaluate("document.querySelector('.bc-inspector')?.getAttribute('aria-hidden')==='true"),
+    'Escape cierra inspector')
+  assert.equal(await evaluate("document.querySelectorAll('.bc-flow .react-flow__node').length"),countBefore)
+  assert.ok(await evaluate("!!document.querySelector('.bc-recenter')"))
+  console.log('OK selección táctil, salida Escape y mapa persistente')
+
 
 
 } finally {
