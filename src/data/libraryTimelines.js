@@ -168,6 +168,27 @@ export const libraryTimelines = {
         "title": "Introducción, demarcación y verdad lógica",
         "url": "/semestre/4/filosofia-de-la-logica/clase/19-enero",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-03-18",
+        "area": "Filosofía de la Lógica",
+        "title": "Frege, validez, necesidad y platonismo",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/18-marzo",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-03-23",
+        "area": "Filosofía de la Lógica",
+        "title": "Necesidad lógica, Platón y Aristóteles",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/23-marzo",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-04-20",
+        "area": "Filosofía de la Lógica",
+        "title": "Quine, holismo y problema de la verdad",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/20-abril",
+        "type": "autor mencionado"
       }
     ],
     "Descartes, René": [
@@ -263,6 +284,41 @@ export const libraryTimelines = {
         "title": "Lógica moderna, metalógica y lógicas no clásicas",
         "url": "/semestre/4/filosofia-de-la-logica/clase/21-enero",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-03-09",
+        "area": "Filosofía de la Lógica",
+        "title": "Aristóteles, Frege y la forma lógica",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/09-marzo",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-03-18",
+        "area": "Filosofía de la Lógica",
+        "title": "Frege, validez, necesidad y platonismo",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/18-marzo",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-03-23",
+        "area": "Filosofía de la Lógica",
+        "title": "Necesidad lógica, Platón y Aristóteles",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/23-marzo",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-04-13",
+        "area": "Filosofía de la Lógica",
+        "title": "Leibniz, analiticidad y entrada a Kant",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/13-abril",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-04-20",
+        "area": "Filosofía de la Lógica",
+        "title": "Quine, holismo y problema de la verdad",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/20-abril",
+        "type": "autor mencionado"
       }
     ],
     "Audi, Robert": [
@@ -317,6 +373,20 @@ export const libraryTimelines = {
         "area": "Filosofía de la Lógica",
         "title": "Oración, enunciado, proposición y verdad",
         "url": "/semestre/4/filosofia-de-la-logica/clase/09-febrero",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-03-18",
+        "area": "Filosofía de la Lógica",
+        "title": "Frege, validez, necesidad y platonismo",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/18-marzo",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-04-20",
+        "area": "Filosofía de la Lógica",
+        "title": "Quine, holismo y problema de la verdad",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/20-abril",
         "type": "autor mencionado"
       }
     ],
@@ -517,6 +587,41 @@ export const libraryTimelines = {
         "title": "Sistemas formales, neutralidad tópica y lenguaje",
         "url": "/semestre/4/filosofia-de-la-logica/clase/04-febrero",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-02-16",
+        "area": "Filosofía de la Lógica",
+        "title": "Demarcación, completitud y sistema de Frege",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/16-febrero",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-03-09",
+        "area": "Filosofía de la Lógica",
+        "title": "Aristóteles, Frege y la forma lógica",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/09-marzo",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-03-11",
+        "area": "Filosofía de la Lógica",
+        "title": "Frege, funciones y cuantificadores",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/11-marzo",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-03-18",
+        "area": "Filosofía de la Lógica",
+        "title": "Frege, validez, necesidad y platonismo",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/18-marzo",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-04-13",
+        "area": "Filosofía de la Lógica",
+        "title": "Leibniz, analiticidad y entrada a Kant",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/13-abril",
+        "type": "autor mencionado"
       }
     ],
     "Moore, G. E.": [
@@ -655,6 +760,20 @@ export const libraryTimelines = {
         "area": "Filosofía de la Lógica",
         "title": "Pluralidad de lógicas, demarcación y logicismo",
         "url": "/semestre/4/filosofia-de-la-logica/clase/26-enero",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-02-18",
+        "area": "Filosofía de la Lógica",
+        "title": "Validez, metalógica y límites del logicismo",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/18-febrero",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-04-13",
+        "area": "Filosofía de la Lógica",
+        "title": "Leibniz, analiticidad y entrada a Kant",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/13-abril",
         "type": "autor mencionado"
       }
     ],
@@ -808,6 +927,34 @@ export const libraryTimelines = {
         "title": "Oración, enunciado, proposición y verdad",
         "url": "/semestre/4/filosofia-de-la-logica/clase/09-febrero",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-03-18",
+        "area": "Filosofía de la Lógica",
+        "title": "Frege, validez, necesidad y platonismo",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/18-marzo",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-04-13",
+        "area": "Filosofía de la Lógica",
+        "title": "Leibniz, analiticidad y entrada a Kant",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/13-abril",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-04-15",
+        "area": "Filosofía de la Lógica",
+        "title": "Kant, conocimiento y sintético a priori",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/15-abril",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-04-20",
+        "area": "Filosofía de la Lógica",
+        "title": "Quine, holismo y problema de la verdad",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/20-abril",
+        "type": "autor mencionado"
       }
     ],
     "Leibniz, G. W.": [
@@ -837,6 +984,34 @@ export const libraryTimelines = {
         "area": "Filosofía de la Lógica",
         "title": "Oración, enunciado, proposición y verdad",
         "url": "/semestre/4/filosofia-de-la-logica/clase/09-febrero",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-03-18",
+        "area": "Filosofía de la Lógica",
+        "title": "Frege, validez, necesidad y platonismo",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/18-marzo",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-04-13",
+        "area": "Filosofía de la Lógica",
+        "title": "Leibniz, analiticidad y entrada a Kant",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/13-abril",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-04-15",
+        "area": "Filosofía de la Lógica",
+        "title": "Kant, conocimiento y sintético a priori",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/15-abril",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-04-20",
+        "area": "Filosofía de la Lógica",
+        "title": "Quine, holismo y problema de la verdad",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/20-abril",
         "type": "autor mencionado"
       }
     ],
@@ -900,6 +1075,49 @@ export const libraryTimelines = {
         "area": "Filosofía de la Lógica",
         "title": "Pluralidad de lógicas, demarcación y logicismo",
         "url": "/semestre/4/filosofia-de-la-logica/clase/26-enero",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-02-18",
+        "area": "Filosofía de la Lógica",
+        "title": "Validez, metalógica y límites del logicismo",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/18-febrero",
+        "type": "autor mencionado"
+      }
+    ],
+    "Sócrates": [
+      {
+        "date": "2026-03-18",
+        "area": "Filosofía de la Lógica",
+        "title": "Frege, validez, necesidad y platonismo",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/18-marzo",
+        "type": "autor mencionado"
+      }
+    ],
+    "Berkeley, George": [
+      {
+        "date": "2026-04-13",
+        "area": "Filosofía de la Lógica",
+        "title": "Leibniz, analiticidad y entrada a Kant",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/13-abril",
+        "type": "autor mencionado"
+      }
+    ],
+    "Ortega y Gasset, José": [
+      {
+        "date": "2026-04-22",
+        "area": "Filosofía de la Lógica",
+        "title": "Teorías de la verdad y redundancia",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/22-abril",
+        "type": "autor mencionado"
+      }
+    ],
+    "Tarski, Alfred": [
+      {
+        "date": "2026-04-22",
+        "area": "Filosofía de la Lógica",
+        "title": "Teorías de la verdad y redundancia",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/22-abril",
         "type": "autor mencionado"
       }
     ]
