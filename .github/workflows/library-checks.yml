@@ -34,5 +34,5 @@ jobs:
         run: npx eslint src/data/libraryCatalog.js src/data/libraryCatalogUtils.js src/data/libraryTimelines.js src/data/libraryAcademicConnections.js src/pages/PhilosophiaLibrary.jsx
       - name: Build
         run: npm run build
-      - name: Navegación en Chrome: teléfono y tableta
+      - name: 'Navegación en Chrome: teléfono y tableta'
         run: node tests/library-browser-smoke.mjs
