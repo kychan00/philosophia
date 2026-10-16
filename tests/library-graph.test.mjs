@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs'
 import { books, authors } from '../src/data/libraryCatalog.js'
 import {
  buildLibraryGraph,projectLibraryGraph,searchGraphNodes,
- connectedGraphNodes,documentedConceptLinks,
+ connectedGraphNodes,connectedGraphRelations,documentedConceptLinks,documentedConceptRelations,
 } from '../src/data/libraryGraph.js'
 
 const graph=buildLibraryGraph()
@@ -24,13 +24,25 @@ test('todas las obras y autores tienen nodos únicos, sin aristas huérfanas',()
 })
 
 test('conceptos en el mapa sólo provienen de enlaces en fichas revisadas',()=>{
- const conceptNames=[...new Set(Object.values(documentedConceptLinks).flat())]
+ const conceptNames=[...new Set([
+   ...Object.values(documentedConceptLinks).flat(),
+   ...Object.keys(documentedConceptRelations),
+   ...Object.values(documentedConceptRelations).flat(),
+ ])]
  assert.equal(graph.nodes.filter(n=>n.kind==='concepto').length,conceptNames.length)
+ assert.ok(Object.keys(documentedConceptLinks).length>=28)
+ assert.ok(Object.keys(documentedConceptRelations).length>=13)
  for(const [work,items] of Object.entries(documentedConceptLinks)){
    for(const term of items)
      assert.ok(graph.edges.some(e=>e.source==='obra:'+work &&
        e.target==='concepto:'+term && e.relation==='ficha_enlaza_concepto'))
  }
+ for(const [source,items] of Object.entries(documentedConceptRelations))
+   for(const target of items)
+     assert.ok(graph.edges.some(e=>e.source==='concepto:'+source
+       &&e.target==='concepto:'+target&&e.relation==='ficha_concepto_enlaza_otro'))
+ assert.ok(connectedGraphRelations(graph,'concepto:Cosificación (Lukács)')
+   .some(e=>e.other.label==='Mercancía (Marx)'&&e.evidence.includes('ficha')))
  assert.ok(!graph.edges.some(e=>e.relation==='dialoga_con'))
 })
 
