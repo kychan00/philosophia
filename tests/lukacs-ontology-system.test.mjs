@@ -9,8 +9,8 @@ import {
 } from '../src/data/lukacsOntologySystem.js'
 
 test('ontología social conserva nodos documentales y rutas no vacías', () => {
-  assert.equal(lukacsOntologyNodes.length, 30)
-  assert.equal(new Set(lukacsOntologyNodes.map(node => node.id)).size, 30)
+  assert.equal(lukacsOntologyNodes.length, 42)
+  assert.equal(new Set(lukacsOntologyNodes.map(node => node.id)).size, 42)
   const ids = new Set(lukacsOntologyNodes.map(node => node.id))
   for (const route of lukacsOntologyRoutes.filter(route => route.id !== 'all')) {
     assert.ok(lukacsOntologyNodes.some(node => node.data.branch.includes(route.id)), route.id)
@@ -23,6 +23,15 @@ test('ontología social conserva nodos documentales y rutas no vacías', () => {
     assert.ok(node.data.dependsOn.every(id => ids.has(id)), node.id + ': dependencia inexistente')
     assert.ok(!/cita literal/i.test(node.data.sourcePassage), node.id + ': no debe fingir cita textual')
   }
+})
+
+test('granularización conserva 12 micro-nodos sin alterar la ruta nuclear', () => {
+  const micro = lukacsOntologyNodes.filter(node => node.data.micro)
+  assert.equal(micro.length, 12)
+  assert.ok(micro.every(node => /^D\d{2}$/.test(node.id)))
+  const page = readFileSync(new URL('../src/pages/LukacsOntologySystem.jsx', import.meta.url), 'utf8')
+  assert.match(page, /Boolean\(node\.data\.micro\) && !detailMode/)
+  assert.match(page, /Detalles · \{detailMode \? 'ON' : 'OFF'\}/)
 })
 
 test('distingue introducción de Ballestero y texto principal de Lukács', () => {
@@ -61,4 +70,5 @@ test('página pública usa etiquetas documentales y no presenta paráfrasis como
   assert.doesNotMatch(page, /PASAJE DEL TEXTO/)
   assert.match(page, /Ballestero ≠ Lukács/)
   assert.match(page, /lukacsOntologyNodes\.length/)
+  assert.match(page, /estructura nuclear/)
 })
