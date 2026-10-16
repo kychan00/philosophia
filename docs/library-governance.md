@@ -53,3 +53,11 @@ Los tests públicos verifican consistencia **dentro del snapshot web**; no dispo
 - Total esperado tras esta integración: **68 obras y 87 autores**. Las pruebas de conteo reflejan el inventario documental real; no simulan lecturas integrales.
 - Origen único de eventos: clase de Ética, 15-10-2026. Sólo *Cármides* 153a–157d consta leído; *República* es contraste externo explícito.
 - Ruta de clase: `/semestre/5/etica/clase/15-octubre`. Toda tarjeta conserva su propia cronología, nunca una línea global.
+
+## Referencias APA 7 por ficha bibliográfica
+
+- Cada obra debe tener un registro de metadatos en `src/data/libraryApaMetadata.js`, que distingue libro, capítulo editado, artículo, fragmento y manuscrito académico.
+- El formateador `src/data/libraryApa.js` presenta citas con cursivas, autoría individual o compartida, año y colaboradores acreditados. Los datos ausentes llevan estado **provisional** y campos por cotejar.
+- Nunca inferir año de edición desde fecha de clase, registro, ePUB ni antigüedad del original; no asignar un título de capítulo a un libro inexistente. Para atribución incierta del Corpus Hippocraticum distinguir «Tradición hipocrática» del nombre convencional del catálogo.
+- Copia HTML enriquecida y copia simple cuando el navegador no permite HTML; verificación en iPad físico pendiente.
+- El test `tests/library-apa.test.mjs` debe cubrir el mismo número de obras que el catálogo y los casos editoriales especiales.

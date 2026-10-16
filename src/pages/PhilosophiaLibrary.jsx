@@ -4,6 +4,7 @@ import { books, authors, categories } from '../data/libraryCatalog'
 import { authorsForWork, isWorkByAuthor, normalizeLibraryText, worksByAuthor } from '../data/libraryCatalogUtils'
 import { libraryTimelines } from '../data/libraryTimelines'
 import { libraryAcademicConnections } from '../data/libraryAcademicConnections'
+import { formatApaRecord } from '../data/libraryApa.js'
 import './PhilosophiaLibrary.css'
 
 const labels = {
@@ -42,6 +43,55 @@ function LibraryTimeline({ events, subject }) {
       </li>)}
     </ol> : <p className="library-timeline-empty">Existe ficha documental en Obsidian; aún no se ha identificado una actividad fechada asociada. No equivale a que nunca se haya estudiado.</p>}
   </div>
+}
+
+function ApaCitation({ book }) {
+  const [message, setMessage] = useState('')
+  const reference = formatApaRecord(book, authors)
+  const copyApa = async () => {
+    try {
+      const escape = value => value.replaceAll('&','&amp;').replaceAll('<','&lt;')
+        .replaceAll('>','&gt;').replaceAll('"','&quot;')
+      const html = '<p style="margin:0;padding-left:1.27cm;text-indent:-1.27cm">'
+        +reference.parts.map(part => part.italic?'<em>'+escape(part.text)+'</em>':escape(part.text)).join('')
+        +'</p>'
+      if (navigator.clipboard?.write && typeof ClipboardItem !== 'undefined') {
+        await navigator.clipboard.write([new ClipboardItem({
+          'text/plain': new Blob([reference.text],{type:'text/plain'}),
+          'text/html': new Blob([html],{type:'text/html'})
+        })])
+      } else if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(reference.text)
+      } else {
+        throw new Error('clipboard unavailable')
+      }
+      setMessage('Referencia copiada')
+    } catch {
+      setMessage('Seleccione y copie la referencia manualmente')
+    }
+  }
+  return <details className="library-apa-details">
+    <summary>Referencia APA 7 <span aria-hidden="true">↗</span></summary>
+    <div className="library-apa-content">
+      <p className="library-apa-reference" lang="es">
+        {reference.parts.map((part,i)=>part.italic?<em key={i}>{part.text}</em>:<span key={i}>{part.text}</span>)}
+      </p>
+      {reference.status==='pendiente'
+        ? <p className="library-apa-note"><strong>Referencia provisional.</strong> Por verificar:
+          {' '+reference.issues.join('; ')}. No utilizar como cita bibliográfica definitiva hasta cotejar la edición.</p>
+        : <p className="library-apa-note">Datos bibliográficos registrados en la ficha; confirme la edición
+          antes de entregar una bibliografía definitiva.</p>}
+      {reference.studyPart&&<p className="library-apa-study">Tramo de estudio: {reference.studyPart}.</p>}
+      {reference.originalYear&&<p className="library-apa-study">Primera publicación registrada: {reference.originalYear}.
+        La fecha de la edición usada no consta.</p>}
+      <div className="library-apa-actions">
+        <button type="button" className="library-apa-copy" onClick={copyApa}>
+          Copiar referencia
+        </button>
+        <span role="status" aria-live="polite">{message}</span>
+      </div>
+    </div>
+  </details>
 }
 
 export default function PhilosophiaLibrary() {
@@ -225,6 +275,7 @@ export default function PhilosophiaLibrary() {
             {book.edicion&&<small>{book.edicion}</small>}
             {book.url&&<a href={book.url} target="_blank" rel="noopener noreferrer">
               Consultar fuente ↗</a>}
+            <ApaCitation book={book}/>
             <button type="button" className="library-timeline-toggle"
               aria-expanded={isExpanded}
               aria-controls={'library-work-timeline-'+i}
