@@ -81,6 +81,56 @@ export const books = [
     "estado": "documentada"
   },
   {
+      "id": "Platón - Cármides",
+      "autor": "Platón",
+      "titulo": "Cármides",
+      "categoria": "ética",
+      "estado": "documentada",
+      "lectura": "153a–157d comentados; no lectura íntegra",
+      "edicion": "W. R. M. Lamb (trad.), 1927",
+      "url": "https://atlas.perseus.tufts.edu/library/passage/urn%3Acts%3AgreekLit%3Atlg0059.tlg018.perseus-eng2%3A153-157/"
+  },
+  {
+      "id": "Platón - Leyes",
+      "autor": "Platón",
+      "titulo": "Leyes",
+      "categoria": "ética",
+      "estado": "referenciada",
+      "lectura": "IV, 720a–e localizado, no lectura acreditada",
+      "edicion": "Leyes, libro IV",
+      "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0166%3Abook%3D4"
+  },
+  {
+      "id": "Platón - Banquete",
+      "autor": "Platón",
+      "titulo": "Banquete",
+      "categoria": "ética",
+      "estado": "mencionada",
+      "lectura": "Comparación con Alcibíades; no lectura acreditada",
+      "edicion": "215a–222b",
+      "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.04.0090%3Atext%3Dintro%3Asection%3D1"
+  },
+  {
+      "id": "Platón - República",
+      "autor": "Platón",
+      "titulo": "República",
+      "categoria": "ética",
+      "estado": "contexto",
+      "lectura": "Verificación externa: libro V, 451d–457b; no lectura de clase",
+      "edicion": "Shorey (trad.), 1935–1937",
+      "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0168%3Abook%3D5"
+  },
+  {
+      "id": "Hipócrates - Sobre la dieta",
+      "autor": "Hipócrates",
+      "titulo": "Sobre la dieta",
+      "categoria": "ética",
+      "estado": "mencionada",
+      "lectura": "Referencia oral; cuatro libros no leídos en clase",
+      "edicion": "Tratados hipocráticos III, Gredos, 1997",
+      "url": "https://books.google.com/books/about/Tratados_hipocr%C3%A1ticos.html?id=6gBsswEACAAJ"
+  },
+  {
     "id": "Luciano - El banquete o los lapitas",
     "autor": "Luciano de Samósata",
     "titulo": "El banquete o los lapitas",
@@ -494,6 +544,7 @@ export const authors = [
   "Heidegger, Martin",
   "Henrich, Dieter",
   "Hesíodo",
+  "Hipócrates",
   "Homero",
   "Horkheimer, Max",
   "Hume, David",

@@ -43,4 +43,13 @@
 
 ## Límites del control automático
 
-Los tests públicos verifican consistencia **dentro del snapshot web**; no disponen del vault privado en CI. La paridad exacta 63/86 contra el vault vigente se verifica mediante una auditoría cruzada al publicar. Las pruebas web no acreditan haber leído textos de origen ni cada referencia oral.
+Los tests públicos verifican consistencia **dentro del snapshot web**; no disponen del vault privado en CI. La paridad exacta 68/87 contra el vault vigente se verifica mediante una auditoría cruzada al publicar. Las pruebas web no acreditan haber leído textos de origen ni cada referencia oral.
+
+
+## Ampliación · Ética del 15-10-2026
+
+- Incorporadas cinco fichas canónicas de obras: Platón, *Cármides*, *Leyes*, *Banquete* y *República*; tradición hipocrática, *Sobre la dieta*.
+- Nuevo autor canónico: **Hipócrates**, usado como atribución editorial tradicional al *Corpus Hippocraticum*, no como autor individual comprobado de todo el corpus.
+- Total esperado tras esta integración: **68 obras y 87 autores**. Las pruebas de conteo reflejan el inventario documental real; no simulan lecturas integrales.
+- Origen único de eventos: clase de Ética, 15-10-2026. Sólo *Cármides* 153a–157d consta leído; *República* es contraste externo explícito.
+- Ruta de clase: `/semestre/5/etica/clase/15-octubre`. Toda tarjeta conserva su propia cronología, nunca una línea global.

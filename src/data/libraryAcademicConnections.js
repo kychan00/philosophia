@@ -4,6 +4,11 @@ export const libraryAcademicConnections = {
   "source": "Relaciones documentadas por títulos de tareas y fichas de obra. Una fecha de nota no prueba la realización de la lectura.",
   "tasksReviewed": 61,
   "works": {
+    "Platón - Cármides": {"events": []},
+    "Platón - Leyes": {"events": []},
+    "Platón - Banquete": {"events": []},
+    "Platón - República": {"events": []},
+    "Hipócrates - Sobre la dieta": {"events": []},
     "Adorno - Minima Moralia": {
       "events": []
     },
@@ -907,6 +912,7 @@ export const libraryAcademicConnections = {
     }
   },
   "authors": {
+    "Hipócrates": {"events": []},
     "Adorno, Theodor W.": {
       "events": []
     },

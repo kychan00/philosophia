@@ -1,6 +1,51 @@
 // Índice de menciones documentadas en notas de clase; no implica lectura textual de las obras.
 export const libraryTimelines = {
   "works": {
+    "Platón - Cármides": [
+      {
+        "date": "2026-10-15",
+        "area": "Ética",
+        "title": "Ética - Cármides, medicina del alma y cuidado de sí",
+        "url": "/semestre/5/etica/clase/15-octubre",
+        "type": "lectura parcial comentada"
+      }
+    ],
+    "Platón - Leyes": [
+      {
+        "date": "2026-10-15",
+        "area": "Ética",
+        "title": "Ética - Cármides, medicina del alma y cuidado de sí",
+        "url": "/semestre/5/etica/clase/15-octubre",
+        "type": "obra mencionada en clase"
+      }
+    ],
+    "Platón - Banquete": [
+      {
+        "date": "2026-10-15",
+        "area": "Ética",
+        "title": "Ética - Cármides, medicina del alma y cuidado de sí",
+        "url": "/semestre/5/etica/clase/15-octubre",
+        "type": "obra mencionada en clase"
+      }
+    ],
+    "Platón - República": [
+      {
+        "date": "2026-10-15",
+        "area": "Ética",
+        "title": "Ética - Contraste externo sobre mujeres en Platón",
+        "url": "/semestre/5/etica/clase/15-octubre",
+        "type": "verificación bibliográfica externa"
+      }
+    ],
+    "Hipócrates - Sobre la dieta": [
+      {
+        "date": "2026-10-15",
+        "area": "Ética",
+        "title": "Ética - Cármides, medicina del alma y cuidado de sí",
+        "url": "/semestre/5/etica/clase/15-octubre",
+        "type": "obra mencionada en clase"
+      }
+    ],
     "Luciano - El banquete o los lapitas": [
       {
           "date": "2026-10-13",
@@ -367,6 +412,7 @@ export const libraryTimelines = {
     ]
   },
   "authors": {
+    "Hipócrates": [{"date":"2026-10-15","area":"Ética","title":"Ética - Cármides, medicina del alma y cuidado de sí","url":"/semestre/5/etica/clase/15-octubre","type":"tradición hipocrática mencionada"}],
     "Luciano de Samósata": [
       {
           "date": "2026-10-13",
@@ -407,6 +453,7 @@ export const libraryTimelines = {
       }
     ],
     "Platón": [
+      {"date":"2026-10-15","area":"Ética","title":"Ética - Cármides y medicina antigua","url":"/semestre/5/etica/clase/15-octubre","type":"autor de fuentes primarias y contraste"},
       {
           "date": "2026-10-13",
           "area": "Ética",
@@ -1877,6 +1924,7 @@ export const libraryTimelines = {
       }
     ],
     "Sócrates": [
+      {"date":"2026-10-15","area":"Ética","title":"Ética - Cármides, medicina del alma y cuidado de sí","url":"/semestre/5/etica/clase/15-octubre","type":"personaje del diálogo comentado"},
       {
           "date": "2026-10-13",
           "area": "Ética",
