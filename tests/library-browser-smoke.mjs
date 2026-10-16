@@ -173,18 +173,14 @@ try {
       'Controles táctiles demasiado pequeños: '+JSON.stringify(state))
     if(width<=1120){
       assert.equal(state.inspectorHidden,true,'Inspector compacto no inicia cerrado')
-      const before=await evaluate("(()=>{const b=document.querySelector('.bc-open-inspector');const i=document.querySelector('.bc-inspector');return {body:document.body.dataset.debug,button:b?.outerHTML.slice(0,250),inspector:i?.outerHTML.slice(0,300),focus:document.activeElement?.tagName,compact:document.querySelector('.bc-shell')?.dataset.compact}})()")
       await evaluate("document.querySelector('.bc-open-inspector').click()")
-      await pause(450)
-      const after=await evaluate("(()=>{const b=document.querySelector('.bc-open-inspector');const i=document.querySelector('.bc-inspector');return {buttonExpanded:b?.getAttribute('aria-expanded'),inspectorOpen:i?.getAttribute('data-inspector-open'),modal:i?.getAttribute('aria-modal'),focus:document.activeElement?.outerHTML.slice(0,100),compact:document.querySelector('.bc-shell')?.dataset.compact}})()")
-      console.log('DEBUG inspector',width,before,after)
-      await until(()=>evaluate("document.querySelector('.bc-inspector')?.getAttribute('data-inspector-open')==='true"),
+      await until(()=>evaluate("document.querySelector('.bc-inspector')?.getAttribute('data-inspector-open')==='true'"),
         'Abrir inspector táctil '+width)
       const opened=await evaluate("({modal:document.querySelector('.bc-inspector')?.getAttribute('aria-modal'),backdrop:!!document.querySelector('.bc-inspector-backdrop'),closeHeight:document.querySelector('.bc-close-inspector')?.getBoundingClientRect().height,heading:!!document.querySelector('.bc-inspector h2')})")
       assert.ok(opened.modal==='true'&&opened.backdrop&&opened.closeHeight>=43&&opened.heading,
         'Inspector accesible incompleto: '+JSON.stringify(opened))
       await evaluate("document.querySelector('.bc-close-inspector').click()")
-      await until(()=>evaluate("document.querySelector('.bc-inspector')?.getAttribute('aria-hidden')==='true"),
+      await until(()=>evaluate("document.querySelector('.bc-inspector')?.getAttribute('aria-hidden')==='true'"),
         'Cerrar inspector táctil '+width)
       assert.equal(await evaluate("!!document.querySelector('.bc-inspector-backdrop')"),false)
     }else{
@@ -200,10 +196,10 @@ try {
     'Restaurar cartografía en tablet')
   const countBefore=await evaluate("document.querySelectorAll('.bc-flow .react-flow__node').length")
   await evaluate("document.querySelector('.bc-flow .react-flow__node')?.click()")
-  await until(()=>evaluate("document.querySelector('.bc-inspector')?.getAttribute('data-inspector-open')==='true"),
+  await until(()=>evaluate("document.querySelector('.bc-inspector')?.getAttribute('data-inspector-open')==='true'"),
     'Toque sobre nodo abre ficha')
   await evaluate("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))")
-  await until(()=>evaluate("document.querySelector('.bc-inspector')?.getAttribute('aria-hidden')==='true"),
+  await until(()=>evaluate("document.querySelector('.bc-inspector')?.getAttribute('aria-hidden')==='true'"),
     'Escape cierra inspector')
   assert.equal(await evaluate("document.querySelectorAll('.bc-flow .react-flow__node').length"),countBefore)
   assert.ok(await evaluate("!!document.querySelector('.bc-recenter')"))
