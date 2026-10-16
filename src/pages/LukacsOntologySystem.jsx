@@ -61,6 +61,7 @@ function StudyCanvas() {
   const [folioId, setFolioId] = useState(null)
   const [relationId, setRelationId] = useState(null)
   const [conceptualMode, setConceptualMode] = useState(false)
+  const [detailMode, setDetailMode] = useState(false)
   const [guidedMode, setGuidedMode] = useState(false)
   const [history, setHistory] = useState([])
   const [guidedIndex, setGuidedIndex] = useState(() => {
@@ -200,7 +201,9 @@ function StudyCanvas() {
           ...node,
           hidden: guidedMode
             ? !isGuidedCurrent && !isGuidedNext
-            : route !== 'all' && !routeActive && !support,
+            : route === 'all'
+              ? Boolean(node.data.micro) && !detailMode
+              : !routeActive && !support,
           draggable: false,
           data: {
             ...node.data,
@@ -230,6 +233,7 @@ function StudyCanvas() {
       guidedMode,
       guidedStep,
       guidedNext,
+      detailMode,
     ],
   )
 
@@ -529,6 +533,19 @@ function StudyCanvas() {
         <div className="marx-route-actions">
           <button
             type="button"
+            className={detailMode ? 'is-conceptual-active' : ''}
+            onClick={() => {
+              setGuidedMode(false)
+              setDetailMode((value) => !value)
+              if (route !== 'all') setRoute('all')
+              setSelectedId(null)
+              window.setTimeout(() => fitView({ padding:0.08, duration:450 }), 0)
+            }}
+          >
+            Detalles · {detailMode ? 'ON' : 'OFF'}
+          </button>
+          <button
+            type="button"
             className={conceptualMode ? 'is-conceptual-active' : ''}
             onClick={() => {
               setConceptualMode((value) => !value)
@@ -542,6 +559,7 @@ function StudyCanvas() {
             onClick={() => {
               setGuidedMode(false)
               setConceptualMode(false)
+              setDetailMode(false)
               setRoute('all')
               setSelectedId(null)
               setRelationId(null)
@@ -746,8 +764,8 @@ function StudyCanvas() {
                 <span>SELECTIO</span>
                 <strong>Seleccione un nodo</strong>
                 <p>
-                  El sistema contiene {lukacsOntologyNodes.length} nodos documentales: voces editoriales,
-                  tesis de Lukács, mediaciones, lagunas de fuente y conexiones de estudio reconstruidas desde el vault.
+                  El sistema contiene {lukacsOntologyNodes.length} nodos documentales. El mapa general muestra primero
+                  la estructura nuclear; «Detalles» revela los micro-nodos sin obligar a estudiar todo a la vez.
                 </p>
               </div>
             )}
