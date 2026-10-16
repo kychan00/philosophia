@@ -93,3 +93,13 @@
 .library-shell .library-timeline-toggle:focus-visible{outline:3px solid var(--r);outline-offset:3px;}
 @media(max-width:760px){.library-timeline{grid-template-columns:1fr;}.library-timeline-list{max-height:440px;}}
 @media(max-width:470px){.library-timeline-entry{grid-template-columns:1fr;gap:7px;}.library-timeline-date{flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:9px;}.library-timeline-container{margin-top:18px;}.library-timeline-header h4{font-size:27px;}}
+
+.library-record-source{font:11px/1.45 Arial,sans-serif;color:#655a4d;letter-spacing:.01em;margin:0 0 14px;}
+
+/* Red bidireccional obra ↔ autor en el detalle de cada tarjeta. */
+.library-connected-records{margin:0 0 24px;padding:0 0 20px;border-bottom:1px solid #83785e55;}
+.library-connected-records h4{font:800 11px/1.4 Arial,sans-serif;letter-spacing:.09em;text-transform:uppercase;margin:0 0 12px;color:var(--r);}
+.library-connected-records-list{display:flex;flex-wrap:wrap;gap:8px;}
+.library-related-work,.library-work-author-link{cursor:pointer;background:#e6dac0;color:#263e2b;border:1px solid #51674f;min-height:44px;max-width:100%;text-align:left;overflow-wrap:anywhere;font:700 12px/1.4 Arial,sans-serif;padding:11px 14px;}
+.library-related-work:hover,.library-related-work:focus-visible,.library-work-author-link:hover,.library-work-author-link:focus-visible{background:#243c2c;color:#f5ecda;}
+@media(max-width:620px){.library-related-work,.library-work-author-link{width:100%;}}

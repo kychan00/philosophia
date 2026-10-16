@@ -4,7 +4,7 @@ import { books, authors, categories } from '../src/data/libraryCatalog.js'
 
 test('catalogue completeness and unique names',()=>{
  assert.equal(books.length,63)
- assert.equal(authors.length,82)
+ assert.equal(authors.length,86)
  assert.equal(new Set(books.map(x=>x.id)).size,books.length)
  assert.equal(new Set(authors).size,authors.length)
 })
