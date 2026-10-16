@@ -104,10 +104,21 @@ try {
   for(const [width,height] of [[390,844],[768,1024],[1024,768]]) {
     await setViewport(width,height)
   }
+  // Cada cronología pertenece a su tarjeta y conserva el enlace de la clase.
+  assert.equal(await evaluate("([...document.querySelectorAll('.library-book')].find(c=>c.querySelector('h3')?.textContent==='Minima Moralia')?.querySelector('.library-timeline-toggle')?.click(),true)"),true)
+  await until(()=>evaluate("document.querySelectorAll('.library-book--expanded .library-timeline-entry').length===1"),
+    'Cronología de Minima Moralia')
+  assert.equal(await evaluate("document.querySelector('.library-book--expanded .library-timeline-info a')?.getAttribute('href')?.includes('/semestre/5/teoria-critica/clase/15-octubre')"),true)
+  assert.equal(await evaluate("document.documentElement.scrollWidth <= window.innerWidth+2"),true)
+  console.log('OK cronología individual por obra')
   // Tablet landscape: switch tabs, verify author-to-work navigation.
   assert.equal(await evaluate("([...document.querySelectorAll('.library-tabs button')].find(b=>b.textContent.includes('Autores'))?.click(), true)"), true)
   await until(()=>evaluate("document.querySelectorAll('.library-author').length===81"),
     '81 autores')
+  assert.equal(await evaluate("([...document.querySelectorAll('.library-author')].find(c=>c.querySelector('h3')?.textContent==='Illouz, Eva')?.querySelector('.library-timeline-toggle')?.click(),true)"),true)
+  await until(()=>evaluate("document.querySelectorAll('.library-author--expanded .library-timeline-entry').length>=1"),'Cronología de Eva Illouz')
+  assert.equal(await evaluate("document.querySelector('.library-author--expanded .library-timeline-info a')?.getAttribute('href')?.includes('/semestre/5/teoria-critica/clase/15-octubre')"),true)
+  console.log('OK cronología individual por autor')
   assert.equal(await evaluate("([...document.querySelectorAll('.library-author-works')].find(b=>b.getAttribute('aria-label')?.includes('Lukács'))?.click(),true)"),true)
   await until(()=>evaluate("document.querySelectorAll('.library-book').length===2"),
     'Lukács con dos obras')

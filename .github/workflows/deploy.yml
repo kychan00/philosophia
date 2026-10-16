@@ -43,10 +43,10 @@ jobs:
         run: npm run test:editorial
 
       - name: Validate library catalogue
-        run: node --test tests/library-catalog.test.mjs tests/library-navigation.test.mjs
+        run: node --test tests/library-catalog.test.mjs tests/library-navigation.test.mjs tests/library-timeline.test.mjs
 
       - name: Lint library source
-        run: npx eslint src/data/libraryCatalog.js src/data/libraryCatalogUtils.js src/pages/PhilosophiaLibrary.jsx
+        run: npx eslint src/data/libraryCatalog.js src/data/libraryCatalogUtils.js src/pages/PhilosophiaLibrary.jsx src/data/libraryTimelines.js
 
       - name: Build
         env:

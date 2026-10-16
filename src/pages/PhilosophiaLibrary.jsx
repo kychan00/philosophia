@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
 import { books, authors, categories } from '../data/libraryCatalog'
 import { isWorkByAuthor, normalizeLibraryText, worksByAuthor } from '../data/libraryCatalogUtils'
+import { libraryTimelines } from '../data/libraryTimelines'
 import './PhilosophiaLibrary.css'
 
 const labels = {
@@ -12,12 +13,46 @@ const labels = {
 const marks = {'crítica':'K','ontología':'Ω','analítica':'λ',
   'epistemología':'Σ','ética':'ἦ','investigación':'§'}
 
+function LibraryTimeline({ events, subject }) {
+  const chronological = [...events].sort((a,b)=>b.date.localeCompare(a.date) || a.area.localeCompare(b.area))
+  return <div className="library-timeline" aria-label={`Cronología de ${subject}`}>
+    <div className="library-timeline-header">
+      <span>ITINERARIUM / EN LAS CLASES</span>
+      <h4>Huella en las sesiones</h4>
+      <p>Referencias fechadas a esta obra o autor en las notas académicas.
+        Una mención no demuestra lectura directa ni constituye una cita del libro.</p>
+    </div>
+    {chronological.length ? <ol className="library-timeline-list">
+      {chronological.map((event,i)=><li className="library-timeline-entry"
+        key={event.date+'-'+event.area+'-'+event.title+'-'+i}>
+        <div className="library-timeline-date">
+          <time dateTime={event.date}>{event.date.split('-').reverse().join('.')}</time>
+          <small>{event.area}</small>
+        </div>
+        <div className="library-timeline-info">
+          <strong>{event.title}</strong>
+          <span>{event.type==='enlace a la obra' ? 'Obra referenciada en la nota'
+            : event.type==='título citado en nota' ? 'Título mencionado en la nota'
+            : 'Autor mencionado en la nota'}</span>
+          {event.url
+            ? <Link to={event.url}>Abrir página de la clase <span aria-hidden="true">↗</span></Link>
+            : <small>Página pública de esta clase aún no disponible</small>}
+        </div>
+      </li>)}
+    </ol> : <p className="library-timeline-empty">Todavía no se ha identificado
+      una referencia fechada explícita en las clases revisadas. Esto no significa
+      que el autor o la obra no se haya estudiado.</p>}
+  </div>
+}
+
 export default function PhilosophiaLibrary() {
   const [tab, setTab] = useState('obras')
   const [term, setTerm] = useState('')
   const [category, setCategory] = useState('todas')
   const [order, setOrder] = useState('autor')
   const [selectedAuthor, setSelectedAuthor] = useState(null)
+  const [expandedCard, setExpandedCard] = useState(null)
+  const toggleTimeline = (key) => setExpandedCard(current => current===key ? null : key)
   const results = useMemo(() => {
     if(tab === 'autores')
       return authors.filter(a => normalizeLibraryText(a).includes(normalizeLibraryText(term)))
@@ -37,6 +72,7 @@ export default function PhilosophiaLibrary() {
     setTerm('')
     setCategory('todas')
     setSelectedAuthor(null)
+    setExpandedCard(null)
   }
   const showWorksByAuthor = (author) => {
     setTab('obras')
@@ -44,6 +80,7 @@ export default function PhilosophiaLibrary() {
     setCategory('todas')
     setSelectedAuthor(author)
     setOrder('autor')
+    setExpandedCard(null)
   }
   return <main className="library-shell">
     <nav className="library-nav" aria-label="Navegación">
@@ -119,7 +156,9 @@ export default function PhilosophiaLibrary() {
         ? <div className="library-authors">
           {results.map((author,i)=>{
             const workCount = worksByAuthor(books, author).length
-            return <article className="library-author" key={author}>
+            const events = libraryTimelines.authors[author] || []
+            const isExpanded = expandedCard === 'author:'+author
+            return <article className={'library-author'+(isExpanded?' library-author--expanded':'')} key={author}>
               <span>{String(i+1).padStart(2,'0')}</span>
               <strong aria-hidden="true">{author[0]}</strong>
               <h3>{author}</h3>
@@ -130,12 +169,24 @@ export default function PhilosophiaLibrary() {
                     Ver {workCount} {workCount===1?'obra':'obras'} <span aria-hidden="true">↗</span>
                   </button>
                 : <p>Sin obra asociada a esta ficha en el catálogo</p>}
+              <button type="button" className="library-timeline-toggle"
+                aria-expanded={isExpanded}
+                aria-controls={'library-author-timeline-'+i}
+                onClick={()=>toggleTimeline('author:'+author)}>
+                {isExpanded?'Cerrar cronología':`Abrir cronología · ${events.length}`}
+              </button>
+              {isExpanded&&<div className="library-timeline-container" id={'library-author-timeline-'+i}>
+                <LibraryTimeline events={events} subject={author}/>
+              </div>}
             </article>
           })}
         </div>
         : <div className="library-books">
-          {results.map((book,i)=><article className={'library-book library-book--'+book.categoria}
-            key={book.id}>
+          {results.map((book,i)=>{
+            const events=libraryTimelines.works[book.id] || []
+            const isExpanded=expandedCard === 'work:'+book.id
+            return <article className={'library-book library-book--'+book.categoria
+              +(isExpanded?' library-book--expanded':'')} key={book.id}>
             <div className="library-book-top"><span>{String(i+1).padStart(2,'0')}</span>
               <span>{labels[book.categoria]}</span></div>
             <span className="library-book-mark" aria-hidden="true">{marks[book.categoria]}</span>
@@ -149,7 +200,17 @@ export default function PhilosophiaLibrary() {
             {book.edicion&&<small>{book.edicion}</small>}
             {book.url&&<a href={book.url} target="_blank" rel="noopener noreferrer">
               Consultar fuente ↗</a>}
-          </article>)}
+            <button type="button" className="library-timeline-toggle"
+              aria-expanded={isExpanded}
+              aria-controls={'library-work-timeline-'+i}
+              onClick={()=>toggleTimeline('work:'+book.id)}>
+              {isExpanded?'Cerrar cronología':`Abrir cronología · ${events.length}`}
+            </button>
+            {isExpanded&&<div className="library-timeline-container" id={'library-work-timeline-'+i}>
+              <LibraryTimeline events={events} subject={book.titulo}/>
+            </div>}
+          </article>
+          })}
         </div>}
       {results.length===0&&<div className="library-empty">
         <strong>Sin coincidencias.</strong><p>Pruebe otra palabra o cambie los filtros.</p>
