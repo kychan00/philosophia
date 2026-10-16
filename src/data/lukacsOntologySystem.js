@@ -681,7 +681,7 @@ export const lukacsOntologyCrossRelations=[
     why:'Formula el tertium datur de Lukács frente a relativismo y dogmatismo.',
     distinction:'Continuidad histórica no equivale a eternidad metafísica.',
     diagram:['génesis histórica','→','continuidad','≠','eternidad'],question:'¿Cómo puede un valor persistir sin salir de la historia?',
-  },,
+  },
   {
     id:'LO09',source:'M02',target:'L04',title:'Trabajo teleológico ↔ genericidad social',
     pages:'69–71 → 188–190',type:'foundation',
