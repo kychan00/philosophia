@@ -55,8 +55,8 @@ async function setViewport(width,height) {
     width,height,deviceScaleFactor:2,mobile:width<=768
   })
   await send('Page.navigate',{url:base})
-  await until(()=>evaluate("document.querySelectorAll('.library-book').length === 62"),
-    'Catálogo de 62 obras '+width+'×'+height)
+  await until(()=>evaluate("document.querySelectorAll('.library-book').length === 63"),
+    'Catálogo de 63 obras '+width+'×'+height)
   const metrics = await evaluate("({width: window.innerWidth, scrollWidth: document.documentElement.scrollWidth, height: window.innerHeight})")
   assert.ok(metrics.scrollWidth <= metrics.width+2,
     'Overflow horizontal en '+width+'×'+height+': '+JSON.stringify(metrics))
@@ -113,8 +113,8 @@ try {
   console.log('OK cronología individual por obra')
   // Tablet landscape: switch tabs, verify author-to-work navigation.
   assert.equal(await evaluate("([...document.querySelectorAll('.library-tabs button')].find(b=>b.textContent.includes('Autores'))?.click(), true)"), true)
-  await until(()=>evaluate("document.querySelectorAll('.library-author').length===81"),
-    '81 autores')
+  await until(()=>evaluate("document.querySelectorAll('.library-author').length===82"),
+    '82 autores')
   assert.equal(await evaluate("([...document.querySelectorAll('.library-author')].find(c=>c.querySelector('h3')?.textContent==='Illouz, Eva')?.querySelector('.library-timeline-toggle')?.click(),true)"),true)
   await until(()=>evaluate("document.querySelectorAll('.library-author--expanded .library-timeline-entry').length>=1"),'Cronología de Eva Illouz')
   assert.equal(await evaluate("document.querySelector('.library-author--expanded .library-timeline-info a')?.getAttribute('href')?.includes('/semestre/5/teoria-critica/clase/15-octubre')"),true)
@@ -124,7 +124,7 @@ try {
     'Lukács con dos obras')
   assert.equal(await evaluate("document.querySelector('.library-active-author')?.textContent.includes('Lukács')"),true)
   assert.equal(await evaluate("(document.querySelector('.library-active-author button')?.click(), true)"),true)
-  await until(()=>evaluate("document.querySelectorAll('.library-book').length===62"),
+  await until(()=>evaluate("document.querySelectorAll('.library-book').length===63"),
     'Restaurar catálogo completo')
   console.log('OK navegación autores ↔ obras')
 } finally {
