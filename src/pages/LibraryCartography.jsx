@@ -1,7 +1,7 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 import {
-  ReactFlow, Background, Controls, MiniMap,
+  ReactFlow, Background, Controls, MiniMap, Panel, useReactFlow,
   Handle, Position, MarkerType, applyNodeChanges,
 } from '@xyflow/react'
 import '@xyflow/react/dist/style.css'
@@ -38,7 +38,17 @@ const edgeColors={
   procedencia_documental:'#8b9baa',
 }
 
-function Canvas({projection,onSelect}){
+function RecenterAction(){
+  const { fitView } = useReactFlow()
+  return <Panel position="top-right" className="bc-map-actions">
+    <button type="button" className="bc-recenter"
+      onClick={()=>fitView({padding:.18,maxZoom:1,duration:350})}>
+      ⤢ <span>Recentrar red</span>
+    </button>
+  </Panel>
+}
+
+function Canvas({projection,onSelect,compact}){
   const initialNodes=()=>projection.nodes.map(n=>({
     id:n.id,type:'record',position:n.position,
     data:{...n},dragHandle:'.bc-node',
@@ -57,8 +67,9 @@ function Canvas({projection,onSelect}){
     onNodeClick={(_,n)=>onSelect(n.id)}
     minZoom={0.13} maxZoom={2.1} fitView
     fitViewOptions={{padding:.16,maxZoom:1.04,duration:500}}
-    nodesConnectable={false} elementsSelectable
-    panOnScroll zoomOnPinch zoomOnScroll attributionPosition="bottom-left"
+    nodesConnectable={false} nodesDraggable={false} elementsSelectable
+    panOnDrag zoomOnPinch panOnScroll={!compact} zoomOnScroll={!compact}
+    preventScrolling attributionPosition="bottom-left"
     proOptions={{hideAttribution:false}}
     aria-label="Cartografía bibliográfica interactiva"
     className="bc-flow">
@@ -67,15 +78,26 @@ function Canvas({projection,onSelect}){
       nodeColor={n=>({autor:'#4589ff',obra:'#42be9c',concepto:'#e6ad46',clase:'#9b89e5',tarea:'#e58b56',fuente:'#8b9baa'}[n.data?.kind]||'#617483')}
       style={{background:'#111820',border:'1px solid #3b4a59'}}/>
     <Controls showInteractive={false} />
+    <RecenterAction />
   </ReactFlow>
 }
 const defaultId='obra:Lukács - Historia y conciencia de clase'
 
-function Inspector({current,onFocus,onSelect}) {
+function Inspector({current,onFocus,onSelect,onClose,compact,open,inspectorRef}) {
   const relations=useMemo(()=>current?connectedGraphRelations(graph,current.id):[],[current])
   const citation=current?.kind==='obra' ? formatApaRecord(byBook.get(current.bookId),authors) : null
-  return <aside className="bc-inspector" aria-label="Ficha del nodo seleccionado">
-    <div className="bc-inspector-top"><span>INSPECTOR / FICHA ACTIVA</span><b>{current?markers[current.kind]:'—'}</b></div>
+  return <aside ref={inspectorRef} className={'bc-inspector'+(open?' bc-inspector--open':'')}
+    role={compact?'dialog':undefined} aria-modal={compact&&open?true:undefined}
+    aria-hidden={compact&&!open} inert={compact&&!open}
+    aria-label="Ficha del nodo seleccionado" data-inspector-open={open}>
+    <div className="bc-inspector-top">
+      <span>INSPECTOR / FICHA ACTIVA</span>
+      <div className="bc-inspector-heading-actions">
+        <b>{current?markers[current.kind]:'—'}</b>
+        <button type="button" className="bc-close-inspector" onClick={onClose}
+          aria-label="Cerrar ficha y volver al mapa">Cerrar ✕</button>
+      </div>
+    </div>
     {current?<div className="bc-inspector-body">
       <span className="bc-type">{names[current.kind]}</span>
       <h2>{current.label}</h2>
@@ -114,6 +136,19 @@ function Inspector({current,onFocus,onSelect}) {
   </aside>
 }
 
+function useCompactCartography(){
+  const [compact,setCompact] = useState(()=>
+    typeof window!=='undefined' && window.matchMedia('(max-width: 1120px)').matches)
+  useEffect(()=>{
+    const media=window.matchMedia('(max-width: 1120px)')
+    const update=()=>setCompact(media.matches)
+    update()
+    media.addEventListener('change',update)
+    return ()=>media.removeEventListener('change',update)
+  },[])
+  return compact
+}
+
 export default function LibraryCartography(){
   const [params]=useSearchParams()
   const initial=params.get('obra') ? 'obra:'+params.get('obra') :
@@ -124,17 +159,46 @@ export default function LibraryCartography(){
   const [mode,setMode]=useState('foco')
   const [filters,setFilters]=useState({concepts:true,classes:true,activities:true})
   const [query,setQuery]=useState('')
+  const compact=useCompactCartography()
+  const [inspectorOpen,setInspectorOpen]=useState(false)
+  const inspectorRef=useRef(null)
+  useEffect(()=>{
+    if(!compact||!inspectorOpen)return
+    const previouslyFocused=document.activeElement
+    const inspector=inspectorRef.current
+    inspector?.querySelector('.bc-close-inspector')?.focus()
+    const keyboard=(event)=>{
+      if(event.key==='Escape'){event.preventDefault();setInspectorOpen(false);return}
+      if(event.key!=='Tab'||!inspector)return
+      const controls=[...inspector.querySelectorAll('button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])')]
+        .filter(node=>node.getClientRects().length>0)
+      if(!controls.length)return
+      const first=controls[0],last=controls.at(-1)
+      if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}
+      else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}
+    }
+    document.addEventListener('keydown',keyboard)
+    return ()=>{
+      document.removeEventListener('keydown',keyboard)
+      if(previouslyFocused?.isConnected)previouslyFocused.focus()
+    }
+  },[compact,inspectorOpen])
   const projection=useMemo(()=>projectLibraryGraph(graph,{
     centerId:center,mode,...filters,maxFocusNodes:34,
   }),[center,mode,filters])
   const present=indexed.get(selected)
   const suggestions=useMemo(()=>searchGraphNodes(graph,query,10),[query])
+  const selectNode=useCallback(id=>{
+    setSelected(id)
+    if(compact)setInspectorOpen(true)
+  },[compact])
   const focus=useCallback(id=>{
     setCenter(id);setSelected(id);setMode('foco')
-  },[])
+    if(compact)setInspectorOpen(true)
+  },[compact])
   const toggle=(key)=>setFilters(prev=>({...prev,[key]:!prev[key]}))
   const graphKey=[mode,center,Number(filters.concepts),Number(filters.classes),Number(filters.activities)].join('|')
-  return <main className="bc-shell">
+  return <main className="bc-shell" data-compact={compact}>
     <nav className="bc-nav" aria-label="Navegación de biblioteca">
       <Link to="/biblioteca">← Biblioteca</Link>
       <Link to="/" className="bc-brand">Φ / PHILOSOPHIA</Link>
@@ -184,16 +248,28 @@ export default function LibraryCartography(){
       <span className="bc-count-visible">{projection.nodes.length} nodos · {projection.edges.length} vínculos visibles</span>
     </div>
     <div className="bc-workspace">
+      {compact&&inspectorOpen&&<button type="button" className="bc-inspector-backdrop"
+        onClick={()=>setInspectorOpen(false)} aria-label="Cerrar ficha y volver al mapa"/>}
       <section className="bc-map-panel" aria-label="Mapa bibliográfico">
         <div className="bc-canvas-header"><span>MAPA DE RELACIONES</span>
           <span>{mode==='foco'?'FOCO CONTEXTUAL · HASTA 34 NODOS':'VISTA PANORÁMICA · AUTOR / OBRA / CONCEPTO'}</span>
         </div>
-        <div className="bc-canvas" data-mode={mode}>
-          <Canvas key={graphKey} projection={projection} onSelect={setSelected}/>
+        <div className="bc-map-toolbar">
+          <span>{compact?'Un dedo: mover · dos dedos: ampliar · toque una tarjeta':'Arrastre el mapa · amplíe con la rueda · seleccione un nodo'}</span>
+          <button type="button" onClick={()=>setInspectorOpen(true)}
+            className="bc-open-inspector" aria-expanded={compact?inspectorOpen:true}
+            aria-controls="bc-inspector-panel">Ver ficha seleccionada ↗</button>
         </div>
-        <div className="bc-canvas-footer">Arrastre para desplazar · rueda o controles para ampliar · seleccione un nodo para inspeccionarlo</div>
+        <div className="bc-canvas" data-mode={mode}>
+          <Canvas key={graphKey} projection={projection} onSelect={selectNode} compact={compact}/>
+        </div>
+        <div className="bc-canvas-footer">Nodos fijos para evitar desplazamientos accidentales · utilice «Recentrar red» para recuperar la vista.</div>
       </section>
-      <Inspector current={present} onFocus={focus} onSelect={setSelected}/>
+      <div id="bc-inspector-panel" className={'bc-inspector-mount'+(inspectorOpen?' bc-inspector-mount--open':'')}>
+        <Inspector current={present} onFocus={focus} onSelect={selectNode}
+          onClose={()=>setInspectorOpen(false)} compact={compact}
+          open={inspectorOpen} inspectorRef={inspectorRef}/>
+      </div>
     </div>
     <footer className="bc-footer">
       <p><strong>Frontera documental:</strong> autoría, enlace entre fichas, menciones de clase,
