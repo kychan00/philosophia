@@ -100,6 +100,15 @@ export const libraryTimelines = {
         "url": "/semestre/5/filosofia-analitica/clase/14-octubre",
         "type": "título citado en nota"
       }
+    ],
+    "Russ - Los métodos en filosofía - capítulos 1-3": [
+      {
+        "date": "2026-09-14",
+        "area": "Métodos de Investigación",
+        "title": "Métodos - Del concepto al problema y al método",
+        "url": "/semestre/5/metodos-de-investigacion/clase/14-septiembre",
+        "type": "enlace a la obra"
+      }
     ]
   },
   "authors": {
@@ -218,6 +227,13 @@ export const libraryTimelines = {
         "area": "Filosofía Analítica",
         "title": "Filosofía Analítica - Moore, platonismo, análisis y sentido común",
         "url": "/semestre/5/filosofia-analitica/clase/21-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-08-19",
+        "area": "Métodos de Investigación",
+        "title": "Métodos - Del objeto al conocimiento comunicable",
+        "url": "/semestre/5/metodos-de-investigacion/clase/19-agosto",
         "type": "autor mencionado"
       }
     ],
@@ -387,6 +403,13 @@ export const libraryTimelines = {
         "area": "Filosofía de la Lógica",
         "title": "Quine, holismo y problema de la verdad",
         "url": "/semestre/4/filosofia-de-la-logica/clase/20-abril",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-05-04",
+        "area": "Filosofía de la Lógica",
+        "title": "Pragmatismo, Quine y objeciones",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/04-mayo",
         "type": "autor mencionado"
       }
     ],
@@ -622,6 +645,20 @@ export const libraryTimelines = {
         "title": "Leibniz, analiticidad y entrada a Kant",
         "url": "/semestre/4/filosofia-de-la-logica/clase/13-abril",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-05-11",
+        "area": "Filosofía de la Lógica",
+        "title": "Correspondencia, atomismo y lenguaje",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/11-mayo",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-05-18",
+        "area": "Filosofía de la Lógica",
+        "title": "Tarski, semántica y lógicas no clásicas",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/18-mayo",
+        "type": "autor mencionado"
       }
     ],
     "Moore, G. E.": [
@@ -775,6 +812,20 @@ export const libraryTimelines = {
         "title": "Leibniz, analiticidad y entrada a Kant",
         "url": "/semestre/4/filosofia-de-la-logica/clase/13-abril",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-05-11",
+        "area": "Filosofía de la Lógica",
+        "title": "Correspondencia, atomismo y lenguaje",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/11-mayo",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-05-18",
+        "area": "Filosofía de la Lógica",
+        "title": "Tarski, semántica y lógicas no clásicas",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/18-mayo",
+        "type": "autor mencionado"
       }
     ],
     "Wittgenstein, Ludwig": [
@@ -833,6 +884,20 @@ export const libraryTimelines = {
         "title": "Filosofía Analítica - Crítica del positivismo lógico y cierre de Hacker",
         "url": "/semestre/5/filosofia-analitica/clase/14-octubre",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-05-11",
+        "area": "Filosofía de la Lógica",
+        "title": "Correspondencia, atomismo y lenguaje",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/11-mayo",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-05-18",
+        "area": "Filosofía de la Lógica",
+        "title": "Tarski, semántica y lógicas no clásicas",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/18-mayo",
+        "type": "autor mencionado"
       }
     ],
     "Heidegger, Martin": [
@@ -841,6 +906,13 @@ export const libraryTimelines = {
         "area": "Filosofía Analítica",
         "title": "Filosofía Analítica - Føllesdal, genealogía, argumento y justificación",
         "url": "/semestre/5/filosofia-analitica/clase/26-agosto",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-05-06",
+        "area": "Filosofía de la Lógica",
+        "title": "Fenomenología, evidencia y verdad",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/06-mayo",
         "type": "autor mencionado"
       }
     ],
@@ -882,6 +954,13 @@ export const libraryTimelines = {
         "area": "Filosofía Analítica",
         "title": "Filosofía Analítica - Del origen al giro lingüístico",
         "url": "/semestre/5/filosofia-analitica/clase/30-septiembre",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-05-18",
+        "area": "Filosofía de la Lógica",
+        "title": "Tarski, semántica y lógicas no clásicas",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/18-mayo",
         "type": "autor mencionado"
       }
     ],
@@ -954,6 +1033,13 @@ export const libraryTimelines = {
         "area": "Filosofía de la Lógica",
         "title": "Quine, holismo y problema de la verdad",
         "url": "/semestre/4/filosofia-de-la-logica/clase/20-abril",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-05-06",
+        "area": "Filosofía de la Lógica",
+        "title": "Fenomenología, evidencia y verdad",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/06-mayo",
         "type": "autor mencionado"
       }
     ],
@@ -1067,6 +1153,13 @@ export const libraryTimelines = {
         "title": "Filosofía Analítica - Crítica del positivismo lógico y cierre de Hacker",
         "url": "/semestre/5/filosofia-analitica/clase/14-octubre",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-05-04",
+        "area": "Filosofía de la Lógica",
+        "title": "Pragmatismo, Quine y objeciones",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/04-mayo",
+        "type": "autor mencionado"
       }
     ],
     "Gödel, Kurt": [
@@ -1082,6 +1175,13 @@ export const libraryTimelines = {
         "area": "Filosofía de la Lógica",
         "title": "Validez, metalógica y límites del logicismo",
         "url": "/semestre/4/filosofia-de-la-logica/clase/18-febrero",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-05-18",
+        "area": "Filosofía de la Lógica",
+        "title": "Tarski, semántica y lógicas no clásicas",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/18-mayo",
         "type": "autor mencionado"
       }
     ],
@@ -1110,6 +1210,13 @@ export const libraryTimelines = {
         "title": "Teorías de la verdad y redundancia",
         "url": "/semestre/4/filosofia-de-la-logica/clase/22-abril",
         "type": "autor mencionado"
+      },
+      {
+        "date": "2026-05-06",
+        "area": "Filosofía de la Lógica",
+        "title": "Fenomenología, evidencia y verdad",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/06-mayo",
+        "type": "autor mencionado"
       }
     ],
     "Tarski, Alfred": [
@@ -1118,6 +1225,31 @@ export const libraryTimelines = {
         "area": "Filosofía de la Lógica",
         "title": "Teorías de la verdad y redundancia",
         "url": "/semestre/4/filosofia-de-la-logica/clase/22-abril",
+        "type": "autor mencionado"
+      },
+      {
+        "date": "2026-05-18",
+        "area": "Filosofía de la Lógica",
+        "title": "Tarski, semántica y lógicas no clásicas",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/18-mayo",
+        "type": "autor mencionado"
+      }
+    ],
+    "Husserl, Edmund": [
+      {
+        "date": "2026-05-06",
+        "area": "Filosofía de la Lógica",
+        "title": "Fenomenología, evidencia y verdad",
+        "url": "/semestre/4/filosofia-de-la-logica/clase/06-mayo",
+        "type": "autor mencionado"
+      }
+    ],
+    "Russ, Jacqueline": [
+      {
+        "date": "2026-09-14",
+        "area": "Métodos de Investigación",
+        "title": "Métodos - Del concepto al problema y al método",
+        "url": "/semestre/5/metodos-de-investigacion/clase/14-septiembre",
         "type": "autor mencionado"
       }
     ]
