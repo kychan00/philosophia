@@ -21,6 +21,7 @@ const AnalyticClass07Oct = lazy(() => import('./pages/AnalyticClass07Oct'))
 const AnalyticClass14Oct = lazy(() => import('./pages/AnalyticClass14Oct'))
 const Home = lazy(() => import('./pages/Home'))
 const PhilosophiaLibrary = lazy(() => import('./pages/PhilosophiaLibrary'))
+const LibraryCartography = lazy(() => import('./pages/LibraryCartography'))
 const CafeFilosofico = lazy(() => import('./pages/CafeFilosofico'))
 const CafeCapitalismoEvent = lazy(() => import('./pages/CafeCapitalismoEvent'))
 const CafeMeritocraciaEvent = lazy(() => import('./pages/CafeMeritocraciaEvent'))
@@ -172,6 +173,7 @@ function App() {
         <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/biblioteca" element={<PhilosophiaLibrary />} />
+        <Route path="/biblioteca/cartografia" element={<LibraryCartography />} />
         <Route path="/cafe-filosofico" element={<CafeFilosofico />} />
         <Route
           path="/cafe-filosofico/2026/09/07/fin-del-mundo-fin-del-capitalismo"

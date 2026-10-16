@@ -43,10 +43,10 @@ jobs:
         run: npm run test:editorial
 
       - name: Validate library catalogue
-        run: node --test tests/library-catalog.test.mjs tests/library-navigation.test.mjs tests/library-timeline.test.mjs tests/library-academic-connections.test.mjs tests/library-governance.test.mjs tests/library-apa.test.mjs
+        run: node --test tests/library-catalog.test.mjs tests/library-navigation.test.mjs tests/library-timeline.test.mjs tests/library-academic-connections.test.mjs tests/library-governance.test.mjs tests/library-apa.test.mjs tests/library-graph.test.mjs
 
       - name: Lint library source
-        run: npx eslint src/data/libraryCatalog.js src/data/libraryCatalogUtils.js src/pages/PhilosophiaLibrary.jsx src/data/libraryTimelines.js src/data/libraryAcademicConnections.js src/data/libraryApa.js src/data/libraryApaMetadata.js
+        run: npx eslint src/data/libraryCatalog.js src/data/libraryCatalogUtils.js src/pages/PhilosophiaLibrary.jsx src/data/libraryTimelines.js src/data/libraryAcademicConnections.js src/data/libraryApa.js src/data/libraryApaMetadata.js src/data/libraryGraph.js src/pages/LibraryCartography.jsx
 
       - name: Build
         env:

@@ -139,6 +139,24 @@ try {
   await until(()=>evaluate("document.querySelectorAll('.library-book').length===" + books.length),
     'Restaurar catálogo completo')
   console.log('OK navegación autores ↔ obras')
+  for(const [width,height] of [[390,844],[768,1024],[1024,768]]) {
+    await send('Emulation.setDeviceMetricsOverride',{
+      width,height,deviceScaleFactor:2,mobile:width<=768
+    })
+    await send('Page.navigate',{url:base+'/cartografia'})
+    await until(()=>evaluate("document.querySelectorAll('.bc-flow .react-flow__node').length>5"),
+      'Cartografía '+width+'×'+height,100)
+    const metrics=await evaluate("({overflow:document.documentElement.scrollWidth-window.innerWidth,nodes:document.querySelectorAll('.bc-flow .react-flow__node').length,inspector:!!document.querySelector('.bc-inspector h2')})")
+    assert.ok(metrics.overflow<=2,'Desbordamiento en cartografía '+width+'×'+height)
+    assert.ok(metrics.inspector&&metrics.nodes>=6,'Cartografía o inspector incompletos')
+    console.log('OK cartografía',width,height,metrics)
+  }
+  assert.equal(await evaluate("([...document.querySelectorAll('.bc-modes button')].find(b=>b.textContent==='Vista general')?.click(),true)"),true)
+  await until(()=>evaluate("document.querySelector('.bc-canvas')?.getAttribute('data-mode')==='general'"),'Vista general')
+  assert.equal(await evaluate("([...document.querySelectorAll('.bc-modes button')].find(b=>b.textContent==='Red contextual')?.click(),true)"),true)
+  await until(()=>evaluate("document.querySelector('.bc-canvas')?.getAttribute('data-mode')==='foco'"),'Foco contextual')
+  console.log('OK navegación de modos en cartografía')
+
 } finally {
   if(socket) socket.close()
   if(browser){

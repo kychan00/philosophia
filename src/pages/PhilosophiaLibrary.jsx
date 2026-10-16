@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { Link } from 'react-router'
+import { Link, useSearchParams } from 'react-router'
 import { books, authors, categories } from '../data/libraryCatalog'
 import { authorsForWork, isWorkByAuthor, normalizeLibraryText, worksByAuthor } from '../data/libraryCatalogUtils'
 import { libraryTimelines } from '../data/libraryTimelines'
@@ -95,12 +95,15 @@ function ApaCitation({ book }) {
 }
 
 export default function PhilosophiaLibrary() {
-  const [tab, setTab] = useState('obras')
-  const [term, setTerm] = useState('')
+  const [params] = useSearchParams()
+  const linkedWork=books.find(b=>b.id===params.get('obra'))
+  const linkedAuthor=authors.includes(params.get('autor'))?params.get('autor'):null
+  const [tab, setTab] = useState(linkedAuthor?'autores':'obras')
+  const [term, setTerm] = useState(linkedWork?.titulo || linkedAuthor || '')
   const [category, setCategory] = useState('todas')
   const [order, setOrder] = useState('autor')
   const [selectedAuthor, setSelectedAuthor] = useState(null)
-  const [expandedCard, setExpandedCard] = useState(null)
+  const [expandedCard, setExpandedCard] = useState(linkedWork?'work:'+linkedWork.id:linkedAuthor?'author:'+linkedAuthor:null)
   const activity = (kind,id) => [...(libraryTimelines[kind][id]||[]),...(libraryAcademicConnections[kind][id]?.events||[])]
   const toggleTimeline = (key) => setExpandedCard(current => current===key ? null : key)
   const results = useMemo(() => {
@@ -175,6 +178,11 @@ export default function PhilosophiaLibrary() {
       <div><b>{books.filter(x=>x.estado==='recomendada').length}</b>
         <span>Recomendaciones</span></div>
     </section>
+    <section className="library-cartography-launch" aria-label="Cartografía bibliográfica">
+      <div><span>02 / CARTOGRAPHIA</span><strong>Las ideas también tienen conexiones.</strong>
+        <p>Explore obras, autores, conceptos y actividades enlazadas en una cartografía 2D.</p></div>
+      <Link to="/biblioteca/cartografia">Explorar cartografía 2D ↗</Link>
+    </section>
     <section className="library-index" aria-label="Catálogo bibliográfico">
       <header className="library-index-head">
         <div><span>01 / INDEX RERUM</span><h2>Explore la biblioteca</h2></div>
@@ -235,6 +243,7 @@ export default function PhilosophiaLibrary() {
                     Ver {workCount} {workCount===1?'obra':'obras'} <span aria-hidden="true">↗</span>
                   </button>
                 : <p>Sin obra asociada a esta ficha en el catálogo</p>}
+              <Link className="library-map-link" to={"/biblioteca/cartografia?autor="+encodeURIComponent(author)}>Ver red bibliográfica ↗</Link>
               <button type="button" className="library-timeline-toggle"
                 aria-expanded={isExpanded}
                 aria-controls={'library-author-timeline-'+i}
@@ -278,6 +287,7 @@ export default function PhilosophiaLibrary() {
             {book.studyUrl&&<Link to={book.studyUrl} className="library-study-link">
               Abrir estudio 2D ↗</Link>}
             <ApaCitation book={book}/>
+            <Link className="library-map-link" to={"/biblioteca/cartografia?obra="+encodeURIComponent(book.id)}>Explorar conexiones de esta obra ↗</Link>
             <button type="button" className="library-timeline-toggle"
               aria-expanded={isExpanded}
               aria-controls={'library-work-timeline-'+i}
