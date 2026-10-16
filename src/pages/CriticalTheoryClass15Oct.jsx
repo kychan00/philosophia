@@ -160,6 +160,14 @@ export default function CriticalTheoryClass15Oct() {
           <article><span>RECOMENDACIÓN</span><h3>Eva Illouz</h3><p><em>El consumo de la utopía romántica</em> y <em>Intimidades congeladas</em>. La noción de capitalismo emocional fue introducida oralmente, no leída en su texto durante esta sesión.</p></article>
           <article><span>EXTENSIÓN CRÍTICA</span><h3>Adorno, Marcuse y Arendt</h3><p><em>Minima Moralia</em>; discusión futura sobre técnica en Marcuse; <em>Eichmann en Jerusalén</em> para abrir el problema de la responsabilidad moral.</p></article>
         </div>
+        <div className="ct1510-provenance">
+          <strong>Referencias comprobadas para ampliar esta clase:</strong>{' '}
+          Illouz, E. (2007), <em>Intimidades congeladas</em> (<a href="https://doi.org/10.2307/j.ctvndv74r" target="_blank" rel="noopener noreferrer">Katz, DOI ↗</a>);{' '}
+          Illouz, E. (2009), <em>El consumo de la utopía romántica</em> (<a href="https://doi.org/10.2307/j.ctvm7bc9h" target="_blank" rel="noopener noreferrer">Katz, DOI ↗</a>);{' '}
+          Adorno, T. W. (1951), <em>Minima Moralia</em>, aforismo 21 (regalar y principio de intercambio);{' '}
+          Stahl, T. (2023), <a href="https://plato.stanford.edu/entries/lukacs/" target="_blank" rel="noopener noreferrer">Georg Lukács, Stanford Encyclopedia of Philosophy ↗</a>.
+          Se distinguen ediciones y comentarios de clase; no se presupone lectura directa de todos estos libros.
+        </div>
       </section>
 
       <section className="ct1510-agenda">
