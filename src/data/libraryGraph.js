@@ -3,14 +3,9 @@ import { authorsForWork, normalizeLibraryText } from './libraryCatalogUtils.js'
 import { libraryTimelines } from './libraryTimelines.js'
 import { libraryAcademicConnections } from './libraryAcademicConnections.js'
 
-// Sólo vínculos [[concepto]] explícitos en fichas del vault revisadas.
-export const documentedConceptLinks = Object.freeze({
-  'Lukács - Historia y conciencia de clase': ['Cosificación (Lukács)','Fetichismo de la mercancía','Mercancía (Marx)','Totalidad social','Trabajo (Marx)','Objetivación (Marx)','Enajenación (Marx)'],
-  'Marx - El capital - Tomo I - Scaron 2008': ['Mercancía (Marx)','Valor (Marx)','Tiempo de trabajo socialmente necesario','Fetichismo de la mercancía'],
-  'Kant - Crítica de la razón pura - Ribas': ['Estética trascendental','Analítica trascendental','Dialéctica trascendental'],
-  'Platón - Cármides': ['Sophrosyne (templanza)','Díaita (régimen de vida)'],
-  'Ortega y Gasset - El tema de nuestro tiempo': ['Perspectivismo (Ortega y Gasset)'],
-})
+import { documentedConceptLinks, documentedConceptRelations } from './libraryConceptEvidence.js'
+export { documentedConceptLinks, documentedConceptRelations } from './libraryConceptEvidence.js'
+
 const order={autor:0,obra:1,concepto:2,clase:3,tarea:4,fuente:5}
 const eventKind=e=>e.kind==='procedencia'?'fuente':e.kind==='tarea'?'tarea':'clase'
 const eventId=e=>eventKind(e)+':'+JSON.stringify([e.date||'',e.area,e.title])
@@ -31,13 +26,25 @@ export function buildLibraryGraph() {
     for(const a of authorsForWork(b,authors))
       join('autor:'+a,id,'autor_de','autoría bibliográfica registrada','Autoría')
   }
+  const ensureConcept=concept=>{
+    const id='concepto:'+concept
+    put({id,kind:'concepto',label:concept,evidence:'ficha de concepto enlazada en el vault'})
+    return id
+  }
   for(const [work,concepts] of Object.entries(documentedConceptLinks)){
     if(!nodes.has('obra:'+work))throw Error('Obra inexistente: '+work)
     for(const concept of concepts){
-      const id='concepto:'+concept
-      put({id,kind:'concepto',label:concept,evidence:'enlace de concepto en ficha canónica de obra'})
+      const id=ensureConcept(concept)
       join('obra:'+work,id,'ficha_enlaza_concepto',
-        'enlace [[concepto]] explícito; no implica cita textual ni doctrina atribuida','Concepto documentado')
+        'enlace [[concepto]] explícito en ficha de obra; NO doctrina atribuida','Concepto documentado')
+    }
+  }
+  for(const [sourceConcept,targets] of Object.entries(documentedConceptRelations)){
+    const from=ensureConcept(sourceConcept)
+    for(const target of targets) {
+      const to=ensureConcept(target)
+      join(from,to,'ficha_concepto_enlaza_otro',
+        'la ficha de «'+sourceConcept+'» enlaza [[ '+target+' ]]; NO implica acuerdo, causalidad ni influencia','Enlace entre conceptos')
     }
   }
   function activity(e,from){
@@ -69,7 +76,7 @@ function arrange(items,centerId){
   const maxRows=Math.max(1,...Object.values(groups).map(g=>g.length))
   return ['autor','obra','concepto','clase','tarea','fuente'].flatMap((kind,col)=>
     (groups[kind]||[]).map((n,i,g)=>({...n,isCenter:n.id===centerId,
-      position:{x:col*294,y:(i+(maxRows-g.length)/2)*116}})))
+      position:{x:col*294,y:(i+(maxRows-g.length)/2)*150}})))
 }
 export function projectLibraryGraph(graph,{
  centerId='obra:Lukács - Historia y conciencia de clase',mode='foco',
@@ -112,4 +119,13 @@ export function connectedGraphNodes(graph,id){
  for(const e of graph.edges){if(e.source===id)ids.add(e.target);if(e.target===id)ids.add(e.source)}
  const byId=new Map(graph.nodes.map(n=>[n.id,n]))
  return [...ids].map(x=>byId.get(x)).filter(Boolean).sort((a,b)=>order[a.kind]-order[b.kind]||a.label.localeCompare(b.label,'es'))
+}
+
+export function connectedGraphRelations(graph,id){
+ const byId=new Map(graph.nodes.map(n=>[n.id,n]))
+ return graph.edges.filter(e=>e.source===id||e.target===id).map(edge=>({
+  ...edge,other:byId.get(edge.source===id?edge.target:edge.source),
+  direction:edge.source===id?'saliente':'entrante',
+ })).filter(r=>r.other)
+ .sort((a,b)=>order[a.other.kind]-order[b.other.kind]||a.other.label.localeCompare(b.other.label,'es'))
 }
