@@ -3,6 +3,7 @@
 // This verifies DOM navigation and overflow at common phone/iPad viewports.
 // It does not replace a manual test on an actual iPad.
 import assert from 'node:assert/strict'
+import { books, authors } from '../src/data/libraryCatalog.js'
 import { spawn, spawnSync } from 'node:child_process'
 import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs'
 import { tmpdir } from 'node:os'
@@ -55,8 +56,8 @@ async function setViewport(width,height) {
     width,height,deviceScaleFactor:2,mobile:width<=768
   })
   await send('Page.navigate',{url:base})
-  await until(()=>evaluate("document.querySelectorAll('.library-book').length === 63"),
-    'Catálogo de 63 obras '+width+'×'+height)
+  await until(()=>evaluate("document.querySelectorAll('.library-book').length === " + books.length),
+    'Catálogo de '+books.length+' obras '+width+'×'+height)
   const metrics = await evaluate("({width: window.innerWidth, scrollWidth: document.documentElement.scrollWidth, height: window.innerHeight})")
   assert.ok(metrics.scrollWidth <= metrics.width+2,
     'Overflow horizontal en '+width+'×'+height+': '+JSON.stringify(metrics))
@@ -111,20 +112,31 @@ try {
   assert.equal(await evaluate("document.querySelector('.library-book--expanded .library-timeline-info a')?.getAttribute('href')?.includes('/semestre/5/teoria-critica/clase/15-octubre')"),true)
   assert.equal(await evaluate("document.documentElement.scrollWidth <= window.innerWidth+2"),true)
   console.log('OK cronología individual por obra')
+  assert.equal(await evaluate("document.querySelector('.library-book--expanded .library-timeline-header h4')?.textContent"),'Clases y actividades')
   // Tablet landscape: switch tabs, verify author-to-work navigation.
   assert.equal(await evaluate("([...document.querySelectorAll('.library-tabs button')].find(b=>b.textContent.includes('Autores'))?.click(), true)"), true)
-  await until(()=>evaluate("document.querySelectorAll('.library-author').length===82"),
-    '82 autores')
+  await until(()=>evaluate("document.querySelectorAll('.library-author').length===" + authors.length),
+    authors.length+' autores')
   assert.equal(await evaluate("([...document.querySelectorAll('.library-author')].find(c=>c.querySelector('h3')?.textContent==='Illouz, Eva')?.querySelector('.library-timeline-toggle')?.click(),true)"),true)
   await until(()=>evaluate("document.querySelectorAll('.library-author--expanded .library-timeline-entry').length>=1"),'Cronología de Eva Illouz')
   assert.equal(await evaluate("document.querySelector('.library-author--expanded .library-timeline-info a')?.getAttribute('href')?.includes('/semestre/5/teoria-critica/clase/15-octubre')"),true)
   console.log('OK cronología individual por autor')
+  // Navegación bidireccional: autor → obra → autor, sin perder el detalle.
+  assert.equal(await evaluate("document.querySelector('.library-author--expanded .library-related-work')?.click() ?? true"),true)
+  await until(()=>evaluate("document.querySelectorAll('.library-book--expanded').length===1"),'Abrir obra desde autor')
+  assert.equal(await evaluate("document.querySelector('.library-book--expanded .library-work-author-link')?.click() ?? true"),true)
+  await until(()=>evaluate("document.querySelectorAll('.library-author--expanded').length===1"),'Volver al autor desde la obra')
+  console.log('OK obra ↔ autor')
+  assert.equal(await evaluate("([...document.querySelectorAll('.library-tabs button')].find(b=>b.textContent.includes('Autores'))?.click(),true)"),true)
+  await until(()=>evaluate("document.querySelectorAll('.library-author').length===" + authors.length),'Autores tras restaurar')
+
+
   assert.equal(await evaluate("([...document.querySelectorAll('.library-author-works')].find(b=>b.getAttribute('aria-label')?.includes('Lukács'))?.click(),true)"),true)
   await until(()=>evaluate("document.querySelectorAll('.library-book').length===2"),
     'Lukács con dos obras')
   assert.equal(await evaluate("document.querySelector('.library-active-author')?.textContent.includes('Lukács')"),true)
   assert.equal(await evaluate("(document.querySelector('.library-active-author button')?.click(), true)"),true)
-  await until(()=>evaluate("document.querySelectorAll('.library-book').length===63"),
+  await until(()=>evaluate("document.querySelectorAll('.library-book').length===" + books.length),
     'Restaurar catálogo completo')
   console.log('OK navegación autores ↔ obras')
 } finally {

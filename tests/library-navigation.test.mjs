@@ -6,6 +6,7 @@ import {
   surnameFromAuthorRecord,
   isWorkByAuthor,
   worksByAuthor,
+  authorsForWork,
 } from '../src/data/libraryCatalogUtils.js'
 
 test('acentos y caracteres especiales no impiden buscar autores', () => {
@@ -30,10 +31,20 @@ test('la autoría compartida no genera relaciones falsas', () => {
   assert.equal(worksByAuthor(books, 'Sautu, Ruth').length, 1)
   assert.equal(worksByAuthor(books, 'Wainerman, Catalina').length, 1)
   assert.equal(isWorkByAuthor({autor:'Wainerman y Sautu'}, 'Russell, Bertrand'), false)
-  assert.equal(authors.length,82)
+  assert.equal(authors.length,86)
 })
 
 test('Ética Nicomáquea pertenece al área editorial de ética', () => {
   const book = books.find(book => book.id === 'Aristóteles - Ética Nicomáquea')
   assert.equal(book?.categoria, 'ética')
+})
+
+test('autoría canónica y apellidos compuestos',()=>{
+ for(const book of books) assert.ok(authorsForWork(book,authors).length>0,book.id)
+ assert.deepEqual(new Set(authorsForWork(books.find(b=>b.id==='Reale y Antiseri - Escuela de Frankfurt'),authors)),
+   new Set(['Reale, Giovanni','Antiseri, Dario']))
+ assert.equal(worksByAuthor(books,'Ortega y Gasset, José').length,2)
+ assert.equal(worksByAuthor(books,'Rodríguez Pelayo, Cristian Alejandro').length,2)
+ assert.equal(worksByAuthor(books,'Barceló Aspeitia, Axel Arturo').length,1)
+ assert.equal(worksByAuthor(books,'Luciano de Samósata').length,1)
 })
