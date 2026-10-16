@@ -81,6 +81,16 @@ export const books = [
     "estado": "documentada"
   },
   {
+    "id": "Luciano - El banquete o los lapitas",
+    "autor": "Luciano de Samósata",
+    "titulo": "El banquete o los lapitas",
+    "categoria": "ética",
+    "estado": "documentada",
+    "lectura": "§§27–48 leídos en clase",
+    "edicion": "Trad. Andrés Espinosa Alarcón · texto bilingüe",
+    "url": "https://archive.org/details/luciano-17-u-el-banquete-o-los-lapitas/page/n18/mode/1up"
+  },
+  {
     "id": "Aristóteles - Ética Nicomáquea",
     "autor": "Aristóteles",
     "titulo": "Ética Nicomáquea",
@@ -495,6 +505,7 @@ export const authors = [
   "Lévy, Pierre",
   "Locke, John",
   "Lukács, Georg",
+  "Luciano de Samósata",
   "Maimon, Salomon",
   "Marx, Karl",
   "Mondolfo, Rodolfo",

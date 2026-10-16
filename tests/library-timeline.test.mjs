@@ -38,3 +38,16 @@ test('sin duplicados dentro de la cronología de una ficha',()=>{
   assert.equal(new Set(keys).size,keys.length)
  }
 })
+
+test('Luciano: el texto se leyó parcialmente y tiene ruta de clase real',()=>{
+ const book=books.find(x=>x.id==='Luciano - El banquete o los lapitas')
+ assert.equal(book?.categoria,'ética')
+ assert.match(book?.lectura ?? '',/27–48/)
+ assert.ok(authors.includes('Luciano de Samósata'))
+ const classUrl='/semestre/5/etica/clase/13-octubre'
+ const workEvents=libraryTimelines.works[book.id]
+ const authorEvents=libraryTimelines.authors['Luciano de Samósata']
+ assert.ok(workEvents?.some(e=>e.date==='2026-10-13' && e.url===classUrl))
+ assert.ok(authorEvents?.some(e=>e.date==='2026-10-13' && e.url===classUrl))
+ assert.ok(!workEvents.some(e=>e.type==='lectura terminada'))
+})

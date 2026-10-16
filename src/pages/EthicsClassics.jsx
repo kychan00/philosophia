@@ -319,6 +319,25 @@ export default function EthicsClassics() {
 
 
 
+        <Link
+          to="/semestre/5/etica/clase/13-octubre"
+          className="ethicsx-class-card"
+        >
+          <div className="ethicsx-class-card-date">
+            <strong>XIII</strong>
+            <span>X · MMXXVI</span>
+          </div>
+          <div className="ethicsx-class-card-copy">
+            <span>Clase · Luciano de Samósata · §§27–48</span>
+            <h3>El banquete o los lapitas: sátira y coherencia de vida</h3>
+            <p>
+              Del ideal de sabiduría a la conducta de los filósofos: sátira,
+              exceso, crítica cínica, estoicismo contemporáneo y deber moral.
+            </p>
+          </div>
+          <div className="ethicsx-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
+        </Link>
+
       </section>
 
       <section className="ethicsx-section ethicsx-note">

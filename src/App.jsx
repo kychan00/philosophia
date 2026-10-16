@@ -135,6 +135,7 @@ const EthicsClass01Sep = lazy(() => import('./pages/EthicsClass01Sep'))
 const EthicsClass03Sep = lazy(() => import('./pages/EthicsClass03Sep'))
 const EthicsClass10Sep = lazy(() => import('./pages/EthicsClass10Sep'))
 const EthicsClass08Oct = lazy(() => import('./pages/EthicsClass08Oct'))
+const EthicsClass13Oct = lazy(() => import('./pages/EthicsClass13Oct'))
 const TasksBoard = lazy(() => import('./pages/TasksBoard'))
 const SpinozaEthicsStudy = lazy(() => import('./pages/SpinozaEthicsStudy'))
 const LeibnizStudy = lazy(() => import('./pages/LeibnizStudy'))
@@ -600,6 +601,10 @@ function App() {
         <Route
           path="/semestre/5/etica/clase/8-octubre"
           element={<EthicsClass08Oct />}
+        />
+        <Route
+          path="/semestre/5/etica/clase/13-octubre"
+          element={<EthicsClass13Oct />}
         />
         <Route
           path="/tareas/ontologia-ii/spinoza-etica-parte-i"

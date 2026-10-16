@@ -22,6 +22,7 @@ test('cada filtro de autor sólo devuelve obras atribuidas', () => {
   assert.equal(worksByAuthor(books, 'Illouz, Eva').length, 2)
   assert.equal(worksByAuthor(books, 'Kant, Immanuel').length, 1)
   assert.equal(worksByAuthor(books, 'Adorno, Theodor W.').length, 1)
+  assert.equal(worksByAuthor(books, 'Luciano de Samósata').length, 1)
 })
 
 test('la autoría compartida no genera relaciones falsas', () => {
@@ -29,7 +30,7 @@ test('la autoría compartida no genera relaciones falsas', () => {
   assert.equal(worksByAuthor(books, 'Sautu, Ruth').length, 1)
   assert.equal(worksByAuthor(books, 'Wainerman, Catalina').length, 1)
   assert.equal(isWorkByAuthor({autor:'Wainerman y Sautu'}, 'Russell, Bertrand'), false)
-  assert.equal(authors.length,81)
+  assert.equal(authors.length,82)
 })
 
 test('Ética Nicomáquea pertenece al área editorial de ética', () => {

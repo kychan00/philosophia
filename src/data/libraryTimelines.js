@@ -1,6 +1,15 @@
 // Índice de menciones documentadas en notas de clase; no implica lectura textual de las obras.
 export const libraryTimelines = {
   "works": {
+    "Luciano - El banquete o los lapitas": [
+      {
+          "date": "2026-10-13",
+          "area": "Ética",
+          "title": "Ética - Luciano, sátira y coherencia de vida",
+          "url": "/semestre/5/etica/clase/13-octubre",
+          "type": "enlace a la obra"
+    }
+    ],
     "Peirce - La fijación de la creencia": [
       {
         "date": "2026-01-19",
@@ -358,6 +367,15 @@ export const libraryTimelines = {
     ]
   },
   "authors": {
+    "Luciano de Samósata": [
+      {
+          "date": "2026-10-13",
+          "area": "Ética",
+          "title": "Ética - Luciano, sátira y coherencia de vida",
+          "url": "/semestre/5/etica/clase/13-octubre",
+          "type": "autor mencionado"
+    }
+    ],
     "Parménides": [
       {
         "date": "2026-02-06",
@@ -389,6 +407,13 @@ export const libraryTimelines = {
       }
     ],
     "Platón": [
+      {
+          "date": "2026-10-13",
+          "area": "Ética",
+          "title": "Ética - Luciano, sátira y coherencia de vida",
+          "url": "/semestre/5/etica/clase/13-octubre",
+          "type": "autor mencionado"
+    },
       {
         "date": "2026-02-06",
         "area": "Cosmología",
@@ -1853,6 +1878,13 @@ export const libraryTimelines = {
     ],
     "Sócrates": [
       {
+          "date": "2026-10-13",
+          "area": "Ética",
+          "title": "Ética - Luciano, sátira y coherencia de vida",
+          "url": "/semestre/5/etica/clase/13-octubre",
+          "type": "autor mencionado"
+    },
+      {
         "date": "2026-03-18",
         "area": "Filosofía de la Lógica",
         "title": "Frege, validez, necesidad y platonismo",
@@ -2265,6 +2297,13 @@ export const libraryTimelines = {
       }
     ],
     "Nietzsche, Friedrich": [
+      {
+          "date": "2026-10-13",
+          "area": "Ética",
+          "title": "Ética - Luciano, sátira y coherencia de vida",
+          "url": "/semestre/5/etica/clase/13-octubre",
+          "type": "autor mencionado"
+    },
       {
         "date": "2026-10-07",
         "area": "Ontología II",
