@@ -6,6 +6,7 @@ import {
   lukacsOntologyRoutes,
   lukacsOntologyComparisons,
   lukacsOntologyCrossRelations,
+  lukacsOntologyRelationStudyRoutes,
   lukacsOntologySource,
 } from '../src/data/lukacsOntologySystem.js'
 
@@ -64,6 +65,33 @@ test('relaciones transversales resuelven nodos y distinguen voces', () => {
   assert.match(voiceRelation.distinction, /Ballestero/)
 })
 
+test('rutas Relaciones II resuelven nodos, relaciones y orden pedagógico explícito', () => {
+  const nodeIds = new Set(lukacsOntologyNodes.map(node => node.id))
+  const relations = new Map(lukacsOntologyCrossRelations.map(relation => [relation.id, relation]))
+  assert.equal(lukacsOntologyRelationStudyRoutes.length, 6)
+  assert.equal(new Set(lukacsOntologyRelationStudyRoutes.map(route => route.id)).size, 6)
+
+  for (const route of lukacsOntologyRelationStudyRoutes) {
+    assert.ok(route.id.startsWith('rii-'))
+    assert.ok(route.nodeIds.length >= 4)
+    assert.ok(route.relationIds.length >= 1)
+    assert.ok(route.description && route.boundary && route.question)
+    assert.match(route.boundary, /RUTA DE ESTUDIO PHILOSOPHIA/)
+    assert.ok(route.nodeIds.every(id => nodeIds.has(id)), route.id + ': nodo inexistente')
+
+    for (const relationId of route.relationIds) {
+      const relation = relations.get(relationId)
+      assert.ok(relation, route.id + ': relación inexistente ' + relationId)
+      assert.ok(route.nodeIds.includes(relation.source), route.id + ': falta source de ' + relationId)
+      assert.ok(route.nodeIds.includes(relation.target), route.id + ': falta target de ' + relationId)
+    }
+  }
+
+  const praxis = lukacsOntologyRelationStudyRoutes.find(route => route.id === 'rii-trabajo-genero-valores')
+  assert.deepEqual(praxis.nodeIds, ['M02','D02','L04','D09','L06','D11','L07'])
+  assert.deepEqual(praxis.relationIds, ['LO09','LO16','LO08'])
+})
+
 test('confrontaciones HCC permanecen parciales y ancladas en nodos documentados', () => {
   const ids = new Set(lukacsOntologyNodes.map(node => node.id))
   assert.equal(lukacsOntologyComparisons.length, 8)
@@ -89,4 +117,6 @@ test('página pública usa etiquetas documentales y no presenta paráfrasis como
   assert.match(page, /estructura nuclear/)
   assert.match(page, /CONFRONTACIÓN HCC · FASE 7/)
   assert.match(page, /RECONSTRUCCIÓN COMPARATIVA/)
+  assert.match(page, /ITINERA RELATIONUM II/)
+  assert.match(page, /Rutas transversales de estudio/)
 })
