@@ -840,6 +840,66 @@ export const lukacsOntologyConceptualEdges=lukacsOntologyCrossRelations.map((rel
 export const lukacsOntologyCrossRelationById=(id)=>relationMap.get(id)||null
 export const lukacsOntologyNodeById=(id)=>nodeMap.get(id)||null
 
+export const lukacsOntologyRelationStudyRoutes=[
+  {
+    id:'rii-objetivacion-alienacion',
+    label:'Objetivación → alienación',
+    nodeIds:['M02','M03','D02','H03'],
+    relationIds:['LO10'],
+    description:'Del trabajo como praxis objetivante a la posibilidad histórica de formas alienadas, sin identificar objetivación y alienación.',
+    boundary:'RUTA DE ESTUDIO PHILOSOPHIA · reconstrucción transversal; no es una secuencia literal de Lukács.',
+    question:'¿Qué mediaciones adicionales hacen que una objetivación social pueda adquirir una forma alienada?',
+  },
+  {
+    id:'rii-totalidad-derecho-arte',
+    label:'Totalidad → derecho → arte',
+    nodeIds:['M05','D03','L02','D08','L03'],
+    relationIds:['LO11','LO15'],
+    description:'De la totalidad como complejo de complejos a dos formas distintas de autonomía relativa y desarrollo desigual: derecho y arte.',
+    boundary:'RUTA DE ESTUDIO PHILOSOPHIA · derecho y arte no se homologan; se comparan como complejos heterogéneos.',
+    question:'¿Qué comparten derecho y arte como complejos y qué obliga a estudiarlos de manera diferenciada?',
+  },
+  {
+    id:'rii-trabajo-genero-valores',
+    label:'Trabajo → genericidad → valores',
+    nodeIds:['M02','D02','L04','D09','L06','D11','L07'],
+    relationIds:['LO09','LO16','LO08'],
+    description:'Sigue cómo trabajo, capacidades, lenguaje e intercambio abren hacia la genericidad social y, desde allí, hacia el problema de la continuidad histórica de los valores.',
+    boundary:'RUTA DE ESTUDIO PHILOSOPHIA · las flechas indican continuidad pedagógica documentada, no deducción lineal del autor.',
+    question:'¿Cómo se pasa de la praxis laboral a una genericidad histórica capaz de sostener valores sin volverlos eternos?',
+  },
+  {
+    id:'rii-tendencia-azar-economicismo',
+    label:'Tendencia → azar → anti-economicismo',
+    nodeIds:['C04','D04','H05','D07','H06','L06'],
+    relationIds:['LO04','LO12','LO14'],
+    description:'Articula ley tendencial, contingencia, mediaciones y crítica de la predicción total para desembocar en una primacía económica no mecanicista.',
+    boundary:'RUTA DE ESTUDIO PHILOSOPHIA · legalidad no equivale a predictibilidad y primacía económica no equivale a monocausalidad.',
+    question:'¿Cómo conservar legalidad objetiva y primacía económica sin caer en fatalismo ni predicción exhaustiva?',
+  },
+  {
+    id:'rii-progreso-desigualdad',
+    label:'Progreso → clasicidad → desarrollo desigual',
+    nodeIds:['H03','H08','L01','L02','L03'],
+    relationIds:['LO05','LO06','LO15'],
+    description:'Recorre la tensión entre progreso objetivo y formas contradictorias, pasa por la clasicidad y desemboca en desarrollos desiguales del derecho y el arte.',
+    boundary:'RUTA DE ESTUDIO PHILOSOPHIA · reconocer progreso objetivo no justifica moralmente sus formas fenoménicas.',
+    question:'¿Cómo puede haber progreso objetivo sin desarrollo homogéneo ni un modelo histórico universal?',
+  },
+  {
+    id:'rii-complejos-integracion',
+    label:'Complejos → integración → economía mundial',
+    nodeIds:['M05','H04','L05','D10'],
+    relationIds:['LO03','LO13'],
+    description:'Conecta la totalidad de complejos y la formación de tendencias supraindividuales con la integración contradictoria de la humanidad y la economía mundial.',
+    boundary:'RUTA DE ESTUDIO PHILOSOPHIA · integración objetiva no significa finalidad teleológica ni armonía social.',
+    question:'¿Cómo puede emerger una integración mundial objetiva de acciones y complejos que no la planearon como totalidad?',
+  },
+]
+
+const relationStudyRouteMap=new Map(lukacsOntologyRelationStudyRoutes.map((route)=>[route.id,route]))
+export const lukacsOntologyRelationStudyRouteById=(id)=>relationStudyRouteMap.get(id)||null
+
 export const lukacsOntologyRoutes=[
   {id:'all',label:'Todo el sistema'},
   {id:'editorial',label:'Introducción de Ballestero'},
