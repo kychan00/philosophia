@@ -1,3 +1,5 @@
+import { layoutLukacsOntologyNodes } from './lukacsOntologyLayout.js'
+
 const isArrow = (item) => ['→','↔','≠','+','⇢'].includes(item)
 
 const makeSchema = (id, title, diagram, critical = false) => {
@@ -46,7 +48,7 @@ const N=({
   },
 })
 
-export const lukacsOntologyNodes=[
+const rawLukacsOntologyNodes=[
   N({
     id:'O01',code:'ED.01',title:'La ontología como clave de lectura de Marx',page:'5–22',
     phase:'Introducción editorial',branch:['editorial','method'],
@@ -598,6 +600,8 @@ export const lukacsOntologyNodes=[
     diagram:['historicidad','→','continuidad','→','praxis futura'],critical:true,position:P(6240,80),
   }),
 ]
+
+export const lukacsOntologyNodes=layoutLukacsOntologyNodes(rawLukacsOntologyNodes)
 
 const nodeMap=new Map(lukacsOntologyNodes.map((node)=>[node.id,node]))
 lukacsOntologyNodes.forEach((node)=>{node.data.produces=[]})
