@@ -29,9 +29,31 @@ import {
   lukacsOntologyNodeById,
   lukacsOntologyNodes,
   lukacsOntologyPhases,
+  lukacsOntologyRelationStudyRouteById,
+  lukacsOntologyRelationStudyRoutes,
   lukacsOntologyRoutes,
   lukacsOntologySource,
 } from '../data/lukacsOntologySystem'
+
+const relationRouteIdsByNode=new Map()
+lukacsOntologyRelationStudyRoutes.forEach((route)=>{
+  route.nodeIds.forEach((nodeId)=>{
+    const current=relationRouteIdsByNode.get(nodeId)||[]
+    relationRouteIdsByNode.set(nodeId,[...current,route.id])
+  })
+})
+
+const lukacsOntologyPedagogyNodes=lukacsOntologyNodes.map((node)=>({
+  ...node,
+  data:{
+    ...node.data,
+    branch:[...node.data.branch,...(relationRouteIdsByNode.get(node.id)||[])],
+  },
+}))
+const lukacsOntologyPedagogyRoutes=[
+  ...lukacsOntologyRoutes,
+  ...lukacsOntologyRelationStudyRoutes.map(({id,label})=>({id,label})),
+]
 
 const nodeTypes = {
   text: LukacsOntologyNode,
@@ -59,6 +81,7 @@ function relatedSet(id, includeConceptual = false) {
 
 function StudyCanvas() {
   const [route, setRoute] = useState('all')
+  const [relationRouteId, setRelationRouteId] = useState(null)
   const [selectedId, setSelectedId] = useState(null)
   const [folioId, setFolioId] = useState(null)
   const [relationId, setRelationId] = useState(null)
@@ -81,6 +104,10 @@ function StudyCanvas() {
   const [workspaceFullscreen, setWorkspaceFullscreen] = useState(false)
   const [overlayHost, setOverlayHost] = useState(() => document.body)
   const { fitView, setCenter, getNodes } = useReactFlow()
+
+  const activeRelationRoute = lukacsOntologyRelationStudyRouteById(relationRouteId)
+  const filteredRouteActive = Boolean(activeRelationRoute) || route !== 'all'
+  const activeStudyRouteId = activeRelationRoute?.id || route
 
   const selected = lukacsOntologyNodeById(selectedId)
   const folio = lukacsOntologyNodeById(folioId)
@@ -142,30 +169,33 @@ function StudyCanvas() {
   }, [fitView, workspaceFullscreen])
 
   const routeIds = useMemo(() => {
+    if (activeRelationRoute) return new Set(activeRelationRoute.nodeIds)
     if (route === 'all') return new Set(lukacsOntologyNodes.map((node) => node.id))
     return new Set(
       lukacsOntologyNodes
         .filter((node) => node.data.branch.includes(route))
         .map((node) => node.id),
     )
-  }, [route])
+  }, [activeRelationRoute, route])
 
   const routeSupport = useMemo(() => {
-    if (route === 'all') return new Set()
+    if (activeRelationRoute || route === 'all') return new Set()
     const support = new Set()
     lukacsOntologyNodes.forEach((node) => {
       if (!routeIds.has(node.id)) return
       node.data.dependsOn.forEach((id) => support.add(id))
     })
     return support
-  }, [route, routeIds])
+  }, [activeRelationRoute, route, routeIds])
 
   const routeSequence = useMemo(
     () =>
-      lukacsOntologyNodes
-        .filter((node) => route === 'all' || routeIds.has(node.id))
-        .map((node) => node.id),
-    [route, routeIds],
+      activeRelationRoute
+        ? activeRelationRoute.nodeIds
+        : lukacsOntologyNodes
+            .filter((node) => route === 'all' || routeIds.has(node.id))
+            .map((node) => node.id),
+    [activeRelationRoute, route, routeIds],
   )
 
   const routeNumberById = useMemo(
@@ -174,14 +204,16 @@ function StudyCanvas() {
   )
 
   const routeCurrentIndex =
-    route !== 'all' && selectedId ? routeSequence.indexOf(selectedId) : -1
+    filteredRouteActive && selectedId ? routeSequence.indexOf(selectedId) : -1
   const routePrevId = routeCurrentIndex > 0 ? routeSequence[routeCurrentIndex - 1] : null
   const routeNextId =
     routeCurrentIndex >= 0
       ? routeSequence[routeCurrentIndex + 1] || null
       : routeSequence[0] || null
   const routeCurrentLabel =
-    lukacsOntologyRoutes.find((item) => item.id === route)?.label || 'Ruta conceptual'
+    activeRelationRoute?.label
+    || lukacsOntologyRoutes.find((item) => item.id === route)?.label
+    || 'Ruta conceptual'
 
   const selection = useMemo(
     () => relatedSet(selectedId, conceptualMode),
@@ -219,21 +251,21 @@ function StudyCanvas() {
           ...node,
           hidden: guidedMode
             ? !isGuidedCurrent && !isGuidedNext
-            : route === 'all'
-              ? Boolean(node.data.micro) && !detailMode
-              : !routeActive && !support,
+            : filteredRouteActive
+              ? !routeActive && !support
+              : Boolean(node.data.micro) && !detailMode,
           draggable: false,
           data: {
             ...node.data,
-            routeActive: route !== 'all' && routeActive,
-            routeNumber: route !== 'all' && routeActive ? routeNumberById.get(node.id) || null : null,
-            routeTotal: route !== 'all' && routeActive ? routeSequence.length : null,
+            routeActive: filteredRouteActive && routeActive,
+            routeNumber: filteredRouteActive && routeActive ? routeNumberById.get(node.id) || null : null,
+            routeTotal: filteredRouteActive && routeActive ? routeSequence.length : null,
             highlighted: !guidedMode && selectedId && node.id !== selectedId && inSelection,
             dimmed: guidedMode
               ? !isGuidedCurrent && !isGuidedNext && node.id !== selectedId
-              : route === 'all'
-                ? Boolean(selectedId) && !inSelection
-                : !routeActive && !support,
+              : filteredRouteActive
+                ? !routeActive && !support
+                : Boolean(selectedId) && !inSelection,
             guidedCurrent: isGuidedCurrent,
             guidedNext: isGuidedNext,
             onOpenFolio: () => setFolioId(node.id),
@@ -252,6 +284,7 @@ function StudyCanvas() {
       guidedStep,
       guidedNext,
       detailMode,
+      filteredRouteActive,
     ],
   )
 
@@ -264,7 +297,11 @@ function StudyCanvas() {
         const conceptual = edge.layer === 'conceptual'
         const sourceVisible = routeIds.has(edge.source) || routeSupport.has(edge.source)
         const targetVisible = routeIds.has(edge.target) || routeSupport.has(edge.target)
-        const routeVisible = route === 'all' || (sourceVisible && targetVisible)
+        const routeVisible = !filteredRouteActive || (sourceVisible && targetVisible)
+        const relationRouteAllowsEdge =
+          !activeRelationRoute
+          || !conceptual
+          || activeRelationRoute.relationIds.includes(edge.relationSheetId)
         const guidedActive =
           guidedMode &&
           guidedCurrent &&
@@ -284,7 +321,7 @@ function StudyCanvas() {
 
         return {
           ...edge,
-          hidden: !guidedMode && !routeVisible,
+          hidden: !guidedMode && (!routeVisible || !relationRouteAllowsEdge),
           type:'smoothstep',
           label: conceptual ? edge.label : undefined,
           labelStyle: conceptual ? { fill:stroke, fontSize:9, fontWeight:800 } : undefined,
@@ -297,7 +334,7 @@ function StudyCanvas() {
               ? guidedActive ? 1 : 0.04
               : conceptual ? touchesSelected ? 1 : 0.78
               : touchesSelected ? 1
-              : route === 'all' ? 0.28 : 0.64,
+              : !filteredRouteActive ? 0.28 : 0.64,
           },
           markerEnd:{
             type:MarkerType.ArrowClosed,
@@ -316,8 +353,32 @@ function StudyCanvas() {
       routeIds,
       routeSupport,
       selectedId,
+      activeRelationRoute,
+      filteredRouteActive,
     ],
   )
+
+  const activateStudyRoute = useCallback((id) => {
+    const relationRoute = lukacsOntologyRelationStudyRouteById(id)
+    setGuidedMode(false)
+    setSelectedId(null)
+    setRelationId(null)
+    setComparisonId(null)
+
+    if (relationRoute) {
+      setRoute('all')
+      setRelationRouteId(id)
+      setConceptualMode(true)
+      setDetailMode(true)
+      return
+    }
+
+    setRelationRouteId(null)
+    setRoute(id)
+    if (id === 'all') {
+      window.setTimeout(() => fitView({ padding:0.08, duration:500 }), 0)
+    }
+  }, [fitView])
 
   const selectNode = useCallback(
     (node) => {
@@ -372,6 +433,7 @@ function StudyCanvas() {
 
       setGuidedMode(true)
       setRoute('all')
+      setRelationRouteId(null)
       setGuidedIndex(safe)
       setSelectedId(node.id)
       setRelationId(null)
@@ -390,7 +452,7 @@ function StudyCanvas() {
   )
 
   useEffect(() => {
-    if (guidedMode || route === 'all') return
+    if (guidedMode || !filteredRouteActive) return
     const timer = window.setTimeout(() => {
       const visible = getNodes().filter((node) => !node.hidden)
       if (visible.length) {
@@ -398,7 +460,7 @@ function StudyCanvas() {
       }
     }, 120)
     return () => window.clearTimeout(timer)
-  }, [route, guidedMode, getNodes, fitView])
+  }, [route, activeRelationRoute, filteredRouteActive, guidedMode, getNodes, fitView])
 
   useEffect(() => {
     if (!folioId && !relationId && !comparisonId) return undefined
@@ -534,15 +596,8 @@ function StudyCanvas() {
             <button
               key={item.id}
               type="button"
-              className={route === item.id ? 'is-active' : ''}
-              onClick={() => {
-                setGuidedMode(false)
-                setRoute(item.id)
-                setSelectedId(null)
-                if (item.id === 'all') {
-                  setTimeout(() => fitView({ padding:0.08, duration:500 }), 0)
-                }
-              }}
+              className={!relationRouteId && route === item.id ? 'is-active' : ''}
+              onClick={() => activateStudyRoute(item.id)}
             >
               {item.label}
             </button>
@@ -557,6 +612,7 @@ function StudyCanvas() {
               setGuidedMode(false)
               setDetailMode((value) => !value)
               if (route !== 'all') setRoute('all')
+              setRelationRouteId(null)
               setSelectedId(null)
               window.setTimeout(() => fitView({ padding:0.08, duration:450 }), 0)
             }}
@@ -580,6 +636,7 @@ function StudyCanvas() {
               setConceptualMode(false)
               setDetailMode(false)
               setRoute('all')
+              setRelationRouteId(null)
               setSelectedId(null)
               setRelationId(null)
               setTimeout(() => fitView({ padding:0.08, duration:500 }), 0)
@@ -588,6 +645,41 @@ function StudyCanvas() {
             Ver sistema completo
           </button>
         </div>
+      </section>
+
+      <section className="lukacs-relation-study-routes">
+        <header>
+          <span>ITINERA RELATIONUM II</span>
+          <strong>Rutas transversales de estudio</strong>
+          <p>Recorridos editoriales construidos sólo con nodos y Relaciones II documentados. El orden pedagógico no se atribuye como secuencia literal de Lukács.</p>
+        </header>
+        <div className="lukacs-relation-route-buttons">
+          {lukacsOntologyRelationStudyRoutes.map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              className={relationRouteId === item.id ? 'is-active' : ''}
+              onClick={() => activateStudyRoute(item.id)}
+            >
+              <b>{item.label}</b>
+              <small>{item.nodeIds.length} nodos · {item.relationIds.join(' · ')}</small>
+            </button>
+          ))}
+        </div>
+        {activeRelationRoute && (
+          <article className="lukacs-relation-route-active">
+            <div>
+              <span>RUTA ACTIVA · {activeRelationRoute.nodeIds.length} PASOS</span>
+              <strong>{activeRelationRoute.label}</strong>
+              <p>{activeRelationRoute.description}</p>
+            </div>
+            <aside>
+              <span>FRONTERA</span>
+              <p>{activeRelationRoute.boundary}</p>
+              <strong>{activeRelationRoute.question}</strong>
+            </aside>
+          </article>
+        )}
       </section>
 
       <section
@@ -650,11 +742,11 @@ function StudyCanvas() {
         <aside className="marx-inspector">
           <div className="marx-inspector-scroll">
           <SectionPedagogy
-            nodes={lukacsOntologyNodes}
-            routes={lukacsOntologyRoutes}
-            activeRoute={route}
+            nodes={lukacsOntologyPedagogyNodes}
+            routes={lukacsOntologyPedagogyRoutes}
+            activeRoute={activeStudyRouteId}
             selectedId={selectedId}
-            onSectionChange={(id) => { setGuidedMode(false); setRoute(id); setSelectedId(null) }}
+            onSectionChange={activateStudyRoute}
             onFocusNode={(id) => {
               setGuidedMode(false)
               selectById(id)
@@ -806,7 +898,7 @@ function StudyCanvas() {
             )}
           </div>
 
-          {workspaceFullscreen && !guidedMode && route !== 'all' && routeSequence.length > 0 && (
+          {workspaceFullscreen && !guidedMode && filteredRouteActive && routeSequence.length > 0 && (
             <div className="marx-inspector-route-footer" aria-label="Navegación de ruta">
               <button type="button" disabled={!routePrevId} onClick={() => jumpRouteNode(routePrevId)}>
                 ← Anterior
