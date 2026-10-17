@@ -143,8 +143,10 @@ try{
 
   assert.equal(await evaluate("([...document.querySelectorAll('.ph2d-pedagogy-actions button')].find(b=>b.textContent.includes('Guía de esta sección'))?.click(),true)"),true)
   await until(()=>evaluate("document.querySelector('.ph2d-pedagogy-work')?.textContent.includes('GUÍA EXHAUSTIVA · 1 / 7')"),'guía Relaciones II paso 1')
+  assert.equal(await evaluate("document.querySelector('.ph2d-pedagogy-work')?.textContent.includes('Trabajo: teleología dentro de causalidades')"),true)
   assert.equal(await evaluate("([...document.querySelectorAll('.ph2d-pedagogy-work .ph2d-pedagogy-nav button')].find(b=>b.textContent.includes('Siguiente'))?.click(),true)"),true)
   await until(()=>evaluate("document.querySelector('.ph2d-pedagogy-work')?.textContent.includes('GUÍA EXHAUSTIVA · 2 / 7')"),'guía Relaciones II paso 2')
+  assert.equal(await evaluate("document.querySelector('.ph2d-pedagogy-work')?.textContent.includes('Objetivación y transformación de capacidades')"),true)
   console.log('OK ruta Relaciones II navegable + guía exhaustiva')
 
   assert.equal(await evaluate("([...document.querySelectorAll('.marx-study-routes button')].find(b=>b.textContent.trim()==='Economía política')?.click(),true)"),true)
