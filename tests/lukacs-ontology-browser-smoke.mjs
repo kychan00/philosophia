@@ -134,6 +134,19 @@ try{
   await evaluate("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))")
   await until(()=>evaluate("!document.querySelector('.marx-folio')"),'cerrar folio')
 
+  assert.equal(await evaluate("([...document.querySelectorAll('.lukacs-relation-route-buttons button')].find(b=>b.textContent.includes('Trabajo → genericidad → valores'))?.click(),true)"),true)
+  await until(()=>evaluate("document.querySelectorAll('.marx-flow-canvas .react-flow__node').length===7"),'ruta Relaciones II con 7 nodos')
+  await until(()=>evaluate("document.querySelector('[data-ph2d-section=\"rii-trabajo-genero-valores\"]')!==null"),'pedagogía de ruta Relaciones II')
+  assert.equal(await evaluate("document.querySelector('.lukacs-relation-route-active')?.textContent.includes('RUTA ACTIVA · 7 PASOS')"),true)
+  assert.equal(await evaluate("document.querySelector('.lukacs-relation-route-active')?.textContent.includes('RUTA DE ESTUDIO PHILOSOPHIA')"),true)
+  assert.equal(await evaluate("document.documentElement.scrollWidth<=window.innerWidth+2"),true)
+
+  assert.equal(await evaluate("([...document.querySelectorAll('.ph2d-pedagogy-actions button')].find(b=>b.textContent.includes('Guía de esta sección'))?.click(),true)"),true)
+  await until(()=>evaluate("document.querySelector('.ph2d-pedagogy-work')?.textContent.includes('GUÍA EXHAUSTIVA · 1 / 7')"),'guía Relaciones II paso 1')
+  assert.equal(await evaluate("([...document.querySelectorAll('.ph2d-pedagogy-work .ph2d-pedagogy-nav button')].find(b=>b.textContent.includes('Siguiente'))?.click(),true)"),true)
+  await until(()=>evaluate("document.querySelector('.ph2d-pedagogy-work')?.textContent.includes('GUÍA EXHAUSTIVA · 2 / 7')"),'guía Relaciones II paso 2')
+  console.log('OK ruta Relaciones II navegable + guía exhaustiva')
+
   assert.equal(await evaluate("([...document.querySelectorAll('.marx-study-routes button')].find(b=>b.textContent.trim()==='Economía política')?.click(),true)"),true)
   await until(()=>evaluate("document.body.textContent.includes('Mercancía, valor y trabajo abstracto')"),'ruta Economía política')
   assert.equal(await evaluate("(()=>{const n=[...document.querySelectorAll('.marx-flow-canvas .react-flow__node')].find(el=>el.textContent.includes('Mercancía, valor y trabajo abstracto'));if(!n)return false;n.dispatchEvent(new MouseEvent('click',{bubbles:true}));return true})()"),true)
