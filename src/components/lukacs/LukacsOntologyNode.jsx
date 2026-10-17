@@ -1,4 +1,5 @@
 import { Handle, Position } from '@xyflow/react'
+import './LukacsOntologyNode.css'
 
 const PHASE_TONES = Object.freeze({
   'Introducción editorial': 'bronze',
@@ -16,6 +17,8 @@ export default function LukacsOntologyNode({ data, selected }) {
       style={{ '--ph2d-node-accent': `var(--ph2d-topic-${topicTone})` }}
       className={[
         'marx-flow-node',
+        'lukacs-flow-node',
+        'lukacs-ontology-flow-node',
         data.critical ? 'is-critical' : '',
         data.micro ? 'is-micro' : '',
         selected ? 'is-selected' : '',
