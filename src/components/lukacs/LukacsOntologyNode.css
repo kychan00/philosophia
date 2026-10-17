@@ -1,0 +1,24 @@
+@import './LukacsReificationNode.css';
+
+/* Ontología del ser social: comparte la geometría estable de Lukács (BUG-005),
+   pero conserva semántica de paráfrasis en <p>, no blockquote. */
+.lukacs-ontology-flow-node .lukacs-node-reading>p{
+  flex:1 1 auto;
+  min-height:0;
+  margin:0;
+  padding:0 .45rem 0 0;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;
+  font-size:.73rem;
+  line-height:1.54;
+  color:var(--mx-ink);
+  outline-offset:2px;
+}
+.lukacs-ontology-flow-node .lukacs-node-reading>p:focus-visible{
+  outline:2px solid var(--mx-green);
+}
+@media(max-width:780px){
+  .lukacs-ontology-flow-node .lukacs-node-reading>p{font-size:.95rem}
+}
