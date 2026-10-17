@@ -744,6 +744,7 @@ function StudyCanvas() {
           <SectionPedagogy
             nodes={lukacsOntologyPedagogyNodes}
             routes={lukacsOntologyPedagogyRoutes}
+            nodeOrder={activeRelationRoute?.nodeIds || []}
             activeRoute={activeStudyRouteId}
             selectedId={selectedId}
             onSectionChange={activateStudyRoute}
