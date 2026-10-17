@@ -2,6 +2,13 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import {
+  LUKACS_ONTOLOGY_HORIZONTAL_GAP,
+  LUKACS_ONTOLOGY_NODE_HEIGHT,
+  LUKACS_ONTOLOGY_NODE_WIDTH,
+  LUKACS_ONTOLOGY_VERTICAL_GAP,
+  layoutLukacsOntologyNodes,
+} from '../src/data/lukacsOntologyLayout.js'
+import {
   lukacsOntologyNodes,
   lukacsOntologyRoutes,
   lukacsOntologyComparisons,
@@ -25,6 +32,30 @@ test('ontología social conserva nodos documentales y rutas no vacías', () => {
     assert.ok(node.data.dependsOn.every(id => ids.has(id)), node.id + ': dependencia inexistente')
     assert.ok(!/cita literal/i.test(node.data.sourcePassage), node.id + ': no debe fingir cita textual')
   }
+})
+
+test('layout de ontología mantiene todos los nodos físicamente separados', () => {
+  assert.equal(layoutLukacsOntologyNodes(lukacsOntologyNodes).length, 42)
+
+  for (let i = 0; i < lukacsOntologyNodes.length; i++) {
+    for (let j = i + 1; j < lukacsOntologyNodes.length; j++) {
+      const a = lukacsOntologyNodes[i]
+      const b = lukacsOntologyNodes[j]
+      const dx = Math.abs(a.position.x - b.position.x) - LUKACS_ONTOLOGY_NODE_WIDTH
+      const dy = Math.abs(a.position.y - b.position.y) - LUKACS_ONTOLOGY_NODE_HEIGHT
+      assert.ok(
+        dx >= LUKACS_ONTOLOGY_HORIZONTAL_GAP - 0.001
+          || dy >= LUKACS_ONTOLOGY_VERTICAL_GAP - 0.001,
+        a.id + '/' + b.id + ' se superponen',
+      )
+    }
+  }
+
+  const css = readFileSync(new URL('../src/components/lukacs/LukacsOntologyNode.css', import.meta.url), 'utf8')
+  const shared = readFileSync(new URL('../src/components/lukacs/LukacsReificationNode.css', import.meta.url), 'utf8')
+  assert.match(css, /LukacsReificationNode\.css/)
+  assert.match(shared, /height:600px/)
+  assert.match(css, /lukacs-node-reading>p\{[^}]*overflow-y:auto/s)
 })
 
 test('granularización conserva 12 micro-nodos sin alterar la ruta nuclear', () => {
