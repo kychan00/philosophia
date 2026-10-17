@@ -46,6 +46,25 @@ async function until(predicate,label,maxChecks=80){
   throw new Error('Timeout: '+label)
 }
 
+async function assertNoVisibleNodeOverlap(label){
+  const overlaps=await evaluate(`(()=>{
+    const nodes=[...document.querySelectorAll('.marx-flow-canvas .react-flow__node')]
+      .filter(el=>{const r=el.getBoundingClientRect();return r.width>1&&r.height>1})
+      .map(el=>({id:el.getAttribute('data-id')||el.textContent.slice(0,24),r:el.getBoundingClientRect()}))
+    const hits=[]
+    for(let i=0;i<nodes.length;i++){
+      for(let j=i+1;j<nodes.length;j++){
+        const a=nodes[i],b=nodes[j]
+        const x=Math.min(a.r.right,b.r.right)-Math.max(a.r.left,b.r.left)
+        const y=Math.min(a.r.bottom,b.r.bottom)-Math.max(a.r.top,b.r.top)
+        if(x>2&&y>2) hits.push(a.id+' / '+b.id+' ('+Math.round(x)+'×'+Math.round(y)+')')
+      }
+    }
+    return hits
+  })()`)
+  assert.deepEqual(overlaps,[],label+': nodos visualmente superpuestos: '+overlaps.join(', '))
+}
+
 async function navigateViewport(width,height){
   await send('Emulation.setDeviceMetricsOverride',{
     width,height,deviceScaleFactor:2,mobile:width<=768
@@ -61,7 +80,8 @@ async function navigateViewport(width,height){
   assert.equal(metrics.nodes,30)
   assert.equal(metrics.pedagogy,true)
   assert.equal(metrics.detailButton,true)
-  console.log('OK Lukács viewport',width,height,metrics)
+  await assertNoVisibleNodeOverlap('viewport '+width+'×'+height)
+  console.log('OK Lukács viewport sin nodos encimados',width,height,metrics)
 }
 
 try{
@@ -114,7 +134,8 @@ try{
   )
   assert.equal(await evaluate("document.documentElement.scrollWidth<=window.innerWidth+2"),true)
   assert.equal(await evaluate("document.body.textContent.includes('DET.01')"),true)
-  console.log('OK capa de detalle 30 → 42')
+  await assertNoVisibleNodeOverlap('capa detalle 42')
+  console.log('OK capa de detalle 30 → 42 sin solapes')
 
   assert.equal(await evaluate("([...document.querySelectorAll('.marx-study-routes button')].find(b=>b.textContent.trim()==='Trabajo y praxis')?.click(),true)"),true)
   await until(
@@ -140,6 +161,7 @@ try{
   assert.equal(await evaluate("document.querySelector('.lukacs-relation-route-active')?.textContent.includes('RUTA ACTIVA · 7 PASOS')"),true)
   assert.equal(await evaluate("document.querySelector('.lukacs-relation-route-active')?.textContent.includes('RUTA DE ESTUDIO PHILOSOPHIA')"),true)
   assert.equal(await evaluate("document.documentElement.scrollWidth<=window.innerWidth+2"),true)
+  await assertNoVisibleNodeOverlap('ruta RII-03')
 
   assert.equal(await evaluate("([...document.querySelectorAll('.ph2d-pedagogy-actions button')].find(b=>b.textContent.includes('Guía de esta sección'))?.click(),true)"),true)
   await until(()=>evaluate("document.querySelector('.ph2d-pedagogy-work')?.textContent.includes('GUÍA EXHAUSTIVA · 1 / 7')"),'guía Relaciones II paso 1')
