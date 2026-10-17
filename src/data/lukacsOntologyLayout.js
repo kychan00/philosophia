@@ -32,11 +32,15 @@ export function layoutLukacsOntologyNodes(nodes) {
     const originalCenter =
       sorted.reduce((sum, node) => sum + node.position.y, 0) / Math.max(sorted.length, 1)
 
-    const rawRows = sorted.map((node, index) => {
-      if (index === 0) return node.position.y
-      const previous = sorted[index - 1]
-      const previousPlaced = placedById.get(previous.id)?.position.y ?? previous.position.y
-      return Math.max(node.position.y, previousPlaced + LUKACS_ONTOLOGY_ROW_STEP)
+    const rawRows = []
+    sorted.forEach((node, index) => {
+      if (index === 0) {
+        rawRows.push(node.position.y)
+        return
+      }
+      rawRows.push(
+        Math.max(node.position.y, rawRows[index - 1] + LUKACS_ONTOLOGY_ROW_STEP),
+      )
     })
 
     const rawCenter =
