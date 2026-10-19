@@ -1,0 +1,73 @@
+
+.ont19-page { --ont19-wine:#66281f; --ont19-gold:#aa8248; --ont19-ink:#29231e; --ont19-paper:#f2ebdd; color:var(--ont19-ink); }
+.ont19-brochure { max-width:1540px; margin-inline:auto; background:var(--ont19-paper); min-height:100vh; position:relative; }
+.ont19-cover {display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:clamp(1.4rem,4vw,4rem);padding:clamp(2rem,5vw,5rem);background:#692b22;color:#fbf3e5;align-items:center}
+.ont19-cover-text {min-width:0}
+.ont19-cover h1 {font-family:Georgia,serif;font-weight:400;line-height:.98;letter-spacing:-.04em;font-size:clamp(3.1rem,6.5vw,7.5rem);margin:1.6rem 0}
+.ont19-cover h1 em {display:block;color:#e1bd81;font-weight:400}
+.ont19-subtitle {font-family:Georgia,serif;font-size:clamp(1rem,2vw,1.4rem);color:#eddec6}
+.ont19-lead {max-width:65ch;line-height:1.8;font-size:1rem;margin-top:2rem}
+.ont19-question {border-top:1px solid #bd936a;border-bottom:1px solid #bd936a;padding:1.25rem 0;margin:2rem 0;display:grid;gap:.5rem}
+.ont19-question small,.ont19-atlas-head>span,.ont19-bibliography>span {text-transform:uppercase;letter-spacing:.18em;font-size:.73rem}
+.ont19-question strong {font:400 clamp(1.25rem,2vw,1.8rem)/1.4 Georgia,serif}
+.ont19-actions {display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
+.ont19-actions a,.ont19-actions button {display:inline-flex;align-items:center;justify-content:center;padding:.95rem 1.2rem;text-decoration:none;border:1px solid #d0ad7c;background:transparent;color:inherit;font:inherit;cursor:pointer}
+.ont19-actions button {background:#f2e8d7;color:#56271e;border-color:#f2e8d7}
+.ont19-actions a:hover,.ont19-actions button:hover {filter:brightness(1.08)}
+.ont19-portrait {margin:0;min-width:0;border:10px solid rgba(229,200,154,.22);box-shadow:0 28px 40px rgba(0,0,0,.2)}
+.ont19-portrait img {display:block;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 18%;background:#2c2724}
+.ont19-portrait figcaption {display:grid;gap:.35rem;background:#e9ddc6;color:#3b291f;padding:1rem 1.2rem;font-size:.8rem;line-height:1.5}
+.ont19-portrait figcaption strong {font:500 1.2rem Georgia,serif}
+.ont19-portrait a {color:#743b28;text-underline-offset:3px}
+.ont19-thesis {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-block:1px solid #ccbbab}
+.ont19-thesis>div {min-width:0;padding:2rem clamp(1rem,3vw,3rem);border-right:1px solid #ccbbab}
+.ont19-thesis>div:last-child {border-right:0}
+.ont19-thesis span {display:block;font-size:.67rem;letter-spacing:.16em;color:#75412f}
+.ont19-thesis strong {display:block;font:400 1.7rem Georgia,serif;margin:.8rem 0}
+.ont19-thesis p {margin:0;line-height:1.55}
+.ont19-atlas {padding:3.2rem clamp(1.3rem,4vw,4rem);background:#eadfcf}
+.ont19-atlas-head {max-width:85ch}
+.ont19-atlas-head>span {color:#7d3927;font-weight:700}
+.ont19-atlas h2,.ont19-bibliography h2 {font:400 clamp(2.2rem,4vw,3.8rem) Georgia,serif;letter-spacing:-.025em;margin:.8rem 0}
+.ont19-atlas-head p {line-height:1.7}
+.ont19-schema {margin:1.5rem 0;border:1px solid #c0a484;background:#fff9ed;min-width:0;overflow:hidden}
+.ont19-atlas-warning {max-width:85ch;font-size:.85rem;line-height:1.7;color:#5e4940}
+.ont19-layout {display:grid;grid-template-columns:minmax(200px,260px) minmax(0,1fr);gap:clamp(2rem,4vw,4rem);padding:3.5rem clamp(1.2rem,4vw,4rem)}
+.ont19-index {position:sticky;top:1rem;align-self:start;display:grid;gap:0;max-height:calc(100vh - 2rem);overflow-y:auto}
+.ont19-index>p {text-transform:uppercase;letter-spacing:.18em;font-size:.75rem;font-weight:700}
+.ont19-index button {text-align:left;background:none;border:0;border-bottom:1px solid #cbbbad;display:flex;gap:.85rem;padding:.75rem .2rem;cursor:pointer;font-size:.87rem;color:inherit}
+.ont19-index button:hover {color:#7a2d1e;background:#e8dac8}
+.ont19-index button span {color:#8e5a39;min-width:1.5rem;font-variant-numeric:tabular-nums}
+.ont19-index>a {font-size:.8rem;color:#743929;margin:.65rem 0;line-height:1.5}
+.ont19-chapters {min-width:0}
+.ont19-chapter {scroll-margin-top:1rem;padding-bottom:2rem;margin-bottom:2.7rem;border-bottom:1px solid #c8b7a7}
+.ont19-chapter-marker {display:flex;align-items:center;gap:1rem;color:#75412e}
+.ont19-chapter-marker span {font:400 2rem Georgia,serif}
+.ont19-chapter-marker small {letter-spacing:.15em;text-transform:uppercase;font-size:.68rem}
+.ont19-chapter h2 {font:400 clamp(1.8rem,2.8vw,2.85rem)/1.1 Georgia,serif;margin:1rem 0 1.5rem;letter-spacing:-.025em}
+.ont19-chapter>p {font-size:1.04rem;line-height:1.9;max-width:78ch;hyphens:auto}
+.ont19-dual {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1.5rem 0}
+.ont19-dual>div {background:#e7d9c7;border-left:4px solid #86533d;padding:1.35rem;min-width:0}
+.ont19-dual span {letter-spacing:.14em;font-size:.72rem;text-transform:uppercase}
+.ont19-dual strong {display:block;font:400 1.3rem Georgia,serif;margin:.75rem 0}
+.ont19-dual p,.ont19-caution p,.ont19-reading p {line-height:1.7}
+.ont19-caution {padding:1.5rem;margin:1.6rem 0;border:1px solid #a77c5d;background:#f1e4d6}
+.ont19-caution strong {color:#762b1b}
+.ont19-reading {display:grid;gap:.7rem;padding:1.5rem;border:1px solid #c9a877;background:#f9f0df;margin:1.7rem 0}
+.ont19-reading span {text-transform:uppercase;letter-spacing:.12em;font-size:.7rem}
+.ont19-reading strong {font:400 1.4rem Georgia,serif}
+.ont19-reading a {color:#753320}
+.ont19-reading small {color:#782e20}
+.ont19-atlas-second {background:#f1e7db}
+.ont19-bibliography {background:#692b22;color:#f6eee1;padding:3.5rem clamp(1.3rem,4vw,4rem)}
+.ont19-bibliography-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:2rem}
+.ont19-bibliography-grid article {border:1px solid #b68a68;padding:1.5rem;display:grid;align-content:start;gap:.7rem;min-width:0}
+.ont19-bibliography-grid small {font-size:.72rem;color:#e1c9aa}
+.ont19-bibliography-grid strong {font:400 1.5rem Georgia,serif}
+.ont19-bibliography-grid p {line-height:1.7;margin:0}
+.ont19-bibliography-grid a {color:#f1cea5;text-underline-offset:4px}
+.ont19-footer {display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;padding:2rem clamp(1.3rem,4vw,4rem);background:#e1d3c0;font-size:.8rem}
+.ont19-footer a {color:#722b1d}
+@media(max-width:1050px){.ont19-layout{grid-template-columns:1fr}.ont19-index{position:static;display:flex;flex-wrap:wrap;max-height:none;gap:.25rem}.ont19-index>p{width:100%}.ont19-index button{border:1px solid #ccbbaa;padding:.55rem .7rem}.ont19-index>a{padding:.4rem}.ont19-cover{grid-template-columns:minmax(0,1fr) minmax(230px,.7fr)}}
+@media(max-width:760px){.ont19-cover{grid-template-columns:1fr}.ont19-portrait{max-width:480px;margin-inline:auto}.ont19-thesis{grid-template-columns:1fr}.ont19-thesis>div{border-right:0;border-bottom:1px solid #ccbbab;padding:1.3rem}.ont19-bibliography-grid,.ont19-dual{grid-template-columns:1fr}.ont19-layout{padding:1.6rem 1.1rem}.ont19-chapter>p{font-size:1rem;line-height:1.8}.ont19-atlas{padding:2rem 1rem}.ont19-schema{margin-inline:-.3rem}.ont19-index{align-items:stretch}.ont19-index button{font-size:.8rem}.ont19-cover h1{font-size:clamp(3.1rem,11vw,5rem)}}
+@media(prefers-reduced-motion:reduce){.ont19-page *{scroll-behavior:auto!important;animation-duration:.01ms!important}}

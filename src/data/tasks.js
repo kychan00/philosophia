@@ -679,6 +679,39 @@ export const tasks = [
     sourceRoute: '/semestre/5/etica',
   },
 
+
+  {
+    id: 'ontologia-2026-10-18-hegel-77-98',
+    subject: 'Ontología II',
+    subjectCode: 'FI190',
+    assignedDate: '2026-10-18',
+    dueDate: null,
+    title: 'Hegel · Ciencia de la lógica · páginas 77–98',
+    type: 'Lectura de texto primario',
+    weight: null,
+    priority: 'Alta',
+    description: 'Consigna de lectura registrada el 18 de octubre: páginas impresas 77 a 98 de la edición Mondolfo. La fecha exacta del correo y la entrega no constan. Lectura comentada el 19 de octubre.',
+    readingPages: 'Ciencia de la lógica · pp. 77–98',
+    sourceClass: 'Consigna comunicada antes de la clase del 19 de octubre',
+    sourceRoute: '/semestre/5/ontologia-ii/clase/19-octubre',
+    studyRoute: '/tareas/ontologia-ii/hegel-croce-dialectica',
+  },
+  {
+    id: 'ontologia-2026-10-19-fromm-marx-manuscritos',
+    subject: 'Ontología II',
+    subjectCode: 'FI190',
+    assignedDate: '2026-10-19',
+    dueDate: null,
+    title: 'Fromm y Marx · lectura anunciada de los Manuscritos',
+    type: 'Continuidad de lectura · por confirmar',
+    weight: null,
+    priority: 'Media',
+    description: 'El profesor anunció un volumen de Erich Fromm que incluye los Manuscritos económico-filosóficos de Marx y que enviaría material. Capítulo, páginas, edición exacta y fecha de entrega no confirmados.',
+    readingScope: 'Fromm, Marx y su concepto del hombre / Manuscritos económico-filosóficos, FCE',
+    sourceClass: 'Clase del 19 de octubre · referencia bibliográfica contrastada con FCE',
+    sourceRoute: '/semestre/5/ontologia-ii/clase/19-octubre',
+    studyRoute: '/estudios/ontologia-ii/marx-critica-dialectica-hegeliana',
+  },
 ]
 
 export default tasks

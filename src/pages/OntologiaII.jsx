@@ -522,6 +522,27 @@ export default function OntologiaII() {
           </div>
         </Link>
 
+
+        <Link
+          to="/semestre/5/ontologia-ii/clase/19-octubre"
+          className="ontology-program-class-card"
+        >
+          <div className="ontology-program-date">
+            <strong>XIX</strong>
+            <span>X · MMXXVI</span>
+          </div>
+          <div className="ontology-program-class-copy">
+            <span>Decimocuarta clase · Hegel y Marx</span>
+            <h3>La negación que hace historia</h3>
+            <p>
+              Ciencia de la lógica, controversia ontológica con Kant,
+              negación determinada, Fenomenología, Marx, enajenación
+              y aplicaciones históricas.
+            </p>
+          </div>
+          <div className="ontology-program-enter"><span>Abrir folio</span><b>↗</b></div>
+        </Link>
+
       </section>
 
       <section className="ontology-program-classes ontology-program-thresholds">
