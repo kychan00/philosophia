@@ -70,9 +70,9 @@ export const cafeEvents: CafeEvent[] = [
     eyebrow: 'Café filosófico · interdisciplinario',
     title: 'Hablemos sobre el agua',
     deck:
-      'Próximo encuentro sobre el agua como derecho, recurso, servicio o bien común; el agua embotellada y la responsabilidad frente a daños que aparecen después.',
+      'Memoria crítica sobre ecología, infraestructura, gestión, concesiones, consumo, justicia y responsabilidad intergeneracional.',
     route: '/cafe-filosofico/2026/10/19/agua',
-    status: 'proximo',
+    status: 'publicado',
     themes: ['agua', 'derecho', 'recurso', 'bien común', 'responsabilidad'],
   },
 

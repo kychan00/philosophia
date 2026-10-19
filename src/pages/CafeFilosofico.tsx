@@ -58,13 +58,13 @@ const sessions = [
     date: '19 OCT 2026',
     title: 'Hablemos sobre el agua',
     description:
-      'Próximo encuentro sobre el agua como derecho, recurso, servicio o bien común; el consumo de agua embotellada y la responsabilidad frente a daños que todavía no son visibles.',
+      'Memoria del diálogo sobre crisis ecológica, infraestructura, planeación urbana, concesiones, justicia ambiental, ética colectiva y futuro del agua.',
     tags: ['Agua', 'Derecho', 'Recurso', 'Bien común', 'Responsabilidad'],
     route: '/cafe-filosofico/2026/10/19/agua',
     image: `${import.meta.env.BASE_URL}images/cafe-filosofico/agua/poster-original.svg`,
     imageMode: 'poster',
-    badge: 'PRÓXIMO ENCUENTRO',
-    actionLabel: 'Ver invitación',
+    badge: 'MEMORIA PUBLICADA',
+    actionLabel: 'Explorar memoria',
   },
 
 

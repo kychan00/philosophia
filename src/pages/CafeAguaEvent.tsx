@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router'
 import './CafeAguaEvent.css'
+import CafeAguaMemory from './CafeAguaMemory'
 
 const ASSET = '/philosophia/images/cafe-filosofico/agua'
 
@@ -43,7 +44,7 @@ export default function CafeAguaEvent() {
       <nav className="water-cafe-topbar">
         <Link to="/cafe-filosofico">← CAFÉ FILOSÓFICO</Link>
         <span>EDICIÓN 04 · 19 OCT 2026</span>
-        <span>PRÓXIMO ENCUENTRO</span>
+        <span>MEMORIA PUBLICADA</span>
       </nav>
 
       <header className="water-cafe-hero">
@@ -56,8 +57,8 @@ export default function CafeAguaEvent() {
           </div>
 
           <p className="water-cafe-deck">
-            Tres preguntas para abrir una conversación sobre derecho, recurso,
-            consumo y responsabilidad.
+            Memoria del diálogo sobre ecología, infraestructura, economía,
+            justicia ambiental y responsabilidad colectiva.
           </p>
 
           <div className="water-cafe-meta">
@@ -80,11 +81,11 @@ export default function CafeAguaEvent() {
           </div>
 
           <div className="water-cafe-status">
-            <span>PÁGINA PROMOCIONAL</span>
+            <span>ARCHIVO DEL ENCUENTRO · 19 OCT 2026</span>
             <p>
-              El encuentro todavía no ocurre. Esta página conserva únicamente
-              la invitación, los datos del evento y las preguntas de apertura.
-              La memoria se construirá después del diálogo.
+              El diálogo ya ocurrió. Esta página conserva su memoria argumental,
+              las posiciones contrapuestas y las preguntas abiertas.
+              Las fuentes externas se distinguen de lo expresado en la sesión.
             </p>
           </div>
         </div>
@@ -109,12 +110,14 @@ export default function CafeAguaEvent() {
         <article className="is-dark"><span>04</span><strong>BIEN COMÚN</strong></article>
       </section>
 
+      <CafeAguaMemory />
+
       <section className="water-cafe-section" id="preguntas">
         <header className="water-cafe-section-head">
           <span>01</span>
           <div>
             <p>PREGUNTAS DE APERTURA</p>
-            <h2>Tres entradas al problema</h2>
+            <h2>Preguntas de la convocatoria original</h2>
           </div>
         </header>
 
@@ -133,7 +136,7 @@ export default function CafeAguaEvent() {
           <span>02</span>
           <div>
             <p>MODERAN</p>
-            <h2>La conversación será acompañada por</h2>
+            <h2>Moderación anunciada en la convocatoria</h2>
           </div>
         </header>
 
@@ -149,14 +152,14 @@ export default function CafeAguaEvent() {
 
       <section className="water-cafe-invite">
         <div>
-          <span>PRÓXIMO ENCUENTRO · 19 OCT 2026</span>
-          <h2>Hablemos sobre el agua</h2>
-          <p>Edificio C · Aula 5 · 1:00 P.M.</p>
+          <span>MEMORIA PUBLICADA · 19 OCT 2026</span>
+          <h2>El diálogo sigue abierto</h2>
+          <p>Próximo tema: redes sociales · fecha por confirmar.</p>
         </div>
 
         <aside>
-          <strong>CAFÉ GRATIS</strong>
-          <span>Diálogo · argumentos · comunidad</span>
+          <strong>ARCHIVO ABIERTO</strong>
+          <span>Argumentos · objeciones · comunidad</span>
         </aside>
       </section>
 
