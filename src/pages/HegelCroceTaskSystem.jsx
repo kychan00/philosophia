@@ -261,7 +261,7 @@ function HegelCroceTaskCanvas() {
         // Una ruta con 28 tarjetas no debe iniciar a escala microscópica.
         // Enfocar primero dos tarjetas conserva legibilidad en iPad,
         // mientras guía, controles y minimapa permiten recorrer el resto.
-        const firstView=['reading77','docente'].includes(route) ? visible.slice(0,2) : visible
+        const firstView=route==='reading77' ? visible.slice(0,2) : visible
         fitView({nodes:firstView,padding:.18,duration:650,maxZoom:1})
       }
     },100)
@@ -355,18 +355,16 @@ function HegelCroceTaskCanvas() {
           <h2 id="hegel-reading-new-title">Ciencia de la lógica · páginas 77–98</h2>
           <p>
             La consigna posterior del profesor solicita leer estas páginas de la edición Mondolfo.
-            El recorrido incorpora el texto primario y sus dos presentaciones docentes sin
+            El recorrido único intercala el texto primario y sus dos presentaciones docentes, sin
             confundirlas con la clase del 14 de octubre ni modificar aquella entrega.
           </p>
-          <small>21 nodos del libro · 7 nodos de apoyo docente · localizadores por página y diapositiva</small>
+          <small>21 pasajes del libro + 24 apoyos docentes de las dos presentaciones, ordenados en un único recorrido · fuentes diferenciadas por página y diapositiva</small>
         </div>
         <div className="hegel-reading-actions">
           <button type="button" onClick={() => { setGuidedMode(false);setSelectedId(null);setRoute('reading77') }}>
             Explorar lectura en el mapa →
           </button>
-          <button type="button" onClick={() => { setGuidedMode(false);setSelectedId(null);setRoute('docente') }}>
-            Ver las presentaciones
-          </button>
+
         </div>
       </section>
 
