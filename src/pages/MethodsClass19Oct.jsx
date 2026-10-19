@@ -283,7 +283,7 @@ function SystemWorkspace() {
   const { nodes, edges } = useMemo(() => {
     const index = new Set(visible.map((entry) => entry.id))
     const nodes = visible.map((entry, i) => ({
-      id: entry.id, type: 'study', position: { x: (i % 2) * 465, y: Math.floor(i / 2) * 265 },
+      id: entry.id, type: 'study', selected: entry.id === selectedId, position: { x: (i % 2) * 465, y: Math.floor(i / 2) * 265 },
       style: { width: 390, height: 187 },
       data: { ...entry, number: String(i + 1).padStart(2,'0'), sourceKind: entry.source.startsWith('Diapositiva') ? 'LÁMINA' : 'CLASE', guided: mode === 'guia' && visible[step]?.id === entry.id }
     }))
@@ -305,6 +305,10 @@ function SystemWorkspace() {
     setStep(next); setSelectedId(visible[next].id); setMode('guia')
   }
   const chooseQuestion = (n) => { setQIndex(Math.max(0,Math.min(quizzesHere.length-1,n))); setAnswer(null) }
+  const selectNode = (id) => {
+    setSelectedId(id)
+    if (mode === 'guia') setStep(Math.max(0, visible.findIndex((entry) => entry.id === id)))
+  }
   return (
     <section id="sistema" className={'m19-system ph2d-shell' + (expanded ? ' expanded' : '')} aria-label="Sistema bidimensional de la clase">
       <div className="m19-workspace-head">
@@ -351,7 +355,7 @@ function SystemWorkspace() {
       )}
       <div className="m19-workspace">
         <div className="m19-canvas" aria-label="Grafo con conexiones conceptuales">
-          <ReactFlow key={chapterId} fitView fitViewOptions={{ padding: .18, maxZoom: .9 }} minZoom={.25} maxZoom={1.3} nodes={nodes} edges={edges} nodeTypes={nodeTypes} nodesDraggable={false} nodesConnectable={false} onNodeClick={(_,node) => setSelectedId(node.id)} proOptions={{ hideAttribution: true }}>
+          <ReactFlow key={chapterId} fitView fitViewOptions={{ padding: .18, maxZoom: .9 }} minZoom={.25} maxZoom={1.3} nodes={nodes} edges={edges} nodeTypes={nodeTypes} nodesDraggable={false} nodesConnectable={false} onNodeClick={(_,node) => selectNode(node.id)} proOptions={{ hideAttribution: true }}>
             <Background gap={22} size={1} color="#cbbfae" /><MiniMap nodeColor={(n) => familyColors[n.data.chapter]} pannable zoomable /><Controls showInteractive={false}/>
           </ReactFlow>
         </div>
@@ -362,7 +366,7 @@ function SystemWorkspace() {
           <h4>Registro de la fuente</h4>
           <ul>{selected.points.map((point,i) => <li key={i}>{point}</li>)}</ul>
           <h4>Explicación sistémica · PHILOSOPHIA</h4><p>{selected.analysis}</p>
-          <div className="m19-inspector-nav"><button type="button" disabled={selectedIndex <= 0} onClick={() => setSelectedId(visible[selectedIndex - 1].id)}>← Previa</button><button type="button" disabled={selectedIndex >= visible.length - 1} onClick={() => setSelectedId(visible[selectedIndex + 1].id)}>Siguiente →</button></div>
+          <div className="m19-inspector-nav"><button type="button" disabled={selectedIndex <= 0} onClick={() => selectNode(visible[selectedIndex - 1].id)}>← Previa</button><button type="button" disabled={selectedIndex >= visible.length - 1} onClick={() => selectNode(visible[selectedIndex + 1].id)}>Siguiente →</button></div>
         </aside>
       </div>
     </section>

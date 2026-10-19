@@ -51,6 +51,9 @@ jobs:
       - name: Lint Lukács ontology system
         run: npx eslint src/data/lukacsOntologySystem.js src/components/lukacs/LukacsOntologyNode.jsx src/pages/LukacsOntologySystem.jsx tests/lukacs-ontology-system.test.mjs tests/lukacs-ontology-browser-smoke.mjs
 
+      - name: Lint Methods 19 October system
+        run: npx eslint src/pages/MethodsClass19Oct.jsx tests/methods-class-19oct.test.mjs
+
       - name: Build
         env:
           VITE_ONESIGNAL_APP_ID: ${{ vars.ONESIGNAL_APP_ID }}
