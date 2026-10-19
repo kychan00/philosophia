@@ -33,6 +33,45 @@ import {
 
 const nodeTypes = { text:HegelCroceNode, core:HegelCroceNode }
 
+/** Presentación del profesor, no cita primaria de la Ciencia de la lógica. */
+function HegelTeacherSlideDocument({ note, compact=false }) {
+  if (!note) return null
+  return (
+    <section className={`hegel-teacher-document ${compact ? 'is-compact' : 'is-folio'}`}>
+      <header className="hegel-teacher-document__heading">
+        <span>DOCUMENTO DOCENTE · DIAPOSITIVA {note.slide} / 9</span>
+        <h3>Texto explícito de la diapositiva</h3>
+        <small>Contenido del material del profesor · no atribuir estas formulaciones literalmente a Hegel</small>
+      </header>
+      <ol className="hegel-teacher-document__text">
+        {note.literal.map((paragraph,index)=>(
+          <li key={`${note.id}-literal-${index}`}>
+            <span aria-hidden="true">{String(index+1).padStart(2,'0')}</span>
+            <p>{paragraph}</p>
+          </li>
+        ))}
+      </ol>
+      {!compact && (
+        <div className="hegel-teacher-document__study">
+          <span>RECONSTRUCCIÓN SISTÉMICA · PHILOSOPHIA</span>
+          <p>{note.explanation}</p>
+          <h4>Movimiento conceptual de la diapositiva</h4>
+          <ol>
+            {note.steps.map((step,index)=>(
+              <li key={`${note.id}-step-${index}`}>
+                <b>{step[1]}</b> — {step[2]}
+              </li>
+            ))}
+          </ol>
+          <p className="hegel-teacher-document__boundary">El esquema siguiente interpreta las conexiones didácticas; su forma y sus relaciones no son un dibujo original del profesor.</p>
+        </div>
+      )}
+    </section>
+  )
+}
+
+
+
 function relatedSet(id, includeConceptual=false) {
   if (!id) return new Set()
   const set=new Set([id])
@@ -515,6 +554,9 @@ function HegelCroceTaskCanvas() {
                   <blockquote>{selected.data.excerpt}</blockquote>
                   <small>{selected.data.sourceShort} · {selected.data.page}</small>
                 </section>
+                {selected.data.teacherSlide && (
+                  <HegelTeacherSlideDocument note={selected.data.teacherSlide} compact />
+                )}
 
                 <section>
                   <span>EXPLICACIÓN</span>
@@ -728,8 +770,12 @@ function HegelCroceTaskCanvas() {
                 </div>
               </section>
 
+              {folio.data.teacherSlide && (
+                <HegelTeacherSlideDocument note={folio.data.teacherSlide} />
+              )}
+
               <section className="marx-folio-schema-panel">
-                <span>ESQUEMA DEL NODO</span>
+                <span>ESQUEMA ARGUMENTAL DEL NODO</span>
                 <AnimatedConceptSchema
                   key={`hegel-croce-schema-${folio.id}`}
                   schema={folio.data.schema}
