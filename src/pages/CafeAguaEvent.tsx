@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router'
 import './CafeAguaEvent.css'
 import CafeAguaMemory from './CafeAguaMemory'
+import { cafeAguaPhotos } from '../data/cafeAguaPhotos'
 
 const ASSET = '/philosophia/images/cafe-filosofico/agua'
 
@@ -87,6 +88,7 @@ export default function CafeAguaEvent() {
               las posiciones contrapuestas y las preguntas abiertas.
               Las fuentes externas se distinguen de lo expresado en la sesión.
             </p>
+            <a className="water-cafe-gallery-shortcut" href="#galeria-agua">VER LAS 8 FOTOGRAFÍAS ↓</a>
           </div>
         </div>
 
@@ -108,6 +110,44 @@ export default function CafeAguaEvent() {
         <article><span>02</span><strong>RECURSO</strong></article>
         <article><span>03</span><strong>SERVICIO</strong></article>
         <article className="is-dark"><span>04</span><strong>BIEN COMÚN</strong></article>
+      </section>
+
+
+      <section className="water-cafe-gallery" id="galeria-agua" aria-labelledby="water-cafe-gallery-title">
+        <header className="water-cafe-gallery-header">
+          <span>EDICIÓN 04 / REGISTRO FOTOGRÁFICO</span>
+          <h2 id="water-cafe-gallery-title">Así se vivió el diálogo.</h2>
+          <p>Ocho fotografías del encuentro del 19 de octubre de 2026. Toque una imagen para verla en mayor tamaño.</p>
+        </header>
+        <div className="water-cafe-gallery-grid">
+          {cafeAguaPhotos.map((photo, index) => (
+            <figure key={photo.file} className={`water-cafe-gallery-photo ${index === 0 || index === 5 ? 'is-featured' : ''}`}>
+              <a
+                href={`${ASSET}/sesion-04/${photo.file}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Abrir fotografía ${index + 1}: ${photo.caption}`}
+              >
+                <img
+                  src={`${ASSET}/sesion-04/${photo.file}`}
+                  alt={photo.alt}
+                  loading="lazy"
+                  decoding="async"
+                  width="1200"
+                  height="900"
+                />
+              </a>
+              <figcaption>
+                <span>{String(index + 1).padStart(2, '0')} / 08</span>
+                <strong>{photo.caption}</strong>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+        <p className="water-cafe-gallery-footnote">
+          Archivo visual del Café Filosófico · Guadalajara · 19 de octubre de 2026.
+          Las fotografías documentan el encuentro; no atribuyen posiciones filosóficas a las personas retratadas.
+        </p>
       </section>
 
       <CafeAguaMemory />

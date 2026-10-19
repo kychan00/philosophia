@@ -1,4 +1,5 @@
 import './CafeFilosofico.css'
+import { cafeAguaPhotos } from '../data/cafeAguaPhotos'
 
 const sessions = [
   {
@@ -65,6 +66,10 @@ const sessions = [
     imageMode: 'poster',
     badge: 'MEMORIA PUBLICADA',
     actionLabel: 'Explorar memoria',
+    galleryMode: 'strip',
+    photos: cafeAguaPhotos.map((photo) =>
+      `${import.meta.env.BASE_URL}images/cafe-filosofico/agua/sesion-04/${photo.file}`
+    ),
   },
 
 
