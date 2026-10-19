@@ -250,7 +250,10 @@ function buildNodeSchema(node) {
     ...dependencies.map((item) => ({
       id:`dep-${item.id}`,
       label:item.data.title,
-      caption:`${item.data.code} · antecedente en la reconstrucción`,
+      caption:`${item.data.code} · antecedente`,
+      shape:'roundedRect',
+      wrapAt:24,
+      captionWrapAt:26,
       shapeRole:'term',
     })),
     {
@@ -258,13 +261,19 @@ function buildNodeSchema(node) {
       label:node.data.title,
       caption:`${node.data.code} · ${node.data.phase}`,
       shapeRole:node.data.critical ? 'mediation' : 'concept',
+      shape:'roundedRect',
+      wrapAt:24,
+      captionWrapAt:28,
       emphasis:true,
       tone:'accent',
     },
     ...consequences.map((item) => ({
       id:`next-${item.id}`,
       label:item.data.title,
-      caption:`${item.data.code} · continuidad en la reconstrucción`,
+      caption:`${item.data.code} · continuidad`,
+      shape:'roundedRect',
+      wrapAt:24,
+      captionWrapAt:26,
       shapeRole:'result',
     })),
   ]
@@ -273,13 +282,13 @@ function buildNodeSchema(node) {
     ...dependencies.map((item) => ({
       from:`dep-${item.id}`,
       to:'focus',
-      label:'antecede en el sistema',
+      label:'precede',
       relationKind:'derives',
     })),
     ...consequences.map((item) => ({
       from:'focus',
       to:`next-${item.id}`,
-      label:'abre hacia',
+      label:'continúa',
       relationKind:'derives',
     })),
   ]
@@ -290,7 +299,10 @@ function buildNodeSchema(node) {
       schemaNodes.push({
         id,
         label:concept,
-        caption:'concepto registrado en este nodo',
+        caption:'concepto trabajado en el nodo',
+        shape:'roundedRect',
+        wrapAt:24,
+        captionWrapAt:28,
         shapeRole:'term',
       })
       schemaEdges.push({
@@ -303,11 +315,15 @@ function buildNodeSchema(node) {
   }
 
   return {
-    layout:'flow',
-    direction:'horizontal',
-    flowGap:42,
-    minHeight:360,
-    fitPadding:38,
+    // Sólo los esquemas del folio: niveles legibles que crecen hacia abajo.
+    // El mapa React Flow, sus nodos y la guía no se modifican.
+    layout:'hierarchy',
+    rootId:dependencies[0] ? `dep-${dependencies[0].id}` : 'focus',
+    hierarchyXGap:94,
+    hierarchyYGap:170,
+    minHeight:dependencies.length && (consequences.length || node.data.concepts.length) ? 810 : 640,
+    fitPadding:56,
+    readingLayout:'vertical-folio',
     ariaLabel:`Esquema documental del nodo ${node.data.code}: ${node.data.title}`,
     nodes:schemaNodes,
     edges:schemaEdges,
