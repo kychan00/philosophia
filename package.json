@@ -11,7 +11,7 @@
     "assets:open": "node scripts/fetch-open-assets.mjs",
     "predev": "npm run assets:open",
     "prebuild": "npm run assets:open",
-    "test:2d": "node --test tests/hacker-2d-invariants.test.mjs tests/section-2d-model.test.mjs tests/hacker-palette-2d.test.mjs tests/hacker-class-14oct.test.mjs tests/lukacs-source-passages.test.mjs tests/lukacs-layout.test.mjs tests/lukacs-ontology-system.test.mjs",
+    "test:2d": "node --test tests/hacker-2d-invariants.test.mjs tests/section-2d-model.test.mjs tests/hacker-palette-2d.test.mjs tests/hacker-class-14oct.test.mjs tests/lukacs-source-passages.test.mjs tests/lukacs-layout.test.mjs tests/lukacs-ontology-system.test.mjs tests/hegel-reading-77-98.test.mjs",
     "test:editorial": "node --test tests/analytic-editorial-pilot.test.mjs tests/analytic-editorial-07oct.test.mjs"
   },
   "dependencies": {
