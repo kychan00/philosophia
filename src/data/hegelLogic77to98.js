@@ -1,3 +1,5 @@
+import { hegelTeacherSlides } from './hegelTeacherSlides.js'
+
 /**
  * Consigna aportada el 18-10-2026 (fecha de envío no visible). Referencia: Hegel, Ciencia de la lógica,
  * traducción de Augusta y Rodolfo Mondolfo, Solar/Hachette, pp. impresas 77–98.
@@ -36,4 +38,16 @@ export const hegelLogicAssignedReading = [
   ['M05','Apoyo docente · Hegel','Ser, Nada, Devenir · material docente','Ambas presentaciones definen lo puro por ausencia de determinación, y describen la unidad del ser y la nada dentro del devenir.','El profesor contrapone el ser puro con el determinado y advierte que el devenir es la unidad concreta; revisar su formulación junto al original, sin fusionarlas.','contrastar texto y apoyo didáctico',['ser puro','nada pura','devenir'],['reading77','docente','hegel'],['P01','P02','P03','M04'],true,false,'Presentaciones · Hegel Ontología diap. 6–7; Comienzo diap. 2–4'],
   ['M06','Apoyo docente · Hegel','Kant y Hegel · cien táleros','La presentación del comienzo resume el argumento ontológico: para Kant existir no es un predicado real, mientras Hegel objeta aplicar sin distinción a Dios las relaciones de lo finito.','La reconstrucción docente se coteja con las notas de Hegel y no reemplaza la lectura del argumento en las páginas 81–83.','comparar los dos planos',['Kant','Hegel','argumento ontológico'],['reading77','docente'],['P07','P08'],true,false,'Presentación · Ciencia de la lógica → Comienzo · diap. 5–6'],
   ['M07','Apoyo docente · Hegel','Jacobi, negación y Aufheben','El material docente sigue la pregunta de Jacobi sobre cómo pasar de lo puro a lo determinado y remite al devenir, la negación y el Aufheben.','El apoyo final conduce desde la unidad móvil hasta su resultado; revisar siempre los localizadores del libro para distinguir texto primario y síntesis de clase.','cerrar el puente documental',['Jacobi','negación','Aufheben'],['reading77','docente'],['P12','P16','P20','M06'],true,false,'Presentación · Ciencia de la lógica → Comienzo · diap. 7–9'],
+  // Nueve diapositivas completas del material «Ciencia de la Lógica → Comienzo».
+  // Los textos literales extensos, análisis y esquemas propios viven en hegelTeacherSlides.js.
+  ...hegelTeacherSlides.map((slide) => [
+    slide.id,'Apoyo docente · Hegel',slide.title,
+    slide.literal[0].slice(0,235) + (slide.literal[0].length>235 ? '…' : ''),
+    slide.explanation,slide.role,slide.concepts,
+    ['reading77','docente','hegel'],
+    slide.dependsOn,
+    true,false,
+    `Presentación · Ciencia de la Lógica → Comienzo · diap. ${slide.slide}`,
+  ]),
+
 ]
