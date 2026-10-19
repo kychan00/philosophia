@@ -985,6 +985,7 @@ export default function AnimatedConceptSchema({ schema }) {
       className={[
         'animated-concept-schema',
         `is-layout-${schema.layout || schema.type || 'flow'}`,
+        schema.readingLayout === 'vertical-folio' ? 'is-reading-vertical' : '',
       ].join(' ')}
       style={{
         '--concept-schema-min-height': `${schemaMinHeight}px`,
