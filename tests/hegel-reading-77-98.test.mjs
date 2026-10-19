@@ -21,7 +21,7 @@ test('Hegel: 21 pasajes y 24 apoyos docentes integrados en una lectura', () => {
   assert.equal(hegelCroceGuidedRoute.length, hegelCroceNodes.length)
   assert.equal(hegelCroceStats.schemas, hegelCroceNodes.length)
   assert.ok(hegelCrocePhases.includes('Lectura · 77–98'))
-  assert.ok(hegelCrocePhases.includes('Apoyo docente · Hegel'))
+  assert.equal(hegelCrocePhases.includes('Apoyo docente · Hegel'),false)
 })
 
 test('Hegel: toda arista apunta a un nodo y conserva localizadores', () => {
