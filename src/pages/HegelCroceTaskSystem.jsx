@@ -30,6 +30,7 @@ import {
   hegelCroceSource,
   hegelCroceStats,
 } from '../data/hegelCroceTaskSystem'
+import { hegelReadingSequence } from '../data/hegelLogic77to98'
 
 const nodeTypes = { text:HegelCroceNode, core:HegelCroceNode }
 
@@ -39,7 +40,7 @@ function HegelTeacherSlideDocument({ note, compact=false }) {
   return (
     <section className={`hegel-teacher-document ${compact ? 'is-compact' : 'is-folio'}`}>
       <header className="hegel-teacher-document__heading">
-        <span>DOCUMENTO DOCENTE · DIAPOSITIVA {note.slide} / 9</span>
+        <span>DOCUMENTO DOCENTE · {note.documentName || 'Ciencia de la Lógica → Comienzo'} · DIAPOSITIVA {note.slide} / {note.seriesTotal || 9}</span>
         <h3>Texto explícito de la diapositiva</h3>
         <small>Contenido del material del profesor · no atribuir estas formulaciones literalmente a Hegel</small>
       </header>
@@ -89,12 +90,16 @@ function relatedSet(id, includeConceptual=false) {
 }
 
 function routeOrder(routeId) {
-  if(!routeId || routeId==='all') return []
+  if (!routeId || routeId==='all') return []
+  const readingOrder=new Map(hegelReadingSequence.map((id,index)=>[id,index]))
   return hegelCroceNodes
     .filter((node)=>node.data.branch.includes(routeId))
     .sort((a,b)=>{
       const phaseDelta=hegelCrocePhases.indexOf(a.data.phase)-hegelCrocePhases.indexOf(b.data.phase)
-      if(phaseDelta) return phaseDelta
+      if(phaseDelta)return phaseDelta
+      if(routeId==='reading77' && readingOrder.has(a.id) && readingOrder.has(b.id)){
+        return readingOrder.get(a.id)-readingOrder.get(b.id)
+      }
       return a.id.localeCompare(b.id,'es',{numeric:true})
     })
     .map((node)=>node.id)
