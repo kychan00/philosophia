@@ -406,6 +406,26 @@ export const hegelCroceCrossRelations = [
   ['R54','E08','P19','Devenir y ser determinado','La interpretación docente conecta la crítica de las abstracciones aisladas con el resultado posterior del devenir.','development'],
   ['R55','E08','E09','Nota 3 → Nota 4','El problema de pasar de lo puro a lo determinado encuentra respuesta en el tránsito inmanente y en la superación.','development'],
   ['R56','E09','P20','Aufheben y conservación','La presentación reúne la dialéctica del comienzo con la eliminación-conservación de los momentos al final de las páginas asignadas.','foundation'],
+  // Conexiones de «Los problemas ontológicos en Hegel» con la misma lectura,
+  // diferenciando contexto docente, explicación y categorías del texto primario.
+  ['R57','F01','M01','Dos dualismos de Kant','La primera diapositiva desarrolla fenómeno/noúmeno y necesidad natural/libertad moral como motivaciones postkantianas.','history'],
+  ['R58','F01','F02','De Kant a Fichte','El problema del sujeto y la cosa en sí prepara la propuesta fichteana del Yo y No-Yo.','development'],
+  ['R59','F02','M02','Fichte contextualizado','El material completo precisa actividad del Yo, imaginación productiva y prioridad práctica.','foundation'],
+  ['R60','F02','F03','Dos herencias kantianas','La interpretación docente distingue la primacía ética fichteana de la vía estética de Schelling.','opposition'],
+  ['R61','F03','M03','Schelling contextualizado','El absoluto y la intuición intelectual se explican desde Spinoza y el arte.','foundation'],
+  ['R62','F03','F04','Schelling → Hegel','Hegel conserva la cuestión del absoluto y cuestiona la intuición intelectual como método suficiente.','development'],
+  ['R63','F04','M04','Método hegeliano','La presentación íntegra añade contexto histórico y una genealogía docente de la dialéctica.','history'],
+  ['R64','F04','F05','Método y crítica del conocer','La alternativa dialéctica motiva revisar el modelo de conocimiento como instrumento.','development'],
+  ['R65','F05','E01','Conocer sin herramienta externa','La crítica epistemológica da trasfondo a la pretensión de una lógica de categorías inmanentes.','development'],
+  ['R66','F06','P05','Heráclito como antecedente','Las tensiones de arco y lira son una referencia histórica, no la deducción del ser puro.','history'],
+  ['R67','F06','F07','Devenir → comienzo categorial','De la noción de unidad de opuestos el profesor pasa a las tres categorías del comienzo.','development'],
+  ['R68','F07','P01','Ser puro sin ente','La diapositiva orienta hacia la indeterminación del primer apartado del texto hegeliano.','foundation'],
+  ['R69','F07','P03','Verdad: devenir','La explicación docente de identidad y diferencia se coteja con el movimiento de ser y nada.','foundation'],
+  ['R70','F07','P19','Resultado: ser determinado','El devenir desemboca en ser determinado; el capítulo de Dasein no se confunde con el comienzo puro.','development'],
+  ['R71','F08','E05','Argumento ontológico · Kant','La exposición de los problemas ontológicos vuelve sobre la crítica kantiana desarrollada en la otra presentación.','history'],
+  ['R72','F08','E06','Argumento ontológico · Hegel','El segundo documento complementa el análisis de Dios como absoluto y la inaplicabilidad directa de lo finito.','foundation'],
+  ['R73','F08','P07','No predicado real','El profesor expone la crítica kantiana de la existencia, que se coteja con las pp. 81–83.','foundation'],
+  ['R74','F08','P08','Inseparabilidad del absoluto','La contrarréplica hegeliana distingue finito/absoluto sin derivar existencia de objetos imaginados.','foundation'],
 ]
 
 export const hegelCroceConceptualEdges = hegelCroceCrossRelations.map(([id,source,target,title,synthesis,type])=>({
