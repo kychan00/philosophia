@@ -1,3 +1,5 @@
+import { hegelLogicAssignedReading } from './hegelLogic77to98'
+
 export const hegelCroceRoutes = [
   { id: 'all', label: 'Todo el sistema' },
   { id: 'orientation', label: 'Consigna' },
@@ -6,6 +8,8 @@ export const hegelCroceRoutes = [
   { id: 'dialectic', label: 'Dialéctica' },
   { id: 'questions', label: 'Cuestionario · 18' },
   { id: 'hegel', label: 'Hegel · Ser/Nada/Devenir' },
+  { id: 'reading77', label: 'Lectura · Hegel pp. 77–98' },
+  { id: 'docente', label: 'Presentaciones del profesor' },
   { id: 'class14', label: 'Clase · 14 oct' },
   { id: 'henrich', label: 'Henrich · mapa' },
 ]
@@ -20,6 +24,8 @@ export const hegelCrocePhases = [
   'Ser · Nada · Devenir',
   'Clase · 14 oct',
   'Henrich · contexto',
+  'Lectura · 77–98',
+  'Apoyo docente · Hegel',
 ]
 
 const raw = [
@@ -155,13 +161,26 @@ const raw = [
   ['D08','Henrich · contexto','Condiciones de formación de la dialéctica','Séptimo bloque del índice.','Es la otra ruta directamente vinculada con la tarea: pregunta cómo llegó a formarse la estructura dialéctica.','señalar prioridad',['dialéctica','formación'],['henrich','dialectic'],['D01','C24'],true,false,'Henrich · índice · p. 291'],
   ['D09','Henrich · contexto','Forma lógica y totalidad real','Octavo bloque del índice.','Permite anticipar la pregunta por la relación entre estructura lógica y pretensión de totalidad.','mapear cierre',['forma lógica','totalidad'],['henrich'],['D01'],true,false,'Henrich · índice · p. 291'],
   ['D10','Henrich · contexto','Cómo usar Henrich hoy','No hace falta leer las 293 páginas para cumplir la consigna mínima.','Hoy basta ubicar el índice y usar “Comienzo y método de la lógica” y “Condiciones de formación de la dialéctica” como coordenadas para futuras dudas.','convertir consulta en estrategia',['estrategia','índice'],['henrich','orientation'],['D02','D03','D04','D05','D06','D07','D08','D09'],true,false,'Henrich · consulta general'],
+  ...hegelLogicAssignedReading,
 ]
 
-const phaseIndex = new Map(hegelCrocePhases.map((phase,index)=>[phase,index]))
+// Cada bloque dispone del alto de todas sus filas: no vuelve a utilizar
+// offsets de fase fijos que enciman nodos cuando crece el contenido.
+const columnsForPhase = (phase) => ['Cuestionario','Ser · Nada · Devenir','Clase · 14 oct'].includes(phase) ? 6 : 5
+const rowPitch = 500
+const phaseStart = new Map()
+let nextStart = 0
+hegelCrocePhases.forEach((phase) => {
+  phaseStart.set(phase,nextStart)
+  const count = raw.filter((item) => item[1] === phase).length
+  nextStart += Math.max(1,Math.ceil(count / columnsForPhase(phase))) * rowPitch + 240
+})
 
 const routeSet = (branches) => Array.from(new Set(branches))
 
 const sourceModeForPhase = (phase) => {
+  if (phase === 'Lectura · 77–98') return 'HEGEL · TEXTO PRIMARIO · PARÁFRASIS COTEJADA'
+  if (phase === 'Apoyo docente · Hegel') return 'PRESENTACIONES DOCENTES · EXPLICACIÓN DIFERENCIADA'
   if (phase === 'Cuestionario') return 'PREGUNTA LITERAL COMPLETA'
   if (phase === 'Ser · Nada · Devenir') return 'FUENTE PRIMARIA · RECONSTRUCCIÓN FIEL'
   if (phase === 'Henrich · contexto') return 'ÍNDICE / PREFACIO · ORIENTACIÓN'
@@ -174,9 +193,9 @@ export const hegelCroceNodes = raw.map((item) => {
   const [id,phase,title,excerpt,explanation,role,concepts,branch,dependsOn,critical,micro,page] = item
   const siblings = raw.filter((candidate) => candidate[1] === phase)
   const local = siblings.findIndex((candidate) => candidate[0] === id)
-  const columns = phase === 'Cuestionario' ? 6 : phase === 'Ser · Nada · Devenir' ? 6 : phase === 'Clase · 14 oct' ? 6 : 5
-  const x = (local % columns) * 390
-  const y = (phaseIndex.get(phase) || 0) * 980 + Math.floor(local / columns) * 310
+  const columns = columnsForPhase(phase)
+  const x = (local % columns) * 400
+  const y = (phaseStart.get(phase) ?? 0) + Math.floor(local / columns) * rowPitch
 
   return {
     id,
@@ -190,14 +209,14 @@ export const hegelCroceNodes = raw.map((item) => {
       explanation,
       role,
       concepts,
-      authors: phase.startsWith('Henrich') ? ['Dieter Henrich'] : phase === 'Ser · Nada · Devenir' ? ['G. W. F. Hegel'] : phase === 'Clase · 14 oct' ? ['José Alejandro Fuerte · clase'] : phase === 'Consigna' ? [] : ['Benedetto Croce'],
+      authors: phase.startsWith('Henrich') ? ['Dieter Henrich'] : ['Ser · Nada · Devenir','Lectura · 77–98'].includes(phase) ? ['G. W. F. Hegel'] : phase === 'Apoyo docente · Hegel' ? ['José Alejandro Fuerte · presentaciones'] : phase === 'Clase · 14 oct' ? ['José Alejandro Fuerte · clase'] : phase === 'Consigna' ? [] : ['Benedetto Croce'],
       branch:routeSet(['all',...branch]),
       dependsOn,
       produces:[],
       critical,
       micro,
       page,
-      sourceShort: phase === 'Ser · Nada · Devenir' ? 'Hegel' : phase.startsWith('Henrich') ? 'Henrich' : phase === 'Clase · 14 oct' ? 'Clase 14 oct' : phase === 'Consigna' ? 'Tarea' : phase === 'Cuestionario' ? 'Cuestionario' : 'Croce',
+      sourceShort: phase === 'Lectura · 77–98' ? 'Hegel · Mondolfo' : phase === 'Apoyo docente · Hegel' ? 'Profesor · diapositivas' : phase === 'Ser · Nada · Devenir' ? 'Hegel' : phase.startsWith('Henrich') ? 'Henrich' : phase === 'Clase · 14 oct' ? 'Clase 14 oct' : phase === 'Consigna' ? 'Tarea' : phase === 'Cuestionario' ? 'Cuestionario' : 'Croce',
       sourceMode: sourceModeForPhase(phase),
       question: critical
         ? '¿Puede explicar este nodo sin repetir sólo su definición?'
@@ -341,6 +360,14 @@ export const hegelCroceCrossRelations = [
   ['R29','L25','A03','Continuidad → cuestionario','La clase confirma que el cuestionario seguirá organizando las sesiones inmediatas.','development'],
   ['R30','L26','L27','Capítulo II → cuestionario II','La referencia oral probable al capítulo II encuentra apoyo documental en la segunda sección del cuestionario, sin convertirla en una entrega fechada.','history'],
   ['R31','L28','L02','Tarea / examen → fechas no confirmadas','Tanto la continuidad de lectura como el examen quedan registrados sin fabricar una fecha exacta ausente de la grabación.','foundation'],
+  ['R32','H02','P01','Ser puro → nueva lectura','La lectura de la página 77 amplía un nodo del núcleo de estudio ya existente; no lo reemplaza.','foundation'],
+  ['R33','H09','P03','Devenir → pasaje comprobado','La mediación de ser y nada se verifica ahora con localizador p. 77–78.','foundation'],
+  ['R34','P07','P08','Kant / Hegel · ontología','La objeción de los táleros debe leerse antes de la respuesta hegeliana sobre finito y absoluto.','opposition'],
+  ['R35','P12','P13','Jacobi / Hegel · comienzo','La dificultad del surgimiento de lo determinado abre la respuesta sobre el tránsito inmanente.','opposition'],
+  ['R36','P16','P17','Dialéctica → direcciones','El movimiento inmanente se articula como nacer y perecer, sin congelar ser ni nada.','development'],
+  ['R37','P18','P19','Devenir → Dasein','La eliminación del devenir produce el umbral del ser determinado sin convertir la página 99 en lectura asignada.','development'],
+  ['R38','P20','C28','Aufheben · texto e interpretación','La exposición primaria de la doble operación permite cotejar la interpretación de Croce.','history'],
+  ['R39','M05','P03','Presentación ↔ original','Las diapositivas proporcionan una síntesis docente; las páginas del libro sostienen la lectura primaria.','foundation'],
 ]
 
 export const hegelCroceConceptualEdges = hegelCroceCrossRelations.map(([id,source,target,title,synthesis,type])=>({
@@ -373,7 +400,7 @@ export const hegelCroceSource = {
   title:'Hegel · Croce · dialéctica, Ser, Nada y Devenir',
   assignedDate:'7 oct 2026',
   dueDate:'14 oct 2026',
-  boundary:'El sistema parte de los materiales adjuntos y la consigna del profesor. Croce se usa como interpretación del capítulo I; Hegel como fuente primaria para Ser/Nada/Devenir; Henrich como consulta general e índice. La clase del 14 de octubre se incorpora como una capa separada de explicación oral: sus ejemplos no se convierten en doctrina textual ni en hechos externos verificados. La continuidad hacia el capítulo II se marca como probable y sin fecha de entrega confirmada.',
+  boundary:'El sistema parte de los materiales adjuntos y la consigna del profesor. Croce se usa como interpretación del capítulo I; Hegel como fuente primaria para Ser/Nada/Devenir; Henrich como consulta general e índice. La clase del 14 de octubre se incorpora como una capa separada de explicación oral: sus ejemplos no se convierten en doctrina textual ni en hechos externos verificados. La continuidad hacia el capítulo II se marca como probable y sin fecha de entrega confirmada. Además, una nueva consigna recibida el 18 de octubre asigna las pp. 77–98 de la traducción Mondolfo; las dos presentaciones del profesor constituyen una capa docente diferenciada, no una clase nueva ni una ampliación tácita de la entrega anterior.',
   readings:[
     'Benedetto Croce · Lo vivo y lo muerto de la filosofía de Hegel · cap. I',
     'Cuestionario · capítulo I · 18 preguntas',
@@ -381,6 +408,8 @@ export const hegelCroceSource = {
     'Dieter Henrich · Hegel en su contexto · revisión general, mínimo índice',
     'Clase de Ontología II · 14 oct 2026 · explicación oral del cuestionario y comienzo de la lógica',
     'Continuidad probable · Croce cap. II + cuestionario II · sin entrega fechada',
+    'Nueva consigna · Hegel, Ciencia de la lógica · Mondolfo · páginas impresas 77–98',
+    'Presentaciones docentes · Los problemas ontológicos en Hegel (8 diapositivas) y Ciencia de la lógica: Comienzo (9 diapositivas)',
   ],
 }
 
