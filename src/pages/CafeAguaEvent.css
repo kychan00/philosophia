@@ -456,6 +456,7 @@
   font:900 10px/1.4 Arial,sans-serif;
   letter-spacing:.11em;
 }
+.water-cafe-gallery-shortcut{border:0;cursor:pointer;text-align:left}
 .water-cafe-gallery-shortcut:focus-visible{
   outline:3px solid #0c6076;
   outline-offset:3px;
