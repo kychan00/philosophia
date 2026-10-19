@@ -62,6 +62,9 @@ jobs:
       - name: Validate Lukács ontology in headless browser (phone and iPad)
         run: node tests/lukacs-ontology-browser-smoke.mjs
 
+      - name: Validate Hegel teacher folios in Chromium (tablet)
+        run: node tests/hegel-teacher-browser-smoke.mjs
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6
 
