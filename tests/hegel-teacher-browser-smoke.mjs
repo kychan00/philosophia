@@ -1,4 +1,4 @@
-// Verificación de los nueve folios docentes Hegel/Croce en un navegador real.
+// Verificación de los 17 folios docentes Hegel/Croce integrados en una sola lectura.
 // No sustituye una prueba manual en Safari/iPad físico.
 import assert from 'node:assert/strict'
 import { spawn, spawnSync } from 'node:child_process'
@@ -38,7 +38,7 @@ async function until(predicate,label,maxChecks=120){
   }
   throw new Error('No se cumplió: '+label)
 }
-const expected={E01:5,E02:5,E03:5,E04:3,E05:4,E06:4,E07:4,E08:3,E09:4}
+const expected={E01:5,E02:5,E03:5,E04:3,E05:4,E06:4,E07:4,E08:3,E09:4,F01:6,F02:5,F03:6,F04:3,F05:3,F06:4,F07:6,F08:3}
 async function validateFolio(code,count){
   const opened=await evaluate(`(()=>{
     const el=document.querySelector('.react-flow__node[data-id="${code}"]')
@@ -108,15 +108,17 @@ try{
   await send('Page.enable')
   await send('Runtime.enable')
   for(const [width,height,codes] of [
-    [834,1112,['E03','E04','E05','E06','E07','E08','E09']],
+    [834,1112,['F01','F02','F03','F04','F05','F06','F07','F08','E03','E04','E05','E06','E07','E08','E09']],
     [1024,768,['E01','E02']],
   ]){
     await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:2,mobile:false})
     await send('Page.navigate',{url:base})
-    await until(()=>evaluate("document.querySelectorAll('.react-flow__node').length===161"),'161 nodos en '+width+'×'+height,160)
+    await until(()=>evaluate("document.querySelectorAll('.react-flow__node').length===169"),'169 nodos en '+width+'×'+height,160)
+    assert.equal(await evaluate("document.body.textContent.includes('Ver las presentaciones')"),false,'Debe desaparecer la ruta separada')
+    assert.equal(await evaluate("([...document.querySelectorAll('.hegel-reading-actions button')].filter(b=>b.textContent.includes('Explorar lectura')).length)"),1)
     for(const code of codes)await validateFolio(code,expected[code])
   }
-  console.log('OK Hegel: nueve diapositivas íntegras y esquemas sin solapes en viewports tablet')
+  console.log('OK Hegel: 17 diapositivas íntegras y esquemas sin solapes en viewports tablet')
 } finally {
   if(socket)socket.close()
   if(browser){browser.kill('SIGTERM');await Promise.race([new Promise(r=>browser.once('exit',r)),pause(1500)])}
