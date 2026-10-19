@@ -65,7 +65,7 @@ export const hegelTeacherSlides = [
       ['Dificultad','Representar','Presupone un objeto de representación','term','introduce'],
       ['Desplazamiento','Algo','Existencia y cualidad posteriores','structure','presupone'],
       ['Error','Confundir esferas','Lo puro se toma como ser determinado','mediation','confunde'],
-      ['Corrección','Pensar el devenir','Unidad concreta sin imagen de un algo','result','corrige'],
+      ['Corrección','Pensar el devenir','Unidad concreta sin imagen de un algo','result','corrige',0],
     ]
   },
   {
@@ -82,9 +82,9 @@ export const hegelTeacherSlides = [
     steps:[
       ['Distinción','Dos niveles lógicos','Lo puro frente a lo determinado','structure'],
       ['Primer nivel','Ser y nada puros','Sin cualidades ni contenido','concept','distingue'],
-      ['Segundo nivel','Algo determinado','Cualidad, diferencia y negación','term','contrasta'],
+      ['Segundo nivel','Algo determinado','Cualidad, diferencia y negación','term','contrasta',0],
       ['Negación','Nada de un algo','No-ser referido a un contenido','mediation','precisa'],
-      ['Orden lógico','Devenir → existencia','El algo presupone el tránsito','result','ordena'],
+      ['Orden lógico','Devenir → existencia','El algo presupone el tránsito','result','ordena',2],
     ]
   },
   {
@@ -103,8 +103,8 @@ export const hegelTeacherSlides = [
       ['Antecedente','Descartes','Del concepto de Dios a su existencia','term'],
       ['Crítica','Kant','El ser no añade predicado real','concept','objeta'],
       ['Prueba de control','Cien táleros','Posibles ≠ efectivos en patrimonio','structure','ilustra'],
-      ['Distinción','Concepto ≠ existencia','La idea no garantiza efectividad','mediation','distingue'],
-      ['Problema abierto','Respuesta de Hegel','¿Vale esta separación para el absoluto?','result','pregunta'],
+      ['Distinción','Concepto ≠ existencia','La idea no garantiza efectividad','mediation','distingue',1],
+      ['Problema abierto','Respuesta de Hegel','¿Vale esta separación para el absoluto?','result','pregunta',3],
     ]
   },
   {
@@ -124,7 +124,7 @@ export const hegelTeacherSlides = [
       ['Kant','Esencia / existencia','Separación para lo finito','term','expone'],
       ['Objeción de Hegel','Cambio de ámbito','No aplicar sin crítica lo finito a Dios','mediation','objeta'],
       ['Marco docente','Sustancia infinita','Inmanencia y pensar autorreferente','concept','interpreta'],
-      ['Tesis especulativa','Concepto y ser','Inseparables en la definición de Dios','result','concluye'],
+      ['Tesis especulativa','Concepto y ser','Inseparables en la definición de Dios','result','concluye',2],
     ]
   },
   {
@@ -143,8 +143,8 @@ export const hegelTeacherSlides = [
       ['Forma limitada','S es P / S no es P','El juicio fija determinaciones','term'],
       ['Contenido','Ser y nada','Inseparables y diferentes','concept','tensiona'],
       ['Límite','Diferencia inefable','Añadir cualidad cambia de nivel','structure','advierte'],
-      ['Forma requerida','Pensar el movimiento','Unidad que no suprime los momentos','mediation','supera'],
-      ['Verdad','Devenir','Tránsito de ser y no-ser','result','expresa'],
+      ['Forma requerida','Pensar el movimiento','Unidad que no suprime los momentos','mediation','supera',1],
+      ['Verdad','Devenir','Tránsito de ser y no-ser','result','expresa',3],
     ]
   },
   {
@@ -206,7 +206,7 @@ export function buildHegelTeacherSchema(slide) {
     captionWrapAt:30,
   }))
   const edges=slide.steps.slice(1).map((step,index)=>({
-    from:nodes[index].id,
+    from:nodes[Number.isInteger(step[5]) ? step[5] : index].id,
     to:nodes[index+1].id,
     label:step[4] || 'continúa',
     relationKind:'hierarchical',
