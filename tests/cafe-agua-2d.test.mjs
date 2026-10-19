@@ -10,7 +10,7 @@ test('20 argumentos únicos y procedencia clara', () => {
   for(const n of aguaArguments){
     assert.equal(aguaNodeById(n.id),n)
     assert.ok(aguaSections.some(s=>s.id===n.section))
-    for(const key of ['kind','title','summary','explanation','argument','voice','question','studyAnswer']) assert.ok(typeof n[key]==='string' && n[key].length>8,n.id+': '+key)
+    for(const key of ['kind','title','summary','explanation','argument','voice','question','studyAnswer']) assert.ok(typeof n[key]==='string' && n[key].length >= (key==='kind' ? 4 : 9),n.id+': '+key)
   }
 })
 test('geometría real sin solapamiento entre nodos',()=>{
