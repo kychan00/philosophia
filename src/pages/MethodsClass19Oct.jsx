@@ -6,8 +6,6 @@ import '../components/philosophy/system2d/System2DTheme.css'
 import { SYSTEM_2D_THEME, resolveSystem2DEdgeColor } from '../components/philosophy/system2d/system2dTheme'
 import './MethodsClass19Oct.css'
 
-const CLASS_URL = '/semestre/5/metodos-de-investigacion/clase/19-octubre'
-
 const chapters = [
   { id: 'miedo', number: 'I', title: 'La experiencia del miedo', question: '¿Qué cambia al estudiar el miedo como vivencia y no como variable?', before: '14 de octubre: libertad vivida, epojé y reducción eidética.', after: 'La pregunta, los objetivos y el recorrido de reducción se ponen a prueba en un ejemplo de amistad.', hue: 'blue' },
   { id: 'amistad', number: 'II', title: 'La amistad adolescente', question: '¿Cómo reconstruye un estudio cualitativo los significados morales de la amistad?', before: 'El protocolo sobre el miedo distingue objeto, método y experiencia.', after: 'Contrastar el estudio de campo con las exigencias de la fenomenología.', hue: 'moss' },
@@ -289,7 +287,7 @@ function SystemWorkspace() {
       style: { width: 390, height: 187 },
       data: { ...entry, number: String(i + 1).padStart(2,'0'), sourceKind: entry.source.startsWith('Diapositiva') ? 'LÁMINA' : 'CLASE', guided: mode === 'guia' && visible[step]?.id === entry.id }
     }))
-    const edges = relations.filter(([from,to]) => index.has(from) && index.has(to)).map(([source,target,label],i) => ({
+    const edges = relations.filter(([from,to]) => index.has(from) && index.has(to)).map(([source,target,label]) => ({
       id: 'r-'+source+'-'+target, source, target, label, type:'smoothstep',
       markerEnd: { type: MarkerType.ArrowClosed, color: resolveSystem2DEdgeColor({ touchesSelected: source === selectedId || target === selectedId }) },
       style: { stroke: resolveSystem2DEdgeColor({ guidedActive: mode === 'guia' && visible[step]?.id === target, touchesSelected: source === selectedId || target === selectedId }), strokeWidth: 2 },
@@ -396,7 +394,7 @@ export default function MethodsClass19Oct() {
         <div className="m19-atlas-list">{chapters.map((chapter) => <section key={chapter.id}><h3><span>{chapter.number}</span> {chapter.title}</h3>{entries.filter((e) => e.chapter === chapter.id).map((entry) => <details key={entry.id}><summary><b>{entry.title}</b><span>{entry.source}</span></summary><div><ul>{entry.points.map((p,i) => <li key={i}>{p}</li>)}</ul><p><strong>Lectura editorial:</strong> {entry.analysis}</p></div></details>)}</section>)}</div>
       </section>
       <section className="m19-outro"><span className="m19-kicker">CONTINUIDAD</span><h2>Investigar es descubrir lo que aún no sabemos preguntar.</h2><p>En la próxima clase, según anunció el profesor, se retomará el caso del miedo escolar para detallar las operaciones de análisis, variación y síntesis. No se identificó una entrega nueva con fecha inequívoca durante esta sesión.</p><Link to="/semestre/5/metodos-de-investigacion">← Volver al archivo de Métodos</Link></section>
-      <footer className="m19-footer"><span>PHILOSOPHIA · MÉTODOS DE INVESTIGACIÓN</span><span>Fuente docente y reconstrucción editorial diferenciadas · 2026-B</span><a href={CLASS_URL+'#laminas'} onClick={(e) => e.preventDefault()} className="m19-footer-mark" aria-hidden="true">Φ</a></footer>
+      <footer className="m19-footer"><span>PHILOSOPHIA · MÉTODOS DE INVESTIGACIÓN</span><span>Fuente docente y reconstrucción editorial diferenciadas · 2026-B</span><span className="m19-footer-mark" aria-hidden="true">Φ</span></footer>
     </main>
   )
 }
