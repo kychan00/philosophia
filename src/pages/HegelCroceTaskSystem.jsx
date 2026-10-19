@@ -72,6 +72,7 @@ function HegelCroceTaskCanvas() {
   const [folioId,setFolioId]=useState(null)
   const [relationId,setRelationId]=useState(null)
   const [workspaceFullscreen,setWorkspaceFullscreen]=useState(false)
+  const [workspaceExpanded,setWorkspaceExpanded]=useState(false)
   const [history,setHistory]=useState([])
 
   const selected=hegelCroceNodeById(selectedId)
@@ -236,14 +237,30 @@ function HegelCroceTaskCanvas() {
   },[folioId,relationId])
 
   const toggleWorkspaceFullscreen=async()=>{
-    if(!document.fullscreenElement){
-      await workspaceRef.current?.requestFullscreen?.()
-    }else{
+    if(workspaceExpanded){setWorkspaceExpanded(false);return}
+    if(document.fullscreenElement){
       await document.exitFullscreen?.()
+      return
     }
+    try{
+      if(typeof workspaceRef.current?.requestFullscreen === 'function'){
+        await workspaceRef.current.requestFullscreen()
+        return
+      }
+    }catch{
+      // Safari/iPadOS y navegadores embebidos pueden rechazar el fullscreen nativo.
+    }
+    setWorkspaceExpanded(true)
   }
 
-  const overlayHost=workspaceFullscreen && workspaceRef.current ? workspaceRef.current : document.body
+  useEffect(()=>{
+    if(!workspaceExpanded) return undefined
+    const onEscape=(event)=>{if(event.key==='Escape')setWorkspaceExpanded(false)}
+    window.addEventListener('keydown',onEscape)
+    return ()=>window.removeEventListener('keydown',onEscape)
+  },[workspaceExpanded])
+
+  const overlayHost=(workspaceFullscreen || workspaceExpanded) && workspaceRef.current ? workspaceRef.current : document.body
 
   return (
     <main className="marx-study-shell hegel-task-shell">
@@ -413,7 +430,7 @@ function HegelCroceTaskCanvas() {
 
       <section
         ref={workspaceRef}
-        className={workspaceFullscreen ? 'marx-study-workspace hegel-task-workspace is-fullscreen' : 'marx-study-workspace hegel-task-workspace'}
+        className={workspaceFullscreen ? 'marx-study-workspace hegel-task-workspace is-fullscreen' : workspaceExpanded ? 'marx-study-workspace hegel-task-workspace is-expanded' : 'marx-study-workspace hegel-task-workspace'}
       >
         <div className="marx-flow-panel">
           <div className="marx-flow-caption">
@@ -433,7 +450,7 @@ function HegelCroceTaskCanvas() {
                 className="marx-workspace-fullscreen-toggle"
                 onClick={toggleWorkspaceFullscreen}
               >
-                {workspaceFullscreen ? 'Salir ⛶' : 'Pantalla completa ⛶'}
+                {workspaceFullscreen || workspaceExpanded ? 'Cerrar vista ampliada ⛶' : 'Pantalla completa / ampliar mapa ⛶'}
               </button>
             </div>
           </div>
