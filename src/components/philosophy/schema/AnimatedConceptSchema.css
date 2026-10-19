@@ -371,3 +371,36 @@
 .animated-concept-schema__nodes{
   pointer-events:none;
 }
+
+
+/* Folios de lectura densos: el esquema ocupa su altura real, también en iPad.
+   No altera los esquemas de otras páginas ni la geometría del mapa 2D. */
+.animated-concept-schema.is-reading-vertical{
+  min-height:var(--concept-schema-min-height,640px);
+  align-items:stretch;
+  justify-content:flex-start;
+  overflow:visible;
+}
+
+.animated-concept-schema.is-reading-vertical .animated-concept-schema__svg{
+  display:block;
+  width:100%;
+  height:var(--concept-schema-min-height,640px);
+  min-height:var(--concept-schema-min-height,640px);
+  max-height:none;
+  flex:0 0 auto;
+  overflow:visible;
+}
+
+/* En ventanas telefónicas no se comprime el árbol hasta volverlo ilegible:
+   sólo el esquema obtiene desplazamiento lateral local cuando lo exige el ancho. */
+@media(max-width:620px){
+  .animated-concept-schema.is-reading-vertical{
+    overflow-x:auto;
+    max-width:100%;
+  }
+
+  .animated-concept-schema.is-reading-vertical .animated-concept-schema__svg{
+    min-width:620px;
+  }
+}
