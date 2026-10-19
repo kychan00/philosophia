@@ -88,7 +88,7 @@ export default function CafeAguaEvent() {
               las posiciones contrapuestas y las preguntas abiertas.
               Las fuentes externas se distinguen de lo expresado en la sesión.
             </p>
-            <a className="water-cafe-gallery-shortcut" href="#galeria-agua">VER LAS 8 FOTOGRAFÍAS ↓</a>
+            <button type="button" className="water-cafe-gallery-shortcut" onClick={() => document.getElementById('galeria-agua')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>VER LAS 8 FOTOGRAFÍAS ↓</button>
           </div>
         </div>
 
