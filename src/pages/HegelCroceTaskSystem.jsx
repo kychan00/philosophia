@@ -259,7 +259,7 @@ function HegelCroceTaskCanvas() {
           <h1>Hegel · Croce <em>dialéctica, Ser, Nada y Devenir</em></h1>
           <p className="marx-study-lead">
             Un sistema de estudio construido desde los materiales enviados y ampliado con la clase del 14 de octubre:
-            Croce, cuestionario, Ciencia de la Lógica, Henrich y la explicación oral del profesor como capa separada.
+            Croce, cuestionario, Ciencia de la lógica, Henrich, la clase del 14 de octubre y una nueva lectura de las pp. 77–98 con dos presentaciones docentes diferenciadas.
           </p>
         </div>
         <aside>
@@ -282,6 +282,27 @@ function HegelCroceTaskCanvas() {
         </div>
       </section>
 
+      <section className="hegel-reading-announcement" aria-labelledby="hegel-reading-new-title">
+        <div>
+          <span>LECTURA NUEVA · 18 OCTUBRE 2026</span>
+          <h2 id="hegel-reading-new-title">Ciencia de la lógica · páginas 77–98</h2>
+          <p>
+            La consigna posterior del profesor solicita leer estas páginas de la edición Mondolfo.
+            El recorrido incorpora el texto primario y sus dos presentaciones docentes sin
+            confundirlas con la clase del 14 de octubre ni modificar aquella entrega.
+          </p>
+          <small>21 nodos del libro · 7 nodos de apoyo docente · localizadores por página y diapositiva</small>
+        </div>
+        <div className="hegel-reading-actions">
+          <button type="button" onClick={() => { setGuidedMode(false);setSelectedId(null);setRoute('reading77') }}>
+            Explorar lectura en el mapa →
+          </button>
+          <button type="button" onClick={() => { setGuidedMode(false);setSelectedId(null);setRoute('docente') }}>
+            Ver las presentaciones
+          </button>
+        </div>
+      </section>
+
       <section className="hegel-task-plan">
         <article><span>01</span><strong>Croce</strong><p>Entender el problema de los contrarios y la solución hegeliana.</p></article>
         <article><span>02</span><strong>Cuestionario</strong><p>Probar la comprensión mediante las 18 preguntas del capítulo I.</p></article>
@@ -295,7 +316,7 @@ function HegelCroceTaskCanvas() {
           <strong>Ruta guiada completa · {hegelCroceGuidedRoute.length} / {hegelCroceStats.nodes} nodos</strong>
           <p>
             La guía recorre los {hegelCroceStats.nodes} nodos sin saltarse detalles: consigna, Croce,
-            las 18 preguntas, Hegel y Henrich. El nodo actual y el siguiente permanecen visibles.
+            las 18 preguntas, Hegel, Henrich, las páginas 77–98 y las presentaciones docentes. El nodo actual y el siguiente permanecen visibles.
           </p>
         </div>
         <button
