@@ -1,19 +1,21 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { hegelLogicAssignedReading } from '../src/data/hegelLogic77to98.js'
+import { hegelTeacherSlides, hegelTeacherSlideById } from '../src/data/hegelTeacherSlides.js'
 import {
   hegelCroceNodes, hegelCroceGuidedRoute, hegelCroceEdges,
   hegelCroceCrossRelations, hegelCrocePhases, hegelCroceStats
 } from '../src/data/hegelCroceTaskSystem.js'
 
-test('Hegel: 21 nodos primarios, 7 apoyos docentes y atlas extensible', () => {
-  assert.equal(hegelLogicAssignedReading.length, 28)
+test('Hegel: 21 nodos primarios, 7 apoyos generales y 9 folios docentes íntegros', () => {
+  assert.equal(hegelLogicAssignedReading.length, 37)
   const ids = hegelLogicAssignedReading.map(row => row[0])
   assert.equal(ids.filter(id => id.startsWith('P')).length, 21)
   assert.equal(ids.filter(id => id.startsWith('M')).length, 7)
-  assert.equal(new Set(ids).size, 28)
+  assert.equal(ids.filter(id => id.startsWith('E')).length, 9)
+  assert.equal(new Set(ids).size, 37)
   assert.equal(hegelCroceStats.nodes, hegelCroceNodes.length)
-  assert.equal(hegelCroceStats.nodes, 152)
+  assert.equal(hegelCroceStats.nodes, 161)
   assert.equal(hegelCroceGuidedRoute.length, hegelCroceNodes.length)
   assert.equal(hegelCroceStats.schemas, hegelCroceNodes.length)
   assert.ok(hegelCrocePhases.includes('Lectura · 77–98'))
@@ -35,7 +37,7 @@ test('Hegel: toda arista apunta a un nodo y conserva localizadores', () => {
   for (const [id,source,target] of hegelCroceCrossRelations) {
     assert.ok(map.has(source) && map.has(target), 'relación ' + id)
   }
-  for (const row of hegelLogicAssignedReading) {
+  for (const row of hegelLogicAssignedReading.filter(row => row[0].startsWith('P') || row[0].startsWith('M'))) {
     const [id,phase,,,,,,routes,,,,page] = row
     assert.ok(page?.length > 6,id + ': localizador ausente')
     assert.ok(routes.includes('reading77'), id + ': ruta ausente')
@@ -62,7 +64,7 @@ test('Hegel: nodos dispuestos sin solapes geométricos, incluyendo filas de la l
   }
 })
 
-test('Hegel: los 152 folios usan geometría vertical sin aristas huérfanas', () => {
+test('Hegel: los 161 folios usan geometría vertical sin aristas huérfanas', () => {
   for (const node of hegelCroceNodes) {
     const schema = node.data.schema
     assert.equal(schema.layout, 'hierarchy', node.id)
@@ -72,10 +74,51 @@ test('Hegel: los 152 folios usan geometría vertical sin aristas huérfanas', ()
     assert.ok(schema.minHeight >= 600, node.id)
     const ids = new Set(schema.nodes.map(item => item.id))
     assert.equal(ids.size, schema.nodes.length, node.id)
-    assert.ok(ids.has('focus'), node.id)
+    const isTeacherSlide = node.id.startsWith('E')
+    assert.ok(isTeacherSlide ? ids.size >= 5 : ids.has('focus'), node.id)
     for (const edge of schema.edges) {
       assert.ok(ids.has(edge.from) && ids.has(edge.to), node.id)
-      assert.ok(edge.from === 'focus' || edge.to === 'focus', node.id)
+      if (!isTeacherSlide) {
+        assert.ok(edge.from === 'focus' || edge.to === 'focus', node.id)
+      }
     }
   }
+})
+
+test('Presentación docente: nueve diapositivas con texto extenso y explicación sistémica', () => {
+  const expectedParts=[5,5,5,3,4,4,4,3,4]
+  assert.equal(hegelTeacherSlides.length,9)
+  for (const [index,slide] of hegelTeacherSlides.entries()) {
+    assert.equal(slide.id,`E${String(index+1).padStart(2,'0')}`)
+    assert.equal(slide.slide,index+1)
+    assert.equal(slide.literal.length,expectedParts[index],slide.id)
+    assert.ok(slide.literal.every(p=>p.length>=25),slide.id)
+    assert.ok(slide.explanation.length>430,slide.id)
+    assert.ok(slide.steps.length>=5,slide.id)
+    assert.ok(slide.dependsOn.length>0,slide.id)
+    assert.ok(hegelTeacherSlideById.has(slide.id),slide.id)
+    const node=hegelCroceNodes.find(n=>n.id===slide.id)
+    assert.ok(node,node?.id)
+    assert.equal(node.data.teacherSlide,slide)
+    assert.equal(node.data.schema.nodes.length,slide.steps.length)
+    assert.equal(node.data.schema.edges.length,slide.steps.length-1)
+    assert.ok(node.data.schema.minHeight>=slide.steps.length*200)
+    assert.ok(node.data.schema.edges.every(e=>e.relationKind==='hierarchical'))
+    assert.ok(node.data.sourceMode.includes('DOCENTES'))
+  }
+})
+
+test('Presentación docente: relaciones y continuidad con texto primario, sin perder la guía', () => {
+  assert.equal(hegelCroceStats.crossRelations,56)
+  assert.equal(hegelCroceGuidedRoute.length,161)
+  assert.deepEqual(
+    hegelCroceGuidedRoute.filter(item=>item.id.startsWith('E')).map(item=>item.id),
+    hegelTeacherSlides.map(item=>item.id)
+  )
+  const relations=new Map(hegelCroceCrossRelations.map(([id,from,to])=>[id,{from,to}]))
+  for (let i=40;i<=56;i++) assert.ok(relations.has('R'+i),'Relación II R'+i)
+  assert.equal(relations.get('R48').from,'E05')
+  assert.equal(relations.get('R48').to,'E06')
+  assert.equal(relations.get('R55').from,'E08')
+  assert.equal(relations.get('R55').to,'E09')
 })
