@@ -65,6 +65,9 @@ jobs:
       - name: Validate Hegel teacher folios in Chromium (tablet)
         run: node tests/hegel-teacher-browser-smoke.mjs
 
+      - name: Validate Café del Agua in Chromium (phone and tablet)
+        run: node tests/cafe-agua-browser-smoke.mjs
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6
 
