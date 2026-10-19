@@ -224,15 +224,24 @@ function buildHierarchyLayout(schema) {
     ? schema.hierarchyYGap
     : METRICS.hierarchyYGap
 
-  const rows = levels.map(({ ids }) => {
-    const nodes = ids.map((id) => nodeMap.get(id)).filter(Boolean)
-    const sizes = nodes.map(nodeSize)
-    const width =
-      sizes.reduce((sum, size) => sum + size.width, 0) +
-      Math.max(0, sizes.length - 1) * xGap
-    const height = Math.max(...sizes.map((size) => size.height), METRICS.nodeHeight)
+  // En folios densos, un nivel con tres conceptos se reparte en varias
+  // filas de hasta dos figuras. No se alteran aristas ni nodos del mapa 2D.
+  const rows = levels.flatMap(({ ids }) => {
+    const maxPerRow = schema.readingLayout === 'vertical-folio' ? 2 : Math.max(1, ids.length)
+    const groups = []
 
-    return { nodes, sizes, width, height }
+    for (let start = 0; start < ids.length; start += maxPerRow) {
+      const nodes = ids.slice(start, start + maxPerRow)
+        .map((id) => nodeMap.get(id)).filter(Boolean)
+      const sizes = nodes.map(nodeSize)
+      const width = sizes.reduce((sum, size) => sum + size.width, 0) +
+        Math.max(0, sizes.length - 1) * xGap
+      const height = Math.max(...sizes.map((size) => size.height), METRICS.nodeHeight)
+
+      groups.push({ nodes, sizes, width, height })
+    }
+
+    return groups
   })
 
   const width =
