@@ -250,3 +250,123 @@
     overflow:visible;
   }
 }
+
+
+/* Archivo docente de Hegel · exposición íntegra diferenciada del texto primario */
+.hegel-teacher-document{
+  min-width:0;
+  color:#28221d;
+  background:linear-gradient(140deg,#fbf7ef,#f1e8d9);
+  border:1px solid rgba(102,74,50,.28);
+  border-left:4px solid #8b3d34;
+  padding:clamp(1rem,2.4vw,2rem);
+}
+.hegel-teacher-document.is-folio{grid-column:1 / -1}
+.hegel-teacher-document__heading{
+  display:block;
+  border-bottom:1px solid rgba(102,74,50,.22);
+  padding:0 0 1.1rem;
+  margin-bottom:1.25rem;
+}
+.hegel-teacher-document__heading>span,
+.hegel-teacher-document__study>span{
+  display:block;
+  font-family:inherit;
+  font-size:.75rem;
+  font-weight:850;
+  letter-spacing:.12em;
+  color:#7a2d1e;
+}
+.hegel-teacher-document__heading h3{
+  font-family:Georgia,serif;
+  font-weight:500;
+  font-size:clamp(1.35rem,2.7vw,2.15rem);
+  line-height:1.14;
+  margin:.5rem 0 .55rem;
+}
+.hegel-teacher-document__heading small{
+  display:block;
+  font-size:.88rem;
+  line-height:1.45;
+  color:#635849;
+}
+.hegel-teacher-document__text{
+  list-style:none;
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:.9rem;
+  padding:0;
+  margin:0;
+}
+.hegel-teacher-document__text li{
+  min-width:0;
+  display:grid;
+  grid-template-columns:2.2rem minmax(0,1fr);
+  gap:.85rem;
+  align-items:start;
+  padding:0 0 .85rem;
+  border-bottom:1px solid rgba(102,74,50,.12);
+}
+.hegel-teacher-document__text li>span{
+  color:#8b3d34;
+  font-size:.75rem;
+  font-weight:800;
+  letter-spacing:.12em;
+  padding-top:.35rem;
+}
+.hegel-teacher-document__text p{
+  margin:0;
+  font-size:clamp(1rem,1.5vw,1.2rem);
+  line-height:1.68;
+  overflow-wrap:anywhere;
+  text-wrap:pretty;
+}
+.hegel-teacher-document__study{
+  margin-top:2rem;
+  padding:clamp(1rem,2vw,1.65rem);
+  background:rgba(113,79,44,.075);
+  border-top:2px solid rgba(139,61,52,.45);
+}
+.hegel-teacher-document__study p{
+  line-height:1.75;
+  font-size:1.05rem;
+}
+.hegel-teacher-document__study h4{
+  margin:1.4rem 0 .7rem;
+  font-family:Georgia,serif;
+  font-size:1.3rem;
+}
+.hegel-teacher-document__study ol{
+  display:grid;
+  gap:.55rem;
+  padding-left:1.35rem;
+}
+.hegel-teacher-document__study li{
+  line-height:1.55;
+  padding-left:.2rem;
+}
+.hegel-teacher-document__study .hegel-teacher-document__boundary{
+  margin:1.1rem 0 0;
+  padding-top:.8rem;
+  border-top:1px solid rgba(102,74,50,.22);
+  font-size:.85rem;
+  color:#665846;
+}
+.hegel-teacher-document.is-compact{
+  padding:1rem .8rem;
+  margin:0 0 1rem;
+}
+.hegel-teacher-document.is-compact .hegel-teacher-document__heading h3{
+  font-size:1.2rem;
+}
+.hegel-teacher-document.is-compact .hegel-teacher-document__text p{
+  font-size:.94rem;
+}
+.hegel-teacher-document.is-compact .hegel-teacher-document__text li{
+  grid-template-columns:1.45rem minmax(0,1fr);
+  gap:.6rem;
+}
+@media(max-width:840px){
+  .hegel-teacher-document.is-folio{grid-column:1 / -1}
+  .hegel-teacher-document__text p{font-size:1rem}
+}
