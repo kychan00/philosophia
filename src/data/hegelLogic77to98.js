@@ -1,5 +1,5 @@
 /**
- * Lectura asignada el 18-10-2026. Referencia: Hegel, Ciencia de la lógica,
+ * Consigna aportada el 18-10-2026 (fecha de envío no visible). Referencia: Hegel, Ciencia de la lógica,
  * traducción de Augusta y Rodolfo Mondolfo, Solar/Hachette, pp. impresas 77–98.
  * Texto de los nodos: paráfrasis editorial, NO cita literal. Las presentaciones
  * de José Alejandro Fuerte se mantienen en una capa docente diferenciada.
