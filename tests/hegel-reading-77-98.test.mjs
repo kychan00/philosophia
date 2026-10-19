@@ -61,3 +61,21 @@ test('Hegel: nodos dispuestos sin solapes geométricos, incluyendo filas de la l
     }
   }
 })
+
+test('Hegel: los 152 folios usan geometría vertical sin aristas huérfanas', () => {
+  for (const node of hegelCroceNodes) {
+    const schema = node.data.schema
+    assert.equal(schema.layout, 'hierarchy', node.id)
+    assert.equal(schema.readingLayout, 'vertical-folio', node.id)
+    assert.ok(schema.hierarchyXGap >= 70, node.id)
+    assert.ok(schema.hierarchyYGap >= 140, node.id)
+    assert.ok(schema.minHeight >= 600, node.id)
+    const ids = new Set(schema.nodes.map(item => item.id))
+    assert.equal(ids.size, schema.nodes.length, node.id)
+    assert.ok(ids.has('focus'), node.id)
+    for (const edge of schema.edges) {
+      assert.ok(ids.has(edge.from) && ids.has(edge.to), node.id)
+      assert.ok(edge.from === 'focus' || edge.to === 'focus', node.id)
+    }
+  }
+})
