@@ -107,6 +107,7 @@ const MethodsClass14Sep = lazy(() => import('./pages/MethodsClass14Sep'))
 const MethodsClass21Sep = lazy(() => import('./pages/MethodsClass21Sep'))
 const MethodsClass23Sep = lazy(() => import('./pages/MethodsClass23Sep'))
 const MethodsClass14Oct = lazy(() => import('./pages/MethodsClass14Oct'))
+const MethodsClass19Oct = lazy(() => import('./pages/MethodsClass19Oct'))
 const MethodsRussSystem2D = lazy(() => import('./pages/MethodsRussSystem2D'))
 const AnalyticPhilosophy = lazy(() => import('./pages/AnalyticPhilosophy'))
 const AnalyticClass17Aug = lazy(() => import('./pages/AnalyticClass17Aug'))
@@ -459,6 +460,10 @@ function App() {
         <Route
           path="/semestre/5/metodos-de-investigacion/clase/14-octubre"
           element={<MethodsClass14Oct />}
+        />
+        <Route
+          path="/semestre/5/metodos-de-investigacion/clase/19-octubre"
+          element={<MethodsClass19Oct />}
         />
         <Route
           path="/tareas/metodos-de-investigacion/jacqueline-russ-capitulos-1-3"
