@@ -60,4 +60,8 @@ test('navegación, guía y frontera editorial en el JSX',()=>{
   assert.match(css,/--ph2d-topic-blue/)
   assert.match(page,/<CafeAguaSystem2D embedded \/>/)
   assert.match(page,/water-news-masthead/)
+  const memoir=readFileSync(new URL('../src/pages/CafeAguaMemory.tsx',import.meta.url),'utf8')
+  assert.match(memoir,/scrollIntoView/)
+  assert.match(memoir,/has-diagram/)
+  assert.doesNotMatch(memoir,/href=\{'#agua-memoria-/)
 })

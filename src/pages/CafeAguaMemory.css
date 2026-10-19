@@ -76,3 +76,9 @@
 .water-memory-end{width:min(1370px,calc(100% - 6vw));border-top:6px double #173946}
 @media(max-width:960px){.water-memory-chapter:nth-child(3n+2) .water-memory-copy{column-count:1}.water-news-midline{flex-wrap:wrap}.water-news-midline strong{text-align:left}}
 @media(max-width:760px){.water-memory-header,.water-memory-chapters,.water-memory-end,.water-news-midline{width:calc(100% - 36px)}.water-memory-chapter{grid-template-columns:1fr;gap:8px}.water-memory-number strong{font-size:30px}.water-memory-header h2{font-size:clamp(47px,10vw,74px)}.water-memory-copy p,.water-memory-copy li{font-size:16px}.water-memory-header nav a{flex:1 1 46%}}
+
+/* Evitar diagramas en una columna estrecha y no alterar el hash del enrutador. */
+.water-memory-chapter.has-diagram .water-memory-copy{column-count:1}
+.water-memory-header nav button{cursor:pointer;display:inline-block;padding:10px 13px;max-width:100%;color:#0d5068;background:transparent;border:1px solid #0d5068;font:900 11px/1.3 Arial,sans-serif;text-align:left}
+.water-memory-header nav button:hover,.water-memory-header nav button:focus-visible{background:#0d5068;color:#f3e4c4;outline:2px solid #b88e44;outline-offset:2px}
+@media(max-width:760px){.water-memory-header nav button{flex:1 1 46%}}

@@ -90,7 +90,7 @@ export default function CafeAguaMemory(){
       <p>Una reconstrucción fiel del diálogo del 19 de octubre de 2026. Cada tesis conserva sus matices y objeciones; los datos contrastados externamente aparecen por separado.</p>
       <nav aria-label="Recorrido por la memoria">{sections.map((section,i)=>{
         const heading=section.split('\n')[0].trim()
-        return <a key={i} href={'#agua-memoria-'+i}>{heading.replace(/^\d+ · /,'')}</a>
+        return <button type="button" key={i} onClick={() => document.getElementById('agua-memoria-'+i)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>{heading.replace(/^\d+ · /,'')}</button>
       })}</nav>
     </header>
     <div className="water-news-midline">
@@ -98,7 +98,7 @@ export default function CafeAguaMemory(){
     </div>
     <div className="water-memory-chapters">{sections.map((section,i)=>{
       const [heading,...body]=section.split('\n')
-      return <article className="water-memory-chapter" id={'agua-memoria-'+i} key={i}>
+      return <article className={body.join("\n").includes(fence+"mermaid") ? "water-memory-chapter has-diagram" : "water-memory-chapter"} id={'agua-memoria-'+i} key={i}>
         <div className="water-memory-number"><strong>{String(i+1).padStart(2,'0')}</strong><small>AGUA / 2026</small></div>
         <div className="water-memory-copy"><h2>{heading}</h2>{blocks(body.join('\n'))}</div>
       </article>
