@@ -49,6 +49,12 @@ export default function CafeAguaEvent() {
         <span>MEMORIA PUBLICADA</span>
       </nav>
 
+      <section className="water-news-masthead" aria-label="Cabecera del periódico del Café">
+        <div className="water-news-edition"><span>UNIVERSIDAD · FILOSOFÍA PÚBLICA</span><span>GUADALAJARA, JALISCO</span><span>19 · OCTUBRE · 2026</span></div>
+        <div className="water-news-identity"><span>04 / EDICIÓN</span><strong>Café <em>Filosófico</em></strong><span>ARCHIVO DE DIÁLOGOS</span></div>
+        <div className="water-news-tagline"><span>LA GACETA DEL DIÁLOGO</span><p>Un periódico de ideas: no una voz única, sino razones, controversias y preguntas compartidas.</p><span>AGUA · CIUDAD · JUSTICIA</span></div>
+      </section>
+
       <header className="water-cafe-hero">
         <div className="water-cafe-copy">
           <p className="water-cafe-kicker">CAFÉ FILOSÓFICO · INTERDISCIPLINARIO</p>
@@ -105,6 +111,41 @@ export default function CafeAguaEvent() {
           </figcaption>
         </figure>
       </header>
+
+      <section className="water-news-headlines" aria-labelledby="water-news-headlines-title">
+        <div className="water-news-sectionbar"><span>ESPECIAL / EL AGUA</span><span>REPORTAJE DOCUMENTAL · NÚM. 004</span></div>
+        <div className="water-news-headline-lead">
+          <div>
+            <p className="water-news-kicker">EL PROBLEMA / LA CIUDAD Y SUS CONSECUENCIAS</p>
+            <h2 id="water-news-headlines-title">¿Escasez natural o crisis construida?</h2>
+            <p className="water-news-subhead">El encuentro confrontó dos preguntas que no se excluyen: qué condiciones ecológicas enfrenta Guadalajara y qué decisiones colectivas determinan quién recibe agua segura.</p>
+          </div>
+          <aside><span>TESIS CENTRAL DEL DIÁLOGO</span><strong>El agua existe en una fuente. El acceso seguro requiere algo más.</strong><small>Paráfrasis editorial de la distinción discutida en la sesión.</small></aside>
+        </div>
+        <div className="water-news-columns">
+          <article>
+            <span>01 / LA MATERIALIDAD</span>
+            <h3>Una fuente no es una llave abierta.</h3>
+            <p>Armando propuso distinguir la disponibilidad de agua de su captación, tratamiento y entrega. Para comprender la crisis, la naturaleza y la infraestructura tienen que pensarse juntas.</p>
+          </article>
+          <article>
+            <span>02 / LA INFRAESTRUCTURA</span>
+            <h3>El costo de los arreglos que no terminan.</h3>
+            <p>Cristian comparó la improvisación urbana con los parches de programación que acumulan deuda técnica. Diana cuestionó que el crecimiento demográfico cargue con la culpa de una planeación insuficiente.</p>
+          </article>
+          <article>
+            <span>03 / EL DEBATE POLÍTICO</span>
+            <h3>¿Quién decide y quién responde?</h3>
+            <p>Las concesiones, las prioridades de inversión, los consumos productivos y los deberes institucionales abrieron un desacuerdo: no todo es ecológico y no todo puede atribuirse a una sola autoridad.</p>
+          </article>
+          <article>
+            <span>04 / DE LA ÉTICA A LA ACCIÓN</span>
+            <h3>La responsabilidad no cabe en una sola casa.</h3>
+            <p>El cuidado cotidiano, la captación pluvial, la universidad pública, la organización barrial y la protesta aparecieron como acciones distintas. La sesión no adoptó una solución unánime.</p>
+          </article>
+        </div>
+        <div className="water-news-disclaimer"><strong>NOTA DE REDACCIÓN</strong><p>Esta edición reúne intervenciones reales en forma de reconstrucción argumental. No certifica cifras pronunciadas sin respaldo, intenciones ocultas ni responsabilidades jurídicas.</p><a href="#memoria" onClick={(event) => { event.preventDefault(); document.getElementById('memoria')?.scrollIntoView({ behavior: 'smooth', block: 'start' }) }}>LEER EL ARCHIVO CRÍTICO ↓</a></div>
+      </section>
 
       <section className="water-cafe-band" aria-label="Ejes del encuentro">
         <article><span>01</span><strong>DERECHO</strong></article>

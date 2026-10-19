@@ -93,6 +93,9 @@ export default function CafeAguaMemory(){
         return <a key={i} href={'#agua-memoria-'+i}>{heading.replace(/^\d+ · /,'')}</a>
       })}</nav>
     </header>
+    <div className="water-news-midline">
+      <span>HEMEROTECA FILOSÓFICA / 2026</span><strong>Crónica de una conversación sin dictamen único.</strong><span>ARGUMENTOS · OBJECIONES · ARCHIVO</span>
+    </div>
     <div className="water-memory-chapters">{sections.map((section,i)=>{
       const [heading,...body]=section.split('\n')
       return <article className="water-memory-chapter" id={'agua-memoria-'+i} key={i}>

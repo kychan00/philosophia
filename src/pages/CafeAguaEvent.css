@@ -473,3 +473,60 @@
 @media(prefers-reduced-motion:reduce){
   .water-cafe-gallery-photo img{transition:none}
 }
+
+/* EDICIÓN IMPRESA · conservamos la tinta azul, el oro y la textura del Café del Agua. */
+.water-cafe-page{background:repeating-linear-gradient(0deg,rgba(12,49,62,.018) 0px,rgba(12,49,62,.018) 1px,transparent 1px,transparent 4px),#e6d5b3}
+.water-cafe-topbar{border-bottom:0}
+.water-news-masthead{width:min(1420px,calc(100% - 6vw));margin:22px auto 0;color:#153744}
+.water-news-edition,.water-news-identity,.water-news-tagline{display:flex;align-items:center;justify-content:space-between;gap:15px}
+.water-news-edition{padding:12px 0;border-block:2px solid #153744;font:900 10px/1.3 Arial,sans-serif;letter-spacing:.14em}
+.water-news-identity{padding:15px 0 10px;border-bottom:1px solid #153744}
+.water-news-identity span{font:900 11px/1.4 Arial,sans-serif;letter-spacing:.12em}
+.water-news-identity strong{font:800 clamp(45px,7.6vw,116px)/.96 Georgia,serif;letter-spacing:-.075em;text-align:center}
+.water-news-identity em{font-weight:400}
+.water-news-tagline{padding:10px 0 13px;border-bottom:4px double #153744;font:900 10px/1.5 Arial,sans-serif;letter-spacing:.11em}
+.water-news-tagline p{max-width:540px;text-align:center;font:italic 14px/1.4 Georgia,serif;letter-spacing:0;margin:0}
+.water-cafe-hero{width:min(1420px,calc(100% - 6vw));margin:0 auto;min-height:0;align-items:stretch;gap:0;border-bottom:5px double #153744;background:transparent}
+.water-cafe-copy{padding:48px 36px 48px 0;align-self:center}
+.water-cafe-poster{max-width:450px;width:72%;margin:40px auto;box-shadow:9px 14px 0 #173a4630,0 24px 45px #173a4630}
+.water-cafe-kicker{color:#173a46;font-size:12px;letter-spacing:.13em}
+.water-cafe-paper-title{clip-path:none;background:#91c9d5;box-shadow:12px 12px 0 #163a4728;transform:rotate(-.5deg);padding:26px 30px;border:2px solid #153744}
+.water-cafe-paper-title h1{font-family:Georgia,serif;letter-spacing:-.09em;font-weight:900}
+.water-cafe-deck{color:#183c4a;font:italic 700 clamp(19px,2.25vw,31px)/1.24 Georgia,serif;border-bottom:2px solid #153744;padding:0 0 22px}
+.water-cafe-meta{margin-top:25px}
+.water-cafe-meta article{background:#f5e5c4;color:#173a46;border:1px solid #9a977f;backdrop-filter:none}
+.water-cafe-meta span{color:#577181}
+.water-cafe-meta .is-coffee{background:#f0c875;color:#172b30;border-color:#7c643a}
+.water-cafe-status{background:#f6e9d1;color:#173a46;border:1px solid #aa987b;border-left:6px solid #a87729}
+.water-cafe-status span{color:#946a26}
+.water-news-headlines{width:min(1420px,calc(100% - 6vw));margin:0 auto;padding:17px 0 55px;border-bottom:4px double #153744;color:#173744}
+.water-news-sectionbar{display:flex;justify-content:space-between;gap:18px;padding-bottom:13px;border-bottom:2px solid #153744;font:900 11px/1.5 Arial,sans-serif;letter-spacing:.12em}
+.water-news-headline-lead{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(260px,.5fr);gap:35px;border-bottom:1px solid #64818a;padding:30px 0}
+.water-news-kicker,.water-news-headline-lead aside span,.water-news-columns article>span,.water-news-disclaimer strong{font:900 11px/1.35 Arial,sans-serif;letter-spacing:.13em;color:#0c6880}
+.water-news-headline-lead h2{font:900 clamp(45px,6vw,92px)/.97 Georgia,serif;letter-spacing:-.06em;max-width:930px;margin:13px 0}
+.water-news-subhead{font:italic 21px/1.47 Georgia,serif;max-width:900px;margin:15px 0 0}
+.water-news-headline-lead aside{padding:18px 0 18px 24px;border-left:3px solid #0f5670}
+.water-news-headline-lead aside strong{display:block;margin:16px 0;font:800 clamp(24px,2.6vw,35px)/1.14 Georgia,serif}
+.water-news-headline-lead aside small{display:block;font:400 12px/1.5 Arial,sans-serif;color:#51727e}
+.water-news-columns{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;padding:26px 0 20px}
+.water-news-columns article{padding:0 24px;border-right:1px solid #68828d;min-width:0}
+.water-news-columns article:first-child{padding-left:0}
+.water-news-columns article:last-child{padding-right:0;border-right:0}
+.water-news-columns h3{font:800 27px/1.12 Georgia,serif;letter-spacing:-.03em;margin:13px 0}
+.water-news-columns p{font:400 16px/1.7 Georgia,serif;margin:0}
+.water-news-disclaimer{display:grid;grid-template-columns:160px minmax(0,1fr) auto;align-items:center;gap:20px;border-top:2px solid #153744;padding:16px 0;font:400 14px/1.6 Arial,sans-serif}
+.water-news-disclaimer p{margin:0}
+.water-news-disclaimer a{font:900 11px Arial,sans-serif;color:#0d5268;text-decoration:underline;text-underline-offset:4px;white-space:nowrap}
+.water-cafe-band{width:min(1420px,calc(100% - 6vw));background:#efdbb1;margin:35px auto 0}
+.water-cafe-band article{min-height:130px}
+.water-cafe-band strong{margin-top:45px}
+.water-cafe-gallery-header h2,.water-cafe-section-head h2{font-family:Georgia,serif;letter-spacing:-.045em}
+.water-cafe-gallery{border-top:5px double #133e51;margin-top:60px}
+.water-cafe-gallery-header{border-top:0}
+.water-cafe-gallery-grid{gap:9px}
+.water-cafe-gallery-photo{background:#f6ecd8;border:1px solid #526e78;box-shadow:4px 6px 0 #1c45561b}
+.water-cafe-gallery-photo figcaption{border-top:1px solid #7e939a}
+.water-cafe-section{border-top:3px double #153744;margin-top:50px}
+.water-cafe-invite{background:#edc47d}
+@media(max-width:1100px){.water-news-columns{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:25px}.water-news-columns article:nth-child(2){border-right:0}.water-news-columns article:nth-child(3){padding-left:0}.water-news-identity span{font-size:9px}}
+@media(max-width:760px){.water-news-edition span:nth-child(2),.water-news-identity span{display:none}.water-news-masthead,.water-news-headlines,.water-cafe-hero{width:calc(100% - 36px)}.water-news-identity{justify-content:center}.water-news-identity strong{font-size:clamp(43px,12.2vw,72px)}.water-news-tagline>span{display:none}.water-news-tagline p{width:100%}.water-news-headline-lead{grid-template-columns:1fr;gap:12px}.water-news-headline-lead aside{padding:18px;border-left:4px solid #0f5670;background:#f4e7c9}.water-news-columns{grid-template-columns:1fr}.water-news-columns article{padding:0 0 20px;margin-bottom:22px;border-right:0;border-bottom:1px solid #68828d}.water-news-columns article:last-child{border-bottom:0}.water-news-disclaimer{grid-template-columns:1fr;gap:10px}.water-news-disclaimer a{white-space:normal}.water-cafe-copy{padding:40px 0 45px}.water-cafe-hero{grid-template-columns:1fr}.water-cafe-poster{margin:24px auto 45px}.water-cafe-meta{grid-template-columns:1fr}.water-cafe-band{width:calc(100% - 36px)}}
