@@ -1,5 +1,6 @@
 import { hegelLogicAssignedReading } from './hegelLogic77to98.js'
 import { hegelTeacherSlideById, buildHegelTeacherSchema } from './hegelTeacherSlides.js'
+import { hegelOntologySlideById } from './hegelOntologySlides.js'
 
 export const hegelCroceRoutes = [
   { id: 'all', label: 'Todo el sistema' },
@@ -10,7 +11,6 @@ export const hegelCroceRoutes = [
   { id: 'questions', label: 'Cuestionario · 18' },
   { id: 'hegel', label: 'Hegel · Ser/Nada/Devenir' },
   { id: 'reading77', label: 'Lectura · Hegel pp. 77–98' },
-  { id: 'docente', label: 'Presentaciones del profesor' },
   { id: 'class14', label: 'Clase · 14 oct' },
   { id: 'henrich', label: 'Henrich · mapa' },
 ]
@@ -26,7 +26,6 @@ export const hegelCrocePhases = [
   'Clase · 14 oct',
   'Henrich · contexto',
   'Lectura · 77–98',
-  'Apoyo docente · Hegel',
 ]
 
 const raw = [
@@ -181,7 +180,6 @@ const routeSet = (branches) => Array.from(new Set(branches))
 
 const sourceModeForPhase = (phase) => {
   if (phase === 'Lectura · 77–98') return 'HEGEL · TEXTO PRIMARIO · PARÁFRASIS COTEJADA'
-  if (phase === 'Apoyo docente · Hegel') return 'PRESENTACIONES DOCENTES · EXPLICACIÓN DIFERENCIADA'
   if (phase === 'Cuestionario') return 'PREGUNTA LITERAL COMPLETA'
   if (phase === 'Ser · Nada · Devenir') return 'FUENTE PRIMARIA · RECONSTRUCCIÓN FIEL'
   if (phase === 'Henrich · contexto') return 'ÍNDICE / PREFACIO · ORIENTACIÓN'
@@ -210,20 +208,22 @@ export const hegelCroceNodes = raw.map((item) => {
       explanation,
       role,
       concepts,
-      authors: phase.startsWith('Henrich') ? ['Dieter Henrich'] : ['Ser · Nada · Devenir','Lectura · 77–98'].includes(phase) ? ['G. W. F. Hegel'] : phase === 'Apoyo docente · Hegel' ? ['José Alejandro Fuerte · presentaciones'] : phase === 'Clase · 14 oct' ? ['José Alejandro Fuerte · clase'] : phase === 'Consigna' ? [] : ['Benedetto Croce'],
+      authors: (id.startsWith('M') || id.startsWith('E') || id.startsWith('F')) ? ['José Alejandro Fuerte · presentaciones'] : phase.startsWith('Henrich') ? ['Dieter Henrich'] : ['Ser · Nada · Devenir','Lectura · 77–98'].includes(phase) ? ['G. W. F. Hegel'] : phase === 'Clase · 14 oct' ? ['José Alejandro Fuerte · clase'] : phase === 'Consigna' ? [] : ['Benedetto Croce'],
       branch:routeSet(['all',...branch]),
       dependsOn,
       produces:[],
       critical,
       micro,
       page,
-      sourceShort: phase === 'Lectura · 77–98' ? 'Hegel · Mondolfo' : phase === 'Apoyo docente · Hegel' ? 'Profesor · diapositivas' : phase === 'Ser · Nada · Devenir' ? 'Hegel' : phase.startsWith('Henrich') ? 'Henrich' : phase === 'Clase · 14 oct' ? 'Clase 14 oct' : phase === 'Consigna' ? 'Tarea' : phase === 'Cuestionario' ? 'Cuestionario' : 'Croce',
-      sourceMode: sourceModeForPhase(phase),
+      sourceShort: (id.startsWith('M') || id.startsWith('E') || id.startsWith('F')) ? 'Profesor · diapositivas' : phase === 'Lectura · 77–98' ? 'Hegel · Mondolfo' : phase === 'Ser · Nada · Devenir' ? 'Hegel' : phase.startsWith('Henrich') ? 'Henrich' : phase === 'Clase · 14 oct' ? 'Clase 14 oct' : phase === 'Consigna' ? 'Tarea' : phase === 'Cuestionario' ? 'Cuestionario' : 'Croce',
+      sourceMode: (id.startsWith('M') || id.startsWith('E') || id.startsWith('F'))
+        ? 'PRESENTACIONES DOCENTES · APOYO A LA LECTURA · NO TEXTO PRIMARIO'
+        : sourceModeForPhase(phase),
       question: critical
         ? '¿Puede explicar este nodo sin repetir sólo su definición?'
         : '¿Qué papel cumple este detalle en el movimiento general?',
       diagram: concepts.slice(0,4),
-      teacherSlide:hegelTeacherSlideById.get(id) || null,
+      teacherSlide:hegelTeacherSlideById.get(id) || hegelOntologySlideById.get(id) || null,
     },
   }
 })
