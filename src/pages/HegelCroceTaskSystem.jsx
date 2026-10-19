@@ -213,7 +213,13 @@ function HegelCroceTaskCanvas() {
     if(guidedMode || route==='all') return
     const timer=window.setTimeout(()=>{
       const visible=getNodes().filter((node)=>!node.hidden)
-      if(visible.length) fitView({nodes:visible,padding:.13,duration:650,maxZoom:.82})
+      if(visible.length){
+        // Una ruta con 28 tarjetas no debe iniciar a escala microscópica.
+        // Enfocar primero dos tarjetas conserva legibilidad en iPad,
+        // mientras guía, controles y minimapa permiten recorrer el resto.
+        const firstView=['reading77','docente'].includes(route) ? visible.slice(0,2) : visible
+        fitView({nodes:firstView,padding:.18,duration:650,maxZoom:1})
+      }
     },100)
     return ()=>window.clearTimeout(timer)
   },[route,guidedMode,getNodes,fitView])
