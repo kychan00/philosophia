@@ -1,4 +1,4 @@
-import { hegelLogicAssignedReading } from './hegelLogic77to98'
+import { hegelLogicAssignedReading } from './hegelLogic77to98.js'
 
 export const hegelCroceRoutes = [
   { id: 'all', label: 'Todo el sistema' },
