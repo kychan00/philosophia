@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router'
 import './CafeAguaEvent.css'
 import CafeAguaMemory from './CafeAguaMemory'
+import CafeAguaSystem2D from './CafeAguaSystem2D'
 import { cafeAguaPhotos } from '../data/cafeAguaPhotos'
 
 const ASSET = '/philosophia/images/cafe-filosofico/agua'
@@ -149,6 +150,8 @@ export default function CafeAguaEvent() {
           Las fotografías documentan el encuentro; no atribuyen posiciones filosóficas a las personas retratadas.
         </p>
       </section>
+
+      <CafeAguaSystem2D embedded />
 
       <CafeAguaMemory />
 
