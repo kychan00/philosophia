@@ -1,4 +1,5 @@
 import { hegelLogicAssignedReading } from './hegelLogic77to98.js'
+import { hegelTeacherSlideById, buildHegelTeacherSchema } from './hegelTeacherSlides.js'
 
 export const hegelCroceRoutes = [
   { id: 'all', label: 'Todo el sistema' },
@@ -222,6 +223,7 @@ export const hegelCroceNodes = raw.map((item) => {
         ? '¿Puede explicar este nodo sin repetir sólo su definición?'
         : '¿Qué papel cumple este detalle en el movimiento general?',
       diagram: concepts.slice(0,4),
+      teacherSlide:hegelTeacherSlideById.get(id) || null,
     },
   }
 })
@@ -236,6 +238,8 @@ hegelCroceNodes.forEach((node)=>{
 })
 
 function buildNodeSchema(node) {
+  if (node.data.teacherSlide) return buildHegelTeacherSchema(node.data.teacherSlide)
+
   const dependencies = node.data.dependsOn
     .map((id) => nodeMap.get(id))
     .filter(Boolean)
@@ -384,6 +388,24 @@ export const hegelCroceCrossRelations = [
   ['R37','P18','P19','Devenir → Dasein','La eliminación del devenir produce el umbral del ser determinado sin convertir la página 99 en lectura asignada.','development'],
   ['R38','P20','C28','Aufheben · texto e interpretación','La exposición primaria de la doble operación permite cotejar la interpretación de Croce.','history'],
   ['R39','M05','P03','Presentación ↔ original','Las diapositivas proporcionan una síntesis docente; las páginas del libro sostienen la lectura primaria.','foundation'],
+  // Lectura íntegra de las nueve diapositivas del profesor; relación docente ≠ cita de Hegel.
+  ['R40','M04','E01','Marco de la lógica','La contextualización sobre Kant, Aristóteles y Spinoza prepara la introducción docente a la lógica, no suplanta su deducción textual.','history'],
+  ['R41','E01','E02','De filosofía primera al comienzo','La pregunta por el método especulativo se concreta en el problema categorial de ser puro, nada pura y devenir.','development'],
+  ['R42','E02','P03','Diapositiva / texto primario','La unidad móvil de ser y nada se contrasta con la sección C del comienzo de la obra.','foundation'],
+  ['R43','E03','P06','Nota 1 / representación','La crítica a representar el ser puro como un algo se corresponde con el rechazo de aplicar la abstracción a entes concretos.','foundation'],
+  ['R44','E03','E04','Nota 1 → determinaciones','La prohibición de representar lo puro como un algo exige distinguir ser y nada puros de sus determinaciones.','development'],
+  ['R45','E04','P04','Nada pura y nada de un algo','La diapositiva distingue la nada pura de la negación de un contenido, como establece la Nota 1 de Hegel.','foundation'],
+  ['R46','E04','P19','Lo determinado como resultado','El ser determinado pertenece a una esfera posterior al devenir; no se confunde con el comienzo.','development'],
+  ['R47','E05','P07','Kant y los cien táleros','La primera diapositiva del argumento reconstruye la objeción kantiana que Hegel discute en la Nota 1.','history'],
+  ['R48','E05','E06','Kant → objeción de Hegel','La diferencia entre posibilidad y realidad del ente finito plantea el alcance de las categorías respecto del absoluto.','opposition'],
+  ['R49','E06','P08','Finito y absoluto','La presentación interpreta el argumento de Hegel; el texto distingue la separación propia de lo finito y la definición del absoluto.','foundation'],
+  ['R50','E06','E07','Contenido especulativo → forma del juicio','La inseparabilidad de concepto y ser conduce a la pregunta por una forma de expresión capaz de pensar unidad y diferencia.','development'],
+  ['R51','E07','P09','Nota 2 / proposición especulativa','La insuficiencia del juicio ordinario se comprueba frente al movimiento especulativo de ser y nada.','foundation'],
+  ['R52','E07','E09','Unidad de opuestos / dialéctica','La proposición especulativa introduce la tensión de inseparabilidad y diferencia que la Nota 4 atribuye al movimiento inmanente.','development'],
+  ['R53','E08','P12','Jacobi y abstracciones aisladas','La pregunta por la multiplicidad desde espacio, tiempo y yo puros se localiza en la polémica con Jacobi.','history'],
+  ['R54','E08','P19','Devenir y ser determinado','La interpretación docente conecta la crítica de las abstracciones aisladas con el resultado posterior del devenir.','development'],
+  ['R55','E08','E09','Nota 3 → Nota 4','El problema de pasar de lo puro a lo determinado encuentra respuesta en el tránsito inmanente y en la superación.','development'],
+  ['R56','E09','P20','Aufheben y conservación','La presentación reúne la dialéctica del comienzo con la eliminación-conservación de los momentos al final de las páginas asignadas.','foundation'],
 ]
 
 export const hegelCroceConceptualEdges = hegelCroceCrossRelations.map(([id,source,target,title,synthesis,type])=>({
