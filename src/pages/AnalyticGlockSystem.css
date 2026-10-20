@@ -81,7 +81,7 @@
 .glock-canvas .react-flow__attribution { font-size: 8px; }
 .glock-node {
   width: 340px; height: 240px; min-height: 240px; padding: 15px 19px; border: 2px solid var(--ph2d-ink);
-  border-top: 8px solid var(--node-accent); background: var(--ph2d-node); color: var(--ph2d-ink);
+  border-top: 8px solid var(--node-accent); background: var(--ph2d-node-surface); color: var(--ph2d-ink);
   box-shadow: 7px 9px 0 #211d1820; transition: opacity .2s,border-color .2s,box-shadow .2s; overflow: hidden;
 }
 .glock-node.is-selected { outline: 4px solid #c99532; outline-offset: 2px; }
