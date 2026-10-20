@@ -311,7 +311,7 @@ const SOURCE_NODES = [
   "y": 0,
   "short": "Espacio, tiempo y causalidad se aplican a apariencias; no se conocen las cosas en sí mismas.",
   "explanation": "La lectura de Glock rechaza dos simplificaciones: Kant no niega los objetos independientes de la mente ni afirma que la mente cree la naturaleza. Sin embargo atribuye leyes estructurales a la cognición. La tensión nace al hablar de las cosas en sí como origen de apariencias y, a la vez, restringir la causación al ámbito de apariencias.",
-  "excerpt": "este idealismo trascendental genera numerosas tensiones",
+  "excerpt": "Este «idealismo trascendental» genera numerosas tensiones.",
   "question": "¿Dónde aparece la dificultad de aplicar causalidad a cosas en sí?",
   "dependsOn": [
     "G16"
