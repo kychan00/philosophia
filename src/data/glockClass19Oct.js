@@ -1,0 +1,25 @@
+export const glockClass19Oct = Object.freeze({
+  G00: { note: 'El profesor usa el programa de Glock como mapa del curso y destaca que aún falta estudiar la inversión del giro lingüístico y la rehabilitación de la metafísica.' },
+  G01: { note: 'La etimología de analysis como desatar o disolver introduce el recorrido histórico de distintos sentidos del término.' },
+  G02: { note: 'Se presenta como análisis platónico: un concepto se descompone en partes explicativas. La clase recuerda analysandum / analysans y su analogía con definiendum / definiens.' },
+  G03: { note: 'Se compara con reconstruir una demostración hacia atrás: partir de la conclusión y revisar qué premisas y reglas permiten obtenerla.', caution: 'La analogía con una demostración formal actual es pedagógica.' },
+  G04: { note: 'Ambos análisis buscan algo más básico: componentes para definir o principios para probar.' },
+  G05: { note: 'Descartes se explica como análisis de lo complejo hasta llegar a lo simple, claro y distinto, no como mera descomposición conceptual platónica.' },
+  G06: { note: 'La clase lee a Leibniz desde la analiticidad: simplificar una verdad compleja hasta encontrar identidad o una formulación equivalente de no contradicción.' },
+  G07: { note: 'La characteristica universalis aparece como antecedente del ideal de un lenguaje científico formal en el que los desacuerdos pudieran convertirse en cálculo.', caution: 'Antecedente programático no equivale a lógica contemporánea ya construida.' },
+  G08: { note: 'El empirismo se amplía como antecedente de la pregunta por el entendimiento: antes de explicar el mundo, aclarar cómo trabaja la mente.', caution: 'La etiqueta retrospectiva de pretensión kantiana pertenece a la explicación de clase.' },
+  G09: { note: 'Se subraya el paso desde episodios mentales hacia facultades: sensibilidad, entendimiento y razón.' },
+  G10: { note: 'Analítica Trascendental como lógica de la verdad y Dialéctica Trascendental como lógica de la ilusión marcan el límite de la razón fuera de la experiencia.' },
+  G11: { note: 'Los ejemplos cuerpo/extensión y cuerpo/peso distinguen un predicado contenido de otro que añade una determinación.' },
+  G12: { note: 'A priori se refiere a independencia de la experiencia respecto de la validez, no a que el juicio jamás sea aprendido en una experiencia.' },
+  G13: { note: 'El problema se formula como búsqueda de conocimiento ampliativo y no trivial que conserve necesidad: por eso aparece lo sintético a priori.' },
+  G14: { note: 'La revolución copernicana se explica mediante materia y forma: contenido sensible más espacio, tiempo y categorías aportados por el sujeto.' },
+  G15: { note: 'El profesor lee aquí una reducción histórica de la función filosófica: de explicar el universo a estudiar condiciones del pensamiento y, después, el lenguaje.', caution: 'Reduccionismo es una lectura de clase, no una etiqueta textual de Glock.' },
+  G16: { note: 'Se distingue metafísica trascendental de metafísica trascendente: condiciones del conocer frente a objetos más allá de toda experiencia.' },
+  G17: { note: 'La clase dramatiza la tensión entre fenómeno y cosa en sí: Kant conserva esta última pero limita el acceso cognoscitivo a ella.' },
+  G18: { note: 'La radicalización idealista se presenta como respuesta a la dificultad de conservar una cosa en sí incognoscible. Hegel aparece como ejemplo de prioridad de lo racional.', caution: 'La analogía de la silla como concepto es pedagógica, no una definición completa de Hegel.' },
+  G19: { note: 'Glock presenta el naturalismo como reacción decimonónica. La clase amplía la genealogía hacia Galileo, Newton y Comte.', caution: 'La genealogía amplia es docente y no corresponde exactamente al alcance del pasaje.' },
+  G20: { note: 'El neokantismo se entiende como filosofía de segundo orden: no compite con las ciencias y aclara sus precondiciones. Se menciona Marburgo y Hermann Cohen.', caution: 'Cohen es un desarrollo posterior y no debe proyectarse sobre 1835.' },
+})
+
+export const glockClass19OctRoute = '/semestre/5/filosofia-analitica/clase/19-octubre'
