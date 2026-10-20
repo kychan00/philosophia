@@ -520,13 +520,14 @@ function buildGlockPassageSchema(item) {
   }
 }
 
-const TONES = { programa: 'gold', antiguos: 'blue', modernos: 'rust', kant: 'moss', juicios: 'violet', trascendental: 'bronze', reacciones: 'sage' }
+export const glockRouteTones = Object.freeze({ programa: 'gold', antiguos: 'blue', modernos: 'rust', kant: 'moss', juicios: 'violet', trascendental: 'bronze', reacciones: 'sage' })
+const TONES = glockRouteTones
 export const glockNodeOrder = SOURCE_NODES.map((node) => node.id)
 
 // Una geometría estable para tarjetas documentales: altura declarada y separación
 // proporcional al texto real; nunca confiar en un ajuste automático de React Flow.
 export const GLOCK_GEOMETRY = Object.freeze({
-  width: 370, height: 500, gapX: 150, gapY: 150, columns: 2,
+  width: 310, height: 360, gapX: 110, gapY: 120, columns: 3,
 })
 const sectionOrder = glockRoutes.filter(r => r.id !== 'all').map(r => r.id)
 const nodePositions = new Map()
@@ -567,7 +568,10 @@ export const glockNodes = SOURCE_NODES.map((item, index) => ({
     code: item.id,
     number: String(index + 1).padStart(2,'0'),
     section: item.section,
+    topicTone: TONES[item.section],
     color: SYSTEM_2D_THEME.nodeTopics[TONES[item.section]],
+    classSeen: Boolean(glockClass19Oct[item.id]),
+    concepts: [...new Set((NODE_DIAGRAMS[item.id] || [item.title]).slice(0, 4))],
   },
 }))
 
@@ -577,6 +581,21 @@ export const glockLinks = SOURCE_EDGES.map(([source, target, label]) => ({
   critical: label.includes('reconstrucción'),
 }))
 export const glockNodeById = (id) => glockNodes.find((n) => n.id === id) || null
+
+export const glockGuidedPhases = glockRoutes
+  .filter((item) => item.id !== 'all')
+  .map((item) => item.label)
+
+export const glockGuidedRoute = glockNodeOrder.map((id) => {
+  const node = glockNodeById(id)
+  const phase = glockRoutes.find((item) => item.id === node?.data.section)?.label || node?.data.section
+  return {
+    id,
+    phase,
+    why: node?.data.explanation || '',
+    nextQuestion: node?.data.question || null,
+  }
+})
 
 // Esquema pedagógico, no facsímil de la obra.
 export const glockMethodSchema = {
