@@ -46,15 +46,6 @@ function StudyCanvas() {
     glockNodes.filter((node) => route === 'all' || node.data.branch.includes(route)).map((node) => node.id),
   ), [route])
 
-  const connected = useMemo(() => {
-    const ids = new Set([selectedId])
-    glockLinks.forEach(({ source, target }) => {
-      if (source === selectedId) ids.add(target)
-      if (target === selectedId) ids.add(source)
-    })
-    return ids
-  }, [selectedId])
-
   const displayedNodes = useMemo(() => nodes.map((node) => ({
     ...node,
     selected: node.id === selectedId,
