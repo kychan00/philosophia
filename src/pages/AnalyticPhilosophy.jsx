@@ -39,6 +39,13 @@ const readings = [
     title: 'Justicia como equidad',
     note: 'Ejemplo de ética y filosofía política analítica',
   },
+  {
+    number: 'VII',
+    author: 'Alonso Nava Amezcua',
+    title: 'Tecnociencia, entorno y sujeto tecnocientífico',
+    note: 'Recomendación complementaria del profesor · Eikasía, 134 (2026), 21–30 · no es tarea obligatoria',
+    route: '/semestre/5/filosofia-analitica/lectura/nava-tecnociencia',
+  },
 ]
 
 const stages = [
