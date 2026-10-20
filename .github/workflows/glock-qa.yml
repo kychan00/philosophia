@@ -1,0 +1,39 @@
+name: Glock 2D QA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/pages/AnalyticGlockSystem.*'
+      - 'src/components/analytic/GlockNode.jsx'
+      - 'src/data/glockAnalyticChapter2.js'
+      - 'src/data/glockClass19Oct.js'
+      - 'tests/glock-chapter2-2d.test.mjs'
+      - 'tests/glock-browser-smoke.mjs'
+      - 'tests/analytic-class-19oct.test.mjs'
+      - '.github/workflows/glock-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+          cache: npm
+      - run: npm ci
+      - name: Validate Glock invariants
+        run: node --test tests/glock-chapter2-2d.test.mjs tests/analytic-class-19oct.test.mjs
+      - name: Lint Glock
+        run: npx eslint src/pages/AnalyticGlockSystem.jsx src/components/analytic/GlockNode.jsx src/data/glockAnalyticChapter2.js tests/glock-chapter2-2d.test.mjs tests/glock-browser-smoke.mjs
+      - name: Build
+        env:
+          VITE_ONESIGNAL_APP_ID: ${{ vars.ONESIGNAL_APP_ID }}
+        run: npm run build
+      - name: Browser smoke
+        run: node tests/glock-browser-smoke.mjs
