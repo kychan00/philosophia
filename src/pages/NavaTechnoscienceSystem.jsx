@@ -219,7 +219,7 @@ function NavaCanvas(){
             <small>ESQUEMA VERTICAL, NO FIGURA DEL AUTOR</small>
             <ol className="nava-folio-diagram">{selected.data.diagram.map((part,i)=><li key={i}>{part}</li>)}</ol>
             <small>PREGUNTA PROPIA DE ESTUDIO</small><blockquote>{selected.data.question}</blockquote>
-            <a href={SOURCE_URL} target="_blank" rel="noreferrer">COJEAR PÁGINA EN LA REVISTA ↗</a>
+            <a href={SOURCE_URL} target="_blank" rel="noreferrer">CONSULTAR ARTÍCULO EN LA REVISTA ↗</a>
           </article></div>}
       </div>
     </section>
