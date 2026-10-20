@@ -1,0 +1,156 @@
+@import '../components/philosophy/system2d/System2DTheme.css';
+
+.glock-shell {
+  --g-ink: var(--ph2d-ink, #211d18);
+  --g-paper: var(--ph2d-paper, #f7f0e4);
+  --g-muted: var(--ph2d-muted, #70675e);
+  min-height: 100vh;
+  color: var(--g-ink);
+  background: #ebe3d5;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+.glock-shell * { box-sizing: border-box; }
+.glock-shell button { cursor: pointer; }
+.glock-shell button:focus-visible, .glock-shell a:focus-visible { outline: 3px solid #526c59; outline-offset: 3px; }
+.glock-nav {
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  align-items: center; gap: 16px; padding: 15px clamp(18px,4vw,65px);
+  border-bottom: 1px solid #877c6a; font: 800 11px/1.5 Arial,sans-serif; letter-spacing: .08em;
+}
+.glock-nav a { color: inherit; text-decoration: none; }
+.glock-nav span { text-align: right; }
+.glock-logo { font-family: Georgia,serif; font-size: 14px; letter-spacing: .02em; }
+.glock-hero { display: grid; grid-template-columns: 100px minmax(0,1.8fr) minmax(245px,.5fr);
+  gap: clamp(16px,2.8vw,44px); padding: clamp(24px,4vw,64px); border-bottom: 3px solid var(--g-ink); }
+.glock-hero-mark {
+  display: grid; place-items: center; align-self: start;
+  width: 85px; height: 104px; background: #211d18; color: #c99532;
+  font: 900 75px/1 Georgia,serif; border-bottom: 6px solid #9b4b38;
+}
+.glock-kicker,.glock-hero-facts,.glock-hero aside small,.glock-hero aside b,.glock-disclaimer strong,
+.glock-route-section > span,.glock-study-heading span,.glock-inspector section > span,
+.glock-inspector-top,.glock-inspector footer,.glock-schema > div:first-child > span,.glock-page-footer {
+  font: 800 11px/1.45 Arial,sans-serif; letter-spacing: .09em;
+}
+.glock-kicker { color: #9b4b38; }
+.glock-hero h1 { font-size: clamp(38px,5vw,83px); letter-spacing: -.045em; line-height: 1.01; margin: 12px 0; }
+.glock-hero h1 em { font-weight: 400; display: block; color: #9b4b38; }
+.glock-subtitle { font-size: clamp(19px,2.5vw,28px); margin: 0 0 12px; }
+.glock-lead { font-size: 16px; line-height: 1.65; max-width: 850px; }
+.glock-hero-facts { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 24px; }
+.glock-hero-facts span { border: 1px solid #948a79; padding: 7px 9px; font-size: 10px; }
+.glock-hero aside { background: #ded0bb; padding: 20px; border: 2px solid var(--g-ink); align-self: start; }
+.glock-hero aside small { display: block; }
+.glock-hero aside strong { display: block; font-size: clamp(48px,5vw,72px); margin: 14px 0 8px; line-height: 1; }
+.glock-hero aside strong span { font-size: 17px; }
+.glock-hero aside p { font-size: 15px; line-height: 1.45; }
+.glock-hero aside b { display: block; margin-top: 26px; padding-top: 12px; border-top: 1px solid #877c6a; color: #9b4b38; }
+.glock-disclaimer {
+  display: grid; grid-template-columns: 215px 1fr; gap: 20px; align-items: center;
+  margin: 22px clamp(16px,4vw,65px); border: 1px solid #877c6a; padding: 16px 20px;
+}
+.glock-disclaimer strong { color: #9b4b38; }
+.glock-disclaimer p { margin: 0; font-size: 14px; line-height: 1.5; }
+.glock-route-section { margin: 24px clamp(16px,4vw,65px) 12px; }
+.glock-route-section > span { display: block; padding: 0 0 10px; }
+.glock-route-rail { display: flex; overflow-x: auto; gap: 8px; padding-bottom: 8px; }
+.glock-route-rail button {
+  white-space: nowrap; padding: 11px 13px; background: transparent; color: var(--g-ink);
+  border: 1px solid #877c6a; font: 800 12px/1.4 Arial,sans-serif; min-height: 44px;
+}
+.glock-route-rail button b { margin-right: 8px; color: #9b4b38; }
+.glock-route-rail button.active { background: #211d18; color: #f7f0e4; }
+.glock-route-rail button.active b { color: #e5b96c; }
+.glock-shell > .ph2d-pedagogy { margin: 12px clamp(16px,4vw,65px); }
+.glock-study { margin: 30px clamp(16px,4vw,65px); }
+.glock-study-heading { display: flex; align-items: end; justify-content: space-between; gap: 12px; border-bottom: 2px solid #211d18; padding-bottom: 17px; }
+.glock-study-heading span { color: #9b4b38; }
+.glock-study-heading h2 { margin: 6px 0 0; font-size: clamp(26px,3vw,40px); }
+.glock-study-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.glock-study-actions button,.glock-inspector-top button {
+  background: #f7f0e4; border: 1px solid #6b6153; color: #211d18;
+  padding: 10px 12px; font: 800 11px Arial,sans-serif; min-height: 44px;
+}
+.glock-stage {
+  display: grid; grid-template-columns: minmax(0,1fr) minmax(315px,365px);
+  border: 2px solid #211d18; min-height: 730px; background: #f7f0e4;
+}
+.glock-canvas { min-height: 730px; min-width: 0; overflow: hidden; }
+.glock-canvas .react-flow { background-color: #f1e8d9; }
+.glock-canvas .react-flow__minimap { border: 1px solid #8f8574; }
+.glock-canvas .react-flow__attribution { font-size: 8px; }
+.glock-node {
+  width: 340px; min-height: 175px; padding: 15px 19px; border: 2px solid #211d18;
+  border-top: 8px solid var(--node-accent); background: #faf6ee; color: #211d18;
+  box-shadow: 7px 9px 0 #211d1820; transition: opacity .2s,border-color .2s,box-shadow .2s;
+}
+.glock-node.is-selected { outline: 4px solid #c99532; outline-offset: 2px; }
+.glock-node.is-muted { filter: grayscale(.55); }
+.glock-node .react-flow__handle { width: 9px; height: 9px; border: 2px solid #f7f0e4; background: #211d18; }
+.glock-node-top,.glock-node-bottom { display: flex; align-items: center; justify-content: space-between; gap: 8px; font: 800 10px Arial,sans-serif; }
+.glock-node-top { color: #65594c; letter-spacing: .06em; }
+.glock-node-top strong { border: 1px solid #877c6a; padding: 3px 5px; }
+.glock-node h3 { font: 700 22px/1.13 Georgia,serif; margin: 12px 0 8px; letter-spacing: -.015em; }
+.glock-node p { margin: 0 0 13px; font: 13px/1.4 Arial,sans-serif; }
+.glock-node-bottom { padding-top: 10px; border-top: 1px solid #c6b9a5; color: #695e50; }
+.glock-inspector {
+  min-width: 0; background: #ede3d2; border-left: 2px solid #211d18;
+  max-height: 730px; overflow: auto; overscroll-behavior: contain;
+}
+.glock-inspector-top { display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 16px; background: #211d18; color: #f7f0e4; }
+.glock-inspector-top div { display: flex; gap: 6px; }
+.glock-inspector-top button { min-width: 43px; background: #e9ddc7; }
+.glock-inspector-top button:disabled { opacity: .4; cursor: default; }
+.glock-inspector h3 { font-size: 30px; line-height: 1.08; margin: 22px 18px 12px; }
+.glock-inspector-brief { font-size: 16px; line-height: 1.55; margin: 0 18px 19px; }
+.glock-inspector section { padding: 19px 18px; border-top: 1px solid #b9ab98; }
+.glock-inspector section > span { color: #9b4b38; }
+.glock-inspector section > p { line-height: 1.6; font-size: 15px; margin-bottom: 0; }
+.glock-inspector section blockquote { font-size: 16px; line-height: 1.55; border-left: 3px solid #49687d; margin: 14px 0; padding-left: 14px; }
+.glock-inspector section small { display: block; font: 11px/1.4 Arial,sans-serif; color: #5b5147; }
+.glock-inspector ul { list-style: none; margin: 11px 0 0; padding: 0; display: grid; gap: 6px; }
+.glock-inspector li button { display: block; width: 100%; padding: 12px; background: #f7f0e4; border: 1px solid #a79a86; text-align: left; }
+.glock-inspector li b { font: 700 13px/1.4 Arial,sans-serif; display: block; }
+.glock-inspector li small { padding-top: 5px; }
+.glock-inspector footer { padding: 17px; border-top: 1px solid #a79a86; display: grid; gap: 8px; }
+.glock-inspector footer small { font-size: 11px; font-weight: 400; line-height: 1.5; }
+.glock-schema {
+  display: grid; grid-template-columns: minmax(230px,.5fr) minmax(0,1.5fr);
+  gap: 20px; align-items: center; border-top: 2px solid #211d18;
+  margin: 35px clamp(16px,4vw,65px); padding-top: 27px;
+}
+.glock-schema > div:first-child > span { color: #9b4b38; }
+.glock-schema h2 { font-size: clamp(26px,3vw,42px); line-height: 1.1; margin: 12px 0; }
+.glock-schema p { line-height: 1.6; }
+.glock-schema .animated-concept-schema { min-width: 0; }
+.glock-page-footer { display: flex; justify-content: space-between; gap: 14px; margin-top: 45px; padding: 25px clamp(16px,4vw,65px); border-top: 2px solid #211d18; }
+.glock-page-footer a { color: inherit; }
+.glock-stage:fullscreen {
+  width: 100vw; height: 100vh; max-height: 100vh; border: 0;
+  grid-template-columns: minmax(0,1fr) minmax(330px,28vw);
+}
+.glock-stage:fullscreen .glock-canvas { height: 100vh; min-height: 0; }
+.glock-stage:fullscreen .glock-inspector { max-height: 100vh; }
+@media (max-width: 1100px) {
+  .glock-hero { grid-template-columns: 80px minmax(0,1fr); }
+  .glock-hero aside { grid-column: 2; }
+  .glock-stage { grid-template-columns: minmax(0,1fr) 300px; }
+}
+@media (max-width: 760px) {
+  .glock-nav { grid-template-columns: 1fr auto; font-size: 10px; }
+  .glock-nav > span { display: none; }
+  .glock-hero { grid-template-columns: 1fr; }
+  .glock-hero-mark { width: 62px; height: 65px; font-size: 49px; }
+  .glock-hero aside { grid-column: 1; }
+  .glock-disclaimer { grid-template-columns: 1fr; }
+  .glock-study-heading { align-items: flex-start; flex-direction: column; }
+  .glock-stage { display: flex; flex-direction: column; min-height: 0; }
+  .glock-canvas { min-height: 56vh; height: 56vh; }
+  .glock-inspector { border-left: 0; border-top: 2px solid #211d18; max-height: none; }
+  .glock-schema { grid-template-columns: 1fr; }
+  .glock-page-footer { flex-direction: column; }
+  .glock-stage:fullscreen { display: flex; flex-direction: column; }
+  .glock-stage:fullscreen .glock-canvas { height: 61vh; min-height: 61vh; }
+  .glock-stage:fullscreen .glock-inspector { height: 39vh; max-height: 39vh; }
+}
+@media (prefers-reduced-motion: reduce) { .glock-node { transition: none; } }
