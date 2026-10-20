@@ -81,7 +81,25 @@ async function navigate(width, height) {
   assert.ok(state.selectedOpacity >= .9, 'Seleccionado debe ser visible')
   assert.ok(state.scroll <= state.width + 3, 'Scroll global horizontal en '+width+'×'+height+': '+JSON.stringify(state))
   assert.ok(state.schemaHeight > 390, 'SVG del esquema comprimido '+width+'×'+height)
-  console.log('OK Glock viewport',width,height,state.count,state.schemaHeight)
+  const documentary=await evalJS(`(()=>{
+    const selected=document.querySelector('.glock-canvas .react-flow__node.selected')
+    const source=selected?.querySelector('.glock-node-source-card blockquote')
+    const mini=selected?.querySelectorAll('.glock-node-mini-schema b')?.length||0
+    const inspectorSource=document.querySelector('.glock-inspector-source blockquote')
+    const inspectorSchema=document.querySelector('.glock-inspector-schema .animated-concept-schema__svg')
+    return {
+      cardSourceChars:source?.textContent.trim().length||0,
+      cardSourceScrollable:source ? source.scrollHeight>=source.clientHeight : false,
+      mini,
+      inspectorSourceChars:inspectorSource?.textContent.trim().length||0,
+      inspectorSchemaHeight:inspectorSchema?.getBoundingClientRect().height||0,
+    }
+  })()`)
+  assert.ok(documentary.cardSourceChars>180,'Texto explícito insuficiente en tarjeta '+JSON.stringify(documentary))
+  assert.ok(documentary.mini>=3,'Mini esquema ausente '+JSON.stringify(documentary))
+  assert.ok(documentary.inspectorSourceChars>180,'Texto explícito insuficiente en inspector '+JSON.stringify(documentary))
+  assert.ok(documentary.inspectorSchemaHeight>300,'Esquema del inspector comprimido '+JSON.stringify(documentary))
+  console.log('OK Glock viewport',width,height,state.count,state.schemaHeight,documentary)
 
   assert.equal(await evalJS("(()=>{document.querySelectorAll('.glock-inspector-top button')[1].click();return true})()"),true)
   await until(() => evalJS("document.querySelector('.glock-inspector h3')?.textContent==='Análisis descomposicional'"), 'Inspector avanza')
