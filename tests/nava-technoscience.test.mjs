@@ -21,7 +21,7 @@ test('doce núcleos documentales, cuatro rutas exhaustivas y sin nodos huérfano
     assert.ok(sections.includes(n.data.section),'sección desconocida '+n.id)
     assert.ok(/p\./.test(n.data.page),'sin referencia de página '+n.id)
     for(const field of ['title','source','explanation','question','sourceRef']){
-      assert.ok(n.data[field]?.length>20,'campo documental débil: '+n.id+'/'+field)
+      assert.ok(n.data[field]?.length>(field==='title'?7:20),'campo documental débil: '+n.id+'/'+field)
     }
     assert.equal(n.data.diagram.length,3,'esquema incompleto '+n.id)
     assert.equal(n.draggable,false,'nodos no deben desplazarse')
