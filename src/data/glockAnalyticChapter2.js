@@ -495,46 +495,27 @@ const SOURCE_EDGES = [
 ["G15","G20","retoma la autonomía filosófica"]
 ]
 
-function buildGlockContextSchema(item) {
-  const incoming = SOURCE_EDGES.filter(([, target]) => target === item.id).slice(0, 2)
-  const outgoing = SOURCE_EDGES.filter(([source]) => source === item.id).slice(0, 2)
-  const relatedIds = [...new Set([
-    ...incoming.map(([source]) => source),
-    item.id,
-    ...outgoing.map(([, target]) => target),
-  ])]
-  const nodeById = new Map(SOURCE_NODES.map(node => [node.id, node]))
-  const nodes = relatedIds.map((id) => {
-    const ref = nodeById.get(id)
-    const isFocus = id === item.id
-    const isIncoming = incoming.some(([source]) => source === id)
-    return {
-      id,
-      label: ref?.title || id,
-      caption: isFocus ? \`foco · \${ref?.page || ''}\` : isIncoming ? 'antecedente documentado' : 'continuación documentada',
-      role: isFocus ? 'concept' : isIncoming ? 'term' : 'result',
-    }
-  })
-  const edges = [
-    ...incoming.map(([source, target, label]) => ({
-      from: source, to: target, label,
-      relationKind: label.includes('reconstrucción') ? 'transversal' : 'hierarchical',
-    })),
-    ...outgoing.map(([source, target, label]) => ({
-      from: source, to: target, label,
-      relationKind: label.includes('reconstrucción') ? 'transversal' : 'hierarchical',
-    })),
-  ]
+function buildGlockPassageSchema(item) {
+  const parts = NODE_DIAGRAMS[item.id] || [item.title]
   return {
-    title: \`Contexto de \${item.title}\`,
-    layout: 'hierarchy',
-    readingLayout: 'vertical-folio',
-    rootId: incoming[0]?.[0] || item.id,
-    minHeight: relatedIds.length >= 5 ? 560 : 460,
-    hierarchyXGap: 78,
-    hierarchyYGap: 116,
-    nodes,
-    edges,
+    title: `Esquema de ${item.title}`,
+    layout: 'flow',
+    direction: 'vertical',
+    minHeight: Math.max(360, 125 + parts.length * 92),
+    flowGap: 54,
+    nodes: parts.map((label, index) => ({
+      id: `${item.id}-step-${index}`,
+      label,
+      caption: index === 0 ? 'punto de partida' :
+        index === parts.length - 1 ? 'resultado / foco' : 'mediación',
+      role: index === 0 ? 'term' :
+        index === parts.length - 1 ? 'result' : 'mediation',
+    })),
+    edges: parts.slice(1).map((_, index) => ({
+      from: `${item.id}-step-${index}`,
+      to: `${item.id}-step-${index + 1}`,
+      relationKind: 'derives',
+    })),
   }
 }
 
@@ -544,7 +525,7 @@ export const glockNodeOrder = SOURCE_NODES.map((node) => node.id)
 // Una geometría estable para tarjetas documentales: altura declarada y separación
 // proporcional al texto real; nunca confiar en un ajuste automático de React Flow.
 export const GLOCK_GEOMETRY = Object.freeze({
-  width: 340, height: 240, gapX: 130, gapY: 145, columns: 2,
+  width: 370, height: 500, gapX: 150, gapY: 150, columns: 2,
 })
 const sectionOrder = glockRoutes.filter(r => r.id !== 'all').map(r => r.id)
 const nodePositions = new Map()
@@ -574,7 +555,7 @@ export const glockNodes = SOURCE_NODES.map((item, index) => ({
     excerpt: item.excerpt,
     sourcePassage: SOURCE_PASSAGES[item.id] || item.excerpt,
     diagram: NODE_DIAGRAMS[item.id] || [item.title],
-    schema: buildGlockContextSchema(item),
+    schema: buildGlockPassageSchema(item),
     page: item.page,
     sourceRef: 'Glock, 2012, cap. II, ' + item.page,
     question: item.question,
