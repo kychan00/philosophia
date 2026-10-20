@@ -44,7 +44,7 @@ test('Glock 2D: todos los nodos recibidos tienen capa docente 19 octubre', () =>
     assert.ok(node.data.class19Oct.note.length > 45, node.id)
     assert.ok(node.data.sourcePassage.length > 180, node.id)
   }
-  assert.match(glockPage, /CAPA DOCENTE · CLASE 19 OCTUBRE/)
+  assert.match(glockPage, /EXPLICACIÓN DOCENTE · 19 OCT 2026/)
   assert.match(glockPage, /ABRIR CLASE COMPLETA/)
   assert.match(glockPage, /texto literal conservado en Obsidian/)
   assert.doesNotMatch(glockPage, /transcripci[oó]n literal conservada/i)
