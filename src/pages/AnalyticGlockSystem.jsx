@@ -8,10 +8,10 @@ import '@xyflow/react/dist/style.css'
 
 import SectionPedagogy from '../components/philosophy/system2d/SectionPedagogy.jsx'
 import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema.jsx'
-import { SYSTEM_2D_THEME } from '../components/philosophy/system2d/system2dTheme.js'
+import { resolveSystem2DEdgeColor } from '../components/philosophy/system2d/system2dTheme.js'
 import {
   glockLinks, glockMethodSchema, glockNodeById, glockNodeOrder,
-  glockNodes, glockRoutes,
+  glockNodes, glockRoutes, GLOCK_GEOMETRY,
 } from '../data/glockAnalyticChapter2.js'
 import './AnalyticGlockSystem.css'
 
@@ -21,12 +21,12 @@ function GlockNode({ data, selected }) {
       className={['glock-node', selected ? 'is-selected' : '', data.muted ? 'is-muted' : ''].join(' ')}
       style={{ '--node-accent': data.color }}
     >
-      <Handle type="target" position={Position.Left} />
+      <Handle type="target" position={Position.Top} />
       <div className="glock-node-top"><span>{data.number} / {data.kind}</span><strong>{data.code}</strong></div>
       <h3>{data.title}</h3>
       <p>{data.short}</p>
-      <div className="glock-node-bottom"><span>LECTURA DIRECTA</span><b>{data.page}</b></div>
-      <Handle type="source" position={Position.Right} />
+      <div className="glock-node-bottom"><span>SÍNTESIS DE LECTURA</span><b>{data.page}</b></div>
+      <Handle type="source" position={Position.Bottom} />
     </article>
   )
 }
@@ -34,59 +34,82 @@ function GlockNode({ data, selected }) {
 const nodeTypes = { glock: GlockNode }
 
 function StudyCanvas() {
-  const [route, setRoute] = useState('all')
-  const [selectedId, setSelectedId] = useState('G00')
-  const [visited, setVisited] = useState(['G00'])
+  const [route, setRoute] = useState('antiguos')
+  const [selectedId, setSelectedId] = useState('G01')
+  const [visited, setVisited] = useState(['G01'])
   const [fullscreen, setFullscreen] = useState(false)
   const stageRef = useRef(null)
   const [nodes, , onNodesChange] = useNodesState(glockNodes)
   const { fitView, setCenter } = useReactFlow()
   const selected = glockNodeById(selectedId)
-  const routeMembers = useMemo(() => new Set(
-    glockNodes.filter((node) => route === 'all' || node.data.branch.includes(route)).map((node) => node.id),
-  ), [route])
-
-  const displayedNodes = useMemo(() => nodes.map((node) => ({
-    ...node,
-    selected: node.id === selectedId,
-    data: {
-      ...node.data,
-      muted: route !== 'all' && !routeMembers.has(node.id),
-    },
-    style: { opacity: route === 'all' || routeMembers.has(node.id) ? 1 : 0.28 },
-  })), [nodes, selectedId, route, routeMembers])
-
-  const displayedEdges = useMemo(() => glockLinks.map((edge) => {
-    const focus = edge.source === selectedId || edge.target === selectedId
-    const active = route === 'all' || (routeMembers.has(edge.source) && routeMembers.has(edge.target))
-    const color = edge.critical
-      ? SYSTEM_2D_THEME.edge.conceptual.default
-      : focus ? SYSTEM_2D_THEME.edge.selected : SYSTEM_2D_THEME.edge.default
+  const routeMembers = useMemo(() => new Set(glockNodes.filter(n =>
+    route === 'all' || n.data.section === route).map(n => n.id)), [route])
+  const supportIds = useMemo(() => route === 'all' ? new Set() :
+    new Set(glockNodes.filter(n => routeMembers.has(n.id))
+      .flatMap(n => n.data.dependsOn).filter(id => !routeMembers.has(id))),
+    [route, routeMembers])
+  const visibleIds = useMemo(() => new Set([...routeMembers, ...supportIds, selectedId]),
+    [routeMembers, supportIds, selectedId])
+  const displayedNodes = useMemo(() => nodes.map(n => {
+    const chosen = n.id === selectedId
+    const support = supportIds.has(n.id) && !routeMembers.has(n.id)
     return {
-      ...edge,
+      ...n, selected: chosen, hidden: !visibleIds.has(n.id), draggable: false,
+      data: { ...n.data, muted: !chosen && support, highlighted: chosen, support },
+      style: { opacity: chosen || !support ? 1 : .72 },
+    }
+  }), [nodes, selectedId, routeMembers, supportIds, visibleIds])
+  const displayedEdges = useMemo(() => glockLinks.map(edge => {
+    const focus = edge.source === selectedId || edge.target === selectedId
+    const color = resolveSystem2DEdgeColor({
+      touchesSelected: focus, conceptual: edge.critical,
+      conceptualType: edge.critical ? 'analogy' : null,
+    })
+    return {
+      ...edge, hidden: !visibleIds.has(edge.source) || !visibleIds.has(edge.target),
       type: 'smoothstep',
-      label: edge.label,
-      style: { stroke: color, strokeWidth: focus ? 2.3 : 1.2, opacity: active ? 0.84 : 0.17, strokeDasharray: edge.critical ? '6 5' : undefined },
-      labelStyle: { fontSize: 11, fill: SYSTEM_2D_THEME.ink, fontWeight: 600 },
-      labelBgStyle: { fill: SYSTEM_2D_THEME.background.paper, fillOpacity: 0.94 },
-      labelBgPadding: [5, 3],
+      // Evitar placas de relación sobre las tarjetas; los rótulos íntegros están en el inspector.
+      label: undefined,
+      style: { stroke: color, strokeWidth: focus ? 2.5 : 1.6, opacity: focus ? 1 : .66,
+        strokeDasharray: edge.critical ? '6 5' : undefined },
       markerEnd: { type: MarkerType.ArrowClosed, color, width: 15, height: 15 },
     }
-  }), [selectedId, route, routeMembers])
-
+  }), [selectedId, visibleIds])
   const focusNode = useCallback((id) => {
-    const node = nodes.find((item) => item.id === id)
+    const node = nodes.find(n => n.id === id)
     if (!node) return
+    setRoute(current => current !== 'all' && current !== node.data.section
+      ? node.data.section : current)
     setSelectedId(id)
-    setVisited((existing) => existing.at(-1) === id ? existing : [...existing.slice(-11), id])
-    setCenter(node.position.x + 165, node.position.y + 105, { zoom: 0.82, duration: 380 })
+    setVisited(old => old.at(-1) === id ? old : [...old.slice(-11), id])
+    window.requestAnimationFrame(() =>
+      setCenter(node.position.x + GLOCK_GEOMETRY.width / 2,
+        node.position.y + GLOCK_GEOMETRY.height / 2, { zoom: .94, duration: 380 }))
   }, [nodes, setCenter])
-
-  const goBy = useCallback((delta) => {
-    const index = glockNodeOrder.indexOf(selectedId)
-    const next = glockNodeOrder[Math.max(0, Math.min(index + delta, glockNodeOrder.length - 1))]
-    focusNode(next)
-  }, [selectedId, focusNode])
+  const changeRoute = useCallback((id) => {
+    setRoute(id)
+    const first = id === 'all' ? glockNodes[0] : glockNodes.find(n => n.data.section === id)
+    if (first) {
+      setSelectedId(first.id)
+      setVisited(old => old.at(-1) === first.id ? old : [...old, first.id])
+    }
+  }, [])
+  // Reencuadrar sólo al cambiar la ruta, nunca tras un click o avance de guía.
+  useEffect(() => {
+    const ids = route === 'all' ? glockNodeOrder :
+      glockNodes.filter(n => n.data.section === route).map(n => n.id)
+    const raf = window.requestAnimationFrame(() =>
+      fitView({ nodes: ids.map(id => ({ id })), padding: .2, maxZoom: .9, duration: 400 }))
+    return () => window.cancelAnimationFrame(raf)
+  }, [route, fitView])
+  const navigationSequence = useMemo(() => route === 'all' ? glockNodeOrder :
+    glockNodes.filter(n => n.data.section === route).map(n => n.id), [route])
+  const currentNavIndex = navigationSequence.indexOf(selectedId)
+  const goBy = useCallback(delta => {
+    const idx = Math.max(0, currentNavIndex)
+    const next = navigationSequence[Math.max(0, Math.min(idx + delta, navigationSequence.length - 1))]
+    if (next) focusNode(next)
+  }, [currentNavIndex, navigationSequence, focusNode])
 
   useEffect(() => {
     const change = () => setFullscreen(document.fullscreenElement === stageRef.current)
@@ -99,7 +122,7 @@ function StudyCanvas() {
     try {
       if (document.fullscreenElement === stageRef.current) await document.exitFullscreen()
       else await stageRef.current.requestFullscreen()
-      window.setTimeout(() => fitView({ padding: 0.12, duration: 280 }), 100)
+      window.requestAnimationFrame(() => fitView({ padding: .12, maxZoom: .9, duration: 280 }))
     } catch { /* Fullscreen no disponible: la lectura permanece accesible. */ }
   }, [fitView])
 
@@ -119,24 +142,24 @@ function StudyCanvas() {
           <span className="glock-kicker">BIBLIOTHECA ANALYTICA · HANS-JOHANN GLOCK</span>
           <h1>¿Qué es la filosofía <em>analítica?</em></h1>
           <p className="glock-subtitle">Capítulo II · Breve panorama histórico</p>
-          <p className="glock-lead">¿Qué hacemos cuando analizamos: descomponer un concepto o retroceder desde una proposición hasta sus principios? La primera entrega estudia el arranque histórico del capítulo, sin adelantar páginas todavía no disponibles.</p>
+          <p className="glock-lead">¿Cómo se transforma la práctica del análisis desde Grecia hasta el neokantismo? Este mapa diferencia antecedentes, Kant, idealismo alemán y reacciones posteriores, sin adelantar páginas no recibidas.</p>
           <div className="glock-hero-facts">
             <span>TECNOS · 2012</span>
             <span>TRAD. CARMEN GARCÍA TREVIJANO</span>
-            <span>PÁGINAS LEÍDAS 40–42 / 40–86</span>
+            <span>FUENTE: pp. 40–45 Y COMIENZO DE 46 / 40–86</span>
           </div>
         </div>
         <aside>
           <small>AVANCE DOCUMENTAL</small>
-          <strong>03 <span>páginas</span></strong>
-          <p>{glockNodes.length} nodos · {glockLinks.length} relaciones justificadas · 4 recorridos.</p>
-          <b>Las páginas 43–86 están pendientes.</b>
+          <strong>06 <span>páginas recibidas</span></strong>
+          <p>{glockNodes.length} nodos · {glockLinks.length} relaciones justificadas · {glockRoutes.length - 1} recorridos.</p>
+          <b>La página 46 está incompleta; las pp. 47–86, pendientes.</b>
         </aside>
       </header>
 
       <section className="glock-disclaimer" aria-label="Estado de la fuente">
         <strong>CRITERIO ACADÉMICO</strong>
-        <p>Pasajes literales identificados por página, explicaciones editoriales claramente separadas y ninguna afirmación presentada como exposición del profesor. La transcripción íntegra se archiva en la nota privada de Obsidian.</p>
+        <p>Pasajes literales identificados por página, explicaciones editoriales claramente separadas y ninguna afirmación presentada como exposición del profesor. El texto literal visible se archiva en el vault; la p. 46 sólo está parcialmente disponible.</p>
       </section>
 
       <section className="glock-route-section" aria-label="Recorridos">
@@ -144,7 +167,7 @@ function StudyCanvas() {
         <div className="glock-route-rail">
           {glockRoutes.map((item, index) => (
             <button key={item.id} type="button" className={route === item.id ? 'active' : ''}
-              onClick={() => { setRoute(item.id); if (item.id !== 'all') { const first = glockNodes.find((n) => n.data.section === item.id); if (first) focusNode(first.id) } }}>
+              onClick={() => changeRoute(item.id)}>
               <b>{String(index).padStart(2, '0')}</b>{item.label}
             </button>
           ))}
@@ -157,15 +180,15 @@ function StudyCanvas() {
         nodeOrder={glockNodeOrder}
         activeRoute={route}
         selectedId={selectedId}
-        onSectionChange={setRoute}
+        onSectionChange={changeRoute}
         onFocusNode={focusNode}
       />
 
       <section className="glock-study" aria-labelledby="glock-system-heading">
         <div className="glock-study-heading">
-          <div><span>SISTEMA HISTÓRICO-CONCEPTUAL 2D · ENTREGA 01</span><h2 id="glock-system-heading">Arquitectura del análisis</h2></div>
+          <div><span>SISTEMA HISTÓRICO-CONCEPTUAL 2D · ENTREGAS 01–02</span><h2 id="glock-system-heading">Arquitectura del análisis</h2></div>
           <div className="glock-study-actions">
-            <button type="button" onClick={() => fitView({ padding: .12, duration: 300 })}>ENCUADRAR MAPA</button>
+            <button type="button" onClick={() => fitView({ nodes: displayedNodes.filter(n => !n.hidden).map(n => ({ id: n.id })), padding: .16, maxZoom: .9, duration: 300 })}>ENCUADRAR MAPA</button>
             <button type="button" onClick={toggleFullscreen}>{fullscreen ? 'SALIR DE PANTALLA COMPLETA' : 'PANTALLA COMPLETA'}</button>
           </div>
         </div>
@@ -178,8 +201,9 @@ function StudyCanvas() {
               nodeTypes={nodeTypes}
               onNodesChange={onNodesChange}
               onNodeClick={(_, node) => focusNode(node.id)}
+              nodesDraggable={false}
               onPaneClick={() => {}}
-              fitView fitViewOptions={{ padding: 0.15 }}
+              fitView fitViewOptions={{ padding: .2, maxZoom: .9 }}
               minZoom={0.25} maxZoom={1.6}
               nodesConnectable={false}
               panOnScroll={false}
@@ -194,15 +218,15 @@ function StudyCanvas() {
           <aside className="glock-inspector" aria-live="polite">
             <div className="glock-inspector-top">
               <span>FOLIO {selected?.data.number} / {glockNodes.length} · {selected?.data.page}</span>
-              <div><button type="button" onClick={() => goBy(-1)} disabled={selectedId === glockNodeOrder[0]} aria-label="Nodo anterior">←</button>
-              <button type="button" onClick={() => goBy(1)} disabled={selectedId === glockNodeOrder.at(-1)} aria-label="Nodo siguiente">→</button></div>
+              <div><button type="button" onClick={() => goBy(-1)} disabled={currentNavIndex <= 0} aria-label="Nodo anterior">←</button>
+              <button type="button" onClick={() => goBy(1)} disabled={currentNavIndex < 0 || currentNavIndex === navigationSequence.length - 1} aria-label="Nodo siguiente">→</button></div>
             </div>
             <h3>{selected?.data.title}</h3>
             <p className="glock-inspector-brief">{selected?.data.short}</p>
-            <section><span>LECTURA · CITA BREVE</span><blockquote>“{selected?.data.excerpt}”</blockquote><small>{selected?.data.sourceRef}</small></section>
+            <section><span>FRAGMENTO LITERAL · EDICIÓN 2012</span><blockquote>“{selected?.data.excerpt}”</blockquote><small>{selected?.data.sourceRef}</small></section>
             <section><span>EXPLICACIÓN · RECONSTRUCCIÓN DE ESTUDIO</span><p>{selected?.data.explanation}</p></section>
             <section><span>PREGUNTA DE ESTUDIO</span><p>{selected?.data.question}</p></section>
-            <section><span>CONEXIONES EXPLÍCITAS</span>
+            <section><span>RELACIONES DOCUMENTADAS · TEXTO DE ARISTAS</span>
               {relationships.length === 0 ? <p>Sin relaciones registradas.</p> : (
                 <ul>{relationships.map((edge) => {
                   const otherId = edge.source === selectedId ? edge.target : edge.source
@@ -214,7 +238,7 @@ function StudyCanvas() {
                 })}</ul>
               )}
             </section>
-            <footer><span>VISITADOS · {new Set(visited).size} DE {glockNodes.length}</span><small>Arrastre nodos para explorar; la guía no modifica su posición.</small></footer>
+            <footer><span>RUTA · {currentNavIndex < 0 ? "—" : currentNavIndex + 1} / {navigationSequence.length} · VISITADOS {new Set(visited).size} DE {glockNodes.length}</span><small>La guía no modifica las posiciones del mapa; explore otras relaciones mediante los enlaces del inspector.</small></footer>
           </aside>
         </div>
       </section>
@@ -225,7 +249,7 @@ function StudyCanvas() {
       </section>
 
       <footer className="glock-page-footer">
-        <span>FUENTE: H.-J. GLOCK · ¿QUÉ ES LA FILOSOFÍA ANALÍTICA? · TECNOS · 2012 · pp. 40–42</span>
+        <span>FUENTE: H.-J. GLOCK · ¿QUÉ ES LA FILOSOFÍA ANALÍTICA? · TECNOS · 2012 · pp. 40–45 + fragmento p. 46</span>
         <Link to="/semestre/5/filosofia-analitica">VOLVER AL CURSO →</Link>
       </footer>
     </main>
