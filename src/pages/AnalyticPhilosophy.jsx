@@ -18,7 +18,8 @@ const readings = [
     number: 'III',
     author: 'Hans-Johann Glock',
     title: 'Breve panorama histórico',
-    note: '¿Qué es la filosofía analítica? · capítulo II · pp. 40–86',
+    note: '¿Qué es la filosofía analítica? · capítulo II · pp. 40–86 · primera entrega: 40–42',
+    route: '/semestre/5/filosofia-analitica/lectura/glock-capitulo-2',
   },
   {
     number: 'IV',
@@ -516,6 +517,14 @@ export default function AnalyticPhilosophy() {
                 <p>{reading.author}</p>
                 <h3>{reading.title}</h3>
                 <small>{reading.note}</small>
+                {reading.route && (
+                  <Link to={reading.route} style={{
+                    display: 'inline-block', marginTop: '12px',
+                    padding: '9px 11px', border: '1px solid currentColor',
+                    color: 'inherit', textDecoration: 'none',
+                    font: '700 11px Arial, sans-serif', letterSpacing: '.08em',
+                  }}>EXPLORAR SISTEMA 2D ↗</Link>
+                )}
               </div>
             </article>
           ))}
