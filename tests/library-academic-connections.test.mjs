@@ -5,9 +5,9 @@ import { authorsForWork, worksByAuthor } from '../src/data/libraryCatalogUtils.j
 import { libraryTimelines } from '../src/data/libraryTimelines.js'
 import { libraryAcademicConnections as docs } from '../src/data/libraryAcademicConnections.js'
 
-test('las 68 obras poseen autoría canónica e historial documentado',()=>{
- assert.equal(books.length,68)
- assert.equal(Object.keys(docs.works).length,68)
+test('las 69 obras poseen autoría canónica e historial documentado',()=>{
+ assert.equal(books.length,69)
+ assert.equal(Object.keys(docs.works).length,69)
  for(const b of books){
   assert.ok(authorsForWork(b,authors).length>0,'sin autoría: '+b.id)
   const sources=[...(libraryTimelines.works[b.id]||[]),...(docs.works[b.id]?.events||[])]
@@ -15,9 +15,9 @@ test('las 68 obras poseen autoría canónica e historial documentado',()=>{
  }
 })
 
-test('los 87 autores se relacionan con obras, tareas, clases o su ficha de estudio',()=>{
- assert.equal(authors.length,87)
- assert.equal(Object.keys(docs.authors).length,87)
+test('los 88 autores se relacionan con obras, tareas, clases o su ficha de estudio',()=>{
+ assert.equal(authors.length,88)
+ assert.equal(Object.keys(docs.authors).length,88)
  for(const author of authors){
   const associated=worksByAuthor(books,author)
   const other=(libraryTimelines.authors[author]||[]).length+(docs.authors[author]?.events||[]).length
