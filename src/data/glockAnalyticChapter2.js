@@ -1,4 +1,4 @@
-// Fuente primaria: Glock (Tecnos, 2012), cap. II, pp. 40–42.
+// Fuente primaria: Glock (Tecnos, 2012), cap. II, pp. 40–45 y fragmento visible p. 46.
 import { SYSTEM_2D_THEME } from '../components/philosophy/system2d/system2dTheme.js'
 
 export const glockRoutes = [
@@ -21,7 +21,10 @@ export const glockRoutes = [
   {
     "id": "kant",
     "label": "04 · Empirismo y Kant"
-  }
+  },
+  { "id": "juicios", "label": "05 · Juicios y conocimiento" },
+  { "id": "trascendental", "label": "06 · Filosofía trascendental" },
+  { "id": "reacciones", "label": "07 · Reacciones al idealismo" }
 ]
 
 const SOURCE_NODES = [
@@ -209,14 +212,160 @@ const SOURCE_NODES = [
     "x": 1520,
     "y": 1170,
     "short": "Analítico: predicado contenido en el sujeto; el ejemplo sintético aparece sin explicación adicional en la p. 42.",
-    "explanation": "Glock presenta el ejemplo 'Todos los cuerpos son extensos' para el juicio analítico, y 'Todos los cuerpos son pesados' para el sintético. El pasaje se corta exactamente aquí: la explicación que continúa en p. 43 todavía no está disponible y no se reconstruye como si se hubiera leído.",
+    "explanation": "Glock presenta el ejemplo 'Todos los cuerpos son extensos' para el juicio analítico, y 'Todos los cuerpos son pesados' para el sintético. La página 43, recibida en la segunda entrega, precisa que el predicado sintético añade algo al sujeto; los contrastes a priori y a posteriori se desarrollan en el nodo siguiente.",
     "excerpt": "En un juicio analítico, el predicado está ya contenido al menos implícitamente en el concepto del sujeto",
-    "question": "¿Cómo distinguir los dos juicios con los ejemplos dados y qué explicación continúa pendiente?",
+    "question": "¿Qué añade un juicio sintético al concepto del sujeto, de acuerdo con pp. 42–43?",
     "dependsOn": [
       "G09",
       "G02"
     ]
-  }
+  },
+{
+  "id": "G12",
+  "section": "juicios",
+  "title": "A priori y a posteriori",
+  "kind": "Distinción",
+  "page": "p. 43",
+  "x": 0,
+  "y": 0,
+  "short": "La independencia a priori se refiere a la validez, no al origen psicológico del juicio.",
+  "explanation": "Glock precisa que un juicio a priori puede aprenderse por experiencia, pero su justificación no depende de observaciones ni experimentos. El contraste analítico/sintético y el contraste a priori/a posteriori no son equivalentes.",
+  "excerpt": "los juicios a priori son independientes de la experiencia no con respecto a su origen, sino en lo que atañe a su validez",
+  "question": "¿Puede aprenderse empíricamente un juicio que se justifica a priori? ¿Por qué?",
+  "dependsOn": [
+    "G11"
+  ]
+},
+{
+  "id": "G13",
+  "section": "juicios",
+  "title": "La paradoja sintética a priori",
+  "kind": "Problema",
+  "page": "p. 43",
+  "x": 0,
+  "y": 0,
+  "short": "Kant presenta 7 + 5 = 12 como sintético a priori y pregunta cómo ampliar conocimiento sin depender de experiencia.",
+  "explanation": "Glock contrapone la lectura leibniziana de la aritmética como análisis de identidades con la lectura de Kant: la suma no contiene ya explícitamente su resultado; sin embargo puede demostrarse sin observación. Se formula así la pregunta por la posibilidad de proposiciones sustantivas y a priori.",
+  "excerpt": "la idea de conocimiento sintético a priori es prima facie paradójica",
+  "question": "¿Cómo puede un juicio ampliar nuestro conocimiento y ser válido independientemente de la experiencia?",
+  "dependsOn": [
+    "G12",
+    "G06"
+  ]
+},
+{
+  "id": "G14",
+  "section": "trascendental",
+  "title": "Revolución copernicana",
+  "kind": "Respuesta",
+  "page": "pp. 43–44",
+  "x": 0,
+  "y": 0,
+  "short": "La materia de la experiencia se recibe a posteriori; su forma o estructura es a priori.",
+  "explanation": "En la exposición de Glock, Kant separa los contenidos particulares de la experiencia y sus condiciones estructurales. Espacio, tiempo y causalidad se entienden como condiciones para que algo pueda darse como objeto de experiencia. Por ello ciertos juicios son sintéticos respecto de objetos de experiencia y a priori respecto de su fundamentación.",
+  "excerpt": "la forma o estructura de la experiencia es a priori",
+  "question": "¿Cuál es la diferencia entre contenido y forma de la experiencia?",
+  "dependsOn": [
+    "G13"
+  ]
+},
+{
+  "id": "G15",
+  "section": "trascendental",
+  "title": "¿Qué puede hacer la filosofía?",
+  "kind": "Problema disciplinar",
+  "page": "p. 44",
+  "x": 0,
+  "y": 0,
+  "short": "La filosofía necesita distinguir su tarea frente al progreso de las ciencias naturales.",
+  "explanation": "Según Glock, la antigua imagen de la filosofía como reina de las ciencias se vuelve problemática por el contraste entre controversias metafísicas y avances experimentales y matemáticos. La pregunta es si la filosofía puede conservar una autonomía cognitiva sin convertirse en ciencia empírica ni en literatura desligada de la verdad.",
+  "excerpt": "¿Puede la filosofía mantener un papel distinto como disciplina académica separada?",
+  "question": "¿Qué alternativas a la filosofía plantea el avance de las ciencias especiales?",
+  "dependsOn": [
+    "G14"
+  ]
+},
+{
+  "id": "G16",
+  "section": "trascendental",
+  "title": "Metafísica trascendental",
+  "kind": "Reorientación",
+  "page": "pp. 44–45",
+  "x": 0,
+  "y": 0,
+  "short": "El objeto de reflexión es el modo de conocer objetos, no entidades trascendentes.",
+  "explanation": "Glock presenta el giro kantiano frente a modelos platónicos y aristotélicos: la filosofía estudia las condiciones no empíricas bajo las cuales conocemos objetos empíricos ordinarios. La metafísica trascendental de la experiencia no equivale a un saber acerca de Dios, el alma o cosas fuera de toda experiencia.",
+  "excerpt": "se ocupaba no tanto de objetos como del modo de nuestro conocimiento de objetos",
+  "question": "¿Por qué estudiar condiciones de conocimiento no equivale a postular un reino adicional de objetos?",
+  "dependsOn": [
+    "G15"
+  ]
+},
+{
+  "id": "G17",
+  "section": "trascendental",
+  "title": "Idealismo trascendental y límite",
+  "kind": "Tensión",
+  "page": "p. 45",
+  "x": 0,
+  "y": 0,
+  "short": "Espacio, tiempo y causalidad se aplican a apariencias; no se conocen las cosas en sí mismas.",
+  "explanation": "La lectura de Glock rechaza dos simplificaciones: Kant no niega los objetos independientes de la mente ni afirma que la mente cree la naturaleza. Sin embargo atribuye leyes estructurales a la cognición. La tensión nace al hablar de las cosas en sí como origen de apariencias y, a la vez, restringir la causación al ámbito de apariencias.",
+  "excerpt": "este idealismo trascendental genera numerosas tensiones",
+  "question": "¿Dónde aparece la dificultad de aplicar causalidad a cosas en sí?",
+  "dependsOn": [
+    "G16"
+  ]
+},
+{
+  "id": "G18",
+  "section": "reacciones",
+  "title": "Radicalización idealista y colapso",
+  "kind": "Desenlace",
+  "page": "p. 45",
+  "x": 0,
+  "y": 0,
+  "short": "Hegel y el idealismo alemán amplían el papel del sujeto y recuperan una filosofía total.",
+  "explanation": "Según Glock, frente a tensiones kantianas, la filosofía idealista alemana termina haciendo de la realidad una manifestación de principio espiritual, con conocimiento a priori más ambicioso; el progreso de las ciencias naturales y culturales contribuyó a su colapso después de 1831. No confundir la reconstrucción crítica de Glock con tesis avaladas por todos los autores implicados.",
+  "excerpt": "El resultado fue el «colapso del idealismo»",
+  "question": "¿Qué tensión kantiana intenta superar el idealismo alemán y por qué habría entrado en crisis?",
+  "dependsOn": [
+    "G17"
+  ]
+},
+{
+  "id": "G19",
+  "section": "reacciones",
+  "title": "Naturalismo: primera reacción",
+  "kind": "Respuesta histórica",
+  "page": "p. 45",
+  "x": 0,
+  "y": 0,
+  "short": "Frente al idealismo, se afirma la investigación a posteriori y la reducción empírica.",
+  "explanation": "Glock retrata naturalistas, muchos formados como fisiólogos, que rechazan la especulación metafísica y buscan reducir dominios presuntamente a priori a psicología o fisiología. El texto menciona la influencia del empirismo radical de John Stuart Mill.",
+  "excerpt": "Los naturalistas mantenían que todo conocimiento era a posteriori",
+  "question": "¿Por qué el naturalismo desconfía de una filosofía que pretenda conocimiento a priori?",
+  "dependsOn": [
+    "G18"
+  ]
+},
+{
+  "id": "G20",
+  "section": "reacciones",
+  "title": "Neokantismo: segunda reacción",
+  "kind": "Respuesta histórica",
+  "page": "p. 46 · fragmento",
+  "x": 0,
+  "y": 0,
+  "short": "La filosofía como disciplina de segundo orden clarifica precondiciones del conocimiento.",
+  "explanation": "En el fragmento disponible de p. 46 Glock describe la respuesta neokantiana: para mantener su especificidad frente a las ciencias especiales, la filosofía analiza condiciones lógicas, conceptuales y metodológicas del conocimiento científico y de otras formas de pensamiento. No se dispone todavía del resto de la página.",
+  "excerpt": "los neo-kantianos retomaron la idea de que la filosofía es una disciplina de segundo orden",
+  "question": "¿Qué quiere decir aquí segundo orden y cómo se distingue del naturalismo?",
+  "dependsOn": [
+    "G18",
+    "G15"
+  ]
+}
 ]
 const SOURCE_EDGES = [
   [
@@ -283,15 +432,47 @@ const SOURCE_EDGES = [
     "G02",
     "G11",
     "afinidad conceptual (reconstrucción)"
-  ]
+  ],
+["G11","G12","se precisa con"],
+["G12","G13","abre el problema"],
+["G06","G13","contraste con Kant"],
+["G13","G14","exige una respuesta"],
+["G14","G15","reorienta la disciplina"],
+["G15","G16","propone un objeto propio"],
+["G16","G17","genera una tensión"],
+["G17","G18","impulsa una radicalización"],
+["G18","G19","provoca la reacción naturalista"],
+["G18","G20","provoca la reacción neokantiana"],
+["G15","G20","retoma la autonomía filosófica"]
 ]
-const TONES = { programa: 'gold', antiguos: 'blue', modernos: 'rust', kant: 'moss' }
+const TONES = { programa: 'gold', antiguos: 'blue', modernos: 'rust', kant: 'moss', juicios: 'violet', trascendental: 'bronze', reacciones: 'sage' }
 export const glockNodeOrder = SOURCE_NODES.map((node) => node.id)
+
+// Una geometría estable para tarjetas documentales: altura declarada y separación
+// proporcional al texto real; nunca confiar en un ajuste automático de React Flow.
+export const GLOCK_GEOMETRY = Object.freeze({
+  width: 340, height: 240, gapX: 130, gapY: 145, columns: 2,
+})
+const sectionOrder = glockRoutes.filter(r => r.id !== 'all').map(r => r.id)
+const nodePositions = new Map()
+let nextRow = 0
+for (const section of sectionOrder) {
+  const group = SOURCE_NODES.filter(n => n.section === section)
+  group.forEach((node, index) => {
+    const column = index % GLOCK_GEOMETRY.columns
+    const row = nextRow + Math.floor(index / GLOCK_GEOMETRY.columns)
+    nodePositions.set(node.id, {
+      x: 60 + column * (GLOCK_GEOMETRY.width + GLOCK_GEOMETRY.gapX),
+      y: 70 + row * (GLOCK_GEOMETRY.height + GLOCK_GEOMETRY.gapY),
+    })
+  })
+  nextRow += Math.ceil(group.length / GLOCK_GEOMETRY.columns) + 1
+}
 
 export const glockNodes = SOURCE_NODES.map((item, index) => ({
   id: item.id,
   type: 'glock',
-  position: { x: item.x, y: item.y },
+  position: nodePositions.get(item.id),
   data: {
     title: item.title,
     kind: item.kind,
@@ -322,6 +503,11 @@ export const glockNodeById = (id) => glockNodes.find((n) => n.id === id) || null
 export const glockMethodSchema = {
   title: 'Dos sentidos del análisis',
   layout: 'hierarchy',
+  direction: 'vertical',
+  readingLayout: 'vertical-folio',
+  minHeight: 680,
+  hierarchyXGap: 150,
+  hierarchyYGap: 170,
   rootId: 'dado',
   nodes: [
     { id: 'dado', label: 'Algo dado', role: 'root' },
