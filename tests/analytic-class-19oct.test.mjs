@@ -45,9 +45,10 @@ test('Glock 2D: todos los nodos recibidos tienen capa docente 19 octubre', () =>
     assert.ok(node.data.sourcePassage.length > 180, node.id)
   }
   assert.match(glockPage, /EXPLICACIÓN DOCENTE · 19 OCT 2026/)
-  assert.match(glockPage, /ABRIR CLASE COMPLETA/)
-  assert.match(glockPage, /texto literal conservado en Obsidian/)
-  assert.doesNotMatch(glockPage, /transcripci[oó]n literal conservada/i)
+  assert.match(glockPage, /Abrir clase completa/i)
+  assert.match(glockPage, /TEXTO ORIGINAL DE GLOCK/)
+  assert.match(glockPage, /\/semestre\/5\/filosofia-analitica\/clase\/19-octubre/)
+  assert.doesNotMatch(glockPage, /grabaci[oó]n|transcripci[oó]n/i)
 })
 
 test('Clase 19 oct: no inventa tarea ni completa la página 46', () => {
