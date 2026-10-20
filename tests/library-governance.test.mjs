@@ -53,3 +53,21 @@ test('conservar a Luciano y la regla de lectura parcial',()=>{
  assert.ok(libraryTimelines.works[book.id]?.some(e=>e.url==='/semestre/5/etica/clase/13-octubre'))
  assert.ok(connected.works[book.id])
 })
+
+test('Foucault se registra sólo como recomendación, con edición y lectura delimitadas',()=>{
+ const id='Foucault - Vigilar y castigar'
+ const b=books.find(w=>w.id===id)
+ assert.ok(b)
+ assert.equal(b.estado,'recomendada')
+ assert.equal(b.categoria,'crítica')
+ assert.equal(b.url,'https://archive.org/details/FoucaultVigilarYCastigar')
+ assert.match(b.lectura,/Pendiente/)
+ assert.ok(authorsForWork(b,authors).includes('Foucault, Michel'))
+ const event=connected.works[id]?.events?.[0]
+ assert.ok(event)
+ assert.equal(event.kind,'procedencia')
+ assert.equal(event.date,'2026-10-20')
+ assert.equal(event.url,null)
+ assert.match(event.dateLabel,/registro/)
+ assert.equal(libraryTimelines.works[id],undefined)
+})

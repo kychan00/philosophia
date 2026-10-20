@@ -13,6 +13,13 @@ export const libraryApaMetadata = {
     "kind": "book",
     "title": "Minima Moralia"
   },
+  "Foucault - Vigilar y castigar": {
+    "kind": "book",
+    "title": "Vigilar y castigar: Nacimiento de la prisión",
+    "originalYear": 1975,
+    "studyPart": "Recomendación registrada el 20-10-2026; edición del ejemplar en Internet Archive por cotejar; no convertir 1975 en año de la edición consultada",
+    "url": "https://archive.org/details/FoucaultVigilarYCastigar"
+  },
   "Illouz - Intimidades congeladas": {
     "kind": "book",
     "title": "Intimidades congeladas"
