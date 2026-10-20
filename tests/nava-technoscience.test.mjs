@@ -72,7 +72,7 @@ test('capa editorial y posición documental distintas de clase o lectura confirm
   const source=readFileSync(new URL('../src/pages/NavaTechnoscienceSystem.jsx',import.meta.url),'utf8')
   assert.match(source,/FRONTERA DE FUENTE/)
   assert.match(source,/PARÁFRASIS/)
-  assert.match(source,/estudiante/)
+  assert.match(source,/No implica lectura en clase ni tarea obligatoria/)
   assert.match(source,/SectionPedagogy/)
   assert.match(source,/GUÍA COMPLETA/)
   assert.match(source,/ABRIR FOLIO Y ESQUEMA/)
