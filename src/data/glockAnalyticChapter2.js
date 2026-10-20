@@ -208,7 +208,7 @@ const SOURCE_NODES = [
     "page": "p. 42",
     "x": 1520,
     "y": 1170,
-    "short": "Analítico: predicado contenido en el sujeto; sintético: el predicado amplía la determinación.",
+    "short": "Analítico: predicado contenido en el sujeto; el ejemplo sintético aparece sin explicación adicional en la p. 42.",
     "explanation": "Glock presenta el ejemplo 'Todos los cuerpos son extensos' para el juicio analítico, y 'Todos los cuerpos son pesados' para el sintético. El pasaje se corta exactamente aquí: la explicación que continúa en p. 43 todavía no está disponible y no se reconstruye como si se hubiera leído.",
     "excerpt": "En un juicio analítico, el predicado está ya contenido al menos implícitamente en el concepto del sujeto",
     "question": "¿Cómo distinguir los dos juicios con los ejemplos dados y qué explicación continúa pendiente?",
