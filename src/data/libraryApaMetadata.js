@@ -4,7 +4,7 @@ export const libraryApaMetadata = {
     "kind": "article",
     "title": "Tecnociencia, entorno y sujeto tecnocientífico",
     "year": 2026,
-    "journal": "Eikasía. Revista de Filosofía",
+    "journal": "Eikasía Revista de Filosofía",
     "issue": "134",
     "pages": "21–30",
     "url": "https://doi.org/10.57027/eikasia.134.1281"
