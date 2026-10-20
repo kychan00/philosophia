@@ -166,6 +166,7 @@ function StudyCanvas() {
             <span>TECNOS · 2012</span>
             <span>TRAD. CARMEN GARCÍA TREVIJANO</span>
             <span>FUENTE: pp. 40–45 Y COMIENZO DE 46 / 40–86</span>
+            <Link to="/semestre/5/filosofia-analitica/clase/19-octubre">CLASE 19 OCT · ABRIR ↗</Link>
           </div>
         </div>
         <aside>
@@ -178,7 +179,7 @@ function StudyCanvas() {
 
       <section className="glock-disclaimer" aria-label="Estado de la fuente">
         <strong>CRITERIO ACADÉMICO</strong>
-        <p>Pasajes literales identificados por página, explicaciones editoriales claramente separadas y ninguna afirmación presentada como exposición del profesor. El texto literal visible se archiva en el vault; la p. 46 sólo está parcialmente disponible.</p>
+        <p>Pasajes de Glock identificados por página, explicación editorial y capa docente del 19 de octubre claramente separadas. El texto literal visible se archiva en el vault; la p. 46 sólo está parcialmente disponible.</p>
       </section>
 
       <section className="glock-route-section" aria-label="Recorridos">
@@ -205,7 +206,7 @@ function StudyCanvas() {
 
       <section className="glock-study" aria-labelledby="glock-system-heading">
         <div className="glock-study-heading">
-          <div><span>SISTEMA HISTÓRICO-CONCEPTUAL 2D · ENTREGAS 01–02</span><h2 id="glock-system-heading">Arquitectura del análisis</h2></div>
+          <div><span>SISTEMA HISTÓRICO-CONCEPTUAL 2D · TEXTO + CLASE 19 OCT</span><h2 id="glock-system-heading">Arquitectura del análisis</h2></div>
           <div className="glock-study-actions">
             <button type="button" onClick={() => fitView({ nodes: displayedNodes.filter(n => !n.hidden).map(n => ({ id: n.id })), padding: .16, maxZoom: .9, duration: 300 })}>ENCUADRAR MAPA</button>
             <button type="button" onClick={() => setShowMinimap(current => !current)}>{showMinimap ? "OCULTAR MINIMAPA" : "MOSTRAR MINIMAPA"}</button>
@@ -247,13 +248,26 @@ function StudyCanvas() {
             <section className="glock-inspector-source">
               <span>TEXTO EXPLÍCITO · PASAJE DOCUMENTAL</span>
               <blockquote>{selected?.data.sourcePassage}</blockquote>
-              <small>{selected?.data.sourceRef} · transcripción literal conservada en Obsidian</small>
+              <small>{selected?.data.sourceRef} · texto literal conservado en Obsidian</small>
             </section>
 
             <section className="glock-inspector-kernel">
               <span>NÚCLEO DEL PASAJE</span>
               <blockquote>“{selected?.data.excerpt}”</blockquote>
             </section>
+
+            {selected?.data.class19Oct && (
+              <section className="glock-inspector-class">
+                <span>CAPA DOCENTE · CLASE 19 OCTUBRE</span>
+                <p>{selected.data.class19Oct.note}</p>
+                {selected.data.class19Oct.caution && (
+                  <aside><b>PRECISIÓN</b><p>{selected.data.class19Oct.caution}</p></aside>
+                )}
+                <Link to="/semestre/5/filosofia-analitica/clase/19-octubre">
+                  ABRIR CLASE COMPLETA ↗
+                </Link>
+              </section>
+            )}
 
             {selected?.data.schema && (
               <section className="glock-inspector-schema">
