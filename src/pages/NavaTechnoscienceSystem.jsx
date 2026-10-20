@@ -65,7 +65,9 @@ function NavaCanvas(){
       node.position.y+NAVA_GEOMETRY.height/2,{zoom:.94,duration:430}))
   },[setCenter])
   const focus=useCallback((id,fromGuide=false)=>{
-    if(!navaById(id))return
+    const node=navaById(id)
+    if(!node)return
+    setRoute(current=>current==='all'||current===node.data.section?current:node.data.section)
     if(!fromGuide)setGuided(false)
     setSelectedId(id)
     center(id)
