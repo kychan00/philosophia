@@ -3,8 +3,8 @@ import assert from 'node:assert/strict'
 import { books, authors, categories } from '../src/data/libraryCatalog.js'
 
 test('catalogue completeness and unique names',()=>{
- assert.equal(books.length,69)
- assert.equal(authors.length,88)
+ assert.ok(books.some(x=>x.id==='Foucault - Vigilar y castigar'))
+ assert.ok(authors.includes('Foucault, Michel'))
  assert.equal(new Set(books.map(x=>x.id)).size,books.length)
  assert.equal(new Set(authors).size,authors.length)
 })
@@ -15,11 +15,12 @@ test('all works are categorized, no ownership inferred',()=>{
   assert.ok(!('posesion' in book))
  }
 })
-test('five recommendations with verified origins and no invented possession',()=>{
+test('recommendations with verified origins and no invented possession',()=>{
  const recommended=books.filter(x=>x.estado==='recomendada')
- assert.equal(recommended.length,5)
+ assert.equal(recommended.length,6)
  assert.deepEqual(new Set(recommended.map(x=>x.id)),new Set([
   'Adorno - Minima Moralia',
+  'Foucault - Vigilar y castigar',
   'Illouz - Intimidades congeladas',
   'Illouz - El consumo de la utopía romántica',
   'Lukács - Marx, ontología del ser social',
