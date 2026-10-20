@@ -39,6 +39,7 @@
 .glock-lead { font-size: 16px; line-height: 1.65; max-width: 850px; }
 .glock-hero-facts { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 24px; }
 .glock-hero-facts span { border: 1px solid var(--ph2d-line); padding: 7px 9px; font-size: 10px; }
+.glock-hero-facts a { border: 1px solid var(--ph2d-topic-blue); padding: 7px 9px; font: 800 10px/1.3 Arial,sans-serif; color: var(--ph2d-ink); text-decoration: none; background: rgba(var(--ph2d-ink-rgb),.04); }
 .glock-hero aside { background: var(--ph2d-paper2); padding: 20px; border: 2px solid var(--g-ink); align-self: start; }
 .glock-hero aside small { display: block; }
 .glock-hero aside strong { display: block; font-size: clamp(48px,5vw,72px); margin: 14px 0 8px; line-height: 1; }
@@ -178,6 +179,12 @@
   background: var(--ph2d-paper);
   padding: 11px 12px !important;
 }
+.glock-inspector-class { background: var(--ph2d-paper2); border-left: 4px solid var(--ph2d-topic-gold); }
+.glock-inspector-class > p { margin-top: 10px; }
+.glock-inspector-class aside { margin-top: 13px; padding: 11px 12px; border: 1px solid var(--ph2d-line); background: var(--ph2d-paper); }
+.glock-inspector-class aside b { display: block; color: var(--ph2d-topic-rust); font: 800 10px/1.35 Arial,sans-serif; letter-spacing: .08em; }
+.glock-inspector-class aside p { margin: 5px 0 0; font-size: 13px; line-height: 1.5; }
+.glock-inspector-class > a { display: inline-flex; margin-top: 14px; min-height: 40px; align-items: center; padding: 8px 10px; border: 1px solid var(--ph2d-topic-blue); color: var(--ph2d-ink); text-decoration: none; font: 800 10px/1.3 Arial,sans-serif; letter-spacing: .06em; }
 .glock-inspector-schema { overflow: hidden; }
 .glock-inspector-schema-note {
   margin: 8px 0 12px !important;
