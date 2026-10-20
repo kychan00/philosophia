@@ -64,6 +64,9 @@ const metrics = `(()=>{
 })()`
 async function navigate(width, height) {
   await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor:2, mobile: width <= 768 })
+  // Mismo HashRouter URL no reinicia React si Chromium lo trata como navegación al mismo documento.
+  await send('Page.navigate',{url:'about:blank'})
+  await until(() => evalJS("location.href==='about:blank'"), 'reinicio página')
   await send('Page.navigate',{url})
   await until(() => evalJS("document.querySelector('.glock-inspector h3')?.textContent.includes('Análisis: desatar')"), 'Glock cargado '+width)
   await until(async() => (await evalJS(metrics))?.count > 2, 'React Flow renderizado')
