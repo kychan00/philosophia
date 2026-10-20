@@ -25,7 +25,7 @@ const send=(method,params={})=>new Promise((resolve,reject)=>{
 async function evaluate(expression){
   const response=await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true})
   if(response.exceptionDetails)throw Error(response.exceptionDetails.text)
-  return response.result?.result?.value
+  return response.result?.value
 }
 async function until(fn,label,checks=150){
   for(let i=0;i<checks;i++){try{if(await fn())return}catch{}await sleep(140)}
