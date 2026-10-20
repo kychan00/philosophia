@@ -1,532 +1,99 @@
-.water-cafe-page{
-  --water-sky:#87d9ea;
-  --water-deep:#0c4d68;
-  --water-ink:#12181b;
-  --water-paper:#ead2a4;
-  --water-paper-blue:#8ed6e4;
-  --water-sand:#d9a86a;
-  --water-cream:#f1e4c8;
-  --water-line:rgba(18,24,27,.28);
-  min-height:100vh;
-  overflow:hidden;
-  color:var(--water-ink);
-  background:
-    radial-gradient(circle at 78% 10%,rgba(255,255,255,.35),transparent 25%),
-    linear-gradient(180deg,#287f9e 0%,#65bdd1 38%,#d9b17b 82%,#ba7643 100%);
-  font-family:Georgia,'Times New Roman',serif;
-}
-
+/* Café del Agua · edición breve. Composición compartida con Mercadotecnia y Meritocracia. */
+.water-cafe-page{--wa-ink:#122f3c;--wa-blue:#0b4d68;--wa-paper:#efe1c4;--wa-gold:#dfb869;--wa-line:#365d6b;--wa-muted:#466473;background:radial-gradient(circle at 20% 3%,#f5ead2 0,transparent 24%),repeating-linear-gradient(0deg,#202e3210 0px,#202e3210 1px,transparent 1px,transparent 4px),#e7d6b7;color:var(--wa-ink);font-family:Georgia,'Times New Roman',serif;min-height:100vh;overflow-x:clip}
 .water-cafe-page *{box-sizing:border-box}
-
-.water-cafe-grain{
-  position:fixed;
-  z-index:50;
-  inset:0;
-  pointer-events:none;
-  opacity:.12;
-  mix-blend-mode:multiply;
-  background:
-    radial-gradient(circle at 20% 30%,#000 0 .4px,transparent .65px) 0 0/19px 23px,
-    radial-gradient(circle at 70% 60%,#000 0 .35px,transparent .6px) 0 0/31px 29px;
-}
-
-.water-cafe-topbar{
-  position:relative;
-  z-index:5;
-  display:grid;
-  grid-template-columns:1fr auto auto;
-  gap:28px;
-  align-items:center;
-  padding:15px 4vw;
-  border-bottom:1px solid rgba(255,255,255,.16);
-  background:#0b3344;
-  color:#f8ebce;
-  font:800 10px/1.2 Arial,sans-serif;
-  letter-spacing:.14em;
-}
-.water-cafe-topbar a{color:inherit;text-decoration:none}
-
-.water-cafe-hero{
-  position:relative;
-  display:grid;
-  grid-template-columns:minmax(0,1.05fr) minmax(340px,.95fr);
-  min-height:780px;
-}
-
-.water-cafe-copy{
-  position:relative;
-  z-index:2;
-  padding:70px 5vw 80px;
-}
-
-.water-cafe-kicker{
-  margin:0 0 28px;
-  color:#f4e4bd;
-  font:800 10px Arial,sans-serif;
-  letter-spacing:.18em;
-}
-
-.water-cafe-paper-title{
-  width:min(760px,96%);
-  padding:28px 34px 34px;
-  transform:rotate(-1deg);
-  background:
-    linear-gradient(rgba(255,255,255,.15),rgba(255,255,255,.05)),
-    var(--water-paper-blue);
-  box-shadow:0 22px 48px rgba(5,34,44,.28);
-  clip-path:polygon(1% 5%,6% 2%,13% 4%,20% 2%,29% 5%,39% 2%,51% 4%,62% 2%,74% 5%,87% 2%,99% 5%,98% 94%,91% 97%,81% 95%,72% 98%,61% 95%,49% 98%,37% 95%,26% 97%,13% 95%,2% 98%);
-}
-.water-cafe-paper-title span{
-  display:block;
-  color:#163341;
-  font:900 clamp(24px,3.4vw,52px)/.95 Arial,sans-serif;
-  letter-spacing:.02em;
-}
-.water-cafe-paper-title h1{
-  margin:10px 0 0;
-  color:#0b2631;
-  font:900 clamp(68px,10vw,148px)/.78 Arial,sans-serif;
-  letter-spacing:-.07em;
-}
-
-.water-cafe-deck{
-  max-width:720px;
-  margin:34px 0 0;
-  color:#f8eed8;
-  font-size:clamp(20px,2.1vw,30px);
-  line-height:1.35;
-}
-
-.water-cafe-meta{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:9px;
-  max-width:760px;
-  margin-top:36px;
-}
-.water-cafe-meta article{
-  display:grid;
-  grid-template-columns:72px minmax(0,1fr);
-  gap:14px;
-  align-items:center;
-  padding:15px 17px;
-  border:1px solid rgba(248,235,206,.42);
-  background:rgba(7,49,65,.36);
-  color:#fff3dc;
-  backdrop-filter:blur(6px);
-}
-.water-cafe-meta span{
-  color:#e6cc91;
-  font:900 9px Arial,sans-serif;
-  letter-spacing:.12em;
-}
-.water-cafe-meta strong{font-size:19px;line-height:1.15}
-.water-cafe-meta .is-coffee{
-  color:#101619;
-  background:#f0cb72;
-  border-color:#f0cb72;
-}
-.water-cafe-meta .is-coffee span{color:#4b391a}
-
-.water-cafe-status{
-  max-width:760px;
-  margin-top:24px;
-  padding:18px 20px;
-  border-left:5px solid #f0cb72;
-  background:rgba(10,41,53,.52);
-  color:#f8eed8;
-}
-.water-cafe-status span{
-  color:#f0cb72;
-  font:900 9px Arial,sans-serif;
-  letter-spacing:.14em;
-}
-.water-cafe-status p{margin:8px 0 0;line-height:1.5}
-
-.water-cafe-poster{
-  position:relative;
-  align-self:center;
-  justify-self:center;
-  width:min(72%,520px);
-  margin:46px auto 68px;
-  padding:14px;
-  background:#ead2a4;
-  box-shadow:0 30px 60px rgba(5,25,33,.38);
-  transform:rotate(1.2deg);
-}
-.water-cafe-tape{
-  position:absolute;
-  z-index:3;
-  top:-15px;
-  left:50%;
-  width:126px;
-  height:30px;
-  transform:translateX(-50%) rotate(-4deg);
-  background:rgba(234,210,164,.82);
-}
-.water-cafe-poster img{display:block;width:100%;height:auto}
-.water-cafe-poster figcaption{padding:13px 4px 1px}
-.water-cafe-poster figcaption span{
-  color:#0c4d68;
-  font:900 8px Arial,sans-serif;
-  letter-spacing:.14em;
-}
-.water-cafe-poster figcaption p{margin:5px 0 0;font-size:15px}
-
-.water-cafe-band{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  width:min(1320px,90vw);
-  margin:10px auto 0;
-  border:2px solid #102a35;
-  background:#e1c18a;
-}
-.water-cafe-band article{
-  min-height:150px;
-  padding:20px;
-  border-right:1px solid #102a35;
-}
-.water-cafe-band article:last-child{border-right:0}
-.water-cafe-band article.is-dark{
-  color:#f9ecd0;
-  background:#0c4d68;
-}
-.water-cafe-band span{
-  font:900 9px Arial,sans-serif;
-  letter-spacing:.12em;
-}
-.water-cafe-band strong{
-  display:block;
-  margin-top:65px;
-  font:900 clamp(16px,2vw,26px)/.95 Arial,sans-serif;
-}
-
-.water-cafe-section{
-  width:min(1280px,88vw);
-  margin:0 auto;
-  padding:86px 0 14px;
-}
-
-.water-cafe-section-head{
-  display:grid;
-  grid-template-columns:58px minmax(0,1fr);
-  gap:18px;
-  align-items:start;
-  margin-bottom:30px;
-}
-.water-cafe-section-head>span{
-  display:grid;
-  place-items:center;
-  width:52px;
-  height:52px;
-  border:2px solid #0c4d68;
-  color:#0c4d68;
-  background:#f2dfb9;
-  font:900 10px Arial,sans-serif;
-}
-.water-cafe-section-head p{
-  margin:4px 0 0;
-  color:#0c4d68;
-  font:900 9px Arial,sans-serif;
-  letter-spacing:.15em;
-}
-.water-cafe-section-head h2{
-  margin:7px 0 0;
-  max-width:900px;
-  color:#102a35;
-  font-size:clamp(34px,5vw,70px);
-  line-height:.92;
-  letter-spacing:-.045em;
-}
-
-.water-cafe-questions{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:12px;
-}
-.water-cafe-questions article{
-  min-height:320px;
-  padding:26px;
-  border:1px solid var(--water-line);
-  background:#f2e4c8;
-  box-shadow:0 18px 35px rgba(80,51,24,.12);
-}
-.water-cafe-questions article:nth-child(2){
-  background:#a7deea;
-}
-.water-cafe-questions span{
-  color:#0c4d68;
-  font:900 28px Arial,sans-serif;
-}
-.water-cafe-questions p{
-  margin:90px 0 0;
-  color:#17232a;
-  font:700 clamp(22px,2.5vw,34px)/1.08 Georgia,serif;
-}
-
-.water-cafe-moderators{
-  display:grid;
-  grid-template-columns:repeat(5,minmax(0,1fr));
-  border:1px solid var(--water-line);
-  background:#f2e4c8;
-}
-.water-cafe-moderators article{
-  min-height:170px;
-  padding:20px;
-  border-right:1px solid var(--water-line);
-}
-.water-cafe-moderators article:last-child{border-right:0}
-.water-cafe-moderators span{
-  color:#0c4d68;
-  font:900 9px Arial,sans-serif;
-  letter-spacing:.12em;
-}
-.water-cafe-moderators strong{
-  display:block;
-  margin-top:70px;
-  font-size:20px;
-  line-height:1.05;
-}
-
-.water-cafe-invite{
-  display:grid;
-  grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);
-  gap:24px;
-  width:min(1280px,88vw);
-  margin:76px auto;
-  padding:34px;
-  border:2px solid #102a35;
-  background:#e7c17b;
-}
-.water-cafe-invite span{
-  color:#0c4d68;
-  font:900 9px Arial,sans-serif;
-  letter-spacing:.13em;
-}
-.water-cafe-invite h2{
-  margin:10px 0 0;
-  font-size:clamp(42px,6vw,86px);
-  line-height:.88;
-  letter-spacing:-.055em;
-}
-.water-cafe-invite p{margin:14px 0 0;font-size:22px}
-.water-cafe-invite aside{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding:24px;
-  background:#0c4d68;
-  color:#f9ecd0;
-}
-.water-cafe-invite aside strong{font:900 30px Arial,sans-serif}
-.water-cafe-invite aside span{margin-top:8px;color:#f0cb72}
-
-.water-cafe-footer{
-  display:flex;
-  justify-content:space-between;
-  gap:24px;
-  align-items:flex-end;
-  padding:24px 4vw;
-  background:#0b3344;
-  color:#f8ebce;
-  font:800 9px Arial,sans-serif;
-  letter-spacing:.11em;
-}
-.water-cafe-footer a{color:inherit;text-decoration:none}
-.water-cafe-footer div{text-align:right}
-.water-cafe-footer strong,.water-cafe-footer span{display:block}
-.water-cafe-footer span{margin-top:5px;color:#e6cc91}
-
-@media(max-width:980px){
-  .water-cafe-hero{grid-template-columns:1fr}
-  .water-cafe-poster{width:min(70%,500px);margin-top:0}
-  .water-cafe-questions{grid-template-columns:1fr}
-  .water-cafe-questions article{min-height:220px}
-  .water-cafe-questions p{margin-top:54px}
-  .water-cafe-moderators{grid-template-columns:repeat(2,1fr)}
-  .water-cafe-moderators article{border-bottom:1px solid var(--water-line)}
-  .water-cafe-invite{grid-template-columns:1fr}
-}
-
-@media(max-width:760px){
-  .water-cafe-topbar{grid-template-columns:1fr;gap:7px}
-  .water-cafe-copy{padding:48px 18px 58px}
-  .water-cafe-paper-title{width:100%;padding:24px 20px 28px}
-  .water-cafe-paper-title h1{font-size:clamp(62px,21vw,100px)}
-  .water-cafe-meta{grid-template-columns:1fr}
-  .water-cafe-poster{width:82%}
-  .water-cafe-band{grid-template-columns:repeat(2,minmax(0,1fr));width:calc(100% - 36px)}
-  .water-cafe-band article:nth-child(2){border-right:0}
-  .water-cafe-band article:nth-child(-n+2){border-bottom:1px solid #102a35}
-  .water-cafe-section{width:calc(100% - 36px);padding-top:62px}
-  .water-cafe-section-head{grid-template-columns:48px minmax(0,1fr);gap:12px}
-  .water-cafe-section-head>span{width:42px;height:42px}
-  .water-cafe-section-head h2{font-size:clamp(32px,10vw,46px)}
-  .water-cafe-moderators{grid-template-columns:1fr}
-  .water-cafe-moderators article{min-height:120px;border-right:0}
-  .water-cafe-moderators strong{margin-top:38px}
-  .water-cafe-invite{width:calc(100% - 36px);margin:58px 18px;padding:26px 20px}
-  .water-cafe-footer{align-items:flex-start;flex-direction:column}
-  .water-cafe-footer div{text-align:left}
-}
-
-/* Edición 04: galería documental. Rejilla fluida sin posiciones absolutas. */
-.water-cafe-gallery{
-  width:min(1280px,88vw);
-  margin:0 auto;
-  padding:90px 0 18px;
-  scroll-margin-top:24px;
-}
-.water-cafe-gallery-header{
-  padding-top:19px;
-  border-top:2px solid #0d5062;
-  max-width:950px;
-  margin:0 0 30px;
-}
-.water-cafe-gallery-header>span{
-  font:900 11px/1.4 Arial,sans-serif;
-  letter-spacing:.13em;
-  color:#0c6076;
-}
-.water-cafe-gallery-header h2{
-  margin:11px 0 15px;
-  font:800 clamp(35px,5vw,72px)/1.04 Georgia,serif;
-  letter-spacing:-.045em;
-  color:#123644;
-}
-.water-cafe-gallery-header p{
-  max-width:680px;
-  font:400 17px/1.65 Arial,sans-serif;
-  color:#254757;
-}
-.water-cafe-gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:14px;
-}
-.water-cafe-gallery-photo{
-  min-width:0;
-  margin:0;
-  background:#f7eedc;
-  border:1px solid #356177;
-  box-shadow:0 12px 20px rgba(14,49,59,.12);
-  overflow:hidden;
-}
-.water-cafe-gallery-photo.is-featured{grid-column:span 2}
-.water-cafe-gallery-photo a{display:block;overflow:hidden;outline-offset:4px}
-.water-cafe-gallery-photo a:focus-visible{outline:3px solid #c78e36}
-.water-cafe-gallery-photo img{
-  display:block;
-  width:100%;
-  height:auto;
-  aspect-ratio:4 / 3;
-  object-fit:cover;
-  transition:transform .2s ease;
-}
-.water-cafe-gallery-photo a:hover img{transform:scale(1.02)}
-.water-cafe-gallery-photo figcaption{
-  display:flex;
-  align-items:baseline;
-  gap:10px;
-  flex-wrap:wrap;
-  padding:13px 17px 16px;
-}
-.water-cafe-gallery-photo figcaption span{
-  font:900 10px/1.3 Arial,sans-serif;
-  letter-spacing:.12em;
-  color:#0c6076;
-}
-.water-cafe-gallery-photo figcaption strong{
-  font:700 17px/1.3 Georgia,serif;
-  color:#183a48;
-}
-.water-cafe-gallery-footnote{
-  margin:19px 0 0;
-  max-width:930px;
-  font:400 13px/1.6 Arial,sans-serif;
-  color:#315666;
-}
-.water-cafe-gallery-shortcut{
-  display:inline-block;
-  margin-top:16px;
-  padding:11px 13px;
-  background:#efcf89;
-  color:#123644;
-  text-decoration:none;
-  font:900 10px/1.4 Arial,sans-serif;
-  letter-spacing:.11em;
-}
-.water-cafe-gallery-shortcut{border:0;cursor:pointer;text-align:left}
-.water-cafe-gallery-shortcut:focus-visible{
-  outline:3px solid #0c6076;
-  outline-offset:3px;
-}
-@media(max-width:960px){
-  .water-cafe-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .water-cafe-gallery-photo.is-featured{grid-column:span 1}
-}
-@media(max-width:620px){
-  .water-cafe-gallery{width:calc(100% - 36px);padding-top:64px}
-  .water-cafe-gallery-grid{grid-template-columns:1fr}
-  .water-cafe-gallery-photo figcaption{padding:12px 14px 15px}
-}
-@media(prefers-reduced-motion:reduce){
-  .water-cafe-gallery-photo img{transition:none}
-}
-
-/* EDICIÓN IMPRESA · conservamos la tinta azul, el oro y la textura del Café del Agua. */
-.water-cafe-page{background:repeating-linear-gradient(0deg,rgba(12,49,62,.018) 0px,rgba(12,49,62,.018) 1px,transparent 1px,transparent 4px),#e6d5b3}
-.water-cafe-topbar{border-bottom:0}
-.water-news-masthead{width:min(1420px,calc(100% - 6vw));margin:22px auto 0;color:#153744}
-.water-news-edition,.water-news-identity,.water-news-tagline{display:flex;align-items:center;justify-content:space-between;gap:15px}
-.water-news-edition{padding:12px 0;border-block:2px solid #153744;font:900 10px/1.3 Arial,sans-serif;letter-spacing:.14em}
-.water-news-identity{padding:15px 0 10px;border-bottom:1px solid #153744}
-.water-news-identity span{font:900 11px/1.4 Arial,sans-serif;letter-spacing:.12em}
-.water-news-identity strong{font:800 clamp(45px,7.6vw,116px)/.96 Georgia,serif;letter-spacing:-.075em;text-align:center}
-.water-news-identity em{font-weight:400}
-.water-news-tagline{padding:10px 0 13px;border-bottom:4px double #153744;font:900 10px/1.5 Arial,sans-serif;letter-spacing:.11em}
-.water-news-tagline p{max-width:540px;text-align:center;font:italic 14px/1.4 Georgia,serif;letter-spacing:0;margin:0}
-.water-cafe-hero{width:min(1420px,calc(100% - 6vw));margin:0 auto;min-height:0;align-items:stretch;gap:0;border-bottom:5px double #153744;background:transparent}
-.water-cafe-copy{padding:48px 36px 48px 0;align-self:center}
-.water-cafe-poster{max-width:450px;width:72%;margin:40px auto;box-shadow:9px 14px 0 #173a4630,0 24px 45px #173a4630}
-.water-cafe-kicker{color:#173a46;font-size:12px;letter-spacing:.13em}
-.water-cafe-paper-title{clip-path:none;background:#91c9d5;box-shadow:12px 12px 0 #163a4728;transform:rotate(-.5deg);padding:26px 30px;border:2px solid #153744}
-.water-cafe-paper-title h1{font-family:Georgia,serif;letter-spacing:-.09em;font-weight:900}
-.water-cafe-deck{color:#183c4a;font:italic 700 clamp(19px,2.25vw,31px)/1.24 Georgia,serif;border-bottom:2px solid #153744;padding:0 0 22px}
-.water-cafe-meta{margin-top:25px}
-.water-cafe-meta article{background:#f5e5c4;color:#173a46;border:1px solid #9a977f;backdrop-filter:none}
-.water-cafe-meta span{color:#577181}
-.water-cafe-meta .is-coffee{background:#f0c875;color:#172b30;border-color:#7c643a}
-.water-cafe-status{background:#f6e9d1;color:#173a46;border:1px solid #aa987b;border-left:6px solid #a87729}
-.water-cafe-status span{color:#946a26}
-.water-news-headlines{width:min(1420px,calc(100% - 6vw));margin:0 auto;padding:17px 0 55px;border-bottom:4px double #153744;color:#173744}
-.water-news-sectionbar{display:flex;justify-content:space-between;gap:18px;padding-bottom:13px;border-bottom:2px solid #153744;font:900 11px/1.5 Arial,sans-serif;letter-spacing:.12em}
-.water-news-headline-lead{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(260px,.5fr);gap:35px;border-bottom:1px solid #64818a;padding:30px 0}
-.water-news-kicker,.water-news-headline-lead aside span,.water-news-columns article>span,.water-news-disclaimer strong{font:900 11px/1.35 Arial,sans-serif;letter-spacing:.13em;color:#0c6880}
-.water-news-headline-lead h2{font:900 clamp(45px,6vw,92px)/.97 Georgia,serif;letter-spacing:-.06em;max-width:930px;margin:13px 0}
-.water-news-subhead{font:italic 21px/1.47 Georgia,serif;max-width:900px;margin:15px 0 0}
-.water-news-headline-lead aside{padding:18px 0 18px 24px;border-left:3px solid #0f5670}
-.water-news-headline-lead aside strong{display:block;margin:16px 0;font:800 clamp(24px,2.6vw,35px)/1.14 Georgia,serif}
-.water-news-headline-lead aside small{display:block;font:400 12px/1.5 Arial,sans-serif;color:#51727e}
-.water-news-columns{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;padding:26px 0 20px}
-.water-news-columns article{padding:0 24px;border-right:1px solid #68828d;min-width:0}
-.water-news-columns article:first-child{padding-left:0}
-.water-news-columns article:last-child{padding-right:0;border-right:0}
-.water-news-columns h3{font:800 27px/1.12 Georgia,serif;letter-spacing:-.03em;margin:13px 0}
-.water-news-columns p{font:400 16px/1.7 Georgia,serif;margin:0}
-.water-news-disclaimer{display:grid;grid-template-columns:160px minmax(0,1fr) auto;align-items:center;gap:20px;border-top:2px solid #153744;padding:16px 0;font:400 14px/1.6 Arial,sans-serif}
-.water-news-disclaimer p{margin:0}
-.water-news-disclaimer a{font:900 11px Arial,sans-serif;color:#0d5268;text-decoration:underline;text-underline-offset:4px;white-space:nowrap}
-.water-cafe-band{width:min(1420px,calc(100% - 6vw));background:#efdbb1;margin:35px auto 0}
-.water-cafe-band article{min-height:130px}
-.water-cafe-band strong{margin-top:45px}
-.water-cafe-gallery-header h2,.water-cafe-section-head h2{font-family:Georgia,serif;letter-spacing:-.045em}
-.water-cafe-gallery{border-top:5px double #133e51;margin-top:60px}
-.water-cafe-gallery-header{border-top:0}
-.water-cafe-gallery-grid{gap:9px}
-.water-cafe-gallery-photo{background:#f6ecd8;border:1px solid #526e78;box-shadow:4px 6px 0 #1c45561b}
-.water-cafe-gallery-photo figcaption{border-top:1px solid #7e939a}
-.water-cafe-section{border-top:3px double #153744;margin-top:50px}
-.water-cafe-invite{background:#edc47d}
-@media(max-width:1100px){.water-news-columns{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:25px}.water-news-columns article:nth-child(2){border-right:0}.water-news-columns article:nth-child(3){padding-left:0}.water-news-identity span{font-size:9px}}
-@media(max-width:760px){.water-news-edition span:nth-child(2),.water-news-identity span{display:none}.water-news-masthead,.water-news-headlines,.water-cafe-hero{width:calc(100% - 36px)}.water-news-identity{justify-content:center}.water-news-identity strong{font-size:clamp(43px,12.2vw,72px)}.water-news-tagline>span{display:none}.water-news-tagline p{width:100%}.water-news-headline-lead{grid-template-columns:1fr;gap:12px}.water-news-headline-lead aside{padding:18px;border-left:4px solid #0f5670;background:#f4e7c9}.water-news-columns{grid-template-columns:1fr}.water-news-columns article{padding:0 0 20px;margin-bottom:22px;border-right:0;border-bottom:1px solid #68828d}.water-news-columns article:last-child{border-bottom:0}.water-news-disclaimer{grid-template-columns:1fr;gap:10px}.water-news-disclaimer a{white-space:normal}.water-cafe-copy{padding:40px 0 45px}.water-cafe-hero{grid-template-columns:1fr}.water-cafe-poster{margin:24px auto 45px}.water-cafe-meta{grid-template-columns:1fr}.water-cafe-band{width:calc(100% - 36px)}}
+.water-edition-topbar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;background:var(--wa-ink);color:#f7ecd9;padding:16px 5vw;font:800 10px/1.4 Arial,sans-serif;letter-spacing:.12em}
+.water-edition-topbar a{color:inherit;text-decoration:none}
+.water-edition-topbar>span:last-child{text-align:right}
+.water-edition-hero{display:grid;grid-template-columns:minmax(0,1.16fr) minmax(300px,.84fr);min-height:730px;background:var(--wa-ink);color:#f7ecd9;overflow:hidden}
+.water-edition-hero-copy{padding:65px 4vw 76px 6vw;min-width:0}
+.water-edition-kicker{font:800 11px Arial,sans-serif;letter-spacing:.17em;color:#f2d092;margin:0 0 34px}
+.water-edition-brand span,.water-edition-brand strong{display:block;font:800 clamp(67px,9vw,135px)/.78 Georgia,serif;letter-spacing:-.07em}
+.water-edition-brand strong{margin-top:12px}
+.water-edition-brand-rule{height:6px;background:var(--wa-gold);width:min(510px,90%);margin:30px 0 13px;transform:rotate(-.7deg)}
+.water-edition-subbrand{font:italic 32px Georgia,serif;margin:0}
+.water-edition-topic{max-width:700px;margin-top:36px;background:var(--wa-paper);color:var(--wa-ink);padding:24px 29px 26px;box-shadow:8px 13px 0 #0005;transform:rotate(-.7deg)}
+.water-edition-topic small{display:block;font:800 10px Arial,sans-serif;letter-spacing:.1em;color:#8a612e}
+.water-edition-topic h1{font:900 clamp(43px,5.1vw,80px)/.99 Georgia,serif;letter-spacing:-.055em;margin:12px 0}
+.water-edition-topic em{color:#0b6d88}
+.water-edition-topic>strong{font:800 clamp(19px,2vw,30px)/1.12 Georgia,serif}
+.water-edition-facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:29px}
+.water-edition-facts span{padding:9px 11px;border:1px solid #d6c79b7d;font:800 11px/1.4 Arial,sans-serif}
+.water-edition-facts b{font-size:9px;color:var(--wa-gold);margin-right:6px}
+.water-edition-poster{width:min(79%,540px);align-self:center;margin:45px auto 70px;background:#d9c59d;padding:16px;position:relative;transform:rotate(1.2deg);box-shadow:0 29px 55px #0007}
+.water-edition-tape{position:absolute;top:-15px;left:calc(50% - 53px);height:28px;width:106px;background:#eddab0bf;transform:rotate(-4deg)}
+.water-edition-poster img{display:block;width:100%;height:auto}
+.water-edition-poster figcaption{color:var(--wa-ink);padding-top:12px;font:800 10px/1.4 Arial,sans-serif;letter-spacing:.1em}
+.water-edition-strip{width:min(1310px,calc(100% - 36px));margin:40px auto 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:#e6bd77;border:2px solid var(--wa-ink)}
+.water-edition-strip>div{min-height:115px;padding:17px 20px;border-right:1px solid var(--wa-ink);display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.water-edition-strip>div:last-child{background:var(--wa-blue);color:#f7ecd9;border-right:0}
+.water-edition-strip span{font:900 11px Arial,sans-serif;letter-spacing:.09em}
+.water-edition-strip strong{font:900 clamp(17px,2vw,26px)/1.1 Georgia,serif}
+.water-edition-section{width:min(1270px,calc(100% - 48px));margin:0 auto;padding:76px 0 13px}
+.water-edition-section-heading{margin-bottom:26px}
+.water-edition-section-heading>span,.water-edition-atlas-main>div:first-child>span,.water-edition-archive>div>span{color:#0b6d83;font:900 11px/1.4 Arial,sans-serif;letter-spacing:.14em}
+.water-edition-section-heading h2,.water-edition-archive h2{font:800 clamp(37px,5vw,68px)/1 Georgia,serif;letter-spacing:-.055em;margin:11px 0}
+.water-edition-section-heading>p{font:400 16px/1.5 Arial,sans-serif;color:var(--wa-muted)}
+.water-edition-question-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.water-edition-question-tabs button{min-height:90px;border:1px solid #60818b;background:#f7edd8;text-align:left;padding:14px 19px;color:var(--wa-ink);cursor:pointer}
+.water-edition-question-tabs button.is-active{background:var(--wa-blue);color:#f8e9c9;border-color:var(--wa-blue)}
+.water-edition-question-tabs span{display:block;font:900 11px Arial,sans-serif;opacity:.7;margin-bottom:12px}
+.water-edition-question-tabs strong{font:800 16px/1.3 Georgia,serif}
+.water-edition-question-focus{background:#f4e5c9;border:1px solid #6b8890;border-left:6px solid #0b6d83;min-height:170px;margin-top:10px;padding:23px 32px;display:flex;flex-direction:column;justify-content:center}
+.water-edition-question-focus span{color:#0b6d83;font:900 11px Arial,sans-serif;letter-spacing:.11em}
+.water-edition-question-focus blockquote{max-width:920px;margin:12px 0 0;font:800 clamp(24px,3vw,42px)/1.16 Georgia,serif}
+.water-edition-debate-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.water-edition-debate-grid article{min-height:225px;border-top:5px solid #0c5c75;background:#f4e8d1;padding:20px;display:flex;flex-direction:column;justify-content:space-between;gap:35px}
+.water-edition-debate-grid article:nth-child(2){border-top-color:#56735c}
+.water-edition-debate-grid article:nth-child(3){border-top-color:#9c4938}
+.water-edition-debate-grid article:nth-child(4){border-top-color:#8a7048}
+.water-edition-debate-grid span{font:900 10px/1.4 Arial,sans-serif;letter-spacing:.09em;color:#386271}
+.water-edition-debate-grid h3{font:800 clamp(22px,2.3vw,30px)/1.13 Georgia,serif;margin:0}
+.water-edition-source-note{font:400 13px/1.6 Arial,sans-serif;color:var(--wa-muted);margin:13px 0 0}
+.water-edition-gallery-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.water-edition-gallery-grid figure{margin:0;min-width:0;background:#f1e6cd;box-shadow:4px 5px 0 #0f425525}
+.water-edition-gallery-grid figure.is-cover{grid-column:span 2;grid-row:span 2}
+.water-edition-gallery-grid a{position:relative;display:block;height:100%;min-height:180px;overflow:hidden}
+.water-edition-gallery-grid img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;transition:transform .2s}
+.water-edition-gallery-grid a:hover img{transform:scale(1.025)}
+.water-edition-gallery-grid a:focus-visible{outline:4px solid #bb8736;outline-offset:3px}
+.water-edition-gallery-grid a span{position:absolute;left:10px;bottom:10px;background:#102d3bdc;color:#fff0d4;padding:7px 9px;font:900 11px Arial,sans-serif}
+.water-edition-gallery-toggle{display:block;margin:23px auto 0;padding:13px 22px;background:transparent;border:2px solid var(--wa-blue);font:900 11px Arial,sans-serif;letter-spacing:.1em;color:var(--wa-blue);cursor:pointer}
+.water-edition-gallery-toggle:hover{background:var(--wa-blue);color:#f7ecd9}
+.water-edition-atlas{padding-top:84px}
+.water-edition-atlas-main{border:2px solid var(--wa-ink);background:#143d50;color:#f7ecd9;display:grid;grid-template-columns:1.12fr .88fr;gap:25px;padding:40px}
+.water-edition-atlas-main>div:first-child>span{color:#f3c883}
+.water-edition-atlas-main h2{font:800 clamp(43px,5.3vw,77px)/.97 Georgia,serif;letter-spacing:-.055em;margin:18px 0 23px}
+.water-edition-atlas-main h2 em{color:#b5e3e7}
+.water-edition-atlas-main p{font:400 18px/1.55 Georgia,serif;max-width:480px}
+.water-edition-atlas-stats{display:flex;flex-wrap:wrap;gap:17px;margin-top:28px}
+.water-edition-atlas-stats span{font:700 11px Arial,sans-serif;text-transform:uppercase}
+.water-edition-atlas-stats b{display:block;font:900 33px Georgia,serif}
+.water-edition-atlas-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.water-edition-atlas-actions a,.water-edition-atlas-actions button,.water-edition-archive>button{min-height:48px;padding:13px 17px;font:900 11px/1.4 Arial,sans-serif;letter-spacing:.04em;cursor:pointer;text-decoration:none}
+.water-edition-atlas-actions a{background:var(--wa-gold);color:#152d38;border:1px solid var(--wa-gold)}
+.water-edition-atlas-actions button{background:transparent;color:#f7ecd9;border:1px solid #f7ecd9}
+.water-edition-atlas-routes{display:flex;flex-direction:column;justify-content:center;padding:0 15px;min-width:0}
+.water-edition-atlas-routes>div{display:flex;align-items:center;gap:15px;padding:12px 0;border-bottom:1px solid #ffffff35;position:relative}
+.water-edition-atlas-routes span{font:900 17px Georgia,serif;color:var(--wa-gold)}
+.water-edition-atlas-routes strong{font:700 clamp(16px,1.7vw,22px)/1.2 Georgia,serif}
+.water-edition-atlas-routes i{margin-left:auto;color:#f1c980;font:900 18px Arial,sans-serif}
+.water-edition-loading{padding:22px;text-align:center;background:#f7ebd0}
+.water-edition-archive{margin-top:80px;border-block:4px double var(--wa-ink);padding:30px 0;display:flex;align-items:center;justify-content:space-between;gap:35px}
+.water-edition-archive h2{margin:10px 0}
+.water-edition-archive p{font:400 17px/1.55 Georgia,serif;max-width:610px;margin:8px 0 0}
+.water-edition-archive>button{flex:0 0 auto;background:var(--wa-ink);color:#f7ecd9;border:1px solid var(--wa-ink)}
+.water-edition-credits{width:min(1270px,calc(100% - 48px));margin:0 auto;padding:13px 0 70px}
+.water-edition-credits details{border-bottom:1px solid #92a19b;padding:15px 0}
+.water-edition-credits summary{font:900 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.water-edition-credits summary span{float:right}
+.water-edition-credits p{font:400 14px/1.7 Arial,sans-serif}
+.water-edition-footer{min-height:200px;padding:40px 6vw;background:var(--wa-ink);color:#f7ecd9;display:flex;align-items:flex-end;justify-content:space-between;gap:22px}
+.water-edition-footer span,.water-edition-footer strong,.water-edition-footer small{display:block}
+.water-edition-footer span{color:#e1c07d;font:900 10px Arial,sans-serif;letter-spacing:.13em}
+.water-edition-footer strong{font:800 clamp(28px,3vw,43px) Georgia,serif;margin:12px 0}
+.water-edition-footer small{font:400 14px/1.5 Arial,sans-serif}
+.water-edition-footer a{color:inherit;text-decoration:none;font:900 11px Arial,sans-serif}
+@media(max-width:1050px){.water-edition-hero{grid-template-columns:1fr .78fr}.water-edition-debate-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.water-edition-atlas-main{padding:30px}.water-edition-brand span,.water-edition-brand strong{font-size:clamp(58px,9.3vw,115px)}}
+@media(max-width:810px){.water-edition-hero{grid-template-columns:1fr}.water-edition-hero-copy{padding:58px 7vw 20px}.water-edition-poster{width:min(65%,420px);margin:25px auto 55px}.water-edition-atlas-main{grid-template-columns:1fr}.water-edition-atlas-routes{padding:0}.water-edition-atlas-routes>div{padding:10px 0}.water-edition-archive{align-items:flex-start;flex-direction:column}}
+@media(max-width:620px){.water-edition-topbar{grid-template-columns:1fr auto;padding:14px 18px}.water-edition-topbar>span:last-child{display:none}.water-edition-hero-copy{padding:40px 22px 20px}.water-edition-brand span,.water-edition-brand strong{font-size:clamp(56px,13vw,79px)}.water-edition-topic{padding:21px}.water-edition-topic h1{font-size:clamp(38px,10vw,57px)}.water-edition-subbrand{font-size:25px}.water-edition-poster{width:min(80%,420px)}.water-edition-strip{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:22px}.water-edition-strip>div:nth-child(2){border-right:0}.water-edition-strip>div:nth-child(-n+2){border-bottom:1px solid var(--wa-ink)}.water-edition-strip>div{min-height:95px}.water-edition-section{width:calc(100% - 36px);padding-top:55px}.water-edition-question-tabs{grid-template-columns:1fr}.water-edition-question-tabs button{min-height:57px;display:flex;gap:16px;align-items:center}.water-edition-question-tabs span{margin:0}.water-edition-question-focus{padding:23px;min-height:140px}.water-edition-debate-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.water-edition-debate-grid article{min-height:165px;padding:15px;gap:20px}.water-edition-debate-grid h3{font-size:19px}.water-edition-debate-grid span{font-size:9px}.water-edition-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.water-edition-gallery-grid figure.is-cover{grid-column:span 2;grid-row:auto}.water-edition-gallery-grid a{min-height:130px}.water-edition-gallery-grid figure.is-cover a{min-height:220px}.water-edition-atlas-main{padding:22px}.water-edition-atlas-main h2{font-size:47px}.water-edition-atlas-actions a,.water-edition-atlas-actions button{width:100%;text-align:center}.water-edition-archive{margin-top:45px}.water-edition-archive>button{width:100%;text-align:center}.water-edition-footer{flex-direction:column;align-items:flex-start}.water-edition-credits{width:calc(100% - 36px)}}
+@media(prefers-reduced-motion:reduce){.water-edition-gallery-grid img{transition:none}}
