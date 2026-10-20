@@ -94,7 +94,7 @@ export const navaNodes=raw.map((r,index)=>({
   id:r.id,type:'nava',
   position:{x:95+(index%2)*525,y:60+Math.floor(index/2)*430},
   draggable:false,
-  data:{...r,number:String(index+1).padStart(2,'0'),color:accents[r.section],
+  data:{...r,branch:r.section,number:String(index+1).padStart(2,'0'),color:accents[r.section],
     pageLabel:'Eikasía 134 · '+r.page,sourceRef:'Nava Amezcua (2026), '+r.page,
     sourceKind:'PARÁFRASIS DEL ARTÍCULO'},
 }))
