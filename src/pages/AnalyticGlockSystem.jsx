@@ -8,7 +8,7 @@ import '@xyflow/react/dist/style.css'
 
 import SectionPedagogy from '../components/philosophy/system2d/SectionPedagogy.jsx'
 import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema.jsx'
-import { resolveSystem2DEdgeColor } from '../components/philosophy/system2d/system2dTheme.js'
+import { SYSTEM_2D_THEME, resolveSystem2DEdgeColor } from '../components/philosophy/system2d/system2dTheme.js'
 import {
   glockLinks, glockMethodSchema, glockNodeById, glockNodeOrder,
   glockNodes, glockRoutes, GLOCK_GEOMETRY,
@@ -209,7 +209,7 @@ function StudyCanvas() {
               panOnScroll={false}
               attributionPosition="bottom-left"
             >
-              <Background color="#c0b4a0" gap={22} size={1} />
+              <Background color={SYSTEM_2D_THEME.muted} gap={22} size={1} />
               <Controls position="bottom-left" />
               <MiniMap pannable zoomable nodeColor={(node) => node.data.color} />
             </ReactFlow>
