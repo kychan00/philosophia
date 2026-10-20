@@ -171,12 +171,12 @@ function StudyCanvas() {
         dimmed: guidedMode
           ? !isGuidedCurrent && !isGuidedNext && !isGuidedCompleted &&
             !isGuidedSupport && node.id !== selectedId
-          : Boolean(selectedId)
+          : selectedId !== null
             ? !inSelection
             : route !== 'all'
               ? !topicActive && !topicSupport
               : false,
-        highlighted: !guidedMode && Boolean(selectedId) &&
+        highlighted: !guidedMode && selectedId !== null &&
           inSelection && node.id !== selectedId,
       },
     }
