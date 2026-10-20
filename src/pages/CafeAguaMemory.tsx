@@ -83,26 +83,28 @@ function blocks(source: string): ReactNode[] {
 }
 
 export default function CafeAguaMemory(){
-  return <section className="water-memory" id="memoria" aria-labelledby="memory-title">
+  return <section className="water-memory water-memory-accordion" id="memoria" aria-labelledby="memory-title">
     <header className="water-memory-header">
-      <span>CAFÉ FILOSÓFICO · EDICIÓN 04 · MEMORIA PUBLICADA</span>
-      <h2 id="memory-title">El agua, entre <em>la vida y el poder.</em></h2>
-      <p>Una reconstrucción fiel del diálogo del 19 de octubre de 2026. Cada tesis conserva sus matices y objeciones; los datos contrastados externamente aparecen por separado.</p>
-      <nav aria-label="Recorrido por la memoria">{sections.map((section,i)=>{
-        const heading=section.split('\n')[0].trim()
-        return <button type="button" key={i} onClick={() => document.getElementById('agua-memoria-'+i)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>{heading.replace(/^\d+ · /,'')}</button>
-      })}</nav>
+      <span>ARCHIVO DE LA EDICIÓN 04 · 19 OCT 2026</span>
+      <h2 id="memory-title">El diálogo, por dentro.</h2>
+      <p>Elija un apartado para leer sus argumentos, objeciones y referencias. Las interpretaciones editoriales se distinguen de los datos documentados.</p>
     </header>
-    <div className="water-news-midline">
-      <span>HEMEROTECA FILOSÓFICA / 2026</span><strong>Crónica de una conversación sin dictamen único.</strong><span>ARGUMENTOS · OBJECIONES · ARCHIVO</span>
+    <div className="water-memory-chapters">
+      {sections.map((section,i) => {
+        const [heading,...body]=section.split('\n')
+        const hasDiagram = body.join('\n').includes(fence+'mermaid')
+        return <details className={'water-memory-chapter'+(hasDiagram?' has-diagram':'')} id={'agua-memoria-'+i} key={i}>
+          <summary className="water-memory-chapter-summary">
+            <span className="water-memory-chapter-index">{String(i+1).padStart(2,'0')}</span>
+            <strong>{heading}</strong>
+            <span className="water-memory-chapter-action">LEER ＋</span>
+          </summary>
+          <div className="water-memory-copy">{blocks(body.join('\n'))}</div>
+        </details>
+      })}
     </div>
-    <div className="water-memory-chapters">{sections.map((section,i)=>{
-      const [heading,...body]=section.split('\n')
-      return <article className={body.join("\n").includes(fence+"mermaid") ? "water-memory-chapter has-diagram" : "water-memory-chapter"} id={'agua-memoria-'+i} key={i}>
-        <div className="water-memory-number"><strong>{String(i+1).padStart(2,'0')}</strong><small>AGUA / 2026</small></div>
-        <div className="water-memory-copy"><h2>{heading}</h2>{blocks(body.join('\n'))}</div>
-      </article>
-    })}</div>
-    <footer className="water-memory-end"><strong>La conversación permanece abierta.</strong><p>Próximo tema anunciado: redes sociales · fecha por confirmar.</p></footer>
+    <footer className="water-memory-end"><strong>La conversación permanece abierta.</strong>
+      <p>Este archivo no establece un consenso entre quienes participaron.</p>
+    </footer>
   </section>
 }
