@@ -1,5 +1,6 @@
 // Fuente primaria: Glock (Tecnos, 2012), cap. II, pp. 40–45 y fragmento visible p. 46.
 import { SYSTEM_2D_THEME } from '../components/philosophy/system2d/system2dTheme.js'
+import { glockClass19Oct } from './glockClass19Oct.js'
 
 export const glockRoutes = [
   {
@@ -556,6 +557,7 @@ export const glockNodes = SOURCE_NODES.map((item, index) => ({
     sourcePassage: SOURCE_PASSAGES[item.id] || item.excerpt,
     diagram: NODE_DIAGRAMS[item.id] || [item.title],
     schema: buildGlockPassageSchema(item),
+    class19Oct: glockClass19Oct[item.id] || null,
     page: item.page,
     sourceRef: 'Glock, 2012, cap. II, ' + item.page,
     question: item.question,
