@@ -38,6 +38,7 @@ function StudyCanvas() {
   const [selectedId, setSelectedId] = useState('G01')
   const [visited, setVisited] = useState(['G01'])
   const [fullscreen, setFullscreen] = useState(false)
+  const [showMinimap, setShowMinimap] = useState(false)
   const stageRef = useRef(null)
   const [nodes, , onNodesChange] = useNodesState(glockNodes)
   const { fitView, setCenter } = useReactFlow()
@@ -189,6 +190,7 @@ function StudyCanvas() {
           <div><span>SISTEMA HISTÓRICO-CONCEPTUAL 2D · ENTREGAS 01–02</span><h2 id="glock-system-heading">Arquitectura del análisis</h2></div>
           <div className="glock-study-actions">
             <button type="button" onClick={() => fitView({ nodes: displayedNodes.filter(n => !n.hidden).map(n => ({ id: n.id })), padding: .16, maxZoom: .9, duration: 300 })}>ENCUADRAR MAPA</button>
+            <button type="button" onClick={() => setShowMinimap(current => !current)}>{showMinimap ? "OCULTAR MINIMAPA" : "MOSTRAR MINIMAPA"}</button>
             <button type="button" onClick={toggleFullscreen}>{fullscreen ? 'SALIR DE PANTALLA COMPLETA' : 'PANTALLA COMPLETA'}</button>
           </div>
         </div>
@@ -211,7 +213,7 @@ function StudyCanvas() {
             >
               <Background color={SYSTEM_2D_THEME.muted} gap={22} size={1} />
               <Controls position="bottom-left" />
-              <MiniMap pannable zoomable nodeColor={(node) => node.data.color} />
+              {showMinimap && <MiniMap pannable zoomable nodeColor={(node) => node.data.color} />}
             </ReactFlow>
           </div>
 
