@@ -52,6 +52,6 @@ test('Glock 2D: todos los nodos recibidos tienen capa docente 19 octubre', () =>
 
 test('Clase 19 oct: no inventa tarea ni completa la página 46', () => {
   assert.match(page, /No se registró una tarea nueva formulada explícitamente/)
-  assert.match(page, /página completa todavía no forma parte del material archivado/)
+  assert.match(page, /página\s+completa todavía no forma parte del material archivado/)
   assert.match(page, /no se reconstruye/i)
 })
