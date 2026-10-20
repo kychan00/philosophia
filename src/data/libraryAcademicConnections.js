@@ -25,6 +25,21 @@ export const libraryAcademicConnections = {
     "Adorno - Minima Moralia": {
       "events": []
     },
+    "Foucault - Vigilar y castigar": {
+      "events": [
+        {
+          "kind": "procedencia",
+          "date": "2026-10-20",
+          "dateLabel": "Fecha de registro en biblioteca, no fecha de la clase",
+          "area": "Teoría Crítica",
+          "title": "Recomendación bibliográfica · Foucault, Vigilar y castigar",
+          "status": "ficha bibliográfica registrada en Obsidian",
+          "type": "recomendación comunicada por el estudiante",
+          "note": "Libro publicado originalmente en 1975; edición del ejemplar digital no cotejada. No constan lectura, posesión, sesión docente ni tarea obligatoria.",
+          "url": null
+        }
+      ]
+    },
     "Illouz - Intimidades congeladas": {
       "events": []
     },
@@ -1223,6 +1238,21 @@ export const libraryAcademicConnections = {
           "status": "consta en ficha de autor",
           "type": "referencia de estudio",
           "url": "/tareas/etica/mondolfo-conciencia-moral"
+        }
+      ]
+    },
+    "Foucault, Michel": {
+      "events": [
+        {
+          "kind": "procedencia",
+          "date": "2026-10-20",
+          "dateLabel": "Fecha de registro de la recomendación",
+          "area": "Teoría Crítica",
+          "title": "Ingreso bibliográfico de Michel Foucault",
+          "status": "ficha de autor vinculada a Vigilar y castigar",
+          "type": "recomendación",
+          "url": null,
+          "work": ["Foucault - Vigilar y castigar"]
         }
       ]
     },

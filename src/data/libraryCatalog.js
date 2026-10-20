@@ -1,4 +1,4 @@
-// Instantánea pública de metadatos bibliográficos del vault, 15-10-2026.
+// Instantánea pública de metadatos bibliográficos del vault; actualización puntual 20-10-2026.
 // No contiene apuntes ni inventario personal de ejemplares.
 export const books = [
   {
@@ -19,6 +19,16 @@ export const books = [
     "categoria": "crítica",
     "estado": "recomendada",
     "lectura": "Pendiente"
+  },
+  {
+    "id": "Foucault - Vigilar y castigar",
+    "autor": "Foucault",
+    "titulo": "Vigilar y castigar: Nacimiento de la prisión",
+    "categoria": "crítica",
+    "estado": "recomendada",
+    "lectura": "Pendiente; no se ha documentado lectura",
+    "edicion": "Obra original de 1975; edición del ejemplar digital por identificar",
+    "url": "https://archive.org/details/FoucaultVigilarYCastigar"
   },
   {
     "id": "Illouz - Intimidades congeladas",
@@ -542,6 +552,7 @@ export const authors = [
   "Eraña, Ángeles",
   "Esquilo",
   "Fichte, Johann Gottlieb",
+  "Foucault, Michel",
   "Føllesdal, Dagfinn",
   "Frege, Gottlob",
   "Fromm, Erich",
