@@ -4,6 +4,19 @@ export const libraryAcademicConnections = {
   "source": "Relaciones documentadas por títulos de tareas y fichas de obra. Una fecha de nota no prueba la realización de la lectura.",
   "tasksReviewed": 61,
   "works": {
+    "Nava - Tecnociencia, entorno y sujeto tecnocientífico": {
+      "events": [{
+        "kind": "procedencia",
+        "date": "2026-10-19",
+        "dateLabel": "Fecha de registro de la recomendación, no fecha de la clase",
+        "area": "Filosofía Analítica",
+        "title": "Recomendación de Alonso Nava · Tecnociencia, entorno y sujeto tecnocientífico",
+        "status": "ficha bibliográfica y dossier registrados en Obsidian",
+        "type": "recomendación del profesor comunicada por el estudiante",
+        "note": "Artículo Eikasía 134 (2026), pp. 21–30; no implica lectura del estudiante ni tarea obligatoria.",
+        "url": "/semestre/5/filosofia-analitica/lectura/nava-tecnociencia"
+      }]
+    },
     "Platón - Cármides": {"events": []},
     "Platón - Leyes": {"events": []},
     "Platón - Banquete": {"events": []},
@@ -912,6 +925,7 @@ export const libraryAcademicConnections = {
     }
   },
   "authors": {
+    "Nava Amezcua, Alonso": {"events": []},
     "Hipócrates": {"events": []},
     "Adorno, Theodor W.": {
       "events": []
