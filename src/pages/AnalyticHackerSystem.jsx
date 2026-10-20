@@ -984,6 +984,24 @@ function StudyCanvas() {
         </div>
       </section>
 
+      <section className="hacker-study-next" aria-label="Procedencia del segundo reporte">
+        <span>Procedencia del segundo reporte · capas de lectura diferenciadas</span>
+        <div>
+          <article>
+            <b>68</b><strong>Núcleos del artículo</strong>
+            <p>Lectura de Hacker, pp. 95–132; tesis, seis sentidos del giro y ocho dificultades.</p>
+          </article>
+          <article>
+            <b>54</b><strong>Ampliaciones docentes</strong>
+            <p>Nodos vinculados a las sesiones del 14, 21, 23 y 30 de septiembre y del 14 de octubre.</p>
+          </article>
+          <article>
+            <b>07</b><strong>Sesiones cotejadas</strong>
+            <p>El dossier integra además las clases del 28 de septiembre y del 7 de octubre, sin presentarlas como nodos nuevos.</p>
+          </article>
+        </div>
+      </section>
+
       <footer className="hacker-study-footer">
         <Link to="/semestre/5/filosofia-analitica">← Filosofía Analítica</Link>
         <span>Peter M. S. Hacker · segundo reporte</span>
