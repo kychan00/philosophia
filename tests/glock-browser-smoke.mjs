@@ -60,6 +60,11 @@ const metrics = `(()=>{
     schemaHeight:svg?.getBoundingClientRect().height||0,
     containerHeight:document.querySelector('.glock-schema .animated-concept-schema')?.getBoundingClientRect().height||0,
     selectedRect:rect?{width:rect.width,height:rect.height}:null,
+    offenders:[...document.querySelectorAll('main.glock-shell *')].filter(el=>{
+      const r=el.getBoundingClientRect();const cs=getComputedStyle(el)
+      return r.width>0&&r.right>innerWidth+4&&cs.position!=='fixed'
+    }).slice(0,8).map(el=>({tag:el.tagName,cls:String(el.className).slice(0,90),
+      right:Math.round(el.getBoundingClientRect().right)})),
   }
 })()`
 async function navigate(width, height) {
@@ -74,7 +79,7 @@ async function navigate(width, height) {
   assert.deepEqual(state.hits,[], 'Tarjetas cruzadas: '+width+'×'+height+' '+state.hits.join(', '))
   assert.equal(state.selected,'G01','Ruta inicial debe iniciar en G01')
   assert.ok(state.selectedOpacity >= .9, 'Seleccionado debe ser visible')
-  assert.ok(state.scroll <= state.width + 3, 'Scroll global horizontal en '+width+'×'+height)
+  assert.ok(state.scroll <= state.width + 3, 'Scroll global horizontal en '+width+'×'+height+': '+JSON.stringify(state))
   assert.ok(state.schemaHeight > 390, 'SVG del esquema comprimido '+width+'×'+height)
   console.log('OK Glock viewport',width,height,state.count,state.schemaHeight)
 
