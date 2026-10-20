@@ -2,6 +2,11 @@
 // una ficha real del vault; no indica por sí sola un argumento, influencia
 // ni lectura completa. Metadatos públicos sin rutas privadas.
 export const documentedConceptLinks = {
+  "Nava - Tecnociencia, entorno y sujeto tecnocientífico": [
+    "Tecnociencia (Nava)",
+    "Sujeto tecnocientífico (Nava)",
+    "Razón instrumental"
+  ],
   "Aristóteles - Metafísica - Libro IV": [
     "Principio de no contradicción"
   ],
@@ -147,6 +152,18 @@ export const documentedConceptLinks = {
 // Cada clave nombra la ficha de concepto que enlaza a los términos listados.
 // Es navegación documental, NO una relación doctrinal derivada.
 export const documentedConceptRelations = {
+  "Tecnociencia (Nava)": [
+    "Sujeto tecnocientífico (Nava)",
+    "Razón instrumental"
+  ],
+  "Sujeto tecnocientífico (Nava)": [
+    "Tecnociencia (Nava)",
+    "Razón instrumental"
+  ],
+  "Razón instrumental": [
+    "Sujeto tecnocientífico (Nava)",
+    "Tecnociencia (Nava)"
+  ],
   "Cosificación (Lukács)": [
     "Mercancía (Marx)",
     "Fetichismo de la mercancía",
