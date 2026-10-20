@@ -140,6 +140,8 @@
 @media (min-width: 761px) and (max-width: 1180px) {
   /* iPad: mapa legible a ancho completo, inspector debajo. */
   .glock-stage { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .glock-schema { grid-template-columns: minmax(0, 1fr); }
+  .glock-schema .animated-concept-schema.is-reading-vertical { min-width: 0; max-width: 100%; }
   .glock-canvas { height: clamp(440px, 56dvh, 680px); min-height: 440px; }
   .glock-inspector {
     border-left: 0; border-top: 2px solid var(--ph2d-ink);
