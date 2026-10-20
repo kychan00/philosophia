@@ -5,10 +5,10 @@ export const books = [
     "id": "Nava - Tecnociencia, entorno y sujeto tecnocientífico",
     "autor": "Nava Amezcua",
     "titulo": "Tecnociencia, entorno y sujeto tecnocientífico",
-    "categoria": "investigación",
+    "categoria": "analítica",
     "estado": "recomendada",
     "lectura": "Sin confirmar; artículo registrado como recomendación de Filosofía Analítica",
-    "edicion": "Eikasía. Revista de Filosofía, 134 (2026), 21–30",
+    "edicion": "Eikasía Revista de Filosofía, 134 (2026), 21–30",
     "url": "https://www.revistadefilosofia.org/index.php/ERF/article/view/1281",
     "studyUrl": "/semestre/5/filosofia-analitica/lectura/nava-tecnociencia"
   },
