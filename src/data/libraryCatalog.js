@@ -2,6 +2,17 @@
 // No contiene apuntes ni inventario personal de ejemplares.
 export const books = [
   {
+    "id": "Nava - Tecnociencia, entorno y sujeto tecnocientífico",
+    "autor": "Nava Amezcua",
+    "titulo": "Tecnociencia, entorno y sujeto tecnocientífico",
+    "categoria": "investigación",
+    "estado": "recomendada",
+    "lectura": "Sin confirmar; artículo registrado como recomendación de Filosofía Analítica",
+    "edicion": "Eikasía. Revista de Filosofía, 134 (2026), 21–30",
+    "url": "https://www.revistadefilosofia.org/index.php/ERF/article/view/1281",
+    "studyUrl": "/semestre/5/filosofia-analitica/lectura/nava-tecnociencia"
+  },
+  {
     "id": "Adorno - Minima Moralia",
     "autor": "Adorno",
     "titulo": "Minima Moralia",
@@ -564,6 +575,7 @@ export const authors = [
   "Marx, Karl",
   "Mondolfo, Rodolfo",
   "Moore, G. E.",
+  "Nava Amezcua, Alonso",
   "Nietzsche, Friedrich",
   "Ortega y Gasset, José",
   "Parménides",
