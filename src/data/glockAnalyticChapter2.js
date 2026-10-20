@@ -367,6 +367,55 @@ const SOURCE_NODES = [
   ]
 }
 ]
+
+const SOURCE_PASSAGES = Object.freeze({
+  G00: \`En este capítulo se traza la trayectoria de la filosofía analítica. Tras considerar el papel del análisis en filosofía con anterioridad al siglo XIX, pasa a analizar la emergencia gradual de la lógica y el análisis lógico y conceptual en Bolzano, Frege, Moore y Russell. A continuación considera dos subsiguientes cambios de rumbo. En primer lugar, el giro lingüístico de la filosofía analítica por obra de Wittgenstein, el positivismo lógico y el análisis conceptual; luego la inversión de ese giro, notablemente mediante la rehabilitación de la metafísica, el auge del naturalismo, el triunfo de los enfoques mentalistas de la mente y el lenguaje, y la vuelta a escena de la filosofía moral de primer orden y de la teoría política.\`,
+  G01: \`La palabra «análisis» proviene del griego analysis que significa «desatar» o «disolver». Dos nociones del término análisis han primado en filosofía desde sus comienzos (véase BEANEY, 2003). La primera deriva de la búsqueda de definiciones de términos tales como «virtud» y «conocimiento» emprendida por Sócrates, junto a la versión de Platón, que habla de ella como «división».\`,
+  G02: \`Este análisis descomposicional o «progresivo» se aplica primariamente a lo que hoy llamamos conceptos y que en esencia consiste en la disección o resolución de un concepto dado en sus elementos componentes, que a su vez pueden ser utilizados para definir un concepto complejo. Así, el concepto de ser humano —el analysandum— es analizado en los conceptos de animal y de racionalidad, produciendo con ello la definición de ser humano como animal racional —el analysans—. Mientras la clase de los seres humanos está contenida en la clase de los animales como subconjunto propio, el concepto de ser humano contiene al concepto de animal en el sentido de que este último es parte de la explicación del primero.\`,
+  G03: \`La segunda noción deriva de la geometría griega y predomina en Aristóteles. Se la puede llamar análisis regresivo y se lo aplica primariamente a las proposiciones. La filosofía analítica es a veces erróneamente concebida como empresa deductiva que deriva teoremas a partir de axiomas y definiciones mediante pruebas formales. Hasta Kant, sin embargo, este procedimiento típicamente matemático de deducir consecuencias a partir de primeros principios o axiomas era conocido como método sintético. El método analítico, en cambio, parte de una proposición que ha de ser probada y se remonta hasta los primeros principios desde los cuales se puede derivar esa proposición como un teorema.\`,
+  G04: \`Lo que unifica al análisis descomposicional y al regresivo es la idea de partir de algo dado (respectivamente, un concepto que hay que analizar o una proposición que hay que probar) e identificar algo que sea más básico (los componentes del analysandum o los axiomas que permitan deducir el teorema) y del cual éste puede ser derivado (definido o probado).\`,
+  G05: \`Mientras que Spinoza buscaba razonar «more geometrico», para Descartes la síntesis era meramente el método de exposición o prueba. El descubrimiento de nuevas perspectivas es analítico y consiste en identificar las «naturalezas simples» que constituyen la realidad y los axiomas («nociones primarias») que especifican los vínculos entre ellas (Meditaciones, Respuestas II).\`,
+  G06: \`Leibniz fue incluso más lejos. Según él, en todas las proposiciones verdaderas los predicados están contenidos en el concepto del sujeto, y pueden por tanto ser probados analizando este último. Toda verdad puede ser reducida a una «verdad idéntica» utilizando las definiciones resultantes de tales análisis. Así, las ecuaciones aritméticas pueden ser reducidas a verdades idénticas explotando el hecho de que cada número natural es definible por su predecesor más uno. Por ejemplo, 7 = def 6 + 1; 5 = def 4 + 1 y 12 = def 11 + 1.\`,
+  G07: \`Leibniz soñó con una characteristica universalis, una notación científica que proporcionase un algoritmo tanto para el método analítico de descubrimiento (la definición de los conceptos relevantes mediante el análisis descomposicional) como para el método sintético de prueba (de derivación del teorema con la ayuda de tales definiciones).\`,
+  G08: \`Mientras que Leibniz cultivó el análisis lógico y Descartes el análisis ontológico, el análisis psicológico-cum-epistemológico fue el instrumento favorito de los empiristas británicos, notablemente en el proyecto de Locke de dividir lo «complejo» en ideas «simples» (Ensayo, II.2, 22), o en el Analysis of the Phenomena of the Human Mind (1829) de James Mill. El objetivo no era tanto el de descubrir los constituyentes últimos de la realidad en general, como los de la mente humana, y de mostrar que éstos eran aportados por la experiencia sensorial.\`,
+  G09: \`En Kant, la resolución de los episodios mentales deja paso a las facultades mentales tales como la sensibilidad, el entendimiento y la razón. La Analítica Trascendental es una «lógica de la verdad», puesto que nos proporciona una «piedra de toque negativa» en el sentido de que examina principios cognitivos que ningún juicio empírico podría contradecir sin perder su referencia a los objetos y con ello su estatuto como portador de un valor de verdad.\`,
+  G10: \`La Analítica Trascendental es una «lógica de la verdad», puesto que nos proporciona una «piedra de toque negativa» en el sentido de que examina principios cognitivos que ningún juicio empírico podría contradecir sin perder su referencia a los objetos y con ello su estatuto como portador de un valor de verdad —lo que en todo caso se conoce como su aptitud para la verdad—. En contraste con esto, la Dialéctica Trascendental es una «lógica de la ilusión», pues expone falacias a las que la razón se inclina cuando se pronuncia sobre objetos situados más allá de toda posible experiencia (Crítica de la razón pura, B 85-87).\`,
+  G11: \`Kant utiliza también el término «analítica» de un modo que lo relaciona con el análisis descomposicional (B 1-3, 10-15). En un juicio analítico, el predicado está ya contenido al menos implícitamente en el concepto del sujeto, como en «Todos los cuerpos son extensos». En cambio, el predicado de un juicio sintético como «Todos los cuerpos son pesados» añade algo al concepto-sujeto en lugar de expresar meramente algo que ya estaba implícito en él.\`,
+  G12: \`La distinción analítico/sintético está conectada con lo que se encuentra situado entre un conocimiento a posteriori, que está basado en la experiencia —bien sea por observación o por experimento— y un conocimiento a priori. A diferencia de las ideas innatas postuladas por los racionalistas y repudiadas por los empiristas, los juicios a priori son independientes de la experiencia no con respecto a su origen, sino en lo que atañe a su validez. Aunque es necesario aprender incluso juicios a priori tales como (1), podemos demostrar su verdad mediante el cálculo, sin necesidad de recurrir a la experiencia.\`,
+  G13: \`La metafísica aspira a ser a la vez a priori, a diferencia de las ciencias empíricas, incluyendo a la «fisiología del entendimiento humano», y sintética, a diferencia de la lógica formal, puesto que emite juicios sustantivos sobre la realidad (A ix, B 18). Pese a Leibniz, Kant se muestra confiado en que los juicios de la aritmética y la geometría proporcionen un claro ejemplo de conocimiento sintético a priori. Incluso (1) es sintético: al pensar en la suma 7 + 5 no tenemos aún en mente el resultado = 12, puesto que entonces no tendríamos necesidad de calcular. Al mismo tiempo comprueba Kant que la idea de conocimiento sintético a priori es prima facie paradójica.\`,
+  G14: \`Kant resuelve este enigma mediante su «Revolución Copernicana»: «podemos conocer a priori las cosas sólo aquello que nosotros mismos hemos puesto en ellas» (B xviii). Hay una diferencia entre nuestras experiencias y sus objetos; y el contenido de la experiencia es a posteriori. Pero la forma o estructura de la experiencia es a priori, puesto que no está determinada por la aportación contingente de los objetos sino por el aparato cognitivo del sujeto. Tenemos experiencia de los objetos en tanto que se encuentran localizados en el espacio y en el tiempo, y como centros de cambios cualitativos que están sujetos a leyes causales. Según Kant, tales objetos no son hechos contingentes relativos a la realidad o a la naturaleza humana, sino precondiciones «trascendentales» de la posibilidad de la experiencia.\`,
+  G15: \`Las dicotomías de Kant y su afirmación de que existe un conocimiento sintético a priori establecieron la agenda para un debate sobre la naturaleza de la lógica, la matemática y la metafísica que continúa siendo central para la filosofía analítica. Y a una escala aún mayor, Kant alteró la propia imagen y la organización de la filosofía. Antes de Kant, la filosofía era considerada como la «Reina de las Ciencias». Era ella la que fijaba el marco para las ciencias especiales. No obstante, durante los siglos XVII y XVIII reinó un evidente contraste: mientras la metafísica seguía siendo el «campo de batalla» de controversias fútiles (B xv), las ciencias naturales progresaban mediante la combinación de la investigación empírica con el instrumental matemático.\`,
+  G16: \`Según Kant, la filosofía es una disciplina cognitiva, aunque distinta de las ciencias empíricas puesto que, al igual que la lógica y la matemática, aspira a un conocimiento a priori. Pero Kant rechazó la explicación recibida de este especial estatuto. Según los platónicos, la metafísica examina entidades abstractas que se encuentran más allá del espacio y del tiempo; según los aristotélicos, la metafísica examina el «ser qua ser». Kant introduce una reorientación fundamental al insistir en que la metafísica trascendental se «ocupaba no tanto de objetos como del modo de nuestro conocimiento de objetos» (B 25). La filosofía, en cambio, es a priori no porque describa objetos de un tipo peculiar, sino porque refleja las precondiciones no empíricas de nuestro conocimiento empírico de los objetos materiales ordinarios.\`,
+  G17: \`Kant rehabilita solamente una metafísica «trascendental» de la experiencia, no la metafísica «trascendente» de los racionalistas que buscan el conocimiento de objetos más allá de toda posible experiencia, como Dios y el alma. Igualmente elimina las pretensiones de la metafísica tradicional sin abandonar el proyecto de la filosofía como disciplina sui generis distinta de las ciencias especiales. Pero esta atractiva combinación ha de pagar un precio: una forma de idealismo. Kant no niega la existencia de objetos independientes de la mente, ni afirma tampoco que la mente crea a la naturaleza. Pero sí mantiene, sin embargo, que la mente impone sus leyes estructurales sobre la realidad. Desde una perspectiva filosófica, el espacio, el tiempo y la causación son entidades «ideales» más que «reales» que se aplican solamente a las «apariencias».\`,
+  G18: \`Este «idealismo trascendental» genera numerosas tensiones. Por ejemplo, mientras que la causación se aplica supuestamente sólo a las apariencias, donde estas últimas son resultado de las cosas en sí que no afectan causalmente al aparato cognitivo del sujeto, los idealistas alemanes trataron de superar estas tensiones extremando el idealismo. El sujeto aporta no sólo la forma de la cognición, sino también su contenido. La realidad es una manifestación de un principio espiritual que trasciende a las mentes individuales, tal como ocurre con el «espíritu» de Hegel. Puesto que la realidad misma es enteramente mental, es totalmente captable por la mente. Una vez más, la filosofía se torna en una super-ciencia que engloba a todas las otras disciplinas.\`,
+  G19: \`Tan grandiosas pretensiones resultaron ser incompatibles con los avances en primer lugar de las ciencias naturales y más tarde con las culturales en el siglo XIX. El resultado fue el «colapso del idealismo» poco después de la muerte de Hegel en 1831. Dos principales reacciones tuvieron lugar entonces. Una fue el naturalismo, cuyos representantes eran fisiólogos por formación que trataron al idealismo alemán como signo de la bancarrota de toda especulación metafísica y del razonamiento a priori. Los naturalistas mantenían que todo conocimiento era a posteriori, puesto que las pretendidas disciplinas a priori podían ser reducidas o bien a disciplinas empíricas como la psicología o la fisiología o bien tenía que ser rechazada por ilusoria.\`,
+  G20: \`La otra reacción fue el neo-kantismo, un movimiento que dominó la filosofía académica alemana entre los años 1835 y la Primera Guerra Mundial. Si la filosofía deseaba preservar su condición de respetable disciplina sui generis, tenía que abandonar la inútil competición con las ciencias especiales. Bajo el grito de guerra «¡Retorno a Kant!», los neo-kantianos retomaron la idea de que la filosofía es una disciplina de segundo orden. No investiga una pretendida realidad situada más allá de lo que es accesible a la ciencia, ni tampoco compite con ésta en la explicación de la realidad empírica. En lugar de ello, clarifica las precondiciones lógicas, conceptuales y metodológicas del conocimiento empírico, al igual que las precondiciones de modos no-filosóficos de pensamiento de carácter más general.\`,
+})
+
+const NODE_DIAGRAMS = Object.freeze({
+  G00: ['antecedentes del análisis', 'lógica y análisis conceptual', 'giro lingüístico', 'inversión del giro'],
+  G01: ['analysis', 'desatar / disolver', 'dos nociones'],
+  G02: ['ser humano', 'animal + racionalidad', 'animal racional'],
+  G03: ['proposición por probar', 'primeros principios', 'teorema demostrado'],
+  G04: ['algo dado', 'elemento más básico', 'definir / probar'],
+  G05: ['análisis', 'descubrimiento', 'síntesis / exposición'],
+  G06: ['proposición verdadera', 'analizar sujeto', 'verdad idéntica'],
+  G07: ['análisis de conceptos', 'characteristica universalis', 'prueba sintética'],
+  G08: ['idea compleja', 'ideas simples', 'experiencia sensorial'],
+  G09: ['episodios mentales', 'facultades', 'sensibilidad · entendimiento · razón'],
+  G10: ['Analítica', 'lógica de la verdad', 'Dialéctica · lógica de la ilusión'],
+  G11: ['juicio analítico', 'predicado contenido', 'juicio sintético · añade algo'],
+  G12: ['a posteriori', 'experiencia', 'a priori · validez independiente'],
+  G13: ['sintético', 'dice algo de la realidad', 'a priori', 'sin experiencia'],
+  G14: ['contenido · a posteriori', 'forma · a priori', 'objeto de experiencia'],
+  G15: ['metafísica en disputa', 'ciencias progresan', '¿papel propio de la filosofía?'],
+  G16: ['objetos empíricos', 'condiciones no empíricas', 'metafísica trascendental'],
+  G17: ['apariencias', 'espacio · tiempo · causalidad', 'cosas en sí · límite'],
+  G18: ['tensión kantiana', 'idealismo alemán', 'super-ciencia', 'colapso'],
+  G19: ['colapso del idealismo', 'naturalismo', 'todo conocimiento a posteriori'],
+  G20: ['retorno a Kant', 'filosofía de segundo orden', 'precondiciones del conocimiento'],
+})
+
 const SOURCE_EDGES = [
   [
     "G00",
@@ -445,6 +494,50 @@ const SOURCE_EDGES = [
 ["G18","G20","provoca la reacción neokantiana"],
 ["G15","G20","retoma la autonomía filosófica"]
 ]
+
+function buildGlockContextSchema(item) {
+  const incoming = SOURCE_EDGES.filter(([, target]) => target === item.id).slice(0, 2)
+  const outgoing = SOURCE_EDGES.filter(([source]) => source === item.id).slice(0, 2)
+  const relatedIds = [...new Set([
+    ...incoming.map(([source]) => source),
+    item.id,
+    ...outgoing.map(([, target]) => target),
+  ])]
+  const nodeById = new Map(SOURCE_NODES.map(node => [node.id, node]))
+  const nodes = relatedIds.map((id) => {
+    const ref = nodeById.get(id)
+    const isFocus = id === item.id
+    const isIncoming = incoming.some(([source]) => source === id)
+    return {
+      id,
+      label: ref?.title || id,
+      caption: isFocus ? \`foco · \${ref?.page || ''}\` : isIncoming ? 'antecedente documentado' : 'continuación documentada',
+      role: isFocus ? 'concept' : isIncoming ? 'term' : 'result',
+    }
+  })
+  const edges = [
+    ...incoming.map(([source, target, label]) => ({
+      from: source, to: target, label,
+      relationKind: label.includes('reconstrucción') ? 'transversal' : 'hierarchical',
+    })),
+    ...outgoing.map(([source, target, label]) => ({
+      from: source, to: target, label,
+      relationKind: label.includes('reconstrucción') ? 'transversal' : 'hierarchical',
+    })),
+  ]
+  return {
+    title: \`Contexto de \${item.title}\`,
+    layout: 'hierarchy',
+    readingLayout: 'vertical-folio',
+    rootId: incoming[0]?.[0] || item.id,
+    minHeight: relatedIds.length >= 5 ? 560 : 460,
+    hierarchyXGap: 78,
+    hierarchyYGap: 116,
+    nodes,
+    edges,
+  }
+}
+
 const TONES = { programa: 'gold', antiguos: 'blue', modernos: 'rust', kant: 'moss', juicios: 'violet', trascendental: 'bronze', reacciones: 'sage' }
 export const glockNodeOrder = SOURCE_NODES.map((node) => node.id)
 
@@ -479,6 +572,9 @@ export const glockNodes = SOURCE_NODES.map((item, index) => ({
     short: item.short,
     explanation: item.explanation,
     excerpt: item.excerpt,
+    sourcePassage: SOURCE_PASSAGES[item.id] || item.excerpt,
+    diagram: NODE_DIAGRAMS[item.id] || [item.title],
+    schema: buildGlockContextSchema(item),
     page: item.page,
     sourceRef: 'Glock, 2012, cap. II, ' + item.page,
     question: item.question,
