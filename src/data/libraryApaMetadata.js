@@ -1,5 +1,14 @@
 // APA 7: metadatos auditados a partir de notas del vault; valores ausentes no se inventan.
 export const libraryApaMetadata = {
+  "Nava - Tecnociencia, entorno y sujeto tecnocientífico": {
+    "kind": "article",
+    "title": "Tecnociencia, entorno y sujeto tecnocientífico",
+    "year": 2026,
+    "journal": "Eikasía. Revista de Filosofía",
+    "issue": "134",
+    "pages": "21–30",
+    "url": "https://doi.org/10.57027/eikasia.134.1281"
+  },
   "Adorno - Minima Moralia": {
     "kind": "book",
     "title": "Minima Moralia"
