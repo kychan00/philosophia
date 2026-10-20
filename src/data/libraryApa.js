@@ -76,7 +76,13 @@ export function formatApaRecord(book, authors) {
       add(meta.bookTitle,true)
       add('.'+(meta.publisher?' '+period(meta.publisher):''))
     }
-    if(meta.journal){add(' ');add(meta.journal,true);add('.')}
+    if(meta.journal){
+      add(' ');add(meta.journal,true)
+      if(meta.volume)add(', '+meta.volume)
+      if(meta.issue)add(', ('+meta.issue+')')
+      if(meta.pages)add(', '+meta.pages)
+      add('.')
+    }
   }else{
     add(author+' ('+year+'). ')
     add(title,true)
