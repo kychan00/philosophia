@@ -136,6 +136,18 @@
   .glock-hero aside { grid-column: 2; }
   .glock-stage { grid-template-columns: minmax(0,1fr) 300px; }
 }
+@media (min-width: 761px) and (max-width: 1180px) {
+  /* iPad: mapa legible a ancho completo, inspector debajo. */
+  .glock-stage { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .glock-canvas { height: clamp(440px, 56dvh, 680px); min-height: 440px; }
+  .glock-inspector {
+    border-left: 0; border-top: 2px solid #211d18;
+    max-height: 480px; overflow-y: auto;
+  }
+  .glock-stage:fullscreen { grid-template-columns: minmax(0, 1fr); height: 100dvh; overflow-y: auto; }
+  .glock-stage:fullscreen .glock-canvas { height: 62dvh; min-height: 62dvh; }
+  .glock-stage:fullscreen .glock-inspector { max-height: 38dvh; }
+}
 @media (max-width: 760px) {
   .glock-nav { grid-template-columns: 1fr auto; font-size: 10px; }
   .glock-nav > span { display: none; }
