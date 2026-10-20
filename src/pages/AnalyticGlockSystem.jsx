@@ -153,6 +153,7 @@ function StudyCanvas() {
 
     return {
       ...node,
+      selected: node.id === selectedId,
       position: route !== 'all'
         ? thematicLayout.get(node.id) || node.position
         : node.position,
