@@ -19,6 +19,7 @@ test('doce núcleos documentales, cuatro rutas exhaustivas y sin nodos huérfano
   assert.equal(sections.length,4)
   for(const n of navaNodes){
     assert.ok(sections.includes(n.data.section),'sección desconocida '+n.id)
+    assert.equal(n.data.branch,n.data.section,'sección pedagógica no asignada '+n.id)
     assert.ok(/p\./.test(n.data.page),'sin referencia de página '+n.id)
     for(const field of ['title','source','explanation','question','sourceRef']){
       assert.ok(n.data[field]?.length>(field==='title'?7:20),'campo documental débil: '+n.id+'/'+field)
