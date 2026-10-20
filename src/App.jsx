@@ -118,6 +118,7 @@ const AnalyticClass31Aug = lazy(() => import('./pages/AnalyticClass31Aug'))
 const AnalyticClass02Sep = lazy(() => import('./pages/AnalyticClass02Sep'))
 const AnalyticFollesdalMap = lazy(() => import('./pages/AnalyticFollesdalMap'))
 const AnalyticHackerSystem = lazy(() => import('./pages/AnalyticHackerSystem'))
+const AnalyticGlockSystem = lazy(() => import('./pages/AnalyticGlockSystem'))
 const CriticalTheory = lazy(() => import('./pages/CriticalTheory'))
 const CriticalTheoryTask1 = lazy(() => import('./pages/CriticalTheoryTask1'))
 const MarxCommodityValueSystem = lazy(() => import('./pages/MarxCommodityValueSystem'))
@@ -537,6 +538,10 @@ function App() {
         <Route
           path="/semestre/5/filosofia-analitica/reporte/hacker"
           element={<AnalyticHackerSystem />}
+        />
+        <Route
+          path="/semestre/5/filosofia-analitica/lectura/glock-capitulo-2"
+          element={<AnalyticGlockSystem />}
         /><Route
           path="/semestre/5/teoria-critica"
           element={<CriticalTheory />}
