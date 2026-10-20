@@ -24,8 +24,26 @@ function GlockNode({ data, selected }) {
       <Handle type="target" position={Position.Top} />
       <div className="glock-node-top"><span>{data.number} / {data.kind}</span><strong>{data.code}</strong></div>
       <h3>{data.title}</h3>
-      <p>{data.short}</p>
-      <div className="glock-node-bottom"><span>SÍNTESIS DE LECTURA</span><b>{data.page}</b></div>
+      <p className="glock-node-summary">{data.short}</p>
+
+      <section className="glock-node-source-card" aria-label="Texto explícito del nodo">
+        <span>TEXTO EXPLÍCITO · {data.page}</span>
+        <blockquote>{data.sourcePassage}</blockquote>
+      </section>
+
+      <section className="glock-node-schema-card" aria-label="Esquema breve del nodo">
+        <span>ESQUEMA</span>
+        <div className="glock-node-mini-schema">
+          {data.diagram.map((part, index) => (
+            <span key={`${data.code}-diagram-${index}`}>
+              <b>{part}</b>
+              {index < data.diagram.length - 1 && <i aria-hidden="true">↓</i>}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      <div className="glock-node-bottom"><span>FUENTE DOCUMENTADA</span><b>{data.page}</b></div>
       <Handle type="source" position={Position.Bottom} />
     </article>
   )
@@ -225,7 +243,31 @@ function StudyCanvas() {
             </div>
             <h3>{selected?.data.title}</h3>
             <p className="glock-inspector-brief">{selected?.data.short}</p>
-            <section><span>FRAGMENTO LITERAL · EDICIÓN 2012</span><blockquote>“{selected?.data.excerpt}”</blockquote><small>{selected?.data.sourceRef}</small></section>
+
+            <section className="glock-inspector-source">
+              <span>TEXTO EXPLÍCITO · PASAJE DOCUMENTAL</span>
+              <blockquote>{selected?.data.sourcePassage}</blockquote>
+              <small>{selected?.data.sourceRef} · transcripción literal conservada en Obsidian</small>
+            </section>
+
+            <section className="glock-inspector-kernel">
+              <span>NÚCLEO DEL PASAJE</span>
+              <blockquote>“{selected?.data.excerpt}”</blockquote>
+            </section>
+
+            {selected?.data.schema && (
+              <section className="glock-inspector-schema">
+                <span>ESQUEMA DEL NODO · CONTEXTO DOCUMENTADO</span>
+                <p className="glock-inspector-schema-note">
+                  Reconstrucción visual a partir de las relaciones registradas; no es un diagrama impreso por Glock.
+                </p>
+                <AnimatedConceptSchema
+                  key={`glock-inspector-schema-${selected.id}`}
+                  schema={selected.data.schema}
+                />
+              </section>
+            )}
+
             <section><span>EXPLICACIÓN · RECONSTRUCCIÓN DE ESTUDIO</span><p>{selected?.data.explanation}</p></section>
             <section><span>PREGUNTA DE ESTUDIO</span><p>{selected?.data.question}</p></section>
             <section><span>RELACIONES DOCUMENTADAS · TEXTO DE ARISTAS</span>
