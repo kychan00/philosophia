@@ -84,10 +84,10 @@ const raw = [
    diagram:['Tecnología porta valores','¿Público o mercado?','Problema de gobernanza'],dependsOn:['N11','N07']},
 ]
 const accents={
-  definicion:SYSTEM_2D_THEME.rust || 'var(--ph2d-topic-rust)',
-  genealogia:SYSTEM_2D_THEME.gold || 'var(--ph2d-topic-gold)',
-  sujeto:SYSTEM_2D_THEME.blue || 'var(--ph2d-topic-blue)',
-  etica:SYSTEM_2D_THEME.green || 'var(--ph2d-green)',
+  definicion:SYSTEM_2D_THEME.nodeTopics.rust,
+  genealogia:SYSTEM_2D_THEME.nodeTopics.gold,
+  sujeto:SYSTEM_2D_THEME.nodeTopics.blue,
+  etica:SYSTEM_2D_THEME.nodeTopics.moss,
 }
 export const NAVA_GEOMETRY={width:366,height:330}
 export const navaNodes=raw.map((r,index)=>({
