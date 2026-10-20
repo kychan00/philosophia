@@ -11,19 +11,25 @@ const byId = new Map(glockNodes.map(n => [n.id, n]))
 const page = readFileSync(new URL('../src/pages/AnalyticGlockSystem.jsx', import.meta.url), 'utf8')
 const css = readFileSync(new URL('../src/pages/AnalyticGlockSystem.css', import.meta.url), 'utf8')
 
-test('Glock: 21 nodos localizados en pp 40–45 o fragmento p 46', () => {
+test('Glock: 21 nodos con texto explícito extenso y localizador', () => {
   assert.equal(glockNodes.length, 21)
   assert.equal(new Set(glockNodeOrder).size, 21)
   assert.deepEqual(glockNodeOrder, glockNodes.map(n => n.id))
   glockNodes.forEach(n => {
     assert.match(n.data.page, /4[0-6]/)
-    assert.ok(n.data.explanation?.length > 65, n.id)
-    assert.ok(n.data.excerpt?.length > 15, n.id)
+    assert.ok(n.data.explanation?.length > 65, n.id + ' explicación')
+    assert.ok(n.data.excerpt?.length > 15, n.id + ' núcleo')
+    assert.ok(n.data.sourcePassage?.length > 180, n.id + ' pasaje explícito corto')
     assert.match(n.data.sourceRef, /Glock, 2012, cap. II/)
+    assert.ok(n.data.diagram?.length >= 3, n.id + ' mini esquema')
+    assert.equal(n.data.schema?.direction, 'vertical', n.id + ' esquema vertical')
+    assert.equal(n.data.schema?.nodes?.length, n.data.diagram.length, n.id + ' esquema completo')
+    assert.equal(n.data.schema?.edges?.length, n.data.diagram.length - 1, n.id + ' aristas del esquema')
   })
   assert.match(byId.get('G20').data.page, /fragmento/)
   assert.doesNotMatch(page, /Las páginas 43–86 están pendientes/)
 })
+
 test('Glock: aristas y dependencias siempre resolubles', () => {
   assert.equal(glockLinks.length, 24)
   for (const edge of glockLinks) {
@@ -35,6 +41,7 @@ test('Glock: aristas y dependencias siempre resolubles', () => {
   }
   assert.ok(glockLinks.some(edge => edge.critical), 'Cruce editorial debe rotularse')
 })
+
 test('Glock: las siete rutas son exhaustivas y evaluables', () => {
   const sections = buildSectionPedagogy(glockNodes, glockRoutes, glockNodeOrder)
   assert.equal(sections.length, 7)
@@ -44,9 +51,12 @@ test('Glock: las siete rutas son exhaustivas y evaluables', () => {
   })
   assert.equal(sections.reduce((sum, s) => sum + s.members.length, 0), glockNodes.length)
 })
-test('Glock: no se superpone ningún rectángulo de 340 × 240 con margen', () => {
+
+test('Glock: tarjetas documentales 370 × 500 no se superponen', () => {
   const { width, height, gapX, gapY } = GLOCK_GEOMETRY
-  assert.ok(gapX >= 100 && gapY >= 100)
+  assert.equal(width, 370)
+  assert.equal(height, 500)
+  assert.ok(gapX >= 120 && gapY >= 120)
   glockNodes.forEach((a, i) => glockNodes.slice(i + 1).forEach(b => {
     const touchX = a.position.x < b.position.x + width + 30 &&
       b.position.x < a.position.x + width + 30
@@ -54,14 +64,27 @@ test('Glock: no se superpone ningún rectángulo de 340 × 240 con margen', () =
       b.position.y < a.position.y + height + 30
     assert.ok(!(touchX && touchY), a.id + ' y ' + b.id)
   }))
-  assert.match(css, /height: 240px; min-height: 240px/)
+  assert.match(css, /width: 370px; height: 500px; min-height: 500px/)
+  assert.match(css, /glock-node-source-card blockquote[\s\S]*overflow-y: auto/)
 })
-test('Glock: guía, rutas, inspector y esquema usan el contrato', () => {
-  assert.match(page, /FRAGMENTO LITERAL · EDICIÓN 2012/)
+
+test('Glock: tarjeta e inspector muestran texto y esquema del nodo', () => {
+  assert.match(page, /glock-node-source-card/)
+  assert.match(page, /TEXTO EXPLÍCITO · \{data\.page\}/)
+  assert.match(page, /glock-node-mini-schema/)
+  assert.match(page, /data\.diagram\.map/)
+  assert.match(page, /TEXTO EXPLÍCITO · PASAJE DOCUMENTAL/)
+  assert.match(page, /selected\?\.data\.sourcePassage/)
+  assert.match(page, /glock-inspector-schema/)
+  assert.match(page, /schema=\{selected\.data\.schema\}/)
   assert.match(page, /RECONSTRUCCIÓN DE ESTUDIO/)
+  assert.match(css, /glock-inspector-source blockquote/)
+  assert.match(css, /glock-inspector-schema \.animated-concept-schema/)
+})
+
+test('Glock: guía, rutas y esquema general conservan el contrato', () => {
   assert.match(page, /<SectionPedagogy/)
   assert.match(page, /onSectionChange=\{changeRoute\}/)
-  assert.match(page, /<AnimatedConceptSchema/)
   assert.match(page, /nodesDraggable=\{false\}/)
   assert.match(page, /currentNavIndex/)
   assert.match(page, /visibleIds\.has\(n\.id\)/)
