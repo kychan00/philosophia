@@ -18,7 +18,7 @@ const readings = [
     number: 'III',
     author: 'Hans-Johann Glock',
     title: 'Breve panorama histórico',
-    note: '¿Qué es la filosofía analítica? · capítulo II · pp. 40–86 · primera entrega: 40–42',
+    note: '¿Qué es la filosofía analítica? · capítulo II · pp. 40–86 · disponibles: 40–45 + inicio de 46',
     route: '/semestre/5/filosofia-analitica/lectura/glock-capitulo-2',
   },
   {
@@ -475,6 +475,22 @@ export default function AnalyticPhilosophy() {
             <h3>Las ocho críticas al positivismo lógico</h3>
             <p>Unidad de las ciencias; fenomenalismo y fisicalismo; significado y verdad; Popper,
               ciencias sociales y transición al análisis del lenguaje ordinario. Próxima lectura: Glock.</p>
+          </div>
+          <div className="analytic-enter"><span>Abrir análisis</span><b>↗</b></div>
+        </Link>
+
+        <Link to="/semestre/5/filosofia-analitica/clase/19-octubre" className="analytic-class-card">
+          <div className="analytic-date">
+            <strong>XIX</strong>
+            <span>X · MMXXVI</span>
+          </div>
+          <div className="analytic-class-copy">
+            <span>Decimosexta clase · Hans-Johann Glock</span>
+            <h3>Prehistoria del análisis y revolución copernicana</h3>
+            <p>
+              Dos sentidos del análisis; Descartes, Leibniz y empirismo; juicios analíticos
+              y sintéticos, sintético a priori, Kant, idealismo, naturalismo y neokantismo.
+            </p>
           </div>
           <div className="analytic-enter"><span>Abrir análisis</span><b>↗</b></div>
         </Link>
