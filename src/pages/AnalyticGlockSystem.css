@@ -6,7 +6,7 @@
   --g-muted: var(--ph2d-muted, #70675e);
   min-height: 100vh;
   color: var(--g-ink);
-  background: #ebe3d5;
+  background: var(--ph2d-bg);
   font-family: Georgia, 'Times New Roman', serif;
 }
 .glock-shell * { box-sizing: border-box; }
@@ -24,7 +24,7 @@
   gap: clamp(16px,2.8vw,44px); padding: clamp(24px,4vw,64px); border-bottom: 3px solid var(--g-ink); }
 .glock-hero-mark {
   display: grid; place-items: center; align-self: start;
-  width: 85px; height: 104px; background: #211d18; color: #c99532;
+  width: 85px; height: 104px; background: var(--ph2d-ink); color: var(--ph2d-topic-gold);
   font: 900 75px/1 Georgia,serif; border-bottom: 6px solid #9b4b38;
 }
 .glock-kicker,.glock-hero-facts,.glock-hero aside small,.glock-hero aside b,.glock-disclaimer strong,
@@ -32,7 +32,7 @@
 .glock-inspector-top,.glock-inspector footer,.glock-schema > div:first-child > span,.glock-page-footer {
   font: 800 11px/1.45 Arial,sans-serif; letter-spacing: .09em;
 }
-.glock-kicker { color: #9b4b38; }
+.glock-kicker { color: var(--ph2d-topic-rust); }
 .glock-hero h1 { font-size: clamp(38px,5vw,83px); letter-spacing: -.045em; line-height: 1.01; margin: 12px 0; }
 .glock-hero h1 em { font-weight: 400; display: block; color: #9b4b38; }
 .glock-subtitle { font-size: clamp(19px,2.5vw,28px); margin: 0 0 12px; }
@@ -68,7 +68,7 @@
 .glock-study-heading h2 { margin: 6px 0 0; font-size: clamp(26px,3vw,40px); }
 .glock-study-actions { display: flex; flex-wrap: wrap; gap: 8px; }
 .glock-study-actions button,.glock-inspector-top button {
-  background: #f7f0e4; border: 1px solid #6b6153; color: #211d18;
+  background: var(--ph2d-paper); border: 1px solid #6b6153; color: #211d18;
   padding: 10px 12px; font: 800 11px Arial,sans-serif; min-height: 44px;
 }
 .glock-stage {
@@ -76,25 +76,26 @@
   border: 2px solid #211d18; min-height: 730px; background: #f7f0e4;
 }
 .glock-canvas { min-height: 730px; min-width: 0; overflow: hidden; }
-.glock-canvas .react-flow { background-color: #f1e8d9; }
-.glock-canvas .react-flow__minimap { border: 1px solid #8f8574; }
+.glock-canvas .react-flow { background-color: var(--ph2d-paper2); }
+.glock-canvas .react-flow__minimap { border: 1px solid var(--ph2d-line); width: 126px; height: 86px; opacity: .88; }
 .glock-canvas .react-flow__attribution { font-size: 8px; }
 .glock-node {
-  width: 340px; min-height: 175px; padding: 15px 19px; border: 2px solid #211d18;
-  border-top: 8px solid var(--node-accent); background: #faf6ee; color: #211d18;
-  box-shadow: 7px 9px 0 #211d1820; transition: opacity .2s,border-color .2s,box-shadow .2s;
+  width: 340px; height: 240px; min-height: 240px; padding: 15px 19px; border: 2px solid var(--ph2d-ink);
+  border-top: 8px solid var(--node-accent); background: var(--ph2d-node); color: var(--ph2d-ink);
+  box-shadow: 7px 9px 0 #211d1820; transition: opacity .2s,border-color .2s,box-shadow .2s; overflow: hidden;
 }
 .glock-node.is-selected { outline: 4px solid #c99532; outline-offset: 2px; }
-.glock-node.is-muted { filter: grayscale(.55); }
+.glock-node.is-muted { filter: grayscale(.35); }
+.glock-node.is-selected { opacity: 1 !important; filter: none !important; }
 .glock-node .react-flow__handle { width: 9px; height: 9px; border: 2px solid #f7f0e4; background: #211d18; }
 .glock-node-top,.glock-node-bottom { display: flex; align-items: center; justify-content: space-between; gap: 8px; font: 800 10px Arial,sans-serif; }
 .glock-node-top { color: #65594c; letter-spacing: .06em; }
 .glock-node-top strong { border: 1px solid #877c6a; padding: 3px 5px; }
 .glock-node h3 { font: 700 22px/1.13 Georgia,serif; margin: 12px 0 8px; letter-spacing: -.015em; }
-.glock-node p { margin: 0 0 13px; font: 13px/1.4 Arial,sans-serif; }
+.glock-node p { margin: 0 0 13px; font: 13px/1.45 Arial,sans-serif; display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden; }
 .glock-node-bottom { padding-top: 10px; border-top: 1px solid #c6b9a5; color: #695e50; }
 .glock-inspector {
-  min-width: 0; background: #ede3d2; border-left: 2px solid #211d18;
+  min-width: 0; background: var(--ph2d-paper2); border-left: 2px solid #211d18;
   max-height: 730px; overflow: auto; overscroll-behavior: contain;
 }
 .glock-inspector-top { display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 16px; background: #211d18; color: #f7f0e4; }
@@ -160,9 +161,29 @@
   .glock-canvas { min-height: 56vh; height: 56vh; }
   .glock-inspector { border-left: 0; border-top: 2px solid #211d18; max-height: none; }
   .glock-schema { grid-template-columns: 1fr; }
+  .glock-schema .animated-concept-schema.is-reading-vertical { max-width: 100%; }
   .glock-page-footer { flex-direction: column; }
   .glock-stage:fullscreen { display: flex; flex-direction: column; }
   .glock-stage:fullscreen .glock-canvas { height: 61vh; min-height: 61vh; }
   .glock-stage:fullscreen .glock-inspector { height: 39vh; max-height: 39vh; }
 }
 @media (prefers-reduced-motion: reduce) { .glock-node { transition: none; } }
+
+/* Glock · esquema jerárquico de lectura, independiente del mapa React Flow.
+   No comprimir en una fila ni limitar la altura por el viewport. */
+.glock-schema .animated-concept-schema.is-reading-vertical {
+  width: 100%; min-height: 680px; overflow: visible;
+  align-items: stretch; justify-content: flex-start;
+}
+.glock-schema .animated-concept-schema.is-reading-vertical .animated-concept-schema__svg {
+  min-height: 680px; height: 680px; max-height: none;
+}
+.glock-schema .animated-concept-schema__legend { position: static; order: 2; margin-top: 20px; }
+.glock-node-bottom { margin-top: auto; }
+@media (max-width: 760px) {
+  .glock-schema .animated-concept-schema.is-reading-vertical { overflow-x:auto; }
+  .glock-schema .animated-concept-schema.is-reading-vertical .animated-concept-schema__svg {
+    width: 720px; min-width: 720px; height: 680px; min-height: 680px;
+  }
+  .glock-canvas .react-flow__minimap { width: 92px; height: 65px; }
+}
