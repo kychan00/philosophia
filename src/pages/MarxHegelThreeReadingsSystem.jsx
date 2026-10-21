@@ -45,8 +45,6 @@ function ReadingCard({ data }) {
 function FlowBody({ entries, selectedId, onSelect, route, guided }) {
   const { setCenter, viewportInitialized } = useReactFlow()
   const selectedIndex = entries.findIndex(node => node.id === selectedId)
-  const selectedRef = useRef(selectedId)
-  selectedRef.current = selectedId
 
   const nodes = useMemo(() => entries.map((item, i) => ({
     id: item.id, type: 'reading', draggable: false, selectable: true,
