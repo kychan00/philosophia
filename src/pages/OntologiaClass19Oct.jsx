@@ -164,7 +164,7 @@ const chapters = [
     paragraphs: [
       'El cierre anunció un volumen atribuido a Erich Fromm que incluye los manuscritos de Marx, así como el envío posterior de material. La identificación bibliográfica externa más consistente es Marx y su concepto del hombre, de Erich Fromm, edición del Fondo de Cultura Económica: un libro de interpretación que incorpora los Manuscritos económico-filosóficos de Karl Marx.',
       'La indicación oral no permite reconstruir de manera segura el capítulo final, el rango de páginas ni una fecha de entrega. El pendiente se registra como lectura anunciada, con alcance y plazo por confirmar. No se confunden la autoría de Fromm y la de Marx ni se duplica el material que ya conserva el vault.',
-      'Para prepararse se recomienda repasar la negación determinada y localizar las dos secciones de los Manuscritos: El trabajo enajenado y Crítica de la dialéctica hegeliana y de la filosofía de Hegel en general.,
+      'Para prepararse se recomienda repasar la negación determinada y localizar las dos secciones de los Manuscritos: El trabajo enajenado y Crítica de la dialéctica hegeliana y de la filosofía de Hegel en general.',
       'Actualización posterior a la clase: el correo del profesor del 19 de octubre precisó la lectura de Marx sobre la crítica de Hegel dentro del volumen de Fromm (PDF pp. 97–112), el capítulo XIX de Ernst Bloch (PDF pp. 380–387) y las once tesis sobre Feuerbach de Marx en La ideología alemana (PDF pp. 500–503). No se indicó fecha de entrega. El dossier Marx–Hegel enlazado desde esta página ahora reúne las tres fuentes en un atlas 2D.'
     ]
   },
