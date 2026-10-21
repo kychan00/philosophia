@@ -169,6 +169,26 @@ export default function MarxHegelAssignedAtlas() {
           <h3>{selected.title}</h3>
           <p className="marx-assigned__thesis">{selected.text}</p>
           <p>{selected.detail}</p>
+          <div className="marx-assigned__schema" aria-label="Esquema de relaciones del folio">
+            <h4>Esquema del folio</h4>
+            <p>Secuencia documental del recorrido activo; las flechas no presuponen causalidad entre fuentes.</p>
+            {entries[index - 1] && (
+              <>
+                <div className="marx-assigned__schema-node is-context">{entries[index - 1].title}</div>
+                <span className="marx-assigned__schema-edge">↓ {marxHegelReadingLinks.find(link => link.to === selected.id)?.label || 'se estudia antes'}</span>
+              </>
+            )}
+            <div className="marx-assigned__schema-node is-focus">
+              <strong>{selected.title}</strong>
+              <small>{selected.pages}</small>
+            </div>
+            {entries[index + 1] && (
+              <>
+                <span className="marx-assigned__schema-edge">↓ {marxHegelReadingLinks.find(link => link.from === selected.id)?.label || 'continúa'}</span>
+                <div className="marx-assigned__schema-node is-context">{entries[index + 1].title}</div>
+              </>
+            )}
+          </div>
           <div className="marx-assigned__citation">
             <span>LOCALIZACIÓN VERIFICADA</span>
             <strong>{selected.pages}</strong>
