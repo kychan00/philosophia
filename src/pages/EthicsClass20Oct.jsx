@@ -4,6 +4,8 @@ import './EthicsClass10Sep.css'
 import './EthicsClass15Oct.css'
 import './EthicsClass20Oct.css'
 
+const eth20Facsimile = (name) => import.meta.env.BASE_URL + 'images/etica/2026-10-20/' + name
+
 const index = [
   ['problema', 'Paradojas del sentido'],
   ['sistema', 'Física, logos y ética'],
@@ -11,6 +13,7 @@ const index = [
   ['afectos', 'Cuerpo, afectos y mérito'],
   ['retorno', 'Eterno retorno'],
   ['analogias', 'Kafka, Hegel y fotografía'],
+  ['apuntes', 'Dibujos originales'],
   ['esquemas', 'Esquemas de estudio'],
   ['biblioteca', 'Biblioteca y continuidad'],
 ]
@@ -158,6 +161,18 @@ export default function EthicsClass20Oct() {
             <div className="eth20-cycle-center"><b>↻</b><span>Retorno cósmico</span></div>
             <div><span>Ciclo II</span><strong>Mundo 2</strong><small>Reaparición del orden</small></div>
           </div>
+
+          <figure className="eth20-manuscript-primary">
+            <div className="eth20-manuscript-topline">
+              <span>Apunte personal · Folio III / III</span>
+              <a href={eth20Facsimile('hoja-03-eterno-retorno.svg')} target="_blank" rel="noopener noreferrer">Abrir dibujo a tamaño completo ↗</a>
+            </div>
+            <a className="eth20-manuscript-viewport" href={eth20Facsimile('hoja-03-eterno-retorno.svg')} target="_blank" rel="noopener noreferrer" aria-label="Ampliar el dibujo manuscrito de los dos mundos y el eterno retorno">
+              <img src={eth20Facsimile('hoja-03-eterno-retorno.svg')} loading="lazy" decoding="async" width="1200" height="535"
+                alt="Dibujo manuscrito original de la tercera hoja: una flecha de creación conduce al mundo uno; aparecen hechos necesarios, dolor humano, Estado y ley, decadencia y corrupción; el eterno retorno une este ciclo con un mundo dos equivalente." />
+            </a>
+            <figcaption><strong>La tercera hoja, sin reinterpretaciones gráficas.</strong> Sus dos ciclos, flechas, rótulos manuscritos y anotaciones de color reproducen el dibujo del PDF. La identificación «mundo 1 = mundo 2» expresa el modelo presentado en la clase; su precisión histórica se discute en el texto de la sesión.</figcaption>
+          </figure>
           <p className="eth10-prose">El profesor introdujo también la imagen de <strong>átomos que caen en el vacío</strong>. Debe preservarse como parte del esquema enseñado, pero contrastarse históricamente: esa física recuerda ante todo el atomismo de Demócrito y Epicuro. La física estoica trabaja con principios activo y pasivo, mezcla, <em>pneuma</em> y una noción distinta del vacío.</p>
           <div className="eth20-caveat"><strong>Controversia antigua</strong><p>La conflagración y la recurrencia son asuntos relevantes para el estoicismo, aunque no todos los autores aceptaron exactamente las mismas tesis. Se debate si un ciclo reproduce literalmente a los mismos individuos. El retorno de Nietzsche es otro problema filosófico: la semejanza del nombre no autoriza una identidad doctrinal.</p></div>
         </section>
@@ -167,6 +182,39 @@ export default function EthicsClass20Oct() {
             <article><span>Franz Kafka · teatro</span><h3>Informe para una academia</h3><p>Se comentó una adaptación teatral del relato de un simio que aprende conductas humanas como estrategia de supervivencia tras su captura. Se discutieron transformación de la vida, imposición externa y dolor. Es una referencia contextual, no una lectura asignada.</p></article>
             <article><span>Hegel · ciencia · arte</span><h3>La descripción y el concepto</h3><p>La clase contrapuso describir datos y formar conceptos. Una fotografía cambia con el punto de vista del fotógrafo: representar un objeto no equivale simplemente a copiarlo. Son analogías docentes, no citas atribuidas a Hegel.</p></article>
           </div>
+        </section>
+
+        <section id="eth20-apuntes" className="eth20-facsimile-gallery">
+          <div className="eth15-diagram-header">
+            <span>Archivum personalis · documento fuente</span>
+            <h2>Sus dibujos originales, hoja por hoja</h2>
+            <p>Facsímiles vectoriales extraídos de los trazos del PDF. Se conserva la letra original y sus anotaciones; los diagramas interactivos aparecen aparte como interpretación pedagógica.</p>
+          </div>
+          <div className="eth20-facsimile-grid">
+            {[
+              {
+                file: 'hoja-01-paradojas-y-logos.svg',
+                title: 'I · Paradojas del sentido',
+                description: 'Relación entre metafísica, física, lógica y ética; contraste de hipótesis y paradoja; primer bosquejo del orden cósmico.',
+                alt: 'Primera hoja manuscrita sobre paradojas del sentido: flechas de metafísica a física y ética, hipótesis y fórmula lógica, y dibujo inicial del cosmos.'
+              },
+              {
+                file: 'hoja-02-logos-y-ciclos.svg',
+                title: 'II · Logos, vacío y ciclos',
+                description: 'Logos y escatología, caída de átomos y dos ciclos del mundo. Deben leerse como esquema docente y no como cita textual antigua.',
+                alt: 'Segunda hoja manuscrita: logos, átomo y vacío, flechas de caída, historia de la humanidad y diagrama cíclico que compara mundo uno y mundo dos.'
+              }
+            ].map((folio) => (
+              <figure className="eth20-facsimile-sheet" key={folio.file}>
+                <div className="eth20-manuscript-topline"><span>Apunte original</span><a href={eth20Facsimile(folio.file)} target="_blank" rel="noopener noreferrer">Ampliar ↗</a></div>
+                <a href={eth20Facsimile(folio.file)} target="_blank" rel="noopener noreferrer" aria-label={'Abrir original · ' + folio.title}>
+                  <img src={eth20Facsimile(folio.file)} loading="lazy" decoding="async" alt={folio.alt} />
+                </a>
+                <figcaption><h3>{folio.title}</h3><p>{folio.description}</p></figcaption>
+              </figure>
+            ))}
+          </div>
+          <p className="eth20-facsimile-credit">Autoría de los dibujos: apuntes del estudiante, 20 de octubre de 2026. Procedencia: PDF <em>estoicos.pdf</em>, folios 1–3. Conversión técnica a SVG sin añadir leyendas ni trazos interpretativos.</p>
         </section>
         <section id="eth20-esquemas" className="eth20-schemes">
           <div className="eth15-diagram-header"><span>Schema studii · lectura visual</span><h2>Cuatro esquemas de los apuntes</h2><p>Elija una relación. Los nodos crecen con el texto y se ordenan verticalmente para evitar solapamientos en teléfono y tableta.</p></div>

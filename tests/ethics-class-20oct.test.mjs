@@ -39,3 +39,20 @@ test('ética 20oct: biblioteca vincula autor citado, sin atribuir lectura a la o
   assert.match(timelines, /Ética - Estoicismo, paradojas del sentido y eterno retorno/)
   assert.match(page, /no se acredita lectura íntegra/)
 })
+
+test('ética 20oct: facsímiles originales y enlace destacado al retorno', () => {
+  assert.match(page, /eth20-manuscript-primary/)
+  assert.match(page, /hoja-03-eterno-retorno\.svg/)
+  assert.match(page, /hoja-01-paradojas-y-logos\.svg/)
+  assert.match(page, /hoja-02-logos-y-ciclos\.svg/)
+  assert.match(page, /import\.meta\.env\.BASE_URL/)
+  assert.match(page, /PDF.*estoicos\.pdf/)
+  assert.match(css, /eth20-facsimile-grid/)
+  assert.match(css, /max-width:780px/)
+  for (const file of ['hoja-01-paradojas-y-logos.svg','hoja-02-logos-y-ciclos.svg','hoja-03-eterno-retorno.svg']) {
+    const source = read('public/images/etica/2026-10-20/' + file)
+    assert.match(source, /^<svg xmlns="http:\/\/www\.w3\.org\/2000\/svg"/)
+    assert.match(source, /<path /)
+    assert.match(source, /<\/svg>$/)
+  }
+})
