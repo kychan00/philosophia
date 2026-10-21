@@ -1236,3 +1236,35 @@
   .hacker-source-coverage button { width: 100%; }
   .hacker-deep-reading-part { padding: 12px; }
 }
+
+/* Lectura clara en el inspector: no modifica dimensiones/posiciones de React Flow. */
+.hacker-inspector .hacker-plain-language {
+  padding: 17px 16px;
+  border-left: 4px solid var(--h-rust);
+  background: var(--h-paper-2);
+}
+.hacker-inspector .hacker-plain-language > span {
+  display: block;
+  margin-bottom: 11px;
+  font: 900 11px/1.35 Arial, sans-serif;
+  letter-spacing: .025em;
+  color: var(--h-rust);
+}
+.hacker-inspector .hacker-plain-language p {
+  margin: 0;
+  color: var(--h-ink);
+  font-size: 15px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.hacker-inspector .hacker-plain-language small {
+  display: block;
+  margin-top: 12px;
+  font: 500 10px/1.4 Arial, sans-serif;
+  color: var(--h-rust);
+  opacity: .8;
+}
+@media (max-width: 900px) {
+  .hacker-inspector .hacker-plain-language { padding: 15px 13px; }
+  .hacker-inspector .hacker-plain-language p { font-size: 14px; }
+}
