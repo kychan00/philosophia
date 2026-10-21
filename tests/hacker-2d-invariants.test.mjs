@@ -169,3 +169,5 @@ test('Primary-source inspector provides four distinct argumentative layers and a
   assert.match(css, /hacker-deep-reading/)
   assert.match(css, /hacker-source-coverage/)
 })
+
+// Ensayo completo: la segunda tanda está contenida en el conjunto de lectura.
