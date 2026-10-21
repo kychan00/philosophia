@@ -110,3 +110,24 @@ test('Thematic step labels state editorial ordering and report guidance is expli
   assert.match(page, /item.linkLabel \|\| 'Abrir clase documentada/)
   assert.doesNotMatch(page, /Cómo conduce esto a/)
 })
+
+test('Historical chapters and Viennese program are not represented as successive deductions', () => {
+  const relations = {
+    H34: ['H31'],
+    H38: ['H34'],
+    H41: ['H31'],
+    H42: ['H41', 'H40'],
+    H43: ['H41'],
+    H46: ['H43', 'H40'],
+    H47: ['H43'],
+    H48: ['H43', 'H36'],
+    H50: ['H43'],
+    H51: ['H43'],
+    H52: ['H43'],
+  }
+  for (const [id, deps] of Object.entries(relations)) {
+    assert.deepEqual(byId.get(id)?.data.dependsOn, deps, id)
+  }
+  assert.ok(!byId.get('H52').data.dependsOn.includes('H51'))
+  assert.ok(!byId.get('H50').data.dependsOn.includes('H49'))
+})
