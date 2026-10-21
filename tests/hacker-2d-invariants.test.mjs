@@ -186,3 +186,19 @@ test('Full primary-source route covers every essay node without inventing class 
   assert.equal(hackerRoutes.find((r) => r.id === 'source95to132')?.label, 'Ensayo cotejado · pp. 95–132')
   assert.equal(hackerNodes.filter((n) => n.data.classOnly && n.data.sourceCloseReading).length, 0)
 })
+
+test('Every verified facet and Vienna objection carries traceable source argumentation', () => {
+  for (const id of ['H28','H29','H30','H31','H34','H36','H38','H41','H42','H43','H45','H47','H49','H50','H52','H53']) {
+    assert.equal(byId.get(id)?.data.sourceCloseReading?.kind, 'Paráfrasis cotejada del texto de Hacker', id)
+  }
+  for (const root of ['H41','H52']) {
+    const total = root === 'H41' ? 6 : 8
+    for (let i = 1; i <= total; i++) {
+      const fiche = byId.get(root + '.' + i)?.data.sourceCloseReading
+      assert.ok(fiche?.page && fiche?.reading && fiche?.argument && fiche?.distinction && fiche?.report, root + '.' + i)
+    }
+  }
+  assert.match(byId.get('H28').data.sourceCloseReading.distinction, /invertida/)
+  assert.ok(byId.get('H27').data.sourceContinuation?.reading)
+  assert.equal(byId.get('H27').data.sourceCloseReading.boundary, null)
+})
