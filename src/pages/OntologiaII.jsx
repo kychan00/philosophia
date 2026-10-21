@@ -628,6 +628,22 @@ export default function OntologiaII() {
         </Link>
 
         <Link
+          to="/tareas/ontologia-ii/marx-hegel-bloch-feuerbach/sistema"
+          className="ontology-program-class-card"
+        >
+          <div className="ontology-program-date">
+            <strong>XIX</strong>
+            <span>X · 2026</span>
+          </div>
+          <div className="ontology-program-class-copy">
+            <span>Lecturas del profesor · sistema 2D independiente</span>
+            <h3>Marx, Bloch y Feuerbach · tres lecturas completas</h3>
+            <p>Crítica de Marx a Hegel, capítulo XIX de Bloch y las once tesis sobre Feuerbach; 74 folios documentales, guía completa e inspector con análisis de cada fuente.</p>
+          </div>
+          <div className="ontology-program-enter"><span>Abrir sistema 2D</span><b>↗</b></div>
+        </Link>
+
+        <Link
           to="/estudios/ontologia-ii/marx-critica-dialectica-hegeliana"
           className="ontology-program-class-card"
         >
