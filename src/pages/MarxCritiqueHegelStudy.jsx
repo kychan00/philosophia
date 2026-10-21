@@ -65,7 +65,7 @@ export default function MarxCritiqueHegelStudy() {
             <h1>Marx<em>crítica de la dialéctica hegeliana</em></h1>
             <p className="oa-subtitle">labor · objectivatio · alienatio · natura · realitas</p>
             <p className="oaf-lead">
-              Dossier programático construido desde la transcripción completa de
+              Dossier de estudio documentado a partir de la lectura íntegra de
               las pp. 182–208 de los <em>Manuscritos económico-filosóficos de 1844</em>.
               Este dossier nació como umbral textual. La lectura enviada por el
               profesor el 19 de octubre se integra más abajo como apartado distinto,
