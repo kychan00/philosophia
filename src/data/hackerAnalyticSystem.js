@@ -1,6 +1,7 @@
 export const hackerRoutes = [
   { id: 'all', label: 'Todo' },
   { id: 'source95to114', label: 'Texto cotejado · pp. 95–114' },
+  { id: 'source95to132', label: 'Ensayo cotejado · pp. 95–132' },
   { id: 'class14', label: 'Clase 14 Sep' },
   { id: 'class21', label: 'Clase 21 Sep' },
   { id: 'class23', label: 'Clase 23 Sep' },
@@ -19,6 +20,7 @@ export const hackerRoutes = [
 
 export const hackerRouteColors = {
   source95to114: '#3b6f7a',
+  source95to132: '#356c55',
   class14: '#9b4b38',
   class21: '#466f68',
   class23: '#49687d',
@@ -2418,6 +2420,375 @@ Object.entries(hackerSource95to114).forEach(([id, note]) => {
     boundary: id === 'H27' ? 'La página 114 termina con el argumento en curso. Continuación pendiente de cotejo.' : null,
   }
   if (!node.data.branch.includes('source95to114')) node.data.branch.push('source95to114')
+})
+
+// Segundo cotejo directo de las páginas 115–132; preserva IDs y guía del ensayo.
+// La primera tanda H00–H27 continúa siendo rastreable en hackerSource95to114.
+export const hackerSource115to132 = {
+  "H28": {
+    "page": "p. 115",
+    "focus": "Economía ontológica: descripciones, navaja de Ockham y construcciones lógicas",
+    "reading": "La teoría de las descripciones ayuda a Russell a evitar el compromiso con entidades cuya existencia sólo parecía exigida por frases gramaticales. Hacker enlaza esa reducción con la navaja de Ockham y con las construcciones lógicas formadas a partir de elementos de conocimiento directo.",
+    "argument": "La desaparición lógica de una descripción en la paráfrasis permite explicar la significatividad sin postular un referente para cada expresión. La reducción ontológica procede al mostrar la construcción, no al negar que comprendamos la oración original.",
+    "distinction": "Construcción lógica frente a entidad inferida. Atención filológica: la máxima atribuida a Russell aparece invertida en esta traducción (p. 115), mientras que el desarrollo circundante apunta a sustituir entidades inferidas por construcciones lógicas.",
+    "report": "Explicar el avance epistemológico y ontológico de Russell, mencionando expresamente la anomalía de traducción en lugar de copiar la máxima sin examen."
+  },
+  "H29": {
+    "page": "p. 116",
+    "focus": "Teoría de tipos: condiciones de significado y prevención de paradojas",
+    "reading": "Tras la paradoja de clases descubierta en 1901, Russell introduce restricciones de tipos. Un individuo puede ser miembro de una clase, pero una clase de individuos no puede pertenecer a sí misma como si fuera individuo; la mera apariencia gramatical no garantiza sentido lógico.",
+    "argument": "El tipo de una función proposicional delimita qué clases de argumentos admite. Al excluir aplicaciones que mezclan niveles, se impiden formulaciones generadoras de paradojas. Hacker contrasta esta restricción con un error factual ordinario.",
+    "distinction": "Ser falso no es carecer de sentido. La atribución de pertenencia a la clase de los leones respecto de sí misma ejemplifica una incompatibilidad de tipos, no una falsedad empírica.",
+    "report": "Relacionar la paradoja de Russell con la distinción semántico-lógica entre lo verdadero, lo falso y lo no significativo; mencionar que después los tipos adquirirían una lectura más sintáctica."
+  },
+  "H30": {
+    "page": "pp. 116–117",
+    "focus": "Balance: dos orígenes que el giro posterior transforma",
+    "reading": "Moore y Russell inauguran dos estilos analíticos diferentes y defienden con firmeza sus posiciones iniciales. Hacker indica que esos fundamentos resultaron reajustables al análisis lógico-lingüístico tras el giro lingüístico.",
+    "argument": "El paso a la nueva sección no representa una deducción automática desde las tesis de los fundadores. Describe una continuidad histórica con cambio del objeto y método de investigación.",
+    "distinction": "Inauguración del movimiento por Moore y Russell frente a la revolución lingüística posterior asociada al Tractatus.",
+    "report": "Concluir la primera etapa contrastando raíz conceptual y raíz lógico-reductiva; formular el giro como transformación posterior, no condición del origen."
+  },
+  "H31": {
+    "page": "pp. 117–119",
+    "focus": "Inicio discutido del giro lingüístico",
+    "reading": "Hacker recuerda el uso del término por Richard Rorty y reconoce disputas sobre su alcance histórico. Sostiene que el giro comenzó, pero no culminó, en el Tractatus y que no es rasgo definitorio de toda filosofía analítica.",
+    "argument": "Su afirmación separa la revolución mooreano-russelliana anterior del cambio de orientación introducido por Wittgenstein. La relevancia del Tractatus no presupone que sus tesis sean totalmente verdaderas.",
+    "distinction": "El valor del rótulo histórico no es una esencia metodológica universal; inicio del giro no equivale a culminación del mismo.",
+    "report": "Convertir esta distinción en tesis del apartado central del reporte, atribuyéndola expresamente a Hacker."
+  },
+  "H32": {
+    "page": "pp. 117–118",
+    "focus": "Frege, Kenny y el principio contextual como antecedente insuficiente",
+    "reading": "Anthony Kenny y Michael Dummett sitúan el giro en los estudios fregeanos del número, especialmente al analizar oraciones que contienen expresiones numéricas. Hacker concede importancia a tal método, pero niega que baste para fechar el giro.",
+    "argument": "Si basta estudiar la naturaleza de X a través de oraciones que contienen X, Bentham habría realizado ya algo semejante. El criterio no discrimina suficientemente la transformación histórica que Hacker quiere explicar.",
+    "distinction": "Principio contextual —explicar por medio de la oración— frente al programa tractariano de los límites de todo sentido posible.",
+    "report": "Exponer primero la posición de Kenny/Dummett y luego la objeción de Hacker; no atribuir al autor la tesis que está refutando."
+  },
+  "H33": {
+    "page": "pp. 118–119",
+    "focus": "Bentham y los nombres ficticios como precedente de paráfrasis",
+    "reading": "Hacker destaca que Bentham concebía la oración completa como unidad decisiva de comunicación y proponía explicar obligaciones y derechos mediante paráfrasis de frases, sin postular entidades ficticias correspondientes.",
+    "argument": "El caso demuestra que hay precedentes lingüístico-contextuales y técnicas de eliminación de nombres aparentes antes de Frege y Wittgenstein. Pero un precursor no equivale a fundador del movimiento analítico moderno.",
+    "distinction": "Parte de oración y proposición completa; nombre aparentemente referencial y función de la expresión en un enunciado.",
+    "report": "Incluir a Bentham como contraejemplo frente a una fecha demasiado amplia para el giro, no como inventor de toda la filosofía analítica."
+  },
+  "H34": {
+    "page": "pp. 119–120",
+    "focus": "Representación: proposiciones que figuran estados de cosas",
+    "reading": "Según la exposición del Tractatus, el lenguaje hace perceptibles pensamientos; nombres simples representan objetos y las proposiciones elementales son combinaciones de nombres conforme a una sintaxis lógica. Las proposiciones describen situaciones posibles.",
+    "argument": "La posibilidad de que una proposición tenga sentido depende de una estructura representacional: la forma lógico-sintáctica de la expresión se corresponde con la estructura de los estados de cosas.",
+    "distinction": "Nombre y proposición; objeto y estado de cosas; concatenación de signos y figuración significativa.",
+    "report": "Desarrollar el modelo pictórico como supuesto del giro, sin confundir la presentación que Hacker hace de Wittgenstein con una adhesión crítica suya."
+  },
+  "H35": {
+    "page": "p. 120",
+    "focus": "Pensamiento, proyección y significación",
+    "reading": "Las oraciones expresan pensamientos, pero el pensamiento posee una forma estructurada que representa aquello sobre lo que se piensa. Hacker describe la comprensión como interpretar signos o sonidos dotándolos del contenido significado por el hablante.",
+    "argument": "Una mera cadena de signos carece por sí sola del acto proyectivo mediante el cual se piensa un estado de cosas. La significación supone conexiones entre sujeto pensante, signos y mundo, en vez de reducirse a sonidos.",
+    "distinction": "Lenguaje del pensamiento frente a medio lingüístico perceptible; signo material frente a proposición significada.",
+    "report": "Mostrar que el giro tractariano no reduce simplemente lo mental a las palabras audibles; conserva la función intencional del pensar."
+  },
+  "H36": {
+    "page": "pp. 120–121",
+    "focus": "Tautologías: explicación de la necesidad lógica",
+    "reading": "Hacker presenta como logro extraordinario del Tractatus la caracterización de las proposiciones lógicas como tautologías: combinaciones funcionales veritativas de proposiciones elementales que no describen hechos empíricos.",
+    "argument": "La verdad de las tautologías depende exclusivamente de su forma lógica. Aunque no informan sobre estados de cosas, revelan distintos esquemas de demostración y explican la necesidad lógica sin hechos lógicos adicionales.",
+    "distinction": "Proposición empírica con sentido informativo frente a tautología carente de contenido empírico; sin contenido factual no equivale a falsedad.",
+    "report": "Conectar este hallazgo con la posterior recepción vienesa y explicar cuidadosamente qué significa la falta de contenido factual."
+  },
+  "H37": {
+    "page": "p. 121",
+    "focus": "Axiomas y teoremas sin rango lógico privilegiado",
+    "reading": "Si todas las proposiciones lógicas son tautologías del mismo tipo fundamental, los axiomas elegidos en una axiomatización no gozan de una autoevidencia metafísica superior a los teoremas.",
+    "argument": "La crítica está dirigida a la concepción fregeano-russelliana de axiomas autoevidentes y teoremas derivados: la diferencia organizativa no funda distintos grados de necesidad lógica.",
+    "distinction": "Orden demostrativo del cálculo frente a estatus lógico; axioma elegido frente a verdad tautológica.",
+    "report": "Incluir como uno de los contrastes más claros entre el primer Wittgenstein y sus antecesores en filosofía de la lógica."
+  },
+  "H38": {
+    "page": "p. 122",
+    "focus": "La filosofía no es ciencia cognitiva: esclarecer sin añadir hechos",
+    "reading": "Según Hacker, el Tractatus no concibe la filosofía como ciencia ni como disciplina destinada a producir hipótesis, teorías o verdades generales sobre el universo, la mente o la esencia de las cosas. Su actividad consiste en aclaración lógica.",
+    "argument": "La filosofía delimita lo decible y deshace la ilusión de que ciertas pseudoproposiciones sean conocimiento. El entendimiento resultante no debe confundirse con un conjunto nuevo de tesis científicas.",
+    "distinction": "Conocimiento proposicional nuevo y entendimiento clarificador; filosofía y ciencia; actividad elucidatoria y doctrina.",
+    "report": "Esta es una tesis de Wittgenstein expuesta por Hacker: distinguirla de la concepción metafísica que Moore todavía sostenía."
+  },
+  "H39": {
+    "page": "pp. 122–123",
+    "focus": "La crítica del lenguaje elimina confusiones filosóficas",
+    "reading": "El Tractatus asigna a la filosofía la labor de resolver ambigüedades y disolver problemas nacidos de características engañosas del lenguaje ordinario; un simbolismo perspicuo exhibiría la estructura lógica.",
+    "argument": "El análisis no crea una ciencia rival. Expone cuándo el lenguaje permite pseudoproposiciones por usos ambiguos o por apariencia de estructura que no corresponde a la forma lógica.",
+    "distinction": "Esclarecer el simbolismo frente a investigar empíricamente propiedades de objetos; superficie gramatical frente a sintaxis lógica.",
+    "report": "En el reporte, explicar el giro metodológico sin decir que Wittgenstein inventó el principio contextual."
+  },
+  "H40": {
+    "page": "pp. 122 y 128",
+    "focus": "Decir y mostrar: la metafísica no se elimina del mismo modo en Wittgenstein y Viena",
+    "reading": "Para el primer Wittgenstein, lo metafísico no puede exponerse como un conjunto de proposiciones con sentido, pero el propio límite de la representación deja lugar a aquello que se muestra. Hacker insiste en que esta pretensión fue desdeñada por el Círculo.",
+    "argument": "La comparación entre el Tractatus y el positivismo lógico depende de ese contraste: restringir lo decible no significa identificar todo lo inexpresable con una superstición definitivamente abolida.",
+    "distinction": "Sinsentido proposicional y mostración inefable; crítica de la expresión metafísica frente a programa vienés de demolición de la metafísica.",
+    "report": "Destacar por qué atribuir al Tractatus la misma postura antimetafísica del Círculo es un error de lectura."
+  },
+  "H41": {
+    "page": "pp. 123–125",
+    "focus": "Seis aspectos sistemáticos del giro tractariano",
+    "reading": "Hacker enumera seis transformaciones: límites del pensamiento por los del lenguaje, análisis lógico-lingüístico de oraciones, crítica de pseudoproposiciones metafísicas, examen de la esencia del signo proposicional, análisis del fenómeno por sus descripciones y elucidación simbólica de la verdad lógica.",
+    "argument": "No se trata de seis pasos de una prueba deductiva sino de seis dimensiones complementarias de la nueva orientación filosófica.",
+    "distinction": "Enumera sin encadenar artificialmente: problema de los límites, método, crítica, signo, representación del fenómeno y necesidad lógica.",
+    "report": "Utilizar la lista como eje organizador, desarrollando sus seis subnodos individualmente con p. 124 como localizador principal."
+  },
+  "H41.1": {
+    "page": "p. 124, i",
+    "focus": "Límites del lenguaje como vía para los del pensamiento",
+    "reading": "El primer aspecto del giro consiste en determinar los límites del pensamiento fijando la frontera entre lenguaje con sentido y sin sentido.",
+    "argument": "El cambio metodológico lleva la pregunta por lo pensable a la estructura y límites del simbolismo significativo.",
+    "distinction": "Límite del pensamiento frente a contenido de una idea particular; gramática usual frente a sentido lógico.",
+    "report": "Exponer la tesis como operación programática del Tractatus, no como método compartido por todos los analíticos."
+  },
+  "H41.2": {
+    "page": "p. 124, ii",
+    "focus": "Programa positivo: análisis lógico de oraciones significativas",
+    "reading": "El segundo aspecto prescribe que el trabajo filosófico consista en analizar lógicamente proposiciones u oraciones dotadas de sentido.",
+    "argument": "A diferencia de investigar objetos abstractos previamente dados, el análisis de proposiciones pasa a ser el método declarado de clarificación.",
+    "distinction": "Oración con sentido frente a pseudoproposición; análisis lógico-lingüístico frente a inspección mooreana de conceptos objetivos.",
+    "report": "Relacionar esta tarea con la crítica a la definición lingüística universal de Dummett: es una etapa posterior."
+  },
+  "H41.3": {
+    "page": "p. 124, iii",
+    "focus": "Programa negativo: mostrar la ilegitimidad de pretensiones metafísicas",
+    "reading": "El tercer aspecto busca exhibir cómo las pseudoproposiciones metafísicas rebasan los límites de lo expresable.",
+    "argument": "La crítica no refuta empíricamente esas tesis sino que examina si cumplen las condiciones de proposición significativa.",
+    "distinction": "Falsedad empírica frente a carencia de sentido por transgresión de los límites lógicos.",
+    "report": "Evitar traducir esa crítica a una negación científica de la metafísica."
+  },
+  "H41.4": {
+    "page": "p. 124, iv",
+    "focus": "La forma proposicional general y el signo",
+    "reading": "El cuarto aspecto sitúa la esencia del signo proposicional en el centro de la investigación; Hacker remite a la idea de describir cualquier proposición de cualquier lenguaje sígnico.",
+    "argument": "La aclaración de la forma general aspira a delimitar qué puede ser un signo capaz de sentido.",
+    "distinction": "Gramática empírica de un idioma frente a condiciones generales de toda proposición.",
+    "report": "Usar este nodo para justificar el carácter radical del giro, mucho más amplio que una regla contextual aislada."
+  },
+  "H41.5": {
+    "page": "p. 124, v",
+    "focus": "Fenómeno investigado por análisis de descripciones",
+    "reading": "El quinto aspecto afirma que investigar las formas lógicas del fenómeno requiere analizar las expresiones que lo describen; la sintaxis lógica sería isomorfa con la estructura del mundo.",
+    "argument": "La investigación de la realidad pasa metodológicamente por los recursos representacionales del lenguaje, sin reducir el fenómeno a una palabra.",
+    "distinction": "Descripción del fenómeno frente al fenómeno como objeto; correspondencia lógico-estructural y semejanza verbal superficial.",
+    "report": "Explicar el programa de isomorfía como tesis del Tractatus que Hacker después considera sustentada por una metafísica errónea."
+  },
+  "H41.6": {
+    "page": "pp. 124–125, vi",
+    "focus": "La verdad lógica elucidada por el simbolismo",
+    "reading": "El sexto aspecto considera la elucidación de la naturaleza de la verdad lógica el logro mayor del Tractatus: desde los símbolos mismos se reconocería la verdad de las proposiciones lógicas.",
+    "argument": "El programa pretende explicar la necesidad sin recurrir a axiomas privilegiados ni a objetos lógicos especiales.",
+    "distinction": "Verdad lógica tautológica frente a generalización empírica.",
+    "report": "Cerrar la lista conectando este punto con las diferencias respecto de Frege/Russell y la posterior apropiación vienesa."
+  },
+  "H42": {
+    "page": "p. 125",
+    "focus": "Evaluación de Hacker: metafísica errónea y giro históricamente fecundo",
+    "reading": "Hacker sostiene que la metafísica del símbolo del Tractatus era errónea, mencionando sus tesis sobre nombres simples, relaciones y hechos como condiciones rígidas de representación.",
+    "argument": "La importancia histórica del giro y la corrección filosófica de sus fundamentos son asuntos diferentes: el Tractatus introdujo una orientación lingüística decisiva aunque su teoría general del símbolo resultara insostenible.",
+    "distinction": "Influencia histórica no demuestra verdad de una doctrina; diagnóstico de Hacker frente a proposiciones del Tractatus.",
+    "report": "Construir una valoración equilibrada en el reporte, reconociendo el impacto sin atribuirle a Hacker adhesión doctrinal."
+  },
+  "H43": {
+    "page": "pp. 125–126",
+    "focus": "Dos recepciones inmediatas del Tractatus",
+    "reading": "Hacker distingue la influencia en el atomismo lógico de Russell y el análisis de Cambridge de entreguerras, y la influencia decisiva sobre el Círculo de Viena. El Tractatus actúa como fuente compartida para desarrollos diferentes.",
+    "argument": "El análisis de Cambridge se interesa por dilucidar conocimiento existente; los vieneses extraen cinco programas propios, a menudo mediante lecturas selectivas.",
+    "distinction": "Influencia doctrinal compartida frente a identidad metodológica o filosófica entre escuelas.",
+    "report": "Abrir el último apartado mostrando dos ramas sin inventar una derivación lógica Cambridge → Viena."
+  },
+  "H44": {
+    "page": "p. 126",
+    "focus": "Cambridge: aclaración del conocimiento ya poseído",
+    "reading": "Ramsey, Wisdom, Stebbing y otros desarrollan prácticas de análisis influidas por el Tractatus. Para esa corriente la filosofía debe aclarar conocimiento mediante análisis lógico, no aportar descubrimientos científicos.",
+    "argument": "El trabajo apunta a la forma lógica de los hechos y a reconstrucciones reductivas en términos de elementos primitivos de experiencia; acepta que las proposiciones lógicas sean tautologías.",
+    "distinction": "Elucidación del conocimiento frente a aumento de datos; tradición de Cambridge frente a los programas de Viena.",
+    "report": "Mencionar autores de la recepción como contexto del texto y evitar adjudicar a todos una doctrina idéntica."
+  },
+  "H45": {
+    "page": "pp. 126–127",
+    "focus": "Viena I: filosofía como análisis lógico y diferencias sobre sintaxis",
+    "reading": "El primer punto positivista acepta la filosofía no cognitiva y la convierte en análisis lógico del lenguaje científico. Carnap entiende que lenguajes y sintaxis pueden construirse convencionalmente.",
+    "argument": "La cercanía histórica al Tractatus es acompañada por una diferencia esencial: para el primer Wittgenstein la lógica del lenguaje no queda a voluntad de quien construye una notación.",
+    "distinction": "Análisis lógico del lenguaje científico frente a forma lógica esencial de todo lenguaje posible.",
+    "report": "Explicar cómo una herencia real puede contener una reinterpretación discrepante respecto del precursor."
+  },
+  "H46": {
+    "page": "pp. 127–128",
+    "focus": "Viena II: abolición de la metafísica y límite de la semejanza",
+    "reading": "El Círculo sostiene que los enunciados metafísicos carecen de contenido cognitivo y deben quedar fuera de la filosofía. Hacker contrasta esto con lo inefable que, para el Wittgenstein temprano, se muestra aunque no pueda formularse.",
+    "argument": "La coincidencia en hablar de pseudoproposiciones oculta una diferencia de propósito. La recepción positivista deja de lado la dimensión de mostración que Wittgenstein consideraba relevante.",
+    "distinction": "Antimetafísica vienesa frente a delimitación tractariana de lo decible; tener una frase sin sentido no equivale a probar que nada pueda mostrarse.",
+    "report": "Evitar atribuir la tesis de eliminación global de lo metafísico al propio Wittgenstein sin distinguir su postura."
+  },
+  "H47": {
+    "page": "p. 128",
+    "focus": "Viena III: verificación y significado cognitivo",
+    "reading": "El principio de verificación se convierte en criterio positivista: el significado de una proposición está ligado al método de verificarla. La discusión tiene antecedentes en contactos con Wittgenstein de 1929–1930 y en relecturas del Tractatus.",
+    "argument": "Hacker diferencia ese criterio de la estrategia del Tractatus, centrada en la imposibilidad de representar verdades atómicas necesarias y en los límites formales del sentido.",
+    "distinction": "Método de verificación empírica frente a condiciones lógicas de representación y significación.",
+    "report": "Describir verificabilidad como tesis de Viena, no como conclusión literal de la teoría de la representación del Tractatus."
+  },
+  "H48": {
+    "page": "pp. 128–129",
+    "focus": "Viena IV: empirismo consistente y verdades necesarias",
+    "reading": "El Círculo busca explicar la necesidad de lógica y matemáticas dentro de un empirismo consistente. La lectura vienesa del Tractatus afirma que las proposiciones lógicas son tautologías y que el razonamiento apriorístico opera por transformación simbólica.",
+    "argument": "En geometría distinguen cálculo puro y aplicación empírica; en aritmética conservan aspiraciones logicistas. Rechazan recurrir a objetos lógicos o axiomas autoevidentes para la necesidad.",
+    "distinction": "Necesidad lógico-matemática frente a contenido empírico; aplicación geométrica y formalismo simbólico.",
+    "report": "Mostrar que la inspiración tractariana de la tautología no resuelve automáticamente todas las dificultades del empirismo."
+  },
+  "H49": {
+    "page": "pp. 129–130",
+    "focus": "Convencionalismo de Viena contra la lógica trascendental del Tractatus",
+    "reading": "Los vieneses explican la verdad lógica mediante las convenciones de uso de constantes lógicas; Hacker insiste en que Wittgenstein sostenía lo contrario: las posibilidades lógicas proceden de la bipolaridad esencial de las proposiciones y de la forma del mundo.",
+    "argument": "El resultado es un desacuerdo filosófico profundo oculto por compartir vocabulario sobre tautologías y símbolos.",
+    "distinction": "Convención arbitraria del cálculo frente a estructura esencial de cualquier lenguaje posible.",
+    "report": "Tratarlo como discrepancia principal entre las escuelas, no como una opinión de Wittgenstein que se deriva de Carnap."
+  },
+  "H50": {
+    "page": "p. 130",
+    "focus": "Viena V: unidad de las ciencias como proyecto reductivo",
+    "reading": "El quinto tema vienés busca reducir los enunciados cognitivamente significativos de ciencias distintas a una matriz común de proposiciones básicas, contra la diversidad metodológica de ciencias naturales, sociales e históricas.",
+    "argument": "El Tractatus no desarrolla expresamente la unidad de la ciencia; su análisis funcional veritativo facilita la hipótesis reductiva de los positivistas, aunque el paso adicional es suyo.",
+    "distinction": "Base lógica que posibilita una tesis frente a defensa explícita de la unidad científica.",
+    "report": "Explicar el alcance monista y reduccionista de la aspiración vienesa sin atribuírsela sin más al Tractatus."
+  },
+  "H51": {
+    "page": "p. 130",
+    "focus": "Predominio histórico del positivismo lógico y su límite",
+    "reading": "Hacker atribuye gran predominio histórico al positivismo lógico, por su carácter vigoroso entre guerras y por la emigración de sus representantes a Estados Unidos, donde influirían en la filosofía de posguerra.",
+    "argument": "La importancia histórica de la corriente no implica que sus soluciones fueran sostenibles. Inmediatamente se enumeran problemas internos y externos.",
+    "distinction": "Influencia institucional y éxito social frente a solidez epistemológica.",
+    "report": "Situar el colapso después de reconocer el peso histórico del movimiento, sin reescribir la historia como fracaso total."
+  },
+  "H52": {
+    "page": "pp. 130–131",
+    "focus": "Ocho dificultades: diagnóstico plural del programa vienés",
+    "reading": "Hacker enumera ocho objeciones independientes: fracaso de base reductiva, dilema entre solipsismo y behaviorismo, extensionalidad, verificación, convencionalismo, supuestos de lógica clásica, unidad de las ciencias y estrechez de la concepción de filosofía.",
+    "argument": "La serie de críticas afecta diferentes supuestos y ambiciones; no debe ilustrarse con una cadena donde cada objeción se deduce de la anterior.",
+    "distinction": "Una enumeración de problemas convergentes no es una demostración secuencial de ocho premisas.",
+    "report": "Usar el nodo padre como mapa de diagnóstico y desarrollar cada objeción en su subnodo con el localizador preciso."
+  },
+  "H52.1": {
+    "page": "pp. 130–131, i",
+    "focus": "Fracaso de una base reductiva única",
+    "reading": "Ninguna explicación reductiva convincente abarcó amplios dominios del discurso, y la elección de base abrió una disputa entre fenomenismo y fisicalismo.",
+    "argument": "Sin base satisfactoria se debilita el intento de traducir o reconstruir toda la ciencia desde un conjunto mínimo de enunciados.",
+    "distinction": "Exigencia programática de reducir frente a éxito efectivo de una reducción.",
+    "report": "Evaluar como dificultad interna del programa; no confundir disputa de bases con refutación de toda teoría científica."
+  },
+  "H52.2": {
+    "page": "p. 131, ii",
+    "focus": "Solipsismo metodológico y behaviorismo radical",
+    "reading": "El reductivismo positivista comprometía al programa ortodoxo con dos alternativas que Hacker considera inaceptables: el solipsismo metodológico o el behaviorismo radical.",
+    "argument": "El intento de fijar una base estricta para discurso psicológico o experiencial conduce a opciones que empobrecen la caracterización de la mente.",
+    "distinction": "Experiencia privada como fundamento exclusivo frente a reducción conductual excesiva.",
+    "report": "Presentar ambos como los polos del problema generado por la estrategia reductiva, no como tesis defendidas por Hacker."
+  },
+  "H52.3": {
+    "page": "p. 131, iii",
+    "focus": "Dificultad de defender la extensionalidad",
+    "reading": "Hacker señala que la tesis de la extensionalidad fue muy difícil de sostener de manera general.",
+    "argument": "El ideal de traducir los diversos contextos significativos a términos estrictamente extensionales encuentra resistencias; el texto en este punto enuncia la dificultad sin un tratado específico.",
+    "distinction": "Contexto extensional frente a contextos cuya sustitución preserva o altera sentido.",
+    "report": "No completar con una extensa teoría modal ajena al pasaje: limitarse al diagnóstico explícito y marcar cualquier ampliación como externa."
+  },
+  "H52.4": {
+    "page": "p. 131, iv",
+    "focus": "El criterio de verificabilidad no consigue formulación hermética",
+    "reading": "Ni el principio de verificación ni la verificabilidad como criterio de significatividad lograron una formulación que evitara problemas internos.",
+    "argument": "La herramienta con la que se pretendía distinguir entre proposiciones significativas y pseudoproposiciones no alcanzó precisión estable.",
+    "distinction": "Proyecto de demarcación empírica frente a criterio plenamente formulado y defendible.",
+    "report": "Vincular la objeción con Viena III sin presentar una refutación técnica no desarrollada por Hacker aquí."
+  },
+  "H52.5": {
+    "page": "p. 131, v",
+    "focus": "Insuficiencia del convencionalismo para la necesidad",
+    "reading": "Respecto de las verdades necesarias, el convencionalismo positivista demostró ser inadecuado, según el diagnóstico de Hacker.",
+    "argument": "La convención que fija signos no basta para resolver sin dificultades la naturaleza de la necesidad lógica.",
+    "distinction": "Elección de notación frente a estructura de la necesidad; explicación convencional frente a explicación trascendental del Tractatus.",
+    "report": "Vincular con H49 y la crítica previa a la interpretación vienesa de la lógica."
+  },
+  "H52.6": {
+    "page": "p. 131, vi",
+    "focus": "La lógica clásica y el lenguaje ordinario no son intercambiables",
+    "reading": "Hacker cuestiona que los operadores del cálculo representen perfectamente sus correlatos ordinarios y que los patrones inferenciales autorizados por la lógica clásica agoten las inferencias válidas del lenguaje natural.",
+    "argument": "Una exclusión conceptual ordinaria puede justificar una inferencia no capturada de inmediato por la sola forma conectiva estándar; la pretensión de neutralidad metodológica resulta discutible.",
+    "distinction": "Sistema formal elegido frente a articulación efectiva de inferencias en el lenguaje ordinario.",
+    "report": "Distinguir la tesis del autor de ejemplos inventados para enseñarla; evitar presentar un ejemplo de aula como cita de p. 131."
+  },
+  "H52.7": {
+    "page": "p. 131, vii",
+    "focus": "Críticas a unidad científica y monismo metodológico",
+    "reading": "La idea de una ciencia única y un lenguaje científico único recibe ataques desde múltiples direcciones, especialmente desde hermenéutica y desarrollos del Wittgenstein posterior.",
+    "argument": "El pluralismo de prácticas y métodos impugna una reducción uniforme de todos los discursos científicos significativos.",
+    "distinction": "Unidad reduccionista de la ciencia frente a diversidad de ciencias y formas de investigación.",
+    "report": "Relacionar con Viena V, pero no atribuir al Tractatus la doctrina explícita de unidad de ciencias."
+  },
+  "H52.8": {
+    "page": "p. 131, viii",
+    "focus": "Estrechez de la filosofía como análisis de lenguaje científico",
+    "reading": "Caracterizar toda filosofía como análisis lógico del lenguaje de la ciencia excluye injustificadamente ética, derecho, política y estética. Hacker critica también la superficialidad de ciertas incursiones positivistas en ética.",
+    "argument": "La reacción al emotivismo y el resurgimiento posterior de filosofía jurídica y política exhiben la insuficiencia de un ideal filosófico tan estrecho.",
+    "distinction": "Lenguaje científico frente a amplitud legítima de problemas filosóficos y discursos normativos.",
+    "report": "Esta objeción permite desarrollar una conclusión crítica propia sin fingir que Hacker propone una doctrina política específica."
+  },
+  "H53": {
+    "page": "p. 132",
+    "focus": "Salida hacia análisis conectivo y terapéutico",
+    "reading": "Hacker concluye que el análisis como traducción estricta o reducción carnapiana no sirve para todos los propósitos de clarificación. La siguiente fase británica se caracteriza por el análisis conectivo y terapéutico, bajo nueva influencia de Wittgenstein y con Oxford como centro.",
+    "argument": "La salida no es abolición del análisis, sino revisión de su función: de reducir todo discurso a una base única a esclarecer conexiones, usos y confusiones. Los logros de Oxford se declaran materia de otro estudio.",
+    "distinction": "Continuidad histórica frente a identidad doctrinal; estudio sincrónico de una tradición frente a nueva historia no desarrollada aquí.",
+    "report": "Cerrar el reporte con una valoración: el ensayo explica la evolución del análisis, pero deliberadamente no reconstruye en detalle la escuela oxoniense."
+  }
+}
+
+Object.entries(hackerSource115to132).forEach(([id, note]) => {
+  const node = hackerNodes.find((candidate) => candidate.id === id)
+  if (!node || node.data.classOnly) throw new Error(`Nodo bibliográfico no localizable: ${id}`)
+  node.data.sourceCloseReading = { ...note, kind: 'Paráfrasis cotejada del texto de Hacker', boundary: null }
+  if (!node.data.branch.includes('source95to132')) node.data.branch.push('source95to132')
+})
+
+// Los tres nodos del corte p. 114 continúan en p. 115; no duplicarlos.
+export const hackerSource114to115Continuation = {
+  H25: {
+    page: 'pp. 114–115',
+    focus: 'Símbolos incompletos y análisis de la oración completa',
+    reading: 'El análisis sustituye la oración con expresión denotativa por una formulación donde el símbolo incompleto se elimina. Su sentido depende de la oración y no de una entidad asociada al sujeto gramatical.',
+    argument: 'Esa paráfrasis cambia la interpretación del análisis: no basta descomponer objetos supuestos, hay que hacer explícita la forma lógica que la gramática oculta.',
+    distinction: 'Función semántica contextual de una descripción frente a significado referencial independiente de un nombre.',
+    report: 'Explicar el tránsito desde la teoría referencial abundante a la paráfrasis que evita postulaciones ontológicas superfluas.',
+  },
+  H26: {
+    page: 'pp. 114–115',
+    focus: 'Forma del hecho y apariencia gramatical',
+    reading: 'Hacker precisa que Russell pasa a distinguir la forma gramatical de la oración de la forma lógica del hecho; la estructura de la realidad puede diferir completamente de su expresión ordinaria.',
+    argument: 'La distinción se vuelve una consecuencia central de la teoría de las descripciones y pone al simbolismo bajo examen crítico.',
+    distinction: 'Estructura lingüística superficial frente a forma lógica de los hechos.',
+    report: 'Mostrar por qué para Russell el análisis lógico transforma tanto la ontología como la teoría del significado.',
+  },
+  H27: {
+    page: 'pp. 114–115',
+    focus: 'El instrumento lógico descubre formas no visibles en la gramática',
+    reading: 'La lógica adquiere predominio filosófico porque permite penetrar la gramática engañosa y esclarecer la forma lógica de las cosas.',
+    argument: 'La técnica lógica habilita un análisis crítico que presiona a Russell hacia una paráfrasis intralingüística de oraciones, aunque él todavía entienda la investigación como metafísica de hechos o proposiciones.',
+    distinction: 'Lógica como instrumento ontológico frente al análisis como aclaración del simbolismo lingüístico.',
+    report: 'No afirmar que Russell defendió desde el principio una teoría puramente lingüística del análisis; el pasaje registra una transición.',
+  },
+}
+Object.entries(hackerSource114to115Continuation).forEach(([id, note]) => {
+  const node = hackerNodes.find((candidate) => candidate.id === id)
+  if (!node?.data.sourceCloseReading) throw new Error(`No consta el primer tramo ${id}`)
+  node.data.sourceContinuation = { ...note, kind: 'Continuación cotejada, páginas 114–115' }
+  node.data.sourceCloseReading.boundary = null
+})
+hackerNodes.filter((node) => !node.data.classOnly && node.data.sourceCloseReading).forEach((node) => {
+  if (!node.data.branch.includes('source95to132')) node.data.branch.push('source95to132')
 })
 
 // Las clases del 28 de septiembre y 7 de octubre se enlazan al texto existente.
