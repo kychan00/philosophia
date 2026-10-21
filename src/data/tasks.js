@@ -729,7 +729,7 @@ export const tasks = [
     readingEdition: 'PDF Fromm FCE, primera edición española 1962; Bloch FCE, segunda edición española 1983; Marx y Engels, Akal 2014. La obra de Fromm incluye el texto primario de Marx.',
     sourceClass: 'Correo del profesor José Alejandro Fuerte · 19 de octubre de 2026',
     sourceRoute: '/semestre/5/ontologia-ii/clase/19-octubre',
-    studyRoute: '/estudios/ontologia-ii/marx-critica-dialectica-hegeliana',
+    studyRoute: '/tareas/ontologia-ii/marx-hegel-bloch-feuerbach/sistema',
   },
 ]
 
