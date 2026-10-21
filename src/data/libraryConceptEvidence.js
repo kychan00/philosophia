@@ -2,6 +2,7 @@
 // una ficha real del vault; no indica por sí sola un argumento, influencia
 // ni lectura completa. Metadatos públicos sin rutas privadas.
 export const documentedConceptLinks = {
+  "Cicerón - Las paradojas de los estoicos": ["Estoicismo", "Dominio de sí", "Pasiones", "Eudaimonía", "Autonomía moral"],
   "Nava - Tecnociencia, entorno y sujeto tecnocientífico": [
     "Tecnociencia (Nava)",
     "Sujeto tecnocientífico (Nava)",

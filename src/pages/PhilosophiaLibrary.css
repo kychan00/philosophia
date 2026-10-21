@@ -131,3 +131,16 @@
 .library-cartography-launch>a:hover,.library-map-link:hover{background:#3867a4;text-decoration:underline;}
 .library-map-link{margin-top:12px;align-self:flex-start;color:#fff!important;}
 @media(max-width:600px){.library-cartography-launch>a{width:100%;}}
+
+/* ETHOS en la ficha bibliográfica de Cicerón: azul egeo, friso y lectura progresiva. */
+.library-ideas-details{margin:18px 0 4px;min-width:0;border:1px solid #87a5c2;border-top:4px solid #1a365d;background:#f6f9ff;overflow-wrap:anywhere;}
+.library-ideas-details summary{list-style:none;min-height:48px;cursor:pointer;padding:12px 15px;display:flex;align-items:center;justify-content:space-between;gap:8px;color:#1a365d;font:800 12px/1.4 Arial,sans-serif;}
+.library-ideas-details summary::-webkit-details-marker{display:none;}
+.library-ideas-details summary:focus-visible{outline:3px solid #1a365d;outline-offset:-3px;}
+.library-ideas-content{padding:12px 16px 16px;border-top:1px solid #cad8e5;background:linear-gradient(90deg,#1a365d 0 5px,transparent 5px) left top/18px 5px repeat-x,#f6f9ff;}
+.library-ideas-content>p{font:12px/1.5 Arial,sans-serif;color:#35506e;margin:10px 0 15px;}
+.library-ideas-content ol{list-style:none;display:grid;grid-template-columns:1fr;gap:9px;margin:0;padding:0;}
+.library-ideas-content li{display:grid;gap:6px;padding:12px;background:#fff;border-left:3px solid #b89758;min-width:0;}
+.library-ideas-content li strong{font:600 15px/1.3 Georgia,serif;color:#1a365d;}
+.library-ideas-content li span{font:13px/1.5 Arial,sans-serif;color:#273e52;}
+@media(max-width:470px){.library-ideas-content{padding:10px;}.library-ideas-content li{padding:10px;}}

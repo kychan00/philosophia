@@ -286,6 +286,15 @@ export default function PhilosophiaLibrary() {
               Consultar fuente ↗</a>}
             {book.studyUrl&&<Link to={book.studyUrl} className="library-study-link">
               Abrir estudio 2D ↗</Link>}
+            {book.ideas?.length>0&&<details className="library-ideas-details">
+              <summary>Seis ideas para estudiar <span aria-hidden="true">↗</span></summary>
+              <div className="library-ideas-content">
+                <p>Paráfrasis temáticas, no citas literales ni lectura acreditada del ejemplar.</p>
+                <ol>{book.ideas.map(idea=><li key={idea.lema}>
+                  <strong>{idea.lema}</strong><span>{idea.detalle}</span>
+                </li>)}</ol>
+              </div>
+            </details>}
             <ApaCitation book={book}/>
             <Link className="library-map-link" to={"/biblioteca/cartografia?obra="+encodeURIComponent(book.id)}>Explorar conexiones de esta obra ↗</Link>
             <button type="button" className="library-timeline-toggle"

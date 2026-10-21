@@ -21,6 +21,24 @@ export const books = [
     "lectura": "Pendiente"
   },
   {
+    "id": "Cicerón - Las paradojas de los estoicos",
+    "autor": "Cicerón",
+    "titulo": "Las paradojas de los estoicos",
+    "categoria": "ética",
+    "estado": "recomendada",
+    "lectura": "Pendiente; no consta lectura del ejemplar",
+    "edicion": "UNAM, 2000 · traducción de Julio Pimentel Álvarez (escaneo por cotejar)",
+    "url": "https://archive.org/details/ciceron-paradoxa-stoicorum-las-paradojas-de-los-estoicos-ed.-julio-pimentel-alvarez_202601/page/VIII/mode/2up",
+    "ideas": [
+      {"lema":"I · La virtud es el único bien","detalle":"La prosperidad, el placer o el prestigio no garantizan rectitud moral."},
+      {"lema":"II · La virtud basta para la felicidad","detalle":"La vida buena no se identifica sin más con la fortuna o el éxito."},
+      {"lema":"III · Faltas y acciones rectas son iguales","detalle":"Distingue la corrección moral del agente de los grados de daño o de castigo."},
+      {"lema":"IV · Los necios están locos","detalle":"Crítica al juicio ético extraviado; no es un diagnóstico médico."},
+      {"lema":"V · Solo el sabio es libre","detalle":"No hay libertad interior cuando los deseos dominan la deliberación."},
+      {"lema":"VI · Solo el sabio es rico","detalle":"La acumulación ilimitada no equivale a suficiencia ni a virtud."}
+    ]
+  },
+  {
     "id": "Foucault - Vigilar y castigar",
     "autor": "Foucault",
     "titulo": "Vigilar y castigar: Nacimiento de la prisión",
@@ -542,6 +560,7 @@ export const authors = [
   "Berkeley, George",
   "BonJour, Laurence",
   "Carnap, Rudolf",
+  "Cicerón, Marco Tulio",
   "Code, Lorraine",
   "Comte, Auguste",
   "Croce, Benedetto",

@@ -25,6 +25,19 @@ export const libraryAcademicConnections = {
     "Adorno - Minima Moralia": {
       "events": []
     },
+    "Cicerón - Las paradojas de los estoicos": {
+      "events": [{
+        "kind": "procedencia",
+        "date": "2026-10-20",
+        "dateLabel": "Fecha de registro en biblioteca, no fecha documentada de clase",
+        "area": "Ética",
+        "title": "Recomendación de Ética · Cicerón, Las paradojas de los estoicos",
+        "status": "ficha bibliográfica con seis síntesis temáticas en Obsidian",
+        "type": "recomendación comunicada por el estudiante",
+        "note": "Edición UNAM 2000 identificada externamente; escaneo por cotejar. No constan lectura, sesión concreta, posesión ni tarea obligatoria.",
+        "url": null
+      }]
+    },
     "Foucault - Vigilar y castigar": {
       "events": [
         {
@@ -1241,6 +1254,7 @@ export const libraryAcademicConnections = {
         }
       ]
     },
+    "Cicerón, Marco Tulio": {"events": []},
     "Foucault, Michel": {
       "events": [
         {

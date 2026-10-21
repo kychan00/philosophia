@@ -71,3 +71,18 @@ test('Foucault se registra sólo como recomendación, con edición y lectura del
  assert.match(event.dateLabel,/registro/)
  assert.equal(libraryTimelines.works[id],undefined)
 })
+
+test('Cicerón: recomendación de Ética sin clase inventada ni lectura completa',()=>{
+ const id='Cicerón - Las paradojas de los estoicos'
+ const book=books.find(b=>b.id===id)
+ assert.ok(book)
+ assert.equal(book.categoria,'ética')
+ assert.equal(book.estado,'recomendada')
+ assert.ok(authorsForWork(book,authors).includes('Cicerón, Marco Tulio'))
+ assert.equal(libraryTimelines.works[id],undefined)
+ const e=connected.works[id].events[0]
+ assert.equal(e.kind,'procedencia')
+ assert.equal(e.date,'2026-10-20')
+ assert.equal(e.url,null)
+ assert.match(e.dateLabel,/registro/)
+})
