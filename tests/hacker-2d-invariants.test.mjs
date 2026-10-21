@@ -202,3 +202,35 @@ test('Every verified facet and Vienna objection carries traceable source argumen
   assert.ok(byId.get('H27').data.sourceContinuation?.reading)
   assert.equal(byId.get('H27').data.sourceCloseReading.boundary, null)
 })
+
+test('All 122 Hacker nodes have their own plain-language explanation with provenance', () => {
+  assert.equal(hackerNodes.length, 122)
+  const texts = hackerNodes.map((node) => node.data.plainLanguage)
+  assert.ok(texts.every((value) => typeof value === 'string' && value.trim().length >= 90))
+  assert.equal(new Set(texts).size, 122)
+  for (const node of hackerNodes) {
+    assert.match(node.data.plainLanguageSource, /PHILOSOPHIA/)
+    assert.match(node.data.plainLanguageSource, /no es cita/)
+  }
+  assert.equal(hackerNodes.filter((node) => node.data.classOnly).length, 54)
+  assert.equal(hackerNodes.filter((node) => !node.data.classOnly).length, 68)
+})
+
+test('Simple explanation is visible inside the node inspector and styled for phones', () => {
+  const css = readFileSync(new URL('../src/pages/AnalyticHackerSystem.css', import.meta.url), 'utf8')
+  assert.match(page, /aria-label="En palabras simples"/)
+  assert.match(page, /selected\.data\.plainLanguage/)
+  assert.match(page, /selected\.data\.plainLanguageSource/)
+  assert.match(css, /\.hacker-inspector \.hacker-plain-language/)
+  assert.match(css, /@media \(max-width: 900px\)/)
+})
+
+test('Every classroom explanation stays a didactic note, separate from Hackers source', () => {
+  for (const node of hackerNodes.filter((node) => node.data.classOnly)) {
+    assert.match(node.data.plainLanguageSource, /didáctica/)
+    assert.ok(node.data.plainLanguage.length >= 90)
+  }
+  assert.match(byId.get('H25').data.plainLanguage, /rey de Francia/)
+  assert.match(byId.get('H41.1').data.plainLanguage, /límites|frontera/)
+  assert.match(byId.get('H52.8').data.plainLanguage, /ética/)
+})
