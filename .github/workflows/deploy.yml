@@ -57,6 +57,9 @@ jobs:
       - name: Lint Methods 19 October system
         run: npx eslint src/pages/MethodsClass19Oct.jsx tests/methods-class-19oct.test.mjs
 
+      - name: Lint Methods 21 October system
+        run: npx eslint src/pages/MethodsClass21Oct.jsx tests/methods-class-21oct.test.mjs
+
       - name: Lint Analytic Philosophy 19 October class
         run: npx eslint src/pages/AnalyticClass19Oct.jsx src/data/glockClass19Oct.js tests/analytic-class-19oct.test.mjs tests/analytic-class19-browser-smoke.mjs
 
