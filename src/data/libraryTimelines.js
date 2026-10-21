@@ -412,6 +412,7 @@ export const libraryTimelines = {
     ]
   },
   "authors": {
+    "Cicerón, Marco Tulio": [{"date":"2026-10-20","area":"Ética","title":"Ética - Estoicismo, paradojas del sentido y eterno retorno","url":"/semestre/5/etica/clase/20-octubre","type":"autor mencionado en explicación; atribución histórica sujeta a contraste"}],
     "Hipócrates": [{"date":"2026-10-15","area":"Ética","title":"Ética - Cármides, medicina del alma y cuidado de sí","url":"/semestre/5/etica/clase/15-octubre","type":"tradición hipocrática mencionada"}],
     "Luciano de Samósata": [
       {
@@ -453,6 +454,7 @@ export const libraryTimelines = {
       }
     ],
     "Platón": [
+      {"date":"2026-10-20","area":"Ética","title":"Ética - Estoicismo, paradojas del sentido y eterno retorno","url":"/semestre/5/etica/clase/20-octubre","type":"autor mencionado por ejemplo del demiurgo"},
       {"date":"2026-10-15","area":"Ética","title":"Ética - Cármides y medicina antigua","url":"/semestre/5/etica/clase/15-octubre","type":"autor de fuentes primarias y contraste"},
       {
           "date": "2026-10-13",
@@ -661,6 +663,7 @@ export const libraryTimelines = {
       }
     ],
     "Aristóteles": [
+      {"date":"2026-10-20","area":"Ética","title":"Ética - Estoicismo, paradojas del sentido y eterno retorno","url":"/semestre/5/etica/clase/20-octubre","type":"autor mencionado en comparación sobre virtudes y circunstancias"},
       {
         "date": "2026-02-20",
         "area": "Cosmología",
@@ -2345,6 +2348,7 @@ export const libraryTimelines = {
       }
     ],
     "Nietzsche, Friedrich": [
+      {"date":"2026-10-20","area":"Ética","title":"Ética - Estoicismo, paradojas del sentido y eterno retorno","url":"/semestre/5/etica/clase/20-octubre","type":"autor mencionado al comparar eterno retorno"},
       {
           "date": "2026-10-13",
           "area": "Ética",
@@ -2538,6 +2542,7 @@ export const libraryTimelines = {
       }
     ],
     "Demócrito": [
+      {"date":"2026-10-20","area":"Ética","title":"Ética - Estoicismo, paradojas del sentido y eterno retorno","url":"/semestre/5/etica/clase/20-octubre","type":"autor mencionado en comparación con atomismo"},
       {
         "date": "2026-08-25",
         "area": "Ética",
