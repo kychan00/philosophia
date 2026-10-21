@@ -177,3 +177,12 @@ test('Hacker two source batches cover 68 bibliographic nodes', () => {
   assert.equal(Object.keys(hackerSource115to132).length, 40)
   assert.equal(hackerNodes.filter((n) => n.data.branch.includes('source95to132')).length, 68)
 })
+
+test('Full primary-source route covers every essay node without inventing class sources', () => {
+  const essay = hackerNodes.filter((n) => !n.data.classOnly)
+  const seen = essay.filter((n) => n.data.branch.includes('source95to132'))
+  assert.equal(essay.length, 68)
+  assert.equal(seen.length, 68)
+  assert.equal(hackerRoutes.find((r) => r.id === 'source95to132')?.label, 'Ensayo cotejado · pp. 95–132')
+  assert.equal(hackerNodes.filter((n) => n.data.classOnly && n.data.sourceCloseReading).length, 0)
+})
