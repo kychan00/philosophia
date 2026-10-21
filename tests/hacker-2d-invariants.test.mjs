@@ -163,7 +163,7 @@ test('Primary-source inspector provides four distinct argumentative layers and a
   assert.match(page, /selected\.data\.sourceCloseReading\.distinction/)
   assert.match(page, /selected\.data\.sourceCloseReading\.report/)
   assert.match(page, /selected\.data\.sourceCloseReading\.boundary/)
-  assert.match(page, /Explorar las páginas cotejadas/)
+  assert.match(page, /Explorar el ensayo completo/)
   assert.match(nodeComponent, /FUENTE COTEJADA/)
   const css = readFileSync(new URL('../src/pages/AnalyticHackerSystem.css', import.meta.url), 'utf8')
   assert.match(css, /hacker-deep-reading/)
