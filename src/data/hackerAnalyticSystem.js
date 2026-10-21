@@ -3,7 +3,9 @@ export const hackerRoutes = [
   { id: 'class14', label: 'Clase 14 Sep' },
   { id: 'class21', label: 'Clase 21 Sep' },
   { id: 'class23', label: 'Clase 23 Sep' },
+  { id: 'class28', label: 'Clase 28 Sep' },
   { id: 'class30', label: 'Clase 30 Sep' },
+  { id: 'class07oct', label: 'Clase 7 Oct' },
   { id: 'class14oct', label: 'Clase 14 Oct' },
   { id: 'identity', label: 'Definición' },
   { id: 'moore', label: 'Moore' },
@@ -18,7 +20,9 @@ export const hackerRouteColors = {
   class14: '#9b4b38',
   class21: '#466f68',
   class23: '#49687d',
+  class28: '#456a73',
   class30: '#355f73',
+  class07oct: '#75618a',
   class14oct: '#617d55',
   identity: '#9a702e',
   moore: '#59745c',
@@ -463,90 +467,90 @@ const mainNodes = [
 
   n('H53','53','after','Del análisis reductivo al conectivo y terapéutico',
     'La filosofía británica posterior abandona la exigencia de reducir o traducir todo.',
-    'El análisis conectivo aclara relaciones entre conceptos; el terapéutico diagnostica y disuelve confusiones.',
-    'Cierra el artículo abriendo otra etapa histórica que Hacker deja fuera.',
-    'p. 132',['after'],['H52.8'],['análisis conectivo','análisis terapéutico','Wittgenstein'],
+    'Como transición señalada al final, el análisis conectivo atiende relaciones conceptuales y el terapéutico disuelve confusiones; no es un apartado desarrollado de Oxford.'
+    'Referencia de cierre: Hacker señala la continuidad conectiva y terapéutica, pero no desarrolla en este ensayo una historia de Oxford de posguerra.'
+    'p. 132',['after'],['H52'],['análisis conectivo','análisis terapéutico','Wittgenstein'],
     {quote:'«sus notables y variados logros, son otra historia» (p. 132).',critical:true}),
 ]
 
 const turnNodes = [
-  n('H41.1','40.1','subpoint','1 · Límites pensamiento/lenguaje',
+  n('H41.1','41.1','subpoint','1 · Límites pensamiento/lenguaje',
     'Los límites del pensamiento se investigan mediante los límites del lenguaje.',
     'La distinción sentido/sinsentido se convierte en instrumento para determinar qué puede pensarse y decirse.',
     'Primer sentido del giro lingüístico.',
     'pp. 117–125',['tractatus'],['H41'],['límites','sentido','lenguaje']),
-  n('H41.2','40.2','subpoint','2 · Programa lógico-lingüístico',
+  n('H41.2','41.2','subpoint','2 · Programa lógico-lingüístico',
     'El programa positivo pasa al análisis lógico-lingüístico de proposiciones.',
     'El objeto de análisis deja de ser un concepto platónico aislado y se desplaza hacia proposiciones y simbolismo.',
     'Segundo sentido del giro lingüístico.',
-    'pp. 117–125',['tractatus'],['H41.1'],['análisis lógico','proposición','simbolismo']),
-  n('H41.3','40.3','subpoint','3 · Crítica lingüística de metafísica',
+    'pp. 117–125',['tractatus'],['H41'],['análisis lógico','proposición','simbolismo']),
+  n('H41.3','41.3','subpoint','3 · Crítica lingüística de metafísica',
     'La metafísica se critica mostrando que ciertas aparentes afirmaciones atraviesan los límites del lenguaje significativo.',
     'La pregunta ya no es sólo si una tesis metafísica es falsa, sino si logra expresar una proposición con sentido.',
     'Tercer sentido del giro lingüístico.',
-    'pp. 117–125',['tractatus'],['H41.2'],['metafísica','sentido','pseudoproposición']),
-  n('H41.4','40.4','subpoint','4 · Signo y forma proposicional',
+    'pp. 117–125',['tractatus'],['H41'],['metafísica','sentido','pseudoproposición']),
+  n('H41.4','41.4','subpoint','4 · Signo y forma proposicional',
     'La investigación filosófica se concentra en la naturaleza del signo proposicional y de la forma proposicional.',
     'El simbolismo se vuelve objeto central para esclarecer representación y sentido.',
     'Cuarto sentido del giro lingüístico.',
-    'pp. 117–125',['tractatus'],['H41.3'],['signo','forma proposicional','representación']),
-  n('H41.5','40.5','subpoint','5 · Fenómenos vía descripciones',
+    'pp. 117–125',['tractatus'],['H41'],['signo','forma proposicional','representación']),
+  n('H41.5','41.5','subpoint','5 · Fenómenos vía descripciones',
     'La estructura lógica de fenómenos se investiga analizando las descripciones lingüísticas de esos fenómenos.',
     'El acceso filosófico a estructura ya pasa decisivamente por proposiciones que la representan.',
     'Quinto sentido del giro lingüístico.',
-    'pp. 117–125',['tractatus'],['H41.4'],['fenómeno','descripción','forma lógica']),
-  n('H41.6','40.6','subpoint','6 · Verdad lógica vía simbolismo',
+    'pp. 117–125',['tractatus'],['H41'],['fenómeno','descripción','forma lógica']),
+  n('H41.6','41.6','subpoint','6 · Verdad lógica vía simbolismo',
     'La naturaleza de la verdad lógica se esclarece examinando el simbolismo.',
     'La tautologicidad y la estructura de signos explican la necesidad sin postular hechos lógicos.',
     'Sexto sentido y culminación del giro lingüístico tractariano.',
-    'pp. 117–125',['tractatus'],['H41.5'],['verdad lógica','simbolismo','tautología'],
+    'pp. 117–125',['tractatus'],['H41'],['verdad lógica','simbolismo','tautología'],
     {critical:true}),
 ]
 
 const collapseNodes = [
-  n('H52.1','51.1','failure','1 · Fracaso del reduccionismo',
+  n('H52.1','52.1','failure','1 · Fracaso del reduccionismo',
     'No se logró reducir convincentemente amplios dominios a una base elemental.',
     'Además surge el conflicto entre fenomenismo y fisicalismo acerca de cuál debía ser esa base.',
     'Primera dificultad del positivismo.',
     'pp. 130–132',['vienna'],['H52'],['reduccionismo','fenomenismo','fisicalismo']),
-  n('H52.2','51.2','failure','2 · Solipsismo / behaviorismo',
+  n('H52.2','52.2','failure','2 · Solipsismo / behaviorismo',
     'El programa reductivo empuja hacia alternativas metodológicas filosóficamente problemáticas.',
     'La reducción de experiencia y mente amenaza con desembocar en solipsismo metodológico o behaviorismo radical.',
     'Segunda dificultad.',
-    'pp. 130–132',['vienna'],['H52.1'],['solipsismo','behaviorismo','reducción']),
-  n('H52.3','51.3','failure','3 · Extensionalidad',
+    'pp. 130–132',['vienna'],['H52'],['solipsismo','behaviorismo','reducción']),
+  n('H52.3','52.3','failure','3 · Extensionalidad',
     'No todos los contextos significativos se dejan reducir a estructuras puramente extensionales.',
     'El proyecto lógico encuentra contextos intensionales y relaciones de significado resistentes.',
     'Tercera dificultad.',
-    'pp. 130–132',['vienna'],['H52.2'],['extensionalidad','intensionalidad','lógica']),
-  n('H52.4','51.4','failure','4 · Verificación',
+    'pp. 130–132',['vienna'],['H52'],['extensionalidad','intensionalidad','lógica']),
+  n('H52.4','52.4','failure','4 · Verificación',
     'El principio y el criterio de verificabilidad generan dificultades internas.',
     'No se consigue formular el verificacionismo sin excluir demasiado, incluir demasiado o volverse problemático respecto de sí mismo.',
     'Cuarta dificultad.',
-    'pp. 130–132',['vienna'],['H52.3','H47'],['verificación','significado','criterio']),
-  n('H52.5','51.5','failure','5 · Convencionalismo',
+    'pp. 130–132',['vienna'],['H52','H47'],['verificación','significado','criterio']),
+  n('H52.5','52.5','failure','5 · Convencionalismo',
     'Una explicación puramente convencional de la necesidad lógica resulta insuficiente.',
     'Las convenciones por sí solas no explican satisfactoriamente la fuerza necesaria de la lógica.',
     'Quinta dificultad.',
-    'pp. 130–132',['vienna'],['H52.4','H49'],['convención','necesidad','lógica']),
-  n('H52.6','51.6','failure','6 · Lógica clásica insuficiente',
+    'pp. 130–132',['vienna'],['H52','H49'],['convención','necesidad','lógica']),
+  n('H52.6','52.6','failure','6 · Lógica clásica insuficiente',
     'El cálculo lógico no reproduce exhaustivamente las inferencias legítimas del lenguaje ordinario.',
     'Relaciones conceptuales pueden autorizar inferencias que no se explican sólo por conectivas formales.',
     'Sexta dificultad.',
-    'p. 131',['vienna'],['H52.5'],['inferencia','lógica clásica','conceptos'],
+    'p. 131',['vienna'],['H52'],['inferencia','lógica clásica','conceptos'],
     {quote:'Los patrones de inferencia del cálculo «no agotan las formas lícitas de inferencia que utilizamos» (p. 131).',
      example:'Ejemplo tuyo: de “La camiseta es roja” inferimos normalmente “La camiseta no es verde completamente”; la inferencia usa relaciones conceptuales entre colores.',
      critical:true}),
-  n('H52.7','51.7','failure','7 · Unidad de las ciencias',
+  n('H52.7','52.7','failure','7 · Unidad de las ciencias',
     'El monismo metodológico y la pretensión de una única ciencia comienzan a ser cuestionados.',
     'La hermenéutica y el Wittgenstein tardío erosionan la idea de una única forma correcta de descripción científica.',
     'Séptima dificultad.',
-    'pp. 130–132',['vienna','after'],['H52.6','H50'],['unidad de la ciencia','hermenéutica','pluralidad']),
-  n('H52.8','51.8','failure','8 · Filosofía demasiado estrecha',
+    'pp. 130–132',['vienna','after'],['H52','H50'],['unidad de la ciencia','hermenéutica','pluralidad']),
+  n('H52.8','52.8','failure','8 · Filosofía demasiado estrecha',
     'Reducir filosofía al análisis lógico del lenguaje científico excluye vastas regiones filosóficas.',
     'Ética, derecho, política y estética quedan mal tratadas; el emotivismo ético muestra los límites de la concepción.',
     'Octava dificultad y salida hacia nuevas formas de análisis.',
-    'pp. 130–132',['vienna','after'],['H52.7'],['ética','política','estética'],
+    'pp. 130–132',['vienna','after'],['H52'],['ética','política','estética'],
     {critical:true}),
 ]
 
@@ -2173,6 +2177,49 @@ Object.entries(hackerArticleSource).forEach(([id, source]) => {
   node.data.hasOriginalSource = true
 })
 
+// Las clases del 28 de septiembre y 7 de octubre se enlazan al texto existente.
+// Son capas docentes, no nuevos pasajes atribuidos a Hacker.
+const hackerClassCrosswalk = {
+  class28: {
+    date: '28 sep 2026',
+    route: '/semestre/5/filosofia-analitica/clase/28-septiembre',
+    nodes: {
+      H24: ['REFERENCIA Y ONTOLOGÍA', 'La clase recupera la teoría referencial inicial de Russell y su compromiso ontológico abundante, antes del análisis de las descripciones.'],
+      H25: ['DESCRIPCIONES DEFINIDAS', 'El ejemplo del actual rey de Francia se analiza en existencia, unicidad y predicación; no requiere admitir una entidad inexistente.'],
+      H26: ['GRAMÁTICA Y FORMA LÓGICA', 'La forma superficial sujeto-predicado no garantiza que la proposición tenga esa misma forma lógica.'],
+      H27: ['ANÁLISIS Y PARÁFRASIS', 'La paráfrasis lógico-cuantificacional aclara la proposición y sus compromisos ontológicos.'],
+      H28: ['COMPROMISO ONTOLÓGICO', 'El robusto sentido de la realidad se estudia como consecuencia del abandono de entidades postuladas por la gramática superficial.'],
+      H29: ['DESCRIPCIÓN Y NOMBRES', 'La sesión distingue nombres ordinarios, descripciones y casos de nombres lógicamente propios; es explicación del curso, no cita de Hacker.'],
+    },
+  },
+  class07oct: {
+    date: '7 oct 2026',
+    route: '/semestre/5/filosofia-analitica/clase/7-octubre',
+    nodes: {
+      H38: ['ACLARACIÓN EN VEZ DE CIENCIA', 'La sesión contrapone filosofía como clarificación lógica a una disciplina que formule hipótesis empíricas.'],
+      H40: ['DECIR Y MOSTRAR', 'Se contrasta el límite de lo decible con la idea de inexistencia; el aula recupera lo místico y la imagen de la escalera.'],
+      H43: ['RECEPCIÓN DIFERENCIADA', 'El Círculo de Viena recibe y transforma al Tractatus: influencia histórica no significa identidad doctrinal.'],
+      H45: ['PRIMER TEMA DE VIENA', 'La filosofía como análisis lógico tiene función crítica y esclarecedora en el programa positivista.'],
+      H46: ['SEGUNDO TEMA DE VIENA', 'La metafísica se rechaza como discurso carente de significado cognoscitivo, sin equivaler a una prueba ontológica de inexistencia.'],
+      H47: ['TERCER TEMA DE VIENA', 'La verificación se expone como criterio de significatividad cognoscitiva; la crítica de Popper se anticipa sin desarrollarse aquí.'],
+      H48: ['CUARTO TEMA DE VIENA', 'Las verdades lógico-matemáticas se interpretan como analíticas o tautológicas dentro del empirismo consistente.'],
+      H49: ['CARNAP FRENTE A WITTGENSTEIN', 'La clase señala el contraste entre convencionalismo de lenguajes formales y la lógica trascendental del Tractatus.'],
+    },
+  },
+}
+
+Object.entries(hackerClassCrosswalk).forEach(([branch, { date, route, nodes }]) => {
+  Object.entries(nodes).forEach(([id, [label, note]]) => {
+    const node = hackerNodes.find((item) => item.id === id)
+    if (!node) throw new Error(`No existe el nodo de enlace docente ${id}`)
+    if (!node.data.branch.includes(branch)) node.data.branch.push(branch)
+    node.data.additionalClassNotes = [
+      ...(node.data.additionalClassNotes || []),
+      { date, route, label, note, linkLabel: 'Abrir clase documentada ↗' },
+    ]
+  })
+})
+
 const nodeMap = new Map(hackerNodes.map((node) => [node.id, node]))
 
 hackerNodes.forEach((node) => {
@@ -2207,10 +2254,12 @@ export const hackerGuidedPhases = [
   'Cambridge',
   'Viena',
   'Colapso y salida',
+  'Ampliaciones de clase',
 ]
 
 function phaseFor(id) {
   const i = order.indexOf(id)
+  if (nodeMap.get(id)?.data.classOnly) return 'Ampliaciones de clase'
   if (i <= 13) return 'Tesis y definición'
   if (i <= 19) return 'Moore'
   if (i <= 30) return 'Russell'
@@ -2220,6 +2269,7 @@ function phaseFor(id) {
   return 'Colapso y salida'
 }
 
+// La guía bibliográfica solo recorre el ensayo; la integral incluye las capas docentes.
 const articleReadingOrder = order.filter((id) => !nodeMap.get(id)?.data.classOnly)
 export const hackerGuidedRoute = articleReadingOrder.map((id, index) => {
   const node = nodeMap.get(id)
@@ -2231,6 +2281,18 @@ export const hackerGuidedRoute = articleReadingOrder.map((id, index) => {
     // Reading adjacency alone never establishes philosophical entailment.
     nextQuestion: node?.data.nextQuestion ||
       (next ? `Siguiente tema de lectura: ${next.data.title}` : 'Fin de la ruta del artículo.'),
+  }
+})
+
+export const hackerCompleteGuidedRoute = order.map((id, index) => {
+  const node = nodeMap.get(id)
+  const next = nodeMap.get(order[index + 1])
+  return {
+    id,
+    phase: phaseFor(id),
+    why: node?.data.role || '',
+    nextQuestion: node?.data.nextQuestion ||
+      (next ? `Siguiente tema de estudio (orden editorial): ${next.data.title}` : 'Fin de la guía integral.'),
   }
 })
 
