@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
 import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema'
+import MarxHegelAssignedAtlas from './MarxHegelAssignedAtlas'
 import '../components/OntologyArchiveClass.css'
 import './OntologiaClass17AugArchive.css'
 import './MarxCritiqueHegelStudy.css'
@@ -66,8 +67,9 @@ export default function MarxCritiqueHegelStudy() {
             <p className="oaf-lead">
               Dossier programático construido desde la transcripción completa de
               las pp. 182–208 de los <em>Manuscritos económico-filosóficos de 1844</em>.
-              No registra una clase nueva: documenta el siguiente umbral oficial
-              de Ontología II desde la fuente ya conservada en el vault.
+              Este dossier nació como umbral textual. La lectura enviada por el
+              profesor el 19 de octubre se integra más abajo como apartado distinto,
+              sin confundir la obra de Marx con los comentarios de Bloch y Fromm.
             </p>
             <div className="oa-question">
               <small>QUAESTIO</small>
@@ -152,6 +154,8 @@ export default function MarxCritiqueHegelStudy() {
           <p>El esquema muestra la transformación del problema: Marx conserva el movimiento, pero disputa su sujeto y el estatuto de la objetividad.</p>
           <div className="oa-schema-card"><AnimatedConceptSchema schema={atlasSchema} /></div>
         </section>
+
+        <MarxHegelAssignedAtlas />
 
         <section className="marx-hegel-lab">
           <header>
