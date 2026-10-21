@@ -4,6 +4,21 @@ export const libraryAcademicConnections = {
   "source": "Relaciones documentadas por títulos de tareas y fichas de obra. Una fecha de nota no prueba la realización de la lectura.",
   "tasksReviewed": 61,
   "works": {
+    "Dilthey - Hegel y el idealismo": {
+      "events": [
+        {
+          "kind": "procedencia",
+          "date": "2026-10-21",
+          "dateLabel": "Fecha de la recomendación en Ontología II comunicada por el estudiante",
+          "area": "Ontología II",
+          "title": "Recomendación · Dilthey, Hegel y el idealismo",
+          "status": "ficha bibliográfica y nueve ejes documentados en Obsidian",
+          "type": "recomendación comunicada por el estudiante (sesión del 21 de octubre)",
+          "note": "FCE, 1944, trad. Eugenio Ímaz. No consta consigna obligatoria, páginas asignadas ni lectura íntegra; síntesis a partir de fuentes explícitas.",
+          "url": null
+        }
+      ]
+    },
     "Nava - Tecnociencia, entorno y sujeto tecnocientífico": {
       "events": [{
         "kind": "procedencia",
@@ -953,6 +968,7 @@ export const libraryAcademicConnections = {
     }
   },
   "authors": {
+    "Dilthey, Wilhelm": {"events": []},
     "Nava Amezcua, Alonso": {"events": []},
     "Hipócrates": {"events": []},
     "Adorno, Theodor W.": {

@@ -2,6 +2,54 @@
 // No contiene apuntes ni inventario personal de ejemplares.
 export const books = [
   {
+    "id": "Dilthey - Hegel y el idealismo",
+    "autor": "Dilthey",
+    "titulo": "Hegel y el idealismo",
+    "categoria": "ontología",
+    "estado": "recomendada",
+    "lectura": "Pendiente; síntesis de introducción, índice y fragmento, no lectura íntegra",
+    "edicion": "Fondo de Cultura Económica, 1944 · trad. y epílogo de Eugenio Ímaz",
+    "url": "https://archive.org/details/dilthey-wilhelm.-hegel-y-el-idealismo-1944_202011",
+    "ideas": [
+      {
+        "lema": "I · Escribir la historia del pensamiento",
+        "detalle": "La reconstrucción de los manuscritos juveniles permite leer el origen de los problemas que desembocarán en el sistema hegeliano."
+      },
+      {
+        "lema": "II · Historia exterior e interior",
+        "detalle": "La biografía y la formación conceptual están vinculadas, pero sus etapas no coinciden necesariamente año por año."
+      },
+      {
+        "lema": "III · Historia y pueblos",
+        "detalle": "El interés temprano por costumbres, religiones y formas políticas conduce a una comprensión histórica de la vida colectiva."
+      },
+      {
+        "lema": "IV · Religión y filosofía",
+        "detalle": "En Tubinga, la formación teológica confronta razón ilustrada, dogma y moralidad: un trasfondo de la filosofía naciente."
+      },
+      {
+        "lema": "V · Grecia e Ilustración",
+        "detalle": "El joven Hegel piensa arte y religión en relación con la vida de las naciones y la tradición de la Antigüedad."
+      },
+      {
+        "lema": "VI · Espíritu en desarrollo",
+        "detalle": "La obra dedica un bloque al universo como autodesenvolvimiento del espíritu; su argumento completo requiere lectura cotejada."
+      },
+      {
+        "lema": "VII · Kant y la metafísica",
+        "detalle": "Dilthey evalúa críticamente la transición del idealismo crítico a la metafísica hegeliana; es interpretación suya, no cita de Hegel."
+      },
+      {
+        "lema": "VIII · Filosofía en contexto",
+        "detalle": "El índice vincula a Hegel con su época y con Schleiermacher; las relaciones doctrinales concretas siguen sujetas a cotejo."
+      },
+      {
+        "lema": "IX · Proceso histórico",
+        "detalle": "En un fragmento publicado, Dilthey relaciona transformaciones de Francia y Alemania con una metafísica del proceso y del cambio."
+      }
+    ]
+  },
+  {
     "id": "Nava - Tecnociencia, entorno y sujeto tecnocientífico",
     "autor": "Nava Amezcua",
     "titulo": "Tecnociencia, entorno y sujeto tecnocientífico",
@@ -566,6 +614,7 @@ export const authors = [
   "Croce, Benedetto",
   "Demócrito",
   "Descartes, René",
+  "Dilthey, Wilhelm",
   "Diógenes de Sinope",
   "Dummett, Michael",
   "Eraña, Ángeles",

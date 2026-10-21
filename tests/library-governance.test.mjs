@@ -86,3 +86,18 @@ test('Cicerón: recomendación de Ética sin clase inventada ni lectura completa
  assert.equal(e.url,null)
  assert.match(e.dateLabel,/registro/)
 })
+
+
+test('Dilthey: recomendación con procedencia y sin sesión pública inventada',()=>{
+ const id='Dilthey - Hegel y el idealismo'
+ const book=books.find(b=>b.id===id)
+ assert.ok(book)
+ assert.equal(book.ideas.length,9)
+ const event=connected.works[id]?.events?.[0]
+ assert.ok(event)
+ assert.equal(event.kind,'procedencia')
+ assert.equal(event.date,'2026-10-21')
+ assert.equal(event.url,null)
+ assert.equal(libraryTimelines.works[id],undefined)
+ assert.ok(authorsForWork(book,authors).includes('Dilthey, Wilhelm'))
+})

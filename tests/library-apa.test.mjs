@@ -53,3 +53,13 @@ test('trabajos propios citados como no publicados y estudio ≠ obra entera',()=
  assert.equal(marx.year,'2008')
  assert.match(marx.studyPart,/reimpresión/)
 })
+
+
+test('Dilthey: año de edición 1944 y traductor de FCE documentados',()=>{
+ const b=books.find(x=>x.id==='Dilthey - Hegel y el idealismo')
+ const x=formatApaRecord(b,authors)
+ assert.equal(x.year,'1944')
+ assert.match(x.text,/Dilthey, W\./)
+ assert.match(x.text,/\(1944\)/)
+ assert.match(x.text,/Fondo de Cultura Económica/)
+})

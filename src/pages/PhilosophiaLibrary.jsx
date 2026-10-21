@@ -287,7 +287,7 @@ export default function PhilosophiaLibrary() {
             {book.studyUrl&&<Link to={book.studyUrl} className="library-study-link">
               Abrir estudio 2D ↗</Link>}
             {book.ideas?.length>0&&<details className="library-ideas-details">
-              <summary>Seis ideas para estudiar <span aria-hidden="true">↗</span></summary>
+              <summary>{book.ideas.length} ideas para estudiar <span aria-hidden="true">↗</span></summary>
               <div className="library-ideas-content">
                 <p>Paráfrasis temáticas, no citas literales ni lectura acreditada del ejemplar.</p>
                 <ol>{book.ideas.map(idea=><li key={idea.lema}>

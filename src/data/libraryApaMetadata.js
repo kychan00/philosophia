@@ -1,5 +1,15 @@
 // APA 7: metadatos auditados a partir de notas del vault; valores ausentes no se inventan.
 export const libraryApaMetadata = {
+  "Dilthey - Hegel y el idealismo": {
+    "kind": "book",
+    "title": "Hegel y el idealismo",
+    "year": 1944,
+    "publisher": "Fondo de Cultura Económica",
+    "translators": ["Ímaz, Eugenio"],
+    "volume": "5",
+    "studyPart": "Recomendación de Ontología II del 21-10-2026; panorama limitado a introducción, índice y fragmento comprobables",
+    "url": "https://archive.org/details/dilthey-wilhelm.-hegel-y-el-idealismo-1944_202011"
+  },
   "Nava - Tecnociencia, entorno y sujeto tecnocientífico": {
     "kind": "article",
     "title": "Tecnociencia, entorno y sujeto tecnocientífico",

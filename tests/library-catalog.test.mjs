@@ -17,10 +17,11 @@ test('all works are categorized, no ownership inferred',()=>{
 })
 test('recommendations with verified origins and no invented possession',()=>{
  const recommended=books.filter(x=>x.estado==='recomendada')
- assert.equal(recommended.length,7)
+ assert.equal(recommended.length,8)
  assert.deepEqual(new Set(recommended.map(x=>x.id)),new Set([
   'Adorno - Minima Moralia',
   'Foucault - Vigilar y castigar',
+  'Dilthey - Hegel y el idealismo',
   'Cicerón - Las paradojas de los estoicos',
   'Illouz - Intimidades congeladas',
   'Illouz - El consumo de la utopía romántica',
@@ -47,5 +48,19 @@ test('Cicerón conserva seis tesis sin fingir lectura personal',()=>{
  assert.match(b.lectura,/Pendiente/)
  assert.equal(b.ideas.length,6)
  assert.ok(authors.includes('Cicerón, Marco Tulio'))
+ assert.ok(!('posesion' in b))
+})
+
+
+test('Dilthey: recomendación de Ontología II con nueve ejes sin inferir lectura ni posesión',()=>{
+ const b=books.find(x=>x.id==='Dilthey - Hegel y el idealismo')
+ assert.ok(b)
+ assert.equal(b.autor,'Dilthey')
+ assert.equal(b.estado,'recomendada')
+ assert.equal(b.categoria,'ontología')
+ assert.equal(b.ideas.length,9)
+ assert.ok(b.lectura.includes('Pendiente'))
+ assert.ok(authors.includes('Dilthey, Wilhelm'))
+ assert.equal(b.url,'https://archive.org/details/dilthey-wilhelm.-hegel-y-el-idealismo-1944_202011')
  assert.ok(!('posesion' in b))
 })
