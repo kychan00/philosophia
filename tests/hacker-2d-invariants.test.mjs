@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import test from 'node:test'
-import { hackerNodes, hackerOrder, hackerRoutes, hackerGuidedRoute, hackerEdges } from '../src/data/hackerAnalyticSystem.js'
+import { hackerNodes, hackerOrder, hackerRoutes, hackerGuidedRoute, hackerCompleteGuidedRoute, hackerEdges } from '../src/data/hackerAnalyticSystem.js'
 const ids = hackerNodes.map((n) => n.id)
 const byId = new Map(hackerNodes.map((n) => [n.id, n]))
 const page = readFileSync(new URL('../src/pages/AnalyticHackerSystem.jsx', import.meta.url), 'utf8')
@@ -58,4 +58,55 @@ test('iPad guide layout uses one readable map column', () => {
   assert.match(css, /@media \(max-width: 1180px\)/)
   assert.match(css, /grid-template-columns: minmax\(0, 1fr\);/)
   assert.match(css, /height: clamp\(380px, 53dvh, 610px\)/)
+})
+
+test('The integral route covers 122 nodes; the reading route covers only the 68 Hacker nodes', () => {
+  assert.equal(hackerNodes.length, 122)
+  assert.equal(hackerGuidedRoute.length, 68)
+  assert.equal(hackerCompleteGuidedRoute.length, 122)
+  assert.deepEqual(hackerCompleteGuidedRoute.map((step) => step.id), hackerOrder)
+  assert.match(page, /Guía del artículo/)
+  assert.match(page, /Guía integral/)
+  assert.doesNotMatch(page, /id: \`guided-\$\{guidedStep\.id\}/)
+})
+
+test('Both omitted course dates are traceable classroom routes, without duplicating the essay', () => {
+  for (const [route, date, source, ids] of [
+    ['class28', '28 sep 2026', '28-septiembre', ['H24','H25','H26','H27','H28','H29']],
+    ['class07oct', '7 oct 2026', '7-octubre', ['H38','H40','H43','H45','H46','H47','H48','H49']],
+  ]) {
+    assert.ok(hackerRoutes.some((item) => item.id === route))
+    for (const id of ids) {
+      const data = byId.get(id)?.data
+      assert.ok(data?.branch.includes(route), id)
+      assert.ok(data?.additionalClassNotes?.some((note) =>
+        note.date === date && note.route.endsWith(source) && note.note && note.label
+      ), id)
+      assert.equal(data.classOnly, undefined, 'Classroom crosswalk must not rewrite essay provenance')
+    }
+  }
+})
+
+test('The six facets and eight criticism points are siblings, not unsupported chains', () => {
+  for (let i = 1; i <= 6; i++) {
+    const node = byId.get('H41.' + i)
+    assert.equal(node?.data.code, '41.' + i)
+    assert.ok(node.data.dependsOn.includes('H41'))
+    if (i > 1) assert.ok(!node.data.dependsOn.includes('H41.' + (i - 1)))
+  }
+  for (let i = 1; i <= 8; i++) {
+    const node = byId.get('H52.' + i)
+    assert.equal(node?.data.code, '52.' + i)
+    assert.ok(node.data.dependsOn.includes('H52'))
+    if (i > 1) assert.ok(!node.data.dependsOn.includes('H52.' + (i - 1)))
+  }
+  assert.ok(byId.get('H53').data.dependsOn.includes('H52'))
+})
+
+test('Thematic step labels state editorial ordering and report guidance is explicit', () => {
+  assert.match(page, /Siguiente tema de lectura \(orden editorial\)/)
+  assert.match(page, /Cómo elaborar el reporte sin mezclar fuentes/)
+  assert.match(page, /posguerra es continuidad indicada/)
+  assert.match(page, /item.linkLabel \|\| 'Abrir clase documentada/)
+  assert.doesNotMatch(page, /Cómo conduce esto a/)
 })
