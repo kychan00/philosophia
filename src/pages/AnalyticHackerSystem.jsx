@@ -535,12 +535,12 @@ function StudyCanvas() {
 
       <section className="hacker-source-coverage" aria-label="Avance de cotejo bibliográfico">
         <div>
-          <span>FUENTE PRIMARIA · PRIMERA ENTREGA</span>
-          <strong>Páginas 95–114 verificadas</strong>
-          <p>28 nodos con lectura detallada, argumento, distinciones y orientación para el reporte. Los demás nodos conservan su documentación anterior: no se han cotejado en esta entrega.</p>
+          <span>FUENTE PRIMARIA · LECTURA ÍNTEGRA</span>
+          <strong>Ensayo cotejado · páginas 95–132</strong>
+          <p>Los 68 nodos bibliográficos incluyen tesis, reconstrucción del argumento, distinciones conceptuales y orientación para el reporte. La capa de las siete clases sigue identificada por separado.</p>
         </div>
-        <button type="button" onClick={() => { setGuidedMode(false); setRoute('source95to114'); setSelectedId(null) }}>
-          Explorar las páginas cotejadas · 28 nodos →
+        <button type="button" onClick={() => { setGuidedMode(false); setRoute('source95to132'); setSelectedId(null) }}>
+          Explorar el ensayo completo · 68 nodos →
         </button>
       </section>
 
@@ -856,6 +856,32 @@ function StudyCanvas() {
                 </section>
               )}
 
+              {selected.data.sourceContinuation && (
+                <section className="hacker-deep-reading hacker-deep-reading-continuation" aria-label="Continuación cotejada de Russell">
+                  <div className="hacker-deep-reading-heading">
+                    <span>CONTINUACIÓN DE LA FUENTE · {selected.data.sourceContinuation.page}</span>
+                    <strong>{selected.data.sourceContinuation.focus}</strong>
+                    <small>{selected.data.sourceContinuation.kind}</small>
+                  </div>
+                  <div className="hacker-deep-reading-part">
+                    <h3>¿Qué completa Hacker en la página siguiente?</h3>
+                    <p>{selected.data.sourceContinuation.reading}</p>
+                  </div>
+                  <div className="hacker-deep-reading-part">
+                    <h3>Reconstrucción del argumento</h3>
+                    <p>{selected.data.sourceContinuation.argument}</p>
+                  </div>
+                  <div className="hacker-deep-reading-part">
+                    <h3>Distinción conceptual</h3>
+                    <p>{selected.data.sourceContinuation.distinction}</p>
+                  </div>
+                  <div className="hacker-deep-reading-part is-report">
+                    <h3>Aplicación al reporte</h3>
+                    <p>{selected.data.sourceContinuation.report}</p>
+                  </div>
+                </section>
+              )}
+
               {selected.data.articleDetail && (
                 <section className="hacker-article-detail">
                   <span>AMPLIACIÓN DEL ARTÍCULO</span>
@@ -1012,6 +1038,17 @@ function StudyCanvas() {
           <article><b>03</b><strong>El giro lingüístico · pp. 117–125</strong><p>Tractatus y seis aspectos del giro. Clases del 14 y 30 de septiembre.</p></article>
           <article><b>04</b><strong>Cambridge y Viena · pp. 125–132</strong><p>Programas y ocho dificultades. Clases del 7 y 14 de octubre.</p></article>
           <article><b>05</b><strong>Conclusión crítica del reporte</strong><p>Evaluar la unidad histórica de la tradición. La posguerra es continuidad indicada, no capítulo desarrollado.</p></article>
+        </div>
+      </section>
+
+      <section className="hacker-study-next" aria-label="Síntesis de la obra cotejada">
+        <span>LECTURA COMPLETA · ARQUITECTURA DEL ENSAYO</span>
+        <div>
+          <article><b>01</b><strong>El concepto de filosofía analítica · 95–103</strong><p>Definición histórica frente a Dummett; Frege y los dos Wittgenstein; análisis no psicologista y doble raíz de Cambridge.</p></article>
+          <article><b>02</b><strong>Moore y Russell · 103–117</strong><p>Realismo, análisis conceptual, relaciones externas, lógica matemática, símbolos incompletos, construcciones lógicas y teoría de tipos.</p></article>
+          <article><b>03</b><strong>Tractatus · 117–125</strong><p>Sentido, proyección, tautologías, filosofía como clarificación y seis aspectos del giro lingüístico, con crítica de la metafísica del símbolo.</p></article>
+          <article><b>04</b><strong>Cambridge y Viena · 125–132</strong><p>Recepciones diferentes; cinco programas de Viena y ocho objeciones que llevan a superar la reducción como único ideal.</p></article>
+          <article><b>05</b><strong>Conclusión interpretativa</strong><p>De la descomposición conceptual y lógica a la crítica del lenguaje, y del análisis reductivo hacia una nueva fase conectiva y terapéutica que Hacker no desarrolla aquí.</p></article>
         </div>
       </section>
 
