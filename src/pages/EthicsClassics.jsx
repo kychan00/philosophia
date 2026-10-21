@@ -347,6 +347,16 @@ export default function EthicsClassics() {
           </div>
           <div className="ethicsx-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
         </Link>
+
+        <Link to="/semestre/5/etica/clase/20-octubre" className="ethicsx-class-card">
+          <div className="ethicsx-class-card-date"><strong>XX</strong><span>X · MMXXVI</span></div>
+          <div className="ethicsx-class-card-copy">
+            <span>Clase · Estoicismo · logos y destino</span>
+            <h3>Paradojas del sentido y eterno retorno</h3>
+            <p>Acción virtuosa y circunstancias, deber frente a obediencia, física estoica y cuatro esquemas de estudio.</p>
+          </div>
+          <div className="ethicsx-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
+        </Link>
       </section>
 
       <section className="ethicsx-section ethicsx-note">
