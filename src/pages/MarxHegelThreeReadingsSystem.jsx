@@ -167,10 +167,10 @@ function Atlas() {
 
   useEffect(() => {
     function handleKey(e) {
+      if (e.key === 'Escape' && fullScreen) { e.preventDefault(); setFullScreen(false); return }
       if (!guideActive || ['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target?.tagName)) return
       if (e.key === 'ArrowRight') { e.preventDefault(); go(1) }
       if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1) }
-      if (e.key === 'Escape' && fullScreen) setFullScreen(false)
     }
     window.addEventListener('keydown', handleKey)
     return () => window.removeEventListener('keydown', handleKey)
@@ -255,6 +255,7 @@ function Atlas() {
         </div>
 
         <div className={'mhr-workspace' + (fullScreen ? ' mhr-workspace--fullscreen' : '')} ref={canvasRef}>
+          {fullScreen && <button className="mhr-workspace__exit" type="button" onClick={() => setFullScreen(false)}>Cerrar pantalla completa ×</button>}
           <div className="mhr-workspace__map">
             <div className="mhr-workspace__toolbar">
               <span>MAPA 2D · {guideRoute.length} NODOS</span>
