@@ -31,7 +31,7 @@ function ReadingNode({ data, selected }) {
 const nodeTypes = { reading: ReadingNode }
 
 function ReadingCanvas({ route, activeId, onSelect, entries }) {
-  const { setCenter } = useReactFlow()
+  const { setCenter, viewportInitialized } = useReactFlow()
 
   const nodes = useMemo(() => entries.map((item, index) => ({
     id: item.id,
@@ -56,7 +56,7 @@ function ReadingCanvas({ route, activeId, onSelect, entries }) {
 
   useEffect(() => {
     const index = entries.findIndex(entry => entry.id === activeId)
-    if (index < 0) return undefined
+    if (index < 0 || !viewportInitialized) return undefined
     const frame = requestAnimationFrame(() => {
       setCenter(265, index * 290 + 120, {
         zoom: window.innerWidth < 690 ? 0.72 : 0.98,
@@ -64,7 +64,7 @@ function ReadingCanvas({ route, activeId, onSelect, entries }) {
       })
     })
     return () => cancelAnimationFrame(frame)
-  }, [route, activeId, entries, setCenter])
+  }, [route, activeId, entries, setCenter, viewportInitialized])
 
   return (
     <ReactFlow
