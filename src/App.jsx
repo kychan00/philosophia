@@ -97,6 +97,7 @@ const HegelPhenomenologyPrefaceStudy = lazy(() => import('./pages/HegelPhenomeno
 const HegelLogicBeingNothingBecomingStudy = lazy(() => import('./pages/HegelLogicBeingNothingBecomingStudy'))
 const HegelCroceTaskSystem = lazy(() => import('./pages/HegelCroceTaskSystem'))
 const MarxCritiqueHegelStudy = lazy(() => import('./pages/MarxCritiqueHegelStudy'))
+const MarxHegelThreeReadingsSystem = lazy(() => import('./pages/MarxHegelThreeReadingsSystem'))
 const MethodsResearch = lazy(() => import('./pages/MethodsResearch'))
 const MethodsClass17Aug = lazy(() => import('./pages/MethodsClass17Aug'))
 const MethodsClass19Aug = lazy(() => import('./pages/MethodsClass19Aug'))
@@ -413,6 +414,10 @@ function App() {
         <Route
           path="/estudios/ontologia-ii/marx-critica-dialectica-hegeliana"
           element={<MarxCritiqueHegelStudy />}
+        />
+        <Route
+          path="/tareas/ontologia-ii/marx-hegel-bloch-feuerbach/sistema"
+          element={<MarxHegelThreeReadingsSystem />}
         />
         <Route
           path="/tareas/ontologia-ii/kant-critica-razon-pura-prologos"
