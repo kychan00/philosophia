@@ -150,7 +150,6 @@ const quizzes = [
   { chapter: 'analisis', node: 'r6', question: '¿Qué prueba el aplazamiento imaginario de una amenaza?', options: ['Que siempre desaparece el miedo', 'Que cambiar la inminencia permite examinar su estructura', 'Que ya se entrevistó a una muestra'], correct: 1, explanation: 'Se trata de una variación para interrogar rasgos, no de resultados empíricos.' },
   { chapter: 'analisis', node: 'r8', question: '¿Se demostró definitivamente la esencia del miedo digital?', options: ['Sí', 'No; la síntesis sigue siendo provisional', 'Sólo por usar la palabra epojé'], correct: 1, explanation: 'La clase no presenta una investigación de campo acabada ni una conclusión universal demostrada.' },
 ]
-const byId = Object.fromEntries(entries.map(entry => [entry.id, entry]))
 const palette = SYSTEM_2D_THEME.nodeTopics
 const colors = { preparacion: palette.blue, intencion: palette.moss, analisis: palette.ochre }
 const nodeTypes = { study: StudyNode }
