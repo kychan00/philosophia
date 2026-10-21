@@ -223,6 +223,7 @@ export default function MarxCritiqueHegelStudy() {
             <p>Este dossier pertenece al Marx de los <em>Manuscritos de 1844</em> y su crítica de Hegel. El sistema 2D de mercancía y valor trabaja <em>El capital</em> y permanece intacto como pieza independiente.</p>
           </div>
           <div className="marx-hegel-related-actions">
+            <Link to="/tareas/ontologia-ii/marx-hegel-bloch-feuerbach/sistema"><strong>Marx · Bloch · Feuerbach · sistema 2D independiente</strong><span>74 folios · tres textos completos · guía y relaciones</span><b>↗</b></Link>
             <Link to="/estudios/ontologia-ii/hegel-ciencia-logica-ser-nada-devenir"><strong>Hegel · ser, nada y devenir</strong><span>umbral anterior de Ontología II</span><b>↗</b></Link>
             <Link to="/tareas/teoria-critica/marx-capital-fetichismo-parte-i"><strong>Marx · mercancía y valor · sistema 2D</strong><span>material relacionado · sin modificaciones</span><b>↗</b></Link>
           </div>
