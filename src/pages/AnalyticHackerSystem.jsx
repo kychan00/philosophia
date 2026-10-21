@@ -17,6 +17,7 @@ import {
   hackerEdges,
   hackerGuidedPhases,
   hackerGuidedRoute,
+  hackerCompleteGuidedRoute,
   hackerNodeById,
   hackerNodes,
   hackerOrder,
@@ -80,7 +81,8 @@ function buildConceptGuide(route) {
 
 
 function buildGuidedRouteFor(route) {
-  if (route === 'all') return hackerGuidedRoute
+  if (route === 'all') return hackerCompleteGuidedRoute
+  if (route === 'article') return hackerGuidedRoute
 
   const routeLabel =
     hackerRoutes.find((item) => item.id === route)?.label || route
@@ -98,7 +100,7 @@ function buildGuidedRouteFor(route) {
       nextQuestion:
         node?.data.nextQuestion ||
         (next
-          ? `¿Cómo conduce esto a “${next.data.title}”?`
+          ? `Siguiente tema de lectura (orden editorial): ${next.data.title}`
           : `Fin de la guía de ${routeLabel}.`),
     }
   })
@@ -116,7 +118,7 @@ function StudyCanvas() {
     try {
       const saved = Number(window.localStorage.getItem('philosophia-hacker-guided-step') || 0)
       return Number.isFinite(saved)
-        ? Math.min(Math.max(saved, 0), hackerGuidedRoute.length - 1)
+        ? Math.min(Math.max(saved, 0), hackerCompleteGuidedRoute.length - 1)
         : 0
     } catch {
       return 0
@@ -354,23 +356,7 @@ function StudyCanvas() {
       }
     })
 
-    if (guidedMode && guidedStep && guidedNext) {
-      base.push({
-        id: `guided-${guidedStep.id}-${guidedNext.id}`,
-        source: guidedStep.id,
-        target: guidedNext.id,
-        type: 'smoothstep',
-        selectable: false,
-        style: { stroke: '#617d55', strokeWidth: 2.8, opacity: 1 },
-        markerEnd: {
-          type: MarkerType.ArrowClosed,
-          width: 12,
-          height: 12,
-          color: '#617d55',
-        },
-      })
-    }
-
+    // El avance de la guía no crea una arista filosófica entre temas contiguos.
     return base
   }, [
     selectedId,
@@ -454,7 +440,7 @@ function StudyCanvas() {
 
     setGuidedMode(true)
     setGuidedIndex(safe)
-    setRoute(guidedScope === 'all' ? 'all' : guidedScope)
+    setRoute(guidedScope === 'all' || guidedScope === 'article' ? 'all' : guidedScope)
     setSelectedId(node.id)
 
     if (guidedScope === 'all') {
@@ -484,22 +470,22 @@ function StudyCanvas() {
     // Keep thematic coordinates while guided; deferred effect follows selection.
   }, [])
 
-  const startGlobalGuide = useCallback(() => {
+  const startGlobalGuide = useCallback((scope = 'all') => {
+    const sequence = scope === 'article' ? hackerGuidedRoute : hackerCompleteGuidedRoute
     const safe = Math.min(
-      Math.max(guidedScope === 'all' ? guidedIndex : 0, 0),
-      hackerGuidedRoute.length - 1,
+      Math.max(guidedScope === scope ? guidedIndex : 0, 0),
+      sequence.length - 1,
     )
-    const step = hackerGuidedRoute[safe]
-    const node = step ? hackerNodeById(step.id) : null
+    const node = hackerNodeById(sequence[safe]?.id)
     if (!node) return
 
-    setGuidedScope('all')
+    setGuidedScope(scope)
     setGuidedMode(true)
     setGuidedIndex(safe)
     setRoute('all')
     setSelectedId(node.id)
 
-    // Global guide uses its source-map coordinates in the deferred focus effect.
+    // El mapa conserva coordenadas globales hasta que React Flow confirma el render.
   }, [guidedIndex, guidedScope])
 
   const reset = useCallback(() => {
@@ -526,7 +512,7 @@ function StudyCanvas() {
       <nav className="hacker-study-nav">
         <Link to="/semestre/5/filosofia-analitica">← Filosofía Analítica</Link>
         <Link to="/" className="hacker-study-brand">Φ · Philosophia</Link>
-        <span>Segundo reporte · 28 sep 2026</span>
+        <span>Segundo reporte · pp. 95–132 · cierre 14 oct 2026</span>
       </nav>
 
       <header className="hacker-study-hero">
@@ -561,12 +547,15 @@ function StudyCanvas() {
       <section className="hacker-guided-launch">
         <div>
           <span>ITER ANALYTICUM</span>
-          <strong>Ruta guiada · entender a Hacker desde cero</strong>
-          <p>El verde marca el nodo actual, sus apoyos y el siguiente paso.</p>
+          <strong>Dos recorridos: artículo y dossier completo</strong>
+          <p>Artículo: {hackerGuidedRoute.length} pasos. Integral: {hackerCompleteGuidedRoute.length} pasos, incluidas las ampliaciones docentes.</p>
         </div>
 
         <div className="hacker-guided-launch-actions">
           <button type="button" onClick={resetGuided}>Reiniciar ruta</button>
+          <button type="button" onClick={() => startGlobalGuide('article')}>
+            Guía del artículo · {hackerGuidedRoute.length}
+          </button>
           <button
             type="button"
             className="is-primary"
@@ -576,15 +565,15 @@ function StudyCanvas() {
                 setSelectedId(null)
                 setTimeout(() => fitView({ padding: 0.1, duration: 500 }), 0)
               } else {
-                startGlobalGuide()
+                startGlobalGuide('all')
               }
             }}
           >
             {guidedMode
               ? 'Salir de ruta guiada'
               : guidedScope === 'all'
-                ? `Continuar · paso ${guidedIndex + 1}`
-                : 'Iniciar ruta general'}
+                ? `Continuar guía integral · paso ${guidedIndex + 1}`
+                : `Guía integral · ${hackerCompleteGuidedRoute.length}`}
           </button>
         </div>
       </section>
@@ -599,7 +588,7 @@ function StudyCanvas() {
           </div>
 
           <div className="hacker-guided-phases">
-            {guidedScope === 'all' ? (
+            {guidedScope === 'all' || guidedScope === 'article' ? (
               hackerGuidedPhases.map((phase) => (
                 <span
                   key={phase}
@@ -809,7 +798,7 @@ function StudyCanvas() {
                   <span>EXPLICACIÓN DOCENTE · {item.date}</span>
                   <strong>{item.label}</strong>
                   <p>{item.note}</p>
-                  <Link to={item.route}>Consultar clase del 14 de octubre ↗</Link>
+                  <Link to={item.route}>{item.linkLabel || 'Abrir clase documentada ↗'}</Link>
                 </section>
               ))}
 
@@ -976,11 +965,20 @@ function StudyCanvas() {
       <section className="hacker-study-next">
         <span>Arquitectura de la lectura</span>
         <div>
-          <article><b>01</b><strong>Definición</strong><p>Dummett, Frege y qué cuenta como análisis.</p></article>
-          <article><b>02</b><strong>Doble origen</strong><p>Moore conceptual · Russell lógico/reductivo.</p></article>
-          <article><b>03</b><strong>Giro</strong><p>Tractatus y seis sentidos del giro lingüístico.</p></article>
-          <article><b>04</b><strong>Entreguerras</strong><p>Cambridge y los cinco elementos de Viena.</p></article>
-          <article><b>05</b><strong>Colapso</strong><p>Ocho dificultades y paso a análisis conectivo/terapéutico.</p></article>
+          <article><b>01</b><strong>La filosofía analítica · pp. 95–103</strong><p>Tesis, Dummett y Frege. Apoyo de la clase del 14 de septiembre.</p></article>
+          <article><b>02</b><strong>La primera etapa · pp. 103–117</strong><p>Moore y Russell. Clases del 21, 23 y 28 de septiembre.</p></article>
+          <article><b>03</b><strong>El giro lingüístico · pp. 117–125</strong><p>Tractatus y seis aspectos del giro. Clases del 14 y 30 de septiembre.</p></article>
+          <article><b>04</b><strong>Cambridge y Viena · pp. 125–132</strong><p>Programas y ocho dificultades. Clases del 7 y 14 de octubre.</p></article>
+          <article><b>05</b><strong>Conclusión crítica del reporte</strong><p>Evaluar la unidad histórica de la tradición. La posguerra es continuidad indicada, no capítulo desarrollado.</p></article>
+        </div>
+      </section>
+
+      <section className="hacker-study-next" aria-label="Criterio académico para el reporte">
+        <span>Cómo elaborar el reporte sin mezclar fuentes</span>
+        <div>
+          <article><b>01</b><strong>Texto de Hacker</strong><p>Reconstruya las tesis de pp. 95–132, respetando los cuatro apartados bibliográficos.</p></article>
+          <article><b>02</b><strong>Explicación docente</strong><p>Incorpore ejemplos de las siete clases con fecha explícita, sin atribuirlos al autor.</p></article>
+          <article><b>03</b><strong>Evaluación propia</strong><p>Distinga su crítica del contenido del autor; el orden de nodos no implica deducción.</p></article>
         </div>
       </section>
 
@@ -993,11 +991,11 @@ function StudyCanvas() {
           </article>
           <article>
             <b>54</b><strong>Ampliaciones docentes</strong>
-            <p>Nodos vinculados a las sesiones del 14, 21, 23 y 30 de septiembre y del 14 de octubre.</p>
+            <p>Nodos docentes de esas cinco sesiones; otras dos clases se enlazan al artículo sin duplicar contenidos.</p>
           </article>
           <article>
             <b>07</b><strong>Sesiones cotejadas</strong>
-            <p>El dossier integra además las clases del 28 de septiembre y del 7 de octubre, sin presentarlas como nodos nuevos.</p>
+            <p>Rutas del 14, 21, 23, 28 y 30 de septiembre, y del 7 y 14 de octubre; las dos sesiones añadidas reutilizan nodos existentes.</p>
           </article>
         </div>
       </section>
