@@ -149,7 +149,7 @@ test('Source-image review covers precisely 95–114 without rewriting later part
     }
     assert.notEqual(node.data.classOnly, true)
   }
-  assert.equal(byId.get('H27')?.data.sourceCloseReading?.page, 'p. 114 (continuación pendiente)')
+  assert.equal(byId.get('H27')?.data.sourceCloseReading?.page, 'pp. 114–115')
   assert.equal(byId.get('H27')?.data.sourceCloseReading?.boundary, null)
   for (const node of hackerNodes.filter((node) => !expected.includes(node.id) && !node.data.classOnly)) {
     assert.equal(node.data.sourceCloseReading?.kind, 'Paráfrasis cotejada del texto de Hacker', node.id)
