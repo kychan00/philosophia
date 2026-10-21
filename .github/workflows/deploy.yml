@@ -58,7 +58,7 @@ jobs:
         run: npx eslint src/pages/MethodsClass19Oct.jsx tests/methods-class-19oct.test.mjs
 
       - name: Lint Methods 21 October system
-        run: npx eslint src/pages/MethodsClass21Oct.jsx tests/methods-class-21oct.test.mjs
+        run: npx eslint src/pages/MethodsClass21Oct.jsx tests/methods-class-21oct.test.mjs tests/methods-class21-browser-smoke.mjs
 
       - name: Lint Analytic Philosophy 19 October class
         run: npx eslint src/pages/AnalyticClass19Oct.jsx src/data/glockClass19Oct.js tests/analytic-class-19oct.test.mjs tests/analytic-class19-browser-smoke.mjs
@@ -73,6 +73,9 @@ jobs:
         env:
           VITE_ONESIGNAL_APP_ID: ${{ vars.ONESIGNAL_APP_ID }}
         run: npm run build
+
+      - name: Validate Methods 21 October in Chromium (desktop, iPad and phone)
+        run: node tests/methods-class21-browser-smoke.mjs
 
       - name: Validate Glock in headless browser (desktop, phone and iPad)
         run: node tests/glock-browser-smoke.mjs
