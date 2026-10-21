@@ -1,5 +1,6 @@
 export const hackerRoutes = [
   { id: 'all', label: 'Todo' },
+  { id: 'source95to114', label: 'Texto cotejado · pp. 95–114' },
   { id: 'class14', label: 'Clase 14 Sep' },
   { id: 'class21', label: 'Clase 21 Sep' },
   { id: 'class23', label: 'Clase 23 Sep' },
@@ -17,6 +18,7 @@ export const hackerRoutes = [
 ]
 
 export const hackerRouteColors = {
+  source95to114: '#3b6f7a',
   class14: '#9b4b38',
   class21: '#466f68',
   class23: '#49687d',
@@ -2175,6 +2177,247 @@ Object.entries(hackerArticleSource).forEach(([id, source]) => {
   node.data.articleDetail = source.articleDetail
   node.data.articlePassages = source.articlePassages
   node.data.hasOriginalSource = true
+})
+
+// Primera tanda verificada contra las imágenes de la edición, pp. 95–114.
+// Capa separada: paráfrasis de la obra. No añade interpretaciones docentes al autor.
+// El texto recibido se interrumpe en p. 114; H28 y siguientes NO quedan cotejados aquí.
+export const hackerSource95to114 = {
+  "H00": {
+    "page": "pp. 101–103",
+    "focus": "Unidad histórica y no definición esencial",
+    "reading": "La cuestión rectora no consiste en fijar una propiedad idéntica compartida por todos los filósofos analíticos. Hacker reconstruye un movimiento que cambia profundamente: el análisis conceptual de Moore, el análisis lógico de Russell y los programas que reciben al Tractatus no representan una doctrina uniforme.",
+    "argument": "Distinguir continuidad histórica de identidad doctrinal: los hilos de las primeras etapas se entrelazan con los posteriores sin que un único hilo atraviese todas las fases. Hacker rechaza también reducir esa unidad a una vaga semejanza de familia, pues quiere preservar la especificidad del movimiento histórico.",
+    "distinction": "No confundir el sentido genérico de «analizar» con el nombre histórico de una tradición; tampoco suponer que toda etapa se deduce de la anterior.",
+    "report": "En la introducción del reporte, formular como problema la demarcación histórica y como tesis la pluralidad de métodos surgidos de las dos raíces de Cambridge."
+  },
+  "H01": {
+    "page": "p. 95",
+    "focus": "El siglo del lenguaje y de la lógica",
+    "reading": "Hacker caracteriza el siglo XX mediante dos ejes relacionados: la investigación filosófica sobre el lenguaje y el desarrollo de una lógica formal de alcance sin precedentes. El trabajo de Frege, Russell y Whitehead importa por el cálculo lógico y por las preguntas que abre sobre las relaciones entre lógica, lenguaje y pensamiento.",
+    "argument": "La primera página no afirma que todos los filósofos analíticos sean lingüistas; sitúa una transformación histórica en la que la lógica ofrece instrumentos de examen antes del giro lingüístico propiamente dicho.",
+    "distinction": "Época marcada por el lenguaje no equivale a escuela fundada exclusivamente en el análisis del lenguaje.",
+    "report": "Utilizar como contexto de apertura, no como definición universal del movimiento."
+  },
+  "H02": {
+    "page": "pp. 95–96 y 102–103",
+    "focus": "Wittgenstein y la sucesión histórica",
+    "reading": "El texto atribuye a Wittgenstein un papel decisivo en la transformación del primer análisis de Cambridge, en la formación del análisis de Cambridge de entreguerras, en la inspiración del positivismo lógico de Viena y, posteriormente, en los análisis conectivos y terapéuticos británicos.",
+    "argument": "La genealogía es plural: Cambridge, Viena y Oxford responden de formas distintas a problemas y obras compartidos. Hacker subraya la superposición temporal y la retroalimentación entre etapas; la reconstrucción no es una simple fila de escuelas que sustituyen completamente a las anteriores.",
+    "distinction": "Importancia transformadora no es identidad con el origen; una influencia compartida no iguala las doctrinas resultantes.",
+    "report": "Distinguir en el reporte fundador, mediador y receptor histórico; Oxford se menciona, pero no se desarrollará en este ensayo."
+  },
+  "H03": {
+    "page": "p. 96",
+    "focus": "Contra una extensión indiscriminada del término",
+    "reading": "Hacker muestra que una definición excesivamente amplia haría analítica casi toda filosofía rigurosa: si Austin cuenta por su examen de excusas, también habría razones para incluir el análisis aristotélico de la acción voluntaria; de modo análogo compara Ryle con Aquino y Strawson con Kant.",
+    "argument": "Estos paralelos actúan como una reducción crítica de la utilidad clasificatoria del término: semejanza de problemas o procedimientos no basta para pertenecer al movimiento histórico del siglo XX.",
+    "distinction": "Análisis como actividad transversal ≠ filosofía analítica como tradición históricamente determinada.",
+    "report": "Presentar estos tres pares como ejemplos argumentativos de Hacker, no como una tesis de que Aristóteles o Kant sean miembros históricos del movimiento."
+  },
+  "H04": {
+    "page": "pp. 96–101",
+    "focus": "La definición lingüística de Dummett queda demasiado estrecha",
+    "reading": "Dummett propone caracterizar la filosofía analítica como filosofía del pensamiento cuyo examen necesita pasar por la explicación filosófica del lenguaje. Hacker objeta la ambigüedad del primer concepto y, sobre todo, que la fórmula no hace justicia a Frege, Moore, Russell ni al Wittgenstein tardío.",
+    "argument": "Hacker pone a prueba un criterio general contrastándolo con figuras indiscutibles de la tradición. Si el criterio las excluye, no sirve para describir históricamente todo el movimiento.",
+    "distinction": "Una definición propuesta por Dummett no equivale a la tesis que Hacker acepta; además, que una obra trate sobre el lenguaje no implica que todos los problemas filosóficos se subordinen a él.",
+    "report": "Plantear la definición de Dummett y luego reconstruir separadamente las objeciones de Hacker, sin fundir sus voces."
+  },
+  "H05": {
+    "page": "p. 97",
+    "focus": "Dos acepciones no equivalentes de pensamiento",
+    "reading": "Si «pensamiento» significa el Gedanke objetivo de Frege, la investigación queda centrada en el contenido proposicional, un campo importante pero parcial. Si significa el acto de pensar, el proyecto se acerca a la psicología filosófica y tampoco delimita el conjunto de la filosofía analítica.",
+    "argument": "La alternativa conceptual permite a Hacker mostrar que la expresión «filosofía del pensamiento» no es suficientemente precisa para fundamentar la definición de toda una tradición.",
+    "distinction": "Contenido objetivo de una proposición ≠ operación psicológica de pensar; lógica de proposiciones ≠ totalidad de la filosofía.",
+    "report": "Enunciar ambas interpretaciones explícitamente y explicar por qué ninguna alcanza el criterio global buscado."
+  },
+  "H06": {
+    "page": "pp. 97–98",
+    "focus": "Frege: investigar el pensamiento sin someterlo al lenguaje ordinario",
+    "reading": "Hacker cuestiona que Frege defendiera una doctrina general según la cual la filosofía debe explicar primero el lenguaje natural. Refiere su convicción de que la lógica estudia leyes del pensamiento y presenta su crítica a la idea de aprender lógica desde las irregularidades del habla cotidiana.",
+    "argument": "La crítica a Dummett no niega la relevancia de la notación lógica fregeana; niega que la reconstrucción de sus intereses pueda equipararse a un programa universal de filosofía lingüística. La atención a cómo las palabras deforman el pensamiento favorece incluso la dirección inversa.",
+    "distinction": "Pensamiento fregeano no es idéntico a oración lingüística; el uso de simbolismo formal no equivale a primacía filosófica del lenguaje natural.",
+    "report": "Explicar el contraste metodológico entre contenido objetivo y medio lingüístico, sin atribuir a Frege desprecio por toda investigación semántica."
+  },
+  "H07": {
+    "page": "pp. 98–99",
+    "focus": "El primer Wittgenstein cambia la pregunta: límites de la representación",
+    "reading": "Para el Wittgenstein del Tractatus, esclarecer la esencia de la proposición es una vía para investigar qué puede representarse y, así, qué puede pensarse. Hacker entiende este programa como un desplazamiento frente a los intereses de Frege y Russell, que no convierten la esencia general del simbolismo en el mismo problema rector.",
+    "argument": "La investigación de cualquier lenguaje posible promete revelar condiciones de posibilidad de la representación. El movimiento tiene una dimensión de inspiración kantiana: examinar límites antes que inventariar directamente objetos.",
+    "distinction": "El objetivo del Tractatus no se agota en describir usos cotidianos de palabras ni implica identificar pensamiento con un contenido abstracto en un «tercer reino».",
+    "report": "Separar claramente la fundación con Moore/Russell del giro filosófico posterior protagonizado por Wittgenstein."
+  },
+  "H08": {
+    "page": "pp. 98–99",
+    "focus": "Gedanke fregeano frente a proposición proyectiva",
+    "reading": "Hacker contrapone la concepción fregeana del pensamiento como entidad abstracta objetiva con la proposición entendida por el primer Wittgenstein como oración significativa relacionada proyectivamente con la realidad. El análisis del simbolismo adquiere así un papel trascendental que no comparte Frege.",
+    "argument": "La comparación explica por qué una genealogía que arranque de Frege y desemboque sin ruptura en la primacía del lenguaje resulta históricamente engañosa.",
+    "distinction": "No confundir el tercer reino de Frege con la teoría pictórica del Tractatus, ni adjudicar sin mediación el mismo concepto de proposición a ambos.",
+    "report": "Construir un contraste breve: objeto teórico, relación pensamiento-lenguaje y función filosófica del símbolo."
+  },
+  "H09": {
+    "page": "pp. 99–101",
+    "focus": "El Wittgenstein tardío invalida la jerarquía del lenguaje",
+    "reading": "El Wittgenstein posterior, según Hacker, abandona la creencia temprana en una forma proposicional general y en una metafísica inefable de la representación. La reflexión sobre «pensar» pasa a ser una investigación delimitada entre muchas otras, y ninguna parte de la filosofía ocupa una posición privilegiada que determine todas las demás.",
+    "argument": "Si ni Moore, Russell ni el Wittgenstein tardío aceptan la jerarquía que exige Dummett, la definición falla precisamente frente a autores históricos paradigmáticos.",
+    "distinction": "La crítica de una teoría universal del simbolismo no significa renunciar a examinar casos particulares de uso lingüístico.",
+    "report": "Usar esta transformación interna como contraejemplo a cualquier esencia inmutable de la filosofía analítica."
+  },
+  "H10": {
+    "page": "p. 101",
+    "focus": "Análisis: descomposición y límite de la analogía científica",
+    "reading": "Hacker parte del sentido literal de analizar, esto es, descomponer un complejo en componentes; alude como analogías al análisis químico y microfísico. Con esa referencia vuelve a los empiristas ingleses, que descomponían ideas complejas para esclarecer conceptos como causalidad, sustancia y yo.",
+    "argument": "La analogía prepara la pregunta sobre qué cambió a comienzos del siglo XX: el método de descomposición por sí solo no es nuevo, ni basta para demarcar a la tradición contemporánea.",
+    "distinction": "Procedimiento analítico general ≠ fundamento historiográfico suficiente; analogía física ≠ identidad entre objetos físicos e ideas.",
+    "report": "Explicar por qué la historia de la filosofía analítica comienza más tarde que la historia del análisis filosófico."
+  },
+  "H11": {
+    "page": "pp. 101–102",
+    "focus": "De las ideas psicológicas a lo objetivo",
+    "reading": "El análisis de Locke y otros empiristas se dirigía a componentes de ideas e impresiones mentales. En cambio, la nueva escuela nace con una orientación no psicologista: para Russell, la lógica hace posible analizar fenómenos objetivos; para Moore, el análisis conceptual concierne a conceptos independientes del acto psicológico de pensarlos.",
+    "argument": "El rasgo antipsicologista sirve para distinguir un origen histórico concreto sin negar que existieran numerosos precursores en la filosofía antigua y moderna.",
+    "distinction": "Antipsicologismo no significa negar que haya mente: significa no reducir la validez de conceptos, proposiciones y relaciones a vivencias subjetivas.",
+    "report": "En el reporte, señalar la doble raíz objetiva y la diferencia respecto del empirismo clásico."
+  },
+  "H12": {
+    "page": "pp. 101–102",
+    "focus": "La tradición como movimiento que cambia internamente",
+    "reading": "Hacker propone una explicación dinámica: varias líneas conceptuales conectan fases contiguas, pero no todas permanecen idénticas de principio a fin. Insiste en que un concepto histórico específico tiene más utilidad que una categoría indiscriminada aplicada a toda filosofía argumentativa.",
+    "argument": "El principio metodológico resuelve el problema inicial de la clasificación: permite explicar diferencias, influencias y discontinuidades sin borrar el carácter histórico del movimiento.",
+    "distinction": "No traducir «dinámico» como una evolución necesaria hacia el positivismo o como sustitución total de una fase por otra.",
+    "report": "Utilizar esta tesis para cohesionar la argumentación y valorar la pluralidad posterior."
+  },
+  "H13": {
+    "page": "pp. 102–103",
+    "focus": "Dos raíces de Cambridge y derivaciones no unilineales",
+    "reading": "Hacker identifica una raíz mooreana orientada al análisis de conceptos objetivos y una russelliana apoyada en la nueva lógica como instrumento para analizar fenómenos objetivos. De ambas emergen desarrollos que interactúan con el Tractatus, el análisis de Cambridge y la escuela vienesa.",
+    "argument": "El texto describe influencia mutua, coincidencias temporales y escuelas con orientaciones distintas. La genealogía no autoriza una simple flecha de identidad doctrinal Moore → Russell → Wittgenstein → Viena.",
+    "distinction": "Russell lógico-analítico ≠ Moore conceptual, aunque ambos participan en la ruptura antipsicologista.",
+    "report": "Organizar el cuerpo del reporte según las dos raíces y describir los contactos posteriores como transformaciones y recepciones."
+  },
+  "H14": {
+    "page": "pp. 103–104",
+    "focus": "El adversario inmediato no era el empirismo clásico",
+    "reading": "Hacker sitúa los inicios de Moore y Russell frente al predominio universitario del idealismo absoluto británico de fines del siglo XIX, surgido de la recepción del pensamiento hegeliano. La rebelión no fue un simple retorno al empirismo de Locke o Mill: el primer Moore sostuvo un realismo platónico muy alejado de ese empirismo.",
+    "argument": "La comparación con Oxford y Cook Wilson evita reducir el episodio al solo Cambridge. La ruptura tiene un contexto institucional e intelectual preciso.",
+    "distinction": "Realismo platónico temprano ≠ empirismo ordinario; reacción al idealismo no equivale a adoptar una única escuela realista.",
+    "report": "Situar el ambiente británico y el carácter filosófico del adversario antes de desarrollar cada autor."
+  },
+  "H15": {
+    "page": "pp. 104–105",
+    "focus": "El realismo pluralista de Moore y la exterioridad del conocer",
+    "reading": "Moore rechaza el monismo holista de Bradley y trata conceptos, relaciones y proposiciones como objetivos e independientes de la mente. En el momento temprano que examina Hacker, las proposiciones verdaderas se piensan como parte de la realidad y la verdad como una propiedad simple, no analizable.",
+    "argument": "La crítica al idealismo reaparece en su Refutación del idealismo de 1903: conocer algo no es lo mismo que constituirlo mentalmente. La relación cognoscitiva es externa al objeto, y este puede existir con independencia de que sea conocido.",
+    "distinction": "No atribuir a todas las etapas de Moore el mismo platonismo inicial; no confundir esta posición temprana con una teoría contemporánea general de correspondencia.",
+    "report": "Relacionar ontología pluralista, independencia del objeto y posibilidad de un análisis de conceptos objetivos."
+  },
+  "H16": {
+    "page": "pp. 105–107",
+    "focus": "Tres modalidades documentadas del análisis mooreano",
+    "reading": "Hacker distingue tres orientaciones que Moore utiliza: descomponer un concepto complejo en constituyentes; inspeccionar aquello que se presenta a la mente al comprender un concepto, incluso si resulta simple e inanalizable; y precisar cómo un concepto se relaciona y distingue de otros. Estas orientaciones explican la imprecisión metodológica inicial del propio Moore.",
+    "argument": "La diferencia entre entender una expresión y conocer el análisis del concepto expresado es central: un hablante puede conocer un término y no saber enumerar sus condiciones, componentes ni relaciones. El objeto inicial de análisis no es el idioma sino lo objetivo representado por las expresiones.",
+    "distinction": "No colapsar las tres modalidades en una única técnica de descomposición, ni convertir «lo presentado a la mente» en un mero estado psicológico subjetivo.",
+    "report": "Presentar las tres modalidades numeradas, con la pregunta de qué produce un análisis en cada caso."
+  },
+  "H17": {
+    "page": "pp. 106–107",
+    "focus": "Competencia lingüística, definición verbal y análisis no son lo mismo",
+    "reading": "Moore distingue saber lo que significa una expresión, poder usarla o definirla verbalmente y ser capaz de ofrecer un análisis del concepto expresado. Se puede poseer la primera capacidad sin disponer de la tercera.",
+    "argument": "Esta distinción impide identificar filosofía con lexicografía. También explica por qué Moore cree posible investigar conceptos sin reducirlos a palabras aun cuando los análisis terminen formulándose lingüísticamente.",
+    "distinction": "Competencia ordinaria ≠ conocimiento explícito de la estructura conceptual; «concepto simple» no significa simplemente «palabra no definida».",
+    "report": "Incluir un ejemplo conceptual propio solamente como ilustración identificada, no como cita del autor."
+  },
+  "H18": {
+    "page": "pp. 107–108",
+    "focus": "De las equivalencias hacia el análisis conectivo",
+    "reading": "Hacker observa que la práctica real de Moore acaba utilizando contrastes de expresiones, equivalencias parafrásticas, implicaciones, exclusiones y presuposiciones, aun cuando su teoría inicial prescindía del uso lingüístico. Más adelante, el término análisis conceptual se conserva, pero se abandonan sus supuestos platónicos y la exigencia de descomponer siempre en elementos simples.",
+    "argument": "El análisis de posguerra se menciona para mostrar una transformación histórica desde Moore hacia una práctica conectiva, no para sostener que Moore tuviera ya una teoría acabada de lenguaje ordinario.",
+    "distinction": "Antecedente histórico ≠ identidad doctrinal; continuidad terminológica del «análisis conceptual» ≠ permanencia de todas sus tesis originales.",
+    "report": "Mostrar la tensión entre teoría inicial de Moore y procedimiento efectivo, señalando que Oxford no es aquí objeto del estudio pormenorizado."
+  },
+  "H19": {
+    "page": "pp. 108–109",
+    "focus": "La tarea metafísica de describir el universo",
+    "reading": "Hacker recuerda una conferencia de Moore de 1910 en la que la filosofía debe ofrecer una descripción general del universo y de los tipos fundamentales de cosas y relaciones. Moore sostiene, desde el sentido común, la existencia de cosas materiales, hechos mentales y vínculos de dependencia espacial o psicológica, sin considerar esas creencias incuestionables.",
+    "argument": "La tarea filosófica incluye también preguntar si las creencias del sentido común son verdaderas y cómo pueden justificarse frente a teorías rivales, especialmente las idealistas. La amplitud de esta empresa refuta que sus inicios estuvieran limitados a hablar sobre palabras.",
+    "distinction": "Descripción metafísica general ≠ física particular; apelación al sentido común ≠ ausencia de investigación crítica.",
+    "report": "Usar como prueba textual de que un fundador analítico concebía un proyecto ontológico y no sólo lingüístico."
+  },
+  "H20": {
+    "page": "pp. 109–110",
+    "focus": "Contra Bradley: relaciones externas y pluralidad real",
+    "reading": "Russell se opone a la tesis idealista de que las relaciones son internas y pueden reducirse a propiedades de los términos relacionados. El ejemplo de una cosa más larga que otra requiere mantener una relación asimétrica; eliminarla sin residuo hace imposible explicar la propia comparación.",
+    "argument": "La irreductibilidad de relaciones matemáticas como «mayor que» o «sucesor de» impulsa a Russell a rechazar el monismo de lo absoluto y a admitir una pluralidad de entidades relacionadas externamente.",
+    "distinction": "No identificar términos de una relación con la relación misma; tampoco atribuir todo el cambio únicamente al ejemplo escolar, que ilustra un argumento ontológico más amplio.",
+    "report": "Explicar por qué la matemática vuelve filosóficamente decisiva la crítica de la doctrina de las relaciones internas."
+  },
+  "H21": {
+    "page": "pp. 110–111",
+    "focus": "Matemáticas: genealogía adicional del método russelliano",
+    "reading": "Además de la influencia antiidealista de Moore, Russell recibe el impacto del trabajo de Weierstrass, Dedekind y Cantor sobre fundamentos matemáticos, definición rigurosa, continuidad y límites. Estas técnicas le ofrecen un método para prescindir de postulados metafísicos innecesarios.",
+    "argument": "La reconstrucción matemática permite a Russell objetar explicaciones kantianas y hegelianas de aritmética y geometría y cuestionar la supuesta prioridad de lo sintético a priori. Hacker señala que la aplicación filosófica general del método en esta fase no deriva exclusivamente de Frege.",
+    "distinction": "Influencia matemática independiente ≠ negación de la importancia posterior de Frege; racionalización de conceptos matemáticos ≠ resolución de toda metafísica.",
+    "report": "Desarrollar las dos motivaciones de Russell por separado: ruptura con Bradley y transformación de los fundamentos matemáticos."
+  },
+  "H22": {
+    "page": "pp. 111–112",
+    "focus": "Complejidad objetiva y análisis de simples",
+    "reading": "En el Russell temprano, especialmente en Los principios de la matemática (1903), las complejidades susceptibles de análisis son objetivas: aunque se distingan conceptualmente, no dependen de la mente del analista. El análisis busca términos simples o indefinibles y presupone que la investigación puede reconocerlos.",
+    "argument": "La obra todavía conserva un realismo platónico fuerte y una ambición ontológica. En esta fase la claridad analítica consiste en identificar partes y relaciones de un complejo, no en sostener que cualquier complejidad sea un hecho psicológico.",
+    "distinction": "Complejidad conceptual no significa subjetividad del objeto; llegar a elementos indefinibles no equivale a haberlos inventado por convención.",
+    "report": "Contrastar con Moore sin borrar su proximidad inicial: ambos reaccionan contra el idealismo, pero el instrumental lógico matemático adquiere mayor relevancia en Russell."
+  },
+  "H23": {
+    "page": "pp. 112–113",
+    "focus": "El logicismo y la tentación de una ontología ilimitada",
+    "reading": "Hacker vincula a Russell con el programa logicista, alentado también por Peano, que intenta reducir la aritmética a nociones lógicas. La nueva lógica abre posibilidades reconstructivas extraordinarias, pero el Russell temprano adopta simultáneamente una concepción referencial según la cual toda expresión significativa parece requerir algo que la signifique.",
+    "argument": "El resultado puede ser una ontología extraordinariamente poblada: relaciones, clases, universales, correlatos de descripciones vacías y objetos lógicos. La fuerza del nuevo método prepara también una rectificación de ese compromiso.",
+    "distinction": "Logicismo (fundamentación de la matemática) ≠ teoría referencial (tesis sobre significado y referente), aunque ambos aparecen en la trayectoria del autor.",
+    "report": "Presentar por separado logro metodológico y dificultad ontológica; no hacer del logicismo una teoría exclusivamente lingüística."
+  },
+  "H24": {
+    "page": "p. 113",
+    "focus": "La referencia como fuente de entidades innecesarias",
+    "reading": "El Russell anterior a 1905 acepta que una expresión significativa tiene algún correlato, aunque no sea un objeto actual. Hacker enumera ejemplos como la montaña de oro, dioses homéricos y quimeras, además de universales, clases y objetos lógicos.",
+    "argument": "El problema es el salto desde significatividad lingüística hasta admisión ontológica. Russell reformula después su perspectiva bajo una exigencia de realismo más austera; la teoría de las descripciones será la herramienta de ese giro.",
+    "distinction": "Expresión gramaticalmente denotativa ≠ garantía de existencia de un referente; la posibilidad de comprender un enunciado no demuestra la existencia de su sujeto aparente.",
+    "report": "Formular la pregunta: ¿cómo puede una oración tener sentido sin obligarnos a poblar la realidad con lo nombrado por su apariencia gramatical?"
+  },
+  "H25": {
+    "page": "pp. 113–114",
+    "focus": "1905: la descripción como símbolo incompleto",
+    "reading": "Según el tramo disponible, la teoría de las descripciones muestra que ciertas frases aparentemente referenciales no significan por sí solas como nombres; su función se aclara dentro de una oración completa. Las expresiones denotativas pueden participar en proposiciones significativas sin que exista una entidad correspondiente a la descripción tomada aisladamente.",
+    "argument": "Hacker señala el cambio metodológico: una oración se transforma lógicamente para eliminar el símbolo incompleto y explicitar las condiciones de la proposición. El pasaje disponible llega a desarrollar esta primera consecuencia y comienza una segunda.",
+    "distinction": "Símbolo incompleto ≠ expresión carente de función semántica en cualquier contexto; no interpretar la formulación como negación del sentido de la oración entera.",
+    "report": "Escribir el ejemplo del rey de Francia como ilustración que Hacker utiliza y, si se desarrolla formalmente existencia/unicidad/predicación, rotular ese desarrollo como reconstrucción de estudio o explicación de clase."
+  },
+  "H26": {
+    "page": "pp. 113–114",
+    "focus": "La gramática puede ocultar la forma lógica",
+    "reading": "Hacker utiliza «el rey de Francia es calvo» para mostrar que la estructura visible sujeto-predicado de una frase no determina sin más la verdadera forma lógica de la proposición. El análisis revela cuantificadores, identidad y constantes lógicas que la gramática corriente no exhibe explícitamente.",
+    "argument": "La consecuencia filosófica es una separación entre el medio lingüístico ordinario y la forma lógica; la oración no debe tomarse como espejo transparente de un objeto o de una ontología. Este desplazamiento transforma el modo de practicar análisis.",
+    "distinction": "Forma gramatical ≠ forma lógica; no se sigue de la existencia de una frase descriptiva la existencia de una entidad nombrada por ella.",
+    "report": "Precisar las condiciones analíticas al presentar la teoría y distinguir las inferencias del texto de las fórmulas añadidas por PHILOSOPHIA."
+  },
+  "H27": {
+    "page": "p. 114 (continuación pendiente)",
+    "focus": "El análisis se vuelve procedimiento transformativo",
+    "reading": "La página 114 indica que el análisis de las proposiciones procede mediante la transformación de una oración que contiene una descripción en otra formulación donde ese símbolo incompleto ha sido eliminado. Inmediatamente comienza a extraer una segunda consecuencia: el análisis permite descubrir una forma lógica no reconocible en la superficie gramatical.",
+    "argument": "El material recibido termina en medio de esta explicación. Se puede afirmar el giro hacia la paráfrasis formal, pero aún no se debe reconstruir el desarrollo posterior de la teoría a partir de la página 115.",
+    "distinction": "La explicación del argumento queda abierta; cualquier referencia a teoría de tipos, construcciones lógicas ulteriores u otras consecuencias debe quedar expresamente fuera del tramo cotejado.",
+    "report": "Cerrar el avance parcial del reporte en la transformación lógica de oraciones, indicando que la lectura continúa en la página siguiente."
+  }
+}
+
+Object.entries(hackerSource95to114).forEach(([id, note]) => {
+  const node = hackerNodes.find((candidate) => candidate.id === id)
+  if (!node || node.data.classOnly) throw new Error(`Nodo bibliográfico inexistente: ${id}`)
+  node.data.sourceCloseReading = {
+    ...note,
+    kind: 'Paráfrasis cotejada del texto de Hacker',
+    boundary: id === 'H27' ? 'La página 114 termina con el argumento en curso. Continuación pendiente de cotejo.' : null,
+  }
+  if (!node.data.branch.includes('source95to114')) node.data.branch.push('source95to114')
 })
 
 // Las clases del 28 de septiembre y 7 de octubre se enlazan al texto existente.
