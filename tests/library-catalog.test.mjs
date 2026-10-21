@@ -17,18 +17,19 @@ test('all works are categorized, no ownership inferred',()=>{
 })
 test('recommendations with verified origins and no invented possession',()=>{
  const recommended=books.filter(x=>x.estado==='recomendada')
- assert.equal(recommended.length,8)
+ assert.equal(recommended.length,9)
  assert.deepEqual(new Set(recommended.map(x=>x.id)),new Set([
   'Adorno - Minima Moralia',
   'Foucault - Vigilar y castigar',
   'Dilthey - Hegel y el idealismo',
+  "Rendón - La lucha por el reconocimiento en el fragmento de 1803-1804 de Hegel",
   'Cicerón - Las paradojas de los estoicos',
   'Illouz - Intimidades congeladas',
   'Illouz - El consumo de la utopía romántica',
   'Lukács - Marx, ontología del ser social',
   'Nava - Tecnociencia, entorno y sujeto tecnocientífico',
  ]))
- assert.ok(recommended.every(x=>!x.url || x.url.startsWith('https://archive.org/details/') || x.url.startsWith('https://www.revistadefilosofia.org/index.php/ERF/article/view/')))
+ assert.ok(recommended.every(x=>!x.url || x.url.startsWith('https://archive.org/details/') || x.url.startsWith('https://www.revistadefilosofia.org/index.php/ERF/article/view/') || x.url.startsWith('https://revistas.pucp.edu.pe/index.php/arete/')))
  assert.ok(recommended.every(x=>!('posesion' in x)))
  for (const id of ['Adorno - Minima Moralia','Illouz - Intimidades congeladas']) {
    const book=recommended.find(x=>x.id===id)
@@ -62,5 +63,19 @@ test('Dilthey: recomendación de Ontología II con nueve ejes sin inferir lectur
  assert.ok(b.lectura.includes('Pendiente'))
  assert.ok(authors.includes('Dilthey, Wilhelm'))
  assert.equal(b.url,'https://archive.org/details/dilthey-wilhelm.-hegel-y-el-idealismo-1944_202011')
+ assert.ok(!('posesion' in b))
+})
+
+
+test('Rendón: segunda recomendación de Ontología II, sin atribuir posesión o lectura personal',()=>{
+ const b=books.find(x=>x.id==="Rendón - La lucha por el reconocimiento en el fragmento de 1803-1804 de Hegel")
+ assert.ok(b)
+ assert.equal(b.autor,'Rendón')
+ assert.equal(b.categoria,'ontología')
+ assert.equal(b.estado,'recomendada')
+ assert.equal(b.ideas.length,12)
+ assert.ok(authors.includes('Rendón, Carlos'))
+ assert.ok(b.lectura.includes('Pendiente de confirmación personal'))
+ assert.equal(b.url,"https://revistas.pucp.edu.pe/index.php/arete/es/article/view/1698")
  assert.ok(!('posesion' in b))
 })

@@ -1,5 +1,16 @@
 // APA 7: metadatos auditados a partir de notas del vault; valores ausentes no se inventan.
 export const libraryApaMetadata = {
+  "Rendón - La lucha por el reconocimiento en el fragmento de 1803-1804 de Hegel": {
+    "kind": "article",
+    "title": "La lucha por el reconocimiento en el fragmento de 1803/1804, de Hegel",
+    "year": 2002,
+    "journal": "Areté",
+    "volume": "14",
+    "issue": "2",
+    "pages": "271–287",
+    "url": "https://doi.org/10.18800/arete.200202.007",
+    "studyPart": "Segunda recomendación de Ontología II del 21-10-2026; 17 páginas analizadas como fuente, lectura personal no acreditada"
+  },
   "Dilthey - Hegel y el idealismo": {
     "kind": "book",
     "title": "Hegel y el idealismo",

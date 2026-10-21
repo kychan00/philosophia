@@ -2,6 +2,66 @@
 // No contiene apuntes ni inventario personal de ejemplares.
 export const books = [
   {
+    "id": "Rendón - La lucha por el reconocimiento en el fragmento de 1803-1804 de Hegel",
+    "autor": "Rendón",
+    "titulo": "La lucha por el reconocimiento en el fragmento de 1803/1804, de Hegel",
+    "categoria": "ontología",
+    "estado": "recomendada",
+    "lectura": "Pendiente de confirmación personal · ensayo íntegro (17 páginas) analizado para dossier académico",
+    "edicion": "Areté, 14(2), 271–287 (2002) · DOI 10.18800/arete.200202.007",
+    "url": "https://revistas.pucp.edu.pe/index.php/arete/es/article/view/1698",
+    "ideas": [
+      {
+        "lema": "01 · Jena y el espíritu (pp. 271–273)",
+        "detalle": "La conciencia media singular y universal, teoría y práctica; la vida del espíritu exige concebir la relación entre conciencias."
+      },
+      {
+        "lema": "02 · Totalidad ética (pp. 272–273)",
+        "detalle": "El espíritu llega a ser efectivo en las costumbres e instituciones de un pueblo; no equivale a mera suma de individuos."
+      },
+      {
+        "lema": "03 · Lucha y contradicción (pp. 273–274)",
+        "detalle": "La lucha no proporciona por sí misma reconocimiento; su contradicción reclama la superación de la singularidad excluyente."
+      },
+      {
+        "lema": "04 · Familia y formación (pp. 274–276)",
+        "detalle": "La educación constituye un sí mismo autónomo y enfrenta el mundo real del niño con el mundo ideal recibido de los padres."
+      },
+      {
+        "lema": "05 · Reconocimiento extrafamiliar (pp. 276–277)",
+        "detalle": "El reconocimiento doméstico es inicial, pero la conciencia necesita conocerse a sí misma en otra totalidad más allá de la familia."
+      },
+      {
+        "lema": "06 · Poner y reconocer (pp. 277–279)",
+        "detalle": "La proximidad con Fichte esclarece la voluntad de ponerse como totalidad ante otra conciencia y ser reconocido por ella."
+      },
+      {
+        "lema": "07 · La ofensa (pp. 279–280)",
+        "detalle": "La lesión de la vida o posesión se vive como ofensa al todo; el conflicto pretende demostrar una identidad ante los demás."
+      },
+      {
+        "lema": "08 · Lenguaje en ese estadio (pp. 280–281)",
+        "detalle": "En la eticidad natural, palabras y promesas aún no bastan; el lenguaje socialmente reconocido adquiere eficacia en el pueblo."
+      },
+      {
+        "lema": "09 · Vida, muerte y libertad (pp. 282–283)",
+        "detalle": "El riesgo de morir aparece como prueba extrema de autoafirmación, antes de la versión madura de señor y siervo."
+      },
+      {
+        "lema": "10 · Doble aporía (pp. 283–284)",
+        "detalle": "Para preservarme arriesgo mi propia vida y para ser reconocido puedo destruir a quien debe reconocerme."
+      },
+      {
+        "lema": "11 · Reflexión y autosuperación (pp. 284–285)",
+        "detalle": "La conciencia reconoce la contradicción y abandona su pretensión de ser una totalidad absoluta y excluyente."
+      },
+      {
+        "lema": "12 · Reconocimiento ético (pp. 285–287)",
+        "detalle": "La universalidad comunitaria conserva singularidades mediadas por otras; reconocer no significa hacer desaparecer al individuo."
+      }
+    ]
+  },
+  {
     "id": "Dilthey - Hegel y el idealismo",
     "autor": "Dilthey",
     "titulo": "Hegel y el idealismo",
@@ -665,6 +725,7 @@ export const authors = [
   "Rawls, John",
   "Reale, Giovanni",
   "Reinhold, Karl Leonhard",
+  "Rendón, Carlos",
   "Rodríguez Pelayo, Cristian Alejandro",
   "Rodríguez, Víctor",
   "Rorty, Richard",

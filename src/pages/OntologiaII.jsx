@@ -725,6 +725,42 @@ export default function OntologiaII() {
           algunos de los materiales de apoyo disponibles para el
           curso. Los archivos originales no se publican en el sitio.
         </p>
+        <div className="ontology-program-heading">
+          <span>21 · X</span>
+          <div>
+            <p>Recomendaciones de clase · 21 de octubre de 2026</p>
+            <h2>Hegel: génesis y reconocimiento</h2>
+          </div>
+        </div>
+
+        <div className="ontology-program-reading-list">
+          <article>
+            <span>R1</span>
+            <div>
+              <p>Wilhelm Dilthey · recomendación</p>
+              <h3>Hegel y el idealismo</h3>
+              <small>FCE (1944). Formación histórica del idealismo, escritos juveniles.</small>
+              <p><Link to={"/biblioteca?obra="+encodeURIComponent("Dilthey - Hegel y el idealismo")}>
+                Abrir ficha bibliográfica y claves de lectura ↗
+              </Link></p>
+            </div>
+          </article>
+          <article>
+            <span>R2</span>
+            <div>
+              <p>Carlos Rendón · ensayo recomendado</p>
+              <h3>La lucha por el reconocimiento (1803/1804)</h3>
+              <small>Areté 14(2), 271–287 (2002). Doce claves del texto: familia, lucha, contradicción y eticidad.</small>
+              <p><Link to={"/biblioteca?obra="+encodeURIComponent("Rendón - La lucha por el reconocimiento en el fragmento de 1803-1804 de Hegel")}>
+                Abrir análisis bibliográfico y cartografía 2D ↗
+              </Link></p>
+            </div>
+          </article>
+        </div>
+        <p className="ontology-program-source-note">
+          Recomendaciones comunicadas para la misma sesión; no equivalen a tareas obligatorias
+          ni a una clase íntegra documentada. El PDF de Rendón se analizó para su ficha académica.
+        </p>
       </section>
 
       <section className="ontology-program-evaluation">

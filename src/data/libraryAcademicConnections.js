@@ -4,6 +4,21 @@ export const libraryAcademicConnections = {
   "source": "Relaciones documentadas por títulos de tareas y fichas de obra. Una fecha de nota no prueba la realización de la lectura.",
   "tasksReviewed": 61,
   "works": {
+    "Rendón - La lucha por el reconocimiento en el fragmento de 1803-1804 de Hegel": {
+      "events": [
+        {
+          "kind": "procedencia",
+          "date": "2026-10-21",
+          "dateLabel": "Fecha de la recomendación del ensayo comunicada por estudiante; no clase completa",
+          "area": "Ontología II",
+          "title": "Segunda recomendación del 21 de octubre · Rendón, reconocimiento en Hegel",
+          "status": "PDF íntegro examinado para ficha de Obsidian; doce claves académicas",
+          "type": "recomendación de la misma sesión que Dilthey; sin tarea obligatoria acreditada",
+          "note": "Artículo académico de Carlos Rendón, Areté 14(2), 271–287 (2002), DOI 10.18800/arete.200202.007. No se atribuyen automáticamente lectura personal ni posesión.",
+          "url": null
+        }
+      ]
+    },
     "Dilthey - Hegel y el idealismo": {
       "events": [
         {
@@ -968,6 +983,7 @@ export const libraryAcademicConnections = {
     }
   },
   "authors": {
+    "Rendón, Carlos": {"events": []},
     "Dilthey, Wilhelm": {"events": []},
     "Nava Amezcua, Alonso": {"events": []},
     "Hipócrates": {"events": []},

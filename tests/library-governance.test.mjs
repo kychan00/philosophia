@@ -101,3 +101,19 @@ test('Dilthey: recomendación con procedencia y sin sesión pública inventada',
  assert.equal(libraryTimelines.works[id],undefined)
  assert.ok(authorsForWork(book,authors).includes('Dilthey, Wilhelm'))
 })
+
+
+test('Rendón y Dilthey: dos recomendaciones de la misma sesión sin clase o tarea inventada',()=>{
+ const rid="Rendón - La lucha por el reconocimiento en el fragmento de 1803-1804 de Hegel"
+ const did='Dilthey - Hegel y el idealismo'
+ const r=connected.works[rid]?.events?.[0]
+ const d=connected.works[did]?.events?.[0]
+ assert.ok(r&&d)
+ assert.equal(r.kind,'procedencia')
+ assert.equal(r.date,'2026-10-21')
+ assert.equal(r.area,'Ontología II')
+ assert.equal(d.date,'2026-10-21')
+ assert.equal(r.url,null)
+ assert.equal(libraryTimelines.works[rid],undefined)
+ assert.ok(authorsForWork(books.find(b=>b.id===rid),authors).includes('Rendón, Carlos'))
+})

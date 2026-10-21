@@ -63,3 +63,15 @@ test('Dilthey: año de edición 1944 y traductor de FCE documentados',()=>{
  assert.match(x.text,/\(1944\)/)
  assert.match(x.text,/Fondo de Cultura Económica/)
 })
+
+
+test('Rendón: artículo de Areté (2002), volumen 14(2), 271–287 y DOI',()=>{
+ const b=books.find(x=>x.id==="Rendón - La lucha por el reconocimiento en el fragmento de 1803-1804 de Hegel")
+ const ref=formatApaRecord(b,authors)
+ assert.equal(ref.year,'2002')
+ assert.equal(ref.kind,'article')
+ assert.match(ref.text,/Rendón, C\./)
+ assert.match(ref.text,/Areté/)
+ assert.match(ref.text,/271–287/)
+ assert.match(ref.text,/10\.18800\/arete\.200202\.007/)
+})

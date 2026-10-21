@@ -2,6 +2,7 @@
 // una ficha real del vault; no indica por sí sola un argumento, influencia
 // ni lectura completa. Metadatos públicos sin rutas privadas.
 export const documentedConceptLinks = {
+  "Rendón - La lucha por el reconocimiento en el fragmento de 1803-1804 de Hegel": ["Reconocimiento (Hegel)", "Eticidad (Hegel)", "Formación (Bildung) en Hegel", "Superación (Aufheben) en Hegel"],
   "Dilthey - Hegel y el idealismo": ["Formación (Bildung) en Hegel", "Devenir del saber (Hegel)", "Verdad como sistema (Hegel)"],
   "Cicerón - Las paradojas de los estoicos": ["Estoicismo", "Dominio de sí", "Pasiones", "Eudaimonía", "Autonomía moral"],
   "Nava - Tecnociencia, entorno y sujeto tecnocientífico": [
