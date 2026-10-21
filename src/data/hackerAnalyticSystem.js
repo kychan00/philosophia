@@ -2785,6 +2785,7 @@ Object.entries(hackerSource114to115Continuation).forEach(([id, note]) => {
   const node = hackerNodes.find((candidate) => candidate.id === id)
   if (!node?.data.sourceCloseReading) throw new Error(`No consta el primer tramo ${id}`)
   node.data.sourceContinuation = { ...note, kind: 'Continuación cotejada, páginas 114–115' }
+  node.data.sourceCloseReading.page = note.page
   node.data.sourceCloseReading.boundary = null
 })
 hackerNodes.filter((node) => !node.data.classOnly && node.data.sourceCloseReading).forEach((node) => {
