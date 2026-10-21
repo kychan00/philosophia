@@ -533,6 +533,17 @@ function StudyCanvas() {
         </aside>
       </header>
 
+      <section className="hacker-source-coverage" aria-label="Avance de cotejo bibliográfico">
+        <div>
+          <span>FUENTE PRIMARIA · PRIMERA ENTREGA</span>
+          <strong>Páginas 95–114 verificadas</strong>
+          <p>28 nodos con lectura detallada, argumento, distinciones y orientación para el reporte. Los demás nodos conservan su documentación anterior: no se han cotejado en esta entrega.</p>
+        </div>
+        <button type="button" onClick={() => { setGuidedMode(false); setRoute('source95to114'); setSelectedId(null) }}>
+          Explorar las páginas cotejadas · 28 nodos →
+        </button>
+      </section>
+
       <section className="hacker-study-intro">
         <div>
           <span>MAPPA ANALYTICA</span>
@@ -811,6 +822,37 @@ function StudyCanvas() {
                 <section className="is-quote">
                   <span>Texto explícito suministrado</span>
                   <blockquote>{selected.data.quote}</blockquote>
+                </section>
+              )}
+
+              {selected.data.sourceCloseReading && (
+                <section className="hacker-deep-reading" aria-label="Lectura cotejada de la fuente primaria">
+                  <div className="hacker-deep-reading-heading">
+                    <span>LECTURA DE FUENTE · {selected.data.sourceCloseReading.page}</span>
+                    <strong>{selected.data.sourceCloseReading.focus}</strong>
+                    <small>{selected.data.sourceCloseReading.kind} · 21 OCT 2026</small>
+                  </div>
+                  <div className="hacker-deep-reading-part">
+                    <h3>¿Qué afirma el texto?</h3>
+                    <p>{selected.data.sourceCloseReading.reading}</p>
+                  </div>
+                  <div className="hacker-deep-reading-part">
+                    <h3>¿Cómo funciona el argumento?</h3>
+                    <p>{selected.data.sourceCloseReading.argument}</p>
+                  </div>
+                  <div className="hacker-deep-reading-part">
+                    <h3>Distinción que debe conservarse</h3>
+                    <p>{selected.data.sourceCloseReading.distinction}</p>
+                  </div>
+                  <div className="hacker-deep-reading-part is-report">
+                    <h3>Para elaborar el reporte</h3>
+                    <p>{selected.data.sourceCloseReading.report}</p>
+                  </div>
+                  {selected.data.sourceCloseReading.boundary && (
+                    <p className="hacker-deep-reading-boundary" role="note">
+                      {selected.data.sourceCloseReading.boundary}
+                    </p>
+                  )}
                 </section>
               )}
 
