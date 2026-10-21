@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import test from 'node:test'
-import { hackerNodes, hackerOrder, hackerRoutes, hackerGuidedRoute, hackerCompleteGuidedRoute, hackerEdges, hackerSource95to114 } from '../src/data/hackerAnalyticSystem.js'
+import { hackerNodes, hackerOrder, hackerRoutes, hackerGuidedRoute, hackerCompleteGuidedRoute, hackerEdges, hackerSource95to114, hackerSource115to132, hackerSource114to115Continuation } from '../src/data/hackerAnalyticSystem.js'
 const ids = hackerNodes.map((n) => n.id)
 const byId = new Map(hackerNodes.map((n) => [n.id, n]))
 const page = readFileSync(new URL('../src/pages/AnalyticHackerSystem.jsx', import.meta.url), 'utf8')
@@ -150,9 +150,9 @@ test('Source-image review covers precisely 95–114 without rewriting later part
     assert.notEqual(node.data.classOnly, true)
   }
   assert.equal(byId.get('H27')?.data.sourceCloseReading?.page, 'p. 114 (continuación pendiente)')
-  assert.match(byId.get('H27')?.data.sourceCloseReading?.boundary, /continua|continúa|pendiente/i)
-  for (const node of hackerNodes.filter((node) => !expected.includes(node.id))) {
-    assert.equal(node.data.sourceCloseReading, undefined, 'Do not claim later sources were checked: ' + node.id)
+  assert.equal(byId.get('H27')?.data.sourceCloseReading?.boundary, null)
+  for (const node of hackerNodes.filter((node) => !expected.includes(node.id) && !node.data.classOnly)) {
+    assert.equal(node.data.sourceCloseReading?.kind, 'Paráfrasis cotejada del texto de Hacker', node.id)
   }
 })
 
