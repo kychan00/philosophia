@@ -467,8 +467,8 @@ const mainNodes = [
 
   n('H53','53','after','Del análisis reductivo al conectivo y terapéutico',
     'La filosofía británica posterior abandona la exigencia de reducir o traducir todo.',
-    'Como transición señalada al final, el análisis conectivo atiende relaciones conceptuales y el terapéutico disuelve confusiones; no es un apartado desarrollado de Oxford.'
-    'Referencia de cierre: Hacker señala la continuidad conectiva y terapéutica, pero no desarrolla en este ensayo una historia de Oxford de posguerra.'
+    'Como transición señalada al final, el análisis conectivo atiende relaciones conceptuales y el terapéutico disuelve confusiones; no es un apartado desarrollado de Oxford.',
+    'Referencia de cierre: Hacker señala la continuidad conectiva y terapéutica, pero no desarrolla en este ensayo una historia de Oxford de posguerra.',
     'p. 132',['after'],['H52'],['análisis conectivo','análisis terapéutico','Wittgenstein'],
     {quote:'«sus notables y variados logros, son otra historia» (p. 132).',critical:true}),
 ]
