@@ -236,6 +236,11 @@ export default function CriticalTheory() {
           </div>
           <div className="ct-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
         </Link>
+        <Link to="/semestre/5/teoria-critica/clase/20-octubre" className="ct-class-card">
+          <div className="ct-class-card-date"><strong>XX</strong><span>X · MMXXVI</span></div>
+          <div className="ct-class-card-copy"><span>Lukács, IA y agencia</span><h3>Clase del 20 de octubre</h3><p>Cosificación, IA, trabajo reacomodado, cuerpos disciplinados y crítica filosófica. Atlas de 12 folios y lectura de Freud.</p></div>
+          <div className="ct-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
+        </Link>
       </section>
 
       <section className="ct-section">

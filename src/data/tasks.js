@@ -601,6 +601,23 @@ export const tasks = [
 
 
   {
+    id: 'teoria-critica-2026-10-22-freud-malestar',
+    subject: 'Teoría Crítica',
+    subjectCode: 'FI265',
+    assignedDate: '2026-10-20',
+    dueDate: '2026-10-22',
+    title: 'Freud · Comenzar El malestar en la cultura',
+    type: 'Lectura para clase virtual',
+    weight: null,
+    priority: 'Alta',
+    description: 'Comenzar El malestar en la cultura, de Sigmund Freud, para la clase virtual del jueves 22 de octubre. Sin páginas ni entrega escrita confirmadas. La docente enviará la liga; compartirla con Axel. Examen la semana siguiente, sin día confirmado.',
+    readingScope: 'Sigmund Freud · El malestar en la cultura',
+    sourceClass: 'Clase del martes 20 de octubre',
+    sourceRoute: '/semestre/5/teoria-critica/clase/20-octubre',
+    studyRoute: '/semestre/5/teoria-critica/clase/20-octubre',
+  },
+
+  {
     id: 'ontologia-2026-10-14-croce-dialectica',
     subject: 'Ontología II',
     subjectCode: 'FI190',
