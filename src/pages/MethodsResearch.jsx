@@ -279,6 +279,15 @@ export default function MethodsResearch() {
           </div>
           <div className="methods-enter"><span>Abrir folio</span><b>↗</b></div>
         </Link>
+        <Link to="/semestre/5/metodos-de-investigacion/clase/21-octubre" className="methods-class-card">
+          <div className="methods-date"><strong>XXI</strong><span>X · MMXXVI</span></div>
+          <div className="methods-class-copy">
+            <span>Fenomenología · entrevista y reducción</span>
+            <h3>Noesis, noema y protocolo del miedo digital</h3>
+            <p>Descripción natural, cuerpo–espacio–tiempo, amenazas en pantalla, epojé y tres variaciones eidéticas. Atlas 2D de 17 nodos, guías, estudio y folios «En palabras simples».</p>
+          </div>
+          <div className="methods-enter"><span>Abrir folio</span><b>↗</b></div>
+        </Link>
       </section>
 
       <footer className="methods-footer">
