@@ -785,6 +785,12 @@ function StudyCanvas() {
                 <p>{selected.data.explanation}</p>
               </section>
 
+              <section className="hacker-plain-language" aria-label="En palabras simples">
+                <span>EN PALABRAS SIMPLES:</span>
+                <p>{selected.data.plainLanguage}</p>
+                <small>{selected.data.plainLanguageSource}</small>
+              </section>
+
               {selected.data.classSeen && (
                 <section className="hacker-class-note">
                   <span>
