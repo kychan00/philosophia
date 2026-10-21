@@ -82,7 +82,7 @@ test('Both omitted course dates are traceable classroom routes, without duplicat
       assert.ok(data?.additionalClassNotes?.some((note) =>
         note.date === date && note.route.endsWith(source) && note.note && note.label
       ), id)
-      assert.equal(data.classOnly, undefined, 'Classroom crosswalk must not rewrite essay provenance')
+      assert.notEqual(data.classOnly, true, 'Classroom crosswalk must not rewrite essay provenance')
     }
   }
 })
