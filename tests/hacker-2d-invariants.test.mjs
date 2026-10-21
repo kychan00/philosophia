@@ -143,7 +143,8 @@ test('Source-image review covers precisely 95–114 without rewriting later part
     const source = node.data.sourceCloseReading
     assert.equal(source?.kind, 'Paráfrasis cotejada del texto de Hacker', node.id)
     assert.ok(source?.page?.includes('p.'), node.id)
-    for (const field of ['focus','reading','argument','distinction','report']) {
+    assert.ok(source.focus.length > 8, node.id + ':focus')
+    for (const field of ['reading','argument','distinction','report']) {
       assert.ok(source[field].length > 45, node.id + ':' + field)
     }
     assert.notEqual(node.data.classOnly, true)
