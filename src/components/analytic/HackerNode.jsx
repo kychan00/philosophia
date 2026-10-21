@@ -45,7 +45,12 @@ export default function HackerNode({ data, selected }) {
       <p>{data.short}</p>
 
       <div className="hacker-flow-node-footer">
-        <span>{data.page}</span>
+        <span>{data.sourceCloseReading?.page || data.page}</span>
+        {data.sourceCloseReading && (
+          <small className="hacker-source-chip" title="Paráfrasis verificada directamente con las páginas 95–114">
+            FUENTE COTEJADA ✓
+          </small>
+        )}
         {data.critical && <em>nodo crítico</em>}
       </div>
 
