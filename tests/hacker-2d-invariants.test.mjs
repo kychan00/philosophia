@@ -171,3 +171,9 @@ test('Primary-source inspector provides four distinct argumentative layers and a
 })
 
 // Ensayo completo: la segunda tanda está contenida en el conjunto de lectura.
+
+test('Hacker two source batches cover 68 bibliographic nodes', () => {
+  assert.equal(Object.keys(hackerSource95to114).length, 28)
+  assert.equal(Object.keys(hackerSource115to132).length, 40)
+  assert.equal(hackerNodes.filter((n) => n.data.branch.includes('source95to132')).length, 68)
+})
