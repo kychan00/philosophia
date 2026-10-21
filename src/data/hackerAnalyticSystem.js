@@ -1,3 +1,6 @@
+import { hackerPlainArticle } from './hackerPlainArticle.js'
+import { hackerPlainClasses } from './hackerPlainClasses.js'
+
 export const hackerRoutes = [
   { id: 'all', label: 'Todo' },
   { id: 'source95to114', label: 'Texto cotejado · pp. 95–114' },
@@ -2834,6 +2837,21 @@ Object.entries(hackerClassCrosswalk).forEach(([branch, { date, route, nodes }]) 
     ]
   })
 })
+
+// Capa editorial de lectura sencilla: distinta de la fuente primaria y de la voz docente.
+const hackerPlainDictionary = { ...hackerPlainArticle, ...hackerPlainClasses }
+const hackerPlainIds = new Set(hackerNodes.map((node) => node.id))
+for (const node of hackerNodes) {
+  const explanation = hackerPlainDictionary[node.id]
+  if (typeof explanation !== 'string' || explanation.trim().length < 90) {
+    throw new Error(`Falta la explicación sencilla específica del nodo ${node.id}`)
+  }
+  node.data.plainLanguage = explanation
+  node.data.plainLanguageSource = 'Aclaración didáctica de PHILOSOPHIA; no es cita literal ni opinión atribuida al profesor.'
+}
+for (const id of Object.keys(hackerPlainDictionary)) {
+  if (!hackerPlainIds.has(id)) throw new Error(`Explicación sencilla sin nodo: ${id}`)
+}
 
 const nodeMap = new Map(hackerNodes.map((node) => [node.id, node]))
 
