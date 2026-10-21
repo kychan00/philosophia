@@ -603,8 +603,11 @@ function App() {
         />
         <Route
           path="/semestre/5/teoria-critica/clase/15-octubre"
-          element={<CriticalTheoryClass15Oct />
-        <Route path="/semestre/5/teoria-critica/clase/20-octubre" element={<CriticalTheoryClass20Oct />} />}
+          element={<CriticalTheoryClass15Oct />}
+        />
+        <Route
+          path="/semestre/5/teoria-critica/clase/20-octubre"
+          element={<CriticalTheoryClass20Oct />}
         />
         <Route
           path="/semestre/5/etica"
