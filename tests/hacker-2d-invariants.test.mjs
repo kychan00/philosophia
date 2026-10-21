@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import test from 'node:test'
-import { hackerNodes, hackerOrder, hackerRoutes, hackerGuidedRoute, hackerCompleteGuidedRoute, hackerEdges } from '../src/data/hackerAnalyticSystem.js'
+import { hackerNodes, hackerOrder, hackerRoutes, hackerGuidedRoute, hackerCompleteGuidedRoute, hackerEdges, hackerSource95to114 } from '../src/data/hackerAnalyticSystem.js'
 const ids = hackerNodes.map((n) => n.id)
 const byId = new Map(hackerNodes.map((n) => [n.id, n]))
 const page = readFileSync(new URL('../src/pages/AnalyticHackerSystem.jsx', import.meta.url), 'utf8')
@@ -130,4 +130,41 @@ test('Historical chapters and Viennese program are not represented as successive
   }
   assert.ok(!byId.get('H52').data.dependsOn.includes('H51'))
   assert.ok(!byId.get('H50').data.dependsOn.includes('H49'))
+})
+
+test('Source-image review covers precisely 95–114 without rewriting later parts', () => {
+  const expected = Array.from({ length: 28 }, (_, i) => 'H' + String(i).padStart(2, '0'))
+  assert.deepEqual(Object.keys(hackerSource95to114), expected)
+  const route = hackerRoutes.find((entry) => entry.id === 'source95to114')
+  assert.equal(route?.label, 'Texto cotejado · pp. 95–114')
+  const covered = hackerNodes.filter((node) => node.data.branch.includes('source95to114'))
+  assert.deepEqual(covered.map((node) => node.id), expected)
+  for (const node of covered) {
+    const source = node.data.sourceCloseReading
+    assert.equal(source?.kind, 'Paráfrasis cotejada del texto de Hacker', node.id)
+    assert.ok(source?.page?.includes('p.'), node.id)
+    for (const field of ['focus','reading','argument','distinction','report']) {
+      assert.ok(source[field].length > 45, node.id + ':' + field)
+    }
+    assert.notEqual(node.data.classOnly, true)
+  }
+  assert.equal(byId.get('H27')?.data.sourceCloseReading?.page, 'p. 114 (continuación pendiente)')
+  assert.match(byId.get('H27')?.data.sourceCloseReading?.boundary, /continua|continúa|pendiente/i)
+  for (const node of hackerNodes.filter((node) => !expected.includes(node.id))) {
+    assert.equal(node.data.sourceCloseReading, undefined, 'Do not claim later sources were checked: ' + node.id)
+  }
+})
+
+test('Primary-source inspector provides four distinct argumentative layers and a boundary', () => {
+  const nodeComponent = readFileSync(new URL('../src/components/analytic/HackerNode.jsx', import.meta.url), 'utf8')
+  assert.match(page, /selected\.data\.sourceCloseReading\.reading/)
+  assert.match(page, /selected\.data\.sourceCloseReading\.argument/)
+  assert.match(page, /selected\.data\.sourceCloseReading\.distinction/)
+  assert.match(page, /selected\.data\.sourceCloseReading\.report/)
+  assert.match(page, /selected\.data\.sourceCloseReading\.boundary/)
+  assert.match(page, /Explorar las páginas cotejadas/)
+  assert.match(nodeComponent, /FUENTE COTEJADA/)
+  const css = readFileSync(new URL('../src/pages/AnalyticHackerSystem.css', import.meta.url), 'utf8')
+  assert.match(css, /hacker-deep-reading/)
+  assert.match(css, /hacker-source-coverage/)
 })
