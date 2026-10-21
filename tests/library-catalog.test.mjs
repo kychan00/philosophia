@@ -17,10 +17,11 @@ test('all works are categorized, no ownership inferred',()=>{
 })
 test('recommendations with verified origins and no invented possession',()=>{
  const recommended=books.filter(x=>x.estado==='recomendada')
- assert.equal(recommended.length,6)
+ assert.equal(recommended.length,7)
  assert.deepEqual(new Set(recommended.map(x=>x.id)),new Set([
   'Adorno - Minima Moralia',
   'Foucault - Vigilar y castigar',
+  'Cicerón - Las paradojas de los estoicos',
   'Illouz - Intimidades congeladas',
   'Illouz - El consumo de la utopía romántica',
   'Lukács - Marx, ontología del ser social',
@@ -36,4 +37,15 @@ test('recommendations with verified origins and no invented possession',()=>{
  }
  assert.ok(recommended.some(x=>x.autor==='Lukács'&&x.lectura.startsWith('Fases 1–6 documentadas')&&x.lectura.includes('fuente disponible')))
  assert.ok(recommended.some(x=>x.autor==='Nava Amezcua'&&x.lectura.startsWith('Sin confirmar')))
+})
+
+test('Cicerón conserva seis tesis sin fingir lectura personal',()=>{
+ const b=books.find(x=>x.id==='Cicerón - Las paradojas de los estoicos')
+ assert.ok(b)
+ assert.equal(b.categoria,'ética')
+ assert.equal(b.estado,'recomendada')
+ assert.match(b.lectura,/Pendiente/)
+ assert.equal(b.ideas.length,6)
+ assert.ok(authors.includes('Cicerón, Marco Tulio'))
+ assert.ok(!('posesion' in b))
 })

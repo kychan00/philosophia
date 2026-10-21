@@ -13,6 +13,16 @@ export const libraryApaMetadata = {
     "kind": "book",
     "title": "Minima Moralia"
   },
+  "Cicerón - Las paradojas de los estoicos": {
+    "kind": "book",
+    "title": "Las paradojas de los estoicos",
+    "year": 2000,
+    "publisher": "Universidad Nacional Autónoma de México",
+    "translators": ["Pimentel Álvarez, Julio"],
+    "originalYear": "ca. 46 a. C.",
+    "studyPart": "Recomendación de Ética registrada el 20-10-2026; fecha de 2000 corresponde a la edición editorial catalogada, cotejar escaneo",
+    "url": "https://archive.org/details/ciceron-paradoxa-stoicorum-las-paradojas-de-los-estoicos-ed.-julio-pimentel-alvarez_202601/page/VIII/mode/2up"
+  },
   "Foucault - Vigilar y castigar": {
     "kind": "book",
     "title": "Vigilar y castigar: Nacimiento de la prisión",
