@@ -419,7 +419,9 @@ export const books = [
     "autor": "Glock",
     "titulo": "Qué es la filosofía analítica - Capítulo II",
     "categoria": "analítica",
-    "estado": "documentada"
+    "estado": "documentada",
+    "lectura": "pp. 40–51 documentadas; quedan pendientes pp. 52–86",
+    "studyUrl": "/semestre/5/filosofia-analitica/lectura/glock-capitulo-2"
   },
   {
     "id": "Hacker - El surgimiento de la filosofía analítica del siglo XX",

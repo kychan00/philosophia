@@ -1,7 +1,10 @@
 // Auditoría 16-10-2026: cada relación es un enlace [[...]] constatado en
 // una ficha real del vault; no indica por sí sola un argumento, influencia
 // ni lectura completa. Metadatos públicos sin rutas privadas.
+import { glockConcepts, GLOCK_WORK_ID } from './glockConceptIndex.js'
+
 export const documentedConceptLinks = {
+  [GLOCK_WORK_ID]: glockConcepts.map(c => c.term),
   "Rendón - La lucha por el reconocimiento en el fragmento de 1803-1804 de Hegel": ["Reconocimiento (Hegel)", "Eticidad (Hegel)", "Formación (Bildung) en Hegel", "Superación (Aufheben) en Hegel"],
   "Dilthey - Hegel y el idealismo": ["Formación (Bildung) en Hegel", "Devenir del saber (Hegel)", "Verdad como sistema (Hegel)"],
   "Cicerón - Las paradojas de los estoicos": ["Estoicismo", "Dominio de sí", "Pasiones", "Eudaimonía", "Autonomía moral"],
@@ -155,6 +158,7 @@ export const documentedConceptLinks = {
 // Cada clave nombra la ficha de concepto que enlaza a los términos listados.
 // Es navegación documental, NO una relación doctrinal derivada.
 export const documentedConceptRelations = {
+  ...Object.fromEntries(glockConcepts.map(c => [c.term, c.related])),
   "Tecnociencia (Nava)": [
     "Sujeto tecnocientífico (Nava)",
     "Razón instrumental"

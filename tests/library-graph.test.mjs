@@ -82,3 +82,25 @@ test('búsqueda tolerante a tildes, inspección de vínculos y rutas públicas v
  assert.ok(graph.edges.some(e=>e.relation==='mencionado_en_clase'))
  assert.ok(graph.edges.some(e=>e.relation==='registrado_en_tarea'))
 })
+
+
+test('Glock: 50 conceptos canónicos con definición, página, ruta y relaciones verificables',()=>{
+ const work='Glock - Qué es la filosofía analítica - Capítulo II'
+ const names=documentedConceptLinks[work]
+ assert.equal(names.length,50)
+ assert.equal(new Set(names).size,50)
+ for(const term of names){
+  const node=byId.get('concepto:'+term)
+  assert.ok(node,'Falta nodo de concepto '+term)
+  assert.ok(node.definition?.length>65,term)
+  assert.ok(node.simple?.length>20,term)
+  assert.match(node.pages,/4[0-9]|5[01]/)
+  assert.match(node.sourceNode,/^G[0-3][0-9]$/)
+  assert.equal(node.studyUrl,'/semestre/5/filosofia-analitica/lectura/glock-capitulo-2')
+  assert.ok(graph.edges.some(e=>e.source==='obra:'+work&&e.target===node.id))
+ }
+ assert.ok(searchGraphNodes(graph,'bolzano').some(n=>n.kind==='concepto'))
+ assert.equal(byId.get('concepto:Logicismo').sourceNode,'G35')
+ const b=books.find(item=>item.id===work)
+ assert.ok(b.lectura.includes('40–51'))
+})

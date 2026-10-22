@@ -4,6 +4,8 @@ import { libraryTimelines } from './libraryTimelines.js'
 import { libraryAcademicConnections } from './libraryAcademicConnections.js'
 
 import { documentedConceptLinks, documentedConceptRelations } from './libraryConceptEvidence.js'
+import { glockConcepts, GLOCK_STUDY_ROUTE } from './glockConceptIndex.js'
+const glockByTerm = new Map(glockConcepts.map(c => [c.term, c]))
 export { documentedConceptLinks, documentedConceptRelations } from './libraryConceptEvidence.js'
 
 const order={autor:0,obra:1,concepto:2,clase:3,tarea:4,fuente:5}
@@ -29,6 +31,12 @@ export function buildLibraryGraph() {
   const ensureConcept=concept=>{
     const id='concepto:'+concept
     put({id,kind:'concepto',label:concept,evidence:'ficha de concepto enlazada en el vault'})
+    const glock = glockByTerm.get(concept)
+    if (glock) nodes.set(id,{
+      ...nodes.get(id),definition:glock.definition,simple:glock.simple,
+      pages:glock.pages,sourceNode:glock.node,studyUrl:GLOCK_STUDY_ROUTE,
+      evidence:'concepto documentado en ficha de Glock, capítulo II, pp. '+glock.pages+' (paráfrasis editorial)',
+    })
     return id
   }
   for(const [work,concepts] of Object.entries(documentedConceptLinks)){

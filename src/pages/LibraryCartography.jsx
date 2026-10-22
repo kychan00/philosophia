@@ -103,6 +103,13 @@ function Inspector({current,onFocus,onSelect,onClose,compact,open,inspectorRef})
       <h2>{current.label}</h2>
       {current.subtitle&&<p className="bc-subtitle">{current.subtitle}</p>}
       <p className="bc-evidence"><strong>Procedencia</strong> {current.evidence}</p>
+      {current.definition&&<div className="bc-concept-definition">
+        <strong>Definición contextual · Glock</strong>
+        <p>{current.definition}</p>
+        <strong>En palabras simples</strong>
+        <p>{current.simple}</p>
+        <small>Capítulo II · pp. {current.pages} · nodo {current.sourceNode}. Paráfrasis editorial, no cita textual.</small>
+      </div>}
       {current.date&&<p className="bc-fact"><strong>Fecha registrada</strong> {current.date}</p>}
       {current.status&&<p className="bc-fact"><strong>Registro</strong> {current.status}</p>}
       {current.reading&&<p className="bc-fact"><strong>Lectura</strong> {current.reading}</p>}
@@ -151,7 +158,8 @@ function useCompactCartography(){
 
 export default function LibraryCartography(){
   const [params]=useSearchParams()
-  const initial=params.get('obra') ? 'obra:'+params.get('obra') :
+  const initial=params.get('concepto') ? 'concepto:'+params.get('concepto') :
+    params.get('obra') ? 'obra:'+params.get('obra') :
     params.get('autor') ? 'autor:'+params.get('autor') : defaultId
   const resolved=indexed.has(initial)?initial:defaultId
   const [center,setCenter]=useState(resolved)
