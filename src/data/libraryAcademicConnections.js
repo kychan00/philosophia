@@ -4,6 +4,39 @@ export const libraryAcademicConnections = {
   "source": "Relaciones documentadas por títulos de tareas y fichas de obra. Una fecha de nota no prueba la realización de la lectura.",
   "tasksReviewed": 61,
   "works": {
+    "Bloch - Sujeto-objeto": {
+      "events": [{
+        "kind": "tarea", "date": "2026-10-19",
+        "dateLabel": "Registro de lectura de Ontología II del 19 de octubre",
+        "area": "Ontología II",
+        "title": "Bloch · capítulo XIX, Marx y la dialéctica idealista",
+        "type": "lectura asignada; fragmento documental, no lectura completa",
+        "note": "Capítulo de Ernst Bloch, PDF pp. 380–387. Interpretación de Bloch acerca de Hegel y Marx, no texto de Marx.",
+        "url": null
+      }]
+    },
+    "Fromm - Marx y su concepto del hombre": {
+      "events": [{
+        "kind": "tarea", "date": "2026-10-19",
+        "dateLabel": "Registro de lectura de Ontología II del 19 de octubre",
+        "area": "Ontología II",
+        "title": "Fromm · volumen con crítica de Marx a la dialéctica de Hegel",
+        "type": "lectura asignada de fragmento del volumen",
+        "note": "PDF pp. 97–112: texto de Karl Marx incluido en el libro de Erich Fromm; no atribuir el fragmento a Fromm.",
+        "url": null
+      }]
+    },
+    "Marx y Engels - La ideología alemana": {
+      "events": [{
+        "kind": "tarea", "date": "2026-10-19",
+        "dateLabel": "Registro de lectura de Ontología II del 19 de octubre",
+        "area": "Ontología II",
+        "title": "Marx · once Tesis sobre Feuerbach, en La ideología alemana",
+        "type": "lectura asignada de apéndice, no del volumen entero",
+        "note": "PDF pp. 500–503 de Akal (2014). Las tesis son texto de Marx, aunque el volumen es obra de Marx y Engels.",
+        "url": null
+      }]
+    },
     "Bobbio - La teoría de las formas de gobierno en la historia del pensamiento político": {
       "events": [{
         "kind": "procedencia",
@@ -1037,6 +1070,32 @@ export const libraryAcademicConnections = {
     }
   },
   "authors": {
+    "Bloch, Ernst": {"events": []},
+    "Bolzano, Bernhard": {"events": [{
+      "kind": "clase", "date": "2026-10-21",
+      "dateLabel": "Mención documentada en la nota de clase del 21 de octubre",
+      "area": "Filosofía Analítica",
+      "title": "Glock: fundamentos matemáticos y análisis de Bolzano",
+      "type": "autor estudiado a través de Glock, pp. 47–48; obra original no leída",
+      "url": null
+    }]},
+    "Boole, George": {"events": [{
+      "kind": "clase", "date": "2026-10-21",
+      "dateLabel": "Mención documentada en la nota de clase del 21 de octubre",
+      "area": "Filosofía Analítica",
+      "title": "Glock: álgebra de la lógica de George Boole",
+      "type": "autor estudiado a través de Glock, p. 48; obra original no leída",
+      "url": null
+    }]},
+    "Cohen, Hermann": {"events": [{
+      "kind": "clase", "date": "2026-10-19",
+      "dateLabel": "Mención documentada en la nota de clase del 19 de octubre",
+      "area": "Filosofía Analítica",
+      "title": "Glock: neokantismo de Hermann Cohen",
+      "type": "referencia historiográfica de clase; lectura de obra original no acreditada",
+      "url": null
+    }]},
+    "Engels, Friedrich": {"events": []},
     "Bobbio, Norberto": {"events": []},
     "Rendón, Carlos": {"events": []},
     "Dilthey, Wilhelm": {"events": []},
