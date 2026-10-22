@@ -4,6 +4,19 @@ export const libraryAcademicConnections = {
   "source": "Relaciones documentadas por títulos de tareas y fichas de obra. Una fecha de nota no prueba la realización de la lectura.",
   "tasksReviewed": 61,
   "works": {
+    "Bobbio - La teoría de las formas de gobierno en la historia del pensamiento político": {
+      "events": [{
+        "kind": "procedencia",
+        "date": "2026-10-22",
+        "dateLabel": "Fecha de registro de biblioteca; la sesión de tercer semestre no está fechada",
+        "area": "Filosofía Política I · tercer semestre",
+        "title": "Lectura vinculada al curso · Bobbio, La teoría de las formas de gobierno",
+        "status": "registrada en biblioteca; lectura personal sin confirmar",
+        "type": "relación curricular declarada por el estudiante",
+        "note": "FCE, 2.ª ed. 2001, 4.ª reimp. 2006. Traducción de José F. Fernández Santillán. No se crea una clase ni una tarea.",
+        "url": null
+      }]
+    },
     "Freud - El malestar en la cultura": {
       "events": [
         {
@@ -1024,6 +1037,7 @@ export const libraryAcademicConnections = {
     }
   },
   "authors": {
+    "Bobbio, Norberto": {"events": []},
     "Rendón, Carlos": {"events": []},
     "Dilthey, Wilhelm": {"events": []},
     "Nava Amezcua, Alonso": {"events": []},

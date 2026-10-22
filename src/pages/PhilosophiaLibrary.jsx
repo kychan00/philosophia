@@ -10,10 +10,10 @@ import './PhilosophiaLibrary.css'
 const labels = {
   'crítica':'Teoría crítica', 'ontología':'Ontología',
   'analítica':'Filosofía analítica', 'epistemología':'Epistemología',
-  'ética':'Ética', 'investigación':'Investigación'
+  'ética':'Ética', 'política':'Filosofía política', 'investigación':'Investigación'
 }
 const marks = {'crítica':'K','ontología':'Ω','analítica':'λ',
-  'epistemología':'Σ','ética':'ἦ','investigación':'§'}
+  'epistemología':'Σ','ética':'ἦ','política':'Π','investigación':'§'}
 
 function LibraryTimeline({ events, subject }) {
   const chronological = [...events].sort((a,b)=>(b.date||'').localeCompare(a.date||'') || a.area.localeCompare(b.area))

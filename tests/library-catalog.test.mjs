@@ -80,3 +80,18 @@ test('Rendón: segunda recomendación de Ontología II, sin atribuir posesión o
  assert.equal(b.url,"https://revistas.pucp.edu.pe/index.php/arete/es/article/view/1698")
  assert.ok(!('posesion' in b))
 })
+
+test('Bobbio se registra únicamente en Biblioteca, con edición cotejada y sin atribuir lectura',()=>{
+ const b=books.find(x=>x.id==='Bobbio - La teoría de las formas de gobierno en la historia del pensamiento político')
+ assert.ok(b)
+ assert.equal(b.autor,'Bobbio')
+ assert.equal(b.categoria,'política')
+ assert.equal(b.estado,'documentada')
+ assert.ok(authors.includes('Bobbio, Norberto'))
+ assert.match(b.lectura,/Filosofía Política I, tercer semestre/)
+ assert.match(b.lectura,/sin confirmar/)
+ assert.match(b.edicion,/2001/)
+ assert.match(b.edicion,/2006/)
+ assert.equal(b.url,undefined)
+ assert.ok(!('posesion' in b))
+})
