@@ -17,7 +17,7 @@ test('all works are categorized, no ownership inferred',()=>{
 })
 test('recommendations with verified origins and no invented possession',()=>{
  const recommended=books.filter(x=>x.estado==='recomendada')
- assert.equal(recommended.length,9)
+ assert.equal(recommended.length,10)
  assert.deepEqual(new Set(recommended.map(x=>x.id)),new Set([
   'Adorno - Minima Moralia',
   'Foucault - Vigilar y castigar',
@@ -28,8 +28,9 @@ test('recommendations with verified origins and no invented possession',()=>{
   'Illouz - El consumo de la utopía romántica',
   'Lukács - Marx, ontología del ser social',
   'Nava - Tecnociencia, entorno y sujeto tecnocientífico',
+  'Popper - La lógica de la investigación científica',
  ]))
- assert.ok(recommended.every(x=>!x.url || x.url.startsWith('https://archive.org/details/') || x.url.startsWith('https://www.revistadefilosofia.org/index.php/ERF/article/view/') || x.url.startsWith('https://revistas.pucp.edu.pe/index.php/arete/')))
+ assert.ok(recommended.every(x=>!x.url || x.url.startsWith('https://archive.org/details/') || x.url.startsWith('https://www.revistadefilosofia.org/index.php/ERF/article/view/') || x.url.startsWith('https://revistas.pucp.edu.pe/index.php/arete/') || x.url.startsWith('https://raularagon.com.ar/biblioteca/libros/')))
  assert.ok(recommended.every(x=>!('posesion' in x)))
  for (const id of ['Adorno - Minima Moralia','Illouz - Intimidades congeladas']) {
    const book=recommended.find(x=>x.id===id)

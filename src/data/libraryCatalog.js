@@ -2,6 +2,23 @@
 // No contiene apuntes ni inventario personal de ejemplares.
 export const books = [
   {
+    "id": "Popper - La lógica de la investigación científica",
+    "autor": "Popper",
+    "titulo": "La lógica de la investigación científica",
+    "categoria": "epistemología",
+    "estado": "recomendada",
+    "lectura": "Lectura personal sin confirmar; recomendación temática sobre falsabilidad del 21-10-2026",
+    "edicion": "Obra original de 1934; la edición concreta del PDF compartido está pendiente de cotejar",
+    "url": "https://raularagon.com.ar/biblioteca/libros/Popper%20Karl%20-%20La%20Logica%20de%20la%20Investigacion%20Cientifica.pdf",
+    "ideas": [
+      {"lema": "I · Inducción y demarcación", "detalle": "Ruta de lectura: cap. I, §§1–6. Cómo contrastar teorías universales y distinguir su cientificidad mediante falsabilidad."},
+      {"lema": "II · Modus tollens", "detalle": "Ruta de lectura: cap. III, §18. El contraste deductivo entre una predicción y un enunciado básico incompatible."},
+      {"lema": "III · Falsabilidad y falsación", "detalle": "Ruta de lectura: cap. IV, §§19–24. No es igual que una teoría pueda refutarse que haberla refutado."},
+      {"lema": "IV · Base empírica", "detalle": "Ruta de lectura: cap. V. Los enunciados básicos intervienen en la contrastación; su aceptación también exige reglas metodológicas."},
+      {"lema": "V · Corroboración", "detalle": "Ruta de lectura: cap. X. Resistir pruebas severas no constituye verificación definitiva de la verdad de una teoría."}
+    ]
+  },
+  {
     "id": "Rendón - La lucha por el reconocimiento en el fragmento de 1803-1804 de Hegel",
     "autor": "Rendón",
     "titulo": "La lucha por el reconocimiento en el fragmento de 1803/1804, de Hegel",

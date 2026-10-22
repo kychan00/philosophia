@@ -1,5 +1,12 @@
 // APA 7: metadatos auditados a partir de notas del vault; valores ausentes no se inventan.
 export const libraryApaMetadata = {
+  "Popper - La lógica de la investigación científica": {
+    "kind": "book",
+    "title": "La lógica de la investigación científica",
+    "originalYear": 1934,
+    "studyPart": "Recomendación sobre falsabilidad registrada el 21-10-2026; edición del PDF y lectura personal sin cotejar",
+    "url": "https://raularagon.com.ar/biblioteca/libros/Popper%20Karl%20-%20La%20Logica%20de%20la%20Investigacion%20Cientifica.pdf"
+  },
   "Rendón - La lucha por el reconocimiento en el fragmento de 1803-1804 de Hegel": {
     "kind": "article",
     "title": "La lucha por el reconocimiento en el fragmento de 1803/1804, de Hegel",

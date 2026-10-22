@@ -4,6 +4,21 @@ export const libraryAcademicConnections = {
   "source": "Relaciones documentadas por títulos de tareas y fichas de obra. Una fecha de nota no prueba la realización de la lectura.",
   "tasksReviewed": 61,
   "works": {
+    "Popper - La lógica de la investigación científica": {
+      "events": [
+        {
+          "kind": "procedencia",
+          "date": "2026-10-21",
+          "dateLabel": "Fecha del registro de la recomendación temática; no fecha acreditada de clase",
+          "area": "Filosofía Analítica",
+          "title": "Referencia sobre falsabilidad · Karl Popper, La lógica de la investigación científica",
+          "status": "obra recomendada en biblioteca y documentada en Obsidian",
+          "type": "recomendación temática comunicada por el estudiante; docente y sesión sin confirmar",
+          "note": "Obra original alemana de 1934. Edición del PDF, lectura personal, posesión y consigna obligatoria no verificadas.",
+          "url": null
+        }
+      ]
+    },
     "Rendón - La lucha por el reconocimiento en el fragmento de 1803-1804 de Hegel": {
       "events": [
         {

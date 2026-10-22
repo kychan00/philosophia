@@ -117,3 +117,21 @@ test('Rendón y Dilthey: dos recomendaciones de la misma sesión sin clase o tar
  assert.equal(libraryTimelines.works[rid],undefined)
  assert.ok(authorsForWork(books.find(b=>b.id===rid),authors).includes('Rendón, Carlos'))
 })
+
+
+test('Popper: recomendación temática sobre falsabilidad sin sesión ni lectura inventadas',()=>{
+ const id='Popper - La lógica de la investigación científica'
+ const b=books.find(w=>w.id===id)
+ assert.ok(b)
+ assert.equal(b.categoria,'epistemología')
+ assert.equal(b.estado,'recomendada')
+ assert.match(b.lectura,/sin confirmar/)
+ assert.ok(authorsForWork(b,authors).includes('Popper, Karl'))
+ assert.equal(libraryTimelines.works[id],undefined)
+ const event=connected.works[id]?.events?.[0]
+ assert.ok(event)
+ assert.equal(event.kind,'procedencia')
+ assert.equal(event.date,'2026-10-21')
+ assert.equal(event.url,null)
+ assert.match(event.dateLabel,/registro/)
+})
