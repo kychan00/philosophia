@@ -6,6 +6,7 @@ import {
   glockNodeOrder, glockNodes, glockRouteTones, glockRoutes,
 } from '../src/data/glockAnalyticChapter2.js'
 import { buildSectionPedagogy } from '../src/components/philosophy/system2d/SectionPedagogyModel.js'
+import tasks from '../src/data/tasks.js'
 
 const byId = new Map(glockNodes.map((n) => [n.id, n]))
 const page = readFileSync(new URL('../src/pages/AnalyticGlockSystem.jsx', import.meta.url), 'utf8')
@@ -136,4 +137,19 @@ test('La tercera entrega sigue pp. 46–51, con frontera documental estricta', (
   }
   assert.match(byId.get('G38').data.explanation, /no se ha recibido/)
   assert.ok(glockLinks.find(edge => edge.source === 'G20' && edge.target === 'G21'))
+})
+
+
+test('La tarea Glock pp. 46–51 aparece en FI264 sin fecha inventada y enlaza el atlas', () => {
+  const matches = tasks.filter(task => task.id === 'analitica-2026-10-21-glock-pp46-51-2d')
+  assert.equal(matches.length, 1)
+  const task = matches[0]
+  assert.equal(task.subjectCode, 'FI264')
+  assert.equal(task.dueDate, null)
+  assert.equal(task.assignedDate, '2026-10-21')
+  assert.equal(task.studyRoute, '/semestre/5/filosofia-analitica/lectura/glock-capitulo-2')
+  assert.match(task.readingPages, /46–51/)
+  assert.match(task.description, /Bolzano, Boole, Frege/)
+  assert.match(task.sourceClass, /no asignación docente nueva/)
+  assert.ok(tasks.some(item => item.id === 'analitica-2026-08-19-glock-cap2'))
 })
