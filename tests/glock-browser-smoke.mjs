@@ -108,6 +108,29 @@ async function navigate(width,height){
   assert.equal(guide.selected,guide.guided,JSON.stringify(guide))
   assert.equal(guide.dimmedSelected,false,JSON.stringify(guide))
 
+  // Nueva entrega: la ruta de Frege se muestra por separado y sin capa docente inventada.
+  await evalJS(`(()=>{
+    [...document.querySelectorAll('.glock-study-routes button')]
+      .find(b=>b.textContent.includes('11 · Frege y lógica formal')).click()
+    return true
+  })()`)
+  await until(()=>evalJS("document.querySelector('.glock-topic-guide-rail')?.textContent.includes('G28')"),'riel Frege')
+  await evalJS("(()=>{document.querySelector('.glock-topic-guide-rail button').click();return true})()")
+  await until(()=>evalJS("document.querySelector('.glock-flow-canvas .react-flow__node.selected')?.getAttribute('data-id')==='G28'"),'nodo G28')
+  const frege=await evalJS(`(()=>({
+    selected:document.querySelector('.glock-flow-canvas .react-flow__node.selected')?.getAttribute('data-id'),
+    source:document.querySelector('.glock-source-details blockquote')?.textContent.length||0,
+    classLayer:document.querySelector('.glock-class-note')!==null,
+    width:innerWidth,
+    scroll:document.documentElement.scrollWidth,
+  }))()`)
+  assert.equal(frege.selected,'G28')
+  assert.ok(frege.source>180,JSON.stringify(frege))
+  assert.equal(frege.classLayer,false,JSON.stringify(frege))
+  assert.ok(frege.scroll<=frege.width+3,JSON.stringify(frege))
+  state=await evalJS(metrics)
+  assert.deepEqual(state.hits,[],'Frege nodos superpuestos '+width+'×'+height)
+
   if(width<=1180) assert.ok(!state.workspaceCols.includes('410px'),'iPad conserva inspector lateral '+state.workspaceCols)
   console.log('OK Glock Hacker-style',width,height,state,documentary,guide)
 }
