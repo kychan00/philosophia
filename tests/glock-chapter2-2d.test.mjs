@@ -13,7 +13,7 @@ const page = readFileSync(new URL('../src/pages/AnalyticGlockSystem.jsx', import
 const css = readFileSync(new URL('../src/pages/AnalyticGlockSystem.css', import.meta.url), 'utf8')
 const node = readFileSync(new URL('../src/components/analytic/GlockNode.jsx', import.meta.url), 'utf8')
 
-test('Glock conserva 39 nodos con fuente y esquema, sin inventar una capa docente', () => {
+test('Glock conserva 39 nodos, fuentes y capas docentes por fecha', () => {
   assert.equal(glockNodes.length, 39)
   assert.deepEqual(glockNodeOrder, glockNodes.map((n) => n.id))
   for (const n of glockNodes) {
@@ -101,6 +101,7 @@ test('Estados Hacker/Marx conservan selección, guía y blur relacional', () => 
 test('Inspector separa autor, clase, estudio, dependencias y conceptos', () => {
   assert.match(page, /Qué significa/)
   assert.match(page, /EXPLICACIÓN DOCENTE · 19 OCT 2026/)
+  assert.match(page, /EXPLICACIÓN DOCENTE · 21 OCT 2026/)
   assert.match(page, /TEXTO ORIGINAL DE GLOCK/)
   assert.match(page, /ESQUEMA DEL NODO · RECONSTRUCCIÓN DE ESTUDIO/)
   assert.match(page, /PREGUNTA DE ESTUDIO/)
@@ -134,7 +135,8 @@ test('La tercera entrega sigue pp. 46–51, con frontera documental estricta', (
   for (const n of newNodes) {
     assert.match(n.data.page, /(?:46|47|48|49|50|51)/)
     assert.doesNotMatch(n.data.page, /52|fragmento/)
-    assert.equal(n.data.classSeen, false)
+    assert.equal(n.data.classSeen, Number(n.id.slice(1)) <= 31)
+    assert.equal(Boolean(n.data.class21Oct), Number(n.id.slice(1)) <= 31)
     assert.equal(n.data.schema.nodes.length, n.data.diagram.length)
     assert.ok(n.data.sourcePassage.length >= 180)
   }

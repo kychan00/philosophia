@@ -56,12 +56,6 @@ const guide = [
  ['48','Boole: lógica tratada algebraicamente'],
  ['48–49','Frege: lógica de funciones y cuantificadores'],
 ]
-const contrasts = [
- ['Verdad por coherencia','Una proposición se evalúa dentro de un sistema de proposiciones; no equivale por sí sola a correspondencia externa.'],
- ['Fundamentar una derivación','Mostrar que la conclusión se sigue de axiomas y reglas precisas.'],
- ['Fundamentar los axiomas','Preguntar qué justifica elegir esos principios y qué estatuto tienen los objetos matemáticos.'],
- ['Aristóteles / Frege','De la clasificación sujeto–predicado a representar también individuos, relaciones y cuantificaciones.'],
-]
 function scrollToSection(id){ document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'}) }
 function Heading({n,eyebrow,children}){return <AnalyticEditorialHeading n={n} eyebrow={eyebrow} className="ac1910-heading">{children}</AnalyticEditorialHeading>}
 function Layer({type,children}){return <aside className={'ac1910-provenance '+(type==='clase'?'is-class':'is-source')}><span>{type==='clase'?'EXPLICACIÓN DE CLASE':type==='cotejo'?'PRECISIÓN DOCUMENTAL':'GLOCK · TEXTO COTEJADO'}</span><p>{children}</p></aside>}
