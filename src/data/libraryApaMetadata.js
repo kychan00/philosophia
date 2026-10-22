@@ -1,5 +1,28 @@
 // APA 7: metadatos auditados a partir de notas del vault; valores ausentes no se inventan.
 export const libraryApaMetadata = {
+  "Bloch - Sujeto-objeto": {
+    "kind": "book",
+    "title": "Sujeto-objeto: El pensamiento de Hegel",
+    "year": 1983,
+    "publisher": "Fondo de Cultura Económica",
+    "studyPart": "Ontología II: capítulo XIX «Marx y la dialéctica idealista», PDF pp. 380–387; no lectura total acreditada"
+  },
+  "Fromm - Marx y su concepto del hombre": {
+    "kind": "book",
+    "title": "Marx y su concepto del hombre",
+    "year": 1962,
+    "publisher": "Fondo de Cultura Económica",
+    "translators": ["Campos, Julieta"],
+    "studyPart": "Ejemplar español de 1962; sección «Crítica a la dialéctica y en general a la filosofía de Hegel», de Karl Marx, PDF pp. 97–112, incluida en el libro de Fromm. No es texto de autoría de Fromm."
+  },
+  "Marx y Engels - La ideología alemana": {
+    "kind": "book",
+    "title": "La ideología alemana",
+    "year": 2014,
+    "publisher": "Ediciones Akal",
+    "translators": ["Roces, Wenceslao"],
+    "studyPart": "Ontología II: apéndice con las once «Tesis sobre Feuerbach», escritas por Karl Marx, PDF pp. 500–503; no lectura íntegra del volumen acreditada"
+  },
   "Bobbio - La teoría de las formas de gobierno en la historia del pensamiento político": {
     "kind": "book",
     "title": "La teoría de las formas de gobierno en la historia del pensamiento político",
