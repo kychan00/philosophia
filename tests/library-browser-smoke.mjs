@@ -157,9 +157,9 @@ try {
   await until(()=>evaluate("document.querySelector('.bc-canvas')?.getAttribute('data-mode')==='foco'"),'Foco contextual')
   console.log('OK navegación de modos en cartografía')
   // Búsqueda de falsabilidad en producción: evita registrar sólo el libro sin enlazar su concepto.
-  assert.equal(await evaluate("document.querySelector('.bc-counter')?.textContent.includes('74')"),true,
+  assert.equal(await evaluate("document.querySelector('.bc-counter')?.textContent.includes('" + books.length + "')"),true,
     'El contador de obras debe reflejar la entrada nueva de Popper')
-  assert.equal(await evaluate("(()=>{const input=document.querySelector('#bc-find');input.value='Falsa';input.dispatchEvent(new Event('input',{bubbles:true}));return !!input})()"),true)
+  assert.equal(await evaluate("(()=>{const input=document.querySelector('#bc-find');Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(input,'Falsa');input.dispatchEvent(new Event('input',{bubbles:true}));return !!input})()"),true)
   await until(()=>evaluate("document.querySelector('.bc-results')?.textContent.includes('Falsabilidad')"),
     'Búsqueda de falsabilidad en producción')
   assert.equal(await evaluate("document.querySelector('.bc-results')?.textContent.includes('Sin coincidencias')"),false)
