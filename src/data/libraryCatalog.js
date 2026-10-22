@@ -9,6 +9,7 @@ export const books = [
     "estado": "documentada",
     "lectura": "Lectura para hoy, 22-10-2026 · pendiente de confirmar avance",
     "edicion": "PDF facilitado · 90 páginas · trad. Luis López Ballesteros · Biblioteca Libre OMEGALFA · maquetación 2010 (no año editorial confirmado)",
+    "url": "https://omegalfa.es/downloadfile.php?file=libros/el.malestar.de.la.cultura.pdf",
     "ideas": [
       {"lema":"I · El yo y el sentimiento oceánico (PDF pp. 2–12)","detalle":"Freud examina la experiencia de unidad con el mundo, la delimitación del yo y la interpretación de la necesidad religiosa."},
       {"lema":"II · Felicidad y fuentes del sufrimiento (PDF pp. 13–26)","detalle":"El principio del placer persigue felicidad, pero cuerpo, naturaleza y convivencia la limitan; se comparan varias vías para enfrentar el malestar."},

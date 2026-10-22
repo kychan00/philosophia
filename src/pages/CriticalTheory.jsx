@@ -248,7 +248,7 @@ export default function CriticalTheory() {
           <span>I</span><div><p>Lecturas y tareas</p><h2>Agenda de Teoría Crítica</h2></div>
         </header>
 
-                <div className="ct-task">
+        <div className="ct-task">
           <div className="ct-task-date"><strong>22</strong><span>OCT · 2026</span></div>
           <div>
             <p>Lectura para hoy · Sesión virtual · Pendiente</p>
@@ -262,7 +262,7 @@ export default function CriticalTheory() {
           </Link>
         </div>
 
-<div className="ct-task">
+        <div className="ct-task">
           <div className="ct-task-date"><strong>18</strong><span>AGO · 2026</span></div>
           <div>
             <p>100 puntos · Lectura 1 · Panorama</p>

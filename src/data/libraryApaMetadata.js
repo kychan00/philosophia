@@ -6,6 +6,7 @@ export const libraryApaMetadata = {
     "translators": ["López Ballesteros, Luis"],
     "publisher": "Biblioteca Libre OMEGALFA",
     "originalYear": 1930,
+    "url": "https://omegalfa.es/downloadfile.php?file=libros/el.malestar.de.la.cultura.pdf",
     "studyPart": "Copia digital facilitada el 22-10-2026, 90 páginas, maquetación Amanuense febrero 2010; lectura personal pendiente. El PDF indica 1929 [1930]; año de publicación de esta edición no confirmado."
   },
   "Popper - La lógica de la investigación científica": {
