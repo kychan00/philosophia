@@ -30,7 +30,7 @@
 .library-books{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;}
 .library-book{--accent:#66715a;position:relative;display:flex;flex-direction:column;min-height:300px;padding:20px 21px;background:var(--cream);border:1px solid var(--i);overflow:hidden;min-width:0;}
 .library-book:before{content:'';position:absolute;left:0;right:0;top:0;height:6px;background:var(--accent);}
-.library-book--crítica{--accent:#b08427}.library-book--ontología{--accent:#576a4c}.library-book--analítica{--accent:#397b5a}.library-book--epistemología{--accent:#436e7b}.library-book--ética{--accent:#a1503a}.library-book--investigación{--accent:#76614e}
+.library-book--crítica{--accent:#b08427}.library-book--ontología{--accent:#576a4c}.library-book--analítica{--accent:#397b5a}.library-book--epistemología{--accent:#436e7b}.library-book--ética{--accent:#a1503a}.library-book--política{--accent:#534a83}.library-book--investigación{--accent:#76614e}
 .library-book-top{display:flex;justify-content:space-between;gap:10px;color:var(--accent);position:relative;z-index:1;}
 .library-book-top span:last-child{text-align:right;}
 .library-book-mark{position:absolute;font:italic 125px Georgia,serif;color:var(--accent);opacity:.08;right:12px;top:26px;pointer-events:none;}
