@@ -1,4 +1,4 @@
-// Fuente primaria: Glock (Tecnos, 2012), cap. II, pp. 40–45 y fragmento visible p. 46.
+// Fuente primaria: Glock (Tecnos, 2012), cap. II, pp. 40–51. No extrapolar p. 52.
 import { SYSTEM_2D_THEME } from '../components/philosophy/system2d/system2dTheme.js'
 import { glockClass19Oct } from './glockClass19Oct.js'
 
@@ -25,7 +25,13 @@ export const glockRoutes = [
   },
   { "id": "juicios", "label": "05 · Juicios y conocimiento" },
   { "id": "trascendental", "label": "06 · Filosofía trascendental" },
-  { "id": "reacciones", "label": "07 · Reacciones al idealismo" }
+  { "id": "reacciones", "label": "07 · Reacciones al idealismo" },
+  { "id": "matematicas", "label": "08 · Crisis matemática" },
+  { "id": "bolzano", "label": "09 · Bolzano y objetividad" },
+  { "id": "boole", "label": "10 · Boole y álgebra lógica" },
+  { "id": "frege", "label": "11 · Frege y lógica formal" },
+  { "id": "limites", "label": "12 · Límites del logicismo" },
+  { "id": "rebelion", "label": "13 · Rebelión contra el idealismo" }
 ]
 
 const SOURCE_NODES = [
@@ -355,17 +361,381 @@ const SOURCE_NODES = [
   "section": "reacciones",
   "title": "Neokantismo: segunda reacción",
   "kind": "Respuesta histórica",
-  "page": "p. 46 · fragmento",
+  "page": "p. 46",
   "x": 0,
   "y": 0,
   "short": "La filosofía como disciplina de segundo orden clarifica precondiciones del conocimiento.",
-  "explanation": "En el fragmento disponible de p. 46 Glock describe la respuesta neokantiana: para mantener su especificidad frente a las ciencias especiales, la filosofía analiza condiciones lógicas, conceptuales y metodológicas del conocimiento científico y de otras formas de pensamiento. No se dispone todavía del resto de la página.",
+  "explanation": "En la página 46 Glock describe la respuesta neokantiana: para mantener su especificidad frente a las ciencias especiales, la filosofía analiza condiciones lógicas, conceptuales y metodológicas del conocimiento científico y de otras formas de pensamiento. Este párrafo cierra las reacciones al idealismo y abre una sección distinta sobre los fundamentos matemáticos.",
   "excerpt": "los neo-kantianos retomaron la idea de que la filosofía es una disciplina de segundo orden",
   "question": "¿Qué quiere decir aquí segundo orden y cómo se distingue del naturalismo?",
   "dependsOn": [
     "G18",
     "G15"
   ]
+}
+,
+{
+  "id": "G21",
+  "section": "matematicas",
+  "title": "La matemática exige fundamentos",
+  "kind": "Contexto histórico",
+  "page": "p. 46",
+  "short": "Las ciencias presionan la autonomía de la filosofía, pero sus fundamentos reabren problemas filosóficos.",
+  "explanation": "La aparición de la psicología y la transformación de las matemáticas crean dificultades conceptuales y metodológicas. Glock muestra así por qué la crisis de la filosofía como disciplina coincide con una renovada necesidad de reflexión sobre la ciencia.",
+  "dependsOn": [
+    "G20"
+  ],
+  "diagram": [
+    "ciencias especializadas",
+    "problemas conceptuales",
+    "fundamentos de las matemáticas"
+  ],
+  "question": "¿Por qué el avance científico vuelve a necesitar preguntas filosóficas?",
+  "x": 0,
+  "y": 0
+},
+{
+  "id": "G22",
+  "section": "matematicas",
+  "title": "Aritmetización y crisis fundacional",
+  "kind": "Transformación",
+  "page": "pp. 46–47",
+  "short": "Weierstrass y los nuevos sistemas matemáticos desplazan la intuición geométrica hacia definiciones aritméticas.",
+  "explanation": "La abstracción del álgebra, la depuración de los infinitesimales y la aparición de geometrías no euclidianas provocan una crisis de fundamentos. La prioridad se desplaza desde la evidencia intuitiva hacia la derivación rigurosa de axiomas y definiciones.",
+  "dependsOn": [
+    "G21"
+  ],
+  "diagram": [
+    "intuición geométrica",
+    "aritmetización",
+    "derivación axiomática"
+  ],
+  "question": "¿Por qué la validez matemática ya no puede descansar únicamente en la intuición?",
+  "x": 0,
+  "y": 0
+},
+{
+  "id": "G23",
+  "section": "matematicas",
+  "title": "Continuidad, infinito y Cantor",
+  "kind": "Problema",
+  "page": "p. 47",
+  "short": "El infinito y los conjuntos transfinitos obligan a revisar nociones matemáticas básicas.",
+  "explanation": "Glock relaciona las definiciones de continuidad e infinitud con el desarrollo de teoría de números y la teoría de conjuntos de Cantor. También atribuye a Bolzano anticipaciones importantes sobre conjuntos infinitos.",
+  "dependsOn": [
+    "G22"
+  ],
+  "diagram": [
+    "definiciones de infinito",
+    "Cantor",
+    "fundamentación aritmética"
+  ],
+  "question": "¿Qué cambia cuando los conjuntos infinitos se vuelven objetos rigurosos de investigación?",
+  "x": 0,
+  "y": 0
+},
+{
+  "id": "G24",
+  "section": "bolzano",
+  "title": "Bolzano: variación de proposiciones",
+  "kind": "Innovación lógica",
+  "page": "p. 47",
+  "short": "El método de variación estudia qué sucede con la verdad al sustituir conceptos o proposiciones.",
+  "explanation": "Bolzano introduce una técnica para examinar validez y deducibilidad variando componentes de proposiciones complejas. Glock la presenta como antecedente de ideas posteriores de consecuencia y verdad lógica; la anticipación es una comparación histórica de Glock, no identidad de teorías.",
+  "dependsOn": [
+    "G23"
+  ],
+  "diagram": [
+    "proposición compleja",
+    "sustitución de componentes",
+    "valor veritativo"
+  ],
+  "question": "¿Qué queda fijo y qué puede variar en una proposición lógicamente verdadera?",
+  "x": 0,
+  "y": 0
+},
+{
+  "id": "G25",
+  "section": "bolzano",
+  "title": "Verdad lógica y deducibilidad",
+  "kind": "Distinción",
+  "page": "p. 47",
+  "short": "La forma lógica permanece verdadera ante sustituciones consistentes de componentes no lógicos.",
+  "explanation": "Glock explica el ejemplo de la disyunción «Bruto mató a César o Bruto no mató a César». Sustituir sus expresiones no lógicas, conservando las partículas pertinentes y consistencia en la sustitución, preserva la verdad. Bolzano anticipa discusiones de Tarski y Quine, sin ser idéntico a sus teorías.",
+  "dependsOn": [
+    "G24"
+  ],
+  "diagram": [
+    "partículas lógicas",
+    "variación uniforme",
+    "verdad lógica"
+  ],
+  "question": "¿Por qué la estructura ‘p o no p’ sigue siendo verdadera al cambiar p?",
+  "x": 0,
+  "y": 0
+},
+{
+  "id": "G26",
+  "section": "bolzano",
+  "title": "Proposiciones en sí y antipsicologismo",
+  "kind": "Ontología semántica",
+  "page": "pp. 47–48",
+  "short": "La proposición no se reduce a la oración pronunciada ni al acto psicológico de juzgar.",
+  "explanation": "En Glock, Bolzano diferencia juicios, oraciones y proposiciones en sí mismas. La verdad de una proposición no depende de que alguien la piense o exprese. Este platonismo semántico anticipa aspectos de Frege y Moore; distinguir contenido, acto y signo es decisivo.",
+  "dependsOn": [
+    "G25"
+  ],
+  "diagram": [
+    "juicio mental",
+    "oración lingüística",
+    "proposición en sí"
+  ],
+  "question": "¿Qué diferencia hay entre pensar una proposición, enunciarla y su contenido objetivo?",
+  "x": 0,
+  "y": 0
+},
+{
+  "id": "G27",
+  "section": "boole",
+  "title": "Boole: álgebra de la lógica",
+  "kind": "Cambio formal",
+  "page": "p. 48",
+  "short": "El cálculo algebraico de clases y conjuntos desborda la silogística aristotélica.",
+  "explanation": "La innovación consiste en convertir operaciones entre conceptos en operaciones formales análogas a suma y multiplicación. Glock presenta la lógica booleana como una rama matemática, antecedente crucial pero distinta del sistema funcional de Frege.",
+  "dependsOn": [
+    "G26"
+  ],
+  "diagram": [
+    "lógica silogística",
+    "operaciones algebraicas",
+    "álgebra del pensamiento"
+  ],
+  "question": "¿Cómo cambia la lógica cuando sus operaciones pueden representarse algebraicamente?",
+  "x": 0,
+  "y": 0
+},
+{
+  "id": "G28",
+  "section": "frege",
+  "title": "Frege: Begriffsschrift y logicismo",
+  "kind": "Programa",
+  "page": "p. 48",
+  "short": "En 1879 Frege formaliza la lógica de primer orden y busca derivar la aritmética de la lógica.",
+  "explanation": "La Conceptografía de Frege se organiza mediante funciones, no por álgebra de clases al estilo de Boole. Su proyecto logicista exige definiciones lógicas de conceptos matemáticos y demostración de teoremas desde principios lógicos; Glock lo sitúa como un punto decisivo del nacimiento de la filosofía analítica.",
+  "dependsOn": [
+    "G27"
+  ],
+  "diagram": [
+    "Conceptografía (1879)",
+    "lógica de primer orden",
+    "logicismo"
+  ],
+  "question": "¿En qué se diferencian la matematización de la lógica y la reducción de matemáticas a lógica?",
+  "x": 0,
+  "y": 0
+},
+{
+  "id": "G29",
+  "section": "frege",
+  "title": "Función y argumento, no sujeto y predicado",
+  "kind": "Innovación conceptual",
+  "page": "pp. 48–49",
+  "short": "Una oración puede analizarse como una función con lugares de argumento.",
+  "explanation": "Glock muestra cómo Frege descompone «César conquistó las Galias» en una función de dos lugares («x conquistó y») y dos argumentos; ello permite una estructura lógica más expresiva que la división tradicional sujeto–predicado.",
+  "dependsOn": [
+    "G28"
+  ],
+  "diagram": [
+    "función x conquistó y",
+    "argumento César",
+    "argumento las Galias"
+  ],
+  "question": "¿Por qué una oración relacional necesita más de un lugar de argumento?",
+  "x": 0,
+  "y": 0
+},
+{
+  "id": "G30",
+  "section": "frege",
+  "title": "Conceptos como funciones veritativas",
+  "kind": "Semántica lógica",
+  "page": "p. 49",
+  "short": "Un concepto correlaciona objetos con valores de verdad: verdadero o falso.",
+  "explanation": "La formalización fregeana interpreta el concepto predicativo como función: «x conquistó y» adquiere un valor de verdad al recibir argumentos concretos. Glock distingue así una función matemática ordinaria y un concepto cuya salida es «lo Verdadero» o «lo Falso».",
+  "dependsOn": [
+    "G29"
+  ],
+  "diagram": [
+    "concepto como función",
+    "argumentos dados",
+    "verdadero / falso"
+  ],
+  "question": "¿Qué valor devuelve un concepto fregeano una vez introducidos sus argumentos?",
+  "x": 0,
+  "y": 0
+},
+{
+  "id": "G31",
+  "section": "frege",
+  "title": "Conectivas y cuantificadores",
+  "kind": "Instrumento formal",
+  "page": "p. 49",
+  "short": "La negación y la cuantificación universal permiten formalizar generalidades complejas.",
+  "explanation": "Glock interpreta «Todos los electrones son negativos» mediante una condición general ligada por «para todo x». El alcance del cuantificador y su negación diferencian afirmaciones lógicamente distintas, incluso si el lenguaje ordinario las asemeja.",
+  "dependsOn": [
+    "G30"
+  ],
+  "diagram": [
+    "función condicional",
+    "∀x",
+    "alcance de ¬ y ∃"
+  ],
+  "question": "¿Qué distingue la negación de ‘todos’ de la afirmación de ‘ninguno’?",
+  "x": 0,
+  "y": 0
+},
+{
+  "id": "G32",
+  "section": "frege",
+  "title": "Existencia como propiedad de conceptos",
+  "kind": "Revisión ontológica",
+  "page": "p. 50",
+  "short": "«Existe» significa que un concepto tiene al menos una instancia, no una cualidad del objeto.",
+  "explanation": "Para Glock, el análisis lógico de Frege aporta una objeción a cierta formulación del argumento ontológico: «Dios existe» no atribuye al objeto Dios un predicado ordinario como «omnipotente», sino que dice de un concepto que tiene una instancia. El ejemplo expresa el análisis de Frege expuesto por Glock, no una solución general a toda teología.",
+  "dependsOn": [
+    "G31"
+  ],
+  "diagram": [
+    "concepto G",
+    "¿algún x satisface G?",
+    "∃xGx"
+  ],
+  "question": "¿Por qué «Dios existe» no funciona como «Dios es omnipotente»?",
+  "x": 0,
+  "y": 0
+},
+{
+  "id": "G33",
+  "section": "frege",
+  "title": "Sentido, referencia y representación",
+  "kind": "Distinción semántica",
+  "page": "p. 50",
+  "short": "La referencia es el objeto designado; el sentido es su modo de presentación; la idea privada es otra cosa.",
+  "explanation": "En «Sobre sentido y referencia» (1892), Glock distingue Bedeutung (referencia), Sinn (sentido) y Vorstellung (representación subjetiva). El sentido es compartible y objetivo, a diferencia de las asociaciones privadas suscitadas por un signo.",
+  "dependsOn": [
+    "G32"
+  ],
+  "diagram": [
+    "signo y referencia",
+    "modo de presentación (sentido)",
+    "idea subjetiva ≠ sentido"
+  ],
+  "question": "¿Cómo pueden dos expresiones tener el mismo referente y diferente sentido?",
+  "x": 0,
+  "y": 0
+},
+{
+  "id": "G34",
+  "section": "frege",
+  "title": "El tercer reino: pensamientos objetivos",
+  "kind": "Antipsicologismo",
+  "page": "p. 50",
+  "short": "Los pensamientos, conceptos y valores veritativos no dependen de una mente particular.",
+  "explanation": "Glock presenta una ontología fregeana de pensamientos objetivos: ni experiencias privadas ni cosas físicas. Debe leerse como posición de Frege reconstruida por Glock, no como consenso filosófico sobre la existencia de un tercer reino.",
+  "dependsOn": [
+    "G33",
+    "G26"
+  ],
+  "diagram": [
+    "pensamiento compartible",
+    "no espacial ni temporal",
+    "tercer reino"
+  ],
+  "question": "¿Por qué el contenido de una verdad no desaparece si nadie la piensa?",
+  "x": 0,
+  "y": 0
+},
+{
+  "id": "G35",
+  "section": "limites",
+  "title": "La paradoja de Russell golpea al logicismo",
+  "kind": "Obstáculo formal",
+  "page": "pp. 50–51",
+  "short": "El uso irrestricto de conjuntos que se contienen o no a sí mismos produce una contradicción.",
+  "explanation": "Frege había intentado reducir la aritmética a lógica con conceptos de conjunto. Glock narra la dificultad que revela la paradoja del conjunto de todos los conjuntos que no se incluyen a sí mismos. El proyecto de fundamentos queda sometido a revisión.",
+  "dependsOn": [
+    "G28",
+    "G34"
+  ],
+  "diagram": [
+    "conceptos lógicos de conjunto",
+    "autopertenencia",
+    "paradoja de Russell"
+  ],
+  "question": "¿Qué ocurre cuando se pregunta si el conjunto de los que no se pertenecen a sí mismos se pertenece a sí mismo?",
+  "x": 0,
+  "y": 0
+},
+{
+  "id": "G36",
+  "section": "limites",
+  "title": "Russell: tipos y Principia Mathematica",
+  "kind": "Respuesta formal",
+  "page": "p. 51",
+  "short": "Russell introduce una teoría de tipos para bloquear fórmulas autorreferenciales problemáticas.",
+  "explanation": "El texto sitúa la paradoja descubierta por Russell y la reacción mediante reglas de tipos: algunas expresiones quedan excluidas como carentes de sentido dentro del sistema. El resultado fue Principia Mathematica (Whitehead y Russell, 1910–1913), etapa central del programa logicista.",
+  "dependsOn": [
+    "G35"
+  ],
+  "diagram": [
+    "paradoja",
+    "restricciones de tipos",
+    "Principia Mathematica"
+  ],
+  "question": "¿Qué impide la teoría de tipos y qué pretende salvar?",
+  "x": 0,
+  "y": 0
+},
+{
+  "id": "G37",
+  "section": "limites",
+  "title": "Gödel y las limitaciones del programa",
+  "kind": "Desenlace histórico",
+  "page": "p. 51",
+  "short": "Los teoremas de incompletitud limitan la esperanza de una fundamentación lógica autosuficiente.",
+  "explanation": "Glock interpreta el resultado de Gödel (1931) como un golpe a la promesa epistemológica del logicismo: no basta un sistema formal suficientemente expresivo y efectivamente axiomatizado para certificar desde dentro su consistencia, bajo las condiciones habituales del teorema. Subsiste la utilidad de sus métodos analíticos.",
+  "dependsOn": [
+    "G36"
+  ],
+  "diagram": [
+    "programa logicista",
+    "límites demostrativos",
+    "vigencia del análisis lógico"
+  ],
+  "question": "¿Por qué puede fallar el objetivo fundacional aunque subsista el método analítico?",
+  "x": 0,
+  "y": 0
+},
+{
+  "id": "G38",
+  "section": "rebelion",
+  "title": "Russell y el idealismo británico",
+  "kind": "Inicio de sección",
+  "page": "p. 51",
+  "short": "El nuevo apartado comienza vinculando el proyecto lógico de Russell con su formación idealista.",
+  "explanation": "La sección 3, «La rebelión contra el idealismo», se inicia en la página 51. Sólo alcanzamos el pasaje de presentación: Russell usa herramientas lógicas en epistemología y metafísica y aparece su relación inicial con el idealismo británico de Bradley y McTaggart. El desarrollo de esa rebelión en p. 52 y siguientes aún no se ha recibido.",
+  "dependsOn": [
+    "G36",
+    "G37"
+  ],
+  "diagram": [
+    "lenguaje ideal",
+    "problemas de epistemología y metafísica",
+    "idealismo británico · transición"
+  ],
+  "question": "¿Por qué la formación idealista de Russell importa para la siguiente sección, todavía no leída?",
+  "x": 0,
+  "y": 0
 }
 ]
 
@@ -390,7 +760,25 @@ const SOURCE_PASSAGES = Object.freeze({
   G17: `Kant rehabilita solamente una metafísica «trascendental» de la experiencia, no la metafísica «trascendente» de los racionalistas que buscan el conocimiento de objetos más allá de toda posible experiencia, como Dios y el alma. Igualmente elimina las pretensiones de la metafísica tradicional sin abandonar el proyecto de la filosofía como disciplina sui generis distinta de las ciencias especiales. Pero esta atractiva combinación ha de pagar un precio: una forma de idealismo. Kant no niega la existencia de objetos independientes de la mente, ni afirma tampoco que la mente crea a la naturaleza. Pero sí mantiene, sin embargo, que la mente impone sus leyes estructurales sobre la realidad. Desde una perspectiva filosófica, el espacio, el tiempo y la causación son entidades «ideales» más que «reales» que se aplican solamente a las «apariencias».`,
   G18: `Este «idealismo trascendental» genera numerosas tensiones. Por ejemplo, mientras que la causación se aplica supuestamente sólo a las apariencias, donde estas últimas son resultado de las cosas en sí que no afectan causalmente al aparato cognitivo del sujeto, los idealistas alemanes trataron de superar estas tensiones extremando el idealismo. El sujeto aporta no sólo la forma de la cognición, sino también su contenido. La realidad es una manifestación de un principio espiritual que trasciende a las mentes individuales, tal como ocurre con el «espíritu» de Hegel. Puesto que la realidad misma es enteramente mental, es totalmente captable por la mente. Una vez más, la filosofía se torna en una super-ciencia que engloba a todas las otras disciplinas.`,
   G19: `Tan grandiosas pretensiones resultaron ser incompatibles con los avances en primer lugar de las ciencias naturales y más tarde con las culturales en el siglo XIX. El resultado fue el «colapso del idealismo» poco después de la muerte de Hegel en 1831. Dos principales reacciones tuvieron lugar entonces. Una fue el naturalismo, cuyos representantes eran fisiólogos por formación que trataron al idealismo alemán como signo de la bancarrota de toda especulación metafísica y del razonamiento a priori. Los naturalistas mantenían que todo conocimiento era a posteriori, puesto que las pretendidas disciplinas a priori podían ser reducidas o bien a disciplinas empíricas como la psicología o la fisiología o bien tenía que ser rechazada por ilusoria.`,
-  G20: `La otra reacción fue el neo-kantismo, un movimiento que dominó la filosofía académica alemana entre los años 1835 y la Primera Guerra Mundial. Si la filosofía deseaba preservar su condición de respetable disciplina sui generis, tenía que abandonar la inútil competición con las ciencias especiales. Bajo el grito de guerra «¡Retorno a Kant!», los neo-kantianos retomaron la idea de que la filosofía es una disciplina de segundo orden. No investiga una pretendida realidad situada más allá de lo que es accesible a la ciencia, ni tampoco compite con ésta en la explicación de la realidad empírica. En lugar de ello, clarifica las precondiciones lógicas, conceptuales y metodológicas del conocimiento empírico, al igual que las precondiciones de modos no-filosóficos de pensamiento de carácter más general.`,
+  G20: `La otra reacción fue el neo-kantismo, un movimiento que dominó la filosofía académica alemana entre los años 1835 y la Primera Guerra Mundial. Si la filosofía deseaba preservar su condición de respetable disciplina sui generis, tenía que abandonar la inútil competición con las ciencias especiales. Bajo el grito de guerra «¡Retorno a Kant!», los neo-kantianos retomaron la idea de que la filosofía es una disciplina de segundo orden. No investiga una pretendida realidad situada más allá de lo que es accesible a la ciencia, ni tampoco compite con ésta en la explicación de la realidad empírica. En lugar de ello, clarifica las precondiciones lógicas, conceptuales y metodológicas del conocimiento empírico, al igual que las precondiciones de modos no-filosóficos de pensamiento de carácter más general.`,,
+  G21: "Mientras el florecimiento de las ciencias especiales durante el siglo diecinueve presionaba sobre la idea de la filosofía como disciplina autónoma, se iba dibujando también la necesidad de la filosofía. La emergencia de nuevas disciplinas como la psicología y la rápida transformación de las materias establecidas, planteaban una nutrida serie de cuestiones conceptuales y metodológicas que atraía a los propios científicos hacia el territorio filosófico.",
+  G22: "El álgebra dejó de ser cuantitativa y Weierstrass depuró el análisis de intuiciones geométricas y de la paradójica noción de los infinitesimales. El uno y la otra fueron «aritmetizados» en el sentido de que sus conceptos básicos quedaron definidos en términos de números naturales y de las operaciones aritméticas realizadas sobre ellos. Por otra parte, la introducción de las geometrías no Euclidianas y de las álgebras no-estándards, arrojaron dudas sobre la certidumbre de la matemática, amenazando con ello su conquistado estatuto de paradigma del conocimiento humano.",
+  G23: "Igualmente desarrollaron un gran interés por la naturaleza de los números naturales, lo cual condujo a grandes avances en teoría de números, tal como las definiciones de infinitud y de continuidad, y a la invención de Cantor de la teoría-de-conjuntos transfinitos. Finalmente, la interacción entre lógica y matemática proporcionó los medios tanto para el incremento del rigor formal de las pruebas matemáticas como para asegurar la fundamentación de esa rama suya a la que todas las otras parecían reducibles: la aritmética.",
+  G24: "La innovación más importante de la lógica formal de Bolzano fue su método de «variación» (1837, 11, §§ 147-162), que considera lo que ocurre al valor veritativo de una proposición compleja cuando alteramos alguno de sus componentes —bien sea éste un concepto u otra proposición—. La variación le permitió ofrecer definiciones precisas de todo un conjunto de conceptos lógicos.",
+  G25: "En una verdad lógica, sólo las partículas lógicas «ocurren de manera esencial»; o sea, que podemos variar a voluntad todos los otros componentes sin producir con ello un cambio en su valor veritativo. Así, en (4) Bruto mató a Cesar o Bruto no mató a Cesar podemos hacer cualquier sustitución (consistente) en todos sus componentes, salvo en «o» y en «no», y el resultado seguirá siendo verdadero.",
+  G26: "El mismo anti-subjetivismo y anti-psicologismo son los que guían el platonismo semántico de Bolzano, que anticipa al de Frege y Moore. Bolzano distinguía entre juicios mentales, sentencias lingüísticas y proposiciones (Sätze an sich). Una proposición como el teorema de Pitágoras puede ser expresada en diferentes lenguajes. No es verdadera o falsa en un determinado lenguaje o contexto, sino verdadera o falsa simpliciter, con independencia del hecho de que alguien pueda decir o juzgar alguna vez que es verdadera.",
+  G27: "Pese a todas estas innovaciones de largo alcance, la lógica formal de Bolzano se quedó anticuada en un aspecto crucial: su fidelidad a la lógica silogística de Aristóteles para la que todas las proposiciones se dividen en sujeto y predicado. Pero la aplicación de ideas matemáticas a la lógica (hasta entonces reservada a los filósofos) condujo también a sistemas formales de una clase enteramente nueva. Capitalizando una analogía entre la disyunción/conjunción de conceptos y la adición/multiplicación de números, George Boole matematizó la silogística en términos de operaciones algebraicas sobre conjuntos.",
+  G28: "Mas la línea divisoria en los desarrollos de la lógica formal fue, sin embargo, el Begriffsschrift (Conceptografía) de Gottlob Frege publicado en 1879. El sistema de Frege se basaba en la teoría de funciones más que en el álgebra. Al igual que Boole, también él matematizó la lógica. Pero en lugar de pretender presentar a la lógica como una rama de la matemática, se manifestó como el adalid del logicismo: el proyecto de ofrecer a la matemática un fundamento seguro por la vía de su derivación de la lógica.",
+  G29: "La idea básica consiste en analizar a las proposiciones no bajo los conceptos de sujeto y predicado, como hacían la gramática escolar y la lógica aristotélica, sino bajo los de función y argumento. La expresión «x² + 1» representa una función de la variable x, porque el valor de x² + 1 depende únicamente del argumento con el que sustituyamos a x² —que tiene el valor 2 para el argumento 1, 5 para el argumento 2, etc.—.",
+  G30: "En el sistema fregeano maduro, los conceptos son funciones que correlacionan objetos con un «valor-de-verdad». Así, el valor del concepto x conquistó y es «lo Verdadero» (p. ej., para los argumentos Cesar y las Galias) o «lo Falso» (p. ej., para Napoleón y Rusia), dependiendo de que la proposición resultante sea verdadera o falsa.",
+  G31: "Frege extendió además la idea de función-veritativa a las conectivas proposicionales y a las expresiones de generalidad. La negación, por ejemplo, es una función veritativa que correlaciona un valor veritativo sobre el valor veritativo inverso: «p» tiene el valor veritativo Verdadero si y sólo si (resumido de aquí en adelante por: «ssi») su inversa «¬p» tiene el valor Falso. Similarmente, «Todos los electrones son negativos» queda analizada no como un sujeto «todos los electrones» y un predicado «son negativos», sino como el nombre de una función monádica.",
+  G32: "Igualmente es capaz de revelar los defectos del argumento ontológico. A diferencia de la omnipotencia, la existencia no es un «componente» del concepto Dios, un rasgo que pudiera ser parte de su definición. Más bien, es la «propiedad» de ese concepto de poseer al menos un objeto que le pertenece. «Dios existe» adscribe una propiedad a un concepto más que a un objeto (su forma es «∃xGx» en lugar de «Eg»).",
+  G33: "Frege se interesaba sólo por el «contenido» lógico de los signos, no por su «colorido», por las asociaciones mentales que ellos pudieran evocar. En Sobre Sentido y Referencia (1892) distinguía Frege dos aspectos de ese contenido: su referencia (Bedeutung), que es el objeto que se designa, y su sentido (Sense), el «modo de presentación» de ese referente. Mientras que las ideas (Vorstellungen) individuales asociadas con un signo son subjetivas (psicológicas), el sentido de éstas es objetivo.",
+  G34: "El significado de una proposición es su valor de verdad; su sentido es el pensamiento que ella expresa. Al igual que los valores veritativos y los conceptos, los pensamientos son entidades abstractas independientes-de-la-mente. Son verdaderos o falsos con independencia de que alguien los capte o crea en ellos, y se dejen compartir o comunicar entre individuos diferentes. Frege utiliza estos tópicos no sólo para combatir el psicologismo, sino también para erigir una ontología del tercer mundo.",
+  G35: "Según Frege, aunque las proposiciones aritméticas son a priori, son analíticas en el sentido de ser demostrables partiendo sólo de axiomas y definiciones. En los Grundlagen der Arithmetik (1884) critica brillantemente tanto la idea de Kant de que la aritmética está basada en una intuición a priori como la posición del empirismo de Mill que sostiene que está basada en generalizaciones inductivas. El logicismo de Frege culminó en su Grundgesetze der Arithmetik (1893 y 1903). Mas esto lo llevó al desastre, puesto que Frege había venido haciendo un uso excesivo de los conjuntos que admiten como miembros a otros conjuntos, con lo cual engendró la conocida paradoja del conjunto de todos los conjuntos que no son miembros de ellos mismos.",
+  G36: "Cuando Bertrand Russell descubrió esta paradoja en 1903, se encontraba en vías de desarrollar un sistema lógico estrechamente parecido al de Frege. Y se afanó por proteger al logicismo de esta paradoja mediante una teoría de tipos, un «conjunto definido de reglas para decidir si una serie dada de palabras era o no era significativa» (1903, p. xi). Esta teoría prohíbe como «sinsentidos» fórmulas que dicen de un conjunto x lo que sólo puede decirse de los miembros de x, en concreto que x es (o no es) un miembro de x mismo.",
+  G37: "Irónicamente, uno de los resultados subsiguientes significó un serio golpe para el proyecto logicista. De acuerdo con los «teoremas de incompletud» de Gödel (1931), ningún sistema lógico lo suficientemente potente para derivar la aritmética puede establecer su propia consistencia. Por lo tanto, no hay ningún sistema de axiomas auto-evidente y demostrablemente consistente capaz de generar todas las verdades matemáticas que milite en contra de la aspiración epistemológica del logicismo: asegurar los fundamentos de la matemática contra cualquier concebible amenaza de duda o inconsistencia.",
+  G38: "Al igual que Frege, Russell contempla su sistema formal como un lenguaje ideal, un lenguaje que evita los notorios defectos lógicos de los lenguajes naturales —ambigüedad, indeterminación, vacío referencial, y confusión de categorías—. Pero sus intereses eran más amplios. Russell aplicó las nuevas técnicas lógicas no sólo a la fundamentación de la matemática, sino también a los problemas tradicionales de la epistemología y de la metafísica. Él esperaba sin duda poder colocar a la filosofía en su conjunto en el camino seguro de la ciencia."
 })
 
 const NODE_DIAGRAMS = Object.freeze({
@@ -414,7 +802,25 @@ const NODE_DIAGRAMS = Object.freeze({
   G17: ['apariencias', 'espacio · tiempo · causalidad', 'cosas en sí · límite'],
   G18: ['tensión kantiana', 'idealismo alemán', 'super-ciencia', 'colapso'],
   G19: ['colapso del idealismo', 'naturalismo', 'todo conocimiento a posteriori'],
-  G20: ['retorno a Kant', 'filosofía de segundo orden', 'precondiciones del conocimiento'],
+  G20: ['retorno a Kant', 'filosofía de segundo orden', 'precondiciones del conocimiento'],,
+  G21: ["ciencias especializadas","problemas conceptuales","fundamentos de las matemáticas"],
+  G22: ["intuición geométrica","aritmetización","derivación axiomática"],
+  G23: ["definiciones de infinito","Cantor","fundamentación aritmética"],
+  G24: ["proposición compleja","sustitución de componentes","valor veritativo"],
+  G25: ["partículas lógicas","variación uniforme","verdad lógica"],
+  G26: ["juicio mental","oración lingüística","proposición en sí"],
+  G27: ["lógica silogística","operaciones algebraicas","álgebra del pensamiento"],
+  G28: ["Conceptografía (1879)","lógica de primer orden","logicismo"],
+  G29: ["función x conquistó y","argumento César","argumento las Galias"],
+  G30: ["concepto como función","argumentos dados","verdadero / falso"],
+  G31: ["función condicional","∀x","alcance de ¬ y ∃"],
+  G32: ["concepto G","¿algún x satisface G?","∃xGx"],
+  G33: ["signo y referencia","modo de presentación (sentido)","idea subjetiva ≠ sentido"],
+  G34: ["pensamiento compartible","no espacial ni temporal","tercer reino"],
+  G35: ["conceptos lógicos de conjunto","autopertenencia","paradoja de Russell"],
+  G36: ["paradoja","restricciones de tipos","Principia Mathematica"],
+  G37: ["programa logicista","límites demostrativos","vigencia del análisis lógico"],
+  G38: ["lenguaje ideal","problemas de epistemología y metafísica","idealismo británico · transición"]
 })
 
 const SOURCE_EDGES = [
@@ -493,7 +899,27 @@ const SOURCE_EDGES = [
 ["G17","G18","impulsa una radicalización"],
 ["G18","G19","provoca la reacción naturalista"],
 ["G18","G20","provoca la reacción neokantiana"],
-["G15","G20","retoma la autonomía filosófica"]
+["G15","G20","retoma la autonomía filosófica"],
+["G20","G21","abre problemas de fundamentos"],
+["G21","G22","presenta la crisis formal"],
+["G22","G23","replantea el infinito"],
+["G23","G24","da paso a Bolzano"],
+["G24","G25","define verdad lógica"],
+["G25","G26","articula objetividad semántica"],
+["G26","G27","precede el álgebra lógica"],
+["G27","G28","superado por función y argumento"],
+["G28","G29","introduce el análisis funcional"],
+["G29","G30","obtiene valores de verdad"],
+["G30","G31","se extiende a cuantificadores"],
+["G31","G32","analiza existencia"],
+["G32","G33","distingue sentido y referencia"],
+["G33","G34","funda el objetivismo"],
+["G34","G35","sostiene el logicismo"],
+["G28","G35","funda programa aritmético"],
+["G35","G36","desencadena teoría de tipos"],
+["G36","G37","alcanza límites"],
+["G37","G38","transición histórica"],
+["G26","G34","afinidad antipsicologista (reconstrucción)"]
 ]
 
 function buildGlockPassageSchema(item) {
@@ -520,7 +946,7 @@ function buildGlockPassageSchema(item) {
   }
 }
 
-export const glockRouteTones = Object.freeze({ programa: 'gold', antiguos: 'blue', modernos: 'rust', kant: 'moss', juicios: 'violet', trascendental: 'bronze', reacciones: 'sage' })
+export const glockRouteTones = Object.freeze({ programa: 'gold', antiguos: 'blue', modernos: 'rust', kant: 'moss', juicios: 'violet', trascendental: 'bronze', reacciones: 'sage', matematicas: 'ochre', bolzano: 'moss', boole: 'rust', frege: 'blue', limites: 'violet', rebelion: 'plum' })
 const TONES = glockRouteTones
 export const glockNodeOrder = SOURCE_NODES.map((node) => node.id)
 
