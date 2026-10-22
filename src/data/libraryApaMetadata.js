@@ -1,5 +1,13 @@
 // APA 7: metadatos auditados a partir de notas del vault; valores ausentes no se inventan.
 export const libraryApaMetadata = {
+  "Bobbio - La teoría de las formas de gobierno en la historia del pensamiento político": {
+    "kind": "book",
+    "title": "La teoría de las formas de gobierno en la historia del pensamiento político",
+    "year": 2001,
+    "publisher": "Fondo de Cultura Económica",
+    "translators": ["Fernández Santillán, José F."],
+    "studyPart": "Lectura de Filosofía Política I (tercer semestre); avance no acreditado. Segunda edición 2001, cuarta reimpresión 2006; PDF compartido sin URL pública."
+  },
   "Freud - El malestar en la cultura": {
     "kind": "book",
     "title": "El malestar en la cultura",
