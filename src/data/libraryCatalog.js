@@ -2,6 +2,34 @@
 // No contiene apuntes ni inventario personal de ejemplares.
 export const books = [
   {
+    "id": "Bloch - Sujeto-objeto",
+    "autor": "Bloch",
+    "titulo": "Sujeto-objeto: El pensamiento de Hegel",
+    "categoria": "ontología",
+    "estado": "documentada",
+    "lectura": "Ontología II · capítulo XIX, «Marx y la dialéctica idealista», PDF pp. 380–387; lectura personal sin confirmar",
+    "edicion": "Fondo de Cultura Económica, segunda edición en español, 1983"
+  },
+  {
+    "id": "Fromm - Marx y su concepto del hombre",
+    "autor": "Fromm",
+    "titulo": "Marx y su concepto del hombre",
+    "categoria": "ontología",
+    "estado": "documentada",
+    "lectura": "Ontología II · «Crítica a la dialéctica y en general a la filosofía de Hegel», texto de Marx incluido en el volumen, PDF pp. 97–112; avance sin confirmar",
+    "edicion": "Fondo de Cultura Económica, primera edición española, 1962; traducción de Julieta Campos",
+    "url": "https://www.fondodeculturaeconomica.com/Ficha/9786071665218/F"
+  },
+  {
+    "id": "Marx y Engels - La ideología alemana",
+    "autor": "Marx y Engels",
+    "titulo": "La ideología alemana",
+    "categoria": "ontología",
+    "estado": "documentada",
+    "lectura": "Ontología II · once «Tesis sobre Feuerbach» de Karl Marx, apéndice del volumen, PDF pp. 500–503; no lectura integral acreditada",
+    "edicion": "Ediciones Akal, 2014; traducción de Wenceslao Roces; ISBN 978-84-460-3996-9"
+  },
+  {
     "id": "Bobbio - La teoría de las formas de gobierno en la historia del pensamiento político",
     "autor": "Bobbio",
     "titulo": "La teoría de las formas de gobierno en la historia del pensamiento político",
@@ -719,11 +747,15 @@ export const authors = [
   "Beck, Jakob Sigismund",
   "Bentham, Jeremy",
   "Berkeley, George",
+  "Bloch, Ernst",
   "Bobbio, Norberto",
+  "Bolzano, Bernhard",
+  "Boole, George",
   "BonJour, Laurence",
   "Carnap, Rudolf",
   "Cicerón, Marco Tulio",
   "Code, Lorraine",
+  "Cohen, Hermann",
   "Comte, Auguste",
   "Croce, Benedetto",
   "Demócrito",
@@ -731,6 +763,7 @@ export const authors = [
   "Dilthey, Wilhelm",
   "Diógenes de Sinope",
   "Dummett, Michael",
+  "Engels, Friedrich",
   "Eraña, Ángeles",
   "Esquilo",
   "Fichte, Johann Gottlieb",
