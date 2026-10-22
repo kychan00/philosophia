@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 import { books, authors, categories } from '../data/libraryCatalog'
-import { glockConcepts, GLOCK_STUDY_ROUTE } from '../data/glockConceptIndex.js'
 import { authorsForWork, isWorkByAuthor, normalizeLibraryText, worksByAuthor } from '../data/libraryCatalogUtils'
 import { libraryTimelines } from '../data/libraryTimelines'
 import { libraryAcademicConnections } from '../data/libraryAcademicConnections'
@@ -99,12 +98,6 @@ export default function PhilosophiaLibrary() {
   const [params] = useSearchParams()
   const linkedWork=books.find(b=>b.id===params.get('obra'))
   const linkedAuthor=authors.includes(params.get('autor'))?params.get('autor'):null
-  const [glockTerm, setGlockTerm] = useState('')
-  const glockResults = useMemo(() =>
-    glockConcepts.filter(c => normalizeLibraryText(c.term+' '+c.definition+' '+c.simple)
-      .includes(normalizeLibraryText(glockTerm))),
-    [glockTerm],
-  )
   const [tab, setTab] = useState(linkedAuthor?'autores':'obras')
   const [term, setTerm] = useState(linkedWork?.titulo || linkedAuthor || '')
   const [category, setCategory] = useState('todas')
@@ -189,33 +182,6 @@ export default function PhilosophiaLibrary() {
       <div><span>02 / CARTOGRAPHIA</span><strong>Las ideas también tienen conexiones.</strong>
         <p>Explore obras, autores, conceptos y actividades enlazadas en una cartografía 2D.</p></div>
       <Link to="/biblioteca/cartografia">Explorar cartografía 2D ↗</Link>
-    </section>
-    <section className="library-glock-lexicon" id="conceptos-glock" aria-label="Glosario de Glock">
-      <details>
-        <summary>
-          <span>03 / LEXICON · GLOCK</span>
-          <strong>{glockConcepts.length} conceptos del capítulo II</strong>
-          <small>pp. 40–51 · ficha académica, explicación sencilla y navegación al sistema 2D</small>
-          <b>Explorar conceptos ↗</b>
-        </summary>
-        <div className="library-glock-body">
-          <p>Definiciones contextualizadas en el relato histórico de Glock. No implican que el autor suscriba todas las doctrinas que presenta. Las páginas 52–86 siguen pendientes.</p>
-          <label htmlFor="glock-lexicon-search">BUSCAR CONCEPTO</label>
-          <input id="glock-lexicon-search" type="search" value={glockTerm}
-            onChange={e=>setGlockTerm(e.target.value)} placeholder="Bolzano, analítico, Frege, Russell…"/>
-          <span role="status">{glockResults.length} conceptos encontrados</span>
-          <div className="library-glock-grid">
-            {glockResults.map(c=><article key={c.term}>
-              <span>GLOCK · pp. {c.pages} · {c.node}</span>
-              <h3>{c.term}</h3>
-              <p>{c.definition}</p>
-              <div><strong>En palabras simples:</strong> {c.simple}</div>
-              <Link to={'/biblioteca/cartografia?concepto='+encodeURIComponent(c.term)}>Ver relaciones en biblioteca ↗</Link>
-            </article>)}
-          </div>
-          <Link className="library-glock-system" to={GLOCK_STUDY_ROUTE}>Abrir sistema 2D de Glock ↗</Link>
-        </div>
-      </details>
     </section>
     <section className="library-index" aria-label="Catálogo bibliográfico">
       <header className="library-index-head">

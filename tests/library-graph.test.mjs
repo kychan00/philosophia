@@ -104,3 +104,18 @@ test('Glock: 50 conceptos canónicos con definición, página, ruta y relaciones
  const b=books.find(item=>item.id===work)
  assert.ok(b.lectura.includes('40–51'))
 })
+
+test('Biblioteca: ficha Glock conservada sin exhibir un bloque monográfico en el índice principal',()=>{
+ const src=readFileSync(new URL('../src/pages/PhilosophiaLibrary.jsx',import.meta.url),'utf8')
+ const css=readFileSync(new URL('../src/pages/PhilosophiaLibrary.css',import.meta.url),'utf8')
+ assert.ok(src.includes('library-cartography-launch'))
+ assert.ok(src.includes('library-index'))
+ assert.ok(src.includes('Explorar cartografía 2D'))
+ assert.ok(!src.includes('library-glock-lexicon'))
+ assert.ok(!src.includes('glockResults'))
+ assert.ok(!css.includes('.library-glock-lexicon'))
+ const work='Glock - Qué es la filosofía analítica - Capítulo II'
+ assert.equal(documentedConceptLinks[work].length,50)
+ assert.ok(graph.edges.some(edge=>edge.source==='obra:'+work&&edge.target==='concepto:Logicismo'))
+ assert.ok(byId.get('concepto:Logicismo')?.definition)
+})
