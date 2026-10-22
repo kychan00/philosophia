@@ -37,9 +37,9 @@ test('Clase 19 oct: tres esquemas canónicos explican movimientos reales', () =>
   assert.match(css, /min-height:620px/)
 })
 
-test('Glock 2D: sólo los 21 nodos trabajados en clase tienen capa docente 19 octubre', () => {
-  const taught = glockNodes.filter(n => n.data.classSeen)
-  const later = glockNodes.filter(n => !n.data.classSeen)
+test('Glock 2D: los 21 nodos de la clase del 19 tienen su capa docente independiente', () => {
+  const taught = glockNodes.filter(n => n.data.class19Oct)
+  const later = glockNodes.filter(n => !n.data.class19Oct)
   assert.equal(Object.keys(glockClass19Oct).length, 21)
   assert.equal(taught.length, 21)
   assert.equal(later.length, 18)
