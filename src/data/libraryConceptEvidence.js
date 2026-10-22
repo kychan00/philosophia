@@ -5,6 +5,8 @@ import { glockConcepts, GLOCK_WORK_ID } from './glockConceptIndex.js'
 
 export const documentedConceptLinks = {
   [GLOCK_WORK_ID]: glockConcepts.map(c => c.term),
+  // Enlace [[Falsabilidad]] constatado en la ficha canónica del libro de Popper.
+  "Popper - La lógica de la investigación científica": ["Falsabilidad"],
   "Rendón - La lucha por el reconocimiento en el fragmento de 1803-1804 de Hegel": ["Reconocimiento (Hegel)", "Eticidad (Hegel)", "Formación (Bildung) en Hegel", "Superación (Aufheben) en Hegel"],
   "Dilthey - Hegel y el idealismo": ["Formación (Bildung) en Hegel", "Devenir del saber (Hegel)", "Verdad como sistema (Hegel)"],
   "Cicerón - Las paradojas de los estoicos": ["Estoicismo", "Dominio de sí", "Pasiones", "Eudaimonía", "Autonomía moral"],
