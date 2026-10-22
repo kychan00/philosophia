@@ -164,6 +164,29 @@ export const tasks = [
     sourceClass: 'Clase del 19 de agosto',
     sourceRoute:
       '/semestre/5/filosofia-analitica/clase/19-agosto',
+    studyRoute: '/semestre/5/filosofia-analitica/lectura/glock-capitulo-2',
+  },
+  {
+    id: 'analitica-2026-10-21-glock-pp46-51-2d',
+    subject: 'Filosofía Analítica',
+    subjectCode: 'FI264',
+    assignedDate: '2026-10-21',
+    dueDate: null,
+    title: 'Glock · estudiar las páginas 46–51 en el sistema 2D',
+    type: 'Estudio guiado · lectura',
+    weight: null,
+    description:
+      'Continuar el estudio del capítulo II de Hans-Johann Glock con los 18 nodos añadidos (G21–G38): fundamentos de la matemática, Bolzano, Boole, Frege, paradoja de Russell, Gödel e inicio de «La rebelión contra el idealismo». Este registro corresponde al avance solicitado para PHILOSOPHIA; no consta una nueva fecha de entrega ni una consigna docente específica para estas seis páginas.',
+    readingScope:
+      'Hans-Johann Glock · ¿Qué es la filosofía analítica? · capítulo II, «Breve panorama histórico»',
+    readingPages: 'pp. 46–51 · 18 nodos nuevos (G21–G38)',
+    readingEdition:
+      'Hans-Johann Glock · ¿Qué es la filosofía analítica? · Tecnos, 2012',
+    readingFullPart:
+      'La sección «Primeros vislumbres: matemática y lógica» comienza en la p. 46; «La rebelión contra el idealismo» comienza en la p. 51. Las pp. 52–86 aún no se han documentado en el sistema.',
+    sourceClass: 'Estudio personal registrado el 21 de octubre · no asignación docente nueva',
+    sourceRoute: '/semestre/5/filosofia-analitica',
+    studyRoute: '/semestre/5/filosofia-analitica/lectura/glock-capitulo-2',
   },
   {
     id: 'ontologia-2026-08-24-leibniz',
