@@ -153,3 +153,16 @@ test('Freud: lectura para el 22-10-2026, fuente identificada y sin avance invent
   assert.match(events[0].note,/Sin páginas/)
   assert.equal(events[1].kind,'procedencia')
 })
+
+test('Bobbio tiene procedencia curricular de tercer semestre sin clase ni tarea fabricada',()=>{
+ const id='Bobbio - La teoría de las formas de gobierno en la historia del pensamiento político'
+ const events=connected.works[id]?.events
+ assert.equal(events?.length,1)
+ assert.equal(events[0].kind,'procedencia')
+ assert.equal(events[0].date,'2026-10-22')
+ assert.equal(events[0].url,null)
+ assert.match(events[0].dateLabel,/registro/)
+ assert.match(events[0].area,/tercer semestre/)
+ assert.ok(authorsForWork(books.find(b=>b.id===id),authors).includes('Bobbio, Norberto'))
+ assert.equal(libraryTimelines.works[id],undefined)
+})
