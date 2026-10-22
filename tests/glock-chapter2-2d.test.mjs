@@ -23,8 +23,14 @@ test('Glock conserva 39 nodos con fuente y esquema, sin inventar una capa docent
     if (Number(n.id.slice(1)) <= 20) {
       assert.ok(n.data.class19Oct, n.id)
       assert.ok(n.data.classSeen, n.id)
+    } else if (Number(n.id.slice(1)) <= 31) {
+      assert.equal(n.data.class19Oct, null, n.id)
+      assert.ok(n.data.class21Oct?.note?.length > 40, n.id)
+      assert.ok(n.data.class21Oct?.simple?.length > 15, n.id)
+      assert.equal(n.data.classSeen, true, n.id)
     } else {
       assert.equal(n.data.class19Oct, null, n.id)
+      assert.equal(n.data.class21Oct, null, n.id)
       assert.equal(n.data.classSeen, false, n.id)
     }
     assert.ok(glockRouteTones[n.data.section], n.id)

@@ -1,6 +1,7 @@
 // Fuente primaria: Glock (Tecnos, 2012), cap. II, pp. 40–51. No extrapolar p. 52.
 import { SYSTEM_2D_THEME } from '../components/philosophy/system2d/system2dTheme.js'
 import { glockClass19Oct } from './glockClass19Oct.js'
+import { glockClass21Oct } from './glockClass21Oct.js'
 
 export const glockRoutes = [
   {
@@ -985,6 +986,7 @@ export const glockNodes = SOURCE_NODES.map((item, index) => ({
     diagram: NODE_DIAGRAMS[item.id] || [item.title],
     schema: buildGlockPassageSchema(item),
     class19Oct: glockClass19Oct[item.id] || null,
+    class21Oct: glockClass21Oct[item.id] || null,
     page: item.page,
     sourceRef: 'Glock, 2012, cap. II, ' + item.page,
     question: item.question,
@@ -996,7 +998,7 @@ export const glockNodes = SOURCE_NODES.map((item, index) => ({
     section: item.section,
     topicTone: TONES[item.section],
     color: SYSTEM_2D_THEME.nodeTopics[TONES[item.section]],
-    classSeen: Boolean(glockClass19Oct[item.id]),
+    classSeen: Boolean(glockClass19Oct[item.id] || glockClass21Oct[item.id]),
     concepts: [...new Set((NODE_DIAGRAMS[item.id] || [item.title]).slice(0, 4))],
   },
 }))

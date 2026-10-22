@@ -139,6 +139,20 @@ export const libraryTimelines = {
     ],
     "Glock - Qué es la filosofía analítica - Capítulo II": [
       {
+        "date": "2026-10-21",
+        "area": "Filosofía Analítica",
+        "title": "Fundamentos matemáticos, Bolzano, Boole y Frege · lectura hasta p. 49",
+        "url": "/semestre/5/filosofia-analitica/clase/21-octubre",
+        "type": "enlace a la obra"
+      },
+      {
+        "date": "2026-10-19",
+        "area": "Filosofía Analítica",
+        "title": "Glock, prehistoria del análisis y giro kantiano · pp. 40–46",
+        "url": "/semestre/5/filosofia-analitica/clase/19-octubre",
+        "type": "enlace a la obra"
+      },
+      {
         "date": "2026-10-14",
         "area": "Filosofía Analítica",
         "title": "Filosofía Analítica - Crítica del positivismo lógico y cierre de Hacker",

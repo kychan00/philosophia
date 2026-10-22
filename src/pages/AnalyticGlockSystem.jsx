@@ -678,6 +678,19 @@ function StudyCanvas() {
                 </section>
               )}
 
+              {selected.data.class21Oct && (
+                <section className="glock-class-note">
+                  <span>EXPLICACIÓN DOCENTE · 21 OCT 2026</span>
+                  <strong>VISTO EN CLASE · HASTA P. 49</strong>
+                  <p>{selected.data.class21Oct.note}</p>
+                  <aside><b>EN PALABRAS SIMPLES</b><p>{selected.data.class21Oct.simple}</p></aside>
+                  {selected.data.class21Oct.caution && (
+                    <aside><b>PRECISIÓN ACADÉMICA</b><p>{selected.data.class21Oct.caution}</p></aside>
+                  )}
+                  <Link to="/semestre/5/filosofia-analitica/clase/21-octubre">Abrir clase del 21 de octubre ↗</Link>
+                </section>
+              )}
+
               <details className="glock-source-details" open>
                 <summary>
                   <span>TEXTO ORIGINAL DE GLOCK</span>
@@ -820,8 +833,8 @@ function StudyCanvas() {
 
       <footer className="glock-study-footer">
         <Link to="/semestre/5/filosofia-analitica">← Filosofía Analítica</Link>
-        <span>Hans-Johann Glock · capítulo II · pp. 40–46 parcial</span>
-        <Link to="/semestre/5/filosofia-analitica/clase/19-octubre">Clase 19 octubre ↗</Link>
+        <span>Hans-Johann Glock · capítulo II · lectura documentada pp. 40–51, clase hasta p. 49</span>
+        <Link to="/semestre/5/filosofia-analitica/clase/21-octubre">Clase 21 octubre ↗</Link>
       </footer>
     </main>
   )

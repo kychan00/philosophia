@@ -486,6 +486,12 @@ export default function AnalyticPhilosophy() {
           <div className="analytic-enter"><span>Abrir análisis</span><b>↗</b></div>
         </Link>
 
+        <Link to="/semestre/5/filosofia-analitica/clase/21-octubre" className="analytic-class-card">
+          <div className="analytic-date"><strong>XXI</strong><span>X · MMXXVI</span></div>
+          <div className="analytic-class-copy"><span>Decimoséptima clase · Glock pp. 46–49</span><h3>Fundamentos matemáticos, Bolzano, Boole y Frege</h3><p>Crisis de la matemática, formalización, lógica de funciones, antipsicologismo y cuantificación universal. La lectura concluyó en la página 49.</p></div>
+          <div className="analytic-enter"><span>Abrir análisis</span><b>↗</b></div>
+        </Link>
+
         <Link to="/semestre/5/filosofia-analitica/clase/19-octubre" className="analytic-class-card">
           <div className="analytic-date">
             <strong>XIX</strong>

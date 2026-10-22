@@ -1,0 +1,17 @@
+/* La identidad editorial de Glock conserva los tokens y módulos usados el 19 de octubre. */
+.ac2121-page .ac2121-hero{min-height:680px}
+.ac2121-page .ac2121-hero .ac9-ghost{font-size:clamp(9rem,22vw,20rem)}
+.ac2121-page .ac2121-formula{padding:25px 20px;margin:22px 0;border:1px solid var(--ac1910-line);border-left:5px solid var(--ac1910-blue);background:rgba(73,104,125,.07);text-align:center}
+.ac2121-page .ac2121-formula small{display:block;margin-bottom:12px;letter-spacing:.11em;color:var(--ac1910-rust);font:800 .7rem/1.4 Arial,sans-serif}
+.ac2121-page .ac2121-formula strong{display:block;margin:5px 0 13px;overflow-wrap:anywhere;font:500 clamp(1.55rem,3.5vw,3rem)/1.2 Georgia,serif}
+.ac2121-page .ac2121-formula p{max-width:52rem;margin:0 auto}
+.ac2121-ladder{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:9px;padding:24px 12px;border:1px solid var(--ac1910-line);background:rgba(255,255,255,.30)}
+.ac2121-ladder span{padding:10px 12px;border:1px solid var(--ac1910-blue);color:var(--ac1910-blue);font:800 .72rem/1.4 Arial,sans-serif;letter-spacing:.06em}
+.ac2121-ladder i{font:italic .76rem/1.4 Georgia,serif;color:var(--ac1910-rust)}
+.ac2121-pages{border-top:1px solid var(--ac1910-line)}
+.ac2121-pages>div{display:grid;grid-template-columns:86px minmax(0,1fr);gap:15px;align-items:baseline;padding:12px 8px;border-bottom:1px solid var(--ac1910-line)}
+.ac2121-pages b{font:700 1.18rem Georgia,serif;color:var(--ac1910-gold)}
+.ac2121-page .ac1910-article section{scroll-margin-top:90px}
+.ac2121-page .ac1910-schema-panel .animated-concept-schema__svg{min-height:650px}
+.ac2121-page .ac1910-study-footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding:22px 5vw;border-top:1px solid var(--ac1910-line)}
+@media(max-width:760px){.ac2121-page .ac2121-hero{min-height:0}.ac2121-ladder{flex-direction:column}.ac2121-ladder span{width:100%;max-width:290px;text-align:center;box-sizing:border-box}.ac2121-pages>div{grid-template-columns:65px 1fr}.ac2121-page .ac1910-schema-panel{padding:9px}}
