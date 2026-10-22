@@ -156,6 +156,15 @@ try {
   assert.equal(await evaluate("([...document.querySelectorAll('.bc-modes button')].find(b=>b.textContent==='Red contextual')?.click(),true)"),true)
   await until(()=>evaluate("document.querySelector('.bc-canvas')?.getAttribute('data-mode')==='foco'"),'Foco contextual')
   console.log('OK navegación de modos en cartografía')
+  // Búsqueda de falsabilidad en producción: evita registrar sólo el libro sin enlazar su concepto.
+  assert.equal(await evaluate("document.querySelector('.bc-counter')?.textContent.includes('" + books.length + "')"),true,
+    'El contador de obras debe reflejar la entrada nueva de Popper')
+  assert.equal(await evaluate("(()=>{const input=document.querySelector('#bc-find');Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(input,'Falsa');input.dispatchEvent(new Event('input',{bubbles:true}));return !!input})()"),true)
+  await until(()=>evaluate("document.querySelector('.bc-results')?.textContent.includes('Falsabilidad')"),
+    'Búsqueda de falsabilidad en producción')
+  assert.equal(await evaluate("document.querySelector('.bc-results')?.textContent.includes('Sin coincidencias')"),false)
+  console.log('OK búsqueda Falsa → Falsabilidad')
+
   assert.ok(await evaluate("document.querySelectorAll('.bc-relation-evidence').length>0"),
     'Inspector sin evidencia de relaciones')
   console.log('OK procedencias en inspector')

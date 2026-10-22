@@ -119,3 +119,23 @@ test('Biblioteca: ficha Glock conservada sin exhibir un bloque monográfico en e
  assert.ok(graph.edges.some(edge=>edge.source==='obra:'+work&&edge.target==='concepto:Logicismo'))
  assert.ok(byId.get('concepto:Logicismo')?.definition)
 })
+
+test('Popper y falsabilidad: obra, concepto y enlace documental aparecen en búsqueda y red',()=>{
+ const work='Popper - La lógica de la investigación científica'
+ const book=books.find(b=>b.id===work)
+ assert.ok(book,'Libro de Popper ausente del catálogo')
+ assert.equal(documentedConceptLinks[work]?.length,1)
+ assert.equal(documentedConceptLinks[work][0],'Falsabilidad')
+ assert.ok(ids.has('obra:'+work),'Obra de Popper sin nodo')
+ assert.ok(ids.has('autor:Popper, Karl'),'Autor de Popper sin nodo')
+ assert.ok(ids.has('concepto:Falsabilidad'),'Falsabilidad sin nodo')
+ assert.ok(graph.edges.some(e=>e.source==='obra:'+work &&
+   e.target==='concepto:Falsabilidad' && e.relation==='ficha_enlaza_concepto'))
+ assert.ok(graph.edges.some(e=>e.source==='autor:Popper, Karl' &&
+   e.target==='obra:'+work && e.relation==='autor_de'))
+ assert.ok(searchGraphNodes(graph,'Falsa').some(n=>n.id==='concepto:Falsabilidad'))
+ assert.ok(searchGraphNodes(graph,'Popper').some(n=>n.id==='autor:Popper, Karl'))
+ assert.ok(searchGraphNodes(graph,'lógica de la investigación').some(n=>n.id==='obra:'+work))
+ assert.ok(projectLibraryGraph(graph,{centerId:'concepto:Falsabilidad'}).nodes
+   .some(n=>n.id==='obra:'+work),'No se muestra la obra al centrar falsabilidad')
+})
