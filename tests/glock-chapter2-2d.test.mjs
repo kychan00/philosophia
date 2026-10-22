@@ -12,23 +12,32 @@ const page = readFileSync(new URL('../src/pages/AnalyticGlockSystem.jsx', import
 const css = readFileSync(new URL('../src/pages/AnalyticGlockSystem.css', import.meta.url), 'utf8')
 const node = readFileSync(new URL('../src/components/analytic/GlockNode.jsx', import.meta.url), 'utf8')
 
-test('Glock conserva 21 nodos con fuente, esquema y capa docente', () => {
-  assert.equal(glockNodes.length, 21)
+test('Glock conserva 39 nodos con fuente y esquema, sin inventar una capa docente', () => {
+  assert.equal(glockNodes.length, 39)
   assert.deepEqual(glockNodeOrder, glockNodes.map((n) => n.id))
   for (const n of glockNodes) {
     assert.ok(n.data.sourcePassage?.length > 180, n.id)
     assert.ok(n.data.diagram?.length >= 3, n.id)
     assert.equal(n.data.schema?.direction, 'vertical', n.id)
-    assert.ok(n.data.class19Oct, n.id)
-    assert.ok(n.data.classSeen, n.id)
+    if (Number(n.id.slice(1)) <= 20) {
+      assert.ok(n.data.class19Oct, n.id)
+      assert.ok(n.data.classSeen, n.id)
+    } else {
+      assert.equal(n.data.class19Oct, null, n.id)
+      assert.equal(n.data.classSeen, false, n.id)
+    }
     assert.ok(glockRouteTones[n.data.section], n.id)
     assert.ok(n.data.concepts.length >= 1, n.id)
   }
-  assert.match(byId.get('G20').data.page, /fragmento/)
+  assert.equal(byId.get('G20').data.page, 'p. 46')
+  assert.equal(byId.get('G38').data.page, 'p. 51')
+  assert.equal(byId.get('G24').data.section, 'bolzano')
+  assert.equal(byId.get('G33').data.section, 'frege')
+  assert.ok(byId.get('G36').data.explanation.includes('Principia Mathematica'))
 })
 
 test('Glock mantiene relaciones resolubles y saca sus rótulos del canvas', () => {
-  assert.equal(glockLinks.length, 24)
+  assert.equal(glockLinks.length, 44)
   for (const edge of glockLinks) {
     assert.ok(byId.has(edge.source) && byId.has(edge.target), edge.id)
     assert.ok(edge.label.trim().length >= 8, edge.id)
@@ -37,9 +46,9 @@ test('Glock mantiene relaciones resolubles y saca sus rótulos del canvas', () =
   assert.match(page, /Relaciones documentadas/)
 })
 
-test('Siete rutas, guía global y pedagogía por sección cubren todos los nodos', () => {
+test('Trece rutas, guía global y pedagogía por sección cubren todos los nodos', () => {
   const sections = buildSectionPedagogy(glockNodes, glockRoutes, glockNodeOrder)
-  assert.equal(sections.length, 7)
+  assert.equal(sections.length, 13)
   assert.equal(glockGuidedRoute.length, glockNodes.length)
   assert.deepEqual(glockGuidedRoute.map((step) => step.id), glockNodeOrder)
   sections.forEach((section) => {
@@ -107,4 +116,24 @@ test('iPad apila mapa e inspector; el esquema general sigue vertical', () => {
   assert.equal(glockMethodSchema.layout, 'hierarchy')
   assert.equal(glockMethodSchema.readingLayout, 'vertical-folio')
   assert.ok(glockMethodSchema.hierarchyYGap >= 150)
+})
+
+
+test('La tercera entrega sigue pp. 46–51, con frontera documental estricta', () => {
+  const newNodes = glockNodes.filter(n => Number(n.id.slice(1)) >= 21)
+  assert.equal(newNodes.length, 18)
+  assert.deepEqual(newNodes.map(n => n.id),
+    Array.from({ length: 18 }, (_, i) => 'G' + String(i + 21)))
+  for (const n of newNodes) {
+    assert.match(n.data.page, /(?:46|47|48|49|50|51)/)
+    assert.doesNotMatch(n.data.page, /52|fragmento/)
+    assert.equal(n.data.classSeen, false)
+    assert.equal(n.data.schema.nodes.length, n.data.diagram.length)
+    assert.ok(n.data.sourcePassage.length >= 180)
+  }
+  for (const id of ['matematicas','bolzano','boole','frege','limites','rebelion']) {
+    assert.ok(glockRoutes.find(route => route.id === id), id)
+  }
+  assert.match(byId.get('G38').data.explanation, /no se ha recibido/)
+  assert.ok(glockLinks.find(edge => edge.source === 'G20' && edge.target === 'G21'))
 })
