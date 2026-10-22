@@ -108,7 +108,7 @@ async function navigate(width,height){
   assert.equal(guide.selected,guide.guided,JSON.stringify(guide))
   assert.equal(guide.dimmedSelected,false,JSON.stringify(guide))
 
-  // Nueva entrega: la ruta de Frege se muestra por separado y sin capa docente inventada.
+  // Frege G28 conserva la explicación docente documentada del 21 de octubre, separada de Glock.
   await evalJS(`(()=>{
     [...document.querySelectorAll('.glock-study-routes button')]
       .find(b=>b.textContent.includes('11 · Frege y lógica formal')).click()
@@ -120,13 +120,16 @@ async function navigate(width,height){
   const frege=await evalJS(`(()=>({
     selected:document.querySelector('.glock-flow-canvas .react-flow__node.selected')?.getAttribute('data-id'),
     source:document.querySelector('.glock-source-details blockquote')?.textContent.length||0,
-    classLayer:document.querySelector('.glock-class-note')!==null,
+    teacherNote:document.querySelector('.glock-inspector .glock-class-note')?.textContent||'',
+    hasSimpleExplanation:document.querySelector('.glock-inspector .glock-class-note aside')?.textContent.includes('EN PALABRAS SIMPLES')||false,
     width:innerWidth,
     scroll:document.documentElement.scrollWidth,
   }))()`)
   assert.equal(frege.selected,'G28')
   assert.ok(frege.source>180,JSON.stringify(frege))
-  assert.equal(frege.classLayer,false,JSON.stringify(frege))
+  assert.match(frege.teacherNote,/EXPLICACIÓN DOCENTE · 21 OCT 2026/,JSON.stringify(frege))
+  assert.doesNotMatch(frege.teacherNote,/19 OCT 2026/,JSON.stringify(frege))
+  assert.equal(frege.hasSimpleExplanation,true,JSON.stringify(frege))
   assert.ok(frege.scroll<=frege.width+3,JSON.stringify(frege))
   state=await evalJS(metrics)
   assert.deepEqual(state.hits,[],'Frege nodos superpuestos '+width+'×'+height)
