@@ -4,6 +4,32 @@ export const libraryAcademicConnections = {
   "source": "Relaciones documentadas por títulos de tareas y fichas de obra. Una fecha de nota no prueba la realización de la lectura.",
   "tasksReviewed": 61,
   "works": {
+    "Freud - El malestar en la cultura": {
+      "events": [
+        {
+          "kind": "tarea",
+          "date": "2026-10-20",
+          "dateLabel": "Anuncio en clase del 20 de octubre para comenzar el jueves 22",
+          "area": "Teoría Crítica",
+          "title": "Lectura de Freud anunciada para sesión virtual del 22 de octubre",
+          "status": "tarea de lectura pendiente; no consta entrega escrita",
+          "type": "Lectura asignada para sesión posterior",
+          "note": "Sin páginas, avance mínimo, capítulos obligatorios ni producto para entregar confirmados por la docente.",
+          "url": "/semestre/5/teoria-critica/clase/20-octubre"
+        },
+        {
+          "kind": "procedencia",
+          "date": "2026-10-22",
+          "dateLabel": "Fecha de entrega del PDF como material de trabajo, no lectura terminada",
+          "area": "Teoría Crítica",
+          "title": "Ejemplar de trabajo: Freud, El malestar en la cultura",
+          "status": "PDF de 90 páginas identificado; tarea de hoy pendiente",
+          "type": "Ejemplar facilitado por estudiante",
+          "note": "Traducción de Luis López Ballesteros, Biblioteca Libre OMEGALFA, maquetación de febrero de 2010. La fecha de maquetación no equivale al año editorial de la obra.",
+          "url": "/semestre/5/teoria-critica"
+        }
+      ]
+    },
     "Popper - La lógica de la investigación científica": {
       "events": [
         {
@@ -1351,6 +1377,9 @@ export const libraryAcademicConnections = {
       ]
     },
     "Frege, Gottlob": {
+      "events": []
+    },
+    "Freud, Sigmund": {
       "events": []
     },
     "Fromm, Erich": {

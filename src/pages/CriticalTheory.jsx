@@ -245,10 +245,24 @@ export default function CriticalTheory() {
 
       <section className="ct-section">
         <header className="ct-heading">
-          <span>I</span><div><p>Agenda inmediata</p><h2>Tarea 1 · 18 de agosto</h2></div>
+          <span>I</span><div><p>Lecturas y tareas</p><h2>Agenda de Teoría Crítica</h2></div>
         </header>
 
-        <div className="ct-task">
+                <div className="ct-task">
+          <div className="ct-task-date"><strong>22</strong><span>OCT · 2026</span></div>
+          <div>
+            <p>Lectura para hoy · Sesión virtual · Pendiente</p>
+            <h3>Freud · El malestar en la cultura</h3>
+            <p>Comenzar la lectura con el PDF facilitado de 90 páginas, traducción de Luis López Ballesteros.
+              La profesora no indicó páginas específicas ni entrega escrita. El 22 es fecha de la sesión, no
+              plazo confirmado para entregar un trabajo.</p>
+          </div>
+          <Link to="/biblioteca?obra=Freud%20-%20El%20malestar%20en%20la%20cultura">
+            Consultar ficha en biblioteca ↗
+          </Link>
+        </div>
+
+<div className="ct-task">
           <div className="ct-task-date"><strong>18</strong><span>AGO · 2026</span></div>
           <div>
             <p>100 puntos · Lectura 1 · Panorama</p>

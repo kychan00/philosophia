@@ -1,5 +1,13 @@
 // APA 7: metadatos auditados a partir de notas del vault; valores ausentes no se inventan.
 export const libraryApaMetadata = {
+  "Freud - El malestar en la cultura": {
+    "kind": "book",
+    "title": "El malestar en la cultura",
+    "translators": ["López Ballesteros, Luis"],
+    "publisher": "Biblioteca Libre OMEGALFA",
+    "originalYear": 1930,
+    "studyPart": "Copia digital facilitada el 22-10-2026, 90 páginas, maquetación Amanuense febrero 2010; lectura personal pendiente. El PDF indica 1929 [1930]; año de publicación de esta edición no confirmado."
+  },
   "Popper - La lógica de la investigación científica": {
     "kind": "book",
     "title": "La lógica de la investigación científica",

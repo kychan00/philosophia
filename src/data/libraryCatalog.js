@@ -2,6 +2,25 @@
 // No contiene apuntes ni inventario personal de ejemplares.
 export const books = [
   {
+    "id": "Freud - El malestar en la cultura",
+    "autor": "Freud",
+    "titulo": "El malestar en la cultura",
+    "categoria": "crítica",
+    "estado": "documentada",
+    "lectura": "Lectura para hoy, 22-10-2026 · pendiente de confirmar avance",
+    "edicion": "PDF facilitado · 90 páginas · trad. Luis López Ballesteros · Biblioteca Libre OMEGALFA · maquetación 2010 (no año editorial confirmado)",
+    "ideas": [
+      {"lema":"I · El yo y el sentimiento oceánico (PDF pp. 2–12)","detalle":"Freud examina la experiencia de unidad con el mundo, la delimitación del yo y la interpretación de la necesidad religiosa."},
+      {"lema":"II · Felicidad y fuentes del sufrimiento (PDF pp. 13–26)","detalle":"El principio del placer persigue felicidad, pero cuerpo, naturaleza y convivencia la limitan; se comparan varias vías para enfrentar el malestar."},
+      {"lema":"III · La cultura no garantiza felicidad (PDF pp. 26–40)","detalle":"La cultura protege y regula la vida común, mientras sus exigencias, renuncias y avances técnicos no bastan para resolver la aspiración individual a ser feliz."},
+      {"lema":"IV · Amor y necesidad (PDF pp. 40–47)","detalle":"Trabajo, Eros y Ananké articulan comunidad y familia, a la vez que producen tensiones entre vínculos individuales y exigencias culturales."},
+      {"lema":"V · La agresividad como problema social (PDF pp. 47–57)","detalle":"La dificultad del mandato de amar al prójimo lleva a Freud a examinar la agresividad como obstáculo a la cohesión cultural."},
+      {"lema":"VI · Eros y pulsión destructiva (PDF pp. 57–63)","detalle":"El antagonismo entre tendencias de unión y de destrucción atraviesa la evolución de la cultura."},
+      {"lema":"VII · El superyó y la culpa (PDF pp. 64–75)","detalle":"La agresividad se interioriza: el superyó vigila al yo y la renuncia a las pulsiones puede intensificar el sentimiento de culpabilidad."},
+      {"lema":"VIII · El costo del progreso (PDF pp. 76–90)","detalle":"La conclusión sitúa el incremento de la culpa y la pérdida de felicidad como costo del desarrollo cultural."}
+    ]
+  },
+  {
     "id": "Popper - La lógica de la investigación científica",
     "autor": "Popper",
     "titulo": "La lógica de la investigación científica",
@@ -702,6 +721,7 @@ export const authors = [
   "Foucault, Michel",
   "Føllesdal, Dagfinn",
   "Frege, Gottlob",
+  "Freud, Sigmund",
   "Fromm, Erich",
   "Fumerton, Richard",
   "Glock, Hans-Johann",
