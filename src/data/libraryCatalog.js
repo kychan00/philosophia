@@ -2,6 +2,20 @@
 // No contiene apuntes ni inventario personal de ejemplares.
 export const books = [
   {
+    "id": "Bobbio - La teoría de las formas de gobierno en la historia del pensamiento político",
+    "autor": "Bobbio",
+    "titulo": "La teoría de las formas de gobierno en la historia del pensamiento político",
+    "categoria": "política",
+    "estado": "documentada",
+    "lectura": "Lectura asociada a Filosofía Política I, tercer semestre; avance personal sin confirmar",
+    "edicion": "Fondo de Cultura Económica, 2.ª edición (2001), 4.ª reimpresión (2006); trad. José F. Fernández Santillán; ISBN 968-16-6467-1",
+    "ideas": [
+      {"lema":"Tipologías políticas","detalle":"Bobbio distingue el uso descriptivo, axiológico y el histórico de las clasificaciones de formas de gobierno (introducción)."},
+      {"lema":"Gobierno de uno, pocos o muchos","detalle":"Estudia la comparación de formas políticas y sus degeneraciones en Heródoto, Platón y Aristóteles."},
+      {"lema":"Gobierno mixto y estabilidad","detalle":"En Polibio, examina los ciclos constitucionales y la composición equilibrada de distintas formas de gobierno."}
+    ]
+  },
+  {
     "id": "Freud - El malestar en la cultura",
     "autor": "Freud",
     "titulo": "El malestar en la cultura",
@@ -705,6 +719,7 @@ export const authors = [
   "Beck, Jakob Sigismund",
   "Bentham, Jeremy",
   "Berkeley, George",
+  "Bobbio, Norberto",
   "BonJour, Laurence",
   "Carnap, Rudolf",
   "Cicerón, Marco Tulio",
@@ -787,4 +802,4 @@ export const authors = [
   "Wittgenstein, Ludwig",
   "Zagzebski, Linda"
 ]
-export const categories = ["crítica","ontología","analítica","epistemología","ética","investigación"]
+export const categories = ["crítica","ontología","analítica","epistemología","ética","política","investigación"]
