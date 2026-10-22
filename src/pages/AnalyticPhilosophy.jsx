@@ -18,7 +18,7 @@ const readings = [
     number: 'III',
     author: 'Hans-Johann Glock',
     title: 'Breve panorama histórico',
-    note: '¿Qué es la filosofía analítica? · capítulo II · pp. 40–86 · disponibles: 40–45 + inicio de 46',
+    note: '¿Qué es la filosofía analítica? · capítulo II · pp. 40–86 · documentadas: 40–51; continuación pendiente: 52–86',
     route: '/semestre/5/filosofia-analitica/lectura/glock-capitulo-2',
   },
   {
