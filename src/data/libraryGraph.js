@@ -1,11 +1,10 @@
 import { books, authors } from './libraryCatalog.js'
 import { authorsForWork, normalizeLibraryText } from './libraryCatalogUtils.js'
-import { libraryTimelines } from './libraryTimelines.js'
+import { libraryTimelines } from './libraryReferenceTimelines.js'
 import { libraryAcademicConnections } from './libraryAcademicConnections.js'
 
 import { documentedConceptLinks, documentedConceptRelations } from './libraryConceptEvidence.js'
-import { glockConcepts, GLOCK_STUDY_ROUTE } from './glockConceptIndex.js'
-const glockByTerm = new Map(glockConcepts.map(c => [c.term, c]))
+import { libraryConcepts, libraryConceptByTerm } from './libraryConceptIndex.js'
 export { documentedConceptLinks, documentedConceptRelations } from './libraryConceptEvidence.js'
 
 const order={autor:0,obra:1,concepto:2,clase:3,tarea:4,fuente:5}
@@ -30,15 +29,20 @@ export function buildLibraryGraph() {
   }
   const ensureConcept=concept=>{
     const id='concepto:'+concept
-    put({id,kind:'concepto',label:concept,evidence:'ficha de concepto enlazada en el vault'})
-    const glock = glockByTerm.get(concept)
-    if (glock) nodes.set(id,{
-      ...nodes.get(id),definition:glock.definition,simple:glock.simple,
-      pages:glock.pages,sourceNode:glock.node,studyUrl:GLOCK_STUDY_ROUTE,
-      evidence:'concepto documentado en ficha de Glock, capítulo II, pp. '+glock.pages+' (paráfrasis editorial)',
-    })
+    const record=libraryConceptByTerm.get(concept)
+    put({id,kind:'concepto',label:concept,
+      definition:record?.definition||null,simple:record?.simple||null,
+      subjects:record?.subjects||[],status:record?.status||null,
+      pages:record?.pages||null,sourceNode:record?.sourceNode||null,
+      studyUrl:record?.studyUrl||null,
+      evidence:record?.pages
+        ? 'ficha de concepto y estudio de Glock, capítulo II, pp. '+record.pages
+        : record ? 'ficha canónica de concepto en Obsidian; síntesis documental'
+          : 'enlace de concepto registrado en ficha canónica del vault'})
     return id
   }
+  // Todas las fichas conceptuales, incluso las que todavía no tienen vínculos con obras.
+  for(const concept of libraryConcepts)ensureConcept(concept.term)
   for(const [work,concepts] of Object.entries(documentedConceptLinks)){
     if(!nodes.has('obra:'+work))throw Error('Obra inexistente: '+work)
     for(const concept of concepts){
@@ -53,6 +57,32 @@ export function buildLibraryGraph() {
       const to=ensureConcept(target)
       join(from,to,'ficha_concepto_enlaza_otro',
         'la ficha de «'+sourceConcept+'» enlaza [[ '+target+' ]]; NO implica acuerdo, causalidad ni influencia','Enlace entre conceptos')
+    }
+  }
+  // Wikienlaces constados en las notas de concepto: doble dirección de consulta,
+  // nunca una atribución de doctrina del autor al concepto.
+  for(const record of libraryConcepts){
+    const id='concepto:'+record.term
+    for(const work of record.works){
+      if(nodes.has('obra:'+work)&&!documentedConceptLinks[work]?.includes(record.term))
+        join(id,'obra:'+work,'nota_concepto_enlaza_obra',
+          'wikienlace [[obra]] presente en la ficha de concepto; sin atribución doctrinal',
+          'Obra de referencia')
+    }
+    for(const term of record.related) {
+      const target=ensureConcept(term)
+      join(id,target,'ficha_concepto_enlaza_otro',
+        'wikienlace [[concepto]] presente en ficha canónica; no implica adhesión',
+        'Enlace entre conceptos')
+    }
+    for(const mention of record.classes){
+      const cid='clase:'+JSON.stringify([mention.date,mention.area,mention.title])
+      put({id:cid,kind:'clase',label:mention.title,subtitle:mention.area,
+        date:mention.date,url:mention.url,status:'referencia documental',
+        evidence:'enlace explícito a nota de clase en la ficha de concepto'})
+      join(id,cid,'concepto_documentado_en_clase',
+        'ficha de concepto contiene enlace a la nota académica de clase',
+        'Clase vinculada')
     }
   }
   function activity(e,from){
