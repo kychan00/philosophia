@@ -1,6 +1,9 @@
+import { useState } from 'react'
 import { Link } from 'react-router'
-import transcript from '../content/teoria-critica-2026-08-18.md?raw'
+import './CriticalTheoryClass18Aug.css'
 
+// Se preservan íntegros los once apartados académicos de la página original.
+// La estructura editorial adicional es reconstrucción de estudio, no cita docente.
 const sections = [
   ['00', 'encuadre', 'Encuadre'],
   ['01', 'objetivo', 'Objetivo del curso'],
@@ -15,77 +18,73 @@ const sections = [
   ['10', 'proxima', 'Próxima sesión'],
 ]
 
-const goToSection = (id) => {
-  const element = document.getElementById(id)
+const rehearsal = [
+  {
+    prompt: '¿Por qué la pluralidad filosófica es una condición de formación y no una guerra de escuelas?',
+    cue: 'La profesora no propone sustituir la filosofía analítica: pide conocer tradiciones distintas para disponer de más recursos al pensar.',
+    target: 'pluralidad',
+  },
+  {
+    prompt: '¿Qué límite tiene el esquema Kant / Hegel presentado en la primera sesión?',
+    cue: 'Es una genealogía pedagógica muy general, no una taxonomía de escuelas. La propia sesión reconoce que la Teoría Crítica también conserva elementos kantianos.',
+    target: 'dialectica',
+  },
+  {
+    prompt: '¿Por qué aprender un método filosófico no equivale a memorizar una receta?',
+    cue: 'La orientación expresada en clase fue leer, reconstruir y observar el modo de problematizar de los autores, no repetir instrucciones externas.',
+    target: 'aprender',
+  },
+  {
+    prompt: '¿Cómo se distribuye la evaluación y qué materiales se permiten en el examen?',
+    cue: 'Participación 30 %, examen 30 %, exposición con defensa 40 %. Para el examen se contemplan cuaderno y lecturas impresas, no dispositivos electrónicos.',
+    target: 'evaluacion',
+  },
+]
 
-  if (element) {
-    element.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    })
-  }
+function goToSection(id) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
 export default function CriticalTheoryClass18Aug() {
+  const [activeCard, setActiveCard] = useState(0)
+  const [showCue, setShowCue] = useState(false)
+  const current = rehearsal[activeCard]
+
   return (
-    <main className="ct-class-page">
-      <nav className="ct-class-nav">
-        <Link to="/semestre/5/teoria-critica">
-          ← Teoría Crítica
-        </Link>
-
-        <Link to="/" className="ct-class-brand">
-          Φ · Philosophia
-        </Link>
-
-        <span>XVIII · VIII · MMXXVI</span>
-      </nav>
-
-      <header className="ct-class-hero">
-        <div className="ct-class-ghost" aria-hidden="true">
-          KRITIK
+    <main className="ct18-page" aria-label="Edición académica de la primera clase de Teoría Crítica">
+      <section className="ct18-opening" aria-labelledby="ct18-opening-title">
+        <div className="ct18-opening-meta"><span>FOLIO 001 / APERTURA DEL CURSO</span><span>18 AGO 2026 · FI265</span></div>
+        <div className="ct18-opening-grid">
+          <div>
+            <p className="ct18-eyebrow">Notas de aula · Edición de estudio</p>
+            <h2 id="ct18-opening-title">Antes de la teoría, <em>una forma de estudiar.</em></h2>
+            <p className="ct18-deck">La sesión reúne tres planos diferentes: la disposición plural hacia la filosofía, el horizonte interdisciplinario de la Teoría Crítica y las condiciones concretas para trabajar el semestre.</p>
+            <p className="ct18-disclaimer">Los vínculos de este esquema son una organización editorial de los temas tratados, no un dibujo literal de la profesora.</p>
+          </div>
+          <div className="ct18-cover-graphic" role="img" aria-label="Tres planos de la sesión: pluralidad filosófica, investigación social transdisciplinaria y acuerdos de estudio. Son ejes de encuadre, no una deducción entre ellos.">
+            <div className="ct18-graphic-top">UNA CLASE / TRES PLANOS</div>
+            <div className="ct18-graphic-node"><span>01</span><strong>Pluralidad filosófica</strong><small>Ampliar recursos para pensar</small></div>
+            <div className="ct18-graphic-node"><span>02</span><strong>Investigación social</strong><small>Filosofía en diálogo con ciencias sociales</small></div>
+            <div className="ct18-graphic-node"><span>03</span><strong>Acuerdos de estudio</strong><small>Lecturas, participación y evaluación</small></div>
+            <div className="ct18-graphic-bottom">RELACIÓN: EJES DEL ENCUADRE / RECONSTRUCCIÓN EDITORIAL</div>
+          </div>
         </div>
+      </section>
 
-        <p>Teoría Crítica · Primera clase</p>
-
-        <h1>
-          Encuadre,
-          <em>pluralidad y crítica</em>
-        </h1>
-
-        <p className="ct-class-lead">
-          La primera sesión establece el tono del curso: una formación
-          filosófica plural, una lectura de la Teoría Crítica como
-          investigación social transdisciplinaria y una evaluación basada
-          en participación, examen abierto y exposición con defensa.
-        </p>
-
-        <div className="ct-class-axis">
-          <span>filosofía</span>
-          <b>+</b>
-          <span>ciencias sociales</span>
-          <b>→</b>
-          <span>Teoría Crítica</span>
-        </div>
-      </header>
-
-      <div className="ct-class-layout">
-        <aside className="ct-class-index">
-          <p>Index lectionis</p>
-
-          {sections.map(([number, id, label]) => (
-            <button
-              key={id}
-              type="button"
-              onClick={() => goToSection(id)}
-            >
-              <span>{number}</span>
-              {label}
-            </button>
-          ))}
+      <div className="ct18-reading-layout">
+        <aside className="ct18-toc" aria-label="Índice de la primera clase">
+          <div className="ct18-toc-head">ÍNDICE / 11 APARTADOS</div>
+          <nav aria-label="Ir a un apartado">
+            {sections.map(([number, id, label]) => (
+              <button type="button" key={id} onClick={() => goToSection(id)}>
+                <span>{number}</span><span>{label}</span>
+              </button>
+            ))}
+          </nav>
+          <p>La numeración reproduce el orden del desarrollo previamente registrado; no son fases deductivas.</p>
         </aside>
+        <article className="ct18-chapters">
 
-        <article className="ct-class-article">
           <section id="encuadre">
             <span className="ct-class-number">00</span>
             <p className="ct-class-eyebrow">Praefatio</p>
@@ -478,16 +477,26 @@ export default function CriticalTheoryClass18Aug() {
           </section>
 
           
+
         </article>
       </div>
-
-      <footer className="ct-class-footer">
-        <Link to="/semestre/5/teoria-critica">
-          ← Teoría Crítica
-        </Link>
-
-        <span>Negation · Kritik · Praxis</span>
-        <span>18 · VIII · 2026</span>
+      <section className="ct18-rehearsal" aria-labelledby="ct18-review-heading">
+        <div className="ct18-rehearsal-top"><span>CUADERNO ACTIVO / REPASO</span><span>0{activeCard + 1} / 0${rehearsal.length}</span></div>
+        <h2 id="ct18-review-heading">Recordar es volver a argumentar.</h2>
+        <p>Preguntas de práctica elaboradas por PHILOSOPHIA. No se atribuyen a la profesora ni a un examen oficial.</p>
+        <div className="ct18-rehearsal-card">
+          <span>PREGUNTA EDITORIAL {String(activeCard + 1).padStart(2, '0')}</span>
+          <h3>{current.prompt}</h3>
+          {showCue && <div className="ct18-rehearsal-answer" role="status"><strong>Orientación para responder</strong><p>{current.cue}</p><button type="button" onClick={() => goToSection(current.target)}>Volver al apartado relacionado ↗</button></div>}
+          <div className="ct18-rehearsal-actions">
+            <button type="button" onClick={() => setShowCue(!showCue)} aria-expanded={showCue}>{showCue ? 'Ocultar orientación' : 'Mostrar orientación'}</button>
+            <button type="button" onClick={() => { setActiveCard((activeCard + 1) % rehearsal.length); setShowCue(false) }}>Siguiente pregunta →</button>
+          </div>
+        </div>
+      </section>
+      <footer className="ct18-endnote">
+        <div><span>PROCEDENCIA Y LÍMITES</span><p><strong>Desarrollo:</strong> sistematización de la clase del 18 de agosto de 2026. <strong>Esquema y ejercicios:</strong> reconstrucción editorial de PHILOSOPHIA. La genealogía Kant/Hegel se presenta sólo como el encuadre esquemático de la sesión, no como historia filosófica exhaustiva.</p></div>
+        <Link to="/tareas/teoria-critica/tarea-1">Reale y Antiseri · primera tarea ↗</Link>
       </footer>
     </main>
   )
