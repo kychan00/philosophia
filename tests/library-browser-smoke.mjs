@@ -105,6 +105,24 @@ try {
   for(const [width,height] of [[390,844],[768,1024],[1024,768]]) {
     await setViewport(width,height)
   }
+  // Regresión Safari iPhone: Beck no es autor de un libro catalogado, sino tema de Hartmann.
+  const findInput = "document.querySelector('.library-controls input[type=search]')"
+  const setQuery = value => "(()=>{const el="+findInput+";Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(el,"+JSON.stringify(value)+");el.dispatchEvent(new Event('input',{bubbles:true}));return true})()"
+  assert.equal(await evaluate(setQuery('Beck')), true)
+  await until(()=>evaluate("document.querySelectorAll('.library-book').length===1"),'Beck encuentra obra de Hartmann')
+  assert.equal(await evaluate("document.querySelector('.library-book-author')?.textContent.trim()"),'Hartmann')
+  assert.equal(await evaluate("document.querySelector('.library-book h3')?.textContent.includes('idealismo alemán')"),true)
+  assert.equal(await evaluate("document.querySelector('.library-book .library-study-link')?.getAttribute('href')?.includes('hartmann-cosa-en-si/sistema')"),true)
+  assert.equal(await evaluate("([...document.querySelectorAll('.library-tabs button')].find(b=>b.textContent.includes('Autores'))?.click(),true)"),true)
+  assert.equal(await evaluate(setQuery('Beck')),true)
+  await until(()=>evaluate("document.querySelectorAll('.library-author').length===1"),'Beck aparece en Autores')
+  assert.equal(await evaluate("document.querySelector('.library-author h3')?.textContent.trim()"),'Beck, Jakob Sigismund')
+  assert.equal(await evaluate("document.querySelector('.library-author .library-related-work')?.textContent.includes('Hartmann')"),true)
+  assert.equal(await evaluate("document.querySelector('.library-author .library-author-works')===null"),true)
+  assert.equal(await evaluate("([...document.querySelectorAll('.library-tabs button')].find(b=>b.textContent.includes('Obras'))?.click(),true)"),true)
+  await until(()=>evaluate("document.querySelectorAll('.library-book').length===" + books.length),'restaurar catálogo tras buscar Beck')
+  console.log('OK búsqueda Beck → Hartmann y ficha de Beck sin autoría falsa')
+
   // Cada cronología pertenece a su tarjeta y conserva el enlace de la clase.
   assert.equal(await evaluate("([...document.querySelectorAll('.library-book')].find(c=>c.querySelector('h3')?.textContent==='Minima Moralia')?.querySelector('.library-timeline-toggle')?.click(),true)"),true)
   await until(()=>evaluate("document.querySelectorAll('.library-book--expanded .library-timeline-entry').length===1"),
