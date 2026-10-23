@@ -481,7 +481,7 @@ export default function CriticalTheoryClass18Aug() {
         </article>
       </div>
       <section className="ct18-rehearsal" aria-labelledby="ct18-review-heading">
-        <div className="ct18-rehearsal-top"><span>CUADERNO ACTIVO / REPASO</span><span>0{activeCard + 1} / 0${rehearsal.length}</span></div>
+        <div className="ct18-rehearsal-top"><span>CUADERNO ACTIVO / REPASO</span><span>{String(activeCard + 1).padStart(2, '0')} / {String(rehearsal.length).padStart(2, '0')}</span></div>
         <h2 id="ct18-review-heading">Recordar es volver a argumentar.</h2>
         <p>Preguntas de práctica elaboradas por PHILOSOPHIA. No se atribuyen a la profesora ni a un examen oficial.</p>
         <div className="ct18-rehearsal-card">
