@@ -1,4 +1,4 @@
-// Referencias en notas de clase; mención nominal, no lectura acreditada.
+// Referencias en notas de clase del vault; mención nominal, NO lectura acreditada.
 export const classReferencesPart4 = [
   {
     "date": "2026-08-19",
@@ -54,7 +54,7 @@ export const classReferencesPart4 = [
       "Sautu, Ruth",
       "Wainerman, Catalina"
     ],
-    "url": "/semestre/5/metodos-de-investigacion/clase/7-octubre"
+    "url": null
   },
   {
     "date": "2026-10-14",
