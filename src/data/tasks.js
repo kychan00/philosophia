@@ -640,7 +640,9 @@ export const tasks = [
     sourceClass: 'Clase del martes 20 de octubre',
     sourceRoute: '/semestre/5/teoria-critica/clase/20-octubre',
     studyRoute: '/semestre/5/teoria-critica/clase/20-octubre',
-  },\n\n  {
+  },
+
+  {
     id: 'teoria-critica-2026-10-22-freud-continuar-malestar',
     subject: 'Teoría Crítica',
     subjectCode: 'FI265',
