@@ -241,6 +241,11 @@ export default function CriticalTheory() {
           <div className="ct-class-card-copy"><span>Lukács, IA y agencia</span><h3>Clase del 20 de octubre</h3><p>Cosificación, IA, trabajo reacomodado, cuerpos disciplinados y crítica filosófica. Atlas de 12 folios y lectura de Freud.</p></div>
           <div className="ct-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
         </Link>
+        <Link to="/semestre/5/teoria-critica/clase/22-octubre" className="ct-class-card">
+          <div className="ct-class-card-date"><strong>XXII</strong><span>X · MMXXVI</span></div>
+          <div className="ct-class-card-copy"><span>Freud · subjetividad y cultura</span><h3>El malestar del sujeto</h3><p>Inconsciente, interpretación, aparato psíquico, sentimiento oceánico, individuación y tránsito del principio del placer al principio de realidad.</p></div>
+          <div className="ct-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
+        </Link>
       </section>
 
       <section className="ct-section">
@@ -251,7 +256,17 @@ export default function CriticalTheory() {
         <div className="ct-task">
           <div className="ct-task-date"><strong>22</strong><span>OCT · 2026</span></div>
           <div>
-            <p>Lectura para hoy · Sesión virtual · Pendiente</p>
+            <p>Continuidad de lectura · sin fecha de entrega indicada</p>
+            <h3>Freud · seguir leyendo El malestar en la cultura</h3>
+            <p>Continuar la lectura después de la sesión sobre inconsciente, subjetividad, sentimiento oceánico, separación y principios de placer y realidad. No se indicó un rango nuevo de páginas ni trabajo escrito.</p>
+          </div>
+          <Link to="/semestre/5/teoria-critica/clase/22-octubre">Abrir clase y guía ↗</Link>
+        </div>
+
+        <div className="ct-task">
+          <div className="ct-task-date"><strong>22</strong><span>OCT · 2026</span></div>
+          <div>
+            <p>Lectura inicial · sesión del 22 de octubre · continuada en clase</p>
             <h3>Freud · El malestar en la cultura</h3>
             <p>Comenzar la lectura con el PDF facilitado de 90 páginas, traducción de Luis López Ballesteros.
               La profesora no indicó páginas específicas ni entrega escrita. El 22 es fecha de la sesión, no

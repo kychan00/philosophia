@@ -643,6 +643,25 @@ export const tasks = [
   },
 
   {
+    id: 'teoria-critica-2026-10-22-freud-continuar-malestar',
+    subject: 'Teoría Crítica',
+    subjectCode: 'FI265',
+    assignedDate: '2026-10-22',
+    dueDate: null,
+    title: 'Freud · seguir leyendo El malestar en la cultura',
+    type: 'Continuidad de lectura',
+    weight: null,
+    priority: 'Alta',
+    description: 'Continuar la lectura de El malestar en la cultura después de la clase del 22 de octubre. La sesión trabajó inconsciente, interpretación, subjetividad, sentimiento oceánico, separación, principio del placer y principio de realidad. No se indicó un rango nuevo de páginas, entrega escrita ni fecha límite.',
+    readingScope: 'Sigmund Freud · El malestar en la cultura · continuidad de la lectura',
+    readingPages: 'Sin rango nuevo indicado en clase',
+    readingEdition: 'Biblioteca Libre OMEGALFA · trad. Luis López Ballesteros · maquetación 2010',
+    sourceClass: 'Clase del jueves 22 de octubre',
+    sourceRoute: '/semestre/5/teoria-critica/clase/22-octubre',
+    studyRoute: '/semestre/5/teoria-critica/clase/22-octubre',
+  },
+
+  {
     id: 'ontologia-2026-10-14-croce-dialectica',
     subject: 'Ontología II',
     subjectCode: 'FI190',

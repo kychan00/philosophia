@@ -138,6 +138,7 @@ const CriticalTheoryClass03Sep = lazy(() => import('./pages/CriticalTheoryClass0
 const CriticalTheoryClass10Sep = lazy(() => import('./pages/CriticalTheoryClass10Sep'))
 const CriticalTheoryClass15Oct = lazy(() => import('./pages/CriticalTheoryClass15Oct'))
 const CriticalTheoryClass20Oct = lazy(() => import('./pages/CriticalTheoryClass20Oct'))
+const CriticalTheoryClass22Oct = lazy(() => import('./pages/CriticalTheoryClass22Oct'))
 const EthicsClassics = lazy(() => import('./pages/EthicsClassics'))
 const EthicsClass18Aug = lazy(() => import('./pages/EthicsClass18Aug'))
 const EthicsClass20Aug = lazy(() => import('./pages/EthicsClass20Aug'))
@@ -624,6 +625,10 @@ function App() {
         <Route
           path="/semestre/5/teoria-critica/clase/20-octubre"
           element={<CriticalTheoryClass20Oct />}
+        />
+        <Route
+          path="/semestre/5/teoria-critica/clase/22-octubre"
+          element={<CriticalTheoryClass22Oct />}
         />
         <Route
           path="/semestre/5/etica"
