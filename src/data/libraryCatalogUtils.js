@@ -43,3 +43,28 @@ export function worksByAuthor(books, author) {
 export function authorsForWork(book, authors) {
   return authors.filter(a=>isWorkByAuthor(book,a))
 }
+
+/**
+ * La búsqueda documental puede encontrar pensadores estudiados en una obra,
+ * sin confundirlos con sus autores. Los temas vienen de fichas verificadas.
+ */
+export function matchesLibrarySearch(book, term, categoryLabel = '') {
+  const search = normalizeLibraryText(term).trim()
+  if (!search) return true
+  const fields = [
+    book.autor,
+    book.titulo,
+    categoryLabel || book.categoria,
+    ...(book.temas || []),
+    ...(book.ideas || []).flatMap(idea => [idea.lema, idea.detalle]),
+  ]
+  return normalizeLibraryText(fields.join(' ')).includes(search)
+}
+
+export function worksStudyingAuthor(books, author) {
+  const canonical = normalizeLibraryText(author)
+  return books.filter(book =>
+    !isWorkByAuthor(book, author) &&
+    (book.temas || []).some(topic => normalizeLibraryText(topic) === canonical),
+  )
+}
