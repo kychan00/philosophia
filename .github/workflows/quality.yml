@@ -38,13 +38,13 @@ jobs:
         run: npm run test:editorial
 
       - name: Validate library catalogue
-        run: node --test tests/library-catalog.test.mjs tests/library-navigation.test.mjs tests/library-timeline.test.mjs tests/library-academic-connections.test.mjs tests/library-governance.test.mjs tests/library-apa.test.mjs tests/library-graph.test.mjs
+        run: node --test tests/library-catalog.test.mjs tests/library-navigation.test.mjs tests/library-timeline.test.mjs tests/library-academic-connections.test.mjs tests/library-governance.test.mjs tests/library-apa.test.mjs tests/library-graph.test.mjs tests/library-class-references.test.mjs
 
       - name: Validate Nava technoscience 2D
         run: node --test tests/nava-technoscience.test.mjs
 
       - name: Lint library source
-        run: npx eslint src/data/libraryCatalog.js src/data/libraryCatalogUtils.js src/pages/PhilosophiaLibrary.jsx src/data/libraryTimelines.js src/data/libraryAcademicConnections.js src/data/libraryApa.js src/data/libraryApaMetadata.js src/data/libraryGraph.js src/pages/LibraryCartography.jsx
+        run: npx eslint src/data/libraryCatalog.js src/data/libraryCatalogUtils.js src/pages/PhilosophiaLibrary.jsx src/data/libraryTimelines.js src/data/libraryClassReferences.js src/data/libraryReferenceTimelines.js src/data/classReferences/*.js src/data/libraryAcademicConnections.js src/data/libraryApa.js src/data/libraryApaMetadata.js src/data/libraryGraph.js src/pages/LibraryCartography.jsx
 
       - name: Lint Lukács ontology system
         run: npx eslint src/data/lukacsOntologySystem.js src/components/lukacs/LukacsOntologyNode.jsx src/pages/LukacsOntologySystem.jsx tests/lukacs-ontology-system.test.mjs tests/lukacs-ontology-browser-smoke.mjs
