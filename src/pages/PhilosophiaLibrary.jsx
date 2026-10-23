@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 import { books, authors, categories } from '../data/libraryCatalog'
-import { authorsForWork, isWorkByAuthor, normalizeLibraryText, worksByAuthor } from '../data/libraryCatalogUtils'
+import { authorsForWork, isWorkByAuthor, matchesLibrarySearch, normalizeLibraryText, worksByAuthor, worksStudyingAuthor } from '../data/libraryCatalogUtils'
 import { libraryTimelines } from '../data/libraryTimelines'
 import { libraryAcademicConnections } from '../data/libraryAcademicConnections'
 import { formatApaRecord } from '../data/libraryApa.js'
@@ -114,8 +114,7 @@ export default function PhilosophiaLibrary() {
       (tab !== 'recomendaciones' || b.estado === 'recomendada')
       && (category === 'todas' || b.categoria === category)
       && (!selectedAuthor || isWorkByAuthor(b, selectedAuthor))
-      && normalizeLibraryText(b.autor+' '+b.titulo+' '+labels[b.categoria])
-        .includes(normalizeLibraryText(term))
+      && matchesLibrarySearch(b, term, labels[b.categoria])
     ).sort((a,b)=> order === 'titulo'
       ? a.titulo.localeCompare(b.titulo,'es')
       : a.autor.localeCompare(b.autor,'es') || a.titulo.localeCompare(b.titulo,'es'))
@@ -230,6 +229,7 @@ export default function PhilosophiaLibrary() {
         ? <div className="library-authors">
           {results.map((author,i)=>{
             const workCount = worksByAuthor(books, author).length
+            const studiedIn = worksStudyingAuthor(books, author)
             const events = activity('authors',author)
             const isExpanded = expandedCard === 'author:'+author
             return <article className={'library-author'+(isExpanded?' library-author--expanded':'')} key={author}>
@@ -242,7 +242,11 @@ export default function PhilosophiaLibrary() {
                     aria-label={`Ver ${workCount} ${workCount===1?'obra':'obras'} de ${author}`}>
                     Ver {workCount} {workCount===1?'obra':'obras'} <span aria-hidden="true">↗</span>
                   </button>
-                : <p>Sin obra asociada a esta ficha en el catálogo</p>}
+                : <p>Sin obra de autoría propia registrada en el catálogo</p>}
+              {studiedIn.map(book=><button type="button" key={book.id}
+                className="library-related-work" onClick={()=>showWorkRecord(book)}>
+                Estudiado en: {book.titulo} · {book.autor} ↗
+              </button>)}
               <Link className="library-map-link" to={"/biblioteca/cartografia?autor="+encodeURIComponent(author)}>Ver red bibliográfica ↗</Link>
               <button type="button" className="library-timeline-toggle"
                 aria-expanded={isExpanded}
