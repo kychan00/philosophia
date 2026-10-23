@@ -124,7 +124,9 @@ const AnalyticFollesdalMap = lazy(() => import('./pages/AnalyticFollesdalMap'))
 const AnalyticHackerSystem = lazy(() => import('./pages/AnalyticHackerSystem'))
 const AnalyticGlockSystem = lazy(() => import('./pages/AnalyticGlockSystem'))
 const NavaTechnoscienceSystem = lazy(() => import('./pages/NavaTechnoscienceSystem'))
-const CriticalTheory = lazy(() => import('./pages/CriticalTheory'))
+const CriticalTheory = lazy(() => import('./pages/DialecticalArchive'))
+const DialecticalSessionFrame = lazy(() => import('./pages/DialecticalArchive').then((m) => ({ default: m.DialecticalSessionFrame })))
+const DialecticalRestoredClass = lazy(() => import('./pages/DialecticalArchive').then((m) => ({ default: m.DialecticalRestoredClass })))
 const CriticalTheoryTask1 = lazy(() => import('./pages/CriticalTheoryTask1'))
 const MarxCommodityValueSystem = lazy(() => import('./pages/MarxCommodityValueSystem'))
 const LukacsReificationSystem = lazy(() => import('./pages/LukacsReificationSystem'))
@@ -592,43 +594,55 @@ function App() {
         />
         <Route
           path="/semestre/5/teoria-critica/clase/18-agosto"
-          element={<CriticalTheoryClass18Aug />}
+          element={<DialecticalSessionFrame id="18-agosto"><CriticalTheoryClass18Aug /></DialecticalSessionFrame>}
         />
         <Route
           path="/semestre/5/teoria-critica/clase/20-agosto"
-          element={<CriticalTheoryClass20Aug />}
+          element={<DialecticalSessionFrame id="20-agosto"><CriticalTheoryClass20Aug /></DialecticalSessionFrame>}
         />
         <Route
           path="/semestre/5/teoria-critica/clase/25-agosto"
-          element={<CriticalTheoryClass25Aug />}
+          element={<DialecticalSessionFrame id="25-agosto"><CriticalTheoryClass25Aug /></DialecticalSessionFrame>}
         />
         <Route
           path="/semestre/5/teoria-critica/clase/27-agosto"
-          element={<CriticalTheoryClass27Aug />}
+          element={<DialecticalSessionFrame id="27-agosto"><CriticalTheoryClass27Aug /></DialecticalSessionFrame>}
         />
         <Route
           path="/semestre/5/teoria-critica/clase/1-septiembre"
-          element={<CriticalTheoryClass01Sep />}
+          element={<DialecticalSessionFrame id="1-septiembre"><CriticalTheoryClass01Sep /></DialecticalSessionFrame>}
         />
         <Route
           path="/semestre/5/teoria-critica/clase/3-septiembre"
-          element={<CriticalTheoryClass03Sep />}
+          element={<DialecticalSessionFrame id="3-septiembre"><CriticalTheoryClass03Sep /></DialecticalSessionFrame>}
         />
         <Route
           path="/semestre/5/teoria-critica/clase/10-septiembre"
-          element={<CriticalTheoryClass10Sep />}
+          element={<DialecticalSessionFrame id="10-septiembre"><CriticalTheoryClass10Sep /></DialecticalSessionFrame>}
+        />
+        <Route
+          path="/semestre/5/teoria-critica/clase/17-septiembre"
+          element={<DialecticalSessionFrame id="17-septiembre"><DialecticalRestoredClass id="17-septiembre" /></DialecticalSessionFrame>}
+        />
+        <Route
+          path="/semestre/5/teoria-critica/clase/22-septiembre"
+          element={<DialecticalSessionFrame id="22-septiembre"><DialecticalRestoredClass id="22-septiembre" /></DialecticalSessionFrame>}
+        />
+        <Route
+          path="/semestre/5/teoria-critica/clase/24-septiembre"
+          element={<DialecticalSessionFrame id="24-septiembre"><DialecticalRestoredClass id="24-septiembre" /></DialecticalSessionFrame>}
         />
         <Route
           path="/semestre/5/teoria-critica/clase/15-octubre"
-          element={<CriticalTheoryClass15Oct />}
+          element={<DialecticalSessionFrame id="15-octubre"><CriticalTheoryClass15Oct /></DialecticalSessionFrame>}
         />
         <Route
           path="/semestre/5/teoria-critica/clase/20-octubre"
-          element={<CriticalTheoryClass20Oct />}
+          element={<DialecticalSessionFrame id="20-octubre"><CriticalTheoryClass20Oct /></DialecticalSessionFrame>}
         />
         <Route
           path="/semestre/5/teoria-critica/clase/22-octubre"
-          element={<CriticalTheoryClass22Oct />}
+          element={<DialecticalSessionFrame id="22-octubre"><CriticalTheoryClass22Oct /></DialecticalSessionFrame>}
         />
         <Route
           path="/semestre/5/etica"
