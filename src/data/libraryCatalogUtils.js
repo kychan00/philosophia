@@ -2,6 +2,7 @@
 // Evitar dividir apellidos compuestos ("Ortega y Gasset") en supuestos coautores.
 export const libraryAuthorAliases = {
   "Reale y Antiseri": ["Reale, Giovanni", "Antiseri, Dario"],
+  "Marx y Engels": ["Marx, Karl", "Engels, Friedrich"],
   "Ortega y Gasset": ["Ortega y Gasset, José"],
   "Barceló": ["Barceló Aspeitia, Axel Arturo"],
   "Hartnack": ["Hartnack, Justus"],
