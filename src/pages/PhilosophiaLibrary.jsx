@@ -2,7 +2,8 @@ import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 import { books, authors, categories } from '../data/libraryCatalog'
 import { authorsForWork, isWorkByAuthor, matchesLibrarySearch, normalizeLibraryText, worksByAuthor, worksStudyingAuthor } from '../data/libraryCatalogUtils'
-import { libraryTimelines } from '../data/libraryTimelines'
+import { libraryTimelines } from '../data/libraryReferenceTimelines'
+import { documentedClassReferences, documentedClassReferenceStats } from '../data/libraryClassReferences.js'
 import { libraryAcademicConnections } from '../data/libraryAcademicConnections'
 import { formatApaRecord } from '../data/libraryApa.js'
 import './PhilosophiaLibrary.css'
@@ -102,6 +103,7 @@ export default function PhilosophiaLibrary() {
   const [term, setTerm] = useState(linkedWork?.titulo || linkedAuthor || '')
   const [category, setCategory] = useState('todas')
   const [order, setOrder] = useState('autor')
+  const [classArea, setClassArea] = useState('todas')
   const [selectedAuthor, setSelectedAuthor] = useState(null)
   const [expandedCard, setExpandedCard] = useState(linkedWork?'work:'+linkedWork.id:linkedAuthor?'author:'+linkedAuthor:null)
   const activity = (kind,id) => [...(libraryTimelines[kind][id]||[]),...(libraryAcademicConnections[kind][id]?.events||[])]
@@ -181,6 +183,57 @@ export default function PhilosophiaLibrary() {
       <div><span>02 / CARTOGRAPHIA</span><strong>Las ideas también tienen conexiones.</strong>
         <p>Explore obras, autores, conceptos y actividades enlazadas en una cartografía 2D.</p></div>
       <Link to="/biblioteca/cartografia">Explorar cartografía 2D ↗</Link>
+    </section>
+    <section className="library-class-reference-index" aria-label="Referencias de las clases">
+      <header className="library-class-reference-header">
+        <div>
+          <span>03 / FONTES SCHOLASTICAE</span>
+          <h2>Referencias de las clases</h2>
+          <p>{documentedClassReferenceStats.classesWithReferences} notas con nombres de obras o autores
+            identificados en un corpus de {documentedClassReferenceStats.examinedNotes} clases.
+            Una mención documentada no demuestra lectura, cita literal ni recomendación del profesor.</p>
+        </div>
+        <label htmlFor="library-class-area">Filtrar por materia
+          <select id="library-class-area" value={classArea} onChange={e=>setClassArea(e.target.value)}>
+            <option value="todas">Todas las materias</option>
+            {[...new Set(documentedClassReferences.map(x=>x.area))].sort((a,b)=>a.localeCompare(b,'es')).map(area=>
+              <option key={area} value={area}>{area}</option>)}
+          </select>
+        </label>
+      </header>
+      <div className="library-class-reference-list">
+        {documentedClassReferences.filter(note=>classArea==='todas'||note.area===classArea).map(note=>
+          <details className="library-class-reference" key={note.date+'|'+note.area+'|'+note.title}>
+            <summary>
+              <span className="library-class-reference-date">{note.date} · {note.area}</span>
+              <strong>{note.title}</strong>
+              <small>{note.works.length} obras · {note.authors.length} autores</small>
+            </summary>
+            <div className="library-class-reference-details">
+              {note.works.length>0&&<div>
+                <h3>Obras identificadas</h3>
+                <div className="library-class-reference-tags">
+                  {note.works.map(id=>{
+                    const book=books.find(b=>b.id===id)
+                    return book&&<button type="button" key={id} onClick={()=>showWorkRecord(book)}>
+                      {book.titulo} <span aria-hidden="true">↗</span>
+                    </button>
+                  })}
+                </div>
+              </div>}
+              {note.authors.length>0&&<div>
+                <h3>Autores mencionados</h3>
+                <div className="library-class-reference-tags">
+                  {note.authors.map(author=><button type="button" key={author}
+                    onClick={()=>showAuthorRecord(author)}>{author} <span aria-hidden="true">↗</span></button>)}
+                </div>
+              </div>}
+              {note.url?<Link className="library-class-reference-open" to={note.url}>
+                Abrir página de la clase ↗</Link>
+                :<p className="library-class-reference-unlinked">Sin ruta pública comprobada para esta nota.</p>}
+            </div>
+          </details>)}
+      </div>
     </section>
     <section className="library-index" aria-label="Catálogo bibliográfico">
       <header className="library-index-head">
