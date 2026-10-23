@@ -1,12 +1,10 @@
-// Referencias por notas de clases del vault; detección nominal, NO lectura acreditada.
+// Referencias en notas de clase del vault; mención nominal, NO lectura acreditada.
 export const classReferencesPart0 = [
   {
     "date": "2026-02-06",
     "area": "Cosmología",
     "title": "Cosmología - cosmos griego y legado pitagórico",
-    "works": [
-      "Platón - Parménides"
-    ],
+    "works": [],
     "authors": [
       "Parménides",
       "Platón"
