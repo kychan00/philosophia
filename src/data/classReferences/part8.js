@@ -1,4 +1,4 @@
-// Referencias en notas de clase; mención nominal, no lectura acreditada.
+// Referencias en notas de clase del vault; mención nominal, NO lectura acreditada.
 export const classReferencesPart8 = [
   {
     "date": "2026-08-20",
@@ -71,7 +71,7 @@ export const classReferencesPart8 = [
       "Platón",
       "Sócrates"
     ],
-    "url": "/semestre/5/etica/clase/17-septiembre"
+    "url": null
   },
   {
     "date": "2026-10-08",
