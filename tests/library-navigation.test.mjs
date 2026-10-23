@@ -7,6 +7,8 @@ import {
   isWorkByAuthor,
   worksByAuthor,
   authorsForWork,
+  matchesLibrarySearch,
+  worksStudyingAuthor,
 } from '../src/data/libraryCatalogUtils.js'
 
 test('acentos y caracteres especiales no impiden buscar autores', () => {
@@ -47,4 +49,18 @@ test('autoría canónica y apellidos compuestos',()=>{
  assert.equal(worksByAuthor(books,'Rodríguez Pelayo, Cristian Alejandro').length,2)
  assert.equal(worksByAuthor(books,'Barceló Aspeitia, Axel Arturo').length,1)
  assert.equal(worksByAuthor(books,'Luciano de Samósata').length,1)
+})
+
+
+test('buscar Beck en Obras recupera Hartmann sin atribuirle la autoría', () => {
+  const matches=books.filter(book=>matchesLibrarySearch(book,'Beck',book.categoria))
+  assert.equal(matches.length,1)
+  assert.equal(matches[0].id,'Hartmann - La filosofía del idealismo alemán - Tomo I')
+  assert.equal(matches[0].autor,'Hartmann')
+  assert.equal(matches[0].studyUrl,'/tareas/ontologia-ii/hartmann-cosa-en-si/sistema')
+  assert.equal(worksByAuthor(books,'Beck, Jakob Sigismund').length,0)
+  assert.deepEqual(worksStudyingAuthor(books,'Beck, Jakob Sigismund').map(b=>b.id),[matches[0].id])
+  assert.equal(matchesLibrarySearch(matches[0],'Representar original'),true)
+  assert.equal(matchesLibrarySearch(matches[0],'JACOBI'),true)
+  assert.equal(matchesLibrarySearch(matches[0],'Beckx'),false)
 })

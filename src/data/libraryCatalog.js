@@ -400,7 +400,18 @@ export const books = [
     "autor": "Hartmann",
     "titulo": "La filosofía del idealismo alemán - Tomo I",
     "categoria": "ontología",
-    "estado": "documentada"
+    "estado": "documentada",
+    "temas": [
+      "Reinhold, Karl Leonhard",
+      "Schulze, Gottlob Ernst",
+      "Maimon, Salomon",
+      "Beck, Jakob Sigismund",
+      "Jacobi, Friedrich Heinrich",
+      "Bardili, Christoph Gottfried",
+      "Cosa en sí",
+      "Representar original"
+    ],
+    "studyUrl": "/tareas/ontologia-ii/hartmann-cosa-en-si/sistema"
   },
   {
     "id": "Hegel - Ciencia de la lógica",
