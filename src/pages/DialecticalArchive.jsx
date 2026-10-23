@@ -7,6 +7,19 @@ import {
 } from '../data/dialecticalArchive'
 import './DialecticalArchive.css'
 
+const programReadings = [
+  ['Reale · Antiseri', 'La Escuela de Frankfurt', 'Material recibido'],
+  ['G. W. F. Hegel', 'Prólogo de Fenomenología del espíritu', 'Material recibido'],
+  ['Karl Marx', 'El trabajo enajenado', 'Material recibido'],
+  ['Karl Marx', 'El carácter fetichista de la mercancía y su secreto', 'Material recibido'],
+  ['Georg Lukács', 'La cosificación y la consciencia del proletariado', 'Material recibido'],
+  ['Sigmund Freud', 'El malestar en la cultura', 'Material recibido'],
+  ['Max Horkheimer', 'Teoría tradicional y teoría crítica', 'Material recibido'],
+  ['Max Horkheimer', 'Medios y fines', 'Según programa'],
+  ['Horkheimer · Adorno', 'Concepto de Ilustración', 'Según programa'],
+  ['Herbert Marcuse', 'Las nuevas formas de control', 'Material recibido']
+]
+
 const examPrompts = [
   { question: '¿Por qué no basta con definir la enajenación como pérdida del producto?', guide: 'Compare actividad, producto, ser genérico y relación con otros. Distinga objetivación de enajenación.', source: 'Clases del 10, 17 y 24 de septiembre' },
   { question: '¿Qué conserva y qué transforma Lukács del fetichismo de Marx?', guide: 'Explique la forma mercancía y su extensión a instituciones, racionalización y subjetividad social.', source: 'Clase del 15 de octubre' },
@@ -166,6 +179,12 @@ export default function DialecticalArchive() {
       <div className="da-glossary">{dialecticalGlossary.map(t => <article key={t.term}><h3>{t.term}</h3><p>{t.gloss}</p><small>{t.context} · {t.caution}</small></article>)}</div>
     </section>
     <section className="da-section da-preserve"><div><span>ARCHIVO DE SUPERVIVENCIA</span><h2>Conservar sin encerrar</h2><p>Exporte un índice académico legible como Markdown estándar o imprima este cuaderno a PDF con la función de su navegador. Los diagramas siguen siendo SVG vectoriales.</p><div className="da-export"><button type="button" onClick={exportMarkdown}>Exportar índice .md ↧</button><button type="button" onClick={() => window.print()}>Imprimir / guardar PDF ↗</button></div><small>La exportación contiene los resúmenes públicos del índice, no el contenido completo de las notas privadas ni todas las páginas de clase.</small></div><div><h3>Materia / FI265</h3><p>Profesora: Dinora Hernández López</p><p>2026-B · Licenciatura en Filosofía</p><p>Archivo sin membresías ni seguimiento comercial</p></div></section>
+    <section className="da-section da-program" id="da-program">
+      <div className="da-heading"><span>APÉNDICE / PROGRAMA</span><h2>Lecturas y evaluación</h2><p>Se conserva el programa básico del índice anterior; los estados del material proceden de esa ficha y no representan lecturas completadas.</p></div>
+      <div className="da-program-meta"><span>60 horas teóricas</span><span>8 créditos</span><span>Optativa abierta</span></div>
+      <div className="da-program-list">{programReadings.map(([author, title, state], index) => <article key={title}><span>{String(index+1).padStart(2,'0')}</span><div><small>{author}</small><h3>{title}</h3></div><b>{state}</b></article>)}</div>
+      <div className="da-evaluation"><h3>Criterios de evaluación</h3><div><strong>30% <small>Participación</small></strong><strong>30% <small>Examen</small></strong><strong>40% <small>Exposición y defensa</small></strong></div><p>Asistencia mínima según el índice original: 80% ordinario y 60% extraordinario. La puntualidad y permanencia son requisitos señalados para el curso.</p></div>
+    </section>
     <div className="da-task-hold"><h2>Lecturas y tareas del curso</h2><SubjectTasksPanel subjectCode="FI265"/><div className="da-reading-links"><Link to="/tareas/teoria-critica/tarea-1">Primera tarea ↗</Link><Link to="/tareas/teoria-critica/marx-capital-fetichismo-parte-i">Marx: mercancía ↗</Link><Link to="/tareas/teoria-critica/lukacs-cosificacion">Lukács: atlas 2D ↗</Link><Link to="/tareas/teoria-critica/escuela-de-frankfurt">Escuela de Frankfurt ↗</Link><Link to="/biblioteca">Biblioteca ↗</Link></div></div>
     <footer className="da-footer"><span>PHILOSOPHIA / FI265 / ARCHIVO COGNITIVO</span><Link to="/semestre/5">← Quinto semestre</Link></footer>
   </main>
