@@ -5,6 +5,7 @@ import { criticalTheoryImages, imagesForCriticalTheoryClass } from '../src/data/
 
 const projectPath=(relative)=>fileURLToPath(new URL('../'+relative,import.meta.url))
 const classroom=readFileSync(projectPath('src/pages/CriticalTheoryClass18Aug.jsx'),'utf8')
+const classroom20=readFileSync(projectPath('src/pages/CriticalTheoryClass20Aug.jsx'),'utf8')
 const rule=readFileSync(projectPath('docs/REGLA_IMAGENES_LIBRES_Y_TRAZABILIDAD_CLASES.md'),'utf8')
 const protocol=readFileSync(projectPath('docs/flujo-multichat-y-despliegues.md'),'utf8')
 
@@ -42,9 +43,16 @@ for(const media of criticalTheoryImages){
 }
 const pilot=imagesForCriticalTheoryClass('/semestre/5/teoria-critica/clase/18-agosto')
 assert.equal(pilot.length,1,'folio 001 auditable')
+const second=imagesForCriticalTheoryClass('/semestre/5/teoria-critica/clase/20-agosto')
+assert.equal(second.length,1,'folio 002 auditable')
+assert.equal(second[0].id,'critica-2026-08-20-constelacion')
 assert.match(classroom,/imagesForCriticalTheoryClass/)
 assert.match(classroom,/<figure className="ct18-licensed-figure"/)
 assert.match(classroom,/alt=\{image.alt\}/)
 assert.match(classroom,/\{image.imageAttribution\}/)
 assert.match(classroom,/import\.meta\.env\.BASE_URL/,'compatibilidad Pages / Vercel')
+assert.match(classroom20,/imagesForCriticalTheoryClass/)
+assert.match(classroom20,/\/semestre\/5\/teoria-critica\/clase\/20-agosto/)
+assert.match(classroom20,/image\.imageAttribution/)
+assert.match(classroom20,/import\.meta\.env\.BASE_URL/,'folio 002 compatible con Pages / Vercel')
 console.log('OK: política visual, licencia, fuente, SVG y folio 001 documentados')
