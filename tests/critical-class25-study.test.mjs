@@ -33,7 +33,7 @@ test('atlas de cinco problemas cubre instituto, fascismo, exilio, totalidad y cu
   assert.ok(critical25Themes.every(x=>x.question&&x.thesis&&x.argument&&x.development&&x.source))
   assert.match(critical25Themes[0].guide.takeaway,/no autoriza borrar desacuerdos/i)
   assert.match(critical25Themes[1].guide.takeaway,/estructura y subjetividad/i)
-  assert.match(critical25Themes[3].guide.takeaway,/no significa saberlo todo/i)
+  assert.match(critical25Themes[3].guide.takeaway,/no la pretensión de poseer una imagen completa y cerrada de todo/i)
 })
 
 test('se conserva el contenido académico e interactivo preexistente',()=>{
