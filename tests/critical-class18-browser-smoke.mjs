@@ -41,7 +41,9 @@ async function viewport(width,height){
     const box=document.querySelector('.ct18-opening')
     const chapters=[...document.querySelectorAll('.ct18-chapters>section')]
     const board=document.querySelector('.ct18-cover-graphic')
-    return {viewport:innerWidth,scroll:document.documentElement.scrollWidth,sections:chapters.length,
+    return {viewport:innerWidth,scroll:document.documentElement.scrollWidth,sections:chapters.length, themes:document.querySelectorAll('.ct18-atlas-tabs button').length,
+      atlasNodes:document.querySelectorAll('.ct18-atlas-steps .ct18-atlas-step').length,
+      guideRows:document.querySelectorAll('.ct18-atlas-guide-body>div').length,
       reading:!!document.querySelector('a[href*="/tareas/teoria-critica/tarea-1"]'),
       headings:chapters.map(x=>x.querySelector('h2')?.textContent.trim()),
       coverWidth:box?.getBoundingClientRect().width,
@@ -52,6 +54,9 @@ async function viewport(width,height){
   })()`)
   assert.ok(result.scroll<=result.viewport+3,'Desbordamiento '+width+'x'+height+': '+JSON.stringify(result))
   assert.equal(result.sections,11)
+  assert.equal(result.themes,5,'faltan temas de estudio')
+  assert.equal(result.atlasNodes,3,'mapa conceptual incompleto')
+  assert.equal(result.guideRows,4,'guía de recurso incompleta')
   assert.ok(result.coverWidth>280&&result.boardWidth>250,'Composición ilegible '+JSON.stringify(result))
   assert.ok(result.method&&result.evaluation&&result.reading)
   assert.ok(result.headings.every(Boolean))
@@ -75,6 +80,16 @@ try{
   })
   await send('Page.enable');await send('Runtime.enable')
   for(const size of [[1440,900],[1024,768],[768,1024],[390,844],[320,740]]) await viewport(...size)
+  await evaluate("document.querySelectorAll('.ct18-atlas-tabs button')[1].click()")
+  await until(()=>evaluate("document.querySelector('.ct18-atlas-reader h3')?.textContent.includes('Kant')"),'segundo núcleo')
+  assert.equal(await evaluate("document.querySelectorAll('.ct18-atlas-tabs button[aria-pressed=true]').length"),1)
+  await evaluate("document.querySelector('.ct18-atlas-guide-top button').click()")
+  await until(()=>evaluate("!document.querySelector('.ct18-atlas-guide-body')"),'guía colapsada')
+  await evaluate("document.querySelector('.ct18-atlas-guide-top button').click()")
+  await until(()=>evaluate("!!document.querySelector('.ct18-atlas-guide-body')"),'guía restaurada')
+  await evaluate("document.querySelector('.ct18-atlas-actions button:first-child').click()")
+  await until(()=>evaluate("document.querySelector('#dialectica').getBoundingClientRect().top<400"),'fuente cruzada del núcleo')
+  assert.equal(await evaluate('location.hash'),'#/semestre/5/teoria-critica/clase/18-agosto','atlas cambia HashRouter')
   await evaluate("document.querySelector('.ct18-toc button:nth-child(8)').click()")
   assert.equal(await evaluate('location.hash'),'#/semestre/5/teoria-critica/clase/18-agosto','índice altera HashRouter')
   await evaluate("document.querySelector('.ct18-rehearsal-actions button:first-child').click()")
