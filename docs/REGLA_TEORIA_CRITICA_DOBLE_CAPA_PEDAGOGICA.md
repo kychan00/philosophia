@@ -78,6 +78,17 @@ El número y la estructura de apartados provienen de la clase realmente document
 - Tests: `critical-class01sep-study.test.mjs` y `critical-class01sep-browser-smoke.mjs`.
 - La sesión del 3 de septiembre permanece fuera del alcance hasta aprobación del folio 005.
 
+## Adopción · sesión 06 / 3 de septiembre
+
+- Página: `src/pages/CriticalTheoryClass03Sep.jsx`, con **12 apartados** conservados.
+- Datos: `critical03SepThemes.js`, `critical03SepSections.js` y `critical03SepImage.js`.
+- Componentes: `Critical03SepThematicAtlas` y `Critical03SepSectionStudy`, con estilos encapsulados.
+- Imagen: `03-septiembre-experiencia-saber.svg`, original del proyecto; muestra figura → experiencia → negatividad → nueva figura y parte/totalidad.
+- Fronteras: saber absoluto ≠ omnisciencia; experiencia ≠ vivencia psicológica; Morin = comparación pedagógica; Kant/Hegel = encuadre de clase; en sí/para sí/en sí y para sí ≠ «tesis–antítesis–síntesis».
+- Se preservan cuatro controles históricos y la tarea de revisión del índice de la `Fenomenología`.
+- Tests: `critical-class03sep-study.test.mjs` y `critical-class03sep-browser-smoke.mjs`.
+- La sesión del 10 de septiembre permanece fuera del alcance hasta aprobación del folio 006.
+
 ## Revisión de otras sesiones
 
 Aplicar únicamente cuando se trabaje ese folio, con cotejo individual de las notas del vault, incluyendo `05 - Clases` y la ficha de la materia. Las trece clases no se consideran refactorizadas por añadir esta regla.
