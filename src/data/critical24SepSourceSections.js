@@ -46,7 +46,7 @@ export const critical24SepSourceSections = [
     "eyebrow": "Machina et rhythmus",
     "title": "¿Quién opera a quién?",
     "status": "DOCUMENTADO · EJEMPLO: TIEMPOS MODERNOS",
-    "body": "La línea de producción de Charles Chaplin muestra cómo el ritmo de trabajo puede aparecer objetivado en máquinas y procedimientos.",
+    "body": "La línea de producción de Tiempos modernos, de Charles Chaplin, muestra cómo el ritmo de trabajo puede aparecer objetivado en máquinas y procedimientos.",
     "bullets": [
       "La máquina fija secuencias y tiempos.",
       "El trabajador debe ajustarse al ritmo.",
