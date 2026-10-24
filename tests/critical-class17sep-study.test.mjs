@@ -41,7 +41,7 @@ test('atlas conserva fuente parcial y cuatro momentos como totalidad',()=>{
 test('página marca límites documentales y no retroproyecta 24 septiembre',()=>{
   for(const snippet of [
     'Reconstrucción parcial · archivo local original pendiente de cotejo',
-    'No se conservan los ejes y la arquitectura conceptual. No se inventan episodios',
+    'Se conservan los ejes y la arquitectura conceptual. No se inventan episodios',
     'Trabajo, goce y libertad',
     'Crítica de la economía política',
     'Realización / desrealización',
