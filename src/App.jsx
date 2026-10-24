@@ -140,6 +140,7 @@ const CriticalTheoryClass03Sep = lazy(() => import('./pages/CriticalTheoryClass0
 const CriticalTheoryClass10Sep = lazy(() => import('./pages/CriticalTheoryClass10Sep'))
 const CriticalTheoryClass17Sep = lazy(() => import('./pages/CriticalTheoryClass17Sep'))
 const CriticalTheoryClass22Sep = lazy(() => import('./pages/CriticalTheoryClass22Sep'))
+const CriticalTheoryClass24Sep = lazy(() => import('./pages/CriticalTheoryClass24Sep'))
 const CriticalTheoryClass15Oct = lazy(() => import('./pages/CriticalTheoryClass15Oct'))
 const CriticalTheoryClass20Oct = lazy(() => import('./pages/CriticalTheoryClass20Oct'))
 const CriticalTheoryClass22Oct = lazy(() => import('./pages/CriticalTheoryClass22Oct'))
@@ -632,7 +633,7 @@ function App() {
         />
         <Route
           path="/semestre/5/teoria-critica/clase/24-septiembre"
-          element={<DialecticalSessionFrame id="24-septiembre"><DialecticalRestoredClass id="24-septiembre" /></DialecticalSessionFrame>}
+          element={<DialecticalSessionFrame id="24-septiembre"><CriticalTheoryClass24Sep /></DialecticalSessionFrame>}
         />
         <Route
           path="/semestre/5/teoria-critica/clase/15-octubre"
