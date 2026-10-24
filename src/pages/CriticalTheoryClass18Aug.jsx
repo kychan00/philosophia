@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router'
 import './CriticalTheoryClass18Aug.css'
 import Critical18ThematicAtlas from '../components/critical/Critical18ThematicAtlas'
+import { imagesForCriticalTheoryClass } from '../data/criticalTheoryImages'
 
 // Se preservan íntegros los once apartados académicos de la página original.
 // La estructura editorial adicional es reconstrucción de estudio, no cita docente.
@@ -71,6 +72,25 @@ export default function CriticalTheoryClass18Aug() {
           </div>
         </div>
       </section>
+
+      <figure className="ct18-licensed-figure">
+        {imagesForCriticalTheoryClass('/semestre/5/teoria-critica/clase/18-agosto').map((image) => (
+          <div className="ct18-licensed-item" key={image.id}>
+            <img
+              src={`${import.meta.env.BASE_URL}${image.imagePath}`}
+              alt={image.alt}
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>
+              <span>01 / IMAGEN DE ESTUDIO · {image.imageLicense}</span>
+              <strong>Pluralidad · investigación social · lectura</strong>
+              <p>{image.pedagogicalPurpose}</p>
+              <small>{image.imageAttribution} · {image.sourceBoundary}</small>
+            </figcaption>
+          </div>
+        ))}
+      </figure>
 
       <Critical18ThematicAtlas />
       <div className="ct18-original-heading" id="ct18-documento">
