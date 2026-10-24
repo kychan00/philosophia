@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
 import './CriticalTheoryClass18Aug.css'
+import Critical18ThematicAtlas from '../components/critical/Critical18ThematicAtlas'
 
 // Se preservan íntegros los once apartados académicos de la página original.
 // La estructura editorial adicional es reconstrucción de estudio, no cita docente.
@@ -71,6 +72,11 @@ export default function CriticalTheoryClass18Aug() {
         </div>
       </section>
 
+      <Critical18ThematicAtlas />
+      <div className="ct18-original-heading" id="ct18-documento">
+        <span>03 / ARCHIVO DOCUMENTAL</span>
+        <div><p>FUENTE / DESARROLLO CONSERVADO</p><h2>La clase, apartado por apartado.</h2><p>El atlas anterior interpreta y organiza los temas para estudiarlos. A continuación se conserva el desarrollo académico ya documentado, con sus ejemplos, criterios de evaluación y tarea.</p></div>
+      </div>
       <div className="ct18-reading-layout">
         <aside className="ct18-toc" aria-label="Índice de la primera clase">
           <div className="ct18-toc-head">ÍNDICE / 11 APARTADOS</div>
