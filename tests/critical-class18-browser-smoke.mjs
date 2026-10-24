@@ -42,6 +42,8 @@ async function viewport(width,height){
     const chapters=[...document.querySelectorAll('.ct18-chapters>section')]
     const board=document.querySelector('.ct18-cover-graphic')
     return {viewport:innerWidth,scroll:document.documentElement.scrollWidth,sections:chapters.length, themes:document.querySelectorAll('.ct18-atlas-tabs button').length,
+      guides:document.querySelectorAll('.ct18-chapters>section>.ct18-section-study').length,
+      figureNodes:document.querySelectorAll('.ct18-section-study__node').length,
       atlasNodes:document.querySelectorAll('.ct18-atlas-steps .ct18-atlas-step').length,
       guideRows:document.querySelectorAll('.ct18-atlas-guide-body>div').length,
       reading:!!document.querySelector('a[href*="/tareas/teoria-critica/tarea-1"]'),
@@ -54,6 +56,8 @@ async function viewport(width,height){
   })()`)
   assert.ok(result.scroll<=result.viewport+3,'Desbordamiento '+width+'x'+height+': '+JSON.stringify(result))
   assert.equal(result.sections,11)
+  assert.equal(result.guides,11,'faltan paneles por apartado')
+  assert.equal(result.figureNodes,33,'cada uno de los 11 apartados requiere esquema de 3 elementos')
   assert.equal(result.themes,5,'faltan temas de estudio')
   assert.equal(result.atlasNodes,3,'mapa conceptual incompleto')
   assert.equal(result.guideRows,4,'guía de recurso incompleta')
@@ -80,6 +84,14 @@ try{
   })
   await send('Page.enable');await send('Runtime.enable')
   for(const size of [[1440,900],[1024,768],[768,1024],[390,844],[320,740]]) await viewport(...size)
+  await evaluate("document.querySelector('#encuadre .ct18-section-study__guide summary').click()")
+  await until(()=>evaluate("document.querySelector('#encuadre .ct18-section-study__guide').open"),'guía 00 abierta')
+  assert.equal(await evaluate("document.querySelectorAll('#encuadre .ct18-section-study__guide-grid>div').length"),4)
+  await evaluate("document.querySelector('#encuadre .ct18-section-study__question summary').click()")
+  assert.ok(await evaluate("document.querySelector('#encuadre .ct18-section-study__question').open"),'pregunta de estudio sin respuesta')
+  await evaluate("document.querySelector('#encuadre .ct18-section-study__footer button:last-child').click()")
+  await until(()=>evaluate("document.querySelector('#objetivo').getBoundingClientRect().top<430"),'navegación al apartado 01')
+  assert.equal(await evaluate('location.hash'),'#/semestre/5/teoria-critica/clase/18-agosto','la guía cambia HashRouter')
   await evaluate("document.querySelector('.ct18-licensed-item img').scrollIntoView({block:'center'})")
   await until(()=>evaluate("document.querySelector('.ct18-licensed-item img').naturalWidth>0"),'figura original SVG cargada')
   assert.ok(await evaluate("document.querySelector('.ct18-licensed-item figcaption').textContent.includes('Ilustración original')"),'falta crédito visible')
