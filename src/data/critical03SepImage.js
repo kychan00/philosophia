@@ -1,0 +1,16 @@
+export const critical03SepImage = {
+  id: 'critica-2026-09-03-experiencia-saber',
+  classPath: '/semestre/5/teoria-critica/clase/3-septiembre',
+  imagePath: 'images/teoria-critica/03-septiembre-experiencia-saber.svg',
+  imageType: 'original',
+  imageSource: 'PHILOSOPHIA · diagrama vectorial creado para la clase 6',
+  imageAuthor: 'PHILOSOPHIA',
+  imageLicense: 'ORIGINAL-OWNED',
+  imageLicenseUrl: null,
+  licenseEvidenceUrl: null,
+  imageAttribution: 'Ilustración original de PHILOSOPHIA',
+  modifications: 'ninguna',
+  alt: 'Una figura de conciencia formula una pretensión, encuentra un desajuste en la experiencia y se transforma; a la derecha se distingue una parcela de conocimiento de una totalidad de relaciones.',
+  pedagogicalPurpose: 'Explicar experiencia fenomenológica, negatividad y la diferencia entre conocimiento especializado y saber de la totalidad.',
+  sourceBoundary: 'Reconstrucción visual editorial; no es un diagrama literal de la profesora ni una fórmula universal de Hegel.',
+}
