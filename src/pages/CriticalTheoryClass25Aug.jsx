@@ -1,5 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
+import './CriticalTheoryClass25Aug.css'
+import Critical25ThematicAtlas from '../components/critical/Critical25ThematicAtlas'
+import Critical25SectionStudy from '../components/critical/Critical25SectionStudy'
+import { critical25Image } from '../data/critical25Image'
 
 const sections = [
   ['00', 'instituto', 'Instituto, no doctrina homogénea'],
@@ -124,6 +128,34 @@ export default function CriticalTheoryClass25Aug() {
         </aside>
       </header>
 
+      <figure className="ct25-licensed-figure">
+        <div className="ct25-licensed-item">
+          <img
+            src={`${import.meta.env.BASE_URL}${critical25Image.imagePath}`}
+            alt={critical25Image.alt}
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>
+            <span>01 / IMAGEN DE ESTUDIO · {critical25Image.imageLicense}</span>
+            <strong>Exilio · investigación social · totalidad</strong>
+            <p>{critical25Image.pedagogicalPurpose}</p>
+            <small>{critical25Image.imageAttribution} · {critical25Image.sourceBoundary}</small>
+          </figcaption>
+        </div>
+      </figure>
+
+      <Critical25ThematicAtlas />
+
+      <div className="ct25-original-heading" id="ct25-documento">
+        <span>03 / ARCHIVO DOCUMENTAL</span>
+        <div>
+          <p>FUENTE / DESARROLLO CONSERVADO</p>
+          <h2>La clase, apartado por apartado.</h2>
+          <p>Los diez apartados originales permanecen visibles. Cada uno añade una unidad de estudio para explicar el problema, la figura, sus límites y la relación con el resto de la sesión.</p>
+        </div>
+      </div>
+
       <div className="ct25-layout">
         <aside className="ct25-index">
           <p>Index lectionis</p>
@@ -169,6 +201,7 @@ export default function CriticalTheoryClass25Aug() {
                 individualidad intelectual de cada autor.
               </strong>
             </div>
+            <Critical25SectionStudy sectionId="instituto" />
           </section>
 
           <section id="conciencia">
@@ -239,6 +272,7 @@ export default function CriticalTheoryClass25Aug() {
                 identificaciones, miedos y formas de obediencia?”.
               </p>
             </aside>
+            <Critical25SectionStudy sectionId="conciencia" />
           </section>
 
           <section id="exilio">
@@ -293,6 +327,7 @@ export default function CriticalTheoryClass25Aug() {
                 </p>
               </article>
             </div>
+            <Critical25SectionStudy sectionId="exilio" />
           </section>
 
           <section id="primera">
@@ -312,6 +347,7 @@ export default function CriticalTheoryClass25Aug() {
               <b>·</b>
               <strong>Marcuse → Estados Unidos</strong>
             </div>
+            <Critical25SectionStudy sectionId="primera" />
           </section>
 
           <section id="revolucion">
@@ -354,6 +390,7 @@ export default function CriticalTheoryClass25Aug() {
                 críticamente las consecuencias.
               </p>
             </aside>
+            <Critical25SectionStudy sectionId="revolucion" />
           </section>
 
           <section id="generaciones">
@@ -393,6 +430,7 @@ export default function CriticalTheoryClass25Aug() {
                 de alienación, aceleración y relación sujeto-sociedad.
               </p>
             </div>
+            <Critical25SectionStudy sectionId="generaciones" />
           </section>
 
           <section id="totalidad">
@@ -443,6 +481,7 @@ export default function CriticalTheoryClass25Aug() {
               <b>→</b>
               <article className="core"><span>MÉTODO</span><strong>transdisciplinario + empírico</strong></article>
             </div>
+            <Critical25SectionStudy sectionId="totalidad" />
           </section>
 
           <section id="astrologia">
@@ -505,6 +544,7 @@ export default function CriticalTheoryClass25Aug() {
                 la filosofía revisa críticamente conceptos, supuestos y categorías.
               </p>
             </aside>
+            <Critical25SectionStudy sectionId="astrologia" />
           </section>
 
           <section id="cultura">
@@ -560,6 +600,7 @@ export default function CriticalTheoryClass25Aug() {
               </p>
               <strong>Función de la crítica: hacer visible aquello que el orden social preferiría no mirar.</strong>
             </div>
+            <Critical25SectionStudy sectionId="cultura" />
           </section>
 
           <section id="conceptos">
@@ -596,6 +637,7 @@ export default function CriticalTheoryClass25Aug() {
               <span>IDEOLOGÍA / PSICOLOGÍA / CULTURA</span><b>→</b><span>TOTALIDAD</span><b>→</b>
               <span>CONTRADICCIÓN</span><b>→</b><strong>TEORÍA CRÍTICA</strong>
             </div>
+            <Critical25SectionStudy sectionId="conceptos" />
           </section>
         </article>
       </div>
