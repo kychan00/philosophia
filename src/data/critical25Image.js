@@ -1,0 +1,16 @@
+export const critical25Image = {
+  id: 'critica-2026-08-25-exilio-totalidad',
+  classPath: '/semestre/5/teoria-critica/clase/25-agosto',
+  imagePath: 'images/teoria-critica/25-agosto-exilio-totalidad.svg',
+  imageType: 'original',
+  imageSource: 'PHILOSOPHIA · diagrama vectorial creado para la clase 3',
+  imageAuthor: 'PHILOSOPHIA',
+  imageLicense: 'ORIGINAL-OWNED',
+  imageLicenseUrl: null,
+  licenseEvidenceUrl: null,
+  imageAttribution: 'Ilustración original de PHILOSOPHIA',
+  modifications: 'ninguna',
+  alt: 'Ruta de estudio del exilio del Instituto a la izquierda y cinco dimensiones sociales alrededor del concepto de totalidad a la derecha.',
+  pedagogicalPurpose: 'Relacionar exilio, ampliación de objetos de investigación y punto de vista de la totalidad.',
+  sourceBoundary: 'Reconstrucción visual editorial; no es un mapa geográfico a escala ni un diagrama literal de la profesora.',
+}
