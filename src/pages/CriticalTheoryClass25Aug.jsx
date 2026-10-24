@@ -285,7 +285,7 @@ export default function CriticalTheoryClass25Aug() {
             </p>
 
             <div className="ct25-exile-route">
-              {exileRoute.map(([city, note, time], index) => (
+              {exileRoute.map(([city, , time], index) => (
                 <button
                   type="button"
                   key={`${city}-${index}`}
