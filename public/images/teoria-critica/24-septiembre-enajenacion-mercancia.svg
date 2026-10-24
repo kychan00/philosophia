@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="500" viewBox="0 0 1240 500" role="img" aria-labelledby="title desc">
+<title id="title">De la enajenación a la mercancía</title>
+<desc id="desc">Ilustración original de PHILOSOPHIA. A la izquierda se muestran actividad, ser genérico y otros como cierre de la enajenación; en el centro propiedad privada y clase funcionan como puente pedagógico; a la derecha mercancía se abre en valor de uso, valor de cambio, valor y precio. Las flechas indican recorrido de la sesión, no identidad entre Manuscritos y El capital.</desc>
+<rect width="1240" height="500" fill="#FCF9F2"/>
+<rect x="1.5" y="1.5" width="1237" height="497" fill="none" stroke="#9E1010" stroke-width="3"/>
+<rect width="1240" height="18" fill="#9E1010"/>
+<text x="48" y="58" font-family="Arial" font-size="12" font-weight="700" fill="#9E1010">DE LA ENAJENACIÓN A LA MERCANCÍA · 24 SEP 2026</text>
+
+<g font-family="Georgia, serif" text-anchor="middle">
+  <rect x="55" y="100" width="300" height="270" fill="#EEE4D7" stroke="#121212" stroke-width="3"/>
+  <text x="205" y="135" font-family="Arial" font-size="10" fill="#9E1010">MANUSCRITOS DE 1844 · CIERRE</text>
+  <text x="205" y="175" font-size="26" fill="#121212">enajenación</text>
+  <rect x="90" y="205" width="230" height="42" fill="#FCF9F2" stroke="#121212"/>
+  <text x="205" y="232" font-size="17" fill="#121212">actividad</text>
+  <rect x="90" y="260" width="230" height="42" fill="#FCF9F2" stroke="#121212"/>
+  <text x="205" y="287" font-size="17" fill="#121212">ser genérico</text>
+  <rect x="90" y="315" width="230" height="42" fill="#FCF9F2" stroke="#121212"/>
+  <text x="205" y="342" font-size="17" fill="#121212">otros seres humanos</text>
+
+  <rect x="440" y="150" width="310" height="170" fill="#2B2725" stroke="#121212" stroke-width="3"/>
+  <text x="595" y="185" font-family="Arial" font-size="10" fill="#D7C2A5">PUENTE PEDAGÓGICO</text>
+  <text x="595" y="222" font-size="25" fill="#FCF9F2">propiedad · clase</text>
+  <text x="595" y="252" font-family="Arial" font-size="10" fill="#FCF9F2">desapropiación → relaciones sociales</text>
+  <text x="595" y="280" font-family="Arial" font-size="10" fill="#FCF9F2">capital / trabajo · medios de producción</text>
+
+  <rect x="835" y="82" width="350" height="325" fill="#D7C2A5" stroke="#121212" stroke-width="3"/>
+  <text x="1010" y="118" font-family="Arial" font-size="10" fill="#9E1010">EL CAPITAL · APERTURA</text>
+  <text x="1010" y="157" font-size="27" fill="#121212">mercancía</text>
+  <rect x="875" y="192" width="125" height="55" fill="#FCF9F2" stroke="#121212"/>
+  <text x="937" y="215" font-family="Arial" font-size="9" fill="#9E1010">VALOR</text><text x="937" y="235" font-size="15" fill="#121212">de uso</text>
+  <rect x="1020" y="192" width="125" height="55" fill="#FCF9F2" stroke="#121212"/>
+  <text x="1082" y="215" font-family="Arial" font-size="9" fill="#9E1010">VALOR</text><text x="1082" y="235" font-size="15" fill="#121212">de cambio</text>
+  <rect x="875" y="267" width="125" height="55" fill="#FCF9F2" stroke="#121212"/>
+  <text x="937" y="300" font-size="16" fill="#121212">valor</text>
+  <rect x="1020" y="267" width="125" height="55" fill="#FCF9F2" stroke="#121212"/>
+  <text x="1082" y="300" font-size="16" fill="#121212">precio</text>
+  <text x="1010" y="357" font-family="Arial" font-size="10" fill="#5E554C">VALOR ≠ PRECIO · TRAMO FINAL ABIERTO</text>
+</g>
+
+<g stroke="#9E1010" stroke-width="4" fill="none">
+  <path d="M356 235 H425"/><path d="M414 224 L427 235 L414 246"/>
+  <path d="M751 235 H820"/><path d="M809 224 L822 235 L809 246"/>
+</g>
+
+<text x="48" y="458" font-family="Arial" font-size="10" fill="#5E554C">RECONSTRUCCIÓN EDITORIAL PHILOSOPHIA · RECORRIDO DE CLASE, NO IDENTIDAD ENTRE OBRAS · VALOR/PRECIO QUEDA ABIERTO</text>
+</svg>
