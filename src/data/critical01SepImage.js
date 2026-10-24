@@ -1,0 +1,16 @@
+export const critical01SepImage = {
+  id: 'critica-2026-09-01-devenir-verdad',
+  classPath: '/semestre/5/teoria-critica/clase/1-septiembre',
+  imagePath: 'images/teoria-critica/01-septiembre-devenir-verdad.svg',
+  imageType: 'original',
+  imageSource: 'PHILOSOPHIA · diagrama vectorial creado para la clase 5',
+  imageAuthor: 'PHILOSOPHIA',
+  imageLicense: 'ORIGINAL-OWNED',
+  imageLicenseUrl: null,
+  licenseEvidenceUrl: null,
+  imageAttribution: 'Ilustración original de PHILOSOPHIA',
+  modifications: 'ninguna',
+  alt: 'Una configuración pasa por contradicción y transformación hasta una nueva forma; debajo, la verdad se representa como resultado comprendido junto con su desarrollo.',
+  pedagogicalPurpose: 'Explicar devenir, contradicción y verdad como proceso sin convertir la dialéctica en una receta fija.',
+  sourceBoundary: 'Reconstrucción visual editorial; no es un diagrama literal de la profesora ni una fórmula universal de Hegel.',
+}
