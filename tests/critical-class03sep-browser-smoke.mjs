@@ -7,9 +7,9 @@ import { join } from 'node:path'
 const chrome=['google-chrome','google-chrome-stable','chromium','chromium-browser'].find(bin=>spawnSync('which',[bin],{stdio:'ignore'}).status===0)
 assert.ok(chrome,'Chromium requerido para revisar la clase 6')
 const sleep=(ms)=>new Promise(r=>setTimeout(r,ms))
-const server=spawn(process.execPath,['node_modules/vite/bin/vite.js','preview','--host','127.0.0.1','--port','4190','--strictPort'],{stdio:'ignore'})
+const server=spawn(process.execPath,['node_modules/vite/bin/vite.js','preview','--host','127.0.0.1','--port','4191','--strictPort'],{stdio:'ignore'})
 const profile=mkdtempSync(join(tmpdir(),'philosophia-critical03sep-'))
-const url='http://127.0.0.1:4190/philosophia/#/semestre/5/teoria-critica/clase/3-septiembre'
+const url='http://127.0.0.1:4191/philosophia/#/semestre/5/teoria-critica/clase/3-septiembre'
 let browser,ws,seq=0
 const pending=new Map()
 function send(method,params={}){const id=++seq;return new Promise((resolve,reject)=>{pending.set(id,{resolve,reject});ws.send(JSON.stringify({id,method,params}))})}
@@ -21,7 +21,7 @@ async function viewport(width,height){
   await send('Page.navigate',{url:'about:blank'})
   await until(()=>evaluate("location.href==='about:blank'"),'reset')
   await send('Page.navigate',{url})
-  await until(()=>evaluate("document.querySelectorAll('.ctsep1-article>section').length===12"),'class 27 loaded')
+  await until(()=>evaluate("document.querySelectorAll('.ctsep1-article>section').length===12"),'class 3 September loaded')
   const result=await evaluate(`(()=>{
     const sections=[...document.querySelectorAll('.ctsep1-article>section')]
     return {
@@ -50,7 +50,7 @@ async function viewport(width,height){
 }
 
 try{
-  await until(async()=>{try{return (await fetch('http://127.0.0.1:4190/philosophia/')).ok}catch{return false}},'Vite')
+  await until(async()=>{try{return (await fetch('http://127.0.0.1:4191/philosophia/')).ok}catch{return false}},'Vite')
   browser=spawn(chrome,['--headless=new','--no-sandbox','--disable-setuid-sandbox','--disable-dev-shm-usage','--disable-gpu','--no-first-run','--disable-extensions','--remote-debugging-port=0','--user-data-dir='+profile,'about:blank'],{stdio:'ignore'})
   const portFile=join(profile,'DevToolsActivePort')
   await until(()=>existsSync(portFile),'Chromium',180)
