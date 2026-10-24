@@ -143,3 +143,54 @@
 .ct18-original-heading h2{font:400 clamp(2.5rem,5vw,5rem)/1.05 Georgia,serif;letter-spacing:-.065em;margin:17px 0}
 .ct18-original-heading>div>p:last-child{max-width:770px;font:400 1.05rem/1.65 Georgia,serif}
 @media(max-width:700px){.ct18-original-heading{grid-template-columns:1fr;gap:20px;padding-inline:17px}}
+
+/* Ilustración propia del folio 001 · datos de licencia en criticalTheoryImages.js */
+.ct18-licensed-figure {
+  max-width: 1430px;
+  margin: 0 auto;
+  padding: 8px clamp(18px, 5vw, 80px) clamp(34px, 5vw, 64px);
+  overflow: hidden;
+}
+.ct18-licensed-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(195px, .36fr);
+  gap: 20px;
+  align-items: center;
+  border-top: 1px solid var(--ct18-stroke);
+  border-bottom: 1px solid var(--ct18-stroke);
+  padding: 24px 0;
+}
+.ct18-licensed-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid #9e1010;
+  background: #fcf9f2;
+}
+.ct18-licensed-item figcaption { padding: 8px 0; }
+.ct18-licensed-item figcaption span {
+  display: block;
+  color: #9e1010;
+  font: 800 .65rem/1.5 Arial, sans-serif;
+  letter-spacing: .12em;
+}
+.ct18-licensed-item figcaption strong {
+  display: block;
+  font: 400 clamp(1.25rem, 2vw, 1.8rem)/1.2 Georgia, serif;
+  margin-top: 14px;
+}
+.ct18-licensed-item figcaption p {
+  font: 400 .94rem/1.65 Georgia, serif;
+  margin: 12px 0;
+}
+.ct18-licensed-item figcaption small {
+  font: 400 .74rem/1.6 Arial, sans-serif;
+  color: #62594f;
+}
+@media (max-width: 900px) {
+  .ct18-licensed-item { grid-template-columns: 1fr; }
+  .ct18-licensed-item figcaption { padding: 4px 0 0; }
+}
+@media print {
+  .ct18-licensed-item { break-inside: avoid; }
+}
