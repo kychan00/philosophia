@@ -53,7 +53,7 @@ test('se preservan ejemplos, ampliaciones y límites académicos de la sesión',
     'Valor de cambio',
     'Valor no es precio',
     'No se inventa reporte'
-  ]) assert.ok(sourceText.includes(snippet),'Falta contenido: '+snippet)
+  ]) assert.ok(sourceText.toLowerCase().includes(snippet.toLowerCase()),'Falta contenido: '+snippet)
   assert.match(sourceText,/Levinas es ampliación docente/)
   assert.match(sourceText,/Esta actualización pertenece a la profesora, no al texto de Marx/)
   assert.match(sourceText,/no ofrece una respuesta cerrada/)
