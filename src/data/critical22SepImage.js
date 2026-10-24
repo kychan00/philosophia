@@ -1,0 +1,16 @@
+export const critical22SepImage = {
+  id: 'critica-2026-09-22-totalidad-reproduccion',
+  classPath: '/semestre/5/teoria-critica/clase/22-septiembre',
+  imagePath: 'images/teoria-critica/22-septiembre-totalidad-reproduccion.svg',
+  imageType: 'original',
+  imageSource: 'PHILOSOPHIA · diagrama vectorial creado para la clase 9',
+  imageAuthor: 'PHILOSOPHIA',
+  imageLicense: 'ORIGINAL-OWNED',
+  imageLicenseUrl: null,
+  licenseEvidenceUrl: null,
+  imageAttribution: 'Ilustración original de PHILOSOPHIA',
+  modifications: 'ninguna',
+  alt: 'Totalidad social se conecta con materialidad, conciencia, trabajo reproductivo, división sexual del trabajo y los momentos producto/actividad de la enajenación.',
+  pedagogicalPurpose: 'Mostrar que la sesión articula dimensiones diferentes dentro de una totalidad social sin reducirlas a identidad ni causalidad automática.',
+  sourceBoundary: 'Reconstrucción visual editorial basada en una fuente parcial; las conexiones indican articulación y mediación, no identidad ni determinismo.',
+}
