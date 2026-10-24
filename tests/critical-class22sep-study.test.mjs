@@ -36,7 +36,7 @@ test('atlas cubre desnaturalización, materialidad, reproducción, división y t
   assert.match(critical22SepThemes[0].guide.takeaway,/mostrar que lo social tiene historia/i)
   assert.match(critical22SepThemes[1].guide.takeaway,/no una fórmula determinista/i)
   assert.match(critical22SepThemes[2].guide.takeaway,/pendiente de cotejo/i)
-  assert.match(critical22SepThemes[4].guide.takeaway,/no cerrar lo que la fuente deja abierto/i)
+  assert.match(critical22SepThemes[4].guide.takeaway,/(?:no|ni) cerrar lo que la fuente deja abierto/i)
 })
 
 test('página conserva fuente parcial y apertura de ser genérico y otros',()=>{
