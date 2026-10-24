@@ -36,6 +36,16 @@ El número y la estructura de apartados provienen de la clase realmente document
 - `tests/critical-class18-section-study.test.mjs` comprueba integridad de apartados, fuentes, guías y mapas; `tests/critical-class18-browser-smoke.mjs` comprueba las 11 fichas en cinco tamaños y el comportamiento de las guías.
 - Revisión visual y aprobación del estudiante ocurren **en Preview**; no se considera publicado en GitHub Pages antes de merge, Actions verde y SHA desplegado comprobado.
 
+## Adopción · sesión 02 / 20 de agosto
+
+- Nota fuente: `05 - Clases/Teoría Crítica/2026-08-20 - Teoría Crítica - Genealogía de la crítica.md`.
+- Página: `src/pages/CriticalTheoryClass20Aug.jsx`, con 11 apartados conservados, atlas de 5 problemas y 11 unidades internas de estudio.
+- Datos: `src/data/critical20Themes.js` y `src/data/critical20Sections.js`.
+- Componentes: `Critical20ThematicAtlas` y `Critical20SectionStudy`, con CSS encapsulado.
+- Imagen original: `public/images/teoria-critica/20-agosto-constelacion.svg`, registrada en `criticalTheoryImages.js`.
+- Tests: `critical-class20-study.test.mjs` y `critical-class20-browser-smoke.mjs`.
+- Frontera: genealogía Hegel–Marx–Lukács–Freud = constelación pedagógica, no filiación causal automática.
+
 ## Revisión de otras sesiones
 
 Aplicar únicamente cuando se trabaje ese folio, con cotejo individual de las notas del vault, incluyendo `05 - Clases` y la ficha de la materia. Las trece clases no se consideran refactorizadas por añadir esta regla.
