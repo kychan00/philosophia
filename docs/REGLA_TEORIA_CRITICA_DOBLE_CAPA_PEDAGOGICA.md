@@ -89,6 +89,17 @@ El número y la estructura de apartados provienen de la clase realmente document
 - Tests: `critical-class03sep-study.test.mjs` y `critical-class03sep-browser-smoke.mjs`.
 - La sesión del 10 de septiembre permanece fuera del alcance hasta aprobación del folio 006.
 
+## Adopción · sesión 07 / 10 de septiembre
+
+- Página: `src/pages/CriticalTheoryClass10Sep.jsx`, con **13 apartados** conservados.
+- Datos: `critical10SepThemes.js`, `critical10SepSections.js` y `critical10SepImage.js`.
+- Componentes: `Critical10SepThematicAtlas` y `Critical10SepSectionStudy`, con estilos encapsulados.
+- Imagen: `10-septiembre-trabajo-retorno.svg`, original del proyecto; muestra trabajo → objetivación → mundo producido → retorno o circuito interrumpido.
+- Fronteras: trabajo ≠ trabajo enajenado; objetivación ≠ enajenación; modos de producción ≠ determinismo histórico mecánico; ideología ≠ mentira; retorno ≠ devolución literal.
+- Se preservan el selector de modos de producción y el selector objetivación/enajenación, además de la tarea de continuar aproximadamente 15 páginas sin entrega escrita confirmada.
+- Tests: `critical-class10sep-study.test.mjs` y `critical-class10sep-browser-smoke.mjs`.
+- La sesión del 17 de septiembre permanece fuera del alcance hasta aprobación del folio 007.
+
 ## Revisión de otras sesiones
 
 Aplicar únicamente cuando se trabaje ese folio, con cotejo individual de las notas del vault, incluyendo `05 - Clases` y la ficha de la materia. Las trece clases no se consideran refactorizadas por añadir esta regla.
