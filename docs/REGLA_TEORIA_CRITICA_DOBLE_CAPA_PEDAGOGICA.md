@@ -123,6 +123,18 @@ El número y la estructura de apartados provienen de la clase realmente document
 - Tests: `critical-class22sep-study.test.mjs` y `critical-class22sep-browser-smoke.mjs`.
 - La sesión del 24 de septiembre permanece fuera del alcance de esta iteración.
 
+## Adopción · sesión 10 / 24 de septiembre
+
+- Página dedicada: `src/pages/CriticalTheoryClass24Sep.jsx`; reemplaza la vista genérica `DialecticalRestoredClass` para esta ruta.
+- Datos: `critical24SepThemes.js`, `critical24SepSections.js`, `critical24SepSourceSections.js` y `critical24SepImage.js`.
+- Componentes: `Critical24SepThematicAtlas` y `Critical24SepSectionStudy`.
+- Fuente visible: 23 apartados conservados antes de la capa pedagógica.
+- Atlas: actividad/mando; ser genérico/otros; ideología/conciencia; propiedad/mercancía; mercancía/valor.
+- Imagen: `24-septiembre-enajenacion-mercancia.svg`, original; las flechas indican recorrido de clase, no identidad entre *Manuscritos* y *El capital*.
+- Límites: Levinas y distancia tecnológica = ampliaciones docentes; IA = pregunta abierta; objeto útil ≠ mercancía; valor de uso ≠ valor de cambio; valor ≠ precio; teoría del valor no se completa más allá de lo documentado.
+- Tests: `critical-class24sep-study.test.mjs` y `critical-class24sep-browser-smoke.mjs`.
+- Ninguna sesión posterior se considera adaptada por esta iteración.
+
 ## Revisión de otras sesiones
 
 Aplicar únicamente cuando se trabaje ese folio, con cotejo individual de las notas del vault, incluyendo `05 - Clases` y la ficha de la materia. Las trece clases no se consideran refactorizadas por añadir esta regla.
