@@ -17,6 +17,22 @@ export const criticalTheoryImages = [
     pedagogicalPurpose: 'Permite reconocer los tres planos del encuadre, sin establecer una secuencia causal o filosófica entre ellos.',
     sourceBoundary: 'Reconstrucción visual editorial del encuadre; no fotografía ni dibujo original de la profesora.',
   },
+  {
+    id: 'critica-2026-08-20-constelacion',
+    classPath: '/semestre/5/teoria-critica/clase/20-agosto',
+    imagePath: 'images/teoria-critica/20-agosto-constelacion.svg',
+    imageType: 'original',
+    imageSource: 'PHILOSOPHIA · diagrama vectorial creado para la clase 2',
+    imageAuthor: 'PHILOSOPHIA',
+    imageLicense: 'ORIGINAL-OWNED',
+    imageLicenseUrl: null,
+    licenseEvidenceUrl: null,
+    imageAttribution: 'Ilustración original de PHILOSOPHIA',
+    modifications: 'ninguna',
+    alt: 'Hegel, Marx, Lukács y Freud aparecen alrededor de Teoría Crítica, conectados por líneas punteadas que indican relaciones de estudio y no una genealogía causal.',
+    pedagogicalPurpose: 'Ayuda a entender la genealogía de la sesión como constelación de problemas históricos, sociales y psíquicos que Frankfurt reelabora.',
+    sourceBoundary: 'Reconstrucción visual editorial; no es un diagrama literal de la profesora ni afirma una filiación doctrinal automática.',
+  },
 ]
 
 export function imagesForCriticalTheoryClass(classPath) {
