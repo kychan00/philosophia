@@ -15,7 +15,8 @@ test('archivo integral registra trece sesiones y preserva sus rutas', () => {
   assert.ok(dialecticalSessions.every((s) => s.title && s.question && s.before && s.conflict && s.after && s.layers))
   assert.ok(dialecticalSessions.every((s) => app.includes('path="' + dialecticalRoute(s.id) + '"')))
   assert.equal((app.match(/<DialecticalSessionFrame id=/g) || []).length, 13)
-  assert.equal((app.match(/<DialecticalRestoredClass id=/g) || []).length, 3)
+  assert.equal((app.match(/<DialecticalRestoredClass id=/g) || []).length, 2)
+  assert.match(app, /<DialecticalSessionFrame id="17-septiembre"><CriticalTheoryClass17Sep \/><\/DialecticalSessionFrame>/)
 })
 
 test('no se atribuyen episodios inventados a las notas parciales', () => {
