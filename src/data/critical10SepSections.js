@@ -191,7 +191,7 @@ export const critical10SepSections = [
     guide: {
       what: 'Representa la operación crítica atribuida al concepto de ideología.',
       how: 'No use ideología como simple sinónimo de mentira; pregunte qué relaciones quedan naturalizadas y desde qué posición se habla.',
-      why: 'Conecta sentido común, poder y estructura social.',
+      why: 'Conecta sentido común, poder y estructura social dentro de una crítica de la naturalización histórica.',
       simple: 'Algo puede parecernos normal porque vivimos dentro de relaciones que lo hacen parecer inevitable.',
       takeaway: 'La crítica ideológica desnaturaliza condiciones históricas; no consiste sólo en acusar al otro de mentir.',
     },
@@ -216,7 +216,7 @@ export const critical10SepSections = [
     guide: {
       what: 'Representa el concepto de objetivación antes de introducir la separación enajenada.',
       how: 'Deténgase aquí antes de pasar a enajenación; la exteriorización por sí misma no es el problema.',
-      why: 'Es la distinción conceptual central del folio.',
+      why: 'Es la distinción conceptual central del folio porque separa exteriorización productiva de separación enajenada.',
       simple: 'Cuando hacemos una cosa, parte de nuestra actividad queda plasmada en ella.',
       takeaway: 'Objetivación es condición del trabajo humano y no debe confundirse con alienación.',
     },
