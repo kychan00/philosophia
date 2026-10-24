@@ -1,0 +1,16 @@
+export const critical27Image = {
+  id: 'critica-2026-08-27-no-identidad-razon',
+  classPath: '/semestre/5/teoria-critica/clase/27-agosto',
+  imagePath: 'images/teoria-critica/27-agosto-no-identidad-razon.svg',
+  imageType: 'original',
+  imageSource: 'PHILOSOPHIA · diagrama vectorial creado para la clase 4',
+  imageAuthor: 'PHILOSOPHIA',
+  imageLicense: 'ORIGINAL-OWNED',
+  imageLicenseUrl: null,
+  licenseEvidenceUrl: null,
+  imageAttribution: 'Ilustración original de PHILOSOPHIA',
+  modifications: 'ninguna',
+  alt: 'A la izquierda, un concepto no cubre por completo al objeto y deja un resto marcado como no-identidad; a la derecha se distinguen preguntas por fines y por medios eficientes.',
+  pedagogicalPurpose: 'Explicar visualmente la no-identidad adorniana y la diferencia entre razón normativa y razón instrumental.',
+  sourceBoundary: 'Reconstrucción visual editorial; no es un esquema literal de la profesora ni afirma una relación causal necesaria entre los conceptos.',
+}
