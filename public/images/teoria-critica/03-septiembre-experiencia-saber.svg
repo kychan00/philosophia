@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+<title id="title">Experiencia, negatividad y superacion en la clase del 3 de septiembre</title>
+<desc id="desc">Ilustracion original de PHILOSOPHIA. Una figura de conciencia formula una pretension de verdad, encuentra un desajuste en la experiencia y se transforma en una nueva figura mas determinada. A la derecha se distingue conocimiento especializado de saber como relacion de partes dentro de una totalidad. No es un diagrama literal de Hegel ni de la profesora.</desc>
+<rect width="1200" height="430" fill="#FCF9F2"/>
+<rect x="1.5" y="1.5" width="1197" height="427" fill="none" stroke="#9E1010" stroke-width="3"/>
+<rect width="1200" height="18" fill="#9E1010"/>
+<text x="48" y="56" font-family="Arial" font-size="12" font-weight="700" fill="#9E1010">EXPERIENCIA / NEGATIVIDAD / SABER · 3 SEP 2026</text>
+
+<g transform="translate(45 92)">
+<text x="0" y="0" font-family="Arial" font-size="11" font-weight="700" fill="#5E554C">I · EXPERIENCIA DE UNA FIGURA</text>
+<rect x="0" y="38" width="160" height="100" fill="#EEE4D7" stroke="#121212" stroke-width="3"/>
+<text x="80" y="78" text-anchor="middle" font-family="Arial" font-size="10" fill="#9E1010">FIGURA</text>
+<text x="80" y="108" text-anchor="middle" font-family="Georgia, serif" font-size="21" fill="#121212">pretension</text>
+
+<rect x="215" y="38" width="160" height="100" fill="#D7C2A5" stroke="#121212" stroke-width="3"/>
+<text x="295" y="78" text-anchor="middle" font-family="Arial" font-size="10" fill="#9E1010">EXPERIENCIA</text>
+<text x="295" y="108" text-anchor="middle" font-family="Georgia, serif" font-size="21" fill="#121212">desajuste</text>
+
+<rect x="430" y="38" width="160" height="100" fill="#2B2725" stroke="#121212" stroke-width="3"/>
+<text x="510" y="78" text-anchor="middle" font-family="Arial" font-size="10" fill="#FCF9F2">NEGATIVIDAD</text>
+<text x="510" y="108" text-anchor="middle" font-family="Georgia, serif" font-size="21" fill="#FCF9F2">transforma</text>
+
+<g stroke="#9E1010" stroke-width="4" fill="none">
+<path d="M161 88 H203"/><path d="M192 77 L205 88 L192 99"/>
+<path d="M376 88 H418"/><path d="M407 77 L420 88 L407 99"/>
+</g>
+<path d="M510 145 C510 215 120 218 120 176" fill="none" stroke="#9E1010" stroke-width="4" stroke-dasharray="7 7"/>
+<text x="230" y="206" font-family="Arial" font-size="10" fill="#5E554C">NUEVA FIGURA · MAS DETERMINADA</text>
+</g>
+
+<line x1="665" y1="92" x2="665" y2="352" stroke="#BDB1A5" stroke-width="2"/>
+
+<g transform="translate(715 92)">
+<text x="0" y="0" font-family="Arial" font-size="11" font-weight="700" fill="#5E554C">II · PARTE Y TOTALIDAD</text>
+<rect x="0" y="42" width="180" height="105" fill="#EEE4D7" stroke="#121212" stroke-width="3"/>
+<text x="90" y="79" text-anchor="middle" font-family="Arial" font-size="10" fill="#9E1010">CONOCIMIENTO</text>
+<text x="90" y="110" text-anchor="middle" font-family="Georgia, serif" font-size="21" fill="#121212">una parcela</text>
+
+<circle cx="345" cy="95" r="83" fill="#D7C2A5" stroke="#121212" stroke-width="3"/>
+<circle cx="315" cy="72" r="20" fill="#FCF9F2" stroke="#9E1010" stroke-width="2"/>
+<circle cx="365" cy="72" r="20" fill="#FCF9F2" stroke="#9E1010" stroke-width="2"/>
+<circle cx="340" cy="118" r="20" fill="#FCF9F2" stroke="#9E1010" stroke-width="2"/>
+<text x="345" y="202" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#121212">saber = relaciones</text>
+<text x="345" y="225" text-anchor="middle" font-family="Arial" font-size="10" fill="#5E554C">TOTALIDAD EN MOVIMIENTO</text>
+</g>
+
+<text x="48" y="397" font-family="Arial" font-size="10" fill="#5E554C">RECONSTRUCCION EDITORIAL PHILOSOPHIA · NO DIAGRAMA LITERAL DE LA PROFESORA · NO FORMULA UNIVERSAL DE HEGEL</text>
+</svg>
