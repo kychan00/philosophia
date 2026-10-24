@@ -50,7 +50,7 @@ test('se conserva el contenido e interacciones preexistentes',()=>{
     'Dialéctica = racionalidad del movimiento',
     'Releer el prólogo',
     'Marcuse','Popper','HANS ALBERT','HABERMAS','Kant','Hegel',
-    'Fenomenología del espíritu','Dialéctica negativa','Sobre la desobediencia'
+    'Fenomenología del espíritu','dialéctica negativa','Sobre la desobediencia'
   ]) assert.ok(page.includes(snippet),'Falta contenido preservado: '+snippet)
   for(const setter of ['setFrommId','setSocialView','setObedienceView','setMethodView','setIdealismView','setTruthStep','setSpiritView','setDialecticIndex']) assert.match(page,new RegExp(setter))
 })
