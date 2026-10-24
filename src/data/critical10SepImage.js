@@ -1,0 +1,16 @@
+export const critical10SepImage = {
+  id: 'critica-2026-09-10-trabajo-retorno',
+  classPath: '/semestre/5/teoria-critica/clase/10-septiembre',
+  imagePath: 'images/teoria-critica/10-septiembre-trabajo-retorno.svg',
+  imageType: 'original',
+  imageSource: 'PHILOSOPHIA · diagrama vectorial creado para la clase 7',
+  imageAuthor: 'PHILOSOPHIA',
+  imageLicense: 'ORIGINAL-OWNED',
+  imageLicenseUrl: null,
+  licenseEvidenceUrl: null,
+  imageAttribution: 'Ilustración original de PHILOSOPHIA',
+  modifications: 'ninguna',
+  alt: 'El trabajo conduce a objetivación y mundo producido; desde allí el circuito puede retornar socialmente o romperse mediante separación y enajenación.',
+  pedagogicalPurpose: 'Explicar la diferencia entre objetivación y enajenación mediante el problema del retorno de lo producido.',
+  sourceBoundary: 'Reconstrucción visual editorial; no es un diagrama literal de la profesora y no convierte objetivación en enajenación automática.',
+}
