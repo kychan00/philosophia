@@ -310,7 +310,7 @@ export const critical22SepSections = [
     "guide": {
       "what": "Representa la persistencia del primer momento dentro de una discusión social más amplia.",
       "how": "No lo aísle de actividad, reproducción y condiciones sociales.",
-      "why": "Muestra la continuidad entre los folios 008 y 009.",
+      "why": "Muestra la continuidad entre los folios 008 y 009 y cómo el producto se reubica dentro de una totalidad social más amplia.",
       "simple": "El problema del producto sigue ahí, pero ahora se mira dentro de un conjunto social más grande.",
       "takeaway": "Producto permanece como momento de la enajenación, no como único centro de la sesión."
     },
