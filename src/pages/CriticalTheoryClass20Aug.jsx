@@ -1,5 +1,12 @@
+import { useState } from 'react'
 import { Link } from 'react-router'
+import './CriticalTheoryClass20Aug.css'
+import Critical20ThematicAtlas from '../components/critical/Critical20ThematicAtlas'
+import Critical20SectionStudy from '../components/critical/Critical20SectionStudy'
+import { imagesForCriticalTheoryClass } from '../data/criticalTheoryImages'
 
+// Los once apartados preexistentes se conservan íntegros.
+// Atlas, preguntas y esquemas nuevos son reconstrucciones editoriales identificadas.
 const sections = [
   ['00','sentido','Qué significa “Teoría Crítica”'],
   ['01','distincion','Teoría tradicional / crítica'],
@@ -14,52 +21,98 @@ const sections = [
   ['10','problema','Problema que emerge'],
 ]
 
-const goToSection = (id) =>
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+const rehearsal = [
+  {
+    prompt: '¿Por qué no todo pensamiento que se llama “crítico” pertenece a la Teoría Crítica?',
+    cue: 'Porque el curso delimita una tradición histórica específica: compartir una actitud de cuestionamiento no equivale a compartir genealogía, problemas o métodos.',
+    target: 'sentido',
+  },
+  {
+    prompt: '¿Qué cambia cuando el sujeto que investiga se reconoce dentro de la sociedad?',
+    cue: 'La pretensión de ser un observador completamente exterior se vuelve un problema: también hay que examinar las condiciones sociales e históricas desde las que se conoce.',
+    target: 'distincion',
+  },
+  {
+    prompt: '¿Por qué la genealogía Hegel–Marx–Lukács–Freud conviene leerla como constelación y no como cadena lineal?',
+    cue: 'Porque cada referencia abre dimensiones diferentes —historicidad, relaciones sociales, cosificación y subjetividad— que Frankfurt reelabora, no transmite intactas de un autor a otro.',
+    target: 'genealogia',
+  },
+  {
+    prompt: '¿Qué paradoja cierra esta segunda clase?',
+    cue: 'Cómo una sociedad que promete razón, libertad y progreso puede coexistir con dominación, fascismo y barbarie.',
+    target: 'problema',
+  },
+]
 
-function Head({ n, eye, children }) {
-  return <>
-    <span className="ct-class-number">{n}</span>
-    <p className="ct-class-eyebrow">{eye}</p>
-    <h2>{children}</h2>
-  </>
+function goToSection(id) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
 export default function CriticalTheoryClass20Aug() {
+  const [activeCard,setActiveCard]=useState(0)
+  const [showCue,setShowCue]=useState(false)
+  const current=rehearsal[activeCard]
+
   return (
-    <main className="ct-class-page ct20-page">
-      <nav className="ct-class-nav">
-        <Link to="/semestre/5/teoria-critica">← Teoría Crítica</Link>
-        <Link to="/" className="ct-class-brand">Φ · Philosophia</Link>
-        <span>XX · VIII · MMXXVI</span>
-      </nav>
-
-      <header className="ct-class-hero">
-        <div className="ct-class-ghost" aria-hidden="true">KRITIK</div>
-        <p>Teoría Crítica · Segunda clase · Fundamentos</p>
-        <h1>Genealogía de <em>la crítica</em></h1>
-        <p className="ct-class-lead">
-          La sesión delimita qué significa “Teoría Crítica” y reconstruye la
-          constelación que hace posible a Frankfurt: Hegel, Marx, Lukács y Freud,
-          articulados en una investigación de sociedad, historia, cultura y subjetividad.
-        </p>
-        <div className="ct-class-axis">
-          <span>Hegel</span><b>→</b><span>Marx</span><b>→</b><span>Lukács</span>
-          <b>+</b><span>Freud</span><b>→</b><span>Frankfurt</span>
+    <main className="ct20-page" aria-label="Edición académica de la segunda clase de Teoría Crítica">
+      <section className="ct20-opening" aria-labelledby="ct20-opening-title">
+        <div className="ct20-opening-meta"><span>FOLIO 002 / GENEALOGÍA DE LA CRÍTICA</span><span>20 AGO 2026 · FI265</span></div>
+        <div className="ct20-opening-grid">
+          <div>
+            <p className="ct20-eyebrow">Notas de aula · Edición de estudio</p>
+            <h2 id="ct20-opening-title">La teoría no observa <em>desde afuera.</em></h2>
+            <p className="ct20-deck">La sesión delimita qué significa Teoría Crítica y construye una constelación de problemas: historicidad, condiciones sociales, cosificación, subjetividad e investigación interdisciplinaria.</p>
+            <p className="ct20-disclaimer">Las conexiones Hegel–Marx–Lukács–Freud se muestran como una reconstrucción pedagógica del recorrido de clase, no como filiación doctrinal lineal.</p>
+          </div>
+          <div className="ct20-cover-graphic" role="img" aria-label="Contraste entre una teoría que separa sujeto y objeto y una teoría crítica que sitúa al sujeto dentro de la sociedad y de la historia que estudia.">
+            <div className="ct20-graphic-top">PREGUNTA DE LA SESIÓN / ¿DESDE DÓNDE CONOCEMOS?</div>
+            <div className="ct20-graphic-node"><span>A</span><strong>Teoría tradicional</strong><small>sujeto → observa → objeto</small></div>
+            <div className="ct20-graphic-node"><span>B</span><strong>Teoría crítica</strong><small>sujeto dentro de sociedad e historia</small></div>
+            <div className="ct20-graphic-node"><span>?</span><strong>Problema</strong><small>condiciones sociales del propio conocimiento</small></div>
+            <div className="ct20-graphic-bottom">CONTRASTE DE ESTUDIO / NO JUICIO DE “CIENCIA VERDADERA” CONTRA “CIENCIA FALSA”</div>
+          </div>
         </div>
-      </header>
+      </section>
 
-      <div className="ct-class-layout">
-        <aside className="ct-class-index">
-          <p>Index lectionis</p>
-          {sections.map(([n,id,label]) => (
-            <button key={id} type="button" onClick={() => goToSection(id)}>
-              <span>{n}</span>{label}
-            </button>
-          ))}
+      <figure className="ct20-licensed-figure">
+        {imagesForCriticalTheoryClass('/semestre/5/teoria-critica/clase/20-agosto').map((image) => (
+          <div className="ct20-licensed-item" key={image.id}>
+            <img src={`${import.meta.env.BASE_URL}${image.imagePath}`} alt={image.alt} loading="lazy" decoding="async" />
+            <figcaption>
+              <span>01 / IMAGEN DE ESTUDIO · {image.imageLicense}</span>
+              <strong>Hegel · Marx · Lukács · Freud · Frankfurt</strong>
+              <p>{image.pedagogicalPurpose}</p>
+              <small>{image.imageAttribution} · {image.sourceBoundary}</small>
+            </figcaption>
+          </div>
+        ))}
+      </figure>
+
+      <Critical20ThematicAtlas />
+
+      <div className="ct20-original-heading" id="ct20-documento">
+        <span>03 / ARCHIVO DOCUMENTAL</span>
+        <div>
+          <p>FUENTE / DESARROLLO CONSERVADO</p>
+          <h2>La clase, apartado por apartado.</h2>
+          <p>Primero se conserva lo documentado en la sesión. Después de cada apartado aparece una ficha de estudio que explica el problema, cómo leer su esquema y qué distinciones conviene retener.</p>
+        </div>
+      </div>
+
+      <div className="ct20-reading-layout">
+        <aside className="ct20-toc" aria-label="Índice de la segunda clase">
+          <div className="ct20-toc-head">ÍNDICE / 11 APARTADOS</div>
+          <nav aria-label="Ir a un apartado">
+            {sections.map(([number,id,label]) => (
+              <button type="button" key={id} onClick={() => goToSection(id)}>
+                <span>{number}</span><span>{label}</span>
+              </button>
+            ))}
+          </nav>
+          <p>La numeración conserva el desarrollo previamente registrado. Las relaciones causales sólo se afirman cuando el contenido las sostiene.</p>
         </aside>
+        <article className="ct20-chapters">
 
-        <article className="ct-class-article">
           <section id="sentido">
             <Head n="00" eye="Terminorum distinctio">No todo pensamiento crítico es Teoría Crítica</Head>
             <p>
@@ -80,6 +133,7 @@ export default function CriticalTheoryClass20Aug() {
               Compartir una actitud crítica no equivale a compartir la genealogía,
               los problemas ni el método de Frankfurt.
             </strong></div>
+            <Critical20SectionStudy sectionId="sentido" />
           </section>
 
           <section id="distincion">
@@ -102,6 +156,7 @@ export default function CriticalTheoryClass20Aug() {
               El conocimiento social no puede fingir neutralidad absoluta respecto
               de las condiciones históricas que lo producen.
             </strong></div>
+            <Critical20SectionStudy sectionId="distincion" />
           </section>
 
           <section id="genealogia">
@@ -120,6 +175,7 @@ export default function CriticalTheoryClass20Aug() {
               <b>→</b>
               <div className="ct20-core"><span>INSTITUTO</span><strong>Escuela de Frankfurt</strong></div>
             </div>
+            <Critical20SectionStudy sectionId="genealogia" />
           </section>
 
           <section id="hegel">
@@ -137,6 +193,7 @@ export default function CriticalTheoryClass20Aug() {
             <aside className="ct-class-note"><strong>Lectura del programa</strong><p>
               El texto indicado oficialmente es el “Prólogo” de <em>Fenomenología del espíritu</em>, FCE.
             </p></aside>
+            <Critical20SectionStudy sectionId="hegel" />
           </section>
 
           <section id="marx">
@@ -149,6 +206,7 @@ export default function CriticalTheoryClass20Aug() {
             <div className="ct-class-callout"><span>Pregunta</span><strong>
               ¿Qué relaciones sociales hacen posible una determinada forma de pensar?
             </strong></div>
+            <Critical20SectionStudy sectionId="marx" />
           </section>
 
           <section id="lukacs">
@@ -158,6 +216,7 @@ export default function CriticalTheoryClass20Aug() {
               <b>→</b>
               <div className="ct20-core"><span>apariencia</span><strong>COSA</strong><small>natural · fija · independiente</small></div>
             </div>
+            <Critical20SectionStudy sectionId="lukacs" />
           </section>
 
           <section id="freud">
@@ -174,6 +233,7 @@ export default function CriticalTheoryClass20Aug() {
               <b>→</b>
               <div className="ct20-core"><span>FRANKFURT</span><strong>dominación interiorizada</strong></div>
             </div>
+            <Critical20SectionStudy sectionId="freud" />
           </section>
 
           <section id="conceptos">
@@ -196,6 +256,7 @@ export default function CriticalTheoryClass20Aug() {
               La terminología filosófica exige reconstruir la historia y la función
               de un concepto, no memorizar una definición de diccionario.
             </p></aside>
+            <Critical20SectionStudy sectionId="conceptos" />
           </section>
 
           <section id="interdisciplina">
@@ -205,6 +266,7 @@ export default function CriticalTheoryClass20Aug() {
                 .map(x => <span key={x}>{x}</span>)}
               <strong>INVESTIGACIÓN<br/>SOCIAL</strong>
             </div>
+            <Critical20SectionStudy sectionId="interdisciplina" />
           </section>
 
           <section id="fromm">
@@ -220,6 +282,7 @@ export default function CriticalTheoryClass20Aug() {
                    <strong>autoritarismo / obediencia / jerarquía</strong></div>
               <p>¿Qué ocurre cuando la identidad política y la estructura de personalidad no coinciden?</p>
             </div>
+            <Critical20SectionStudy sectionId="fromm" />
           </section>
 
           <section id="problema">
@@ -233,14 +296,30 @@ export default function CriticalTheoryClass20Aug() {
               ¿Cómo puede una sociedad que promete racionalidad, libertad y
               progreso producir nuevas formas de dominación?
             </strong></div>
+            <Critical20SectionStudy sectionId="problema" />
           </section>
+
         </article>
       </div>
 
-      <footer className="ct-class-footer">
-        <Link to="/semestre/5/teoria-critica">← Teoría Crítica</Link>
-        <span>Hegel · Marx · Lukács · Freud</span>
-        <span>XX · VIII · MMXXVI</span>
+      <section className="ct20-rehearsal" aria-labelledby="ct20-review-heading">
+        <div className="ct20-rehearsal-top"><span>CUADERNO ACTIVO / REPASO</span><span>{String(activeCard + 1).padStart(2,'0')} / {String(rehearsal.length).padStart(2,'0')}</span></div>
+        <h2 id="ct20-review-heading">Recordar es reconstruir relaciones.</h2>
+        <p>Preguntas de práctica elaboradas por PHILOSOPHIA a partir de la sesión. No se presentan como examen oficial.</p>
+        <div className="ct20-rehearsal-card">
+          <span>PREGUNTA EDITORIAL {String(activeCard + 1).padStart(2,'0')}</span>
+          <h3>{current.prompt}</h3>
+          {showCue && <div className="ct20-rehearsal-answer" role="status"><strong>Orientación para responder</strong><p>{current.cue}</p><button type="button" onClick={() => goToSection(current.target)}>Volver al apartado relacionado ↗</button></div>}
+          <div className="ct20-rehearsal-actions">
+            <button type="button" onClick={() => setShowCue(!showCue)} aria-expanded={showCue}>{showCue ? 'Ocultar orientación' : 'Mostrar orientación'}</button>
+            <button type="button" onClick={() => { setActiveCard((activeCard + 1) % rehearsal.length); setShowCue(false) }}>Siguiente pregunta →</button>
+          </div>
+        </div>
+      </section>
+
+      <footer className="ct20-endnote">
+        <div><span>PROCEDENCIA Y LÍMITES</span><p><strong>Desarrollo:</strong> sistematización conservada de la clase del 20 de agosto de 2026. <strong>Atlas, figuras y ejercicios:</strong> reconstrucción editorial de PHILOSOPHIA. La genealogía de autores se utiliza como constelación de estudio y no como sucesión doctrinal necesaria.</p></div>
+        <Link to="/semestre/5/teoria-critica/clase/25-agosto">Continuar · Instituto, exilio y totalidad social ↗</Link>
       </footer>
     </main>
   )
