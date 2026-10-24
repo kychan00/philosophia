@@ -56,6 +56,17 @@ El número y la estructura de apartados provienen de la clase realmente document
 - Tests: `critical-class25-study.test.mjs` y `critical-class25-browser-smoke.mjs`.
 - La sesión del 27 de agosto permanece fuera del alcance hasta aprobación del folio 003.
 
+## Adopción · sesión 04 / 27 de agosto
+
+- Página: `src/pages/CriticalTheoryClass27Aug.jsx`, con **10 apartados** conservados.
+- Datos: `critical27Themes.js`, `critical27Sections.js` y `critical27Image.js`.
+- Componentes: `Critical27ThematicAtlas` y `Critical27SectionStudy`, con estilos encapsulados.
+- Imagen: `27-agosto-no-identidad-razon.svg`, original del proyecto; representa concepto/objeto/resto y fines/medios.
+- Fronteras: Hegel según lectura de clase; no-identidad ≠ rechazo de conceptos; razón instrumental ≠ técnica en sí; Ilustración ≠ causalidad necesaria hacia barbarie.
+- Se preservan selector de cinco conceptos, no-identidad, Hegel/Adorno, fines/medios, actualización cultural y tarea a Hegel.
+- Tests: `critical-class27-study.test.mjs` y `critical-class27-browser-smoke.mjs`.
+- La sesión del 1 de septiembre permanece fuera del alcance hasta aprobación del folio 004.
+
 ## Revisión de otras sesiones
 
 Aplicar únicamente cuando se trabaje ese folio, con cotejo individual de las notas del vault, incluyendo `05 - Clases` y la ficha de la materia. Las trece clases no se consideran refactorizadas por añadir esta regla.
