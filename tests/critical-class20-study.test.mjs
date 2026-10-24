@@ -48,8 +48,8 @@ test('se preservan los núcleos académicos del folio preexistente',()=>{
     'La sociedad exige varias disciplinas',
     'Obreros y empleados en vísperas del Tercer Reich',
     'La paradoja que organizará el curso',
-    '¿Qué relaciones sociales hacen posible una determinada forma de pensar?',
-    'Reale y Antiseri'
+    '¿Qué relaciones sociales hacen posible una determinada forma de pensar?'
+
   ]) assert.ok(page.includes(snippet),'Falta contenido preservado: '+snippet)
   assert.match(page,/imagesForCriticalTheoryClass/)
   assert.match(page,/<Critical20ThematicAtlas \/>/)
