@@ -67,6 +67,17 @@ El número y la estructura de apartados provienen de la clase realmente document
 - Tests: `critical-class27-study.test.mjs` y `critical-class27-browser-smoke.mjs`.
 - La sesión del 1 de septiembre permanece fuera del alcance hasta aprobación del folio 004.
 
+## Adopción · sesión 05 / 1 de septiembre
+
+- Página: `src/pages/CriticalTheoryClass01Sep.jsx`, con **11 apartados** conservados.
+- Datos: `critical01SepThemes.js`, `critical01SepSections.js` y `critical01SepImage.js`.
+- Componentes: `Critical01SepThematicAtlas` y `Critical01SepSectionStudy`, con estilos encapsulados.
+- Imagen: `01-septiembre-devenir-verdad.svg`, original del proyecto; muestra devenir y verdad como proceso.
+- Fronteras: Fromm → Hegel = puente temático; desobediencia ≠ negatividad dialéctica; Kant/Hegel = encuadre de clase; dialéctica ≠ fórmula rígida «tesis–antítesis–síntesis».
+- Se preservan ocho controles históricos de la página y la tarea de relectura del prólogo.
+- Tests: `critical-class01sep-study.test.mjs` y `critical-class01sep-browser-smoke.mjs`.
+- La sesión del 3 de septiembre permanece fuera del alcance hasta aprobación del folio 005.
+
 ## Revisión de otras sesiones
 
 Aplicar únicamente cuando se trabaje ese folio, con cotejo individual de las notas del vault, incluyendo `05 - Clases` y la ficha de la materia. Las trece clases no se consideran refactorizadas por añadir esta regla.
