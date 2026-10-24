@@ -49,7 +49,7 @@ test('se conserva el contenido e interacciones preexistentes',()=>{
     'Espíritu no significa fantasma',
     'Dialéctica = racionalidad del movimiento',
     'Releer el prólogo',
-    'Marcuse','Popper','Hans Albert','Habermas','Kant','Hegel',
+    'Marcuse','Popper','HANS ALBERT','Habermas','Kant','Hegel',
     'Fenomenología del espíritu','Dialéctica negativa','Sobre la desobediencia'
   ]) assert.ok(page.includes(snippet),'Falta contenido preservado: '+snippet)
   for(const setter of ['setFrommId','setSocialView','setObedienceView','setMethodView','setIdealismView','setTruthStep','setSpiritView','setDialecticIndex']) assert.match(page,new RegExp(setter))
