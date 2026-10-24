@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="350" viewBox="0 0 1080 350" role="img" aria-labelledby="title desc">
+  <title id="title">Tres territorios del encuadre de Teoría Crítica</title>
+  <desc id="desc">Ilustración original. Una colección de libros representa la pluralidad filosófica; una red de nodos, la investigación social; y un cuaderno abierto, el trabajo de lectura. Las escenas son paralelas, no una secuencia causal.</desc>
+  <rect x="1.5" y="1.5" width="1077" height="347" fill="#FCF9F2" stroke="#9E1010" stroke-width="3"/>
+  <rect x="0" y="0" width="1080" height="16" fill="#9E1010"/>
+  <g fill="none" stroke="#121212" stroke-width="2">
+    <rect x="32" y="44" width="316" height="264"/>
+    <rect x="382" y="44" width="316" height="264"/>
+    <rect x="732" y="44" width="316" height="264"/>
+  </g>
+  <!-- Estante de libros: coexistencia de múltiples tradiciones. -->
+  <g stroke="#121212" stroke-width="4" stroke-linejoin="round">
+    <rect x="83" y="105" width="40" height="139" fill="#9E1010"/>
+    <rect x="132" y="129" width="40" height="115" fill="#D3AB79"/>
+    <rect x="182" y="97" width="43" height="147" fill="#39352F"/>
+    <rect x="236" y="121" width="43" height="123" fill="#EEE4D7"/>
+    <path d="M96 123h15m-15 104h15M144 146h16m-16 80h16M193 116h20m-20 110h20M247 140h20m-20 86h20" stroke="#FCF9F2" stroke-width="3"/>
+    <path d="M67 251h231" stroke="#121212" stroke-width="6"/>
+  </g>
+  <!-- Red de preguntas: colaboración entre disciplinas, sin identidad absoluta. -->
+  <g stroke="#121212" stroke-width="4" fill="none">
+    <path d="M432 191l95-85 99 78-89 78-105-71"/>
+    <path d="M527 106l10 156M432 191l194-7" stroke-dasharray="9 9" opacity=".62"/>
+  </g>
+  <g fill="#9E1010" stroke="#121212" stroke-width="4">
+    <circle cx="432" cy="191" r="18"/><circle cx="527" cy="106" r="18"/><circle cx="626" cy="184" r="18"/>
+    <circle cx="537" cy="262" r="18" fill="#D3AB79"/>
+    <circle cx="537" cy="184" r="27" fill="#FCF9F2"/>
+  </g>
+  <circle cx="537" cy="184" r="7" fill="#121212"/>
+  <!-- Cuaderno abierto: leer, anotar y defender interpretaciones. -->
+  <g stroke="#121212" stroke-width="4" stroke-linejoin="round">
+    <path d="M766 121q58-23 119 11v123q-61-34-119-11z" fill="#EEE4D7"/>
+    <path d="M885 132q61-34 125-11v123q-63-23-125 11z" fill="#FFFDF8"/>
+    <path d="M885 132v123" fill="none"/>
+    <path d="M786 161q35-10 76 9M786 190q33-9 76 8M786 219q34-9 76 8M906 168q37-14 81-8M906 200q35-11 81-8" fill="none" stroke="#9E1010" stroke-width="3"/>
+    <path d="M996 81l16 10-78 116-24 14 4-29z" fill="#D3AB79"/>
+    <path d="M912 194l20 12" stroke="#121212" stroke-width="3"/>
+  </g>
+  <g fill="#9E1010">
+    <circle cx="190" cy="285" r="4"/><circle cx="540" cy="285" r="4"/><circle cx="890" cy="285" r="4"/>
+  </g>
+</svg>
