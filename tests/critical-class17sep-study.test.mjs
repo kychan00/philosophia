@@ -15,7 +15,7 @@ test('folio 008 conserva once apartados documentales y once unidades de estudio'
   const ids=['mapa','trabajo','economia','realizacion','objetivacion','producto','actividad','generico','otros','totalidad','continuidad']
   assert.deepEqual(critical17SepSectionIds,ids)
   assert.equal(critical17SepSections.length,11)
-  assert.deepEqual([...page.matchAll(/<section id=\{id\}/g)].length,0)
+  assert.equal([...page.matchAll(/<section id=\{id\}/g)].length,1)
   assert.match(page,/sections\.map/)
   for(const [i,item] of critical17SepSections.entries()){
     assert.equal(item.number,String(i).padStart(2,'0'))
