@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router'
 import './CriticalTheoryClass18Aug.css'
 import Critical18ThematicAtlas from '../components/critical/Critical18ThematicAtlas'
+import Critical18SectionStudy from '../components/critical/Critical18SectionStudy'
 import { imagesForCriticalTheoryClass } from '../data/criticalTheoryImages'
 
 // Se preservan íntegros los once apartados académicos de la página original.
@@ -132,6 +133,7 @@ export default function CriticalTheoryClass18Aug() {
                 formalidad del programa.
               </strong>
             </div>
+            <Critical18SectionStudy sectionId="encuadre" />
           </section>
 
           <section id="objetivo">
@@ -171,6 +173,7 @@ export default function CriticalTheoryClass18Aug() {
                 <p>Aprender modos de pensar que no se agotan en la lógica clásica.</p>
               </article>
             </div>
+            <Critical18SectionStudy sectionId="objetivo" />
           </section>
 
           <section id="pluralidad">
@@ -199,6 +202,7 @@ export default function CriticalTheoryClass18Aug() {
                 <strong>ampliar las formas disponibles de filosofar</strong>
               </div>
             </div>
+            <Critical18SectionStudy sectionId="pluralidad" />
           </section>
 
           <section id="dialectica">
@@ -249,6 +253,7 @@ export default function CriticalTheoryClass18Aug() {
                 clásica que estructuran otras tradiciones filosóficas.
               </p>
             </aside>
+            <Critical18SectionStudy sectionId="dialectica" />
           </section>
 
           <section id="aprender">
@@ -283,6 +288,7 @@ export default function CriticalTheoryClass18Aug() {
                 problematizar y de hacer filosofía.
               </strong>
             </div>
+            <Critical18SectionStudy sectionId="aprender" />
           </section>
 
           <section id="transdisciplina">
@@ -321,6 +327,7 @@ export default function CriticalTheoryClass18Aug() {
               un rasgo que será importante para entender su concepción de la
               investigación social.
             </p>
+            <Critical18SectionStudy sectionId="transdisciplina" />
           </section>
 
           <section id="genero">
@@ -355,6 +362,7 @@ export default function CriticalTheoryClass18Aug() {
                 </p>
               </article>
             </div>
+            <Critical18SectionStudy sectionId="genero" />
           </section>
 
           <section id="evaluacion">
@@ -425,6 +433,7 @@ export default function CriticalTheoryClass18Aug() {
                 para utilizar estas herramientas.
               </p>
             </aside>
+            <Critical18SectionStudy sectionId="evaluacion" />
           </section>
 
           <section id="lectura">
@@ -451,6 +460,7 @@ export default function CriticalTheoryClass18Aug() {
               <b>→</b>
               <div><span>05</span><strong>Preparar examen</strong></div>
             </div>
+            <Critical18SectionStudy sectionId="lectura" />
           </section>
 
           <section id="frankfurt">
@@ -479,6 +489,7 @@ export default function CriticalTheoryClass18Aug() {
               Abrir sistematización de la Tarea 1
               <span>↗</span>
             </Link>
+            <Critical18SectionStudy sectionId="frankfurt" />
           </section>
 
           <section id="proxima">
@@ -500,6 +511,7 @@ export default function CriticalTheoryClass18Aug() {
                 Reale y Antiseri y las indicaciones asociadas en Classroom.
               </strong>
             </div>
+            <Critical18SectionStudy sectionId="proxima" />
           </section>
 
           
