@@ -32,7 +32,7 @@ async function viewport(width,height){
       themes:document.querySelectorAll('.ct25-atlas-tabs button').length,
       atlasNodes:document.querySelectorAll('.ct25-atlas-steps .ct25-atlas-step').length,
       image:!!document.querySelector('.ct25-licensed-item img'),
-      task:!!document.querySelector('a[href="/tareas/teoria-critica/escuela-de-frankfurt/conceptos"]'),
+      task:!!document.querySelector('a[href*="/tareas/teoria-critica/escuela-de-frankfurt/conceptos"]'),
       totality:document.querySelector('#totalidad')?.textContent.includes('totalidad'),
       astrology:document.querySelector('#astrologia')?.textContent.includes('astrología'),
       culture:document.querySelector('#cultura')?.textContent.includes('industria cultural')
