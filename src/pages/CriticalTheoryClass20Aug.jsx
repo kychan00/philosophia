@@ -48,6 +48,16 @@ function goToSection(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
+function Head({ n, eye, children }) {
+  return (
+    <>
+      <span className="ct-class-number">{n}</span>
+      <p className="ct-class-eyebrow">{eye}</p>
+      <h2>{children}</h2>
+    </>
+  )
+}
+
 export default function CriticalTheoryClass20Aug() {
   const [activeCard,setActiveCard]=useState(0)
   const [showCue,setShowCue]=useState(false)
