@@ -69,7 +69,7 @@ try{
   assert.ok(await evaluate("document.querySelector('.ctsep24-licensed-item figcaption').textContent.includes('Ilustración original')"))
 
   await evaluate("document.querySelectorAll('.ctsep24-atlas-tabs button')[4].click()")
-  await until(()=>evaluate("document.querySelector('.ctsep24-atlas-reader h3')?.textContent.includes('Mercancía')"),'núcleo valor')
+  await until(()=>evaluate("document.querySelector('.ctsep24-atlas-tabs button[aria-pressed=true] strong')?.textContent.includes('Mercancía y valor')"),'núcleo valor')
   assert.equal(await evaluate("document.querySelectorAll('.ctsep24-atlas-tabs button[aria-pressed=true]').length"),1)
 
   await evaluate("document.querySelector('#precio .ctsep24-study__guide summary').click()")
