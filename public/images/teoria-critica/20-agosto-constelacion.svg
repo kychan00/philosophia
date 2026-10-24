@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">Constelación de problemas que orientan la segunda clase de Teoría Crítica</title>
+  <desc id="desc">Ilustración original de PHILOSOPHIA. Hegel, Marx, Lukács y Freud aparecen alrededor de Frankfurt como referencias de problemas históricos, sociales y psíquicos. Las líneas son conexiones de estudio y no una genealogía causal literal.</desc>
+  <rect x="1.5" y="1.5" width="1197" height="417" fill="#FCF9F2" stroke="#9E1010" stroke-width="3"/>
+  <rect x="0" y="0" width="1200" height="18" fill="#9E1010"/>
+  <g font-family="Georgia, serif" fill="#121212">
+    <text x="46" y="56" font-size="18" font-weight="700">CONSTELACIÓN DE ESTUDIO · 20 AGO 2026</text>
+  </g>
+  <g fill="none" stroke="#121212" stroke-width="3" stroke-linecap="round">
+    <path d="M242 116 C350 105 435 135 515 188" stroke-dasharray="8 8"/>
+    <path d="M248 302 C360 305 436 274 515 225" stroke-dasharray="8 8"/>
+    <path d="M950 112 C840 106 760 136 684 188" stroke-dasharray="8 8"/>
+    <path d="M948 302 C838 305 760 274 684 225" stroke-dasharray="8 8"/>
+  </g>
+  <g stroke="#121212" stroke-width="3">
+    <rect x="92" y="82" width="220" height="92" fill="#EEE4D7"/>
+    <rect x="92" y="246" width="220" height="92" fill="#D7C2A5"/>
+    <rect x="888" y="82" width="220" height="92" fill="#EEE4D7"/>
+    <rect x="888" y="246" width="220" height="92" fill="#D7C2A5"/>
+    <rect x="485" y="145" width="230" height="132" fill="#2C2625"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#9E1010" letter-spacing="1.5">
+    <text x="112" y="108">HISTORIA · DIALÉCTICA</text>
+    <text x="112" y="272">SOCIEDAD · PRODUCCIÓN</text>
+    <text x="908" y="108">TOTALIDAD · COSIFICACIÓN</text>
+    <text x="908" y="272">SUBJETIVIDAD · AUTORIDAD</text>
+  </g>
+  <g font-family="Georgia, serif" fill="#121212">
+    <text x="112" y="142" font-size="28">Hegel</text>
+    <text x="112" y="306" font-size="28">Marx</text>
+    <text x="908" y="142" font-size="28">Lukács</text>
+    <text x="908" y="306" font-size="28">Freud</text>
+  </g>
+  <g font-family="Georgia, serif" fill="#FCF9F2" text-anchor="middle">
+    <text x="600" y="190" font-size="18">INSTITUTO / FRANKFURT</text>
+    <text x="600" y="230" font-size="34" font-weight="700">TEORÍA CRÍTICA</text>
+    <text x="600" y="257" font-size="14">constelación de problemas</text>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#62594F" font-size="12">
+    <text x="92" y="376">LÍNEAS PUNTEADAS = CONEXIONES DE ESTUDIO · NO SUCESIÓN CAUSAL NI FILIACIÓN DOCTRINAL AUTOMÁTICA</text>
+  </g>
+</svg>

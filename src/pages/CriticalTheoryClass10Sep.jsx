@@ -1,6 +1,9 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
 import './CriticalTheoryClass10Sep.css'
+import Critical10SepThematicAtlas from '../components/critical/Critical10SepThematicAtlas'
+import Critical10SepSectionStudy from '../components/critical/Critical10SepSectionStudy'
+import { critical10SepImage } from '../data/critical10SepImage'
 
 const sections = [
   ['00', 'mapa', 'Mapa de la sesión'],
@@ -86,6 +89,34 @@ export default function CriticalTheoryClass10Sep() {
         </div>
       </header>
 
+      <figure className="ctsep10-licensed-figure">
+        <div className="ctsep10-licensed-item">
+          <img
+            src={`${import.meta.env.BASE_URL}${critical10SepImage.imagePath}`}
+            alt={critical10SepImage.alt}
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>
+            <span>01 / IMAGEN DE ESTUDIO · {critical10SepImage.imageLicense}</span>
+            <strong>Trabajo · objetivación · retorno o enajenación</strong>
+            <p>{critical10SepImage.pedagogicalPurpose}</p>
+            <small>{critical10SepImage.imageAttribution} · {critical10SepImage.sourceBoundary}</small>
+          </figcaption>
+        </div>
+      </figure>
+
+      <Critical10SepThematicAtlas />
+
+      <div className="ctsep10-original-heading" id="ctsep10-documento">
+        <span>03 / ARCHIVO DOCUMENTAL</span>
+        <div>
+          <p>FUENTE / DESARROLLO CONSERVADO</p>
+          <h2>La clase, apartado por apartado.</h2>
+          <p>Los trece apartados originales permanecen visibles. Cada uno incorpora ahora una unidad de estudio que explica el problema, el esquema, sus límites y su relación con el argumento general de la sesión.</p>
+        </div>
+      </div>
+
       <div className="ctsep10-layout">
         <aside className="ctsep10-index">
           <p>Index materialis</p>
@@ -115,6 +146,7 @@ export default function CriticalTheoryClass10Sep() {
                 comienza cuando ese producto deja de volver a quienes lo producen.
               </strong>
             </div>
+            <Critical10SepSectionStudy sectionId="mapa" />
           </section>
 
           <section id="marx">
@@ -127,6 +159,7 @@ export default function CriticalTheoryClass10Sep() {
               <strong>Continuidad con transformaciones</strong>
               <p>La clase rechaza tratar al autor como si hubiera pensado exactamente lo mismo durante toda su vida.</p>
             </div>
+            <Critical10SepSectionStudy sectionId="marx" />
           </section>
 
           <section id="trabajo">
@@ -140,6 +173,7 @@ export default function CriticalTheoryClass10Sep() {
               <span>CLAVE</span>
               <strong>La crítica de Marx no consiste en decir simplemente “trabajar es malo”.</strong>
             </div>
+            <Critical10SepSectionStudy sectionId="trabajo" />
           </section>
 
           <section id="hegel">
@@ -160,6 +194,7 @@ export default function CriticalTheoryClass10Sep() {
               <strong>Somos naturaleza</strong>
               <p>Tenemos corporalidad, hambre, necesidades y dependemos de un intercambio permanente con el entorno.</p>
             </div>
+            <Critical10SepSectionStudy sectionId="hegel" />
           </section>
 
           <section id="materialismo">
@@ -181,6 +216,7 @@ export default function CriticalTheoryClass10Sep() {
               <span>transformación histórica</span><b>→</b>
               <strong>nuevo modo de producción</strong>
             </div>
+            <Critical10SepSectionStudy sectionId="materialismo" />
           </section>
 
           <section id="produccion">
@@ -194,6 +230,7 @@ export default function CriticalTheoryClass10Sep() {
               <article><span>BASE</span><h3>relaciones de producción</h3><p>No es un compartimento aislado llamado “economía”.</p></article>
               <article><span>SUPERESTRUCTURA</span><h3>Estado · política · religión · cultura</h3><p>Se articula históricamente con la base social.</p></article>
             </div>
+            <Critical10SepSectionStudy sectionId="produccion" />
           </section>
 
           <section id="praxis">
@@ -208,6 +245,7 @@ export default function CriticalTheoryClass10Sep() {
               organizaciones obreras, luchas políticas, periodismo y movimientos
               revolucionarios. Comprender el capitalismo debía servir también para transformarlo.
             </p>
+            <Critical10SepSectionStudy sectionId="praxis" />
           </section>
 
           <section id="ideologia">
@@ -217,6 +255,7 @@ export default function CriticalTheoryClass10Sep() {
               <article className="active"><span>CRÍTICA</span><h3>pregunta por las condiciones sociales</h3><p>¿Desde qué posición se formula un discurso y qué relaciones de poder atraviesa?</p></article>
             </div>
             <div className="ctsep10-note"><strong>Estado y clase</strong><p>La exposición presenta al Estado, desde Marx, como ligado estructuralmente a relaciones e intereses de clase, aunque distingue diferentes formas de Estado capitalista.</p></div>
+            <Critical10SepSectionStudy sectionId="ideologia" />
           </section>
 
           <section id="objetivacion">
@@ -230,6 +269,7 @@ export default function CriticalTheoryClass10Sep() {
               <h3>{view === 'objectification' ? 'Algo humano queda plasmado en lo producido.' : 'Lo objetivado deja de pertenecernos y se enfrenta como algo extraño.'}</h3>
               <p>{view === 'objectification' ? 'Una silla, un libro, una herramienta o un texto contienen actividad humana exteriorizada.' : 'El problema no es producir objetos, sino la forma histórica en que la objetivación queda separada de quien produce.'}</p>
             </article>
+            <Critical10SepSectionStudy sectionId="objetivacion" />
           </section>
 
           <section id="metabolismo">
@@ -248,6 +288,7 @@ export default function CriticalTheoryClass10Sep() {
               <article><span>MUNDO SOCIAL</span><strong>instituciones · cultura</strong></article>
               <article><span>REPRODUCCIÓN</span><strong>condiciones de continuidad social</strong></article>
             </div>
+            <Critical10SepSectionStudy sectionId="metabolismo" />
           </section>
 
           <section id="enajenacion">
@@ -262,6 +303,7 @@ export default function CriticalTheoryClass10Sep() {
               <span>separación</span><b>→</b>
               <strong>trabajo enajenado</strong>
             </div>
+            <Critical10SepSectionStudy sectionId="enajenacion" />
           </section>
 
           <section id="retorno">
@@ -283,6 +325,7 @@ export default function CriticalTheoryClass10Sep() {
                 esa riqueza no regresa universalmente a quienes participan de su producción?
               </strong>
             </div>
+            <Critical10SepSectionStudy sectionId="retorno" />
           </section>
 
           <section id="tarea">
@@ -299,6 +342,7 @@ export default function CriticalTheoryClass10Sep() {
                 <p>No se indicó reporte ni entrega escrita; la finalidad es continuar la discusión en clase.</p>
               </aside>
             </div>
+            <Critical10SepSectionStudy sectionId="tarea" />
           </section>
         </article>
       </div>

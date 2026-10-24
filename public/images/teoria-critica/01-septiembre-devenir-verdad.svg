@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+<title id="title">Verdad como proceso y movimiento dialectico</title>
+<desc id="desc">Ilustracion original de PHILOSOPHIA. Una configuracion pasa por contradiccion y transformacion hasta una nueva forma. El resultado se comprende junto con el recorrido. No representa una formula universal de Hegel.</desc>
+<rect width="1200" height="430" fill="#FCF9F2"/>
+<rect x="1.5" y="1.5" width="1197" height="427" fill="none" stroke="#9E1010" stroke-width="3"/>
+<rect width="1200" height="18" fill="#9E1010"/>
+<text x="48" y="56" font-family="Arial" font-size="12" font-weight="700" fill="#9E1010">DEVENIR / CONTRADICCION / VERDAD COMO PROCESO</text>
+<g font-family="Georgia, serif" text-anchor="middle">
+<rect x="55" y="115" width="180" height="100" fill="#EEE4D7" stroke="#121212" stroke-width="3"/>
+<text x="145" y="172" font-size="23" fill="#121212">configuracion</text>
+<rect x="290" y="115" width="180" height="100" fill="#D7C2A5" stroke="#121212" stroke-width="3"/>
+<text x="380" y="172" font-size="23" fill="#121212">contradiccion</text>
+<rect x="525" y="115" width="180" height="100" fill="#2B2725" stroke="#121212" stroke-width="3"/>
+<text x="615" y="172" font-size="23" fill="#FCF9F2">transformacion</text>
+<rect x="760" y="115" width="180" height="100" fill="#FCF9F2" stroke="#9E1010" stroke-width="3"/>
+<text x="850" y="172" font-size="23" fill="#121212">nueva forma</text>
+</g>
+<g stroke="#9E1010" stroke-width="4" fill="none">
+<path d="M236 165 H278"/><path d="M267 154 L280 165 L267 176"/>
+<path d="M471 165 H513"/><path d="M502 154 L515 165 L502 176"/>
+<path d="M706 165 H748"/><path d="M737 154 L750 165 L737 176"/>
+</g>
+<rect x="190" y="285" width="820" height="74" fill="#EEE4D7" stroke="#121212" stroke-width="2"/>
+<text x="220" y="315" font-family="Arial" font-size="11" font-weight="700" fill="#9E1010">VERDAD COMO PROCESO</text>
+<text x="220" y="342" font-family="Georgia, serif" font-size="21" fill="#121212">resultado + desarrollo + mediaciones</text>
+<text x="48" y="400" font-family="Arial" font-size="10" fill="#5E554C">RECONSTRUCCION EDITORIAL PHILOSOPHIA - NO DIAGRAMA LITERAL DE LA PROFESORA - NO FORMULA UNIVERSAL DE HEGEL</text>
+</svg>

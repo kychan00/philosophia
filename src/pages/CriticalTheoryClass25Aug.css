@@ -1,0 +1,31 @@
+/* FI265 · Folio 003 · overrides editoriales locales.
+   Mantiene los recursos interactivos previos y adopta papel/negro/carmesí del archivo dialéctico. */
+.ct25-page{--ct25-paper:#fcf9f2;--ct25-ink:#171713;--ct25-red:#9e1010;--ct25-stroke:#bdb1a5;background:var(--ct25-paper)!important;color:var(--ct25-ink)!important}
+.ct25-page .ct-class-nav{background:rgba(252,249,242,.96);border-color:var(--ct25-stroke)}
+.ct25-hero{max-width:1430px!important;background:linear-gradient(135deg,#fcf9f2,#eee5da)!important;border-bottom:5px double var(--ct25-red)!important}
+.ct25-hero-copy>p:first-child,.ct25-hero-card>span,.ct25-eyebrow{color:var(--ct25-red)!important}
+.ct25-hero h1{letter-spacing:-.055em}.ct25-hero h1 em{color:var(--ct25-red)!important}
+.ct25-hero-axis span,.ct25-hero-axis strong{border-color:var(--ct25-stroke)!important;background:#f4eee5!important}
+.ct25-hero-axis b{color:var(--ct25-red)!important}
+.ct25-hero-card{border-top-color:var(--ct25-red)!important;background:#f4eee5!important;box-shadow:none!important}
+.ct25-licensed-figure{max-width:1430px;margin:0 auto;padding:30px clamp(18px,5vw,80px) clamp(34px,5vw,64px);overflow:hidden}
+.ct25-licensed-item{display:grid;grid-template-columns:minmax(0,1fr) minmax(210px,.38fr);gap:22px;align-items:center;border-top:1px solid var(--ct25-stroke);border-bottom:1px solid var(--ct25-stroke);padding:24px 0}
+.ct25-licensed-item img{display:block;width:100%;height:auto;border:1px solid var(--ct25-red);background:var(--ct25-paper)}
+.ct25-licensed-item figcaption span{display:block;color:var(--ct25-red);font:800 .65rem/1.5 Arial,sans-serif;letter-spacing:.12em}
+.ct25-licensed-item figcaption strong{display:block;font:400 clamp(1.3rem,2.1vw,1.9rem)/1.2 Georgia,serif;margin:14px 0}
+.ct25-licensed-item figcaption p{font:400 .96rem/1.65 Georgia,serif;margin:0 0 12px}
+.ct25-licensed-item figcaption small{font:400 .74rem/1.6 Arial,sans-serif;color:#62594f}
+.ct25-original-heading{max-width:1430px;margin:0 auto;padding:50px clamp(18px,5vw,80px) 16px;border-top:5px double var(--ct25-red);display:grid;grid-template-columns:155px minmax(0,1fr);gap:24px}
+.ct25-original-heading>span{color:var(--ct25-red);font:800 .7rem/1.5 Arial,sans-serif;letter-spacing:.1em;padding-top:15px;border-top:2px solid var(--ct25-red)}
+.ct25-original-heading>div>p:first-child{color:var(--ct25-red);font:800 .68rem Arial,sans-serif;letter-spacing:.12em;margin:0}
+.ct25-original-heading h2{font:400 clamp(2.5rem,5vw,5rem)/1.05 Georgia,serif;letter-spacing:-.065em;margin:17px 0}
+.ct25-original-heading>div>p:last-child{max-width:790px;font:400 1.05rem/1.65 Georgia,serif}
+.ct25-layout{max-width:1430px!important}
+.ct25-index{border-color:var(--ct25-stroke)!important}
+.ct25-index>p,.ct25-index button span,.ct25-number{color:var(--ct25-red)!important}
+.ct25-article>section{border-color:var(--ct25-stroke)!important;scroll-margin-top:20px}
+.ct25-page :is(button,a):focus-visible{outline:3px solid var(--ct25-red);outline-offset:3px}
+@media(max-width:900px){.ct25-licensed-item{grid-template-columns:1fr}.ct25-licensed-item figcaption{padding-top:4px}}
+@media(max-width:700px){.ct25-original-heading{grid-template-columns:1fr;gap:18px;padding-inline:17px}.ct25-licensed-figure{padding-inline:17px}}
+@media(prefers-reduced-motion:reduce){.ct25-page *{scroll-behavior:auto!important;transition:none!important}}
+@media print{.ct25-licensed-item{break-inside:avoid}.ct25-licensed-item img{-webkit-print-color-adjust:exact;print-color-adjust:exact}}

@@ -1,5 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
+import './CriticalTheoryClass27Aug.css'
+import Critical27ThematicAtlas from '../components/critical/Critical27ThematicAtlas'
+import Critical27SectionStudy from '../components/critical/Critical27SectionStudy'
+import { critical27Image } from '../data/critical27Image'
 
 const sections = [
   ['00', 'recap', 'Cinco conceptos en constelación'],
@@ -100,6 +104,34 @@ export default function CriticalTheoryClass27Aug() {
         </div>
       </header>
 
+      <figure className="ct27-licensed-figure">
+        <div className="ct27-licensed-item">
+          <img
+            src={`${import.meta.env.BASE_URL}${critical27Image.imagePath}`}
+            alt={critical27Image.alt}
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>
+            <span>01 / IMAGEN DE ESTUDIO · {critical27Image.imageLicense}</span>
+            <strong>No-identidad · contradicción · razón instrumental</strong>
+            <p>{critical27Image.pedagogicalPurpose}</p>
+            <small>{critical27Image.imageAttribution} · {critical27Image.sourceBoundary}</small>
+          </figcaption>
+        </div>
+      </figure>
+
+      <Critical27ThematicAtlas />
+
+      <div className="ct27-original-heading" id="ct27-documento">
+        <span>03 / ARCHIVO DOCUMENTAL</span>
+        <div>
+          <p>FUENTE / DESARROLLO CONSERVADO</p>
+          <h2>La clase, apartado por apartado.</h2>
+          <p>Los diez apartados originales permanecen visibles. Después de cada uno aparece una ficha de estudio que explica la pregunta filosófica, el esquema, su límite y la conexión con el resto de la sesión.</p>
+        </div>
+      </div>
+
       <div className="ct27-layout">
         <aside className="ct27-index">
           <p>Index lectionis</p>
@@ -153,6 +185,7 @@ export default function CriticalTheoryClass27Aug() {
             >
               Abrir Lexicon Criticum completo →
             </Link>
+            <Critical27SectionStudy sectionId="recap" />
           </section>
 
           <section id="negativa">
@@ -213,6 +246,7 @@ export default function CriticalTheoryClass27Aug() {
               <span>EXCLUSIÓN DE LO DIFERENTE</span><b>→</b>
               <strong>TOTALITARISMO</strong>
             </div>
+            <Critical27SectionStudy sectionId="negativa" />
           </section>
 
           <section id="hegel">
@@ -281,6 +315,7 @@ export default function CriticalTheoryClass27Aug() {
                 <strong>no producir una armonía conceptual que la sociedad todavía no posee</strong>
               </article>
             </div>
+            <Critical27SectionStudy sectionId="hegel" />
           </section>
 
           <section id="contradiccion">
@@ -321,6 +356,7 @@ export default function CriticalTheoryClass27Aug() {
                 moderna, sobre todo Hegel.
               </p>
             </aside>
+            <Critical27SectionStudy sectionId="contradiccion" />
           </section>
 
           <section id="metodo">
@@ -365,6 +401,7 @@ export default function CriticalTheoryClass27Aug() {
                 práctica debe conocer también materialmente esa práctica.
               </p>
             </aside>
+            <Critical27SectionStudy sectionId="metodo" />
           </section>
 
           <section id="negativo">
@@ -391,6 +428,7 @@ export default function CriticalTheoryClass27Aug() {
                 violencia política.
               </p>
             </div>
+            <Critical27SectionStudy sectionId="negativo" />
           </section>
 
           <section id="ilustracion">
@@ -430,6 +468,7 @@ export default function CriticalTheoryClass27Aug() {
                 racionalizada, burocratizada y tecnológicamente ejecutada.
               </strong>
             </div>
+            <Critical27SectionStudy sectionId="ilustracion" />
           </section>
 
           <section id="instrumental">
@@ -491,6 +530,7 @@ export default function CriticalTheoryClass27Aug() {
                 justificar todo por utilidad y rendimiento.
               </p>
             </aside>
+            <Critical27SectionStudy sectionId="instrumental" />
           </section>
 
           <section id="sociedad">
@@ -563,6 +603,7 @@ export default function CriticalTheoryClass27Aug() {
               <span>INDUSTRIA CULTURAL</span><b>→</b>
               <strong>UNIDIMENSIONALIDAD</strong>
             </div>
+            <Critical27SectionStudy sectionId="sociedad" />
           </section>
 
           <section id="hegel-task">
@@ -600,6 +641,7 @@ export default function CriticalTheoryClass27Aug() {
               <span>PROGRESO</span><b>?</b><span>DOMINACIÓN</span><b>→</b>
               <strong>CRÍTICA DE LA RAZÓN DESDE LA RAZÓN</strong>
             </div>
+            <Critical27SectionStudy sectionId="hegel-task" />
           </section>
         </article>
       </div>

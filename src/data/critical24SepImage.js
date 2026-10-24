@@ -1,0 +1,16 @@
+export const critical24SepImage = {
+  id: 'critica-2026-09-24-enajenacion-mercancia',
+  classPath: '/semestre/5/teoria-critica/clase/24-septiembre',
+  imagePath: 'images/teoria-critica/24-septiembre-enajenacion-mercancia.svg',
+  imageType: 'original',
+  imageSource: 'PHILOSOPHIA · diagrama vectorial creado para la clase 10',
+  imageAuthor: 'PHILOSOPHIA',
+  imageLicense: 'ORIGINAL-OWNED',
+  imageLicenseUrl: null,
+  licenseEvidenceUrl: null,
+  imageAttribution: 'Ilustración original de PHILOSOPHIA',
+  modifications: 'ninguna',
+  alt: 'La enajenación cierra con actividad, ser genérico y otros; propiedad y clase funcionan como puente hacia mercancía, valor de uso, valor de cambio, valor y precio.',
+  pedagogicalPurpose: 'Mostrar el recorrido de la sesión desde el cierre de los Manuscritos de 1844 hacia la apertura de El capital por la mercancía.',
+  sourceBoundary: 'Reconstrucción visual editorial: las flechas indican recorrido pedagógico de la sesión, no identidad entre obras; el tramo valor/precio queda abierto.',
+}

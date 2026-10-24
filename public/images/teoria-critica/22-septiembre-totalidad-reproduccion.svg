@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="470" viewBox="0 0 1200 470" role="img" aria-labelledby="title desc">
+<title id="title">Totalidad social, reproducción y enajenación</title>
+<desc id="desc">Ilustración original de PHILOSOPHIA. Totalidad social ocupa el centro y se conecta con materialidad, conciencia, trabajo reproductivo, división sexual del trabajo y los momentos producto/actividad de la enajenación. Las líneas indican articulación y mediación, no identidad ni causalidad automática.</desc>
+<rect width="1200" height="470" fill="#FCF9F2"/>
+<rect x="1.5" y="1.5" width="1197" height="467" fill="none" stroke="#9E1010" stroke-width="3"/>
+<rect width="1200" height="18" fill="#9E1010"/>
+<text x="48" y="58" font-family="Arial" font-size="12" font-weight="700" fill="#9E1010">TOTALIDAD SOCIAL / REPRODUCCIÓN / ENAJENACIÓN · 22 SEP 2026</text>
+
+<g stroke="#9E1010" stroke-width="3" fill="none" opacity=".82">
+  <path d="M600 235 L285 130"/>
+  <path d="M600 235 L915 130"/>
+  <path d="M600 235 L250 345"/>
+  <path d="M600 235 L600 390"/>
+  <path d="M600 235 L950 345"/>
+</g>
+
+<circle cx="600" cy="235" r="96" fill="#2B2725" stroke="#121212" stroke-width="3"/>
+<text x="600" y="215" text-anchor="middle" font-family="Arial" font-size="11" fill="#FCF9F2">TOTALIDAD</text>
+<text x="600" y="250" text-anchor="middle" font-family="Georgia, serif" font-size="28" fill="#FCF9F2">social</text>
+<text x="600" y="275" text-anchor="middle" font-family="Arial" font-size="10" fill="#D7C2A5">DIMENSIONES DIFERENTES · RELACIONES MEDIADAS</text>
+
+<g font-family="Georgia, serif" text-anchor="middle">
+  <rect x="145" y="82" width="280" height="96" fill="#EEE4D7" stroke="#121212" stroke-width="3"/>
+  <text x="285" y="116" font-family="Arial" font-size="10" fill="#9E1010">MATERIALIDAD</text>
+  <text x="285" y="150" font-size="21" fill="#121212">condiciones de vida</text>
+
+  <rect x="775" y="82" width="280" height="96" fill="#D7C2A5" stroke="#121212" stroke-width="3"/>
+  <text x="915" y="116" font-family="Arial" font-size="10" fill="#9E1010">CONCIENCIA</text>
+  <text x="915" y="150" font-size="21" fill="#121212">formas de comprender</text>
+
+  <rect x="105" y="300" width="290" height="96" fill="#FCF9F2" stroke="#9E1010" stroke-width="3"/>
+  <text x="250" y="334" font-family="Arial" font-size="10" fill="#9E1010">TRABAJO REPRODUCTIVO</text>
+  <text x="250" y="368" font-size="21" fill="#121212">sostener la vida social</text>
+
+  <rect x="455" y="350" width="290" height="96" fill="#EEE4D7" stroke="#121212" stroke-width="3"/>
+  <text x="600" y="384" font-family="Arial" font-size="10" fill="#9E1010">DIVISIÓN SEXUAL DEL TRABAJO</text>
+  <text x="600" y="418" font-size="19" fill="#121212">distribución de tareas</text>
+
+  <rect x="805" y="300" width="290" height="96" fill="#FCF9F2" stroke="#9E1010" stroke-width="3"/>
+  <text x="950" y="334" font-family="Arial" font-size="10" fill="#9E1010">ENAJENACIÓN</text>
+  <text x="950" y="366" font-size="20" fill="#121212">producto · actividad</text>
+</g>
+
+<text x="48" y="445" font-family="Arial" font-size="10" fill="#5E554C">RECONSTRUCCIÓN EDITORIAL PHILOSOPHIA · FUENTE PARCIAL · LÍNEAS = ARTICULACIÓN, NO IDENTIDAD NI DETERMINISMO</text>
+</svg>

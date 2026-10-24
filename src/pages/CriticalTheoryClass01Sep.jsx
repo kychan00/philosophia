@@ -1,5 +1,9 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
+import './CriticalTheoryClass01Sep.css'
+import Critical01SepThematicAtlas from '../components/critical/Critical01SepThematicAtlas'
+import Critical01SepSectionStudy from '../components/critical/Critical01SepSectionStudy'
+import { critical01SepImage } from '../data/critical01SepImage'
 
 const sections = [
   ['00', 'mapa', 'Mapa de la sesión'],
@@ -145,6 +149,34 @@ export default function CriticalTheoryClass01Sep() {
         </div>
       </header>
 
+      <figure className="ctsep1-licensed-figure">
+        <div className="ctsep1-licensed-item">
+          <img
+            src={`${import.meta.env.BASE_URL}${critical01SepImage.imagePath}`}
+            alt={critical01SepImage.alt}
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>
+            <span>01 / IMAGEN DE ESTUDIO · {critical01SepImage.imageLicense}</span>
+            <strong>Devenir · contradicción · verdad como proceso</strong>
+            <p>{critical01SepImage.pedagogicalPurpose}</p>
+            <small>{critical01SepImage.imageAttribution} · {critical01SepImage.sourceBoundary}</small>
+          </figcaption>
+        </div>
+      </figure>
+
+      <Critical01SepThematicAtlas />
+
+      <div className="ctsep1-original-heading" id="ctsep1-documento">
+        <span>03 / ARCHIVO DOCUMENTAL</span>
+        <div>
+          <p>FUENTE / DESARROLLO CONSERVADO</p>
+          <h2>La clase, apartado por apartado.</h2>
+          <p>Los once apartados originales permanecen visibles. Cada uno incorpora ahora una unidad de estudio que explica el problema, el esquema, sus límites y la relación con el recorrido de la sesión.</p>
+        </div>
+      </div>
+
       <div className="ctsep1-layout">
         <aside className="ctsep1-index">
           <p>Index criticus</p>
@@ -180,6 +212,7 @@ export default function CriticalTheoryClass01Sep() {
                 ser negadas, criticadas y transformadas.
               </strong>
             </div>
+            <Critical01SepSectionStudy sectionId="mapa" />
           </section>
 
           <section id="fromm">
@@ -251,6 +284,7 @@ export default function CriticalTheoryClass01Sep() {
                 </>
               )}
             </div>
+            <Critical01SepSectionStudy sectionId="fromm" />
           </section>
 
           <section id="tener">
@@ -290,6 +324,7 @@ export default function CriticalTheoryClass01Sep() {
                 el problema de la alienación.
               </p>
             </div>
+            <Critical01SepSectionStudy sectionId="tener" />
           </section>
 
           <section id="desobediencia">
@@ -349,6 +384,7 @@ export default function CriticalTheoryClass01Sep() {
                 el espacio para la disidencia y controla la negatividad.
               </strong>
             </div>
+            <Critical01SepSectionStudy sectionId="desobediencia" />
           </section>
 
           <section id="metodo">
@@ -394,6 +430,7 @@ export default function CriticalTheoryClass01Sep() {
               <i>continúa como</i>
               <span>HABERMAS</span><b>↔</b><span>HANS ALBERT</span>
             </div>
+            <Critical01SepSectionStudy sectionId="metodo" />
           </section>
 
           <section id="hegel">
@@ -426,6 +463,7 @@ export default function CriticalTheoryClass01Sep() {
                 incorporado en una configuración más compleja.
               </strong>
             </div>
+            <Critical01SepSectionStudy sectionId="hegel" />
           </section>
 
           <section id="idealismo">
@@ -479,6 +517,7 @@ export default function CriticalTheoryClass01Sep() {
               <b>≠</b>
               <small>fantasía privada de un individuo</small>
             </div>
+            <Critical01SepSectionStudy sectionId="idealismo" />
           </section>
 
           <section id="verdad">
@@ -519,6 +558,7 @@ export default function CriticalTheoryClass01Sep() {
               <span>VERDAD</span><b>≠</b><span>resultado aislado</span>
               <strong>VERDAD = DESARROLLO COMPLETO</strong>
             </div>
+            <Critical01SepSectionStudy sectionId="verdad" />
           </section>
 
           <section id="espiritu">
@@ -589,6 +629,7 @@ export default function CriticalTheoryClass01Sep() {
                 </article>
               ))}
             </div>
+            <Critical01SepSectionStudy sectionId="espiritu" />
           </section>
 
           <section id="dialectica">
@@ -644,6 +685,7 @@ export default function CriticalTheoryClass01Sep() {
               <span>TRANSFORMACIÓN</span><b>→</b>
               <strong>NUEVA CONFIGURACIÓN</strong>
             </div>
+            <Critical01SepSectionStudy sectionId="dialectica" />
           </section>
 
           <section id="tarea">
@@ -680,6 +722,7 @@ export default function CriticalTheoryClass01Sep() {
               <span>SIGUIENTE PROBLEMA</span>
               <strong>¿Cómo funciona concretamente el movimiento dialéctico en Hegel?</strong>
             </div>
+            <Critical01SepSectionStudy sectionId="tarea" />
           </section>
         </article>
       </div>
