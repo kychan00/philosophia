@@ -1,0 +1,95 @@
+import { critical27Sections } from '../../data/critical27Sections'
+import './Critical27SectionStudy.css'
+
+export default function Critical27SectionStudy({ sectionId }) {
+  const index = critical27Sections.findIndex((item) => item.id === sectionId)
+  if (index < 0) return null
+  const section = critical27Sections[index]
+  const previous = critical27Sections[index - 1]
+  const next = critical27Sections[index + 1]
+  const jump = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+
+  return (
+    <div className="ct27-section-study" data-study-section={section.id} aria-label={`Guía pedagógica del apartado ${section.number}`}>
+      <div className="ct27-section-study__header">
+        <span>ESTUDIO DEL APARTADO {section.number} / 10</span>
+        <span>RECONSTRUCCIÓN DE PHILOSOPHIA</span>
+      </div>
+
+      <div className="ct27-section-study__lead">
+        <p>PROBLEMA QUE ABRE EL APARTADO</p>
+        <h3>{section.question}</h3>
+        <strong>{section.thesis}</strong>
+        <p>{section.explanation}</p>
+      </div>
+
+      <figure className="ct27-section-study__figure">
+        <div className="ct27-section-study__figure-heading">
+          <span>FIG. {section.number} / ORGANIZACIÓN CONCEPTUAL ORIGINAL</span>
+          <strong>{section.relation === 'parallel' ? 'Aspectos que deben distinguirse' : 'Ruta de lectura editorial'}</strong>
+        </div>
+        <div className={`ct27-section-study__nodes ${section.relation === 'sequence' ? 'is-sequence' : 'is-parallel'}`}>
+          {section.nodes.map((node, i) => (
+            <div className="ct27-section-study__node" key={node.title}>
+              <span>{String(i + 1).padStart(2, '0')} / {node.label}</span>
+              <h4>{node.title}</h4>
+              <p>{node.description}</p>
+            </div>
+          ))}
+        </div>
+        <figcaption>
+          {section.relation === 'parallel'
+            ? 'Los bloques representan dimensiones o posiciones que deben compararse; su orden no implica identidad, jerarquía ni causalidad.'
+            : 'Las flechas indican un orden de lectura propuesto por PHILOSOPHIA; no convierten la explicación en una ley histórica o causal.'}
+        </figcaption>
+      </figure>
+
+      <details className="ct27-section-study__guide" data-study-guide={section.id}>
+        <summary>
+          <span>GUÍA DE LECTURA</span>
+          <strong>Cómo leer este esquema</strong>
+          <small>Qué representa, cómo seguirlo, por qué importa y qué conservar.</small>
+          <b aria-hidden="true">+</b>
+        </summary>
+        <div className="ct27-section-study__guide-grid">
+          <div><span>01 / QUÉ REPRESENTA</span><p>{section.guide.what}</p></div>
+          <div><span>02 / CÓMO LEERLO</span><p>{section.guide.how}</p></div>
+          <div><span>03 / POR QUÉ ESTÁ AQUÍ</span><p>{section.guide.why}</p></div>
+          <div><span>04 / QUÉ DEBE QUEDAR CLARO</span><p>{section.guide.takeaway}</p></div>
+        </div>
+      </details>
+
+      <div className="ct27-section-study__simple">
+        <span>EN PALABRAS SIMPLES</span>
+        <p>{section.guide.simple}</p>
+      </div>
+
+      <div className="ct27-section-study__compare">
+        <span>DISTINCIÓN PARA NO CONFUNDIR</span>
+        <div>
+          {section.contrast.map((item, i) => (
+            <article key={item.title}>
+              <small>{i === 0 ? 'A' : 'B'}</small>
+              <h4>{item.title}</h4>
+              <p>{item.description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <details className="ct27-section-study__question" data-study-question={section.id}>
+        <summary><span>PRUEBA DE RECUPERACIÓN · EDITORIAL</span><strong>{section.practice.question}</strong><b aria-hidden="true">+</b></summary>
+        <p>{section.practice.cue}</p>
+        <small>Orientación de estudio creada por PHILOSOPHIA. No es una pregunta oficial ni una cita de la profesora.</small>
+      </details>
+
+      <footer className="ct27-section-study__footer">
+        <p><strong>PROCEDENCIA:</strong> {section.evidence} Las figuras, preguntas y relaciones de esta ficha son editoriales.</p>
+        <div>
+          {previous && <button type="button" onClick={() => jump(previous.id)}>← {previous.number} · Apartado anterior</button>}
+          {next && <button type="button" onClick={() => jump(next.id)}>Siguiente apartado · {next.number} →</button>}
+        </div>
+      </footer>
+    </div>
+  )
+}
