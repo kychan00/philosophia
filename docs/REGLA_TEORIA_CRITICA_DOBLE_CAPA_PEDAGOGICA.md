@@ -46,6 +46,16 @@ El número y la estructura de apartados provienen de la clase realmente document
 - Tests: `critical-class20-study.test.mjs` y `critical-class20-browser-smoke.mjs`.
 - Frontera: genealogía Hegel–Marx–Lukács–Freud = constelación pedagógica, no filiación causal automática.
 
+## Adopción · sesión 03 / 25 de agosto
+
+- Página: `src/pages/CriticalTheoryClass25Aug.jsx`, con **10 apartados** conservados; el estándar se adapta a la fuente y no fuerza once.
+- Datos: `critical25Themes.js`, `critical25Sections.js` y `critical25Image.js`.
+- Componentes: `Critical25ThematicAtlas` y `Critical25SectionStudy`, con estilos encapsulados.
+- Imagen: `25-agosto-exilio-totalidad.svg`, original del proyecto; la ruta de exilio es un diagrama de estudio, no cartografía a escala.
+- Se preservan controles históricos de conciencia, exilio, generaciones, totalidad y astrología, además de la tarea vinculada.
+- Tests: `critical-class25-study.test.mjs` y `critical-class25-browser-smoke.mjs`.
+- La sesión del 27 de agosto permanece fuera del alcance hasta aprobación del folio 003.
+
 ## Revisión de otras sesiones
 
 Aplicar únicamente cuando se trabaje ese folio, con cotejo individual de las notas del vault, incluyendo `05 - Clases` y la ficha de la materia. Las trece clases no se consideran refactorizadas por añadir esta regla.
