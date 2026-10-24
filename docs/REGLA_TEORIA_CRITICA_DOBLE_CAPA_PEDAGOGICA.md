@@ -100,6 +100,17 @@ El número y la estructura de apartados provienen de la clase realmente document
 - Tests: `critical-class10sep-study.test.mjs` y `critical-class10sep-browser-smoke.mjs`.
 - La sesión del 17 de septiembre permanece fuera del alcance hasta aprobación del folio 007.
 
+## Adopción · sesión 08 / 17 de septiembre
+
+- Página dedicada nueva: `src/pages/CriticalTheoryClass17Sep.jsx`; reemplaza la vista genérica `DialecticalRestoredClass` para esta ruta sin cambiar el estado documental `Parcial`.
+- Datos: `critical17SepThemes.js`, `critical17SepSections.js` y `critical17SepImage.js`.
+- Componentes: `Critical17SepThematicAtlas` y `Critical17SepSectionStudy`.
+- Fuente: ejes recuperados y estructura de cuatro momentos; **no** desarrollo verbal íntegro.
+- Imagen: `17-septiembre-cuatro-momentos.svg`, original; producto, actividad, ser genérico y otros se muestran como constelación articulada, no secuencia causal.
+- Cronología: explicaciones detalladas del 22 y 24 de septiembre se etiquetan como continuidad posterior y no se retroproyectan.
+- Tests: `critical-class17sep-study.test.mjs` y `critical-class17sep-browser-smoke.mjs`.
+- La sesión del 22 de septiembre permanece fuera del alcance de esta iteración.
+
 ## Revisión de otras sesiones
 
 Aplicar únicamente cuando se trabaje ese folio, con cotejo individual de las notas del vault, incluyendo `05 - Clases` y la ficha de la materia. Las trece clases no se consideran refactorizadas por añadir esta regla.
