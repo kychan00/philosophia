@@ -27,7 +27,7 @@ export const critical03SepSections = [
       }
     ],
     "guide": {
-      "what": "Representa la arquitectura de la sesión completa.",
+      "what": "Representa la arquitectura completa de la sesión y el recorrido general que conecta sus conceptos.",
       "how": "Siga la secuencia como mapa de estudio y no como una cronología histórica rígida.",
       "why": "Permite ver por qué negatividad y falsedad tienen una función positiva dentro del aprendizaje.",
       "simple": "La conciencia avanza cuando sus formas de entender el mundo fallan, se corrigen y se vuelven más ricas.",
