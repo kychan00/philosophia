@@ -111,6 +111,18 @@ El número y la estructura de apartados provienen de la clase realmente document
 - Tests: `critical-class17sep-study.test.mjs` y `critical-class17sep-browser-smoke.mjs`.
 - La sesión del 22 de septiembre permanece fuera del alcance de esta iteración.
 
+## Adopción · sesión 09 / 22 de septiembre
+
+- Página dedicada: `src/pages/CriticalTheoryClass22Sep.jsx`; reemplaza la vista genérica `DialecticalRestoredClass` para esta ruta sin ocultar el estado `Parcial`.
+- Datos: `critical22SepThemes.js`, `critical22SepSections.js` y `critical22SepImage.js`.
+- Componentes: `Critical22SepThematicAtlas` y `Critical22SepSectionStudy`.
+- Fuente: núcleo y ejes recuperados; no desarrollo verbal íntegro.
+- Atlas: desnaturalización; materialidad/conciencia; trabajo reproductivo; división sexual del trabajo; totalidad social/enajenación.
+- Imagen: `22-septiembre-totalidad-reproduccion.svg`, original; líneas = articulación y mediación, no identidad ni determinismo.
+- Cronología: ser genérico, otros y el desarrollo fino de la actividad permanecen abiertos o fechados el 24 de septiembre.
+- Tests: `critical-class22sep-study.test.mjs` y `critical-class22sep-browser-smoke.mjs`.
+- La sesión del 24 de septiembre permanece fuera del alcance de esta iteración.
+
 ## Revisión de otras sesiones
 
 Aplicar únicamente cuando se trabaje ese folio, con cotejo individual de las notas del vault, incluyendo `05 - Clases` y la ficha de la materia. Las trece clases no se consideran refactorizadas por añadir esta regla.
