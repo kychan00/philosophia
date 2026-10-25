@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="520" viewBox="0 0 1240 520" role="img" aria-labelledby="title desc">
+<title id="title">Cosificación: de la forma mercancía a la vida social</title>
+<desc id="desc">Ilustración original de PHILOSOPHIA. A la izquierda un sujeto crea herramientas y procedimientos; en el centro una estructura cosificada parece invertir la relación y organizar al sujeto; a la derecha se abren cuatro campos de análisis de la sesión: fábrica, burocracia, afectos y responsabilidad. Las ramas indican expansión temática, no causalidad ni citas textuales de Lukács.</desc>
+<rect width="1240" height="520" fill="#FCF9F2"/>
+<rect x="1.5" y="1.5" width="1237" height="517" fill="none" stroke="#6B7151" stroke-width="3"/>
+<rect width="1240" height="18" fill="#6B7151"/>
+<text x="48" y="58" font-family="Arial" font-size="12" font-weight="700" fill="#6B7151">COSIFICACIÓN · FORMA MERCANCÍA Y VIDA SOCIAL · 15 OCT 2026</text>
+
+<g font-family="Georgia, serif" text-anchor="middle">
+  <rect x="55" y="145" width="280" height="210" fill="#F4EFE3" stroke="#121212" stroke-width="3"/>
+  <text x="195" y="180" font-family="Arial" font-size="10" fill="#8C4F3D">SUJETO</text>
+  <circle cx="195" cy="230" r="26" fill="none" stroke="#121212" stroke-width="3"/>
+  <path d="M195 256 V320 M155 285 H235 M170 355 L195 320 L220 355" fill="none" stroke="#121212" stroke-width="3"/>
+  <text x="195" y="395" font-size="18" fill="#121212">crea herramientas</text>
+  <text x="195" y="420" font-size="18" fill="#121212">y procedimientos</text>
+
+  <rect x="430" y="120" width="330" height="260" fill="#2B2725" stroke="#121212" stroke-width="3"/>
+  <text x="595" y="160" font-family="Arial" font-size="10" fill="#D7C2A5">INVERSIÓN SUJETO / OBJETO</text>
+  <text x="595" y="205" font-size="28" fill="#FCF9F2">cosificación</text>
+  <text x="595" y="250" font-family="Arial" font-size="11" fill="#FCF9F2">la estructura creada parece adquirir</text>
+  <text x="595" y="270" font-family="Arial" font-size="11" fill="#FCF9F2">autonomía y exigir adaptación</text>
+  <rect x="490" y="305" width="210" height="44" fill="#FCF9F2" stroke="#D7C2A5"/>
+  <text x="595" y="333" font-size="16" fill="#121212">cálculo · previsibilidad</text>
+</g>
+
+<g stroke="#8C4F3D" stroke-width="4" fill="none">
+  <path d="M336 250 H414"/><path d="M403 239 L416 250 L403 261"/>
+  <path d="M762 250 H820"/>
+  <path d="M820 250 C850 250 850 135 880 135"/>
+  <path d="M820 250 C850 250 850 225 880 225"/>
+  <path d="M820 250 C850 250 850 315 880 315"/>
+  <path d="M820 250 C850 250 850 405 880 405"/>
+</g>
+
+<g font-family="Georgia, serif">
+  <rect x="880" y="92" width="305" height="82" fill="#EEE4D7" stroke="#121212" stroke-width="2"/>
+  <text x="910" y="123" font-family="Arial" font-size="9" fill="#8C4F3D">CAMPO 01</text>
+  <text x="910" y="151" font-size="20" fill="#121212">fábrica · tiempo · fragmentación</text>
+
+  <rect x="880" y="182" width="305" height="82" fill="#F4EFE3" stroke="#121212" stroke-width="2"/>
+  <text x="910" y="213" font-family="Arial" font-size="9" fill="#8C4F3D">CAMPO 02</text>
+  <text x="910" y="241" font-size="20" fill="#121212">derecho · Estado · burocracia</text>
+
+  <rect x="880" y="272" width="305" height="82" fill="#EEE4D7" stroke="#121212" stroke-width="2"/>
+  <text x="910" y="303" font-family="Arial" font-size="9" fill="#8C4F3D">CAMPO 03</text>
+  <text x="910" y="331" font-size="20" fill="#121212">afectos · intercambio · reemplazo</text>
+
+  <rect x="880" y="362" width="305" height="82" fill="#F4EFE3" stroke="#121212" stroke-width="2"/>
+  <text x="910" y="393" font-family="Arial" font-size="9" fill="#8C4F3D">CAMPO 04</text>
+  <text x="910" y="421" font-size="20" fill="#121212">responsabilidad · resistencia · NO</text>
+</g>
+
+<text x="48" y="480" font-family="Arial" font-size="10" fill="#5E554C">RECONSTRUCCIÓN EDITORIAL PHILOSOPHIA · RAMAS = CAMPOS DE ANÁLISIS DE LA SESIÓN, NO CAUSALIDAD NI CITAS TEXTUALES</text>
+</svg>
