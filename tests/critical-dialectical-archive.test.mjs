@@ -43,6 +43,11 @@ test('atlas dialéctico y herramientas de memoria disponibles', () => {
   assert.match(view, /da-board-fallback/)
 })
 
+test('el índice conserva la lectura 2D de Freud ya existente en main', () => {
+  assert.match(view, /\/semestre\/5\/teoria-critica\/lectura\/freud-malestar-capitulo-1/)
+  assert.match(app, /FreudMalestarCapituloI/)
+})
+
 test('navegación intra-página no rompe HashRouter y CSS admite móvil e impresión', () => {
   assert.doesNotMatch(view, /href="#da-/)
   assert.match(view, /scrollIntoView/)
