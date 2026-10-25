@@ -1070,7 +1070,6 @@ function Workspace() {
                 setInspectorMinimized(false)
               }}
               onPaneClick={() => setSelectedId(null)}
-              onlyRenderVisibleElements={compactViewport}
               fitView
               fitViewOptions={{ padding: 0.2, maxZoom: 1 }}
               minZoom={0.18}
