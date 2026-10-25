@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
 const chrome=['google-chrome','google-chrome-stable','chromium','chromium-browser'].find(bin=>spawnSync('which',[bin],{stdio:'ignore'}).status===0)
-assert.ok(chrome,'Chromium requerido para revisar la clase 11')
+assert.ok(chrome,'Chromium requerido para revisar la clase 12')
 const sleep=(ms)=>new Promise(r=>setTimeout(r,ms))
 const server=spawn(process.execPath,['node_modules/vite/bin/vite.js','preview','--host','127.0.0.1','--port','4197','--strictPort'],{stdio:'ignore'})
 const profile=mkdtempSync(join(tmpdir(),'philosophia-critical20oct-'))
@@ -21,7 +21,7 @@ async function viewport(width,height){
   await send('Page.navigate',{url:'about:blank'})
   await until(()=>evaluate("location.href==='about:blank'"),'reset')
   await send('Page.navigate',{url})
-  await until(()=>evaluate("document.querySelectorAll('.ct1510-detail-folio').length===14"),'class 15 October loaded')
+  await until(()=>evaluate("document.querySelectorAll('.ct1510-detail-folio').length===14"),'class 20 October loaded')
   const result=await evaluate(`(()=>{
     return {
       viewport:innerWidth,scroll:document.documentElement.scrollWidth,
@@ -68,7 +68,7 @@ try{
   assert.ok(await evaluate("document.querySelector('.ct1510-licensed-item figcaption').textContent.includes('Ilustración original')"))
 
   await evaluate("document.querySelectorAll('.ct2010-atlasx-tabs button')[2].click()")
-  await until(()=>evaluate("document.querySelector('.ct2010-atlasx-tabs button[aria-pressed=true] strong')?.textContent.includes('IA, trabajo y fetichismo')"),'núcleo responsabilidad')
+  await until(()=>evaluate("document.querySelector('.ct2010-atlasx-tabs button[aria-pressed=true] strong')?.textContent.includes('IA, trabajo y fetichismo')"),'núcleo de inteligencia artificial')
   assert.equal(await evaluate("document.querySelectorAll('.ct2010-atlasx-tabs button[aria-pressed=true]').length"),1)
 
   await evaluate("document.querySelector('#foucault .ct2010-studyx__guide summary').click()")
@@ -77,7 +77,7 @@ try{
 
   // La constelación preexistente sigue funcionando.
   await evaluate("document.querySelectorAll('.ct1510-node')[4].click()")
-  await until(()=>evaluate("document.querySelector('.ct1510-inspector h3')?.textContent.includes('¿La IA piensa por nosotros?')"),'constelación afectos')
+  await until(()=>evaluate("document.querySelector('.ct1510-inspector h3')?.textContent.includes('¿La IA piensa por nosotros?')"),'constelación inteligencia artificial')
   await evaluate("document.querySelector('.ct1510-controls button').click()")
   await until(()=>evaluate("!!document.querySelector('.ct1510-answer')"),'respuesta de control')
 
