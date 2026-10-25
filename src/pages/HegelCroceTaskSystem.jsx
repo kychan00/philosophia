@@ -1,4 +1,5 @@
 import SectionPedagogy from '../components/philosophy/system2d/SectionPedagogy'
+import { initialSystem2DRoute, useSystem2DCompactViewport } from '../components/philosophy/system2d/mobilePerformance.js'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
 import { createPortal } from 'react-dom'
@@ -108,7 +109,8 @@ function routeOrder(routeId) {
 function HegelCroceTaskCanvas() {
   const { setCenter, fitView, getNodes } = useReactFlow()
   const workspaceRef=useRef(null)
-  const [route,setRoute]=useState('all')
+  const [route, setRoute] = useState(() => initialSystem2DRoute(hegelCroceRoutes))
+  const compactViewport = useSystem2DCompactViewport()
   const [selectedId,setSelectedId]=useState(null)
   const [conceptualMode,setConceptualMode]=useState(false)
   const [guidedMode,setGuidedMode]=useState(false)
@@ -444,7 +446,7 @@ function HegelCroceTaskCanvas() {
                 setGuidedMode(false)
                 setRoute(item.id)
                 setSelectedId(null)
-                if(item.id==='all') setTimeout(()=>fitView({padding:.08,duration:500}),0)
+                if (item.id === 'all' && !compactViewport) setTimeout(()=>fitView({padding:.08,duration:500}),0)
               }}
             >
               {item.label}
@@ -505,8 +507,9 @@ function HegelCroceTaskCanvas() {
 
           <div className="marx-flow-canvas">
             <ReactFlow
-              nodes={nodes}
-              edges={edges}
+              nodes={compactViewport ? nodes.filter((node) =
+              onlyRenderVisibleElements> !node.hidden) : nodes}
+              edges={compactViewport ? edges.filter((edge) => !edge.hidden) : edges}
               nodeTypes={nodeTypes}
               onNodeClick={(_,node)=>selectNode(node)}
               onEdgeClick={(event,edge)=>{
@@ -524,7 +527,7 @@ function HegelCroceTaskCanvas() {
             >
               <Background gap={32} size={1} />
               <Controls showInteractive={false} />
-              <MiniMap pannable zoomable nodeStrokeWidth={3} />
+              {!compactViewport && <MiniMap pannable zoomable nodeStrokeWidth={3} />} 
             </ReactFlow>
           </div>
         </div>
