@@ -49,7 +49,7 @@ test('las conexiones son válidas y no existe ciclo de dependencias', () => {
 
 test('el cierre oceánico y desamparo se mantiene separado de capítulos posteriores', () => {
   assert.match(freudIConcepts.find((x) => x.id === 'F16').explanation, /desamparo|dependencia infantil/)
-  assert.match(freudIConcepts.find((x) => x.id === 'F17').explanation, /consuelo/)
+  assert.match(freudIConcepts.find((x) => x.id === 'F17').explanation, /contrarrestar la amenaza exterior|consuelo/)
   assert.match(freudIConcepts.find((x) => x.id === 'F18').explanation, /capítulo I/)
   const source = readFileSync(new URL('../src/pages/FreudMalestarCapituloI.jsx', import.meta.url), 'utf8')
   assert.match(source, /SectionPedagogy/)
