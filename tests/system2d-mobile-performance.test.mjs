@@ -12,12 +12,13 @@ const routeBasedPages = [
   '../src/pages/LukacsReificationSystem.jsx',
   '../src/pages/MarxCommodityValueSystem.jsx',
   '../src/pages/CafeMercadotecniaSystem2D.jsx',
-  '../src/pages/NavaTechnoscienceSystem.jsx',
+
 ]
 
 const compactOptimizedPages = [
   ...routeBasedPages,
   '../src/pages/KantAnalyticSystem.jsx',
+  '../src/pages/NavaTechnoscienceSystem.jsx',
 ]
 
 const source = (path) => readFileSync(new URL(path, import.meta.url), 'utf8')
