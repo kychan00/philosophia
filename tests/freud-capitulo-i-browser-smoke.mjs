@@ -54,6 +54,9 @@ const metrics=`(()=>{
     viewport:innerWidth,
     pageWidth:document.documentElement.scrollWidth,
     routes:document.querySelectorAll('.freud-route-buttons button').length,
+    chapterCards:document.querySelectorAll('.freud-chapter-card').length,
+    activeChapter:document.querySelector('.freud-chapter-card.is-active')?.textContent.trim()||'',
+    futureChapter:document.querySelector('.freud-chapter-card.is-future')?.textContent.trim()||'',
     activeRoute:document.querySelector('.freud-route-buttons button.active')?.textContent.trim()||'',
     visibleNodes:visible.length,
     hits,
@@ -74,6 +77,9 @@ async function viewport(width,height){
   await until(async()=>((await evalJS(metrics))?.visibleNodes||0)>0,'nodos Freud')
   let state=await evalJS(metrics)
   assert.equal(state.routes,5,JSON.stringify(state))
+  assert.equal(state.chapterCards,2,JSON.stringify(state))
+  assert.ok(state.activeChapter.includes('CAPÍTULO I'),JSON.stringify(state))
+  assert.ok(state.futureChapter.includes('Próximos capítulos'),JSON.stringify(state))
   assert.ok(!state.activeRoute.includes('Capítulo I completo'),'El atlas completo no debe abrir por defecto: '+JSON.stringify(state))
   assert.ok(state.visibleNodes<=20,'Demasiados nodos montados en apertura: '+JSON.stringify(state))
   assert.ok(state.pageWidth<=width+3,'Overflow inicial: '+JSON.stringify(state))

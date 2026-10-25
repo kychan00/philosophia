@@ -2,6 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { freudIConcepts, freudISections, freudIRoutes, freudILinks, freudIOrder } from '../src/data/freudMalestarCapituloI.js'
+import { freudMalestarWork, freudMalestarChapters, freudMalestarChapterById } from '../src/data/freudMalestarBook.js'
 
 test('Freud capítulo I completo: 62 nodos y 4 rutas temáticas', () => {
   assert.equal(freudIConcepts.length, 62)
@@ -65,7 +66,7 @@ test('la interfaz exige cita literal, explicación, folio y paginación impresa'
   assert.match(source, /EXPLICACIÓN ACADÉMICA/)
   assert.match(source, /data\.originalQuote/)
   assert.match(source, /paginación impresa/)
-  assert.match(source, /Páginas impresas 2–13 · capítulo I completo/)
+  assert.match(source, /páginas impresas 2–13/)
   assert.match(source, /data\.onOpenFolio\(data\.id\)/)
   assert.match(source, /role="dialog" aria-modal="true"/)
   assert.match(source, /event\.key === 'Escape'/)
@@ -84,5 +85,33 @@ test('la apertura segura evita montar el atlas completo de 62 nodos por defecto'
   assert.doesNotMatch(source, /useState\('all'\)/)
   assert.match(source, /useState\(DEFAULT_ROUTE\)/)
   assert.match(source, /ReactFlow nodes=\{flowNodes\}/)
-  assert.match(source, /El sistema abre por una ruta temática/)
+  assert.match(source, /La obra se estudia por capítulos/)
+})
+
+
+test('la obra tiene una capa de navegación por capítulos independiente del capítulo I', () => {
+  assert.equal(freudMalestarWork.title, 'El malestar en la cultura')
+  assert.equal(freudMalestarWork.studyMode, 'Lectura por capítulos')
+  const active = freudMalestarChapterById('I')
+  assert.equal(active.id, 'I')
+  assert.equal(active.status, 'available')
+  const future = freudMalestarChapters.find((chapter) => chapter.status === 'future')
+  assert.ok(future)
+  assert.equal(future.title, 'Próximos capítulos')
+})
+
+test('la interfaz presenta capítulo activo y continuidad futura de la obra', () => {
+  const source = readFileSync(new URL('../src/pages/FreudMalestarCapituloI.jsx', import.meta.url), 'utf8')
+  const styles = readFileSync(new URL('../src/pages/FreudMalestarCapituloI.css', import.meta.url), 'utf8')
+  assert.match(source, /OBRA EN LECTURA POR CAPÍTULOS/)
+  assert.match(source, /LECTOR DE LA OBRA/)
+  assert.match(source, /Capítulo activo/)
+  assert.match(source, /freudMalestarChapters\.map/)
+  assert.match(source, /ACTIVE_CHAPTER_ID = 'I'/)
+  assert.match(source, /chapter\.status === 'available' && chapter\.route/)
+  assert.match(source, /HILO DEL CAPÍTULO ACTIVO/)
+  assert.match(source, /ATLAS DEL CAPÍTULO ACTIVO/)
+  assert.match(source, /Iniciar guía/)
+  assert.match(styles, /\.freud-chapter-shelf/)
+  assert.match(styles, /\.freud-chapter-card\.is-future/)
 })
