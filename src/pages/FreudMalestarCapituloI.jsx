@@ -67,7 +67,7 @@ function FreudWorkspace() {
     const col = order % 4
     const row = Math.floor(order / 4)
     return {
-      id: item.id, type: 'freud', draggable: false,
+      id: item.id, type: 'freud', selected: item.id === selectedId, draggable: false,
       hidden: !visible,
       position: { x: 65 + col * 490, y: 55 + row * 365 },
       data: {
