@@ -35,7 +35,6 @@ test('los atlas con rutas no arrancan en all en viewport compacto', () => {
 test('los atlas auditados reducen el trabajo de React Flow en móvil', () => {
   for (const path of compactOptimizedPages) {
     const text = source(path)
-    assert.match(text, /onlyRenderVisibleElements/, 'falta render visible: ' + path)
     assert.match(text, /compactViewport/, 'falta guardia compacta: ' + path)
     assert.match(
       text,
@@ -43,6 +42,14 @@ test('los atlas auditados reducen el trabajo de React Flow en móvil', () => {
       'minimapa sin guardia compacta: ' + path,
     )
     assert.doesNotMatch(text, /onlyRenderVisibleElements>/, 'sintaxis corrupta por sustitución: ' + path)
+  }
+  for (const path of routeBasedPages) {
+    const text = source(path)
+    assert.match(
+      text,
+      /onlyRenderVisibleElements=\{compactViewport && (?:route|branch) === 'all'\}/,
+      'render visible debe reservarse al atlas completo compacto: ' + path,
+    )
   }
 })
 
