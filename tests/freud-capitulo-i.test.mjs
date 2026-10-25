@@ -59,3 +59,21 @@ test('el cierre oceánico y desamparo se mantiene separado de capítulos posteri
   assert.match(source, /FRONTERA DE FUENTE/)
   assert.match(source, /onNodeClick/)
 })
+
+test('los 18 nodos ofrecen exposición y el botón Abrir folio es funcional', () => {
+  const source = readFileSync(new URL('../src/pages/FreudMalestarCapituloI.jsx', import.meta.url), 'utf8')
+  const styles = readFileSync(new URL('../src/pages/FreudMalestarCapituloI.css', import.meta.url), 'utf8')
+  for (const node of freudIConcepts) {
+    assert.ok(node.explanation.length > 80, 'Falta texto explícito: ' + node.id)
+    assert.match(node.page, /^pp?\./, 'Falta página del PDF: ' + node.id)
+  }
+  assert.match(source, /data\.onOpenFolio\(data\.id\)/)
+  assert.match(source, /aria-label=\{\`Abrir folio/)
+  assert.match(source, /role="dialog" aria-modal="true"/)
+  assert.match(source, /folioCloseRef\.current\?\.focus/)
+  assert.match(source, /event\.key === 'Escape'/)
+  assert.match(source, /Freud, s\. f\.,/)
+  assert.match(source, /Referencia bibliográfica · APA 7/)
+  assert.match(styles, /\.freud-folio-backdrop/)
+  assert.match(styles, /\.freud-node-source/)
+})
