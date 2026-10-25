@@ -54,6 +54,7 @@ const metrics=`(()=>{
     viewport:innerWidth,
     pageWidth:document.documentElement.scrollWidth,
     routes:document.querySelectorAll('.freud-route-buttons button').length,
+    activeRoute:document.querySelector('.freud-route-buttons button.active')?.textContent.trim()||'',
     visibleNodes:visible.length,
     hits,
     selected:selected?.getAttribute('data-id')||null,
@@ -73,8 +74,18 @@ async function viewport(width,height){
   await until(async()=>((await evalJS(metrics))?.visibleNodes||0)>0,'nodos Freud')
   let state=await evalJS(metrics)
   assert.equal(state.routes,5,JSON.stringify(state))
+  assert.ok(!state.activeRoute.includes('Capítulo I completo'),'El atlas completo no debe abrir por defecto: '+JSON.stringify(state))
+  assert.ok(state.visibleNodes<=20,'Demasiados nodos montados en apertura: '+JSON.stringify(state))
   assert.ok(state.pageWidth<=width+3,'Overflow inicial: '+JSON.stringify(state))
   assert.deepEqual(state.hits,[],'Nodos superpuestos '+width+'x'+height+': '+state.hits.join(','))
+
+  if(width<=850){
+    assert.equal(await click("[...document.querySelectorAll('.freud-route-buttons button')].find(b=>b.textContent.includes('Capítulo I completo'))"),true)
+    await until(()=>evalJS("document.querySelector('.freud-route-buttons button.active')?.textContent.includes('Capítulo I completo')"),'mapa completo compacto')
+    await sleep(350)
+    const complete=await evalJS(metrics)
+    assert.ok(complete.visibleNodes<62,'El mapa completo compacto montó los 62 nodos a la vez: '+JSON.stringify(complete))
+  }
 
   assert.equal(await click("[...document.querySelectorAll('.freud-route-buttons button')].find(b=>b.textContent.includes('Retorno a la religiosidad'))"),true)
   await until(()=>evalJS("document.querySelector('.freud-route-buttons button.active')?.textContent.includes('Retorno a la religiosidad')"),'ruta religión')
