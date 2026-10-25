@@ -182,7 +182,7 @@ function NavaCanvas(){
       <div className="nava-workspace" ref={workspaceRef}>
         <div className="nava-canvas">
           <ReactFlow nodes={compactViewport?displayedNodes.filter(n=>!n.hidden):displayedNodes} edges={compactViewport?displayedEdges.filter(e=>!e.hidden):displayedEdges} nodeTypes={nodeTypes}
-            onlyRenderVisibleElements={compactViewport}
+            onlyRenderVisibleElements={compactViewport && route === 'all'}
             onNodeClick={(_,node)=>focus(node.id)} nodesDraggable={false} nodesConnectable={false}
             fitView fitViewOptions={{padding:.16,maxZoom:.82}} minZoom={.18} maxZoom={1.7}
             panOnScroll={false} proOptions={{hideAttribution:false}}>
