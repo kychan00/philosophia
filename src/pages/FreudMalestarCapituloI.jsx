@@ -11,6 +11,8 @@ import './FreudMalestarCapituloI.css'
 const SECTION_TONE = { planteamiento: 'rust', constitucion: 'blue', memoria: 'plum', religion: 'sage' }
 const WINDOW_SIZE = { width: 350, height: 470 }
 const GRID_STEP = { x: 500, y: 540 }
+const DEFAULT_ROUTE = 'planteamiento'
+const MOBILE_QUERY = '(max-width: 850px)'
 const bySection = (id) => freudIConcepts.filter((item) => id === 'all' || item.section === id)
 function FreudConceptNode({ data, selected }) {
   return (
@@ -46,7 +48,8 @@ function buildSchema(item) {
 }
 
 function FreudWorkspace() {
-  const [route, setRoute] = useState('all')
+  const [route, setRoute] = useState(DEFAULT_ROUTE)
+  const [compactViewport, setCompactViewport] = useState(() => typeof window !== 'undefined' && window.matchMedia?.(MOBILE_QUERY).matches)
   const [selectedId, setSelectedId] = useState('F01')
   const [guided, setGuided] = useState(false)
   const [guideIndex, setGuideIndex] = useState(0)
@@ -63,6 +66,14 @@ function FreudWorkspace() {
   const openFolio = useCallback((id) => { folioTriggerRef.current = document.activeElement; setSelectedId(id); setFolioOpen(true) }, [])
   const closeFolio = useCallback(() => { setFolioOpen(false); requestAnimationFrame(() => folioTriggerRef.current?.focus?.()) }, [])
   useEffect(() => { if (folioOpen) folioCloseRef.current?.focus() }, [folioOpen])
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return undefined
+    const media = window.matchMedia(MOBILE_QUERY)
+    const sync = () => setCompactViewport(media.matches)
+    sync()
+    media.addEventListener?.('change', sync)
+    return () => media.removeEventListener?.('change', sync)
+  }, [])
   const relevant = useMemo(() => new Set([selectedId, ...freudILinks.filter((line) => line.source === selectedId || line.target === selectedId).flatMap((line) => [line.source, line.target])]), [selectedId])
   const index = Math.max(0, routeItems.findIndex((item) => item.id === selectedId))
   const section = freudISections.find((item) => item.id === route)
@@ -87,6 +98,7 @@ function FreudWorkspace() {
       },
     }
   }), [route, routeIds, routeItems, selectedId, relevant, guided, openFolio])
+  const flowNodes = useMemo(() => nodes.filter((node) => !node.hidden), [nodes])
   const edges = useMemo(() => freudILinks.filter((edge) => routeIds.has(edge.source) && routeIds.has(edge.target)).map((edge) => ({
     ...edge,
     markerEnd: { type: MarkerType.ArrowClosed },
@@ -116,9 +128,18 @@ function FreudWorkspace() {
   }, [])
 
   useEffect(() => {
-    const timer = setTimeout(() => fitView({ padding: 0.17, duration: 450, maxZoom: 0.8 }), 80)
+    const timer = setTimeout(() => {
+      if (compactViewport && route === 'all') {
+        const first = routeItems[0]
+        if (first) {
+          setCenter(65 + WINDOW_SIZE.width / 2, 55 + WINDOW_SIZE.height / 2, { zoom: 0.72, duration: 250 })
+        }
+        return
+      }
+      fitView({ padding: 0.17, duration: 300, maxZoom: 0.8 })
+    }, 80)
     return () => clearTimeout(timer)
-  }, [route, fitView])
+  }, [route, routeItems, compactViewport, fitView, setCenter])
 
   const move = (delta) => {
     const nextIndex = Math.max(0, Math.min(routeItems.length - 1, index + delta))
@@ -168,6 +189,7 @@ function FreudWorkspace() {
           {freudIRoutes.map((item) => <button type="button" key={item.id} className={route === item.id ? 'active' : ''} aria-pressed={route === item.id} onClick={() => changeRoute(item.id)}>{item.label}</button>)}
         </div>
         <p>{section ? section.question : 'Mapa completo: de la vivencia de unidad a la explicación genética y a la necesidad religiosa.'}</p>
+        <p className="freud-performance-note">El sistema abre por una ruta temática para evitar cargar los 62 folios simultáneamente. «Capítulo I completo» sigue disponible como vista opcional.</p>
         {section && <p><b>Antes:</b> {section.before} <b>Después:</b> {section.after}</p>}
       </section>
       <SectionPedagogy nodes={nodes} routes={freudIRoutes} nodeOrder={freudIOrder} activeRoute={route}
@@ -176,7 +198,9 @@ function FreudWorkspace() {
         <div className="freud-studio-header"><div><span>02 / LABORATORIO 2D</span><h2>Mapa conceptual navegable</h2></div><div className="freud-studio-actions"><button type="button" onClick={startGuide}>Iniciar guía {route === 'all' ? 'completa' : 'de sección'}</button><button type="button" onClick={() => setGuided(false)} disabled={!guided}>Salir de guía</button><button type="button" onClick={toggleFullscreen}>{fullscreen ? 'Salir de pantalla completa' : 'Pantalla completa'}</button></div></div>
         {guided && <p className="freud-guide-status" aria-live="polite"><b>LECTURA GUIADA</b> · Paso {guideIndex + 1} de {routeItems.length} · {selected?.title}</p>}
         <div className="freud-workspace" ref={workspaceRef}>
-          <div className="freud-canvas"><ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} fitView fitViewOptions={{ padding: 0.15, maxZoom: .8 }}
+          <div className="freud-canvas"><ReactFlow nodes={flowNodes} edges={edges} nodeTypes={nodeTypes}
+            fitView={!(compactViewport && route === 'all')} fitViewOptions={{ padding: 0.15, maxZoom: .8 }}
+            onlyRenderVisibleElements
             nodesDraggable={false} nodesConnectable={false} elementsSelectable
             onNodeClick={(_, node) => focus(node.id)}
             minZoom={0.15} maxZoom={1.6} colorMode="light" proOptions={{ hideAttribution: false }}>
