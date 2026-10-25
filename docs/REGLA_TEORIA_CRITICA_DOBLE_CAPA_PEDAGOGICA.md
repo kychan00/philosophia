@@ -159,6 +159,19 @@ El número y la estructura de apartados provienen de la clase realmente document
 - QA específico: `critical-class20oct-study.test.mjs` y `critical-class20oct-browser-smoke.mjs` incorporados a `quality.yml`.
 - La sesión del 22 de octubre permanece fuera del alcance de esta iteración.
 
+## Adopción · sesión 13 / 22 de octubre
+
+- Página preexistente preservada: `src/pages/CriticalTheoryClass22Oct.jsx`, con sus 12 folios seleccionables, preguntas, inspector y continuidad con Freud.
+- Se incorpora **atlas de cinco problemas** y **14 fichas pedagógicas** (mapa rector, doce apartados numerados de la nota y tarea de continuidad), con 42 nodos internos.
+- Datos: `critical22OctThemes.js`, `critical22OctSections.js`, `critical22OctSourceSections.js`, `critical22OctImage.js`.
+- Componentes: `Critical22OctThematicAtlas` y `Critical22OctSectionStudy` con CSS encapsulado; todas las fichas distinguen texto de clase, reconstrucción, comparación y pregunta editorial.
+- SVG original `22-octubre-yo-cultura-realidad.svg`, registro `ORIGINAL-OWNED`; flechas continuas = itinerario explicativo docente; línea discontinua = conexión temática, **no** necesidad causal ni ley universal.
+- Atlas: cultura y malestar; interpretación del inconsciente; hipótesis, aparato psíquico y clínica; sentimiento oceánico y separación; placer/frustración/realidad.
+- Fronteras: Lacan = referencia posterior de la docente, no cita de Freud; fase biográfica cronológica imprecisa y segundo modelo psíquico **sin completar**; fusión temprana = ejemplo docente, no prueba clínica universal; *El malestar en la cultura* no se da por leído completo.
+- Tarea preservada: continuar lectura, sin rango nuevo de páginas, producto escrito ni fecha límite.
+- Tests: `critical-class22oct-study.test.mjs` y `critical-class22oct-browser-smoke.mjs`; workflow `quality.yml`. La revisión estructural no reemplaza CI.
+- No se publica ni modifica una clase posterior por esta adaptación.
+
 ## Revisión de otras sesiones
 
 Aplicar únicamente cuando se trabaje ese folio, con cotejo individual de las notas del vault, incluyendo `05 - Clases` y la ficha de la materia. Las trece clases no se consideran refactorizadas por añadir esta regla.
