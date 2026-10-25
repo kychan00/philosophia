@@ -620,7 +620,7 @@ function StudyCanvas() {
               nodes={compactViewport ? nodes.filter((node) => !node.hidden) : nodes}
               edges={compactViewport ? edges.filter((edge) => !edge.hidden) : edges}
               nodeTypes={nodeTypes}
-              onlyRenderVisibleElements={compactViewport}
+              onlyRenderVisibleElements={compactViewport && route === 'all'}
               onNodeClick={(_, node) => selectNode(node)}
               onPaneClick={() => {
                 if (!guidedMode) setSelectedId(null)
