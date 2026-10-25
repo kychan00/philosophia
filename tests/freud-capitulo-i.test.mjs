@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { freudIConcepts, freudISections, freudIRoutes, freudILinks, freudIOrder } from '../src/data/freudMalestarCapituloI.js'
-import { freudMalestarWork, freudMalestarChapters, freudMalestarActiveChapter } from '../src/data/freudMalestarBook.js'
+import { freudMalestarWork, freudMalestarChapters, freudMalestarChapterById } from '../src/data/freudMalestarBook.js'
 
 test('Freud capítulo I completo: 62 nodos y 4 rutas temáticas', () => {
   assert.equal(freudIConcepts.length, 62)
@@ -92,8 +92,9 @@ test('la apertura segura evita montar el atlas completo de 62 nodos por defecto'
 test('la obra tiene una capa de navegación por capítulos independiente del capítulo I', () => {
   assert.equal(freudMalestarWork.title, 'El malestar en la cultura')
   assert.equal(freudMalestarWork.studyMode, 'Lectura por capítulos')
-  assert.equal(freudMalestarActiveChapter.id, 'I')
-  assert.equal(freudMalestarActiveChapter.status, 'available')
+  const active = freudMalestarChapterById('I')
+  assert.equal(active.id, 'I')
+  assert.equal(active.status, 'available')
   const future = freudMalestarChapters.find((chapter) => chapter.status === 'future')
   assert.ok(future)
   assert.equal(future.title, 'Próximos capítulos')
@@ -106,7 +107,8 @@ test('la interfaz presenta capítulo activo y continuidad futura de la obra', ()
   assert.match(source, /LECTOR DE LA OBRA/)
   assert.match(source, /Capítulo activo/)
   assert.match(source, /freudMalestarChapters\.map/)
-  assert.match(source, /chapter\.status === 'available'/)
+  assert.match(source, /ACTIVE_CHAPTER_ID = 'I'/)
+  assert.match(source, /chapter\.status === 'available' && chapter\.route/)
   assert.match(source, /HILO DEL CAPÍTULO ACTIVO/)
   assert.match(source, /ATLAS DEL CAPÍTULO ACTIVO/)
   assert.match(source, /Iniciar guía/)
