@@ -634,8 +634,8 @@ function StudyCanvas() {
             >
               <Background color={SYSTEM_2D_THEME.muted} gap={28} size={1} />
               <Controls showInteractive={false} />
-              {showMinimap && (
-                {!compactViewport && <MiniMap pannable zoomable nodeStrokeWidth={3} nodeColor={(node) => node.data.color} />} 
+              {showMinimap && !compactViewport && (
+                <MiniMap pannable zoomable nodeStrokeWidth={3} nodeColor={(node) => node.data.color} />
               )}
             </ReactFlow>
           </div>
