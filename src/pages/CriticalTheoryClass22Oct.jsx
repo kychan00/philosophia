@@ -3,6 +3,11 @@ import { Link } from 'react-router'
 import '../components/philosophy/system2d/System2DTheme.css'
 import './CriticalTheoryClass15Oct.css'
 import './CriticalTheoryClass20Oct.css'
+import './CriticalTheoryClass22Oct.css'
+import Critical22OctThematicAtlas from '../components/critical/Critical22OctThematicAtlas'
+import Critical22OctSectionStudy from '../components/critical/Critical22OctSectionStudy'
+import { critical22OctImage } from '../data/critical22OctImage'
+import { critical22OctSourceSections } from '../data/critical22OctSourceSections'
 
 const chapters = [
   {
@@ -172,7 +177,7 @@ export default function CriticalTheoryClass22Oct(){
   const select=(id)=>{setActive(id);setAnswer(false)}
   const move=(diff)=>select(chapters[(index+diff+chapters.length)%chapters.length].id)
 
-  return <main className="ct1510-page ct2010-page ph2d-shell">
+  return <main className="ct1510-page ct2010-page ct2210-page ph2d-shell">
     <nav className="ct1510-nav">
       <Link to="/semestre/5/teoria-critica">← Teoría Crítica</Link>
       <Link to="/" className="ct1510-logo">Φ · PHILOSOPHIA</Link>
@@ -204,6 +209,18 @@ export default function CriticalTheoryClass22Oct(){
       <div className="ct1510-warning"><strong>Cautela documental:</strong> los apuntes contienen una referencia cronológica imprecisa sobre una etapa de Freud y no identifican por completo una segunda formulación del aparato psíquico. Ambas zonas se mantienen señaladas en vez de corregirse silenciosamente.</div>
     </section>
 
+    <figure className="ct1510-licensed-figure">
+      <div className="ct1510-licensed-item">
+        <img src={`${import.meta.env.BASE_URL}${critical22OctImage.imagePath}`} alt={critical22OctImage.alt} loading="lazy" decoding="async" />
+        <figcaption>
+          <span>IMAGEN DE ESTUDIO · {critical22OctImage.imageLicense}</span>
+          <strong>Cultura, constitución del yo y principio de realidad</strong>
+          <p>{critical22OctImage.pedagogicalPurpose}</p>
+          <small>{critical22OctImage.imageAttribution} · {critical22OctImage.sourceBoundary}</small>
+        </figcaption>
+      </div>
+    </figure>
+    <Critical22OctThematicAtlas />
     <section className="ct1510-atlas" id="ct2210-map">
       <div className="ct1510-section-head"><div>
         <span className="ct1510-number">02 · ATLAS CONCEPTUAL</span>
@@ -263,6 +280,31 @@ export default function CriticalTheoryClass22Oct(){
       </div>
     </section>
 
+    <section className="ct1510-detail" aria-labelledby="ct2210-detail-title">
+      <div className="ct1510-detail-head"><span>ARCHIVO DOCUMENTAL / 013</span><div>
+        <p>CLASE DOCUMENTADA · RECONSTRUCCIÓN PEDAGÓGICA DISTINGUIDA</p>
+        <h2 id="ct2210-detail-title">La clase, apartado por apartado.</h2>
+        <p>El mapa inicial, los doce apartados documentales y la consigna final tienen fichas propias. Ninguna pregunta de estudio se presenta como pregunta oficial de la profesora.</p>
+      </div></div>
+      <nav className="ct1510-detail-index" aria-label="Índice de apartados del 22 de octubre">
+        {critical22OctSourceSections.map(item => (
+          <button key={item.id} type="button" onClick={() => document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>
+            <span>{item.number}</span>{item.title}
+          </button>
+        ))}
+      </nav>
+      <div className="ct1510-detail-body">
+        {critical22OctSourceSections.map(item => (
+          <article className="ct1510-detail-folio" id={item.id} key={item.id}>
+            <header><span>{item.number}</span><div><small>{item.status}</small><h3>{item.title}</h3></div></header>
+            <div className="ct1510-source-card"><p>{item.body}</p>
+              <ul>{item.bullets.map(bullet => <li key={bullet}>{bullet}</li>)}</ul>
+            </div>
+            <Critical22OctSectionStudy sectionId={item.id} />
+          </article>
+        ))}
+      </div>
+    </section>
     <section className="ct1510-agenda">
       <div className="ct1510-section-head"><div><span className="ct1510-number">05 · TAREA</span><h2>Seguir leyendo</h2></div></div>
       <div className="ct2010-agenda"><article>
