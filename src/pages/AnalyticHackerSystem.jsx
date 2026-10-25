@@ -143,7 +143,7 @@ function StudyCanvas() {
     return () => {
       document.removeEventListener('fullscreenchange', handleFullscreenChange)
     }
-  }, [fitView])
+  }, [compactViewport, fitView])
 
   const toggleFullscreen = useCallback(async () => {
     if (!workspaceRef.current) return
@@ -493,9 +493,9 @@ function StudyCanvas() {
   const reset = useCallback(() => {
     setGuidedMode(false)
     setSelectedId(null)
-    setRoute(initialSystem2DRoute(hackerRoutes))
-    setTimeout(() => fitView({ padding: 0.1, duration: 500 }), 0)
-  }, [fitView])
+    setRoute('all')
+    if (!compactViewport) setTimeout(() => fitView({ padding: 0.1, duration: 500 }), 0)
+  }, [compactViewport, fitView])
 
   const resetGuided = useCallback(() => {
     try {
@@ -505,9 +505,9 @@ function StudyCanvas() {
     setGuidedScope('all')
     setGuidedMode(false)
     setSelectedId(null)
-    setRoute(initialSystem2DRoute(hackerRoutes))
-    setTimeout(() => fitView({ padding: 0.1, duration: 500 }), 0)
-  }, [fitView])
+    setRoute('all')
+    if (!compactViewport) setTimeout(() => fitView({ padding: 0.1, duration: 500 }), 0)
+  }, [compactViewport, fitView])
 
   return (
     <div className="hacker-study-shell">
