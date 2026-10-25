@@ -314,12 +314,12 @@ function StudyCanvas() {
 
   const reset = useCallback(() => {
     setGuidedMode(false)
-    setRoute(initialSystem2DRoute(hartmannChapterRoutes))
+    setRoute('all')
     setSelectedId(null)
     setFolioId(null)
     setShowCross(false)
-    window.setTimeout(() => fitView({ padding: .08, duration: 500 }), 0)
-  }, [fitView])
+    if (!compactViewport) window.setTimeout(() => fitView({ padding: .08, duration: 500 }), 0)
+  }, [compactViewport, fitView])
 
   const toggleWorkspaceFullscreen = useCallback(async () => {
     const element = workspaceRef.current
