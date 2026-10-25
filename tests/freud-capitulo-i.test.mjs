@@ -3,10 +3,10 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { freudIConcepts, freudISections, freudIRoutes, freudILinks, freudIOrder } from '../src/data/freudMalestarCapituloI.js'
 
-test('Freud capítulo I · tramo cotejado pp. 2–8: 30 nodos y 3 rutas temáticas', () => {
-  assert.equal(freudIConcepts.length, 30)
-  assert.equal(freudISections.length, 3)
-  assert.equal(freudIRoutes.length, 4)
+test('Freud capítulo I completo: 62 nodos y 4 rutas temáticas', () => {
+  assert.equal(freudIConcepts.length, 62)
+  assert.equal(freudISections.length, 4)
+  assert.equal(freudIRoutes.length, 5)
   assert.deepEqual(freudIOrder, freudIConcepts.map((item) => item.id))
   assert.equal(new Set(freudIOrder).size, freudIOrder.length)
   for (const section of freudISections) {
@@ -19,6 +19,7 @@ test('cada nodo cotejado separa texto original, explicación y palabras simples'
   for (const node of freudIConcepts) {
     assert.match(node.page, /^pp?\./)
     assert.ok(node.originalQuote?.startsWith('«') && node.originalQuote?.endsWith('»'), 'Cita literal ausente: ' + node.id)
+    assert.ok(!node.originalQuote.includes('[...]'), 'La cita no debe ocultar omisiones editoriales: ' + node.id)
     assert.ok(node.explanation.length > 70, 'Explicación insuficiente: ' + node.id)
     assert.ok(node.simple.length > 30, 'Capa simple insuficiente: ' + node.id)
     assert.match(node.layer, /cita literal cotejada/)
@@ -28,10 +29,13 @@ test('cada nodo cotejado separa texto original, explicación y palabras simples'
   }
 })
 
-test('el tramo no finge haber recibido páginas posteriores a la 8', () => {
-  assert.equal(freudIConcepts.at(-1).id, 'F30')
-  assert.equal(freudIConcepts.at(-1).page, 'p. 8')
-  assert.match(freudISections.at(-1).after, /continúa después de la p\. 8/)
+test('la frontera documental termina en el cierre del apartado I antes del encabezado II', () => {
+  const last = freudIConcepts.at(-1)
+  assert.equal(last.id, 'F62')
+  assert.equal(last.page, 'p. 13')
+  assert.equal(last.section, 'religion')
+  assert.match(last.title, /luz del día/i)
+  assert.match(freudISections.at(-1).after, /encabezado II/)
 })
 
 test('las conexiones son válidas y no existe ciclo de dependencias', () => {
@@ -51,7 +55,7 @@ test('las conexiones son válidas y no existe ciclo de dependencias', () => {
     seen.add(id)
   }
   for (const id of known) visit(id)
-  assert.equal(seen.size, 30)
+  assert.equal(seen.size, 62)
 })
 
 test('la interfaz exige cita literal, explicación, folio y paginación impresa', () => {
@@ -61,6 +65,7 @@ test('la interfaz exige cita literal, explicación, folio y paginación impresa'
   assert.match(source, /EXPLICACIÓN ACADÉMICA/)
   assert.match(source, /data\.originalQuote/)
   assert.match(source, /paginación impresa/)
+  assert.match(source, /Páginas impresas 2–13 · capítulo I completo/)
   assert.match(source, /data\.onOpenFolio\(data\.id\)/)
   assert.match(source, /role="dialog" aria-modal="true"/)
   assert.match(source, /event\.key === 'Escape'/)
