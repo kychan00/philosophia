@@ -273,7 +273,7 @@ export default function CriticalTheoryClass22Oct(){
     <section className="ct1510-reading">
       <div className="ct1510-section-head"><div><span className="ct1510-number">04 · LECTURA</span><h2>Freud · El malestar en la cultura</h2></div></div>
       <div className="ct1510-reading-grid">
-        <article><span>OBRA BASE</span><h3>El malestar en la cultura</h3><p>La sesión inicia el trabajo conceptual de la obra y la relaciona con la tensión individuo–sociedad.</p><Link to="/biblioteca?obra=Freud%20-%20El%20malestar%20en%20la%20cultura">Abrir ficha ↗</Link></article>
+        <article><span>OBRA BASE</span><h3>El malestar en la cultura</h3><p>La sesión inicia el trabajo conceptual de la obra y la relaciona con la tensión individuo–sociedad.</p><Link to="/biblioteca?obra=Freud%20-%20El%20malestar%20en%20la%20cultura">Abrir ficha ↗</Link><Link to="/semestre/5/teoria-critica/lectura/freud-malestar-capitulo-1">Estudiar capítulo I · sistema 2D ↗</Link></article>
         <article><span>CONTINUIDAD</span><h3>Clase del 20 de octubre</h3><p>La sesión anterior cerró Lukács y dejó como siguiente lectura comenzar a Freud.</p><Link to="/semestre/5/teoria-critica/clase/20-octubre">Abrir clase ↗</Link></article>
         <article><span>CONEXIÓN DE CLASE</span><h3>Lacan y el lenguaje</h3><p>La profesora mencionó la formulación lacaniana del inconsciente estructurado como lenguaje. Se conserva como conexión posterior y no como tesis textual de Freud.</p></article>
         <article><span>CAUTELA</span><h3>Teoría revisable</h3><p>La clase remarcó que Freud modifica hipótesis y modelos. Las formulaciones se presentan como movimientos teóricos, no como un sistema inmóvil.</p></article>
