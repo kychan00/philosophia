@@ -1,0 +1,16 @@
+export const critical15OctImage = {
+  id: 'critica-2026-10-15-cosificacion-vida-social',
+  classPath: '/semestre/5/teoria-critica/clase/15-octubre',
+  imagePath: 'images/teoria-critica/15-octubre-cosificacion-vida-social.svg',
+  imageType: 'original',
+  imageSource: 'PHILOSOPHIA · diagrama vectorial creado para la clase 11',
+  imageAuthor: 'PHILOSOPHIA',
+  imageLicense: 'ORIGINAL-OWNED',
+  imageLicenseUrl: null,
+  licenseEvidenceUrl: null,
+  imageAttribution: 'Ilustración original de PHILOSOPHIA',
+  modifications: 'ninguna',
+  alt: 'Un sujeto crea herramientas y procedimientos; una estructura cosificada invierte la relación y se ramifica hacia fábrica, burocracia, afectos y responsabilidad.',
+  pedagogicalPurpose: 'Mostrar la inversión sujeto/objeto y la expansión temática de la cosificación hacia distintos campos de la vida social.',
+  sourceBoundary: 'Reconstrucción visual editorial: las ramas representan campos de análisis de la sesión, no causalidad ni citas textuales de Lukács.',
+}
