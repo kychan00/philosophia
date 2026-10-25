@@ -41,7 +41,7 @@
 .ct2010-atlasx-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
 .ct2010-atlasx-step{padding:clamp(19px,2.5vw,30px);min-height:230px;position:relative;border-right:1px solid var(--c18-line)}
 .ct2010-atlasx-step:last-child{border-right:0}
-.ct2010-atlasx-step:not(:last-child)::after{
+.ct2010-atlasx-steps.is-sequence .ct2010-atlasx-step:not(:last-child)::after{
   content:'→';position:absolute;z-index:2;top:43%;right:-14px;display:grid;place-items:center;width:28px;height:28px;
   background:var(--c18-paper);font:700 1.4rem Arial,sans-serif;color:var(--c18-red)
 }
@@ -101,7 +101,7 @@
   .ct2010-atlasx-steps{grid-template-columns:1fr}
   .ct2010-atlasx-step{min-height:0;border-right:0;border-bottom:1px solid var(--c18-line)}
   .ct2010-atlasx-step:last-child{border-bottom:0}
-  .ct2010-atlasx-step:not(:last-child)::after{top:auto;right:calc(50% - 14px);bottom:-14px;content:'↓'}
+  .ct2010-atlasx-steps.is-sequence .ct2010-atlasx-step:not(:last-child)::after{top:auto;right:calc(50% - 14px);bottom:-14px;content:'↓'}
   .ct2010-atlasx-step>span{margin-bottom:15px}
   .ct2010-atlasx-guide-top{display:block}
   .ct2010-atlasx-guide-top button{margin-top:20px}
