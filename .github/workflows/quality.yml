@@ -117,6 +117,9 @@ jobs:
       - name: Validate Critical Theory class 22 October (desktop, iPad, phone)
         run: node tests/critical-class22oct-browser-smoke.mjs
 
+      - name: Validate Freud Chapter I 2D and floating folios (desktop, tablet, phone)
+        run: node tests/freud-capitulo-i-browser-smoke.mjs
+
       - name: Validate Methods 21 October in Chromium (desktop, iPad and phone)
         run: node tests/methods-class21-browser-smoke.mjs
 
