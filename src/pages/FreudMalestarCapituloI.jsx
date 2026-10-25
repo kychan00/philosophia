@@ -4,12 +4,12 @@ import { Background, Controls, Handle, MarkerType, Position, ReactFlow, ReactFlo
 import '@xyflow/react/dist/style.css'
 import SectionPedagogy from '../components/philosophy/system2d/SectionPedagogy.jsx'
 import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema.jsx'
-import { resolveSystem2DEdgeColor, SYSTEM_2D_THEME } from '../components/philosophy/system2d/system2dTheme.js'
+import { resolveSystem2DEdgeColor } from '../components/philosophy/system2d/system2dTheme.js'
 import { freudIConcepts, freudISections, freudIRoutes, freudILinks, freudIOrder, freudINodeById } from '../data/freudMalestarCapituloI.js'
 import './FreudMalestarCapituloI.css'
 
 const SECTION_TONE = { planteamiento: 'rust', constitucion: 'blue', memoria: 'plum', religion: 'sage' }
-const WINDOW_SIZE = { width: 350, height: 254 }
+const WINDOW_SIZE = { width: 350, height: 285 }
 const bySection = (id) => freudIConcepts.filter((item) => id === 'all' || item.section === id)
 function FreudConceptNode({ data, selected }) {
   return (
@@ -144,7 +144,7 @@ function FreudWorkspace() {
           <p className="freud-kicker">SIGMUND FREUD · LECTURA SISTEMATIZADA</p>
           <h1>El malestar <em>en la cultura</em></h1>
           <p className="freud-intro"><strong>Capítulo I · El yo, lo oceánico y el origen de la religión.</strong> Una reconstrucción fiel del argumento, desde el testimonio del sentimiento oceánico hasta la hipótesis del desamparo infantil.</p>
-          <div className="freud-tags"><span>18 nodos</span><span>4 rutas de estudio</span><span>8 preguntas fundamentales</span><span>PDF pp. 2–13, antes del capítulo II</span></div>
+          <div className="freud-tags"><span>18 nodos</span><span>4 rutas de estudio</span><span>18 preguntas de estudio</span><span>PDF pp. 2–13, antes del capítulo II</span></div>
         </div>
         <aside><strong>Pregunta rectora</strong><p>¿Sentirse parte de un todo ilimitado explica por qué existe la religión?</p><Link to="/semestre/5/teoria-critica/clase/22-octubre">Ver conexión con la clase del 22 de octubre</Link></aside>
       </header>
