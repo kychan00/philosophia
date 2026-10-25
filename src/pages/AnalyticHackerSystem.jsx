@@ -737,10 +737,10 @@ function StudyCanvas() {
 
           <div className="hacker-flow-canvas">
             <ReactFlow
-              nodes={compactViewport ? nodes.filter((node) =
-              onlyRenderVisibleElements> !node.hidden) : nodes}
+              nodes={compactViewport ? nodes.filter((node) => !node.hidden) : nodes}
               edges={compactViewport ? edges.filter((edge) => !edge.hidden) : edges}
               nodeTypes={nodeTypes}
+              onlyRenderVisibleElements
               onNodeClick={(_, node) => selectNode(node)}
               onPaneClick={() => {
                 if (!guidedMode) setSelectedId(null)
