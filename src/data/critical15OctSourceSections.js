@@ -142,7 +142,7 @@ export const critical15OctSourceSections = [
     "bullets": [
       "Continuar el apartado de cosificación de Lukács.",
       "Freud en el examen: pendiente de anuncio el 20 de octubre.",
-      "Examen hacia finales de octubre, sin fecha exacta; sede de conferencia aún incierta."
+      "Examen hacia finales de octubre, sin fecha exacta; conferencia sobre injusticia epistémica con sede aún incierta."
     ]
   },
   {
