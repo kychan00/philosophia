@@ -135,6 +135,18 @@ El número y la estructura de apartados provienen de la clase realmente document
 - Tests: `critical-class24sep-study.test.mjs` y `critical-class24sep-browser-smoke.mjs`.
 - Ninguna sesión posterior se considera adaptada por esta iteración.
 
+## Adopción · sesión 11 / 15 de octubre
+
+- Página dedicada preexistente: `src/pages/CriticalTheoryClass15Oct.jsx`; se conserva su constelación interactiva de 8 nodos y el vínculo al sistema 2D de 58 nodos.
+- Datos nuevos: `critical15OctThemes.js`, `critical15OctSections.js`, `critical15OctSourceSections.js` y `critical15OctImage.js`.
+- Componentes: `Critical15OctThematicAtlas` y `Critical15OctSectionStudy`.
+- Fuente visible: 14 apartados con procedencia diferenciada antes de la capa pedagógica.
+- Atlas: Marx→Lukács; racionalización; forma/totalidad; afectos/utilidad; responsabilidad/resistencia.
+- Imagen: `15-octubre-cosificacion-vida-social.svg`, original; las ramas representan campos de análisis de la sesión, no causalidad ni citas textuales.
+- Límites: Marcuse = apertura futura; Illouz/Adorno/Arendt = referencias de estatuto distinto; Foucault = analogía docente; vocabulario libertad positiva/negativa ≠ identidad automática con Berlin.
+- Tests: `critical-class15oct-study.test.mjs` y `critical-class15oct-browser-smoke.mjs`.
+- El 20 de octubre permanece fuera del alcance de esta iteración.
+
 ## Revisión de otras sesiones
 
 Aplicar únicamente cuando se trabaje ese folio, con cotejo individual de las notas del vault, incluyendo `05 - Clases` y la ficha de la materia. Las trece clases no se consideran refactorizadas por añadir esta regla.
