@@ -67,6 +67,9 @@ jobs:
       - name: Lint Hartmann functional browser test
         run: npx eslint tests/hartmann-chapter1-browser-smoke.mjs
 
+      - name: Lint Freud crash hotfix and browser smoke
+        run: npx eslint src/pages/FreudMalestarCapituloI.jsx tests/freud-capitulo-i.test.mjs tests/freud-capitulo-i-browser-smoke.mjs
+
       - name: Build
         env:
           VITE_ONESIGNAL_APP_ID: ${{ vars.ONESIGNAL_APP_ID }}
@@ -98,6 +101,9 @@ jobs:
 
       - name: Validate Hartmann chapter I 2D in Chromium (desktop, tablet and phone)
         run: node tests/hartmann-chapter1-browser-smoke.mjs
+
+      - name: Validate Freud crash hotfix in Chromium (desktop, iPad and phone)
+        run: node tests/freud-capitulo-i-browser-smoke.mjs
 
       - name: Validate Café del Agua in Chromium (phone and tablet)
         run: node tests/cafe-agua-browser-smoke.mjs
