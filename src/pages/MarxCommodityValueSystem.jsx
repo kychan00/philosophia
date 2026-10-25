@@ -668,10 +668,10 @@ function StudyCanvas() {
     setStudyMode(false)
     resetStudyReveal()
     setRelationId(null)
-    setRoute(initialSystem2DRoute(marxCommodityRoutes))
+    setRoute('all')
     setSelectedId(null)
-    setTimeout(() => fitView({ padding: 0.08, duration: 500 }), 0)
-  }, [fitView, resetStudyReveal])
+    if (!compactViewport) setTimeout(() => fitView({ padding: 0.08, duration: 500 }), 0)
+  }, [compactViewport, fitView, resetStudyReveal])
 
   // PHILOSOPHIA_ROUTE_FIT_SELECTION_SAFE
   // Reencuadrar sólo cuando cambia la ruta. Una selección modifica `nodes`
