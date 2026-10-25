@@ -37,9 +37,9 @@ test('los atlas auditados reducen el trabajo de React Flow en móvil', () => {
     const text = source(path)
     assert.match(text, /onlyRenderVisibleElements/, 'falta render visible: ' + path)
     assert.match(text, /compactViewport/, 'falta guardia compacta: ' + path)
-    assert.ok(
-      text.includes('!compactViewport && <MiniMap') ||
-      text.includes('!compactViewport&&<MiniMap'),
+    assert.match(
+      text,
+      /!compactViewport[\s\S]{0,100}<MiniMap/,
       'minimapa sin guardia compacta: ' + path,
     )
     assert.doesNotMatch(text, /onlyRenderVisibleElements>/, 'sintaxis corrupta por sustitución: ' + path)
