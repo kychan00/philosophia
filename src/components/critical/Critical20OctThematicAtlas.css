@@ -1,0 +1,122 @@
+/* FI265 · Atlas temático de la clase duodécima · folio 012.
+   Adaptación de la pedagogía de Filosofía de la Lógica, sin cambiar su estética propia. */
+.ct2010-atlasx{
+  --c18-ink:#171713;--c18-paper:#fcf9f2;--c18-red:#9e1010;
+  --c18-line:#bdb1a5;--c18-deep:#331918;--c18-grey:#635a52;
+  padding:clamp(45px,7vw,105px) clamp(18px,5vw,75px);
+  max-width:1430px;margin:auto;color:var(--c18-ink);background:var(--c18-paper);
+}
+.ct2010-atlasx *{box-sizing:border-box;min-width:0}
+.ct2010-atlasx button{font-family:Arial,Helvetica,sans-serif;cursor:pointer}
+.ct2010-atlasx button:focus-visible{outline:3px solid var(--c18-red);outline-offset:3px}
+.ct2010-atlasx-heading{display:grid;grid-template-columns:100px minmax(0,1fr);gap:25px;margin-bottom:42px}
+.ct2010-atlasx-heading>span{font:800 .72rem/1.5 Arial,sans-serif;color:var(--c18-red);border-top:4px solid var(--c18-red);padding-top:12px;letter-spacing:.11em}
+.ct2010-atlasx-heading>div>p:first-child{font:800 .68rem Arial,sans-serif;letter-spacing:.15em;margin:0 0 18px;color:var(--c18-red)}
+.ct2010-atlasx-heading h2{font:400 clamp(2.5rem,5.5vw,5.4rem)/1.03 Georgia,serif;letter-spacing:-.066em;margin:0 0 22px}
+.ct2010-atlasx-heading h2 em{color:var(--c18-red);font-weight:400}
+.ct2010-atlasx-heading>div>p:last-child{max-width:830px;font:400 clamp(1.03rem,1.5vw,1.18rem)/1.65 Georgia,serif}
+.ct2010-atlasx-tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;margin-bottom:12px}
+.ct2010-atlasx-tabs button{
+  display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;text-align:left;
+  min-height:135px;border:1px solid var(--c18-ink);border-radius:0;background:transparent;color:var(--c18-ink);
+  padding:17px;transition:background .16s,color .16s;
+}
+.ct2010-atlasx-tabs button:hover{background:#efe5da}
+.ct2010-atlasx-tabs button.is-selected{background:var(--c18-ink);color:var(--c18-paper);box-shadow:inset 0 0 0 3px #ba9875}
+.ct2010-atlasx-number{font-size:.69rem;opacity:.75;letter-spacing:.1em}
+.ct2010-atlasx-icon{font:500 clamp(1.65rem,3vw,2.6rem)/1 Georgia,serif;margin:15px 0;color:inherit}
+.ct2010-atlasx-tabs strong{font:800 .71rem/1.35 Arial,sans-serif;letter-spacing:.065em;text-transform:uppercase;overflow-wrap:break-word}
+.ct2010-atlasx-reader{background:#3a2b2b;color:#fff9f0;display:grid;grid-template-columns:minmax(120px,.27fr) minmax(0,1fr);gap:clamp(20px,3.5vw,48px);padding:clamp(22px,3.5vw,50px);border-top:8px solid var(--c18-red)}
+.ct2010-atlasx-symbol{display:grid;place-items:center;min-height:235px;border:1px solid #9a817d;color:#fff1e7;font:400 clamp(5rem,9vw,9rem)/1 Georgia,serif}
+.ct2010-atlasx-kicker{font:800 .68rem/1.4 Arial,sans-serif;letter-spacing:.13em;color:#f5b9ab}
+.ct2010-atlasx-story h3{font:400 clamp(2rem,4.3vw,4.2rem)/1.12 Georgia,serif;letter-spacing:-.055em;margin:16px 0 22px;color:#fff9f0}
+.ct2010-atlasx-story>strong{font:600 clamp(1.1rem,1.7vw,1.42rem)/1.4 Georgia,serif;display:block;margin-bottom:23px}
+.ct2010-atlasx-story>p{font:400 clamp(1rem,1.45vw,1.18rem)/1.66 Georgia,serif;color:#f5ece7;margin:13px 0}
+.ct2010-atlasx-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:25px}
+.ct2010-atlasx-tags span{padding:7px 11px;border:1px solid #927c74;text-transform:uppercase;font:700 .69rem Arial,sans-serif;color:#f3dacf}
+.ct2010-atlasx-figure{margin-top:36px;border:1px solid var(--c18-ink)}
+.ct2010-atlasx-figure-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;background:var(--c18-ink);color:#fff8f0;padding:18px 24px}
+.ct2010-atlasx-figure-head>span{font:800 .68rem Arial,sans-serif;letter-spacing:.11em}
+.ct2010-atlasx-figure-head>strong{font:500 .85rem Georgia,serif}
+.ct2010-atlasx-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.ct2010-atlasx-step{padding:clamp(19px,2.5vw,30px);min-height:230px;position:relative;border-right:1px solid var(--c18-line)}
+.ct2010-atlasx-step:last-child{border-right:0}
+.ct2010-atlasx-steps.is-sequence .ct2010-atlasx-step:not(:last-child)::after{
+  content:'→';position:absolute;z-index:2;top:43%;right:-14px;display:grid;place-items:center;width:28px;height:28px;
+  background:var(--c18-paper);font:700 1.4rem Arial,sans-serif;color:var(--c18-red)
+}
+.ct2010-atlasx-step>span{display:block;font:800 .67rem/1.4 Arial,sans-serif;letter-spacing:.1em;color:var(--c18-red);text-transform:uppercase;margin-bottom:34px}
+.ct2010-atlasx-step h4{font:400 clamp(1.5rem,2.4vw,2.3rem)/1.16 Georgia,serif;margin:0 0 15px}
+.ct2010-atlasx-step p{font:400 1rem/1.55 Georgia,serif;margin:0}
+.ct2010-atlasx-caution{margin:0;padding:15px 23px;background:#efe8dd;border-top:1px solid var(--c18-line);font:400 .79rem/1.6 Arial,sans-serif;color:var(--c18-grey)}
+.ct2010-atlasx-figure-note{margin-top:15px;border:1px solid #ba9b70;border-left:5px solid #9a6a2c}
+.ct2010-atlasx-guide-top{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 25px;background:#eee5d8}
+.ct2010-atlasx-guide-top span{font:800 .69rem Arial,sans-serif;letter-spacing:.14em;color:#76521c}
+.ct2010-atlasx-guide-top h4{font:400 1.65rem Georgia,serif;margin:6px 0}
+.ct2010-atlasx-guide-top p{font:400 .89rem/1.5 Georgia,serif;margin:0;max-width:750px}
+.ct2010-atlasx-guide-top button{flex-shrink:0;background:transparent;border:1px solid #82653d;padding:13px 16px;color:var(--c18-ink);font:800 .7rem Arial,sans-serif;white-space:nowrap}
+.ct2010-atlasx-guide-top button:hover{background:var(--c18-ink);color:#fff}
+.ct2010-atlasx-guide-body{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.ct2010-atlasx-guide-body>div{padding:clamp(18px,2.5vw,29px);border-top:1px solid #d5c5ab;border-right:1px solid #d5c5ab}
+.ct2010-atlasx-guide-body>div:nth-child(2n){border-right:0}
+.ct2010-atlasx-guide-body>div:nth-child(4){background:#eee7db}
+.ct2010-atlasx-guide-body span{font:800 .68rem/1.4 Arial,sans-serif;letter-spacing:.08em;color:#76521c}
+.ct2010-atlasx-guide-body p{font:400 clamp(.97rem,1.4vw,1.12rem)/1.6 Georgia,serif;margin:15px 0 0}
+.ct2010-atlasx-contrast{margin-top:42px;border:1px solid var(--c18-ink)}
+.ct2010-atlasx-contrast-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:17px 25px;color:#fff;background:var(--c18-ink)}
+.ct2010-atlasx-contrast-head span{font:800 .7rem Arial,sans-serif;letter-spacing:.08em}
+.ct2010-atlasx-contrast-head strong{font:500 .94rem Georgia,serif}
+.ct2010-atlasx-contrast-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.ct2010-atlasx-contrast-cards>div{padding:clamp(22px,3vw,40px);border-right:1px solid var(--c18-line)}
+.ct2010-atlasx-contrast-cards>div:last-child{border-right:0}
+.ct2010-atlasx-contrast-cards>div>span{font:800 .7rem Arial,sans-serif;color:var(--c18-red)}
+.ct2010-atlasx-contrast-cards h4{font:400 clamp(1.6rem,2.7vw,2.7rem)/1.13 Georgia,serif;margin:21px 0}
+.ct2010-atlasx-contrast-cards p{font:400 1.08rem/1.6 Georgia,serif}
+.ct2010-atlasx-essence{background:#f0e5dc;border-top:1px solid var(--c18-ink);padding:25px 30px}
+.ct2010-atlasx-essence span{font:800 .73rem Arial,sans-serif;color:var(--c18-red);letter-spacing:.09em}
+.ct2010-atlasx-essence p{font:600 clamp(1.07rem,1.5vw,1.38rem)/1.55 Georgia,serif;max-width:980px;margin:13px 0 0}
+.ct2010-atlasx-footer{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:26px 0;border-bottom:5px double var(--c18-red)}
+.ct2010-atlasx-footer>div:first-child{max-width:480px}
+.ct2010-atlasx-footer>div:first-child>span{font:800 .69rem Arial,sans-serif;letter-spacing:.13em;color:var(--c18-red)}
+.ct2010-atlasx-footer>div:first-child>p{font:400 .9rem/1.5 Georgia,serif;margin:8px 0 0}
+.ct2010-atlasx-actions{display:flex;gap:9px;flex-wrap:wrap}
+.ct2010-atlasx-actions button{background:transparent;border:1px solid var(--c18-ink);padding:15px;color:var(--c18-ink);font:800 .76rem/1.25 Arial,sans-serif}
+.ct2010-atlasx-actions button:last-child{background:var(--c18-red);border-color:var(--c18-red);color:#fff}
+.ct2010-atlasx-actions button:hover{background:var(--c18-ink);color:#fff}
+.ct2010-atlasx-actions span{opacity:.8;font-size:.67rem}
+@media(max-width:1024px){
+  .ct2010-atlasx-tabs{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .ct2010-atlasx-reader{grid-template-columns:115px minmax(0,1fr)}
+  .ct2010-atlasx-steps{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:700px){
+  .ct2010-atlasx{padding-inline:17px}
+  .ct2010-atlasx-heading{grid-template-columns:1fr;gap:18px}
+  .ct2010-atlasx-heading>span{max-width:150px}
+  .ct2010-atlasx-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ct2010-atlasx-tabs button{min-height:105px}
+  .ct2010-atlasx-icon{margin:8px 0}
+  .ct2010-atlasx-reader{display:block}
+  .ct2010-atlasx-symbol{float:none;min-height:78px;width:100%;margin-bottom:25px;font-size:4.4rem}
+  .ct2010-atlasx-steps{grid-template-columns:1fr}
+  .ct2010-atlasx-step{min-height:0;border-right:0;border-bottom:1px solid var(--c18-line)}
+  .ct2010-atlasx-step:last-child{border-bottom:0}
+  .ct2010-atlasx-steps.is-sequence .ct2010-atlasx-step:not(:last-child)::after{top:auto;right:calc(50% - 14px);bottom:-14px;content:'↓'}
+  .ct2010-atlasx-step>span{margin-bottom:15px}
+  .ct2010-atlasx-guide-top{display:block}
+  .ct2010-atlasx-guide-top button{margin-top:20px}
+  .ct2010-atlasx-guide-body,.ct2010-atlasx-contrast-cards{grid-template-columns:1fr}
+  .ct2010-atlasx-guide-body>div{border-right:0}
+  .ct2010-atlasx-contrast-cards>div{border-right:0;border-bottom:1px solid var(--c18-line)}
+  .ct2010-atlasx-contrast-cards>div:last-child{border-bottom:0}
+  .ct2010-atlasx-actions{width:100%}
+  .ct2010-atlasx-actions button{flex:1 1 180px}
+}
+@media(max-width:370px){.ct2010-atlasx-tabs{grid-template-columns:1fr}.ct2010-atlasx-tabs button{min-height:82px}.ct2010-atlasx-icon{font-size:1.8rem}}
+@media(prefers-reduced-motion:reduce){.ct2010-atlasx *{transition:none!important;scroll-behavior:auto!important}}
+@media print{
+  .ct2010-atlasx{max-width:none;padding:20px}
+  .ct2010-atlasx-tabs,.ct2010-atlasx-actions,.ct2010-atlasx-guide-top button{display:none!important}
+  .ct2010-atlasx-reader,.ct2010-atlasx-figure-head{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .ct2010-atlasx-reader,.ct2010-atlasx-figure,.ct2010-atlasx-figure-note,.ct2010-atlasx-contrast{break-inside:avoid-page}
+}

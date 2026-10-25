@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440" role="img" aria-labelledby="title desc">
+<title id="title">Trabajo, objetivación y enajenación en Marx</title>
+<desc id="desc">Ilustración original de PHILOSOPHIA. El trabajo transforma naturaleza y produce un objeto. Desde allí el circuito puede continuar hacia un retorno social o romperse mediante separación y enajenación. El esquema distingue objetivación de enajenación y no es un diagrama literal de la profesora.</desc>
+<rect width="1200" height="440" fill="#FCF9F2"/>
+<rect x="1.5" y="1.5" width="1197" height="437" fill="none" stroke="#9E1010" stroke-width="3"/>
+<rect width="1200" height="18" fill="#9E1010"/>
+<text x="48" y="56" font-family="Arial" font-size="12" font-weight="700" fill="#9E1010">TRABAJO / OBJETIVACIÓN / RETORNO O ENAJENACIÓN · 10 SEP 2026</text>
+
+<g transform="translate(45 105)" font-family="Georgia, serif" text-anchor="middle">
+  <rect x="0" y="0" width="175" height="100" fill="#EEE4D7" stroke="#121212" stroke-width="3"/>
+  <text x="87" y="40" font-family="Arial" font-size="10" fill="#9E1010">ACTIVIDAD</text>
+  <text x="87" y="72" font-size="22" fill="#121212">trabajo</text>
+
+  <rect x="230" y="0" width="175" height="100" fill="#D7C2A5" stroke="#121212" stroke-width="3"/>
+  <text x="317" y="40" font-family="Arial" font-size="10" fill="#9E1010">EXTERIORIZACIÓN</text>
+  <text x="317" y="72" font-size="22" fill="#121212">objetivación</text>
+
+  <rect x="460" y="0" width="175" height="100" fill="#FCF9F2" stroke="#121212" stroke-width="3"/>
+  <text x="547" y="40" font-family="Arial" font-size="10" fill="#9E1010">RESULTADO</text>
+  <text x="547" y="72" font-size="22" fill="#121212">mundo producido</text>
+
+  <g stroke="#9E1010" stroke-width="4" fill="none">
+    <path d="M176 50 H218"/><path d="M207 39 L220 50 L207 61"/>
+    <path d="M406 50 H448"/><path d="M437 39 L450 50 L437 61"/>
+  </g>
+</g>
+
+<g transform="translate(720 86)">
+  <text x="0" y="0" font-family="Arial" font-size="11" font-weight="700" fill="#5E554C">¿QUÉ OCURRE CON LO PRODUCIDO?</text>
+  <rect x="0" y="34" width="410" height="105" fill="#EEE4D7" stroke="#121212" stroke-width="3"/>
+  <text x="22" y="67" font-family="Arial" font-size="10" fill="#2B2725">CIRCUITO DE RETORNO</text>
+  <text x="22" y="99" font-family="Georgia, serif" font-size="22" fill="#121212">riqueza y capacidades vuelven</text>
+  <text x="22" y="122" font-family="Arial" font-size="10" fill="#5E554C">a quienes sostienen la producción social</text>
+
+  <rect x="0" y="174" width="410" height="105" fill="#2B2725" stroke="#121212" stroke-width="3"/>
+  <text x="22" y="207" font-family="Arial" font-size="10" fill="#FCF9F2">CIRCUITO INTERRUMPIDO</text>
+  <text x="22" y="239" font-family="Georgia, serif" font-size="22" fill="#FCF9F2">separación → enajenación</text>
+  <text x="22" y="262" font-family="Arial" font-size="10" fill="#FCF9F2">el producto se enfrenta al productor como extraño</text>
+</g>
+
+<path d="M590 220 C675 220 670 152 708 152" fill="none" stroke="#9E1010" stroke-width="4"/>
+<path d="M590 220 C675 220 670 292 708 292" fill="none" stroke="#9E1010" stroke-width="4" stroke-dasharray="8 7"/>
+<circle cx="590" cy="220" r="7" fill="#9E1010"/>
+<text x="48" y="402" font-family="Arial" font-size="10" fill="#5E554C">RECONSTRUCCIÓN EDITORIAL PHILOSOPHIA · OBJETIVACIÓN ≠ ENAJENACIÓN · NO DIAGRAMA LITERAL DE LA PROFESORA</text>
+</svg>

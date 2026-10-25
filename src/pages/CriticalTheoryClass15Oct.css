@@ -74,3 +74,40 @@
 
 .ct1510-cta button{cursor:pointer;font:700 .8rem Arial,sans-serif}
 .ct1510-cta button:focus-visible{outline:3px solid var(--ph2d-topic-blue);outline-offset:3px}
+
+
+/* Folio 011 · doble capa pedagógica */
+.ct1510-licensed-figure{max-width:1510px;margin:0 auto;padding:clamp(28px,4vw,58px) clamp(20px,5vw,80px) 0}
+.ct1510-licensed-item{border:1px solid var(--ph2d-line);background:var(--ph2d-paper);overflow:hidden}
+.ct1510-licensed-item img{display:block;width:100%;height:auto}
+.ct1510-licensed-item figcaption{padding:18px 22px;border-top:1px solid var(--ph2d-line);font-family:Arial,sans-serif}
+.ct1510-licensed-item figcaption>span{display:block;color:var(--ph2d-topic-rust);font-size:.63rem;font-weight:800;letter-spacing:.14em}
+.ct1510-licensed-item figcaption>strong{display:block;margin:.45rem 0;font-family:Georgia,serif;font-size:1.4rem}
+.ct1510-licensed-item figcaption p{margin:.35rem 0;line-height:1.55}
+.ct1510-licensed-item figcaption small{display:block;color:var(--ph2d-muted);line-height:1.5}
+
+.ct1510-detail{max-width:1510px;margin:0 auto;padding:clamp(48px,6vw,86px) clamp(20px,5vw,80px);border-top:1px solid var(--ph2d-line)}
+.ct1510-detail-head{display:grid;grid-template-columns:170px minmax(0,1fr);gap:30px 50px;margin-bottom:30px}
+.ct1510-detail-head>span{font:800 .67rem Arial,sans-serif;letter-spacing:.14em;color:var(--ph2d-topic-rust)}
+.ct1510-detail-head p{margin:.35rem 0;color:var(--ph2d-muted);font:400 .9rem/1.65 Arial,sans-serif}
+.ct1510-detail-head h2{margin:.35rem 0 .8rem}
+.ct1510-detail-index{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:34px}
+.ct1510-detail-index button{display:grid;grid-template-columns:2.2rem 1fr;align-items:start;gap:.6rem;min-height:70px;padding:12px;border:1px solid var(--ph2d-line);background:var(--ph2d-paper);color:var(--ph2d-ink);text-align:left;cursor:pointer;font:700 .76rem/1.4 Arial,sans-serif}
+.ct1510-detail-index button span{color:var(--ph2d-topic-rust);font-family:Georgia,serif;font-size:1.05rem}
+.ct1510-detail-index button:hover{border-color:var(--ph2d-topic-moss)}
+.ct1510-detail-index button:focus-visible{outline:3px solid var(--ph2d-topic-blue);outline-offset:2px}
+.ct1510-detail-body{display:grid;gap:42px}
+.ct1510-detail-folio{scroll-margin-top:18px}
+.ct1510-detail-folio>header{display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;align-items:start;border-bottom:1px solid var(--ph2d-line);padding-bottom:14px}
+.ct1510-detail-folio>header>span{font-family:Georgia,serif;font-size:2.4rem;color:var(--ph2d-topic-rust)}
+.ct1510-detail-folio>header small{display:block;font:800 .62rem Arial,sans-serif;letter-spacing:.12em;color:var(--ph2d-topic-moss)}
+.ct1510-detail-folio>header h3{margin:.45rem 0 0;font-size:clamp(1.65rem,2.5vw,2.5rem);line-height:1.1}
+.ct1510-source-card{margin-top:16px;padding:18px 20px;border-left:4px solid var(--ph2d-topic-moss);background:var(--ph2d-paper)}
+.ct1510-source-card p{margin:0;font-size:1.06rem;line-height:1.68}
+.ct1510-source-card ul{margin:1rem 0 0;padding-left:1.2rem}
+.ct1510-source-card li{margin:.45rem 0;font:400 .9rem/1.55 Arial,sans-serif}
+
+@media(max-width:1050px){.ct1510-detail-index{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){.ct1510-detail-head{grid-template-columns:1fr}.ct1510-detail-index{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:470px){.ct1510-detail-index{grid-template-columns:1fr}.ct1510-detail-folio>header{grid-template-columns:48px minmax(0,1fr)}.ct1510-detail-folio>header>span{font-size:1.9rem}}
+@media print{.ct1510-detail-index{display:none}.ct1510-detail-folio{break-inside:avoid}.ct1510-licensed-item{break-inside:avoid}}

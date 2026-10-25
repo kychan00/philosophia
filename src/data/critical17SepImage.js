@@ -1,0 +1,16 @@
+export const critical17SepImage = {
+  id: 'critica-2026-09-17-cuatro-momentos',
+  classPath: '/semestre/5/teoria-critica/clase/17-septiembre',
+  imagePath: 'images/teoria-critica/17-septiembre-cuatro-momentos.svg',
+  imageType: 'original',
+  imageSource: 'PHILOSOPHIA · diagrama vectorial creado para la clase 8',
+  imageAuthor: 'PHILOSOPHIA',
+  imageLicense: 'ORIGINAL-OWNED',
+  imageLicenseUrl: null,
+  licenseEvidenceUrl: null,
+  imageAttribution: 'Ilustración original de PHILOSOPHIA',
+  modifications: 'ninguna',
+  alt: 'Producto, actividad, ser genérico y otros seres humanos aparecen como cuatro nodos conectados alrededor de una misma estructura de enajenación.',
+  pedagogicalPurpose: 'Mostrar que los cuatro momentos de la enajenación forman una totalidad articulada y no cuatro procesos independientes.',
+  sourceBoundary: 'Reconstrucción visual editorial basada en una fuente parcial; las conexiones indican articulación conceptual, no secuencia causal ni diagrama literal de la profesora.',
+}

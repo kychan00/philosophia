@@ -12,3 +12,23 @@
 .ctsep10-task{display:grid;grid-template-columns:1.3fr .7fr;gap:1rem}.ctsep10-task>div,.ctsep10-task aside{padding:1.5rem;border:1px solid var(--line);background:rgba(255,255,255,.28)}.ctsep10-task h3{font-family:Georgia,serif;font-size:1.55rem}.ctsep10-task aside strong{display:block;margin:.5rem 0;font-family:Georgia,serif;font-size:1.5rem;color:var(--red)}.ctsep10-footer{min-height:88px;padding:0 3rem;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;border-top:1px solid var(--line);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase}.ctsep10-footer>:last-child{justify-self:end}
 @media(max-width:1050px){.ctsep10-hero-inner{grid-template-columns:1fr}.ctsep10-layout{grid-template-columns:1fr}.ctsep10-index{position:relative;top:auto;max-height:none;padding:2rem 0;display:grid;grid-template-columns:repeat(2,1fr);gap:0 1rem}.ctsep10-index>p{grid-column:1/-1}}
 @media(max-width:760px){.ctsep10-nav{padding:0 1rem;grid-template-columns:1fr auto}.ctsep10-nav>:last-child{display:none}.ctsep10-hero-inner,.ctsep10-layout{width:min(100% - 2rem,1400px)}.ctsep10-two,.ctsep10-three,.ctsep10-return,.ctsep10-task{grid-template-columns:1fr}.ctsep10-inversion,.ctsep10-metabolic{grid-template-columns:1fr}.ctsep10-inversion>b,.ctsep10-metabolic>b{justify-self:center;transform:rotate(90deg)}.ctsep10-heading{grid-template-columns:1fr}.ctsep10-index{grid-template-columns:1fr}.ctsep10-footer{grid-template-columns:1fr;padding:1.4rem 1rem;gap:.5rem}.ctsep10-footer>:last-child{justify-self:start}}
+
+/* Folio 007 · capa editorial aprobada */
+.ctsep10-licensed-figure{width:min(1400px,calc(100% - 5rem));margin:0 auto;padding:2.2rem 0 3.5rem;overflow:hidden}
+.ctsep10-licensed-item{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,.4fr);gap:1.5rem;align-items:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:1.5rem 0}
+.ctsep10-licensed-item img{display:block;width:100%;height:auto;border:1px solid var(--red);background:#fcf9f2}
+.ctsep10-licensed-item figcaption span{display:block;color:var(--red);font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+.ctsep10-licensed-item figcaption strong{display:block;margin:.8rem 0;font-family:Georgia,serif;font-size:clamp(1.3rem,2vw,1.9rem);font-weight:500;line-height:1.2}
+.ctsep10-licensed-item figcaption p{margin:0 0 .7rem;font-family:Georgia,serif;line-height:1.6}
+.ctsep10-licensed-item figcaption small{color:var(--muted);line-height:1.55}
+.ctsep10-original-heading{width:min(1400px,calc(100% - 5rem));margin:0 auto;padding:4rem 0 1rem;border-top:5px double var(--red);display:grid;grid-template-columns:160px minmax(0,1fr);gap:1.5rem}
+.ctsep10-original-heading>span{color:var(--red);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding-top:.8rem;border-top:2px solid var(--red)}
+.ctsep10-original-heading>div>p:first-child{margin:0;color:var(--red);font-size:.65rem;font-weight:700;letter-spacing:.12em}
+.ctsep10-original-heading h2{margin:1rem 0;font-family:Georgia,serif;font-size:clamp(2.6rem,5vw,5rem);font-weight:500;line-height:1.03;letter-spacing:-.055em}
+.ctsep10-original-heading>div>p:last-child{max-width:800px;font-family:Georgia,serif;font-size:1.05rem;line-height:1.65}
+.ctsep10-page :is(button,a):focus-visible{outline:3px solid var(--red);outline-offset:3px}
+@media(max-width:900px){.ctsep10-licensed-item{grid-template-columns:1fr}.ctsep10-licensed-item figcaption{padding-top:.25rem}}
+@media(max-width:760px){.ctsep10-licensed-figure,.ctsep10-original-heading{width:min(100% - 2rem,1400px)}.ctsep10-original-heading{grid-template-columns:1fr;gap:1rem}}
+@media(prefers-reduced-motion:reduce){.ctsep10-page *{scroll-behavior:auto!important;transition:none!important}}
+@media print{.ctsep10-licensed-item{break-inside:avoid}.ctsep10-licensed-item img{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+

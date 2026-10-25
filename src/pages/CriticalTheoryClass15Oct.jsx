@@ -2,6 +2,10 @@ import { useState } from 'react'
 import { Link } from 'react-router'
 import '../components/philosophy/system2d/System2DTheme.css'
 import './CriticalTheoryClass15Oct.css'
+import Critical15OctThematicAtlas from '../components/critical/Critical15OctThematicAtlas'
+import Critical15OctSectionStudy from '../components/critical/Critical15OctSectionStudy'
+import { critical15OctImage } from '../data/critical15OctImage'
+import { critical15OctSourceSections } from '../data/critical15OctSourceSections'
 
 const chapters = [
   { id:'herencia', title:'Marx → Lukács', topic:'Fundamento', color:'moss',
@@ -111,6 +115,25 @@ export default function CriticalTheoryClass15Oct() {
         <div className="ct1510-warning"><strong>Distinción bibliográfica:</strong> Taylorismo (medición y administración científica del trabajo) y fordismo (línea de montaje y producción en serie) no son términos intercambiables, aunque la clase los vinculara en su exposición industrial.</div>
       </section>
 
+      <figure className="ct1510-licensed-figure">
+        <div className="ct1510-licensed-item">
+          <img
+            src={`${import.meta.env.BASE_URL}${critical15OctImage.imagePath}`}
+            alt={critical15OctImage.alt}
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>
+            <span>IMAGEN DE ESTUDIO · {critical15OctImage.imageLicense}</span>
+            <strong>Cosificación · de la forma mercancía a la vida social</strong>
+            <p>{critical15OctImage.pedagogicalPurpose}</p>
+            <small>{critical15OctImage.imageAttribution} · {critical15OctImage.sourceBoundary}</small>
+          </figcaption>
+        </div>
+      </figure>
+
+      <Critical15OctThematicAtlas />
+
       <section className="ct1510-atlas" id="ct1510-atlas" aria-labelledby="ct1510-atlas-title">
         <div className="ct1510-section-head"><div><span className="ct1510-number">02</span><h2 id="ct1510-atlas-title">Constelación de conceptos</h2><p>Vista interactiva de la sesión, distinta de la fuente textual del sistema 2D de Lukács.</p></div><Link to="/tareas/teoria-critica/lukacs-cosificacion">Sistema 2D de lectura ↗</Link></div>
         <div className="ct1510-node-grid" role="group" aria-label="Seleccione un concepto de la clase">
@@ -174,6 +197,48 @@ export default function CriticalTheoryClass15Oct() {
         <div className="ct1510-section-head"><div><span className="ct1510-number">05</span><h2>Agenda recuperada</h2></div></div>
         <p><strong>Martes 20 de octubre:</strong> la docente decidirá si la evaluación también incluirá a Freud. El examen se prevé para finales de octubre, <strong>sin día confirmado</strong>. Se invitó a una conferencia sobre injusticia epistémica el martes al mediodía; el auditorio se mencionó con incertidumbre (H o H2).</p>
         <p><strong>Lectura:</strong> continuar el capítulo de Lukács. Se mencionó después el estudio de Freud y las últimas semanas dedicadas a la Teoría Crítica.</p>
+      </section>
+
+      <section className="ct1510-detail" aria-labelledby="ct1510-detail-title">
+        <div className="ct1510-detail-head">
+          <span>06 / ARCHIVO DOCUMENTAL</span>
+          <div>
+            <p>CLASE / INTERVENCIONES / RECONSTRUCCIÓN / AMPLIACIONES DISTINGUIDAS</p>
+            <h2 id="ct1510-detail-title">La clase, apartado por apartado.</h2>
+            <p>Cada folio muestra primero qué está documentado y después una guía de estudio. Las conexiones con Illouz, Adorno, Marcuse, Foucault, Arendt y Berlin conservan su procedencia propia.</p>
+          </div>
+        </div>
+
+        <nav className="ct1510-detail-index" aria-label="Índice de apartados del 15 de octubre">
+          {critical15OctSourceSections.map((item) => (
+            <button
+              type="button"
+              key={item.id}
+              onClick={() => document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+            >
+              <span>{item.number}</span>{item.title}
+            </button>
+          ))}
+        </nav>
+
+        <div className="ct1510-detail-body">
+          {critical15OctSourceSections.map((item) => (
+            <article id={item.id} className="ct1510-detail-folio" key={item.id}>
+              <header>
+                <span>{item.number}</span>
+                <div>
+                  <small>{item.status}</small>
+                  <h3>{item.title}</h3>
+                </div>
+              </header>
+              <div className="ct1510-source-card">
+                <p>{item.body}</p>
+                <ul>{item.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>
+              </div>
+              <Critical15OctSectionStudy sectionId={item.id} />
+            </article>
+          ))}
+        </div>
       </section>
       <footer className="ct1510-footer"><Link to="/semestre/5/teoria-critica">← Volver a Teoría Crítica</Link><Link to="/tareas/teoria-critica/lukacs-cosificacion">Consultar fuentes y folios en el 2D ↗</Link><span>PHILOSOPHIA · FI265 · 2026-B</span></footer>
     </main>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="460" viewBox="0 0 1200 460" role="img" aria-labelledby="title desc">
+<title id="title">Cuatro momentos articulados de la enajenación</title>
+<desc id="desc">Ilustración original de PHILOSOPHIA. Producto, actividad, ser genérico y otros seres humanos aparecen como cuatro nodos conectados alrededor de una misma estructura de enajenación. Las conexiones indican articulación conceptual, no secuencia cronológica ni causal.</desc>
+<rect width="1200" height="460" fill="#FCF9F2"/>
+<rect x="1.5" y="1.5" width="1197" height="457" fill="none" stroke="#9E1010" stroke-width="3"/>
+<rect width="1200" height="18" fill="#9E1010"/>
+<text x="48" y="58" font-family="Arial" font-size="12" font-weight="700" fill="#9E1010">ENAJENACIÓN COMO TOTALIDAD · 17 SEP 2026</text>
+
+<g stroke="#9E1010" stroke-width="3" fill="none" opacity=".85">
+  <path d="M600 220 L310 145"/>
+  <path d="M600 220 L890 145"/>
+  <path d="M600 220 L310 330"/>
+  <path d="M600 220 L890 330"/>
+  <path d="M310 145 C420 80 780 80 890 145" stroke-dasharray="8 7"/>
+  <path d="M310 330 C420 395 780 395 890 330" stroke-dasharray="8 7"/>
+</g>
+
+<circle cx="600" cy="220" r="92" fill="#2B2725" stroke="#121212" stroke-width="3"/>
+<text x="600" y="203" text-anchor="middle" font-family="Arial" font-size="11" fill="#FCF9F2">TOTALIDAD</text>
+<text x="600" y="237" text-anchor="middle" font-family="Georgia, serif" font-size="25" fill="#FCF9F2">enajenación</text>
+<text x="600" y="260" text-anchor="middle" font-family="Arial" font-size="10" fill="#D7C2A5">CUATRO RELACIONES ARTICULADAS</text>
+
+<g font-family="Georgia, serif" text-anchor="middle">
+  <rect x="175" y="95" width="270" height="100" fill="#EEE4D7" stroke="#121212" stroke-width="3"/>
+  <text x="310" y="130" font-family="Arial" font-size="10" fill="#9E1010">I · PRODUCTO</text>
+  <text x="310" y="164" font-size="22" fill="#121212">lo producido</text>
+
+  <rect x="755" y="95" width="270" height="100" fill="#D7C2A5" stroke="#121212" stroke-width="3"/>
+  <text x="890" y="130" font-family="Arial" font-size="10" fill="#9E1010">II · ACTIVIDAD</text>
+  <text x="890" y="164" font-size="22" fill="#121212">el propio hacer</text>
+
+  <rect x="175" y="280" width="270" height="100" fill="#FCF9F2" stroke="#9E1010" stroke-width="3"/>
+  <text x="310" y="315" font-family="Arial" font-size="10" fill="#9E1010">III · SER GENÉRICO</text>
+  <text x="310" y="349" font-size="22" fill="#121212">capacidades humanas</text>
+
+  <rect x="755" y="280" width="270" height="100" fill="#EEE4D7" stroke="#121212" stroke-width="3"/>
+  <text x="890" y="315" font-family="Arial" font-size="10" fill="#9E1010">IV · OTROS</text>
+  <text x="890" y="349" font-size="22" fill="#121212">relaciones sociales</text>
+</g>
+
+<text x="48" y="425" font-family="Arial" font-size="10" fill="#5E554C">RECONSTRUCCIÓN EDITORIAL PHILOSOPHIA · FUENTE PARCIAL · LAS LÍNEAS INDICAN ARTICULACIÓN, NO ORDEN CAUSAL</text>
+</svg>

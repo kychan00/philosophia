@@ -42,6 +42,16 @@ Poder trabajar desde varias conversaciones en paralelo —biblioteca, clases, ta
 - Al integrar: sincronizar primero los contenidos/PRs que corresponden entre sí; registrar cualquier diferencia temporal como `pendiente-de-deploy`. Nunca atribuir a Pages un SHA no comprobado.
 - Nunca incluir notas privadas, archivos locales personales o material sensible dentro de los commits del repositorio público.
 
+## Regla visual obligatoria de imágenes para clases
+
+**Referencia de obligado cumplimiento:** [Imágenes de uso seguro y trazabilidad en clases](./REGLA_IMAGENES_LIBRES_Y_TRAZABILIDAD_CLASES.md), y su gemela privada `90 - Plantillas/Regla global - Imágenes de uso seguro en clases.md`.
+
+- Toda **clase nueva o individualmente rediseñada** incorpora **al menos una imagen pedagógica** con derechos de uso verificados, texto alternativo y pie/explicación; no basta una decoración genérica.
+- Antes de incorporar imágenes externas se exige licencia/permiso de publicación verificable y crédito (autor, fuente, licencia, cambios, vínculo), o una ilustración propia cuando no existe alternativa segura. **No** tratar «gratis» o «en internet» como «dominio público».
+- La nota correspondiente de Obsidian registra procedencia, autorización, relación con el contenido y limitaciones documentales. Se revisan responsive, carga, créditos y esquemas en los smoke de cada clase.
+- Las páginas históricas aún no revisadas quedan en estado **pendiente-de-cotejo-de-imágenes**; no afirmar falsamente que todas están adaptadas.
+- Si falta imagen segura o licencia trazable, **no dar la clase por terminada ni publicarla como conforme a la norma**.
+
 ## Barrera obligatoria antes del merge a producción
 
 - [ ] Cambios delimitados, sin archivos ajenos ni conflictos con otro chat.

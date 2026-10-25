@@ -3,6 +3,10 @@ import { Link } from 'react-router'
 import '../components/philosophy/system2d/System2DTheme.css'
 import './CriticalTheoryClass15Oct.css'
 import './CriticalTheoryClass20Oct.css'
+import Critical20OctThematicAtlas from '../components/critical/Critical20OctThematicAtlas'
+import Critical20OctSectionStudy from '../components/critical/Critical20OctSectionStudy'
+import { critical20OctImage } from '../data/critical20OctImage'
+import { critical20OctSourceSections } from '../data/critical20OctSourceSections'
 
 // «Explicación de clase» e «Intervención» no equivalen a cita literal del libro de Lukács.
 const chapters=[
@@ -100,6 +104,18 @@ export default function CriticalTheoryClass20Oct(){
       </div><aside className="ct1510-pull"><span>PREGUNTA NUCLEAR</span><strong>¿Cuándo el artefacto creado por personas parece actuar como un sujeto autónomo?</strong><div className="ct1510-inversion"><span>SUJETO</span><b>⇄</b><span>OBJETO</span></div><small>Esquema filosófico de una inversión social, no identidad literal entre personas y mercancías.</small></aside></div>
     </header>
     <section className="ct1510-intro"><div><span className="ct1510-number">01 · TESIS</span><h2>El sujeto y la cosa</h2></div><p>La exposición retomó el fetichismo de Marx y la cosificación de Lukács: las mercancías, las máquinas y los procedimientos pueden parecer independientes de los seres humanos que los producen. La clase aplicó la pregunta a la IA, la burocracia, el empleo, la vigilancia y la función de la filosofía.</p><div className="ct1510-warning"><strong>Fuente base:</strong> el texto de Lukács conservado en el vault comprende 27 páginas del PDF, la sección I y el inicio de II. El atlas de esta sesión no modifica los 58 nodos del texto ni suplanta sus pasajes.</div></section>
+    <figure className="ct1510-licensed-figure">
+      <div className="ct1510-licensed-item">
+        <img src={`${import.meta.env.BASE_URL}${critical20OctImage.imagePath}`} alt={critical20OctImage.alt} loading="lazy" decoding="async" />
+        <figcaption>
+          <span>IMAGEN DE ESTUDIO · {critical20OctImage.imageLicense}</span>
+          <strong>Agencia, herramientas, burocracia y disciplina</strong>
+          <p>{critical20OctImage.pedagogicalPurpose}</p>
+          <small>{critical20OctImage.imageAttribution} · {critical20OctImage.sourceBoundary}</small>
+        </figcaption>
+      </div>
+    </figure>
+    <Critical20OctThematicAtlas />
     <section className="ct1510-atlas" id="ct2010-map">
       <div className="ct1510-section-head"><div><span className="ct1510-number">02 · ATLAS 2D</span><h2>Doce folios conectados</h2><p>Seleccione un concepto: texto breve en la tarjeta, desarrollo completo y procedencia en el inspector. Sin coordenadas manuales ni solapamiento entre nodos.</p></div><Link to="/tareas/teoria-critica/lukacs-cosificacion">Consultar lectura completa ↗</Link></div>
       <div className="ct2010-toolbar"><button type="button" onClick={()=>{setGuided(v=>!v);select('mercancia')}} aria-pressed={guided}>{guided?'Cerrar guía':'Iniciar guía'}</button><span>{guided?'GUÍA SECUENCIAL · 12 FOLIOS':'EXPLORACIÓN LIBRE · 12 FOLIOS'}</span></div>
@@ -110,6 +126,31 @@ export default function CriticalTheoryClass20Oct(){
     </section>
     <section className="ct1510-relations"><div className="ct1510-section-head"><div><span className="ct1510-number">03 · MOVIMIENTO</span><h2>De la lectura a la crítica actual</h2></div></div><div className="ct1510-relation"><span>MARX · FETICHISMO</span><b>→</b><span>LUKÁCS · COSIFICACIÓN</span><b>⇢</b><span>IA · AGENCIA</span><b>⇢</b><span>FOUCAULT · DISCIPLINA</span></div><p className="ct2010-caption">La flecha simple indica la continuidad estudiada; la flecha punteada señala conexiones de discusión, no derivaciones textuales probadas.</p></section>
     <section className="ct1510-reading"><div className="ct1510-section-head"><div><span className="ct1510-number">04 · LECTURAS</span><h2>Fuentes y diálogos</h2></div></div><div className="ct1510-reading-grid"><article><span>OBRA BASE · LUKÁCS</span><h3>Historia y conciencia de clase</h3><p>Capítulo sobre la cosificación, con pasajes y folios en el sistema 2D existente.</p><Link to="/tareas/teoria-critica/lukacs-cosificacion">Ir a los 58 nodos ↗</Link></article><article><span>SESIÓN ANTERIOR</span><h3>15 de octubre</h3><p>Forma empresa, racionalización, afectos y responsabilidad. La sesión presente continúa la discusión.</p><Link to="/semestre/5/teoria-critica/clase/15-octubre">Abrir clase ↗</Link></article><article><span>AMPLIACIÓN DOCENTE</span><h3>Foucault · Vigilar y castigar</h3><p>Distribución espacial, regulación temporal, vigilancia y cuerpos disciplinados. Recomendación, no fuente del capítulo de Lukács.</p><a href="https://archive.org/details/FoucaultVigilarYCastigar" target="_blank" rel="noopener noreferrer">Consultar libro ↗</a></article><article><span>CONEXIÓN ESTUDIANTIL</span><h3>Nava · Tecnociencia</h3><p>El estudiante conectó el problema de las herramientas y la IA con el artículo de Alonso Nava.</p><Link to="/semestre/5/filosofia-analitica/lectura/nava-tecnociencia">Abrir estudio ↗</Link></article></div></section>
+    <section className="ct1510-detail" aria-labelledby="ct2010-detail-title">
+      <div className="ct1510-detail-head"><span>ARCHIVO DOCUMENTAL / 012</span><div>
+        <p>FUENTE DE CLASE Y RECONSTRUCCIÓN PEDAGÓGICA EN DOS CAPAS</p>
+        <h2 id="ct2010-detail-title">La clase, apartado por apartado.</h2>
+        <p>Catorce fichas incluyen el mapa de la sesión, las doce discusiones documentadas y la continuidad hacia Freud. Las preguntas y esquemas son editoriales, no exámenes oficiales.</p>
+      </div></div>
+      <nav className="ct1510-detail-index" aria-label="Índice documental del 20 de octubre">
+        {critical20OctSourceSections.map((item) => (
+          <button key={item.id} type="button" onClick={() => document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>
+            <span>{item.number}</span>{item.title}
+          </button>
+        ))}
+      </nav>
+      <div className="ct1510-detail-body">
+        {critical20OctSourceSections.map((item) => (
+          <article className="ct1510-detail-folio" id={item.id} key={item.id}>
+            <header><span>{item.number}</span><div><small>{item.status}</small><h3>{item.title}</h3></div></header>
+            <div className="ct1510-source-card"><p>{item.body}</p>
+              <ul>{item.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>
+            </div>
+            <Critical20OctSectionStudy sectionId={item.id} />
+          </article>
+        ))}
+      </div>
+    </section>
     <section className="ct1510-agenda"><div className="ct1510-section-head"><div><span className="ct1510-number">05 · SIGUIENTE PASO</span><h2>Freud · El malestar en la cultura</h2></div></div><div className="ct2010-agenda"><article><small>JUEVES 22 DE OCTUBRE · VIRTUAL</small><h3>Comenzar la lectura</h3><p>La profesora anunció clase a distancia por un congreso. Enviará el enlace y pidió que se comparta con Axel. Comenzar <em>El malestar en la cultura</em> de Sigmund Freud. <strong>No indicó páginas ni entrega escrita.</strong></p></article><article><small>SEMANA SIGUIENTE · SIN DÍA DEFINIDO</small><h3>Examen por confirmar</h3><p>Se mencionó evaluación la semana del 26 de octubre, pero no hay fecha exacta ni temario cerrado en esta sesión.</p></article></div></section>
     <footer className="ct1510-footer"><Link to="/semestre/5/teoria-critica">← Índice de materia</Link><Link to="/tareas/teoria-critica/lukacs-cosificacion">Fuente Lukács ↗</Link><span>PHILOSOPHIA · FI265 · 2026-B</span></footer>
   </main>

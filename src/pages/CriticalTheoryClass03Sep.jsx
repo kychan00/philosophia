@@ -1,5 +1,9 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
+import './CriticalTheoryClass03Sep.css'
+import Critical03SepThematicAtlas from '../components/critical/Critical03SepThematicAtlas'
+import Critical03SepSectionStudy from '../components/critical/Critical03SepSectionStudy'
+import { critical03SepImage } from '../data/critical03SepImage'
 
 const sections = [
   ['00', 'mapa', 'Mapa de la sesión'],
@@ -75,7 +79,7 @@ export default function CriticalTheoryClass03Sep() {
   )
 
   return (
-    <main className="ctsep1-page">
+    <main className="ctsep1-page ctsep3-page">
       <nav className="ctsep1-nav">
         <Link to="/semestre/5/teoria-critica">← Teoría Crítica</Link>
         <Link to="/" className="ctsep1-brand">Φ · Philosophia</Link>
@@ -113,6 +117,34 @@ export default function CriticalTheoryClass03Sep() {
         </div>
       </header>
 
+      <figure className="ctsep3-licensed-figure">
+        <div className="ctsep3-licensed-item">
+          <img
+            src={`${import.meta.env.BASE_URL}${critical03SepImage.imagePath}`}
+            alt={critical03SepImage.alt}
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>
+            <span>01 / IMAGEN DE ESTUDIO · {critical03SepImage.imageLicense}</span>
+            <strong>Experiencia · negatividad · saber</strong>
+            <p>{critical03SepImage.pedagogicalPurpose}</p>
+            <small>{critical03SepImage.imageAttribution} · {critical03SepImage.sourceBoundary}</small>
+          </figcaption>
+        </div>
+      </figure>
+
+      <Critical03SepThematicAtlas />
+
+      <div className="ctsep3-original-heading" id="ctsep3-documento">
+        <span>03 / ARCHIVO DOCUMENTAL</span>
+        <div>
+          <p>FUENTE / DESARROLLO CONSERVADO</p>
+          <h2>La clase, apartado por apartado.</h2>
+          <p>Los doce apartados originales permanecen visibles. Cada uno incorpora ahora una unidad de estudio que explica el problema, el esquema, sus límites y la relación con el recorrido de la sesión.</p>
+        </div>
+      </div>
+
       <div className="ctsep1-layout">
         <aside className="ctsep1-index">
           <p>Index criticus</p>
@@ -145,6 +177,7 @@ export default function CriticalTheoryClass03Sep() {
                 despliegue, sus relaciones y su movimiento dialéctico.
               </strong>
             </div>
+            <Critical03SepSectionStudy sectionId="mapa" />
           </section>
 
           <section id="saber">
@@ -169,6 +202,7 @@ export default function CriticalTheoryClass03Sep() {
                 su movimiento, despliegue y manifestación.
               </p>
             </div>
+            <Critical03SepSectionStudy sectionId="saber" />
           </section>
 
           <section id="fenomenologia">
@@ -193,6 +227,7 @@ export default function CriticalTheoryClass03Sep() {
                 formas colectivas como filosofía, religión y arte.
               </strong>
             </div>
+            <Critical03SepSectionStudy sectionId="fenomenologia" />
           </section>
 
           <section id="figuras">
@@ -214,6 +249,7 @@ export default function CriticalTheoryClass03Sep() {
               <span>razón</span><b>→</b>
               <strong>autoconciencia</strong>
             </div>
+            <Critical03SepSectionStudy sectionId="figuras" />
           </section>
 
           <section id="escision">
@@ -241,6 +277,7 @@ export default function CriticalTheoryClass03Sep() {
                 algo inseparable del propio espíritu.
               </p>
             </div>
+            <Critical03SepSectionStudy sectionId="escision" />
           </section>
 
           <section id="ciencia">
@@ -274,6 +311,7 @@ export default function CriticalTheoryClass03Sep() {
                 significa atender las interrelaciones.
               </p>
             </div>
+            <Critical03SepSectionStudy sectionId="ciencia" />
           </section>
 
           <section id="kant">
@@ -291,6 +329,7 @@ export default function CriticalTheoryClass03Sep() {
               <b>↔</b>
               <article className="danger"><span>HEGEL</span><strong>interrelación · organicidad · dialéctica</strong></article>
             </div>
+            <Critical03SepSectionStudy sectionId="kant" />
           </section>
 
           <section id="dialectica">
@@ -320,6 +359,7 @@ export default function CriticalTheoryClass03Sep() {
                 momentos anteriores y los incorpora en algo nuevo.
               </strong>
             </div>
+            <Critical03SepSectionStudy sectionId="dialectica" />
           </section>
 
           <section id="negatividad">
@@ -345,6 +385,7 @@ export default function CriticalTheoryClass03Sep() {
                 después. Por eso lo posterior es más rico en determinaciones.
               </strong>
             </div>
+            <Critical03SepSectionStudy sectionId="negatividad" />
           </section>
 
           <section id="espiral">
@@ -371,6 +412,7 @@ export default function CriticalTheoryClass03Sep() {
                 tiempo con sus determinaciones.
               </p>
             </div>
+            <Critical03SepSectionStudy sectionId="espiral" />
           </section>
 
           <section id="absoluto">
@@ -395,6 +437,7 @@ export default function CriticalTheoryClass03Sep() {
                 figura se desplegó a través del tiempo y de la historia.
               </strong>
             </div>
+            <Critical03SepSectionStudy sectionId="absoluto" />
           </section>
 
           <section id="tarea">
@@ -413,6 +456,7 @@ export default function CriticalTheoryClass03Sep() {
                 organización en figuras, secciones y subdivisiones.
               </strong>
             </div>
+            <Critical03SepSectionStudy sectionId="tarea" />
           </section>
         </article>
       </div>

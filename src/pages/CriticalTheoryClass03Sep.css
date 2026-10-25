@@ -1,0 +1,32 @@
+/* FI265 · Folio 006 · overrides editoriales locales.
+   Mantiene la maqueta histórica ctsep1 y encapsula la identidad visual de esta sesión. */
+.ctsep3-page{--ctsep3-paper:#fcf9f2;--ctsep3-ink:#171713;--ctsep3-red:#9e1010;--ctsep3-stroke:#bdb1a5;background:var(--ctsep3-paper)!important;color:var(--ctsep3-ink)!important}
+.ctsep3-page .ctsep1-nav{background:rgba(252,249,242,.96)!important;border-color:var(--ctsep3-stroke)!important}
+.ctsep3-page .ctsep1-hero{background:linear-gradient(135deg,#fcf9f2,#eee5da)!important;border-bottom:5px double var(--ctsep3-red)!important}
+.ctsep3-page .ctsep1-kicker,.ctsep3-page .ctsep1-question>span,.ctsep3-page .ctsep1-axis>span,.ctsep3-page .ctsep1-heading>div>p{color:var(--ctsep3-red)!important}
+.ctsep3-page .ctsep1-hero h1{letter-spacing:-.055em}
+.ctsep3-page .ctsep1-hero h1 em{color:var(--ctsep3-red)!important}
+.ctsep3-page .ctsep1-axis>div{border-color:var(--ctsep3-stroke)!important;background:#f4eee5!important}
+.ctsep3-page .ctsep1-axis i{color:var(--ctsep3-red)!important}
+.ctsep3-page .ctsep1-question{border-top-color:var(--ctsep3-red)!important;background:#f4eee5!important;box-shadow:none!important}
+.ctsep3-licensed-figure{max-width:1430px;margin:0 auto;padding:30px clamp(18px,5vw,80px) clamp(34px,5vw,64px);overflow:hidden}
+.ctsep3-licensed-item{display:grid;grid-template-columns:minmax(0,1fr) minmax(210px,.38fr);gap:22px;align-items:center;border-top:1px solid var(--ctsep3-stroke);border-bottom:1px solid var(--ctsep3-stroke);padding:24px 0}
+.ctsep3-licensed-item img{display:block;width:100%;height:auto;border:1px solid var(--ctsep3-red);background:var(--ctsep3-paper)}
+.ctsep3-licensed-item figcaption span{display:block;color:var(--ctsep3-red);font:800 .65rem/1.5 Arial,sans-serif;letter-spacing:.12em}
+.ctsep3-licensed-item figcaption strong{display:block;font:400 clamp(1.3rem,2.1vw,1.9rem)/1.2 Georgia,serif;margin:14px 0}
+.ctsep3-licensed-item figcaption p{font:400 .96rem/1.65 Georgia,serif;margin:0 0 12px}
+.ctsep3-licensed-item figcaption small{font:400 .74rem/1.6 Arial,sans-serif;color:#62594f}
+.ctsep3-original-heading{max-width:1430px;margin:0 auto;padding:50px clamp(18px,5vw,80px) 16px;border-top:5px double var(--ctsep3-red);display:grid;grid-template-columns:155px minmax(0,1fr);gap:24px}
+.ctsep3-original-heading>span{color:var(--ctsep3-red);font:800 .7rem/1.5 Arial,sans-serif;letter-spacing:.1em;padding-top:15px;border-top:2px solid var(--ctsep3-red)}
+.ctsep3-original-heading>div>p:first-child{color:var(--ctsep3-red);font:800 .68rem Arial,sans-serif;letter-spacing:.12em;margin:0}
+.ctsep3-original-heading h2{font:400 clamp(2.5rem,5vw,5rem)/1.05 Georgia,serif;letter-spacing:-.065em;margin:17px 0}
+.ctsep3-original-heading>div>p:last-child{max-width:790px;font:400 1.05rem/1.65 Georgia,serif}
+.ctsep3-page .ctsep1-layout{max-width:1430px!important}
+.ctsep3-page .ctsep1-index{border-color:var(--ctsep3-stroke)!important}
+.ctsep3-page .ctsep1-index>p,.ctsep3-page .ctsep1-index button span,.ctsep3-page .ctsep1-heading>span{color:var(--ctsep3-red)!important}
+.ctsep3-page .ctsep1-article>section{border-color:var(--ctsep3-stroke)!important;scroll-margin-top:20px}
+.ctsep3-page :is(button,a):focus-visible{outline:3px solid var(--ctsep3-red);outline-offset:3px}
+@media(max-width:900px){.ctsep3-licensed-item{grid-template-columns:1fr}.ctsep3-licensed-item figcaption{padding-top:4px}}
+@media(max-width:700px){.ctsep3-original-heading{grid-template-columns:1fr;gap:18px;padding-inline:17px}.ctsep3-licensed-figure{padding-inline:17px}}
+@media(prefers-reduced-motion:reduce){.ctsep3-page *{scroll-behavior:auto!important;transition:none!important}}
+@media print{.ctsep3-licensed-item{break-inside:avoid}.ctsep3-licensed-item img{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
