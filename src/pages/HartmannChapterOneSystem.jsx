@@ -518,10 +518,10 @@ function StudyCanvas() {
 
           <div className="hartmann2d-flow">
             <ReactFlow
-              nodes={compactViewport ? nodes.filter((node) =
-              onlyRenderVisibleElements> !node.hidden) : nodes}
+              nodes={compactViewport ? nodes.filter((node) => !node.hidden) : nodes}
               edges={compactViewport ? edges.filter((edge) => !edge.hidden) : edges}
               nodeTypes={nodeTypes}
+              onlyRenderVisibleElements
               onNodeClick={(_, node) => selectNode(node)}
               onPaneClick={() => {
                 if (!guidedMode) setSelectedId(null)
