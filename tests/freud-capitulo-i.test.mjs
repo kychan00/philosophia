@@ -70,6 +70,19 @@ test('la interfaz exige cita literal, explicación, folio y paginación impresa'
   assert.match(source, /role="dialog" aria-modal="true"/)
   assert.match(source, /event\.key === 'Escape'/)
   assert.match(source, /GRID_STEP/)
+  assert.match(source, /DEFAULT_ROUTE = 'planteamiento'/)
+  assert.match(source, /const flowNodes = useMemo\(\(\) => nodes\.filter/)
+  assert.match(source, /onlyRenderVisibleElements/)
+  assert.match(source, /compactViewport && route === 'all'/)
   assert.match(styles, /\.freud-folio-quote/)
   assert.match(styles, /\.freud-node-analysis/)
+})
+
+
+test('la apertura segura evita montar el atlas completo de 62 nodos por defecto', () => {
+  const source = readFileSync(new URL('../src/pages/FreudMalestarCapituloI.jsx', import.meta.url), 'utf8')
+  assert.doesNotMatch(source, /useState\('all'\)/)
+  assert.match(source, /useState\(DEFAULT_ROUTE\)/)
+  assert.match(source, /ReactFlow nodes=\{flowNodes\}/)
+  assert.match(source, /El sistema abre por una ruta temática/)
 })
