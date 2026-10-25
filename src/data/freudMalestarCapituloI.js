@@ -492,7 +492,7 @@ export const freudIConcepts = [
   {
     id:'F46', section:'memoria', order:46, page:'p. 11', kind:'Límite',
     title:'Elementos arcaicos pueden borrarse',
-    originalQuote:'«Aun en el terreno psíquico no deja de ser posible [...] que muchos elementos arcaicos sean borrados o consumidos»',
+    originalQuote:'«Aun en el terreno psíquico no deja de ser posible -como norma o excepcionalmente- que muchos elementos arcaicos sean borrados o consumidos en tal medida, que ya ningún proceso logre restablecerlos o reanimarlos»',
     summary:'La vida psíquica tampoco garantiza la supervivencia de cada formación antigua.',
     explanation:'Freud admite destrucción o pérdida irreversible de contenidos arcaicos, lo que impide formular una teoría de memoria absoluta.',
     simple:'Incluso en la mente hay cosas antiguas que pueden perderse de verdad.',
@@ -612,7 +612,7 @@ export const freudIConcepts = [
   {
     id:'F58', section:'religion', order:58, page:'p. 12', kind:'Función secundaria',
     title:'El oceánico como consolación religiosa',
-    originalQuote:'«este ser-uno-con-el-todo [...] nos seduce como una primera tentativa de consolación religiosa»',
+    originalQuote:'«este ser-uno-con-el-todo, implícito en su contenido ideativo, nos seduce como una primera tentativa de consolación religiosa»',
     summary:'Freud explica cómo el sentimiento oceánico pudo asociarse posteriormente con la religión sin ser su fuente originaria.',
     explanation:'La comunión con el Todo funciona como consuelo frente a un mundo experimentado como amenazante.',
     simple:'Aunque no origine la religión, sentirse unido al todo puede consolar frente al peligro.',
@@ -622,7 +622,7 @@ export const freudIConcepts = [
   {
     id:'F59', section:'religion', order:59, page:'p. 12', kind:'Segundo testimonio',
     title:'Yoga y regresiones a estados primordiales',
-    originalQuote:'«mediante las prácticas del yoga [...] se llega efectivamente a despertar en sí mismo nuevas sensaciones y sentimientos difusos»',
+    originalQuote:'«mediante las prácticas del yoga, es decir, apartándose del mundo exterior, fijando la atención en las funciones corporales, respirando de manera particular, se llega efectivamente a despertar en sí mismo nuevas sensaciones y sentimientos difusos»',
     summary:'Un segundo amigo presenta experiencias corporales inducidas como acceso a estados psíquicos primordiales.',
     explanation:'Freud introduce un testimonio experimental sobre respiración, atención corporal y aislamiento del mundo exterior, pero atribuye la interpretación regresiva al interlocutor.',
     simple:'Otro amigo dice que ciertas prácticas de yoga producen sensaciones que él interpreta como regresiones profundas.',
