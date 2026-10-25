@@ -6,7 +6,7 @@ import SectionPedagogy from '../components/philosophy/system2d/SectionPedagogy.j
 import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema.jsx'
 import { resolveSystem2DEdgeColor } from '../components/philosophy/system2d/system2dTheme.js'
 import { freudIConcepts, freudISections, freudIRoutes, freudILinks, freudIOrder, freudINodeById } from '../data/freudMalestarCapituloI.js'
-import { freudMalestarWork, freudMalestarChapters, freudMalestarActiveChapter } from '../data/freudMalestarBook.js'
+import { freudMalestarWork, freudMalestarChapters, freudMalestarChapterById } from '../data/freudMalestarBook.js'
 import './FreudMalestarCapituloI.css'
 
 const SECTION_TONE = { planteamiento: 'rust', constitucion: 'blue', memoria: 'plum', religion: 'sage' }
@@ -14,6 +14,8 @@ const WINDOW_SIZE = { width: 350, height: 470 }
 const GRID_STEP = { x: 500, y: 540 }
 const DEFAULT_ROUTE = 'planteamiento'
 const MOBILE_QUERY = '(max-width: 850px)'
+const ACTIVE_CHAPTER_ID = 'I'
+const freudMalestarActiveChapter = freudMalestarChapterById(ACTIVE_CHAPTER_ID)
 const bySection = (id) => freudIConcepts.filter((item) => id === 'all' || item.section === id)
 function FreudConceptNode({ data, selected }) {
   return (
@@ -180,21 +182,30 @@ function FreudWorkspace() {
       <section className="freud-chapter-shelf" aria-label="Capítulos de El malestar en la cultura">
         <div className="freud-chapter-shelf-head"><span>LECTOR DE LA OBRA</span><h2>Capítulos de <em>{freudMalestarWork.title}</em></h2><p>La navegación está preparada para crecer por capítulos sin rehacer el sistema 2D.</p></div>
         <div className="freud-chapter-cards">
-          {freudMalestarChapters.map((chapter) => chapter.status === 'available' ? (
-            <article key={chapter.id} className="freud-chapter-card is-active" aria-current="page">
-              <span>CAPÍTULO {chapter.id}</span>
-              <strong>{chapter.title}</strong>
-              <small>{chapter.statusLabel} · {chapter.pages} · {chapter.nodeCount} nodos</small>
-              <b>Capítulo activo</b>
-            </article>
-          ) : (
-            <article key={chapter.id} className="freud-chapter-card is-future">
+          {freudMalestarChapters.map((chapter) => {
+            if (chapter.id === ACTIVE_CHAPTER_ID) {
+              return <article key={chapter.id} className="freud-chapter-card is-active" aria-current="page">
+                <span>CAPÍTULO {chapter.id}</span>
+                <strong>{chapter.title}</strong>
+                <small>{chapter.statusLabel} · {chapter.pages} · {chapter.nodeCount} nodos</small>
+                <b>Capítulo activo</b>
+              </article>
+            }
+            if (chapter.status === 'available' && chapter.route) {
+              return <Link key={chapter.id} className="freud-chapter-card is-available" to={chapter.route}>
+                <span>CAPÍTULO {chapter.id}</span>
+                <strong>{chapter.title}</strong>
+                <small>{chapter.statusLabel} · {chapter.pages} · {chapter.nodeCount} nodos</small>
+                <b>Abrir capítulo →</b>
+              </Link>
+            }
+            return <article key={chapter.id} className="freud-chapter-card is-future">
               <span>CONTINUIDAD DE LA OBRA</span>
               <strong>{chapter.title}</strong>
               <small>{chapter.statusLabel}</small>
               <b>La estructura ya está preparada</b>
             </article>
-          ))}
+          })}
         </div>
       </section>
       <section className="freud-boundary"><b>FRONTERA DE FUENTE · CAPÍTULO {freudMalestarActiveChapter.id}</b><p>Los nodos se construyen exclusivamente a partir de las páginas impresas 2–13 de la traducción de Luis López Ballesteros, Biblioteca Libre OMEGALFA, deteniéndose antes del encabezado «II». <strong>«Texto original» significa cita literal cotejada contra las capturas recibidas.</strong> La explicación académica, «En palabras simples», las preguntas y las relaciones son elaboración editorial y aparecen separadas. El número del pie de página del libro es el localizador canónico; no se confunde con «N de 90» del visor.</p></section>
