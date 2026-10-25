@@ -168,7 +168,7 @@ export const critical22OctSections = [
     "guide": {
       "what": "Representa el problema «Lacan como conexión posterior» con tres elementos distintos cotejados con la nota académica de esta sesión.",
       "how": "Compare dos procedencias; ninguna flecha temporal o doctrinal es necesaria en este esquema.",
-      "why": "Previene una confusión bibliográfica frecuente.",
+      "why": "Previene una confusión bibliográfica frecuente entre fuentes y atribuciones filosóficas.",
       "simple": "La profesora menciona una idea de Lacan para relacionar inconsciente y lenguaje, pero eso no significa que Freud haya escrito esa frase.",
       "takeaway": "La referencia a Lacan pertenece a una conexión posterior introducida en la sesión."
     },
@@ -262,7 +262,7 @@ export const critical22OctSections = [
     "guide": {
       "what": "Representa el problema «Aparato psíquico y límite de la fuente» con tres elementos distintos cotejados con la nota académica de esta sesión.",
       "how": "Lea los nodos como información y límites documentales; no como secuencia lógica ni dos sistemas completos.",
-      "why": "Evita completar huecos por familiaridad con Freud.",
+      "why": "Evita completar huecos por familiaridad general con Freud y sobreinterpretar las notas parciales.",
       "simple": "Sabemos que la profesora habló de varios modelos, pero no quedó claro todo el contenido de uno de ellos.",
       "takeaway": "La segunda formulación debe conservarse como laguna académica visible."
     },
