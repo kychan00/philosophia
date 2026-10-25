@@ -590,7 +590,7 @@ export const critical15OctSections = [
       }
     ],
     "guide": {
-      "what": "Representa la jerarquía de fuentes del folio.",
+      "what": "Representa la jerarquía de fuentes del folio y diferencia texto base, apoyos internos y referencias complementarias.",
       "how": "No equipare texto base, recomendación, analogía oral y comentario editorial.",
       "why": "Mantiene trazabilidad y evita atribuciones falsas.",
       "simple": "No todo libro mencionado en clase se leyó ese día ni cumple la misma función.",
