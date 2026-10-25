@@ -62,6 +62,7 @@ test('imagen de autoría propia, doble capa y ruta real',()=>{
   assert.match(svg,/Flechas continuas/)
   assert.match(page,/Critical22OctThematicAtlas/)
   assert.match(page,/Critical22OctSectionStudy/)
+  assert.match(page,/teoria-critica\/lectura\/freud-malestar-capitulo-1/)
   assert.match(page,/critical22OctImage\.imagePath/)
   for(const label of ['RECONSTRUCCIÓN EDITORIAL','QUÉ REPRESENTA','CÓMO LEERLO','POR QUÉ ESTÁ AQUÍ','EN PALABRAS SIMPLES','QUÉ DEBE QUEDAR CLARO']) assert.ok(atlas.includes(label),label)
   assert.match(study,/No es una pregunta oficial ni una cita/)
