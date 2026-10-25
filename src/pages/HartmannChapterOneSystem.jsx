@@ -1,4 +1,5 @@
 import SectionPedagogy from '../components/philosophy/system2d/SectionPedagogy'
+import { initialSystem2DRoute, useSystem2DCompactViewport } from '../components/philosophy/system2d/mobilePerformance.js'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
 import {
@@ -117,7 +118,8 @@ function relatedSet(id, includeCross) {
 }
 
 function StudyCanvas() {
-  const [route, setRoute] = useState('all')
+  const [route, setRoute] = useState(() => initialSystem2DRoute(hartmannChapterRoutes))
+  const compactViewport = useSystem2DCompactViewport()
   const [selectedId, setSelectedId] = useState(null)
   const [folioId, setFolioId] = useState(null)
   const [guidedMode, setGuidedMode] = useState(false)
@@ -312,7 +314,7 @@ function StudyCanvas() {
 
   const reset = useCallback(() => {
     setGuidedMode(false)
-    setRoute('all')
+    setRoute(initialSystem2DRoute(hartmannChapterRoutes))
     setSelectedId(null)
     setFolioId(null)
     setShowCross(false)
@@ -516,8 +518,9 @@ function StudyCanvas() {
 
           <div className="hartmann2d-flow">
             <ReactFlow
-              nodes={nodes}
-              edges={edges}
+              nodes={compactViewport ? nodes.filter((node) =
+              onlyRenderVisibleElements> !node.hidden) : nodes}
+              edges={compactViewport ? edges.filter((edge) => !edge.hidden) : edges}
               nodeTypes={nodeTypes}
               onNodeClick={(_, node) => selectNode(node)}
               onPaneClick={() => {
@@ -531,11 +534,11 @@ function StudyCanvas() {
             >
               <Background gap={24} size={1} color="rgba(55,45,36,.13)" />
               <Controls />
-              <MiniMap
+              {!compactViewport && <MiniMap
                 pannable
                 zoomable
                 nodeColor={(node) => node.data?.critical ? '#8b3d34' : '#9c7434'}
-              />
+              />} 
             </ReactFlow>
           </div>
 
