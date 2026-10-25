@@ -75,7 +75,7 @@ export const critical15OctSections = [
     "guide": {
       "what": "Representa la continuidad conceptual reconstruida por la docente.",
       "how": "Mantenga diferencias analíticas entre los tres conceptos; no los use como sinónimos.",
-      "why": "Evita simplificar el tránsito Marx → Lukács.",
+      "why": "Evita simplificar el tránsito Marx → Lukács y ayuda a distinguir qué problema conserva cada concepto dentro del recorrido.",
       "simple": "Lukács no sólo pregunta qué pierde el trabajador, sino cómo toda una sociedad puede organizarse como si sus relaciones fueran cosas.",
       "takeaway": "La cosificación amplía y reorganiza problemas previos sin borrar sus diferencias."
     },
