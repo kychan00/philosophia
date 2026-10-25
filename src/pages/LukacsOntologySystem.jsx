@@ -377,10 +377,10 @@ function StudyCanvas() {
 
     setRelationRouteId(null)
     setRoute(id)
-    if (id === 'all') {
+    if (id === 'all' && !compactViewport) {
       window.setTimeout(() => fitView({ padding:0.08, duration:500 }), 0)
     }
-  }, [fitView])
+  }, [compactViewport, fitView])
 
   const selectNode = useCallback(
     (node) => {
@@ -613,10 +613,10 @@ function StudyCanvas() {
             onClick={() => {
               setGuidedMode(false)
               setDetailMode((value) => !value)
-              if (route !== 'all') setRoute('all')
+              if (route !== 'all' && !compactViewport) setRoute('all')
               setRelationRouteId(null)
               setSelectedId(null)
-              window.setTimeout(() => fitView({ padding:0.08, duration:450 }), 0)
+              if (!compactViewport || route !== 'all') window.setTimeout(() => fitView({ padding:0.08, duration:450 }), 0)
             }}
           >
             Detalles · {detailMode ? 'ON' : 'OFF'}
@@ -641,7 +641,7 @@ function StudyCanvas() {
               setRelationRouteId(null)
               setSelectedId(null)
               setRelationId(null)
-              setTimeout(() => fitView({ padding:0.08, duration:500 }), 0)
+              if (!compactViewport) setTimeout(() => fitView({ padding:0.08, duration:500 }), 0)
             }}
           >
             Ver sistema completo
