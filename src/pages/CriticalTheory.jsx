@@ -359,6 +359,7 @@ export default function CriticalTheory() {
           <span>VI</span><div><p>Bibliotheca critica</p><h2>Lecturas del semestre</h2></div>
         </header>
 
+        <p className="ct-note"><Link to="/semestre/5/teoria-critica/lectura/freud-malestar-capitulo-1">Estudiar a Freud · Capítulo I — sistematización y sistema 2D interactivo ↗</Link></p>
         <div className="ct-readings">
           {readings.map(([n, author, title, topic, ready]) => (
             <article key={n}>

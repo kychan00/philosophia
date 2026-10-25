@@ -125,6 +125,7 @@ const AnalyticHackerSystem = lazy(() => import('./pages/AnalyticHackerSystem'))
 const AnalyticGlockSystem = lazy(() => import('./pages/AnalyticGlockSystem'))
 const NavaTechnoscienceSystem = lazy(() => import('./pages/NavaTechnoscienceSystem'))
 const CriticalTheory = lazy(() => import('./pages/CriticalTheory'))
+const FreudMalestarCapituloI = lazy(() => import('./pages/FreudMalestarCapituloI'))
 const CriticalTheoryTask1 = lazy(() => import('./pages/CriticalTheoryTask1'))
 const MarxCommodityValueSystem = lazy(() => import('./pages/MarxCommodityValueSystem'))
 const LukacsReificationSystem = lazy(() => import('./pages/LukacsReificationSystem'))
@@ -573,6 +574,10 @@ function App() {
         /><Route
           path="/semestre/5/teoria-critica"
           element={<CriticalTheory />}
+        />
+        <Route
+          path="/semestre/5/teoria-critica/lectura/freud-malestar-capitulo-1"
+          element={<FreudMalestarCapituloI />}
         />
         <Route
           path="/tareas/teoria-critica/tarea-1"
