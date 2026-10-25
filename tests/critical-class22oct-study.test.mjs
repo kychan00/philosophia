@@ -46,7 +46,7 @@ test('las lagunas y relaciones externas mantienen atribución documental',()=>{
   for(const marker of ['lacan','inconsciente','psicoanálisis','frustración','cultura','fusión','placer','realidad','fecha','segunda']) assert.ok((source+theme).includes(marker.toLowerCase()),marker)
   assert.match(source,/no se usa para fechar|no se completa|laguna/)
   assert.match(source,/sin rango|no constan|sin rango o plazo/)
-  assert.match(page,/no completa lagunas/)
+  assert.match(page,/no completa lagunas/i)
   assert.doesNotMatch(page,/grabación|transcrip/i)
   assert.doesNotMatch(source,/grabación|transcrip/i)
   assert.match(app,/id="22-octubre"><CriticalTheoryClass22Oct/)
