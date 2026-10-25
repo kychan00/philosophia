@@ -3,6 +3,7 @@ import {Link} from 'react-router'
 import {Background,Controls,Handle,MarkerType,MiniMap,Position,ReactFlow,ReactFlowProvider,useReactFlow} from '@xyflow/react'
 import '@xyflow/react/dist/style.css'
 import SectionPedagogy from '../components/philosophy/system2d/SectionPedagogy.jsx'
+import {initialSystem2DRoute,useSystem2DCompactViewport} from '../components/philosophy/system2d/mobilePerformance.js'
 import {SYSTEM_2D_THEME,resolveSystem2DEdgeColor} from '../components/philosophy/system2d/system2dTheme.js'
 import {navaNodes,navaEdges,navaRoutes,navaOrder,navaById,NAVA_GEOMETRY} from '../data/navaTechnoscience2026.js'
 import './NavaTechnoscienceSystem.css'
@@ -26,7 +27,8 @@ function NavaNode({data,selected}){
 const nodeTypes={nava:NavaNode}
 
 function NavaCanvas(){
-  const [route,setRoute]=useState('all')
+  const [route,setRoute]=useState(()=>initialSystem2DRoute(navaRoutes))
+  const compactViewport=useSystem2DCompactViewport()
   const [selectedId,setSelectedId]=useState('N01')
   const [guided,setGuided]=useState(false)
   const [guideIndex,setGuideIndex]=useState(0)
@@ -179,13 +181,14 @@ function NavaCanvas(){
       </div>
       <div className="nava-workspace" ref={workspaceRef}>
         <div className="nava-canvas">
-          <ReactFlow nodes={displayedNodes} edges={displayedEdges} nodeTypes={nodeTypes}
+          <ReactFlow nodes={compactViewport?displayedNodes.filter(n=>!n.hidden):displayedNodes} edges={compactViewport?displayedEdges.filter(e=>!e.hidden):displayedEdges} nodeTypes={nodeTypes}
+            onlyRenderVisibleElements
             onNodeClick={(_,node)=>focus(node.id)} nodesDraggable={false} nodesConnectable={false}
             fitView fitViewOptions={{padding:.16,maxZoom:.82}} minZoom={.18} maxZoom={1.7}
             panOnScroll={false} proOptions={{hideAttribution:false}}>
             <Background color={SYSTEM_2D_THEME.muted} gap={25} size={1}/>
             <Controls showInteractive={false} position="bottom-left"/>
-            {minimap&&<MiniMap pannable zoomable maskColor="#f6f0e3a3" nodeColor={n=>n.data.color}/>}
+            {minimap&&!compactViewport&&<MiniMap pannable zoomable maskColor="#f6f0e3a3" nodeColor={n=>n.data.color}/>}
           </ReactFlow>
         </div>
         <aside className="nava-inspector" aria-live="polite">
