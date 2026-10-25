@@ -9,7 +9,8 @@ import { freudIConcepts, freudISections, freudIRoutes, freudILinks, freudIOrder,
 import './FreudMalestarCapituloI.css'
 
 const SECTION_TONE = { planteamiento: 'rust', constitucion: 'blue', memoria: 'plum', religion: 'sage' }
-const WINDOW_SIZE = { width: 350, height: 410 }
+const WINDOW_SIZE = { width: 350, height: 470 }
+const GRID_STEP = { x: 500, y: 540 }
 const bySection = (id) => freudIConcepts.filter((item) => id === 'all' || item.section === id)
 function FreudConceptNode({ data, selected }) {
   return (
@@ -19,7 +20,7 @@ function FreudConceptNode({ data, selected }) {
       <div className="freud-flow-node-meta"><span>{data.kind} · {data.page}</span><b>{data.code}</b></div>
       <h3>{data.title}</h3>
       <p>{data.summary}</p>
-      <div className="freud-node-source"><b>TEXTO EXPLÍCITO · PARÁFRASIS</b><span>{data.explanation}</span><small>(Freud, s. f., {data.page} del PDF)</small></div><div className="freud-flow-node-callout"><b>EN PALABRAS SIMPLES</b><span>{data.simple}</span></div>
+      <div className="freud-node-source"><b>TEXTO ORIGINAL · CITA LITERAL COTEJADA</b><span>{data.originalQuote}</span><small>(Freud, s. f., {data.page}; paginación impresa)</small></div><div className="freud-node-analysis"><b>EXPLICACIÓN ACADÉMICA</b><span>{data.explanation}</span></div><div className="freud-flow-node-callout"><b>EN PALABRAS SIMPLES</b><span>{data.simple}</span></div>
       <div className="freud-flow-node-foot"><small>Obra · Capítulo I</small><button type="button" className="freud-open-folio nodrag nopan" onClick={(event) => { event.stopPropagation(); data.onOpenFolio(data.id) }} aria-label={`Abrir folio ${data.code}: ${data.title}`}>Abrir folio ↗</button></div>
       <Handle type="source" position={Position.Right} />
     </article>
@@ -75,7 +76,7 @@ function FreudWorkspace() {
     return {
       id: item.id, type: 'freud', selected: item.id === selectedId, draggable: false,
       hidden: !visible,
-      position: { x: 65 + col * 490, y: 55 + row * 490 },
+      position: { x: 65 + col * GRID_STEP.x, y: 55 + row * GRID_STEP.y },
       data: {
         ...item, branch: item.section, code: item.id, onOpenFolio: openFolio,
         sourceRef: 'Freud, cap. I · PDF ' + item.page,
@@ -103,7 +104,7 @@ function FreudWorkspace() {
     const indexInActive = sequence.findIndex((entry) => entry.id === id)
     if (guided) setGuideIndex(Math.max(0, indexInActive))
     const actual = route === 'all' ? item.order - 1 : bySection(item.section).findIndex((entry) => entry.id === id)
-    setCenter(65 + (actual % 4) * 490 + WINDOW_SIZE.width / 2, 55 + Math.floor(actual / 4) * 365 + WINDOW_SIZE.height / 2, { zoom: 1, duration: 450 })
+    setCenter(65 + (actual % 4) * GRID_STEP.x + WINDOW_SIZE.width / 2, 55 + Math.floor(actual / 4) * GRID_STEP.y + WINDOW_SIZE.height / 2, { zoom: 1, duration: 450 })
   }, [route, guided, setCenter])
 
   const changeRoute = useCallback((next) => {
@@ -149,12 +150,12 @@ function FreudWorkspace() {
         <div>
           <p className="freud-kicker">SIGMUND FREUD · LECTURA SISTEMATIZADA</p>
           <h1>El malestar <em>en la cultura</em></h1>
-          <p className="freud-intro"><strong>Capítulo I · El yo, lo oceánico y el origen de la religión.</strong> Una reconstrucción fiel del argumento, desde el testimonio del sentimiento oceánico hasta la hipótesis del desamparo infantil.</p>
-          <div className="freud-tags"><span>18 nodos</span><span>4 rutas de estudio</span><span>18 preguntas de estudio</span><span>PDF pp. 2–13, antes del capítulo II</span></div>
+          <p className="freud-intro"><strong>Capítulo I · El yo y el sentimiento oceánico.</strong> Reconstrucción progresiva desde la fuente primaria. Esta revisión cubre las páginas impresas 2–8; el resto del capítulo se incorporará sin inventar citas cuando esté disponible.</p>
+          <div className="freud-tags"><span>{freudIConcepts.length} nodos cotejados</span><span>{freudISections.length} rutas de estudio</span><span>{freudIConcepts.length} preguntas de estudio</span><span>Páginas impresas 2–8 · tramo recibido</span></div>
         </div>
         <aside><strong>Pregunta rectora</strong><p>¿Sentirse parte de un todo ilimitado explica por qué existe la religión?</p><Link to="/semestre/5/teoria-critica/clase/22-octubre">Ver conexión con la clase del 22 de octubre</Link></aside>
       </header>
-      <section className="freud-boundary"><b>FRONTERA DE FUENTE</b><p>Los nodos parafrasean exclusivamente el capítulo I de la traducción de Luis López Ballesteros (PDF Biblioteca Libre OMEGALFA, 90 páginas). Los localizadores corresponden al visor del PDF. Las preguntas, ejemplos y relaciones son elaboración editorial, no citas literales ni afirmaciones de la profesora. La frase final del capítulo I llega a la parte superior de la página 13, antes del encabezado «II».</p></section>
+      <section className="freud-boundary"><b>FRONTERA DE FUENTE</b><p>Los nodos de esta revisión se construyen exclusivamente a partir de las páginas impresas 2–8 de la traducción de Luis López Ballesteros, Biblioteca Libre OMEGALFA. <strong>«Texto original» significa cita literal cotejada contra las capturas recibidas.</strong> La explicación académica, «En palabras simples», las preguntas y las relaciones son elaboración editorial y aparecen separadas. El número del pie de página del libro es el localizador canónico; no se confunde con «N de 90» del visor. El capítulo continúa después de la página 8 y esa parte queda documentalmente pendiente.</p></section>
       <section className="freud-overview" aria-label="Hilo argumental">
         <strong>HILO DEL CAPÍTULO</strong>
         <div className="freud-overview-track">
@@ -186,7 +187,7 @@ function FreudWorkspace() {
               <span className="freud-inspector-type">{selected?.kind} · {freudISections.find((item) => item.id === selected?.section)?.label}</span>
               <h3>{selected?.title}</h3>
               <p className="freud-inspector-summary">{selected?.summary}</p>
-              <section><b>QUÉ DICE EL TEXTO · PARÁFRASIS</b><p>{selected?.explanation}</p><small>{selected?.layer} · (Freud, s. f., {selected?.page} del PDF)</small></section>
+              <section className="freud-original"><b>TEXTO ORIGINAL · CITA LITERAL COTEJADA</b><blockquote>{selected?.originalQuote}</blockquote><small>(Freud, s. f., {selected?.page}; paginación impresa)</small></section><section><b>EXPLICACIÓN ACADÉMICA · PHILOSOPHIA</b><p>{selected?.explanation}</p><small>{selected?.layer}</small></section>
               <section className="freud-simple"><b>EN PALABRAS SIMPLES</b><p>{selected?.simple}</p></section>
               {schema && <section className="freud-schema"><b>ESQUEMA DE ESTE NODO</b><AnimatedConceptSchema schema={schema} /></section>}
               <section><b>PREGUNTA PARA ESTUDIAR</b><p>{selected?.question}</p><button type="button" onClick={() => setShowFolio((prev) => !prev)}>{showFolio ? 'Ocultar explicación' : 'Comprobar respuesta'}</button>{showFolio && <p className="freud-answer">{selected?.answer}</p>}</section>
@@ -197,10 +198,10 @@ function FreudWorkspace() {
             </div>
             <footer><button type="button" disabled={index <= 0} onClick={() => { setShowFolio(false); move(-1) }}>← Anterior</button><span>{index + 1} / {routeItems.length}</span><button type="button" disabled={index >= routeItems.length - 1} onClick={() => { setShowFolio(false); move(1) }}>Siguiente →</button></footer>
           </aside>
-          {folioOpen && selected && <div className="freud-folio-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) closeFolio() }} onKeyDown={(event) => { if (event.key === 'Escape') { event.stopPropagation(); closeFolio() } if (event.key === 'Tab') { const focusables = [...event.currentTarget.querySelectorAll('button:not([disabled]),a[href]')]; if (!focusables.length) return; const first = focusables[0], last = focusables[focusables.length - 1]; if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus() } else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus() } } }} role="presentation"><article className="freud-folio-modal" role="dialog" aria-modal="true" aria-labelledby="freud-folio-title"><header><span>FOLIO {selected.id} · {selected.page}</span><button ref={folioCloseRef} type="button" onClick={closeFolio} aria-label="Cerrar folio">Cerrar ×</button></header><div className="freud-folio-body"><p className="freud-folio-kicker">{selected.kind} · CAPÍTULO I</p><h2 id="freud-folio-title">{selected.title}</h2><h3>Texto explícito · exposición de la obra</h3><p>{selected.explanation}</p><p className="freud-folio-citation">(Freud, s. f., {selected.page} del PDF) · Paráfrasis, no cita literal.</p><h3>En palabras simples</h3><p>{selected.simple}</p><h3>Secuencia del argumento</h3><ol>{selected.steps?.map((step, i) => <li key={i}>{step}</li>)}</ol><h3>Pregunta para estudiar</h3><p>{selected.question}</p><p><b>Respuesta:</b> {selected.answer}</p><h3>Referencia bibliográfica · APA 7</h3><p>Freud, S. (s. f.). <i>El malestar en la cultura</i> (L. López Ballesteros, trad.). Biblioteca Libre OMEGALFA. Edición digital consultada; fecha de publicación de esta edición no identificada.</p><small>Las páginas indicadas son del visor del PDF de 90 páginas. La fecha «s. f.» no es la fecha original de la obra.</small></div></article></div>}
+          {folioOpen && selected && <div className="freud-folio-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) closeFolio() }} onKeyDown={(event) => { if (event.key === 'Escape') { event.stopPropagation(); closeFolio() } if (event.key === 'Tab') { const focusables = [...event.currentTarget.querySelectorAll('button:not([disabled]),a[href]')]; if (!focusables.length) return; const first = focusables[0], last = focusables[focusables.length - 1]; if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus() } else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus() } } }} role="presentation"><article className="freud-folio-modal" role="dialog" aria-modal="true" aria-labelledby="freud-folio-title"><header><span>FOLIO {selected.id} · {selected.page}</span><button ref={folioCloseRef} type="button" onClick={closeFolio} aria-label="Cerrar folio">Cerrar ×</button></header><div className="freud-folio-body"><p className="freud-folio-kicker">{selected.kind} · CAPÍTULO I</p><h2 id="freud-folio-title">{selected.title}</h2><h3>Texto original · cita literal cotejada</h3><blockquote className="freud-folio-quote">{selected.originalQuote}</blockquote><p className="freud-folio-citation">(Freud, s. f., {selected.page}; paginación impresa de la edición consultada).</p><h3>Explicación académica · PHILOSOPHIA</h3><p>{selected.explanation}</p><h3>En palabras simples</h3><p>{selected.simple}</p><h3>Secuencia del argumento</h3><ol>{selected.steps?.map((step, i) => <li key={i}>{step}</li>)}</ol><h3>Pregunta para estudiar</h3><p>{selected.question}</p><p><b>Respuesta:</b> {selected.answer}</p><h3>Referencia bibliográfica · APA 7</h3><p>Freud, S. (s. f.). <i>El malestar en la cultura</i> (L. López Ballesteros, trad.). Biblioteca Libre OMEGALFA. Maquetación digital de Amanuense, febrero de 2010.</p><small>La portada identifica la obra como 1929 [1930], pero no se atribuye ese año a esta edición digital. Los localizadores usados aquí corresponden a la paginación impresa visible en el documento.</small></div></article></div>}
         </div>
       </section>
-      <section className="freud-synthesis"><div><span>03 / SÍNTESIS FINAL</span><h2>Lo que demuestra el capítulo — y lo que no.</h2><p>La experiencia oceánica puede recibir una explicación genética ligada a una fase temprana del yo. El pasado psíquico puede persistir, pero Freud reconoce los límites de sus imágenes. Ninguna de estas premisas demuestra que el sentimiento oceánico sea la causa fundamental de la religión. Para explicar la necesidad religiosa, Freud concede mayor peso al desamparo del niño, la nostalgia del padre y la angustia frente al destino.</p></div><div><h3>Para discutir en Teoría Crítica</h3><p>¿Qué cambia cuando el yo deja de comprenderse como una sustancia autocontenida y pasa a pensarse como algo formado mediante relaciones, separaciones y necesidades de protección?</p><small>Pregunta de articulación editorial con el curso; no es una tesis literal de Freud ni una pregunta registrada de la profesora.</small></div></section>
+      <section className="freud-synthesis"><div><span>03 / SÍNTESIS PROVISIONAL · pp. 2–8</span><h2>Lo que ya permite reconstruir el argumento.</h2><p>Freud recibe el testimonio del sentimiento oceánico, separa su ocurrencia de su interpretación y propone una explicación genética. Para ello reconstruye la formación de los límites del yo, el tránsito desde un yo placiente hacia el principio de realidad y la posibilidad de que una forma yoica primitiva sobreviva junto al yo adulto. La página 8 abre el problema de la conservación psíquica mediante la comparación con Roma; el argumento continúa y no se cierra todavía en este tramo.</p></div><div><h3>Para discutir en Teoría Crítica</h3><p>¿Qué cambia cuando el yo deja de comprenderse como una sustancia autocontenida y pasa a pensarse como algo formado mediante relaciones, separaciones y necesidades de protección?</p><small>Pregunta de articulación editorial con el curso; no es una tesis literal de Freud ni una pregunta registrada de la profesora.</small></div></section>
       <footer className="freud-footer"><Link to="/semestre/5/teoria-critica">← Volver a Teoría Crítica</Link><span>PHILOSOPHIA · Freud · Capítulo I</span></footer>
     </main>
   )
