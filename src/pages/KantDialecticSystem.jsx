@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
+import { initialSystem2DRoute, useSystem2DCompactViewport } from '../components/philosophy/system2d/mobilePerformance.js'
 import { Link } from 'react-router'
 import {
   Background,
@@ -342,7 +343,8 @@ function Inspector({
 function DialecticCanvas() {
   const { fitView, setCenter } = useReactFlow()
 
-  const [branch, setBranch] = useState('all')
+  const [branch, setBranch] = useState(() => initialSystem2DRoute(DIALECTIC_BRANCHES))
+  const compactViewport = useSystem2DCompactViewport()
   const [selectedId, setSelectedId] = useState(null)
   const [guideActive, setGuideActive] = useState(false)
   const [guideIndex, setGuideIndex] = useState(0)
@@ -610,8 +612,9 @@ function DialecticCanvas() {
       <div className="kd2-workspace">
         <div className="kd2-canvas">
           <ReactFlow
-            nodes={nodes}
-            edges={edges}
+            nodes={compactViewport ? nodes.filter((node) => !node.hidden) : nodes}
+            edges={compactViewport ? edges.filter((edge) => !edge.hidden) : edges}
+            onlyRenderVisibleElements
             fitView
             fitViewOptions={{ padding: 0.18, maxZoom: 0.72 }}
             minZoom={0.18}
@@ -635,7 +638,7 @@ function DialecticCanvas() {
               gap={28}
               size={1}
             />
-            <MiniMap
+            {!compactViewport && <MiniMap
               pannable
               zoomable
               nodeColor={(node) => {
@@ -648,7 +651,7 @@ function DialecticCanvas() {
                 return '#8b8170'
               }}
               maskColor="rgba(238,229,211,.74)"
-            />
+            />} 
             <Controls />
           </ReactFlow>
 
