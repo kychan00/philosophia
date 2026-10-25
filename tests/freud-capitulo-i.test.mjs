@@ -85,7 +85,7 @@ test('la apertura segura evita montar el atlas completo de 62 nodos por defecto'
   assert.doesNotMatch(source, /useState\('all'\)/)
   assert.match(source, /useState\(DEFAULT_ROUTE\)/)
   assert.match(source, /ReactFlow nodes=\{flowNodes\}/)
-  assert.match(source, /El sistema abre por una ruta temática/)
+  assert.match(source, /La obra se estudia por capítulos/)
 })
 
 
