@@ -34,6 +34,7 @@ test('atlas de cinco problemas distingue Lukács y ejemplos posteriores',()=>{
   assert.deepEqual(critical20OctThemes.map(x=>x.id),['forma','procedimiento','ia','vida','disciplina'])
   for(const x of critical20OctThemes){
     assert.equal(x.nodes.length,3,x.id)
+    assert.ok(['parallel','sequence'].includes(x.relation),x.id)
     assert.equal(x.positions.length,2,x.id)
     assert.ok(x.question&&x.thesis&&x.argument&&x.development&&x.source&&x.guide.simple&&x.guide.takeaway,x.id)
   }
