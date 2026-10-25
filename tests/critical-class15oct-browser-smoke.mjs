@@ -83,8 +83,10 @@ try{
 
   // Navegación interna de la nueva capa.
   await evaluate("document.querySelectorAll('.ct1510-detail-index button')[9].click()")
-  await sleep(250)
-  assert.ok(await evaluate("document.querySelector('#libertad').getBoundingClientRect().top < innerHeight"))
+  await until(
+    () => evaluate("(() => { const target=document.querySelector('#libertad'); if (!target) return false; const rect=target.getBoundingClientRect(); return rect.top >= -4 && rect.top < innerHeight && rect.bottom > 0 })()"),
+    'navegación del índice hacia el apartado libertad'
+  )
 
   assert.equal(await evaluate('location.hash'),'#/semestre/5/teoria-critica/clase/15-octubre','interacciones alteran HashRouter')
   console.log('OK FI265 / 15 octubre imagen, atlas, guías, constelación y navegación')
