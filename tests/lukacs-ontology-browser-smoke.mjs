@@ -71,17 +71,22 @@ async function navigateViewport(width,height){
   })
   await send('Page.navigate',{url:base})
   await until(
-    ()=>evaluate("document.querySelectorAll('.marx-flow-canvas .react-flow__node').length===30"),
-    '30 nodos estructurales '+width+'×'+height,100
+    ()=>evaluate("document.querySelectorAll('.marx-flow-canvas .react-flow__node').length>0"),
+    'nodos estructurales '+width+'×'+height,100
   )
-  const metrics=await evaluate("({width:window.innerWidth,scrollWidth:document.documentElement.scrollWidth,nodes:document.querySelectorAll('.marx-flow-canvas .react-flow__node').length,pedagogy:!!document.querySelector('.ph2d-pedagogy'),detailButton:[...document.querySelectorAll('.marx-route-actions button')].some(b=>b.textContent.includes('Detalles · OFF'))})")
+  const metrics=await evaluate("({width:window.innerWidth,scrollWidth:document.documentElement.scrollWidth,nodes:document.querySelectorAll('.marx-flow-canvas .react-flow__node').length,pedagogy:!!document.querySelector('.ph2d-pedagogy'),detailButton:[...document.querySelectorAll('.marx-route-actions button')].some(b=>b.textContent.includes('Detalles · OFF')),minimap:!!document.querySelector('.react-flow__minimap')})")
   assert.ok(metrics.scrollWidth<=metrics.width+2,
     'Overflow horizontal '+width+'×'+height+': '+JSON.stringify(metrics))
-  assert.equal(metrics.nodes,30)
+  if(width<=850){
+    assert.ok(metrics.nodes<30,'La apertura compacta no debe montar los 30 nodos: '+JSON.stringify(metrics))
+    assert.equal(metrics.minimap,false,'El minimapa no debe montarse en compacto')
+  } else {
+    assert.equal(metrics.nodes,30)
+  }
   assert.equal(metrics.pedagogy,true)
   assert.equal(metrics.detailButton,true)
   await assertNoVisibleNodeOverlap('viewport '+width+'×'+height)
-  console.log('OK Lukács viewport sin nodos encimados',width,height,metrics)
+  console.log('OK Lukács viewport progresivo sin nodos encimados',width,height,metrics)
 }
 
 try{
