@@ -1,420 +1,340 @@
-// Freud, El malestar en la cultura, cap. I, PDF Omega Alfa, trad. López Ballesteros.
-// PDF pp. 2–13 hasta el encabezado II. Análisis editorial; no se atribuye a la clase.
+// Freud, El malestar en la cultura, cap. I.
+// Fuente cotejada en esta revisión: PDF Biblioteca Libre OMEGALFA, trad. Luis López Ballesteros,
+// páginas impresas 2–8. Las citas literales proceden exclusivamente de las capturas facilitadas por el usuario.
+// El resto del capítulo se añadirá al recibir las páginas siguientes; no se reconstruyen citas ausentes.
+
 export const freudISections = [
   {
-    "id": "planteamiento",
-    "label": "I · Problema y sentimiento oceánico",
-    "question": "¿Es la vivencia de unidad con el mundo el origen de la religión?",
-    "before": "El autor inicia señalando la distancia entre valores admirados y valores genuinos.",
-    "after": "Para examinar el sentimiento, debe investigar la constitución de los límites del yo.",
-    "tone": "rust"
+    id: 'planteamiento',
+    label: 'I · Problema, religiosidad y sentimiento oceánico',
+    question: '¿Qué afirma el interlocutor y qué acepta o rechaza Freud de esa experiencia?',
+    before: 'Freud abre problematizando los criterios humanos de valoración.',
+    after: 'La pregunta por el sentimiento conduce a una explicación genética de los límites del yo.',
+    tone: 'rust',
   },
   {
-    "id": "constitucion",
-    "label": "II · Formación del yo y realidad",
-    "question": "¿Cómo aprende el niño a distinguir el yo del mundo?",
-    "before": "El yo adulto parece delimitado, pero esa frontera requiere una explicación genética.",
-    "after": "La posibilidad de una vivencia yoica anterior exige examinar la persistencia psíquica.",
-    "tone": "blue"
+    id: 'constitucion',
+    label: 'II · Formación del yo y principio de realidad',
+    question: '¿Cómo se constituye la frontera entre yo, objeto y mundo exterior?',
+    before: 'El sentimiento oceánico exige explicar cómo se han formado los límites actuales del yo.',
+    after: 'La hipótesis de una fase yoica más amplia abre el problema de la conservación de lo primitivo.',
+    tone: 'blue',
   },
   {
-    "id": "memoria",
-    "label": "III · Conservación de lo pretérito",
-    "question": "¿De qué modo puede persistir lo antiguo en la vida psíquica?",
-    "before": "La explicación genética postula un sentimiento yoico primitivo que podría subsistir.",
-    "after": "La hipótesis permite volver a valorar el sentimiento oceánico sin atribuirle necesariamente la fuente de la religión.",
-    "tone": "plum"
+    id: 'memoria',
+    label: 'III · Supervivencia de lo primitivo y memoria',
+    question: '¿Puede conservarse una fase psíquica anterior junto a otra más desarrollada?',
+    before: 'El yo adulto aparece como residuo de una forma más amplia de sentimiento yoico.',
+    after: 'Freud comienza a representar la hipótesis mediante la comparación con Roma; el desarrollo continúa después de la p. 8.',
+    tone: 'plum',
   },
-  {
-    "id": "religion",
-    "label": "IV · Desamparo y necesidad religiosa",
-    "question": "¿Qué origen de la religiosidad prefiere Freud?",
-    "before": "Haber explicado psicológicamente lo oceánico no prueba que funde la religiosidad.",
-    "after": "El capítulo II abre otra discusión: las doctrinas religiosas y los alivios frente al sufrimiento.",
-    "tone": "sage"
-  }
 ]
+
 export const freudIConcepts = [
   {
-    "id": "F01",
-    "section": "planteamiento",
-    "title": "El problema de los valores",
-    "page": "p. 2",
-    "kind": "Apertura",
-    "summary": "Freud contrasta poder, éxito y riqueza con valores poco reconocidos.",
-    "explanation": "El capítulo empieza señalando que los seres humanos suelen confundir los criterios de grandeza, sin negar la diversidad de juicios y deseos.",
-    "simple": "No comienza definiendo cultura: nos advierte que la admiración social puede estar guiada por criterios engañosos.",
-    "question": "¿Con qué contraste abre Freud y por qué introduce una salvedad?",
-    "answer": "Con la oposición entre poder, éxito, riqueza y otros valores; recuerda la diversidad de los juicios humanos.",
-    "dependsOn": [],
-    "steps": [
-      "Criterios sociales de valor",
-      "Diversidad de valoraciones"
-    ],
-    "order": 1,
-    "layer": "Obra · paráfrasis verificada (no cita literal)"
+    id:'F01', section:'planteamiento', order:1, page:'p. 2', kind:'Apertura',
+    title:'Cánones falsos de valoración',
+    originalQuote:'«No podemos eludir la impresión de que el hombre suele aplicar cánones falsos en sus apreciaciones»',
+    summary:'Freud abre cuestionando los criterios habituales con los que se juzga el valor humano.',
+    explanation:'La entrada del capítulo no define todavía religión ni cultura: cuestiona primero la escala social que privilegia poder, éxito y riqueza.',
+    simple:'Antes de estudiar la religión, Freud dice: cuidado, solemos admirar cosas que quizá no sean las más valiosas.',
+    question:'¿Qué función cumple esta apertura?', answer:'Preparar una crítica de los criterios de valoración y evitar que el análisis parta de admiraciones sociales no examinadas.',
+    dependsOn:[], steps:['Criterios sociales de valor','Sospecha sobre esos criterios'], layer:'Obra · cita literal cotejada + explicación editorial',
   },
   {
-    "id": "F02",
-    "section": "planteamiento",
-    "title": "El testimonio del amigo",
-    "page": "p. 3",
-    "kind": "Interlocución",
-    "summary": "Un amigo atribuye la energía religiosa a una sensación subjetiva de eternidad.",
-    "explanation": "El interlocutor comparte la crítica a la religión como ilusión, pero objeta que se haya olvidado una experiencia subjetiva previa a las creencias institucionales.",
-    "simple": "No pretende demostrar una doctrina: dice sentir una pertenencia ilimitada al mundo.",
-    "question": "¿Qué propone el amigo como posible fuente de la religiosidad?",
-    "answer": "Una vivencia subjetiva, no una demostración de inmortalidad ni una proposición del credo.",
-    "dependsOn": [
-      "F01"
-    ],
-    "steps": [
-      "Crítica de la ilusión religiosa",
-      "Vivencia subjetiva invocada como fuente"
-    ],
-    "order": 2,
-    "layer": "Obra · paráfrasis verificada (no cita literal)"
+    id:'F02', section:'planteamiento', order:2, page:'p. 2', kind:'Cautela',
+    title:'La variedad de la vida anímica',
+    originalQuote:'«siempre se corre peligro de olvidar la abigarrada variedad del mundo humano y de su vida anímica»',
+    summary:'Freud introduce una salvedad contra las generalizaciones demasiado simples.',
+    explanation:'Incluso al criticar los valores dominantes, recuerda que los deseos, juicios y reacciones humanas son heterogéneos.',
+    simple:'No todos valoran lo mismo ni reaccionan igual; una teoría demasiado general puede borrar esa diversidad.',
+    question:'¿Qué limita desde el inicio cualquier generalización?', answer:'La variedad de deseos, juicios y formas de vida anímica.',
+    dependsOn:['F01'], steps:['Juicio general','Riesgo de simplificación','Diversidad humana'], layer:'Obra · cita literal cotejada + explicación editorial',
   },
   {
-    "id": "F03",
-    "section": "planteamiento",
-    "title": "Sentimiento oceánico",
-    "page": "pp. 3–4",
-    "kind": "Concepto",
-    "summary": "Vivencia de pertenencia inseparable a la totalidad, sin límites ni barreras.",
-    "explanation": "Freud caracteriza aquello que su interlocutor llama oceánico como experiencia de comunión con el todo. Señala que él mismo no la reconoce en su experiencia, sin negar que otros la vivan.",
-    "simple": "Es sentirse uno con el mundo; eso no implica que las cosas efectivamente carezcan de límites.",
-    "question": "¿Sentir lo oceánico equivale a demostrar la verdad de una religión?",
-    "answer": "No. Freud distingue la vivencia subjetiva de su interpretación y de las afirmaciones religiosas.",
-    "dependsOn": [
-      "F02"
-    ],
-    "steps": [
-      "Unidad vivida",
-      "Interpretación de su origen"
-    ],
-    "order": 3,
-    "layer": "Obra · paráfrasis verificada (no cita literal)"
+    id:'F03', section:'planteamiento', order:3, page:'p. 3', kind:'Interlocución',
+    title:'La objeción del amigo',
+    originalQuote:'«Habiéndole enviado yo mi pequeño trabajo que trata de la religión como una ilusión, me respondió que compartiría sin reserva mi juicio sobre la religión»',
+    summary:'Un amigo acepta la crítica freudiana de la religión como ilusión, pero considera que falta explicar su fuente última.',
+    explanation:'El capítulo nace como respuesta a una objeción interna a la crítica de la religión: aun concediendo la ilusión, queda por explicar la energía subjetiva de la religiosidad.',
+    simple:'El amigo le dice: puedo aceptar tu crítica de la religión, pero todavía falta explicar de dónde sale el impulso religioso.',
+    question:'¿Qué concede y qué objeta el interlocutor?', answer:'Concede la crítica de la ilusión, pero objeta que Freud no haya dado suficiente lugar a una experiencia subjetiva originaria.',
+    dependsOn:['F02'], steps:['Religión como ilusión','Objeción del interlocutor','Pregunta por la fuente'], layer:'Obra · cita literal cotejada + explicación editorial',
   },
   {
-    "id": "F04",
-    "section": "planteamiento",
-    "title": "Explicación genética, no negación",
-    "page": "p. 4",
-    "kind": "Método",
-    "summary": "Freud pregunta por la formación del sentimiento, en lugar de declarar inexistente la vivencia.",
-    "explanation": "Separa la existencia del sentimiento de la pretensión de que sea el origen de la necesidad religiosa. Propone una explicación psicoanalítica genética: investigar cómo pudo formarse.",
-    "simple": "Aunque alguien sienta unión con todo, todavía falta explicar de dónde viene esa vivencia.",
-    "question": "¿Qué dos preguntas deben distinguirse?",
-    "answer": "Si el sentimiento ocurre, y si se interpreta correctamente como origen de la religiosidad.",
-    "dependsOn": [
-      "F03"
-    ],
-    "steps": [
-      "Experiencia subjetiva",
-      "Pregunta por su génesis"
-    ],
-    "order": 4,
-    "layer": "Obra · paráfrasis verificada (no cita literal)"
+    id:'F04', section:'planteamiento', order:4, page:'p. 3', kind:'Concepto',
+    title:'Sensación de eternidad',
+    originalQuote:'«“sensación de eternidad”; un sentimiento como de algo sin límites ni barreras, en cierto modo “oceánico”»',
+    summary:'El interlocutor nombra una vivencia de ilimitación y permanencia.',
+    explanation:'La caracterización inicial del sentimiento oceánico no es todavía una tesis de Freud; es el contenido comunicado por su amigo.',
+    simple:'Es la sensación de no tener un borde claro frente al mundo, como si uno perteneciera a algo inmenso y continuo.',
+    question:'¿Quién introduce el sentimiento oceánico?', answer:'El amigo de Freud; Freud lo recibe como un fenómeno a examinar.',
+    dependsOn:['F03'], steps:['Sensación de eternidad','Sin límites ni barreras','Nombre: oceánico'], layer:'Obra · cita literal cotejada + explicación editorial',
   },
   {
-    "id": "F05",
-    "section": "constitucion",
-    "title": "La apariencia del yo unitario",
-    "page": "pp. 4–5",
-    "kind": "Estructura",
-    "summary": "El yo adulto parece claramente separado del exterior, pero continúa interiormente con el ello.",
-    "explanation": "Freud cuestiona que el yo sea un bloque autosuficiente: hacia dentro sus límites con el ello inconsciente no son precisos; hacia fuera, la separación parece más estable.",
-    "simple": "El yo no es una caja cerrada con paredes perfectamente delimitadas.",
-    "question": "¿Por qué la apariencia de unidad del yo es engañosa?",
-    "answer": "Porque su continuidad interior con el ello impide tratarlo como entidad de fronteras absolutas.",
-    "dependsOn": [
-      "F04"
-    ],
-    "steps": [
-      "Yo aparente",
-      "Continuidad interior con el ello"
-    ],
-    "order": 5,
-    "layer": "Obra · paráfrasis verificada (no cita literal)"
+    id:'F05', section:'planteamiento', order:5, page:'p. 3', kind:'Tesis del interlocutor',
+    title:'Fuente de la energía religiosa',
+    originalQuote:'«ésta sería la fuente de la energía religiosa, que, captada por las diversas Iglesias y sistemas religiosos, es encauzada hacia determinados canales»',
+    summary:'El amigo no identifica el sentimiento con una doctrina, sino con una energía previa a las instituciones religiosas.',
+    explanation:'La distinción es decisiva: primero estaría la vivencia oceánica; después, las Iglesias y sistemas religiosos la canalizarían.',
+    simple:'La religión organizada no produciría el sentimiento; según el amigo, lo tomaría y le daría forma.',
+    question:'¿Qué relación propone entre experiencia e institución?', answer:'La experiencia sería previa y las instituciones religiosas la encauzarían.',
+    dependsOn:['F04'], steps:['Vivencia previa','Energía religiosa','Canalización institucional'], layer:'Obra · cita literal cotejada + explicación editorial',
   },
   {
-    "id": "F06",
-    "section": "constitucion",
-    "title": "Límites alterables: amor y patología",
-    "page": "p. 5",
-    "kind": "Caso",
-    "summary": "El enamoramiento y ciertos estados patológicos muestran que los límites del yo pueden modificarse.",
-    "explanation": "Freud recurre a la vivencia amorosa de unidad entre yo y tú y a estados en que lo interno se experimenta como extraño o se atribuye afuera lo propio. No equipara por ello amor y patología.",
-    "simple": "Sentirnos una sola cosa con otra persona muestra que la frontera vivida del yo no es fija.",
-    "question": "¿Qué demuestran los ejemplos del enamoramiento y de las alteraciones clínicas?",
-    "answer": "Que los límites del sentimiento yoico no son inmutables; no que todos los casos tengan el mismo estatuto.",
-    "dependsOn": [
-      "F05"
-    ],
-    "steps": [
-      "Límite yo–objeto",
-      "Variaciones de ese límite"
-    ],
-    "order": 6,
-    "layer": "Obra · paráfrasis verificada (no cita literal)"
+    id:'F06', section:'planteamiento', order:6, page:'p. 3', kind:'Posición de Freud',
+    title:'Freud no reconoce el sentimiento en sí mismo',
+    originalQuote:'«yo mismo no logro descubrir en mí este sentimiento “oceánico”»',
+    summary:'Freud declara no encontrar esa vivencia en su propia experiencia.',
+    explanation:'La falta de vivencia personal no lo autoriza a negar que otros la tengan; por eso traslada el problema desde la introspección hacia su interpretación.',
+    simple:'Freud dice: yo no lo siento, pero eso no prueba que nadie más lo sienta.',
+    question:'¿Qué evita Freud al reconocer su propia falta de experiencia?', answer:'Convertir su experiencia personal en criterio universal.',
+    dependsOn:['F05'], steps:['No lo experimenta','No lo niega en otros','Debe analizarlo'], layer:'Obra · cita literal cotejada + explicación editorial',
   },
   {
-    "id": "F07",
-    "section": "constitucion",
-    "title": "El lactante aún no distingue el afuera",
-    "page": "pp. 5–6",
-    "kind": "Génesis",
-    "summary": "El sentimiento yoico adulto se adquiere; el bebé no diferencia inicialmente todas sus fuentes de sensación.",
-    "explanation": "El niño siente excitaciones corporales disponibles y otras que desaparecen; la experiencia de que el pecho no esté siempre presente contribuye a reconocer un objeto externo.",
-    "simple": "El bebé aprende que no todo lo que desea está disponible como si fuera parte de su cuerpo.",
-    "question": "¿Qué papel tiene la ausencia del pecho materno?",
-    "answer": "Hace patente que una fuente de satisfacción está fuera del control inmediato del niño.",
-    "dependsOn": [
-      "F06"
-    ],
-    "steps": [
-      "Sensaciones iniciales",
-      "Distinción gradual de fuentes"
-    ],
-    "order": 7,
-    "layer": "Obra · paráfrasis verificada (no cita literal)"
+    id:'F07', section:'planteamiento', order:7, page:'p. 3', kind:'Método',
+    title:'Atenerse al contenido ideacional',
+    originalQuote:'«no queda sino atenerse al contenido ideacional que más fácilmente se asocie con dicho sentimiento»',
+    summary:'Cuando no puede caracterizar fisiológicamente el sentimiento, Freud examina las ideas asociadas a él.',
+    explanation:'El paso metodológico desplaza el análisis desde una supuesta esencia del sentimiento hacia el contenido con el que el sujeto lo interpreta.',
+    simple:'Si no puede medir exactamente qué es ese sentir, Freud estudia qué significa para quien lo siente.',
+    question:'¿Qué analiza Freud cuando la caracterización fisiológica no es posible?', answer:'El contenido ideacional asociado al sentimiento.',
+    dependsOn:['F06'], steps:['Límite descriptivo','Contenido ideacional','Interpretación'], layer:'Obra · cita literal cotejada + explicación editorial',
   },
   {
-    "id": "F08",
-    "section": "constitucion",
-    "title": "Dolor y yo placiente",
-    "page": "p. 6",
-    "kind": "Proceso",
-    "summary": "El displacer impulsa a expulsar lo doloroso del yo y a configurar un afuera amenazante.",
-    "explanation": "Freud reconstruye una primera tendencia a conservar como propio lo placentero y a situar fuera lo desagradable; luego la experiencia corrige esta partición porque hay placeres externos y dolores internos.",
-    "simple": "Al principio uno quisiera pensar: lo bueno es mío y lo malo viene de afuera; la experiencia desmiente esa regla.",
-    "question": "¿Por qué el yo placiente necesita rectificarse?",
-    "answer": "Porque placer y displacer no coinciden limpiamente con el origen interior o exterior de las sensaciones.",
-    "dependsOn": [
-      "F07"
-    ],
-    "steps": [
-      "Yo placiente",
-      "Experiencia que obliga a reajustarlo"
-    ],
-    "order": 8,
-    "layer": "Obra · paráfrasis verificada (no cita literal)"
+    id:'F08', section:'planteamiento', order:8, page:'p. 4', kind:'Definición interpretativa',
+    title:'Comunión con la totalidad',
+    originalQuote:'«un sentimiento de indisoluble comunión, de inseparable pertenencia a la totalidad del mundo exterior»',
+    summary:'Freud formula lo que entiende como contenido ideacional del sentimiento oceánico.',
+    explanation:'La vivencia se interpreta como pertenencia a un todo exterior, no simplemente como una emoción intensa o agradable.',
+    simple:'Sentirse inseparable del mundo entero: no sólo estar dentro del mundo, sino pertenecer a él sin ruptura.',
+    question:'¿Cuál es el contenido ideacional que Freud reconstruye?', answer:'La comunión indisoluble y la pertenencia inseparable a la totalidad del mundo exterior.',
+    dependsOn:['F07'], steps:['Sentimiento','Contenido ideacional','Pertenencia al Todo'], layer:'Obra · cita literal cotejada + explicación editorial',
   },
   {
-    "id": "F09",
-    "section": "constitucion",
-    "title": "Principio de realidad",
-    "page": "p. 6",
-    "kind": "Tránsito",
-    "summary": "La percepción y la acción permiten diferenciar sensaciones interiores de objetos exteriores.",
-    "explanation": "Al aprender a verificar sensorialmente y a actuar sobre las fuentes de experiencia, el sujeto da un primer paso hacia la preeminencia del principio de realidad sobre la identificación inmediata entre placer y propio.",
-    "simple": "No basta querer que algo sea como nos conviene; hay que aprender cómo funciona realmente.",
-    "question": "¿Qué aprende el sujeto que da lugar al principio de realidad?",
-    "answer": "A distinguir lo interno y lo externo mediante experiencia y acciones, aun si la realidad contradice el deseo.",
-    "dependsOn": [
-      "F08"
-    ],
-    "steps": [
-      "Búsqueda de placer",
-      "Reconocimiento de realidad exterior"
-    ],
-    "order": 9,
-    "layer": "Obra · paráfrasis verificada (no cita literal)"
+    id:'F09', section:'planteamiento', order:9, page:'p. 4', kind:'Distinción crítica',
+    title:'Ocurrencia no equivale a interpretación correcta',
+    originalQuote:'«no por ello tengo derecho a negar su ocurrencia real en los demás. La cuestión se reduce, pues, a establecer si es interpretado correctamente»',
+    summary:'Freud separa la existencia subjetiva del sentimiento de la teoría que pretende explicar con él la religión.',
+    explanation:'Este es uno de los giros metodológicos centrales: admitir el fenómeno no obliga a aceptar su interpretación como origen de toda necesidad religiosa.',
+    simple:'Una experiencia puede ser real para alguien y, aun así, la explicación que se da de ella puede ser equivocada.',
+    question:'¿Qué dos niveles distingue Freud?', answer:'La ocurrencia real del sentimiento y la interpretación de su significado u origen.',
+    dependsOn:['F08'], steps:['Admitir el fenómeno','Examinar la interpretación'], layer:'Obra · cita literal cotejada + explicación editorial',
   },
   {
-    "id": "F10",
-    "section": "constitucion",
-    "title": "De totalidad inicial a yo limitado",
-    "page": "pp. 6–7",
-    "kind": "Conclusión provisional",
-    "summary": "Freud propone que el yo primitivo abarcaba todo y luego delimitó un mundo externo.",
-    "explanation": "La demarcación actual no sería original. Un sentimiento yoico anterior, más amplio, podría sobrevivir y proporcionar el contenido de infinitud que el amigo denomina oceánico.",
-    "simple": "Primero no hay frontera clara; después se aprende dónde termina uno y empieza lo otro.",
-    "question": "¿El sentimiento oceánico es para Freud una prueba religiosa?",
-    "answer": "No: lo relaciona hipotéticamente con una fase temprana del desarrollo del yo.",
-    "dependsOn": [
-      "F09"
-    ],
-    "steps": [
-      "Inclusión originaria",
-      "Separación progresiva"
-    ],
-    "order": 10,
-    "layer": "Obra · paráfrasis verificada (no cita literal)"
+    id:'F10', section:'planteamiento', order:10, page:'p. 4', kind:'Método',
+    title:'Explicación psicoanalítica genética',
+    originalQuote:'«será lícito intentar una explicación psicoanalítica -vale decir genética- del mencionado sentimiento»',
+    summary:'Freud decide explicar cómo pudo formarse el sentimiento en vez de tratarlo como acceso inmediato a una verdad metafísica.',
+    explanation:'“Genética” significa aquí reconstruir su génesis psíquica: qué proceso de formación del yo puede hacer comprensible esa vivencia.',
+    simple:'En lugar de preguntar si el sentimiento revela una verdad cósmica, Freud pregunta cómo llegó a formarse en la mente.',
+    question:'¿Qué tipo de explicación propone?', answer:'Una explicación psicoanalítica genética de la formación del sentimiento.',
+    dependsOn:['F09'], steps:['Problema de interpretación','Pregunta por la génesis'], layer:'Obra · cita literal cotejada + explicación editorial',
   },
   {
-    "id": "F11",
-    "section": "memoria",
-    "title": "Coexistencia de estratos psíquicos",
-    "page": "pp. 7–8",
-    "kind": "Hipótesis",
-    "summary": "En la vida anímica, tendencias primitivas pueden conservarse al lado de desarrollos posteriores.",
-    "explanation": "El autor considera habitual que una parte de una disposición permanezca sin modificarse mientras otra se transforma, de modo que lo anterior no queda siempre eliminado.",
-    "simple": "Cambiar no significa necesariamente que desaparezca todo lo que uno fue antes.",
-    "question": "¿Por qué importa la supervivencia de lo temprano?",
-    "answer": "Permite plantear cómo un sentimiento yoico primitivo podría persistir en un adulto.",
-    "dependsOn": [
-      "F10"
-    ],
-    "steps": [
-      "Etapa anterior",
-      "Desarrollo y posible persistencia"
-    ],
-    "order": 11,
-    "layer": "Obra · paráfrasis verificada (no cita literal)"
+    id:'F11', section:'constitucion', order:11, page:'p. 4', kind:'Estructura del yo',
+    title:'El yo se continúa con el ello',
+    originalQuote:'«el yo se continúa hacia dentro, sin límites precisos, con una entidad psíquica inconsciente que denominamos ello»',
+    summary:'La aparente unidad del yo no implica fronteras internas absolutas.',
+    explanation:'Freud parte de que el yo parece independiente y unitario, pero el psicoanálisis muestra continuidad interior con el ello.',
+    simple:'Por fuera el yo parece tener bordes; por dentro no está totalmente separado de lo inconsciente.',
+    question:'¿Por qué es engañosa la apariencia del yo como unidad cerrada?', answer:'Porque hacia dentro se prolonga sin límites precisos en el ello.',
+    dependsOn:['F10'], steps:['Yo unitario aparente','Continuidad con el ello'], layer:'Obra · cita literal cotejada + explicación editorial',
   },
   {
-    "id": "F12",
-    "section": "memoria",
-    "title": "La comparación con Roma",
-    "page": "pp. 8–10",
-    "kind": "Analogía",
-    "summary": "Freud imagina una ciudad donde todos sus periodos fueran visibles simultáneamente.",
-    "explanation": "La Roma real sólo conserva ruinas y reconstrucciones; la Roma imaginaria, concebida como psiquismo, contendría simultáneamente todas las edificaciones de todas sus épocas.",
-    "simple": "Imagine todas las Romas históricas ocupando a la vez el mismo lugar: así intenta representar capas del pasado mental.",
-    "question": "¿Qué pretende ilustrar la Roma imposible?",
-    "answer": "La posibilidad de que diversas fases pasadas subsistan, no una descripción literal del cerebro.",
-    "dependsOn": [
-      "F11"
-    ],
-    "steps": [
-      "Restos urbanos materiales",
-      "Superposición psíquica imaginaria"
-    ],
-    "order": 12,
-    "layer": "Obra · paráfrasis verificada (no cita literal)"
+    id:'F12', section:'constitucion', order:12, page:'p. 5', kind:'Caso',
+    title:'Enamoramiento y frontera yo–objeto',
+    originalQuote:'«el enamorado afirma que yo y tú son uno, y está dispuesto a comportarse como si realmente fuese así»',
+    summary:'El enamoramiento muestra que incluso hacia afuera la frontera del yo puede debilitarse.',
+    explanation:'Freud usa un estado no necesariamente patológico para mostrar que la delimitación entre yo y objeto no es absolutamente fija.',
+    simple:'En el amor intenso podemos sentir que la separación entre “yo” y “tú” se borra.',
+    question:'¿Qué prueba el ejemplo del enamoramiento?', answer:'Que la frontera vivida entre yo y objeto puede alterarse transitoriamente.',
+    dependsOn:['F11'], steps:['Yo delimitado','Enamoramiento','Frontera atenuada'], layer:'Obra · cita literal cotejada + explicación editorial',
   },
   {
-    "id": "F13",
-    "section": "memoria",
-    "title": "Los límites de la analogía",
-    "page": "pp. 10–11",
-    "kind": "Objeción",
-    "summary": "La simultaneidad de edificaciones incompatibles resulta espacialmente inconcebible.",
-    "explanation": "Freud muestra que una ciudad sólo admite cuerpos distintos por sustitución o yuxtaposición; también un organismo cambia físicamente. La imagen no representa adecuadamente la conservación psíquica.",
-    "simple": "No se pueden construir dos edificios enteros en exactamente el mismo espacio; la mente no es una ciudad literal.",
-    "question": "¿Por qué el propio Freud rechaza tomar la comparación como una representación exacta?",
-    "answer": "Porque el espacio físico no puede mostrar a la vez todas las fases que la hipótesis atribuye a la vida psíquica.",
-    "dependsOn": [
-      "F12"
-    ],
-    "steps": [
-      "Analogía espacial",
-      "Límite reconocido"
-    ],
-    "order": 13,
-    "layer": "Obra · paráfrasis verificada (no cita literal)"
+    id:'F13', section:'constitucion', order:13, page:'p. 5', kind:'Caso clínico',
+    title:'Los límites del yo no son inmutables',
+    originalQuote:'«el sentimiento yoico está sujeto a trastornos, y los límites del yo con el mundo exterior no son inmutables»',
+    summary:'Los estados patológicos aportan otros casos de alteración en la demarcación del yo.',
+    explanation:'Freud menciona experiencias en que partes del propio cuerpo o psiquismo parecen extrañas y otras en que se proyecta afuera lo propio.',
+    simple:'La mente puede equivocarse sobre qué pertenece a uno mismo y qué viene del exterior.',
+    question:'¿Qué conclusión extrae de los estados patológicos?', answer:'Que la demarcación yo/mundo puede confundirse y no es una frontera inmutable.',
+    dependsOn:['F12'], steps:['Alteración clínica','Confusión de pertenencia','Fronteras variables'], layer:'Obra · cita literal cotejada + explicación editorial',
   },
   {
-    "id": "F14",
-    "section": "memoria",
-    "title": "Conclusión prudente sobre la huella",
-    "page": "p. 11",
-    "kind": "Cautela",
-    "summary": "El pasado puede persistir; Freud no sostiene como demostrada la conservación absoluta.",
-    "explanation": "Tras admitir que ciertos elementos quizá se borren irreversiblemente y que la persistencia requiere condiciones, mantiene como regla aproximada que mucho de lo pretérito permanece en la vida anímica.",
-    "simple": "El pasado puede dejar huellas, pero no significa que todo recuerdo sea recuperable siempre.",
-    "question": "¿Qué conclusión permite el argumento sin exagerarlo?",
-    "answer": "Que la conservación del pasado psíquico es frecuente o general, no que toda huella sobreviva intacta.",
-    "dependsOn": [
-      "F13"
-    ],
-    "steps": [
-      "Posible conservación",
-      "Condiciones y límites"
-    ],
-    "order": 14,
-    "layer": "Obra · paráfrasis verificada (no cita literal)"
+    id:'F14', section:'constitucion', order:14, page:'p. 5', kind:'Génesis',
+    title:'El sentido yoico ha evolucionado',
+    originalQuote:'«este sentido yoico del adulto no puede haber sido el mismo desde el principio, sino que debe haber sufrido una evolución»',
+    summary:'Freud convierte la variabilidad del yo en una pregunta por su desarrollo.',
+    explanation:'Si las fronteras del yo pueden alterarse, no hay razón para tratarlas como originarias; hay que reconstruir cómo llegaron a formarse.',
+    simple:'El yo adulto no nació terminado: sus fronteras se aprendieron y se formaron.',
+    question:'¿Qué hipótesis abre la investigación del lactante?', answer:'Que el sentido yoico adulto es el resultado de una evolución.',
+    dependsOn:['F13'], steps:['Yo adulto','No es originario','Historia de formación'], layer:'Obra · cita literal cotejada + explicación editorial',
   },
   {
-    "id": "F15",
-    "section": "religion",
-    "title": "¿Origen o acompañamiento?",
-    "page": "pp. 11–12",
-    "kind": "Problema",
-    "summary": "La supervivencia del sentimiento yoico primitivo no basta para fundar la necesidad religiosa.",
-    "explanation": "Freud concede la existencia posible de un sentimiento oceánico en muchas personas y lo reduce hipotéticamente a una fase yoica primitiva; aun así pide explicar qué necesidad concreta lo hace fuente religiosa.",
-    "simple": "Sentirse unido al mundo no responde todavía por qué las personas necesitan religión.",
-    "question": "¿Qué problema sigue abierto tras explicar el sentimiento oceánico?",
-    "answer": "Si puede ser la fuente de las necesidades religiosas, no sólo una vivencia asociada a ellas.",
-    "dependsOn": [
-      "F14"
-    ],
-    "steps": [
-      "Hipótesis genética del sentimiento",
-      "Pregunta por necesidad religiosa"
-    ],
-    "order": 15,
-    "layer": "Obra · paráfrasis verificada (no cita literal)"
+    id:'F15', section:'constitucion', order:15, page:'p. 5', kind:'Génesis',
+    title:'El lactante y la aparición del objeto',
+    originalQuote:'«El lactante aún no discierne su yo de un mundo exterior, como fuente de las sensaciones que le llegan»',
+    summary:'El bebé no comienza con una distinción clara entre sí mismo y el exterior.',
+    explanation:'La disponibilidad de unas sensaciones corporales y la ausencia temporal de otras —especialmente el seno— obliga a reconocer algo que no está siempre bajo control.',
+    simple:'El bebé aprende poco a poco que algunas fuentes de satisfacción no son parte de él.',
+    question:'¿Qué experiencia ayuda a constituir un objeto exterior?', answer:'La aparición y desaparición de una fuente de satisfacción que no puede producirse a voluntad.',
+    dependsOn:['F14'], steps:['Masa sensorial inicial','Ausencia de la fuente','Aparición del objeto'], layer:'Obra · cita literal cotejada + explicación editorial',
   },
   {
-    "id": "F16",
-    "section": "religion",
-    "title": "Desamparo infantil y amparo paterno",
-    "page": "p. 12",
-    "kind": "Tesis de Freud",
-    "summary": "La necesidad religiosa deriva principalmente del desamparo y de la nostalgia de protección paterna.",
-    "explanation": "Freud da prioridad a la dependencia infantil, reactivada por la angustia ante el poder del destino. El amparo paterno ofrece, para él, una explicación más potente de la demanda religiosa.",
-    "simple": "Cuando el mundo da miedo, se busca una protección semejante a la que se esperaba de los padres.",
-    "question": "¿Cuál es para Freud el origen principal de las necesidades religiosas?",
-    "answer": "El desamparo infantil y la añoranza del padre, renovados por la angustia frente al destino.",
-    "dependsOn": [
-      "F15"
-    ],
-    "steps": [
-      "Dependencia infantil",
-      "Búsqueda de protección"
-    ],
-    "order": 16,
-    "layer": "Obra · paráfrasis verificada (no cita literal)"
+    id:'F16', section:'constitucion', order:16, page:'p. 6', kind:'Proceso',
+    title:'Yo puramente hedónico y no-yo amenazante',
+    originalQuote:'«Surge así la tendencia a disociar del yo cuanto pueda convertirse en fuente de displacer, a expulsarlo de sí»',
+    summary:'El principio del placer impulsa una primera partición entre lo placentero propio y lo displacentero expulsado.',
+    explanation:'Freud reconstruye un “yo placiente” que intenta conservar dentro lo agradable y constituir como afuera aquello que amenaza con displacer.',
+    simple:'La primera reacción sería: lo bueno es mío; lo malo, fuera de mí.',
+    question:'¿Qué criterio organiza inicialmente la separación?', answer:'El placer y el displacer, antes de una discriminación estable entre interior y exterior.',
+    dependsOn:['F15'], steps:['Displacer','Expulsión','Yo placiente / no-yo'], layer:'Obra · cita literal cotejada + explicación editorial',
   },
   {
-    "id": "F17",
-    "section": "religion",
-    "title": "Consuelo oceánico y narcisismo",
-    "page": "p. 12",
-    "kind": "Matiz",
-    "summary": "Lo oceánico puede integrarse después como vía de consuelo religioso.",
-    "explanation": "Freud admite que la experiencia de ser uno con el todo puede funcionar como modo de contrarrestar la amenaza exterior, quizá vinculada a una restauración del narcisismo ilimitado. No la erige en fuente única.",
-    "simple": "Sentirse parte del todo puede consolar, pero para Freud no sustituye la explicación por desamparo.",
-    "question": "¿Qué lugar conserva el sentimiento oceánico en la religión?",
-    "answer": "Una posible asociación posterior y consoladora, no una fuente principal demostrada.",
-    "dependsOn": [
-      "F16",
-      "F03"
-    ],
-    "steps": [
-      "Necesidad de consuelo",
-      "Vivencia de comunión"
-    ],
-    "order": 17,
-    "layer": "Obra · paráfrasis verificada (no cita literal)"
+    id:'F17', section:'constitucion', order:17, page:'p. 6', kind:'Corrección',
+    title:'La experiencia corrige al yo placiente',
+    originalQuote:'«Los límites de este primitivo yo placiente no pueden escapar a reajustes ulteriores impuestos por la experiencia»',
+    summary:'La experiencia muestra que placer y exterior, displacer e interior no coinciden de forma simple.',
+    explanation:'Hay satisfacciones que dependen de objetos externos y sufrimientos que proceden del propio organismo o psiquismo; la partición hedónica debe ser reajustada.',
+    simple:'La realidad enseña que no todo lo bueno está dentro ni todo lo malo está fuera.',
+    question:'¿Por qué fracasa la primera partición placer=yo y displacer=afuera?', answer:'Porque la experiencia muestra placeres externos y displaceres internos.',
+    dependsOn:['F16'], steps:['Yo placiente','Experiencia contradictoria','Reajuste'], layer:'Obra · cita literal cotejada + explicación editorial',
   },
   {
-    "id": "F18",
-    "section": "religion",
-    "title": "Yoga, trance y límite de explicación",
-    "page": "pp. 12–13 (antes de II)",
-    "kind": "Ejemplo final",
-    "summary": "Freud menciona prácticas de yoga y experiencias difusas sin tratarlas como prueba concluyente.",
-    "explanation": "Un segundo interlocutor describe sentimientos despertados por concentración corporal y respiración, vinculándolos a regresiones a estados primitivos. Freud conserva reservas sobre su interpretación. Este pasaje cierra el capítulo I en la página 13 antes del encabezado II.",
-    "simple": "Que una práctica produzca sensaciones intensas no demuestra por sí sola toda una teoría de su origen.",
-    "question": "¿Cómo maneja Freud el testimonio de sensaciones por yoga?",
-    "answer": "Lo menciona como posible campo de experiencia, sin convertirlo en prueba de una tesis religiosa.",
-    "dependsOn": [
-      "F17"
-    ],
-    "steps": [
-      "Prácticas de concentración",
-      "Interpretación hipotética"
-    ],
-    "order": 18,
-    "layer": "Obra · paráfrasis verificada (no cita literal)"
-  }
+    id:'F18', section:'constitucion', order:18, page:'p. 6', kind:'Tránsito',
+    title:'Primer paso hacia el principio de realidad',
+    originalQuote:'«le permite discernir lo interior (perteneciente al yo) de lo exterior (originado por el mundo), dando así el primer paso hacia la entronización del principio de realidad»',
+    summary:'La orientación de los sentidos y la acción permiten discriminar interior y exterior.',
+    explanation:'El principio de realidad aparece como resultado de aprender a distinguir procedencias, no como una frontera dada desde el inicio.',
+    simple:'La persona aprende a comprobar de dónde viene algo y a actuar sobre ello, en vez de decidir sólo por placer o displacer.',
+    question:'¿Qué aprendizaje inaugura el principio de realidad?', answer:'Distinguir lo interior de lo exterior mediante percepción y acción.',
+    dependsOn:['F17'], steps:['Orientación sensorial','Acción','Interior/exterior','Principio de realidad'], layer:'Obra · cita literal cotejada + explicación editorial',
+  },
+  {
+    id:'F19', section:'constitucion', order:19, page:'p. 6', kind:'Derivación clínica',
+    title:'Defensas internas tratadas como si fueran externas',
+    originalQuote:'«el yo, al defenderse contra ciertos estímulos displacientes emanados de su interior, aplique los mismos métodos que le sirven contra el displacer de origen externo»',
+    summary:'El mismo mecanismo defensivo puede aplicarse a fuentes internas de displacer.',
+    explanation:'Freud conecta la constitución de la frontera con la posibilidad de trastornos: algo propio puede tratarse defensivamente como si fuera ajeno.',
+    simple:'A veces la mente intenta expulsar o combatir algo interno como si viniera de fuera.',
+    question:'¿Qué problema puede surgir de aplicar defensas externas a estímulos internos?', answer:'Que la frontera yo/mundo se utilice de forma patógena para tratar como externo lo que procede del interior.',
+    dependsOn:['F18'], steps:['Displacer interno','Defensa como si fuera externa','Posible trastorno'], layer:'Obra · cita literal cotejada + explicación editorial',
+  },
+  {
+    id:'F20', section:'constitucion', order:20, page:'p. 6', kind:'Conclusión provisional',
+    title:'El yo originario incluye todo',
+    originalQuote:'«originalmente el yo lo incluye todo; luego, desprende de sí un mundo exterior»',
+    summary:'Freud invierte la intuición adulta: la separación respecto del mundo sería un resultado, no el punto de partida.',
+    explanation:'Esta fórmula concentra la tesis genética que hace posible reinterpretar el sentimiento oceánico como resto de una fase yoica anterior.',
+    simple:'Primero no habría una frontera clara; después el yo aprende a separar de sí un “afuera”.',
+    question:'¿Cuál es la secuencia genética fundamental?', answer:'Inclusión originaria y posterior desprendimiento de un mundo exterior.',
+    dependsOn:['F19'], steps:['Yo originario amplio','Desprendimiento','Mundo exterior'], layer:'Obra · cita literal cotejada + explicación editorial',
+  },
+  {
+    id:'F21', section:'memoria', order:21, page:'p. 7', kind:'Consecuencia',
+    title:'El yo adulto como residuo atrofiado',
+    originalQuote:'«Nuestro actual sentido yoico no es, por consiguiente, más que el residuo atrofiado de un sentimiento más amplio»',
+    summary:'El yo adulto delimitado conserva la huella de una fase más extensa.',
+    explanation:'Freud no presenta el yo adulto como forma original, sino como resultado restringido de una relación más amplia con el mundo.',
+    simple:'El yo actual sería una versión más pequeña y delimitada de una experiencia anterior más extensa.',
+    question:'¿Cómo describe Freud el sentido yoico actual?', answer:'Como residuo restringido de un sentimiento anterior más amplio.',
+    dependsOn:['F20'], steps:['Sentimiento primario amplio','Desarrollo','Yo adulto restringido'], layer:'Obra · cita literal cotejada + explicación editorial',
+  },
+  {
+    id:'F22', section:'memoria', order:22, page:'p. 7', kind:'Vínculo conceptual',
+    title:'Infinitud, comunión y sentimiento oceánico',
+    originalQuote:'«los contenidos ideativos que le corresponden serían precisamente los de infinitud y de comunión con el Todo»',
+    summary:'Freud conecta la hipotética supervivencia del sentido yoico primario con el contenido del sentimiento oceánico.',
+    explanation:'Aquí se establece el puente entre la génesis del yo y la experiencia descrita por el amigo: la sensación de ilimitación podría ser la contraparte subjetiva de una fase anterior.',
+    simple:'El sentimiento oceánico podría ser el eco de un momento en que el yo aún no estaba tan separado del mundo.',
+    question:'¿Qué relación establece Freud entre yo primario y oceánico?', answer:'Los contenidos de infinitud y comunión con el Todo corresponderían a la supervivencia del sentimiento yoico primario.',
+    dependsOn:['F21','F04'], steps:['Yo primario','Persistencia posible','Infinitud / Todo','Oceánico'], layer:'Obra · cita literal cotejada + explicación editorial',
+  },
+  {
+    id:'F23', section:'memoria', order:23, page:'p. 7', kind:'Problema',
+    title:'¿Puede sobrevivir lo primitivo?',
+    originalQuote:'«¿acaso tenemos el derecho de admitir esta supervivencia de lo primitivo junto a lo ulterior que de él se ha desarrollado?»',
+    summary:'Freud convierte la hipótesis del sentimiento primario en un problema general de persistencia.',
+    explanation:'La explicación del oceánico depende ahora de justificar que una fase anterior pueda coexistir con una posterior.',
+    simple:'Para que la teoría funcione, Freud necesita mostrar que lo viejo puede seguir presente aunque algo nuevo se haya desarrollado.',
+    question:'¿Qué debe justificar antes de seguir?', answer:'La coexistencia de lo primitivo con lo ulterior desarrollado a partir de ello.',
+    dependsOn:['F22'], steps:['Hipótesis de supervivencia','Necesidad de justificación'], layer:'Obra · cita literal cotejada + explicación editorial',
+  },
+  {
+    id:'F24', section:'memoria', order:24, page:'p. 7', kind:'Analogía',
+    title:'La serie zoológica como primera comparación',
+    originalQuote:'«aún hoy hallamos, entre las vivientes, todas las formas simples de la vida»',
+    summary:'Freud recurre primero a una analogía evolutiva: formas antiguas pueden coexistir con formas posteriores.',
+    explanation:'La comparación zoológica ofrece una intuición de supervivencia, aunque Freud reconoce que las especies antiguas no son literalmente los antepasados actuales y que faltan eslabones intermedios.',
+    simple:'En la vida actual conviven formas más simples y más complejas; eso ayuda a imaginar cómo algo antiguo puede seguir existiendo.',
+    question:'¿Por qué la analogía zoológica es útil pero limitada?', answer:'Sugiere coexistencia de formas antiguas y nuevas, pero no reproduce exactamente la continuidad psíquica.',
+    dependsOn:['F23'], steps:['Evolución','Formas simples persistentes','Límite de analogía'], layer:'Obra · cita literal cotejada + explicación editorial',
+  },
+  {
+    id:'F25', section:'memoria', order:25, page:'pp. 7–8', kind:'Mecanismo',
+    title:'Bifurcación del curso evolutivo',
+    originalQuote:'«Este fenómeno obedece casi siempre a una bifurcación del curso evolutivo»',
+    summary:'Freud propone una figura para la coexistencia: una parte permanece mientras otra sigue desarrollándose.',
+    explanation:'La persistencia psíquica no exige que todo quede detenido; una parte de una tendencia puede sustraerse a la modificación mientras otra continúa su desarrollo.',
+    simple:'Una parte cambia y otra queda casi como estaba; por eso lo antiguo y lo nuevo pueden coexistir.',
+    question:'¿Qué mecanismo conceptual explica la coexistencia?', answer:'Una bifurcación en la que una parte permanece y otra sigue la vía del desarrollo.',
+    dependsOn:['F24'], steps:['Tendencia inicial','Bifurcación','Parte conservada','Parte desarrollada'], layer:'Obra · cita literal cotejada + explicación editorial',
+  },
+  {
+    id:'F26', section:'memoria', order:26, page:'p. 8', kind:'Crítica de una concepción',
+    title:'Olvido no significa aniquilación',
+    originalQuote:'«Habiendo superado la concepción errónea de que el olvido, tan corriente para nosotros, significa la destrucción o aniquilación del resto mnémico»',
+    summary:'Freud rechaza identificar olvido con desaparición completa de la huella psíquica.',
+    explanation:'El problema de la conservación se formula contra una idea simple de borrado: que algo no esté disponible para la conciencia no significa que haya dejado de existir psíquicamente.',
+    simple:'Olvidar no equivale necesariamente a que la huella haya sido borrada.',
+    question:'¿Qué concepción considera errónea?', answer:'Que el olvido implique destrucción o aniquilación del resto mnémico.',
+    dependsOn:['F25'], steps:['Olvido','No = destrucción','Persistencia posible'], layer:'Obra · cita literal cotejada + explicación editorial',
+  },
+  {
+    id:'F27', section:'memoria', order:27, page:'p. 8', kind:'Hipótesis fuerte',
+    title:'Nada de lo formado desaparece sin más',
+    originalQuote:'«en la vida psíquica nada de lo una vez formado puede desaparecer jamás; todo se conserva de alguna manera»',
+    summary:'Freud formula la versión fuerte de la hipótesis de conservación psíquica.',
+    explanation:'El punto es que una formación psíquica puede dejar de ser accesible o dominante sin quedar necesariamente aniquilada.',
+    simple:'Algo puede dejar de notarse y, aun así, seguir formando parte de la vida psíquica.',
+    question:'¿Cuál es la tesis fuerte de conservación?', answer:'Que lo una vez formado puede conservarse de algún modo aunque ya no sea manifiesto.',
+    dependsOn:['F26'], steps:['Formación psíquica','Persistencia','No desaparición simple'], layer:'Obra · cita literal cotejada + explicación editorial',
+  },
+  {
+    id:'F28', section:'memoria', order:28, page:'p. 8', kind:'Posibilidad',
+    title:'Regresión y reaparición',
+    originalQuote:'«puede volver a surgir en circunstancias favorables, como, por ejemplo, mediante una regresión de suficiente profundidad»',
+    summary:'La conservación se vuelve relevante porque lo pretérito podría reaparecer.',
+    explanation:'Freud no habla sólo de una huella inerte: ciertas condiciones regresivas podrían hacer que una formación anterior vuelva a manifestarse.',
+    simple:'Lo antiguo puede reaparecer cuando el psiquismo retrocede suficientemente hacia formas anteriores.',
+    question:'¿Qué muestra que la conservación no es meramente estática?', answer:'La posibilidad de reaparición en condiciones favorables, incluida una regresión profunda.',
+    dependsOn:['F27'], steps:['Conservación','Condiciones favorables','Regresión','Reaparición'], layer:'Obra · cita literal cotejada + explicación editorial',
+  },
+  {
+    id:'F29', section:'memoria', order:29, page:'p. 8', kind:'Analogía',
+    title:'La comparación con la Ciudad Eterna',
+    originalQuote:'«Tratemos de representarnos lo que esta hipótesis significa mediante una comparación que nos llevará a otro terreno»',
+    summary:'Freud introduce Roma para hacer imaginable la conservación simultánea de fases históricas.',
+    explanation:'La analogía cambia de terreno: del psiquismo a la ciudad. No es una prueba, sino un recurso representacional que se desarrollará en las páginas siguientes.',
+    simple:'Como es difícil imaginar muchas etapas psíquicas coexistiendo, Freud usa una ciudad con capas históricas.',
+    question:'¿Qué función tiene Roma en el argumento?', answer:'Dar una representación intuitiva de la hipótesis de conservación, no demostrarla.',
+    dependsOn:['F28'], steps:['Hipótesis abstracta','Necesidad de representación','Roma'], layer:'Obra · cita literal cotejada + explicación editorial',
+  },
+  {
+    id:'F30', section:'memoria', order:30, page:'p. 8', kind:'Desarrollo de analogía',
+    title:'Restos de las fases pasadas de Roma',
+    originalQuote:'«preguntándonos, en cambio, qué restos de esas fases pasadas hallará aún en la Roma actual un turista»',
+    summary:'La primera versión de la analogía pregunta qué queda materialmente de los distintos estratos urbanos.',
+    explanation:'Freud recorre etapas de Roma y observa que el turista actual encuentra restos, reconstrucciones y ausencias. La comparación queda abierta al final de la página 8.',
+    simple:'Antes de imaginar todas las Romas juntas, Freud empieza preguntando qué huellas físicas del pasado siguen visibles hoy.',
+    question:'¿Qué pregunta concreta guía el comienzo de la analogía?', answer:'Qué restos de fases históricas anteriores sobreviven en la Roma actual.',
+    dependsOn:['F29'], steps:['Roma histórica','Transformaciones','Restos actuales'], layer:'Obra · cita literal cotejada + explicación editorial',
+  },
 ]
-export const freudIRoutes = [{ id: 'all', label: 'Capítulo I completo' }, ...freudISections.map(({id,label})=>({id,label}))]
-export const freudIOrder = freudIConcepts.map((node) => node.id)
-export const freudINodeById = (id) => freudIConcepts.find((node) => node.id === id)
-export const freudILinks = freudIConcepts.flatMap((node) => node.dependsOn.map((source)=>({id:source+'-'+node.id,source,target:node.id,type:'smoothstep',label:'prepara / responde'})))
+
+export const freudIRoutes = [{ id:'all', label:'Tramo recibido · pp. 2–8' }, ...freudISections.map(({id,label})=>({id,label}))]
+export const freudIOrder = freudIConcepts.map((node)=>node.id)
+export const freudINodeById = (id)=>freudIConcepts.find((node)=>node.id===id)
+export const freudILinks = freudIConcepts.flatMap((node)=>node.dependsOn.map((source)=>({id:source+'-'+node.id,source,target:node.id,type:'smoothstep',label:'prepara / responde'})))
 export const freudIStudyQuestions = freudIConcepts.map(({id,section,question,answer})=>({nodeId:id,section,question,answer,provenance:'Pregunta editorial de repaso'}))
