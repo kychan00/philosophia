@@ -24,7 +24,7 @@ function FreudConceptNode({ data, selected }) {
       <h3>{data.title}</h3>
       <p>{data.summary}</p>
       <div className="freud-node-source"><b>TEXTO ORIGINAL · CITA LITERAL COTEJADA</b><span>{data.originalQuote}</span><small>(Freud, s. f., {data.page}; paginación impresa)</small></div><div className="freud-node-analysis"><b>EXPLICACIÓN ACADÉMICA</b><span>{data.explanation}</span></div><div className="freud-flow-node-callout"><b>EN PALABRAS SIMPLES</b><span>{data.simple}</span></div>
-      <div className="freud-flow-node-foot"><small>Obra · Capítulo I</small><button type="button" className="freud-open-folio nodrag nopan" onClick={(event) => { event.stopPropagation(); data.onOpenFolio(data.id) }} aria-label={`Abrir folio ${data.code}: ${data.title}`}>Abrir folio ↗</button></div>
+      <div className="freud-flow-node-foot"><small>Obra · Capítulo {freudMalestarActiveChapter.id}</small><button type="button" className="freud-open-folio nodrag nopan" onClick={(event) => { event.stopPropagation(); data.onOpenFolio(data.id) }} aria-label={`Abrir folio ${data.code}: ${data.title}`}>Abrir folio ↗</button></div>
       <Handle type="source" position={Position.Right} />
     </article>
   )
