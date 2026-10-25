@@ -588,7 +588,7 @@ function StudyCanvas() {
               nodes={compactViewport ? nodes.filter((node) => !node.hidden) : nodes}
               edges={compactViewport ? edges.filter((edge) => !edge.hidden) : edges}
               nodeTypes={nodeTypes}
-              onlyRenderVisibleElements
+              onlyRenderVisibleElements={compactViewport}
               onNodeClick={(_, node) => selectNode(node)}
               onEdgeClick={(event, edge) => {
                 if (!edge.relationSheetId) return
