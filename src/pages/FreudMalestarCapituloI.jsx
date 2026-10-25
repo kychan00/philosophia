@@ -9,7 +9,7 @@ import { freudIConcepts, freudISections, freudIRoutes, freudILinks, freudIOrder,
 import './FreudMalestarCapituloI.css'
 
 const SECTION_TONE = { planteamiento: 'rust', constitucion: 'blue', memoria: 'plum', religion: 'sage' }
-const WINDOW_SIZE = { width: 350, height: 285 }
+const WINDOW_SIZE = { width: 350, height: 410 }
 const bySection = (id) => freudIConcepts.filter((item) => id === 'all' || item.section === id)
 function FreudConceptNode({ data, selected }) {
   return (
@@ -19,8 +19,8 @@ function FreudConceptNode({ data, selected }) {
       <div className="freud-flow-node-meta"><span>{data.kind} · {data.page}</span><b>{data.code}</b></div>
       <h3>{data.title}</h3>
       <p>{data.summary}</p>
-      <div className="freud-flow-node-callout"><b>EN PALABRAS SIMPLES</b><span>{data.simple}</span></div>
-      <div className="freud-flow-node-foot"><small>Obra · Capítulo I</small><strong>ABRIR FOLIO ↗</strong></div>
+      <div className="freud-node-source"><b>TEXTO EXPLÍCITO · PARÁFRASIS</b><span>{data.explanation}</span><small>(Freud, s. f., {data.page} del PDF)</small></div><div className="freud-flow-node-callout"><b>EN PALABRAS SIMPLES</b><span>{data.simple}</span></div>
+      <div className="freud-flow-node-foot"><small>Obra · Capítulo I</small><button type="button" className="freud-open-folio nodrag nopan" onClick={(event) => { event.stopPropagation(); data.onOpenFolio(data.id) }} aria-label={`Abrir folio ${data.code}: ${data.title}`}>Abrir folio ↗</button></div>
       <Handle type="source" position={Position.Right} />
     </article>
   )
@@ -51,11 +51,17 @@ function FreudWorkspace() {
   const [guideIndex, setGuideIndex] = useState(0)
   const [fullscreen, setFullscreen] = useState(false)
   const [showFolio, setShowFolio] = useState(false)
+  const [folioOpen, setFolioOpen] = useState(false)
+  const folioCloseRef = useRef(null)
+  const folioTriggerRef = useRef(null)
   const workspaceRef = useRef(null)
   const { setCenter, fitView } = useReactFlow()
   const routeItems = useMemo(() => bySection(route), [route])
   const routeIds = useMemo(() => new Set(routeItems.map((item) => item.id)), [routeItems])
   const selected = freudINodeById(selectedId)
+  const openFolio = useCallback((id) => { folioTriggerRef.current = document.activeElement; setSelectedId(id); setFolioOpen(true) }, [])
+  const closeFolio = useCallback(() => { setFolioOpen(false); requestAnimationFrame(() => folioTriggerRef.current?.focus?.()) }, [])
+  useEffect(() => { if (folioOpen) folioCloseRef.current?.focus() }, [folioOpen])
   const relevant = useMemo(() => new Set([selectedId, ...freudILinks.filter((line) => line.source === selectedId || line.target === selectedId).flatMap((line) => [line.source, line.target])]), [selectedId])
   const index = Math.max(0, routeItems.findIndex((item) => item.id === selectedId))
   const section = freudISections.find((item) => item.id === route)
@@ -69,9 +75,9 @@ function FreudWorkspace() {
     return {
       id: item.id, type: 'freud', selected: item.id === selectedId, draggable: false,
       hidden: !visible,
-      position: { x: 65 + col * 490, y: 55 + row * 365 },
+      position: { x: 65 + col * 490, y: 55 + row * 490 },
       data: {
-        ...item, branch: item.section, code: item.id,
+        ...item, branch: item.section, code: item.id, onOpenFolio: openFolio,
         sourceRef: 'Freud, cap. I · PDF ' + item.page,
         produces: freudILinks.filter((edge) => edge.source === item.id).map((edge) => edge.target),
         dimmed: Boolean(selectedId) && !relevant.has(item.id),
@@ -79,7 +85,7 @@ function FreudWorkspace() {
         guided: guided && item.id === selectedId,
       },
     }
-  }), [route, routeIds, routeItems, selectedId, relevant, guided])
+  }), [route, routeIds, routeItems, selectedId, relevant, guided, openFolio])
   const edges = useMemo(() => freudILinks.filter((edge) => routeIds.has(edge.source) && routeIds.has(edge.target)).map((edge) => ({
     ...edge,
     markerEnd: { type: MarkerType.ArrowClosed },
@@ -180,7 +186,7 @@ function FreudWorkspace() {
               <span className="freud-inspector-type">{selected?.kind} · {freudISections.find((item) => item.id === selected?.section)?.label}</span>
               <h3>{selected?.title}</h3>
               <p className="freud-inspector-summary">{selected?.summary}</p>
-              <section><b>QUÉ DICE EL TEXTO · PARÁFRASIS</b><p>{selected?.explanation}</p><small>{selected?.layer} · {selected?.page}</small></section>
+              <section><b>QUÉ DICE EL TEXTO · PARÁFRASIS</b><p>{selected?.explanation}</p><small>{selected?.layer} · (Freud, s. f., {selected?.page} del PDF)</small></section>
               <section className="freud-simple"><b>EN PALABRAS SIMPLES</b><p>{selected?.simple}</p></section>
               {schema && <section className="freud-schema"><b>ESQUEMA DE ESTE NODO</b><AnimatedConceptSchema schema={schema} /></section>}
               <section><b>PREGUNTA PARA ESTUDIAR</b><p>{selected?.question}</p><button type="button" onClick={() => setShowFolio((prev) => !prev)}>{showFolio ? 'Ocultar explicación' : 'Comprobar respuesta'}</button>{showFolio && <p className="freud-answer">{selected?.answer}</p>}</section>
@@ -191,6 +197,7 @@ function FreudWorkspace() {
             </div>
             <footer><button type="button" disabled={index <= 0} onClick={() => { setShowFolio(false); move(-1) }}>← Anterior</button><span>{index + 1} / {routeItems.length}</span><button type="button" disabled={index >= routeItems.length - 1} onClick={() => { setShowFolio(false); move(1) }}>Siguiente →</button></footer>
           </aside>
+          {folioOpen && selected && <div className="freud-folio-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) closeFolio() }} onKeyDown={(event) => { if (event.key === 'Escape') { event.stopPropagation(); closeFolio() } if (event.key === 'Tab') { const focusables = [...event.currentTarget.querySelectorAll('button:not([disabled]),a[href]')]; if (!focusables.length) return; const first = focusables[0], last = focusables[focusables.length - 1]; if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus() } else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus() } } }} role="presentation"><article className="freud-folio-modal" role="dialog" aria-modal="true" aria-labelledby="freud-folio-title"><header><span>FOLIO {selected.id} · {selected.page}</span><button ref={folioCloseRef} type="button" onClick={closeFolio} aria-label="Cerrar folio">Cerrar ×</button></header><div className="freud-folio-body"><p className="freud-folio-kicker">{selected.kind} · CAPÍTULO I</p><h2 id="freud-folio-title">{selected.title}</h2><h3>Texto explícito · exposición de la obra</h3><p>{selected.explanation}</p><p className="freud-folio-citation">(Freud, s. f., {selected.page} del PDF) · Paráfrasis, no cita literal.</p><h3>En palabras simples</h3><p>{selected.simple}</p><h3>Secuencia del argumento</h3><ol>{selected.steps?.map((step, i) => <li key={i}>{step}</li>)}</ol><h3>Pregunta para estudiar</h3><p>{selected.question}</p><p><b>Respuesta:</b> {selected.answer}</p><h3>Referencia bibliográfica · APA 7</h3><p>Freud, S. (s. f.). <i>El malestar en la cultura</i> (L. López Ballesteros, trad.). Biblioteca Libre OMEGALFA. Edición digital consultada; fecha de publicación de esta edición no identificada.</p><small>Las páginas indicadas son del visor del PDF de 90 páginas. La fecha «s. f.» no es la fecha original de la obra.</small></div></article></div>}
         </div>
       </section>
       <section className="freud-synthesis"><div><span>03 / SÍNTESIS FINAL</span><h2>Lo que demuestra el capítulo — y lo que no.</h2><p>La experiencia oceánica puede recibir una explicación genética ligada a una fase temprana del yo. El pasado psíquico puede persistir, pero Freud reconoce los límites de sus imágenes. Ninguna de estas premisas demuestra que el sentimiento oceánico sea la causa fundamental de la religión. Para explicar la necesidad religiosa, Freud concede mayor peso al desamparo del niño, la nostalgia del padre y la angustia frente al destino.</p></div><div><h3>Para discutir en Teoría Crítica</h3><p>¿Qué cambia cuando el yo deja de comprenderse como una sustancia autocontenida y pasa a pensarse como algo formado mediante relaciones, separaciones y necesidades de protección?</p><small>Pregunta de articulación editorial con el curso; no es una tesis literal de Freud ni una pregunta registrada de la profesora.</small></div></section>
