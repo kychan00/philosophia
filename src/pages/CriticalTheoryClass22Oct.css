@@ -1,0 +1,12 @@
+/* FI265 · 22 de octubre · folio 013; acento documental Freud, sin alterar folios previos. */
+.ct2210-page{--ph2d-topic-moss:#792C35;--ph2d-topic-rust:#9E1010;--ph2d-topic-gold:#94713A}
+.ct2210-page .ct1510-hero{background:radial-gradient(ellipse at 84% 12%,rgba(120,42,53,.11),transparent 48%),#FCF9F2}
+.ct2210-page .ct1510-eyebrow,.ct2210-page .ct1510-hero h1 em{color:#9E1010}
+.ct2210-page .ct1510-pull{border-top-color:#9E1010}
+.ct2210-page .ct1510-inspector{border-left-color:#9E1010}
+.ct2210-page .ct1510-detail-folio{scroll-margin-top:22px}
+.ct2210-page .ct1510-licensed-item img{object-fit:contain}
+.ct2210-page .ct1510-source-card{overflow-wrap:anywhere}
+@media (max-width:470px){.ct2210-page .ct1510-detail-index{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.ct2210-page *{scroll-behavior:auto!important}}
+@media print{.ct2210-page .ct1510-licensed-figure,.ct2210-page .ct1510-detail-folio{break-inside:avoid-page}}
