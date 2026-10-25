@@ -614,7 +614,7 @@ function DialecticCanvas() {
           <ReactFlow
             nodes={compactViewport ? nodes.filter((node) => !node.hidden) : nodes}
             edges={compactViewport ? edges.filter((edge) => !edge.hidden) : edges}
-            onlyRenderVisibleElements
+            onlyRenderVisibleElements={compactViewport}
             fitView
             fitViewOptions={{ padding: 0.18, maxZoom: 0.72 }}
             minZoom={0.18}
