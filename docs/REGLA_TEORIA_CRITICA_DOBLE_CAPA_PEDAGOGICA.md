@@ -147,6 +147,18 @@ El número y la estructura de apartados provienen de la clase realmente document
 - Tests: `critical-class15oct-study.test.mjs` y `critical-class15oct-browser-smoke.mjs`.
 - El 20 de octubre permanece fuera del alcance de esta iteración.
 
+## Adopción · sesión 12 / 20 de octubre
+
+- Página dedicada preexistente: `src/pages/CriticalTheoryClass20Oct.jsx`; se conservan doce tarjetas conceptuales, selector secuencial, preguntas de recuperación y enlace al sistema 2D de 58 nodos de Lukács.
+- Se añade **doble capa**: atlas de 5 problemas globales y 14 fichas documentales/pedagógicas con 42 nodos internos, sin convertir la explicación de clase en citas bibliográficas.
+- Datos: `critical20OctThemes.js`, `critical20OctSections.js`, `critical20OctSourceSections.js`, `critical20OctImage.js`.
+- Componentes: `Critical20OctThematicAtlas` y `Critical20OctSectionStudy`; CSS encapsulado y estilo editorial borgoña.
+- SVG original: `20-octubre-agencia-mediaciones.svg`, `ORIGINAL-OWNED`, líneas como mediaciones/campos de análisis, **no** causalidad automática.
+- Ejes: mercancía y prioridades sociales; burocracia y agencia; IA y trabajo humano; creatividad y vínculos; cuerpos disciplinados y filosofía crítica.
+- Límites: IA = actualización docente, no texto de Lukács; Foucault = lectura complementaria; caso vial = ejemplo no verificado históricamente; pérdida laboral = caso, no estadística; error en video ≠ detector de autoría; propuesta curricular ≠ aprobación; desaparecidos ≠ causalidad general demostrada.
+- QA específico: `critical-class20oct-study.test.mjs` y `critical-class20oct-browser-smoke.mjs` incorporados a `quality.yml`.
+- La sesión del 22 de octubre permanece fuera del alcance de esta iteración.
+
 ## Revisión de otras sesiones
 
 Aplicar únicamente cuando se trabaje ese folio, con cotejo individual de las notas del vault, incluyendo `05 - Clases` y la ficha de la materia. Las trece clases no se consideran refactorizadas por añadir esta regla.
