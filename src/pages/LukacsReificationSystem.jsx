@@ -585,10 +585,10 @@ function StudyCanvas() {
 
           <div className="marx-flow-canvas">
             <ReactFlow
-              nodes={compactViewport ? nodes.filter((node) =
-              onlyRenderVisibleElements> !node.hidden) : nodes}
+              nodes={compactViewport ? nodes.filter((node) => !node.hidden) : nodes}
               edges={compactViewport ? edges.filter((edge) => !edge.hidden) : edges}
               nodeTypes={nodeTypes}
+              onlyRenderVisibleElements
               onNodeClick={(_, node) => selectNode(node)}
               onEdgeClick={(event, edge) => {
                 if (!edge.relationSheetId) return
