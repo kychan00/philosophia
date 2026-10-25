@@ -73,6 +73,9 @@ jobs:
       - name: Lint Hartmann functional browser test
         run: npx eslint tests/hartmann-chapter1-browser-smoke.mjs
 
+      - name: Lint mobile 2D survival regression
+        run: npx eslint src/components/philosophy/system2d/mobilePerformance.js tests/system2d-mobile-performance.test.mjs tests/system2d-mobile-survival-browser-smoke.mjs
+
       - name: Build
         env:
           VITE_ONESIGNAL_APP_ID: ${{ vars.ONESIGNAL_APP_ID }}
@@ -146,6 +149,9 @@ jobs:
 
       - name: Validate Hartmann chapter I 2D in Chromium (desktop, tablet and phone)
         run: node tests/hartmann-chapter1-browser-smoke.mjs
+
+      - name: Validate legacy 2D survival in Chromium mobile
+        run: node tests/system2d-mobile-survival-browser-smoke.mjs
 
       - name: Validate Café del Agua in Chromium (phone and tablet)
         run: node tests/cafe-agua-browser-smoke.mjs
