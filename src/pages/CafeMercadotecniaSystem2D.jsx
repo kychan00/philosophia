@@ -394,10 +394,10 @@ function SystemCanvas({ embedded = false }) {
             <button type="button" onClick={toggleFullscreen}>{workspaceFullscreen ? 'Salir de pantalla completa' : 'Pantalla completa'}</button>
           </div>
           <ReactFlow
-            nodes={compactViewport ? nodes.filter((node) =
-              onlyRenderVisibleElements> !node.hidden) : nodes}
+            nodes={compactViewport ? nodes.filter((node) => !node.hidden) : nodes}
             edges={compactViewport ? edges.filter((edge) => !edge.hidden) : edges}
             nodeTypes={nodeTypes}
+              onlyRenderVisibleElements
             onNodeClick={(_, node) => selectById(node.id)}
             fitView
             minZoom={.18}
