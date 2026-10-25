@@ -546,7 +546,7 @@ function StudyCanvas() {
               setRoute('all')
               setSelectedId(null)
               setRelationId(null)
-              setTimeout(() => fitView({ padding:0.08, duration:500 }), 0)
+              if (!compactViewport) setTimeout(() => fitView({ padding:0.08, duration:500 }), 0)
             }}
           >
             Ver sistema completo
