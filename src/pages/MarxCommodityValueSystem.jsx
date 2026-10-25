@@ -1,4 +1,5 @@
 import SectionPedagogy from '../components/philosophy/system2d/SectionPedagogy'
+import { initialSystem2DRoute, useSystem2DCompactViewport } from '../components/philosophy/system2d/mobilePerformance.js'
 import { useCallback, useEffect, useMemo, useState, useRef} from 'react'
 import { Link } from 'react-router'
 import { createPortal } from 'react-dom'
@@ -141,7 +142,8 @@ function buildRouteReadingOrder(routeId) {
 }
 
 function StudyCanvas() {
-  const [route, setRoute] = useState('all')
+  const [route, setRoute] = useState(() => initialSystem2DRoute(marxCommodityRoutes))
+  const compactViewport = useSystem2DCompactViewport()
   const [selectedId, setSelectedId] = useState(null)
   const [folioId, setFolioId] = useState(null)
   const [relationId, setRelationId] = useState(null)
@@ -666,7 +668,7 @@ function StudyCanvas() {
     setStudyMode(false)
     resetStudyReveal()
     setRelationId(null)
-    setRoute('all')
+    setRoute(initialSystem2DRoute(marxCommodityRoutes))
     setSelectedId(null)
     setTimeout(() => fitView({ padding: 0.08, duration: 500 }), 0)
   }, [fitView, resetStudyReveal])
@@ -834,7 +836,7 @@ function StudyCanvas() {
                   setConceptualMode(true)
                 }
 
-                if (item.id === 'all') {
+                if (item.id === 'all' && !compactViewport) {
                   setTimeout(() => fitView({ padding: 0.08, duration: 500 }), 0)
                 }
               }}
@@ -932,8 +934,9 @@ function StudyCanvas() {
 
           <div className="marx-flow-canvas">
             <ReactFlow
-              nodes={nodes}
-              edges={edges}
+              nodes={compactViewport ? nodes.filter((node) =
+              onlyRenderVisibleElements> !node.hidden) : nodes}
+              edges={compactViewport ? edges.filter((edge) => !edge.hidden) : edges}
               nodeTypes={nodeTypes}
               onNodeClick={(_, node) => selectNode(node)}
               onEdgeClick={(event, edge) => {
@@ -953,7 +956,7 @@ function StudyCanvas() {
             >
               <Background gap={32} size={1} />
               <Controls showInteractive={false} />
-              <MiniMap pannable zoomable nodeStrokeWidth={3} />
+              {!compactViewport && <MiniMap pannable zoomable nodeStrokeWidth={3} />} 
             </ReactFlow>
           </div>
         </div>
