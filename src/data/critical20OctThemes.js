@@ -2,6 +2,7 @@
 export const critical20OctThemes = [
   {
     "id": "forma",
+    "relation": "sequence",
     "mark": "I",
     "name": "Mercancía y prioridades sociales",
     "eyebrow": "Marx · Lukács · relación social",
@@ -54,6 +55,7 @@ export const critical20OctThemes = [
   },
   {
     "id": "procedimiento",
+    "relation": "parallel",
     "mark": "II",
     "name": "Eficiencia y agencia",
     "eyebrow": "Burocracia · cálculo · autonomía",
@@ -106,6 +108,7 @@ export const critical20OctThemes = [
   },
   {
     "id": "ia",
+    "relation": "sequence",
     "mark": "III",
     "name": "IA, trabajo y fetichismo",
     "eyebrow": "Herramientas · conocimiento humano · dependencia",
@@ -158,6 +161,7 @@ export const critical20OctThemes = [
   },
   {
     "id": "vida",
+    "relation": "parallel",
     "mark": "IV",
     "name": "Creatividad y vínculos",
     "eyebrow": "Trabajo lúdico · relaciones · formación",
@@ -210,6 +214,7 @@ export const critical20OctThemes = [
   },
   {
     "id": "disciplina",
+    "relation": "parallel",
     "mark": "V",
     "name": "Cuerpos, exclusión y crítica",
     "eyebrow": "Foucault · sociedad · pregunta filosófica",
