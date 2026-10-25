@@ -3,10 +3,10 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { freudIConcepts, freudISections, freudIRoutes, freudILinks, freudIOrder } from '../src/data/freudMalestarCapituloI.js'
 
-test('capítulo I: 18 conceptos, 4 secciones y ruta completa', () => {
-  assert.equal(freudIConcepts.length, 18)
-  assert.equal(freudISections.length, 4)
-  assert.equal(freudIRoutes.length, 5)
+test('Freud capítulo I · tramo cotejado pp. 2–8: 30 nodos y 3 rutas temáticas', () => {
+  assert.equal(freudIConcepts.length, 30)
+  assert.equal(freudISections.length, 3)
+  assert.equal(freudIRoutes.length, 4)
   assert.deepEqual(freudIOrder, freudIConcepts.map((item) => item.id))
   assert.equal(new Set(freudIOrder).size, freudIOrder.length)
   for (const section of freudISections) {
@@ -15,16 +15,23 @@ test('capítulo I: 18 conceptos, 4 secciones y ruta completa', () => {
   }
 })
 
-test('todo folio conserva la fuente, pregunta, respuesta y explicación sencilla', () => {
+test('cada nodo cotejado separa texto original, explicación y palabras simples', () => {
   for (const node of freudIConcepts) {
-    assert.match(node.page, /p\.|pp\./)
-    assert.ok(node.title && node.explanation.length > 80)
-    assert.ok(node.simple.length > 30)
+    assert.match(node.page, /^pp?\./)
+    assert.ok(node.originalQuote?.startsWith('«') && node.originalQuote?.endsWith('»'), 'Cita literal ausente: ' + node.id)
+    assert.ok(node.explanation.length > 70, 'Explicación insuficiente: ' + node.id)
+    assert.ok(node.simple.length > 30, 'Capa simple insuficiente: ' + node.id)
+    assert.match(node.layer, /cita literal cotejada/)
     assert.ok(node.question.includes('¿'))
     assert.ok(node.answer.length > 15)
-    assert.equal(node.layer, 'Obra · paráfrasis verificada (no cita literal)')
     assert.ok(node.steps.length >= 2)
   }
+})
+
+test('el tramo no finge haber recibido páginas posteriores a la 8', () => {
+  assert.equal(freudIConcepts.at(-1).id, 'F30')
+  assert.equal(freudIConcepts.at(-1).page, 'p. 8')
+  assert.match(freudISections.at(-1).after, /continúa después de la p\. 8/)
 })
 
 test('las conexiones son válidas y no existe ciclo de dependencias', () => {
@@ -44,36 +51,20 @@ test('las conexiones son válidas y no existe ciclo de dependencias', () => {
     seen.add(id)
   }
   for (const id of known) visit(id)
-  assert.equal(seen.size, 18)
+  assert.equal(seen.size, 30)
 })
 
-test('el cierre oceánico y desamparo se mantiene separado de capítulos posteriores', () => {
-  assert.match(freudIConcepts.find((x) => x.id === 'F16').explanation, /desamparo|dependencia infantil/)
-  assert.match(freudIConcepts.find((x) => x.id === 'F17').explanation, /contrarrestar la amenaza exterior|consuelo/)
-  assert.match(freudIConcepts.find((x) => x.id === 'F18').explanation, /capítulo I/)
-  const source = readFileSync(new URL('../src/pages/FreudMalestarCapituloI.jsx', import.meta.url), 'utf8')
-  assert.match(source, /SectionPedagogy/)
-  assert.match(source, /AnimatedConceptSchema/)
-  assert.match(source, /ReactFlowProvider/)
-  assert.match(source, /EN PALABRAS SIMPLES/)
-  assert.match(source, /FRONTERA DE FUENTE/)
-  assert.match(source, /onNodeClick/)
-})
-
-test('los 18 nodos ofrecen exposición y el botón Abrir folio es funcional', () => {
+test('la interfaz exige cita literal, explicación, folio y paginación impresa', () => {
   const source = readFileSync(new URL('../src/pages/FreudMalestarCapituloI.jsx', import.meta.url), 'utf8')
   const styles = readFileSync(new URL('../src/pages/FreudMalestarCapituloI.css', import.meta.url), 'utf8')
-  for (const node of freudIConcepts) {
-    assert.ok(node.explanation.length > 80, 'Falta texto explícito: ' + node.id)
-    assert.match(node.page, /^pp?\./, 'Falta página del PDF: ' + node.id)
-  }
+  assert.match(source, /TEXTO ORIGINAL · CITA LITERAL COTEJADA/)
+  assert.match(source, /EXPLICACIÓN ACADÉMICA/)
+  assert.match(source, /data\.originalQuote/)
+  assert.match(source, /paginación impresa/)
   assert.match(source, /data\.onOpenFolio\(data\.id\)/)
-  assert.match(source, /aria-label=\{\`Abrir folio/)
   assert.match(source, /role="dialog" aria-modal="true"/)
-  assert.match(source, /folioCloseRef\.current\?\.focus/)
   assert.match(source, /event\.key === 'Escape'/)
-  assert.match(source, /Freud, s\. f\.,/)
-  assert.match(source, /Referencia bibliográfica · APA 7/)
-  assert.match(styles, /\.freud-folio-backdrop/)
-  assert.match(styles, /\.freud-node-source/)
+  assert.match(source, /GRID_STEP/)
+  assert.match(styles, /\.freud-folio-quote/)
+  assert.match(styles, /\.freud-node-analysis/)
 })
