@@ -41,7 +41,7 @@ test('atlas de cinco problemas distingue Lukács y ejemplos posteriores',()=>{
 })
 test('fidelidad a fuentes, imagen, hash y etiquetas explícitas',()=>{
   const src=JSON.stringify(critical20OctSourceSections)
-  for(const s of ['Manzanillo','facturas','videos','tecnociencia','IA','diseñadora','Her','curricular','lumpemproletariado','Foucault','Freud','sin fecha']) assert.ok(src.toLowerCase().includes(s.toLowerCase()),'Falta '+s)
+  for(const s of ['Manzanillo','facturas','videos','tecnociencia','IA','diseñadora','Her','curricular','lumpemproletariado','Foucault','Freud','sin día']) assert.ok(src.toLowerCase().includes(s.toLowerCase()),'Falta '+s)
   assert.match(src,/sin generalizar|no hay|no queda|no demuestra|no constituye/i)
   assert.doesNotMatch(page,/grabación|transcrip/i)
   assert.doesNotMatch(src,/grabación|transcrip/i)
