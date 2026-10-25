@@ -58,7 +58,7 @@ export default function Critical20OctThematicAtlas() {
           <span>FIG. {String(selected + 1).padStart(2, '0')} / MAPA PARA LEER</span>
           <strong>{theme.name}</strong>
         </div>
-        <div className="ct2010-atlasx-steps">
+        <div className={`ct2010-atlasx-steps ${theme.relation === "sequence" ? "is-sequence" : "is-parallel"}`}>
           {theme.nodes.map((item, index) => (
             <div className="ct2010-atlasx-step" key={item.title}>
               <span>{String(index + 1).padStart(2, '0')} · {item.label}</span>
@@ -67,7 +67,7 @@ export default function Critical20OctThematicAtlas() {
             </div>
           ))}
         </div>
-        <p className="ct2010-atlasx-caution">La figura organiza relaciones de estudio; IA y Foucault se presentan como ampliaciones docentes, no como pasajes textuales de Lukács. Los enlaces entre núcleos no garantizan causalidad.</p>
+        <p className="ct2010-atlasx-caution">{theme.relation === "sequence" ? "Las flechas indican un itinerario de lectura editorial, no causalidad necesaria." : "Los tres bloques son dimensiones paralelas que deben distinguirse, no etapas sucesivas."} La figura organiza relaciones de estudio; IA y Foucault se presentan como ampliaciones docentes, no como pasajes textuales de Lukács. Los enlaces entre núcleos no garantizan causalidad.</p>
       </div>
 
       <div className="ct2010-atlasx-figure-note">
