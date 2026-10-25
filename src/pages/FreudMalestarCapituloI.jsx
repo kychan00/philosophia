@@ -9,7 +9,7 @@ import { freudIConcepts, freudISections, freudIRoutes, freudILinks, freudIOrder,
 import './FreudMalestarCapituloI.css'
 
 const SECTION_TONE = { planteamiento: 'rust', constitucion: 'blue', memoria: 'plum', religion: 'sage' }
-const WINDOW_SIZE = { width: 350, height: 285 }
+const WINDOW_SIZE = { width: 350, height: 410 }
 const bySection = (id) => freudIConcepts.filter((item) => id === 'all' || item.section === id)
 function FreudConceptNode({ data, selected }) {
   return (
@@ -75,7 +75,7 @@ function FreudWorkspace() {
     return {
       id: item.id, type: 'freud', selected: item.id === selectedId, draggable: false,
       hidden: !visible,
-      position: { x: 65 + col * 490, y: 55 + row * 365 },
+      position: { x: 65 + col * 490, y: 55 + row * 490 },
       data: {
         ...item, branch: item.section, code: item.id, onOpenFolio: openFolio,
         sourceRef: 'Freud, cap. I · PDF ' + item.page,
