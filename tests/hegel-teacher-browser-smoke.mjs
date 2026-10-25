@@ -108,6 +108,8 @@ try{
   await send('Page.enable')
   await send('Runtime.enable')
   await send('Emulation.setDeviceMetricsOverride',{width:834,height:1112,deviceScaleFactor:2,mobile:false})
+  await send('Page.navigate',{url:'about:blank'})
+  await until(()=>evaluate("location.href==='about:blank'"),'reset 834×1112')
   await send('Page.navigate',{url:base})
   await until(()=>evaluate("document.querySelectorAll('.react-flow__node').length>0"),'ruta progresiva en 834×1112',160)
   const compactCount=await evaluate("document.querySelectorAll('.react-flow__node').length")
@@ -116,6 +118,8 @@ try{
   assert.equal(await evaluate("document.documentElement.scrollWidth<=window.innerWidth+3"),true,'834×1112 sin overflow global')
 
   await send('Emulation.setDeviceMetricsOverride',{width:1024,height:768,deviceScaleFactor:2,mobile:false})
+  await send('Page.navigate',{url:'about:blank'})
+  await until(()=>evaluate("location.href==='about:blank'"),'reset 1024×768')
   await send('Page.navigate',{url:base})
   await until(()=>evaluate("document.querySelectorAll('.react-flow__node').length===169"),'169 nodos en 1024×768',160)
   assert.equal(await evaluate("document.body.textContent.includes('Ver las presentaciones')"),false,'Debe desaparecer la ruta separada')
