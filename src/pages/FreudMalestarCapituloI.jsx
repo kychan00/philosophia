@@ -186,7 +186,7 @@ function FreudWorkspace() {
               <span className="freud-inspector-type">{selected?.kind} · {freudISections.find((item) => item.id === selected?.section)?.label}</span>
               <h3>{selected?.title}</h3>
               <p className="freud-inspector-summary">{selected?.summary}</p>
-              <section><b>QUÉ DICE EL TEXTO · PARÁFRASIS</b><p>{selected?.explanation}</p><small>{selected?.layer} · {selected?.page}</small></section>
+              <section><b>QUÉ DICE EL TEXTO · PARÁFRASIS</b><p>{selected?.explanation}</p><small>{selected?.layer} · (Freud, s. f., {selected?.page} del PDF)</small></section>
               <section className="freud-simple"><b>EN PALABRAS SIMPLES</b><p>{selected?.simple}</p></section>
               {schema && <section className="freud-schema"><b>ESQUEMA DE ESTE NODO</b><AnimatedConceptSchema schema={schema} /></section>}
               <section><b>PREGUNTA PARA ESTUDIAR</b><p>{selected?.question}</p><button type="button" onClick={() => setShowFolio((prev) => !prev)}>{showFolio ? 'Ocultar explicación' : 'Comprobar respuesta'}</button>{showFolio && <p className="freud-answer">{selected?.answer}</p>}</section>
