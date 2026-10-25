@@ -397,7 +397,7 @@ function SystemCanvas({ embedded = false }) {
             nodes={compactViewport ? nodes.filter((node) => !node.hidden) : nodes}
             edges={compactViewport ? edges.filter((edge) => !edge.hidden) : edges}
             nodeTypes={nodeTypes}
-              onlyRenderVisibleElements
+              onlyRenderVisibleElements={compactViewport}
             onNodeClick={(_, node) => selectById(node.id)}
             fitView
             minZoom={.18}
