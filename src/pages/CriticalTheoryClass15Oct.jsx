@@ -214,7 +214,7 @@ export default function CriticalTheoryClass15Oct() {
             <button
               type="button"
               key={item.id}
-              onClick={() => document.getElementById(`ct1510-doc-${item.id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+              onClick={() => document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
             >
               <span>{item.number}</span>{item.title}
             </button>
@@ -223,7 +223,7 @@ export default function CriticalTheoryClass15Oct() {
 
         <div className="ct1510-detail-body">
           {critical15OctSourceSections.map((item) => (
-            <article id={`ct1510-doc-${item.id}`} className="ct1510-detail-folio" key={item.id}>
+            <article id={item.id} className="ct1510-detail-folio" key={item.id}>
               <header>
                 <span>{item.number}</span>
                 <div>
