@@ -69,6 +69,8 @@ async function navigateViewport(width,height){
   await send('Emulation.setDeviceMetricsOverride',{
     width,height,deviceScaleFactor:2,mobile:width<=768
   })
+  await send('Page.navigate',{url:'about:blank'})
+  await until(()=>evaluate("location.href==='about:blank'"),'reset '+width+'×'+height)
   await send('Page.navigate',{url:base})
   await until(
     ()=>evaluate("document.querySelectorAll('.marx-flow-canvas .react-flow__node').length>0"),
