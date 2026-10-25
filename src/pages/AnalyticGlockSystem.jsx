@@ -407,7 +407,7 @@ function StudyCanvas() {
     setGuidedMode(false)
     setGuidedScope('all')
     setGuidedIndex(0)
-    setRoute(initialSystem2DRoute(glockRoutes))
+    setRoute('all')
     setSelectedId('G00')
   }, [])
 
