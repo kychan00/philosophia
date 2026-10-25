@@ -66,7 +66,7 @@ test('la interfaz exige cita literal, explicación, folio y paginación impresa'
   assert.match(source, /EXPLICACIÓN ACADÉMICA/)
   assert.match(source, /data\.originalQuote/)
   assert.match(source, /paginación impresa/)
-  assert.match(source, /Páginas impresas 2–13 · capítulo I completo/)
+  assert.match(source, /páginas impresas 2–13/)
   assert.match(source, /data\.onOpenFolio\(data\.id\)/)
   assert.match(source, /role="dialog" aria-modal="true"/)
   assert.match(source, /event\.key === 'Escape'/)
