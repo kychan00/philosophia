@@ -27,4 +27,4 @@ export const freudMalestarChapters = [
   },
 ]
 
-export const freudMalestarActiveChapter = freudMalestarChapters.find((chapter) => chapter.status === 'available')
+export const freudMalestarChapterById = (id) => freudMalestarChapters.find((chapter) => chapter.id === id)
