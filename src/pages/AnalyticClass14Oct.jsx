@@ -56,7 +56,7 @@ function ArchivumMnemonic() {
       <div><b>γ · APERTURA</b><span>Lenguaje y métodos plurales</span></div>
     </div>
     <figure className="ac1410-map">
-      <img src="/philosophia/images/filosofia-analitica/archivum-14-octubre-mapa.svg" alt="Mapa de tres niveles: el programa positivista de verificación y unidad conduce a ocho dificultades sobre reducción, significado, inferencia y método, abriendo paso a una filosofía analítica más amplia." loading="lazy" />
+      <img src={`${import.meta.env.BASE_URL}images/filosofia-analitica/archivum-14-octubre-mapa.svg`} alt="Mapa de tres niveles: el programa positivista de verificación y unidad conduce a ocho dificultades sobre reducción, significado, inferencia y método, abriendo paso a una filosofía analítica más amplia." loading="lazy" />
       <figcaption>Figura 1 · Mapa argumental original de PHILOSOPHIA. Lectura: programa positivista → dificultades críticas → apertura conceptual. Reconstrucción editorial de esta clase, no reproducción de una figura de Hacker ni del docente.</figcaption>
     </figure>
     <p className="ac1410-visual-credit">Imagen: PHILOSOPHIA, elaboración original (SVG); titular: proyecto PHILOSOPHIA; uso: recurso original del proyecto. No se emplearon imágenes externas.</p>
