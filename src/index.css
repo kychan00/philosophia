@@ -9656,6 +9656,11 @@ a {
   color: var(--task-blue);
 }
 
+.legend-undated {
+  background: var(--task-gray-soft);
+  color: var(--task-gray);
+}
+
 .legend-completed {
   background: var(--task-green-soft);
   color: var(--task-green);
@@ -9935,6 +9940,12 @@ a {
 .calendar-task--future {
   background: var(--task-blue-soft);
   color: var(--task-blue);
+}
+
+.calendar-task--undated {
+  background: var(--task-gray-soft);
+  color: var(--task-gray);
+  border: 1px dashed rgba(111, 108, 101, .35);
 }
 
 .calendar-task--completed {

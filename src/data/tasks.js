@@ -775,6 +775,24 @@ export const tasks = [
     sourceRoute: '/semestre/5/ontologia-ii/clase/19-octubre',
     studyRoute: '/tareas/ontologia-ii/marx-hegel-bloch-feuerbach/sistema',
   },
+
+  {
+    id: 'ontologia-2026-10-30-examen-diez-preguntas',
+    subject: 'Ontología II',
+    subjectCode: 'FI190',
+    assignedDate: '2026-10-26',
+    dueDate: '2026-10-30',
+    title: 'Examen · responder diez preguntas',
+    type: 'Examen / entrega',
+    weight: null,
+    priority: 'Alta',
+    description:
+      'Responder diez preguntas del examen en un documento Word y enviarlo por correo electrónico al profesor. La fecha máxima confirmada es el viernes 30 de octubre de 2026. Los enunciados todavía no están disponibles; se mencionó que podrían enviarse el martes 27 o miércoles 28, sin día exacto confirmado.',
+    readingScope:
+      'Diez preguntas de examen · enunciados pendientes de recibir',
+    sourceClass: 'Clase del 26 de octubre · examen de diez preguntas',
+    sourceRoute: '/semestre/5/ontologia-ii/clase/26-octubre',
+  },
 ]
 
 export default tasks
