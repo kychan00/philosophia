@@ -1,0 +1,2185 @@
+:root {
+  --atelier-paper: #fff8f3;
+  --atelier-surface: #ffffff;
+  --atelier-cream: #faf2ec;
+  --atelier-ink: #2a241f;
+  --atelier-muted: #6e6258;
+  --atelier-gold: #a88438;
+  --atelier-gold-deep: #8b6c24;
+  --atelier-sage: #2e6b4f;
+  --atelier-border: #eadbce;
+  --atelier-border-strong: #d8c4b1;
+  --atelier-danger: #9b4238;
+  --atelier-shadow: 0 18px 55px rgba(78, 55, 36, 0.08);
+}
+
+.atelier-tasks {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 4%, rgba(168, 132, 56, 0.08), transparent 26rem),
+    linear-gradient(180deg, #fffaf6 0%, var(--atelier-paper) 46%, #f9efe7 100%);
+  color: var(--atelier-ink);
+  font-family: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.atelier-tasks *,
+.atelier-tasks *::before,
+.atelier-tasks *::after {
+  box-sizing: border-box;
+}
+
+.atelier-tasks button,
+.atelier-tasks input,
+.atelier-tasks select,
+.atelier-tasks textarea {
+  font: inherit;
+}
+
+.atelier-tasks button,
+.atelier-tasks a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.atelier-tasks button:focus-visible,
+.atelier-tasks a:focus-visible,
+.atelier-tasks input:focus-visible,
+.atelier-tasks select:focus-visible,
+.atelier-tasks textarea:focus-visible,
+.atelier-calendar-day:focus-visible {
+  outline: 2px solid var(--atelier-gold-deep);
+  outline-offset: 3px;
+}
+
+.atelier-topbar {
+  min-height: 74px;
+  padding: 12px clamp(18px, 4vw, 62px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: rgba(255, 248, 243, 0.92);
+  border-bottom: 1px solid var(--atelier-border);
+  backdrop-filter: blur(16px);
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+.atelier-brand {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+}
+
+.atelier-brand-mark {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--atelier-gold);
+  border-radius: 50%;
+  color: var(--atelier-gold-deep);
+  font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+  font-size: 1.45rem;
+  flex: 0 0 auto;
+}
+
+.atelier-brand > span:last-child,
+.atelier-topbar-context {
+  display: grid;
+  gap: 2px;
+}
+
+.atelier-brand strong {
+  font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 1.7vw, 1.25rem);
+  font-weight: 650;
+  letter-spacing: 0.01em;
+}
+
+.atelier-brand small,
+.atelier-topbar-context small,
+.atelier-topbar-context span {
+  color: var(--atelier-muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.atelier-topbar-context {
+  text-align: right;
+  justify-items: end;
+}
+
+.atelier-topbar-context strong {
+  font-size: 0.9rem;
+}
+
+.atelier-shell {
+  width: min(1760px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 58px) 0 50px;
+}
+
+.atelier-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.75fr) 178px;
+  gap: clamp(24px, 4vw, 52px);
+  align-items: center;
+  padding: clamp(28px, 4vw, 54px);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--atelier-border);
+  box-shadow: var(--atelier-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.atelier-hero::after {
+  content: "ATELIER";
+  position: absolute;
+  right: -0.04em;
+  bottom: -0.26em;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: clamp(5rem, 10vw, 11rem);
+  letter-spacing: 0.03em;
+  color: rgba(168, 132, 56, 0.045);
+  pointer-events: none;
+}
+
+.atelier-eyebrow,
+.atelier-panel-heading p,
+.atelier-dossier-heading p,
+.atelier-day-view-header p {
+  margin: 0;
+  color: var(--atelier-gold-deep);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.atelier-hero-copy h1 {
+  margin: 12px 0 16px;
+  max-width: 840px;
+  font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+  font-size: clamp(2.45rem, 5vw, 5.8rem);
+  line-height: 0.91;
+  font-weight: 560;
+  letter-spacing: -0.04em;
+}
+
+.atelier-hero-copy h1 em {
+  display: block;
+  color: var(--atelier-gold-deep);
+  font-weight: 480;
+}
+
+.atelier-hero-copy > p:last-child {
+  max-width: 760px;
+  margin: 0;
+  color: var(--atelier-muted);
+  font-size: clamp(0.95rem, 1.25vw, 1.08rem);
+  line-height: 1.7;
+}
+
+.atelier-hero-meta {
+  display: grid;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.atelier-hero-meta > div {
+  padding: 15px 0;
+  border-top: 1px solid var(--atelier-border);
+}
+
+.atelier-hero-meta small,
+.atelier-hero-meta span {
+  display: block;
+  color: var(--atelier-muted);
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.atelier-hero-meta small {
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+}
+
+.atelier-hero-meta strong {
+  display: block;
+  margin: 5px 0 3px;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1.15rem;
+}
+
+.atelier-completion {
+  width: 158px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, var(--atelier-surface) 0 59%, transparent 60%),
+    conic-gradient(var(--atelier-gold-deep) var(--completion-angle), #eee2d6 0);
+  display: grid;
+  place-items: center;
+  position: relative;
+  z-index: 1;
+  box-shadow: inset 0 0 0 1px var(--atelier-border);
+}
+
+.atelier-completion > div {
+  width: 108px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.atelier-completion strong {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 2.1rem;
+  line-height: 1;
+}
+
+.atelier-completion span {
+  margin-top: 6px;
+  color: var(--atelier-muted);
+  font-size: 0.67rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.atelier-commandbar,
+.atelier-filterbar {
+  margin-top: 18px;
+  padding: 15px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--atelier-border);
+}
+
+.atelier-period-nav {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+
+.atelier-period-nav > div {
+  min-width: 190px;
+  padding: 0 8px;
+}
+
+.atelier-period-nav small,
+.atelier-filter-label {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--atelier-muted);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.atelier-period-nav strong {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1.12rem;
+}
+
+.atelier-commandbar button,
+.atelier-filter-pills button,
+.atelier-card-actions button,
+.atelier-archive-note button,
+.atelier-archive-note a {
+  min-height: 38px;
+  border: 1px solid var(--atelier-border-strong);
+  background: var(--atelier-surface);
+  color: var(--atelier-ink);
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.atelier-commandbar button:hover,
+.atelier-filter-pills button:hover,
+.atelier-card-actions button:hover,
+.atelier-archive-note button:hover,
+.atelier-archive-note a:hover {
+  transform: translateY(-1px);
+  border-color: var(--atelier-gold);
+  box-shadow: 0 8px 20px rgba(168, 132, 56, 0.1);
+}
+
+.atelier-period-nav button:not(.is-today) {
+  width: 38px;
+  padding: 0;
+}
+
+.atelier-period-nav .is-today {
+  margin-left: 4px;
+  color: var(--atelier-gold-deep);
+  border-color: rgba(168, 132, 56, 0.45);
+  background: #fffaf1;
+  font-weight: 700;
+}
+
+.atelier-view-tabs {
+  padding: 4px;
+  display: flex;
+  gap: 4px;
+  border: 1px solid var(--atelier-border);
+  border-radius: 999px;
+  background: var(--atelier-cream);
+}
+
+.atelier-view-tabs button {
+  border: 0;
+  min-height: 34px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.atelier-view-tabs button.is-active {
+  background: var(--atelier-ink);
+  color: var(--atelier-paper);
+}
+
+.atelier-filterbar {
+  align-items: flex-start;
+}
+
+.atelier-filterbar > div {
+  min-width: 0;
+}
+
+.atelier-filterbar > div:first-child {
+  flex: 1;
+}
+
+.atelier-filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.atelier-filter-pills button {
+  min-height: 34px;
+  padding: 6px 11px;
+  font-size: 0.75rem;
+  border-left: 3px solid var(--tone, var(--atelier-border-strong));
+}
+
+.atelier-filter-pills button.is-active {
+  background: var(--tone-soft, var(--atelier-cream));
+  border-color: var(--tone, var(--atelier-gold));
+  color: var(--tone-text, var(--atelier-ink));
+  font-weight: 750;
+}
+
+.atelier-filter-pills.is-status button {
+  border-left-width: 1px;
+}
+
+.atelier-filter-pills.is-status button.is-active {
+  background: var(--atelier-ink);
+  border-color: var(--atelier-ink);
+  color: white;
+}
+
+.atelier-tone--ochre {
+  --tone: #a88438;
+  --tone-soft: #fbf1d8;
+  --tone-text: #70581d;
+}
+
+.atelier-tone--terracotta {
+  --tone: #c2673f;
+  --tone-soft: #f9e7df;
+  --tone-text: #824229;
+}
+
+.atelier-tone--lavender {
+  --tone: #6a6d7c;
+  --tone-soft: #ececf1;
+  --tone-text: #4d4f5b;
+}
+
+.atelier-tone--sage {
+  --tone: #3c7a58;
+  --tone-soft: #e4f0e9;
+  --tone-text: #285b40;
+}
+
+.atelier-tone--ink {
+  --tone: #526579;
+  --tone-soft: #e8edf2;
+  --tone-text: #384b5f;
+}
+
+.atelier-tone--neutral {
+  --tone: #8a7563;
+  --tone-soft: #efe7df;
+  --tone-text: #5d4b3d;
+}
+
+.atelier-tasks .task-composer {
+  margin-top: 18px;
+  padding: 0;
+  border: 1px solid var(--atelier-border);
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--atelier-ink);
+  overflow: hidden;
+}
+
+.atelier-tasks .task-composer-heading {
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.atelier-tasks .task-composer-heading p {
+  margin: 0 0 2px;
+  color: var(--atelier-gold-deep);
+  font-size: 0.67rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+}
+
+.atelier-tasks .task-composer-heading h2 {
+  margin: 0;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1.35rem;
+}
+
+.atelier-tasks .task-composer-heading span {
+  display: block;
+  margin-top: 3px;
+  color: var(--atelier-muted);
+  font-size: 0.76rem;
+}
+
+.atelier-tasks .task-composer-toggle {
+  min-height: 40px;
+  padding: 8px 15px;
+  border: 1px solid var(--atelier-gold);
+  border-radius: 999px;
+  background: #fffaf1;
+  color: var(--atelier-gold-deep);
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.atelier-tasks .task-composer-form {
+  padding: 18px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  border-top: 1px solid var(--atelier-border);
+  background: var(--atelier-cream);
+}
+
+.atelier-tasks .task-composer-form label {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.atelier-tasks .task-composer-form label > span {
+  color: var(--atelier-muted);
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.atelier-tasks .task-composer-form input,
+.atelier-tasks .task-composer-form select,
+.atelier-tasks .task-composer-form textarea {
+  width: 100%;
+  border: 1px solid var(--atelier-border-strong);
+  border-radius: 8px;
+  background: var(--atelier-surface);
+  color: var(--atelier-ink);
+  padding: 10px 11px;
+}
+
+.atelier-tasks .task-composer-wide {
+  grid-column: span 2;
+}
+
+.atelier-tasks .task-composer-meta,
+.atelier-tasks .task-composer-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.atelier-tasks .task-composer-meta {
+  color: var(--atelier-muted);
+  font-size: 0.75rem;
+}
+
+.atelier-tasks .task-composer-actions {
+  justify-content: flex-end;
+}
+
+.atelier-tasks .task-composer-actions button {
+  border: 1px solid var(--atelier-border-strong);
+  border-radius: 999px;
+  background: var(--atelier-surface);
+  padding: 9px 14px;
+  cursor: pointer;
+}
+
+.atelier-tasks .task-composer-actions button.is-primary {
+  background: var(--atelier-gold-deep);
+  border-color: var(--atelier-gold-deep);
+  color: white;
+}
+
+.atelier-calendar-panel,
+.atelier-dossier,
+.atelier-archive-note {
+  margin-top: 18px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--atelier-border);
+  box-shadow: var(--atelier-shadow);
+}
+
+.atelier-panel-heading,
+.atelier-dossier-heading {
+  min-height: 102px;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--atelier-border);
+}
+
+.atelier-panel-heading h2,
+.atelier-dossier-heading h2,
+.atelier-day-view-header h3 {
+  margin: 4px 0 0;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: clamp(1.75rem, 2.6vw, 2.65rem);
+  font-weight: 560;
+  line-height: 1;
+}
+
+.atelier-panel-stats {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.atelier-panel-stats > span {
+  min-width: 82px;
+  padding: 9px 11px;
+  border: 1px solid var(--atelier-border);
+  border-radius: 8px;
+  color: var(--atelier-muted);
+  font-size: 0.66rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.atelier-panel-stats strong {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--atelier-ink);
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1.35rem;
+}
+
+.atelier-panel-stats .is-danger {
+  border-color: rgba(155, 66, 56, 0.35);
+  background: #fff3f1;
+}
+
+.atelier-panel-stats .is-warning {
+  border-color: rgba(168, 132, 56, 0.42);
+  background: #fff9e9;
+}
+
+.atelier-panel-stats .is-success {
+  border-color: rgba(46, 107, 79, 0.3);
+  background: #eef8f2;
+}
+
+.atelier-calendar-body {
+  padding: 0;
+}
+
+.atelier-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.atelier-weekday {
+  min-height: 40px;
+  padding: 12px 14px 8px;
+  border-right: 1px solid var(--atelier-border);
+  border-bottom: 1px solid var(--atelier-border);
+  color: var(--atelier-muted);
+  font-size: 0.66rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.atelier-weekday:nth-child(7) {
+  border-right: 0;
+}
+
+.atelier-calendar-day {
+  min-width: 0;
+  min-height: 188px;
+  padding: 11px;
+  border-right: 1px solid var(--atelier-border);
+  border-bottom: 1px solid var(--atelier-border);
+  background: rgba(255, 255, 255, 0.82);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+  cursor: default;
+}
+
+.atelier-calendar-grid .atelier-calendar-day:nth-child(7n) {
+  border-right: 0;
+}
+
+.atelier-calendar-day:not(.is-blank):hover {
+  transform: translateY(-2px);
+  z-index: 2;
+  background: white;
+  box-shadow: 0 8px 24px rgba(168, 132, 56, 0.08);
+}
+
+.atelier-calendar-day.is-blank {
+  min-height: 92px;
+  background: rgba(250, 242, 236, 0.42);
+}
+
+.atelier-calendar-day.is-today {
+  background: #f8edda;
+  box-shadow: inset 0 0 0 2px rgba(168, 132, 56, 0.72);
+}
+
+.atelier-calendar-day.is-active:not(.is-today) {
+  background: #fffdf9;
+  box-shadow: inset 0 0 0 1px var(--atelier-gold);
+}
+
+.atelier-calendar-day.is-absence {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 8px,
+    rgba(155, 66, 56, 0.025) 8px,
+    rgba(155, 66, 56, 0.025) 16px
+  );
+}
+
+.atelier-day-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 9px;
+}
+
+.atelier-day-heading > div:first-child {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+}
+
+.atelier-day-heading small {
+  color: var(--atelier-muted);
+  font-size: 0.65rem;
+}
+
+.atelier-day-number {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.atelier-day-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: flex-end;
+}
+
+.atelier-day-badges span {
+  padding: 3px 6px;
+  border-radius: 999px;
+  background: var(--atelier-gold-deep);
+  color: white;
+  font-size: 0.55rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.atelier-day-badges span.is-danger {
+  background: var(--atelier-danger);
+}
+
+.atelier-day-events {
+  display: grid;
+  gap: 5px;
+}
+
+.atelier-class-chip,
+.atelier-event-chip,
+.atelier-task-chip,
+.atelier-more-tasks {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  text-decoration: none;
+  text-align: left;
+}
+
+.atelier-class-chip,
+.atelier-event-chip {
+  display: grid;
+  gap: 1px;
+  padding: 6px 7px;
+  background: var(--tone-soft, var(--atelier-cream));
+  border-left: 3px solid var(--tone, var(--atelier-border-strong));
+  color: var(--tone-text, var(--atelier-ink));
+}
+
+.atelier-class-chip strong,
+.atelier-event-chip strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.67rem;
+}
+
+.atelier-class-chip span,
+.atelier-event-chip span,
+.atelier-event-chip small {
+  color: var(--atelier-muted);
+  font-size: 0.57rem;
+}
+
+.atelier-event-chip {
+  --tone: #8b6c24;
+  --tone-soft: #fff5dc;
+  --tone-text: #6d5419;
+}
+
+.atelier-event-chip.is-cafe {
+  --tone: #7d5544;
+  --tone-soft: #f5e9e4;
+  --tone-text: #614136;
+}
+
+.atelier-task-chip {
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+  padding: 6px 7px;
+  background: white;
+  border: 1px solid var(--atelier-border);
+  border-left: 3px solid var(--tone, var(--atelier-gold));
+  color: var(--atelier-ink);
+  cursor: pointer;
+}
+
+.atelier-task-chip:hover {
+  background: var(--tone-soft, #fffaf2);
+}
+
+.atelier-task-chip > span:first-child {
+  flex: 0 0 auto;
+  color: var(--tone, var(--atelier-gold-deep));
+  font-size: 0.65rem;
+}
+
+.atelier-task-chip > span:last-child {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.63rem;
+  line-height: 1.35;
+}
+
+.atelier-task-chip--completed {
+  opacity: 0.58;
+  text-decoration: line-through;
+}
+
+.atelier-task-chip--overdue {
+  border-right: 2px solid var(--atelier-danger);
+}
+
+.atelier-task-chip--today,
+.atelier-task-chip--urgent {
+  background: #fff9eb;
+}
+
+.atelier-calendar-notice {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 7px;
+  padding: 7px;
+  border: 1px dashed var(--atelier-border-strong);
+  background: var(--atelier-cream);
+}
+
+.atelier-calendar-notice span {
+  grid-row: span 2;
+}
+
+.atelier-calendar-notice strong,
+.atelier-calendar-notice small {
+  font-size: 0.59rem;
+}
+
+.atelier-calendar-notice small {
+  color: var(--atelier-muted);
+}
+
+.atelier-more-tasks {
+  padding: 5px 7px;
+  background: transparent;
+  color: var(--atelier-gold-deep);
+  font-size: 0.62rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.atelier-calendar-legend {
+  padding: 12px 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+  border-top: 1px solid var(--atelier-border);
+  color: var(--atelier-muted);
+  font-size: 0.68rem;
+}
+
+.atelier-calendar-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.atelier-calendar-legend b {
+  color: var(--atelier-gold-deep);
+}
+
+.atelier-calendar-legend .legend-class,
+.atelier-calendar-legend .legend-today {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.atelier-calendar-legend .legend-class {
+  background: #e4f0e9;
+  border-left: 3px solid var(--atelier-sage);
+}
+
+.atelier-calendar-legend .legend-today {
+  background: #f8edda;
+  border: 1px solid var(--atelier-gold);
+}
+
+.atelier-week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.atelier-week-grid .atelier-calendar-day {
+  min-height: 380px;
+}
+
+.atelier-week-grid .atelier-calendar-day:last-child {
+  border-right: 0;
+}
+
+.atelier-calendar-day.is-weekly .atelier-task-chip > span:last-child,
+.atelier-calendar-day.is-weekly .atelier-class-chip strong,
+.atelier-calendar-day.is-weekly .atelier-event-chip strong {
+  white-space: normal;
+}
+
+.atelier-day-view {
+  padding: clamp(18px, 3vw, 34px);
+}
+
+.atelier-day-view-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--atelier-border);
+}
+
+.atelier-day-view-header span {
+  color: var(--atelier-muted);
+  font-size: 0.78rem;
+}
+
+.atelier-day-view-sections {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  padding-top: 20px;
+}
+
+.atelier-day-view-sections > section {
+  min-width: 0;
+  padding: 16px;
+  background: var(--atelier-cream);
+  border: 1px solid var(--atelier-border);
+}
+
+.atelier-section-label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--atelier-muted);
+  font-size: 0.66rem;
+  font-weight: 750;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.atelier-day-card {
+  width: 100%;
+  margin-top: 7px;
+  padding: 10px;
+  display: grid;
+  gap: 3px;
+  border: 1px solid var(--atelier-border);
+  border-left: 4px solid var(--tone, var(--atelier-gold));
+  background: white;
+  color: var(--atelier-ink);
+  text-decoration: none;
+  text-align: left;
+}
+
+button.atelier-day-card {
+  cursor: pointer;
+}
+
+.atelier-day-card small,
+.atelier-day-card span {
+  color: var(--atelier-muted);
+  font-size: 0.68rem;
+}
+
+.atelier-day-card strong {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1rem;
+}
+
+.atelier-empty-copy {
+  margin: 12px 0 0;
+  color: var(--atelier-muted);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.atelier-list-view {
+  display: grid;
+}
+
+.atelier-list-head,
+.atelier-list-row {
+  display: grid;
+  grid-template-columns: minmax(130px, 0.7fr) minmax(300px, 2fr) minmax(130px, 0.72fr) minmax(140px, 0.8fr) minmax(135px, 0.7fr);
+  gap: 14px;
+  align-items: center;
+}
+
+.atelier-list-head {
+  padding: 10px 18px;
+  background: var(--atelier-cream);
+  border-bottom: 1px solid var(--atelier-border);
+  color: var(--atelier-muted);
+  font-size: 0.63rem;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.atelier-list-row {
+  min-height: 92px;
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--atelier-border);
+  border-left: 4px solid var(--tone, var(--atelier-border));
+}
+
+.atelier-list-row > div {
+  display: grid;
+  gap: 3px;
+}
+
+.atelier-list-row small,
+.atelier-list-row span {
+  color: var(--atelier-muted);
+  font-size: 0.67rem;
+  line-height: 1.45;
+}
+
+.atelier-list-row strong {
+  font-size: 0.82rem;
+}
+
+.atelier-list-title {
+  display: grid;
+  gap: 3px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.atelier-list-title strong {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1.05rem;
+}
+
+.atelier-list-title span {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.atelier-status {
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--atelier-cream);
+  color: var(--atelier-muted);
+  font-size: 0.62rem;
+  font-weight: 750;
+}
+
+.atelier-status--completed {
+  background: #e5f1e9;
+  color: #285b40;
+}
+
+.atelier-status--overdue {
+  background: #f9e4e1;
+  color: #81362f;
+}
+
+.atelier-status--today,
+.atelier-status--urgent {
+  background: #fff0c9;
+  color: #745818;
+}
+
+.atelier-status--soon {
+  background: #f4ebd6;
+  color: #6b531d;
+}
+
+.atelier-status--future {
+  background: #ececf1;
+  color: #4d4f5b;
+}
+
+.atelier-status--undated {
+  background: #eee9e4;
+  color: #665b52;
+}
+
+.atelier-list-actions {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 5px !important;
+}
+
+.atelier-list-actions button,
+.atelier-focus-pick,
+.atelier-focus-controls button {
+  border: 1px solid var(--atelier-border-strong);
+  border-radius: 999px;
+  background: white;
+  color: var(--atelier-ink);
+  padding: 7px 10px;
+  font-size: 0.68rem;
+  cursor: pointer;
+}
+
+.atelier-list-actions button.is-danger,
+.atelier-modal-actions button.is-danger {
+  color: var(--atelier-danger);
+  border-color: rgba(155, 66, 56, 0.35);
+}
+
+.atelier-empty-state {
+  padding: 50px 24px;
+  display: grid;
+  gap: 6px;
+  text-align: center;
+  color: var(--atelier-muted);
+}
+
+.atelier-empty-state strong {
+  color: var(--atelier-ink);
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1.35rem;
+}
+
+.atelier-dossier {
+  box-shadow: none;
+}
+
+.atelier-dossier-heading > span {
+  color: var(--atelier-muted);
+  font-size: 0.72rem;
+}
+
+.atelier-dossier-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.9fr) minmax(0, 0.95fr);
+}
+
+.atelier-dossier-card {
+  min-width: 0;
+  min-height: 500px;
+  padding: 22px;
+  border-right: 1px solid var(--atelier-border);
+}
+
+.atelier-dossier-card:last-child {
+  border-right: 0;
+}
+
+.atelier-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 20px;
+}
+
+.atelier-card-heading > span {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--atelier-gold);
+  border-radius: 50%;
+  color: var(--atelier-gold-deep);
+  font-family: "EB Garamond", Georgia, serif;
+}
+
+.atelier-card-heading small {
+  color: var(--atelier-muted);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.atelier-card-heading h3 {
+  margin: 1px 0 0;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1.38rem;
+}
+
+.atelier-priority-list {
+  display: grid;
+}
+
+.atelier-priority-item {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) auto;
+  gap: 9px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--atelier-border);
+}
+
+.atelier-check {
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--tone, var(--atelier-border-strong));
+  border-radius: 50%;
+  background: white;
+  color: white;
+  cursor: pointer;
+}
+
+.atelier-check.is-completed {
+  background: var(--atelier-sage);
+  border-color: var(--atelier-sage);
+}
+
+.atelier-priority-copy {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.atelier-priority-copy small,
+.atelier-priority-copy span {
+  color: var(--atelier-muted);
+  font-size: 0.64rem;
+}
+
+.atelier-priority-copy strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 0.96rem;
+}
+
+.atelier-focus-pick {
+  padding: 6px 9px;
+}
+
+.atelier-focus-pick.is-active {
+  background: var(--tone-soft, #fff6e5);
+  border-color: var(--tone, var(--atelier-gold));
+  color: var(--tone-text, var(--atelier-gold-deep));
+  font-weight: 750;
+}
+
+.atelier-focus-module {
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid var(--atelier-border);
+  background: var(--atelier-cream);
+}
+
+.atelier-focus-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.atelier-focus-heading > div {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.atelier-focus-heading small,
+.atelier-progress-caption {
+  color: var(--atelier-muted);
+  font-size: 0.64rem;
+}
+
+.atelier-focus-heading strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 0.95rem;
+}
+
+.atelier-focus-heading > span {
+  height: fit-content;
+  padding: 4px 7px;
+  border-radius: 999px;
+  background: #eee7df;
+  color: var(--atelier-muted);
+  font-size: 0.58rem;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.atelier-focus-heading > span.is-live {
+  background: #e1f0e7;
+  color: #285b40;
+}
+
+.atelier-timer {
+  margin: 17px 0 10px;
+  font-variant-numeric: tabular-nums;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+.atelier-focus-progress,
+.atelier-project-progress {
+  height: 5px;
+  overflow: hidden;
+  background: #e9ddd2;
+  border-radius: 999px;
+}
+
+.atelier-focus-progress span,
+.atelier-project-progress span {
+  display: block;
+  height: 100%;
+  background: var(--atelier-gold-deep);
+  border-radius: inherit;
+}
+
+.atelier-progress-caption {
+  display: block;
+  margin-top: 6px;
+  text-align: right;
+}
+
+.atelier-focus-controls {
+  margin-top: 13px;
+  display: flex;
+  gap: 7px;
+  justify-content: flex-end;
+}
+
+.atelier-focus-controls button:first-child {
+  background: var(--atelier-ink);
+  border-color: var(--atelier-ink);
+  color: white;
+}
+
+.atelier-focus-controls button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.atelier-project-list {
+  display: grid;
+  gap: 13px;
+}
+
+.atelier-project {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 7px 12px;
+  align-items: center;
+}
+
+.atelier-project > div:first-child {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.atelier-project strong {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 0.92rem;
+}
+
+.atelier-project span {
+  color: var(--atelier-muted);
+  font-size: 0.63rem;
+}
+
+.atelier-project-progress {
+  grid-column: 1 / 2;
+}
+
+.atelier-project-progress span {
+  background: var(--tone, var(--atelier-gold));
+}
+
+.atelier-project > b {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1.05rem;
+}
+
+.atelier-project-summary {
+  margin-top: 24px;
+  padding: 15px;
+  display: grid;
+  gap: 4px;
+  background: var(--atelier-cream);
+  border: 1px solid var(--atelier-border);
+}
+
+.atelier-project-summary span {
+  color: var(--atelier-gold-deep);
+  font-size: 0.63rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.atelier-project-summary strong {
+  font-family: "EB Garamond", Georgia, serif;
+}
+
+.atelier-project-summary small {
+  color: var(--atelier-muted);
+  line-height: 1.5;
+}
+
+.atelier-card-actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.atelier-card-actions button {
+  min-height: 35px;
+  font-size: 0.68rem;
+}
+
+.atelier-time-summary {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.85fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+}
+
+.atelier-donut {
+  width: min(100%, 178px);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, white 0 58%, transparent 59%),
+    conic-gradient(
+      var(--atelier-gold-deep) 0 var(--focus-angle),
+      #6a6d7c var(--focus-angle) 360deg
+    );
+  display: grid;
+  place-items: center;
+}
+
+.atelier-donut > div {
+  width: 108px;
+  aspect-ratio: 1;
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+
+.atelier-donut strong {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1.4rem;
+}
+
+.atelier-donut span {
+  max-width: 90px;
+  color: var(--atelier-muted);
+  font-size: 0.58rem;
+  line-height: 1.35;
+}
+
+.atelier-time-legend {
+  display: grid;
+  gap: 10px;
+}
+
+.atelier-time-legend > div {
+  display: grid;
+  grid-template-columns: 10px minmax(0, 1fr);
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.time-swatch {
+  width: 9px;
+  height: 9px;
+  margin-top: 3px;
+  border-radius: 50%;
+  background: var(--atelier-border-strong);
+}
+
+.time-swatch.is-focus {
+  background: var(--atelier-gold-deep);
+}
+
+.time-swatch.is-class {
+  background: #6a6d7c;
+}
+
+.time-swatch.is-empty {
+  background: transparent;
+  border: 1px solid var(--atelier-border-strong);
+}
+
+.atelier-time-legend p {
+  margin: 0;
+  display: grid;
+  gap: 1px;
+}
+
+.atelier-time-legend strong {
+  font-size: 0.7rem;
+}
+
+.atelier-time-legend small {
+  color: var(--atelier-muted);
+  font-size: 0.62rem;
+}
+
+.atelier-balance-note {
+  margin: 22px 0 0;
+  padding: 13px 14px;
+  border-left: 3px solid var(--atelier-sage);
+  background: #eff7f2;
+  color: #355c48;
+  font-family: "EB Garamond", Georgia, serif;
+  line-height: 1.55;
+}
+
+.atelier-archive-note {
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: none;
+}
+
+.atelier-archive-note > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.atelier-seal {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 1px solid var(--atelier-gold);
+  border-radius: 50%;
+  color: var(--atelier-gold-deep);
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1.25rem;
+}
+
+.atelier-archive-note p {
+  margin: 0;
+  display: grid;
+  gap: 2px;
+  color: var(--atelier-muted);
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.atelier-archive-note p strong {
+  color: var(--atelier-ink);
+}
+
+.atelier-archive-note button,
+.atelier-archive-note a {
+  white-space: nowrap;
+  font-size: 0.7rem;
+}
+
+.atelier-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  padding: 24px;
+  display: grid;
+  place-items: center;
+  background: rgba(42, 36, 31, 0.48);
+  backdrop-filter: blur(6px);
+}
+
+.atelier-modal {
+  width: min(760px, 100%);
+  max-height: min(840px, calc(100vh - 48px));
+  overflow: auto;
+  padding: clamp(24px, 4vw, 42px);
+  background: var(--atelier-paper);
+  border: 1px solid var(--atelier-border-strong);
+  box-shadow: 0 30px 100px rgba(42, 36, 31, 0.24);
+  position: relative;
+}
+
+.atelier-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--atelier-border);
+  border-radius: 50%;
+  background: white;
+  color: var(--atelier-ink);
+  font-size: 1.35rem;
+  cursor: pointer;
+}
+
+.atelier-modal-kicker {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+  color: var(--atelier-muted);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.atelier-modal-kicker span {
+  color: var(--atelier-gold-deep);
+  font-weight: 800;
+}
+
+.atelier-modal h2 {
+  margin: 14px 0 10px;
+  max-width: 650px;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 0.98;
+  font-weight: 560;
+}
+
+.atelier-modal > p {
+  color: var(--atelier-muted);
+  line-height: 1.7;
+}
+
+.atelier-modal-reading {
+  margin-top: 18px;
+  padding: 15px;
+  display: grid;
+  gap: 5px;
+  background: white;
+  border: 1px solid var(--atelier-border);
+  border-left: 4px solid var(--atelier-gold);
+}
+
+.atelier-modal-reading > span {
+  color: var(--atelier-gold-deep);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.atelier-modal-reading p,
+.atelier-modal-reading small {
+  margin: 0;
+  color: var(--atelier-muted);
+  line-height: 1.5;
+}
+
+.atelier-modal-meta {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid var(--atelier-border);
+}
+
+.atelier-modal-meta > div {
+  min-width: 0;
+  padding: 13px;
+  display: grid;
+  gap: 4px;
+  border-right: 1px solid var(--atelier-border);
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.atelier-modal-meta > div:last-child {
+  border-right: 0;
+}
+
+.atelier-modal-meta span {
+  color: var(--atelier-muted);
+  font-size: 0.61rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.atelier-modal-meta strong {
+  font-size: 0.75rem;
+}
+
+.atelier-modal-actions {
+  margin-top: 22px;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.atelier-modal-actions > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.atelier-modal-actions a,
+.atelier-modal-actions button {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--atelier-border-strong);
+  border-radius: 999px;
+  background: white;
+  color: var(--atelier-ink);
+  padding: 8px 13px;
+  text-decoration: none;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+@media (max-width: 1280px) {
+  .atelier-hero {
+    grid-template-columns: minmax(0, 1.4fr) minmax(230px, 0.7fr) 145px;
+  }
+
+  .atelier-completion {
+    width: 140px;
+  }
+
+  .atelier-calendar-day {
+    min-height: 174px;
+    padding: 9px;
+  }
+
+  .atelier-list-head,
+  .atelier-list-row {
+    grid-template-columns: 120px minmax(250px, 2fr) 115px 125px 125px;
+  }
+
+  .atelier-dossier-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .atelier-dossier-card:nth-child(2) {
+    border-right: 0;
+  }
+
+  .atelier-time-card {
+    grid-column: 1 / -1;
+    min-height: auto;
+    border-top: 1px solid var(--atelier-border);
+  }
+
+  .atelier-time-summary {
+    max-width: 760px;
+  }
+}
+
+@media (max-width: 980px) {
+  .atelier-shell {
+    width: min(100% - 24px, 1760px);
+  }
+
+  .atelier-hero {
+    grid-template-columns: minmax(0, 1fr) 150px;
+  }
+
+  .atelier-hero-meta {
+    grid-column: 1 / 2;
+    grid-row: 2;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .atelier-completion {
+    grid-column: 2;
+    grid-row: 1 / 3;
+  }
+
+  .atelier-commandbar,
+  .atelier-filterbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .atelier-view-tabs {
+    width: fit-content;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .atelier-tasks .task-composer-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .atelier-week-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .atelier-week-grid .atelier-calendar-day {
+    min-height: 280px;
+    border-right: 1px solid var(--atelier-border);
+  }
+
+  .atelier-day-view-sections {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .atelier-list-head {
+    display: none;
+  }
+
+  .atelier-list-row {
+    grid-template-columns: minmax(110px, 0.7fr) minmax(0, 2fr) minmax(110px, 0.8fr);
+  }
+
+  .atelier-list-row > div:nth-child(4),
+  .atelier-list-row > div:nth-child(5) {
+    grid-column: auto;
+  }
+
+  .atelier-list-actions {
+    grid-column: 2 / -1;
+  }
+
+  .atelier-modal-meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .atelier-modal-meta > div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .atelier-modal-meta > div:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--atelier-border);
+  }
+}
+
+@media (max-width: 760px) {
+  .atelier-topbar {
+    position: static;
+    padding: 12px 14px;
+  }
+
+  .atelier-topbar-context {
+    display: none;
+  }
+
+  .atelier-shell {
+    width: min(100% - 16px, 1760px);
+    padding-top: 10px;
+  }
+
+  .atelier-hero {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 24px 18px;
+  }
+
+  .atelier-hero-copy h1 {
+    font-size: clamp(2.5rem, 15vw, 4.7rem);
+  }
+
+  .atelier-hero-meta {
+    grid-column: 1;
+    grid-row: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .atelier-completion {
+    grid-column: 1;
+    grid-row: auto;
+    width: 132px;
+  }
+
+  .atelier-period-nav {
+    flex-wrap: wrap;
+  }
+
+  .atelier-period-nav > div {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .atelier-view-tabs {
+    width: 100%;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .atelier-view-tabs button {
+    border-radius: 7px;
+  }
+
+  .atelier-filter-pills {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 3px;
+  }
+
+  .atelier-filter-pills button {
+    flex: 0 0 auto;
+  }
+
+  .atelier-tasks .task-composer-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .atelier-tasks .task-composer-form {
+    grid-template-columns: 1fr;
+  }
+
+  .atelier-tasks .task-composer-wide {
+    grid-column: 1;
+  }
+
+  .atelier-tasks .task-composer-meta,
+  .atelier-tasks .task-composer-actions {
+    grid-column: 1;
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .atelier-panel-heading,
+  .atelier-dossier-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .atelier-panel-stats {
+    justify-content: flex-start;
+  }
+
+  .atelier-calendar-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .atelier-weekday,
+  .atelier-calendar-day.is-blank {
+    display: none;
+  }
+
+  .atelier-calendar-day,
+  .atelier-calendar-grid .atelier-calendar-day:nth-child(7n) {
+    min-height: auto;
+    border: 1px solid var(--atelier-border);
+  }
+
+  .atelier-calendar-day:not(.is-blank):hover {
+    transform: none;
+  }
+
+  .atelier-week-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .atelier-week-grid .atelier-calendar-day {
+    min-height: auto;
+  }
+
+  .atelier-day-view-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .atelier-day-view-sections {
+    grid-template-columns: 1fr;
+  }
+
+  .atelier-list-row {
+    grid-template-columns: 1fr;
+    gap: 9px;
+    padding: 16px;
+  }
+
+  .atelier-list-actions {
+    grid-column: 1;
+  }
+
+  .atelier-dossier-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .atelier-dossier-card,
+  .atelier-dossier-card:nth-child(2) {
+    min-height: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--atelier-border);
+  }
+
+  .atelier-time-card {
+    grid-column: 1;
+    border-top: 0;
+  }
+
+  .atelier-time-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .atelier-priority-item {
+    grid-template-columns: 30px minmax(0, 1fr);
+  }
+
+  .atelier-focus-pick {
+    grid-column: 2;
+    width: fit-content;
+  }
+
+  .atelier-archive-note,
+  .atelier-archive-note > div {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .atelier-modal-backdrop {
+    padding: 8px;
+    align-items: end;
+  }
+
+  .atelier-modal {
+    max-height: calc(100vh - 16px);
+    padding: 28px 18px 20px;
+  }
+
+  .atelier-modal-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .atelier-modal-meta > div,
+  .atelier-modal-meta > div:nth-child(2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--atelier-border);
+  }
+
+  .atelier-modal-meta > div:last-child {
+    border-bottom: 0;
+  }
+
+  .atelier-modal-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .atelier-brand strong {
+    font-size: 0.94rem;
+  }
+
+  .atelier-brand small {
+    font-size: 0.58rem;
+  }
+
+  .atelier-hero-copy h1 {
+    font-size: 2.7rem;
+  }
+
+  .atelier-panel-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .atelier-panel-stats > span {
+    min-width: 0;
+  }
+
+  .atelier-calendar-legend {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .atelier-dossier-card {
+    padding: 18px 14px;
+  }
+
+  .atelier-focus-controls,
+  .atelier-card-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .atelier-focus-controls button,
+  .atelier-card-actions button {
+    width: 100%;
+  }
+}
+
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 10mm;
+  }
+
+  .atelier-tasks {
+    background: white !important;
+  }
+
+  .atelier-topbar,
+  .atelier-commandbar,
+  .atelier-filterbar,
+  .atelier-tasks .task-composer,
+  .atelier-dossier,
+  .atelier-archive-note,
+  .atelier-modal-backdrop {
+    display: none !important;
+  }
+
+  .atelier-shell {
+    width: 100%;
+    padding: 0;
+  }
+
+  .atelier-hero {
+    margin-bottom: 8mm;
+    padding: 8mm;
+    box-shadow: none;
+    break-inside: avoid;
+  }
+
+  .atelier-hero-copy h1 {
+    font-size: 34pt;
+  }
+
+  .atelier-calendar-panel {
+    margin: 0;
+    box-shadow: none;
+  }
+
+  .atelier-calendar-day {
+    min-height: 29mm;
+    break-inside: avoid;
+  }
+
+  .atelier-task-chip,
+  .atelier-class-chip,
+  .atelier-event-chip {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
