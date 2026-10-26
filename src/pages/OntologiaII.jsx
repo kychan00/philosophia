@@ -543,6 +543,23 @@ export default function OntologiaII() {
           <div className="ontology-program-enter"><span>Abrir folio</span><b>↗</b></div>
         </Link>
 
+
+        <Link
+          to="/semestre/5/ontologia-ii/clase/26-octubre"
+          className="ontology-program-class-card"
+        >
+          <div className="ontology-program-date">
+            <strong>XXVI</strong>
+            <span>X · MMXXVI</span>
+          </div>
+          <div className="ontology-program-class-copy">
+            <span>Clase del 26 de octubre · Ontología II</span>
+            <h3>Historia, progreso y praxis</h3>
+            <p>Del socialismo real a la crítica del progreso técnico. Aviso de examen: 10 preguntas, entrega el viernes 30 de octubre por correo en Word.</p>
+          </div>
+          <div className="ontology-program-enter"><span>Abrir folio</span><b>↗</b></div>
+        </Link>
+
       </section>
 
       <section className="ontology-program-classes ontology-program-thresholds">
