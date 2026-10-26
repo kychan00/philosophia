@@ -23,6 +23,25 @@ const sections = [
   ['12','pendiente','Lo que queda pendiente'],
 ]
 
+
+const archivum07Questions=[
+ ['¿Filosofía analítica y positivismo lógico son equivalentes?','No. El positivismo lógico es una etapa dentro de una tradición más amplia y cambiante.'],
+ ['¿Qué problema presenta la apropiación del Tractatus por el Círculo de Viena?','Su recepción selecciona y transforma tesis de Wittgenstein; no puede identificarse con la posición completa del autor.'],
+ ['¿Es igual no poder decir algo como hecho y afirmar que no existe?','No. La imposibilidad de formular una proposición factual no demuestra inexistencia ontológica.'],
+ ['¿Qué cuatro temas se desarrollaron el 7 de octubre?','Clarificación filosófica, crítica de la metafísica, verificación y empirismo consistente. El quinto se reservó para la continuación.'],
+]
+function Archivum07(){
+ return <section className="ac07-archivum" aria-label="Archivum Academicum de la clase">
+ <p className="ac07-archivum-label">ARCHIVUM ACADEMICUM · ACTIVACIÓN / 90 SEGUNDOS</p>
+ <h2>Recibir no es repetir: Wittgenstein y Viena</h2>
+ <p><strong>TESIS SEMINAL · RECONSTRUCCIÓN EDITORIAL</strong> El positivismo lógico recibe ideas del <em>Tractatus</em>, pero las reorganiza como un programa de clarificación, crítica de la metafísica, verificación y empirismo.</p>
+ <div className="ac07-archivum-triad"><div><b>α · ORIGEN</b><span>Decir y mostrar</span></div><div><b>β · RECEPCIÓN</b><span>Programa de Viena</span></div><div><b>γ · DIFERENCIA</b><span>Influencia ≠ identidad</span></div></div>
+ <figure><img src={`${import.meta.env.BASE_URL}images/filosofia-analitica/archivum-07-octubre-viena.svg`} loading="lazy" alt="Diagrama conceptual de tres pasos: Wittgenstein y los límites de lo decible; recepción del Círculo de Viena con cuatro temas tratados; divergencias y preguntas críticas."/><figcaption>Figura 1. Recepción y transformación del <em>Tractatus</em>. Diagrama original de PHILOSOPHIA; reconstrucción editorial, no imagen procedente de Hacker ni material del profesor.</figcaption></figure>
+ <p className="ac07-archivum-source">Autor y titular: PHILOSOPHIA. SVG original elaborado para esta clase; régimen ORIGINAL-OWNED, sin recursos gráficos de terceros. Las cajas y flechas representan relaciones conceptuales, no una cronología exhaustiva.</p>
+ </section>
+}
+function Archivum07Recall(){return <section className="ac07-recall"><h2>Recuperación activa · diez años después</h2><p>Formule su respuesta antes de abrir la síntesis editorial.</p>{archivum07Questions.map(([q,a],i)=><details key={q}><summary><span>0{i+1} · </span>{q}</summary><p>{a}</p></details>)}</section>}
+
 const goTo = (id) =>
   document.getElementById(id)?.scrollIntoView({ behavior:'smooth', block:'start' })
 
@@ -92,6 +111,7 @@ export default function AnalyticClass07Oct() {
         </div>
       </header>
 
+      <Archivum07 />
       <div className="ac9-layout ac07-layout">
         <AnalyticEditorialIndex
           sections={sections}
@@ -351,7 +371,8 @@ export default function AnalyticClass07Oct() {
               <strong>No consta una consigna nueva inequívoca en las notas disponibles de esta sesión.</strong>
             </div>
           </section>
-        </article>
+        <Archivum07Recall />
+</article>
       </div>
     </main>
   )
