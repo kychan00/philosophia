@@ -303,6 +303,17 @@ export default function MethodsResearch() {
           </div>
           <div className="methods-enter"><span>Abrir ficha</span><b>↗</b></div>
         </Link>
+        <Link to="/semestre/5/metodos-de-investigacion/clase/26-octubre" className="methods-class-card">
+          <div className="methods-date"><strong>XXVI</strong><span>X · MMXXVI</span></div>
+          <div className="methods-class-copy">
+            <span>Investigación cualitativa · Fenomenología · Exposición</span>
+            <h3>De los enfoques de investigación a la experiencia vivida</h3>
+            <p>Cuantitativo, cualitativo y mixto; Brentano, Husserl, Heidegger y Schütz;
+              problema de la creencia en Villoro y compromiso de exponer las tres dialécticas.
+              Incluye esquema SVG original y nota de calendario.</p>
+          </div>
+          <div className="methods-enter"><span>Abrir folio</span><b>↗</b></div>
+        </Link>
       </section>
 
       <footer className="methods-footer">
