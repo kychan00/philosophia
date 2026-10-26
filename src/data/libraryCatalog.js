@@ -2,6 +2,23 @@
 // No contiene apuntes ni inventario personal de ejemplares.
 export const books = [
   {
+    "id": "Brentano - Psicología desde el punto de vista empírico",
+    "autor": "Brentano",
+    "titulo": "Psicología desde el punto de vista empírico",
+    "categoria": "investigación",
+    "estado": "recomendada",
+    "lectura": "Recomendación de Métodos de Investigación Filosófica, 26-10-2026; lectura personal no acreditada. Enlace a vista previa editorial de 17 páginas, no al libro íntegro.",
+    "edicion": "Ediciones Sígueme, Salamanca, 2020; traducción y presentación de Sergio Sánchez-Migallón; original alemán de 1874; ISBN 978-84-301-2059-8",
+    "url": "https://www.sigueme.es/docs/libros/psicologia-brentano-web.pdf",
+    "ideas": [
+      {"lema":"I · Psicología como ciencia","detalle":"El índice del libro primero sitúa el concepto y la tarea de la ciencia psíquica; esta es una ruta de lectura, no un capítulo cotejado íntegramente."},
+      {"lema":"II · Método y experiencia","detalle":"El índice anuncia el método de la psicología y la inducción de leyes psíquicas; el prólogo defiende la experiencia como fundamento."},
+      {"lema":"III · Fenómenos psíquicos y físicos","detalle":"El libro segundo abre con su distinción. La presentación editorial relaciona la experiencia psíquica con la conciencia intencional."},
+      {"lema":"IV · Conciencia interna","detalle":"El índice dedica capítulos a la conciencia interna y a la unidad de la conciencia."},
+      {"lema":"V · Representación, juicio y afectividad","detalle":"La presentación del traductor expone la división de las actividades psíquicas en representaciones, juicios y fenómenos de amor y odio."}
+    ]
+  },
+  {
     "id": "Bloch - Sujeto-objeto",
     "autor": "Bloch",
     "titulo": "Sujeto-objeto: El pensamiento de Hegel",
@@ -759,6 +776,7 @@ export const authors = [
   "Bentham, Jeremy",
   "Berkeley, George",
   "Bloch, Ernst",
+  "Brentano, Franz",
   "Bobbio, Norberto",
   "Bolzano, Bernhard",
   "Boole, George",
