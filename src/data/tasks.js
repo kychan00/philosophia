@@ -189,6 +189,25 @@ export const tasks = [
     sourceRoute: '/semestre/5/filosofia-analitica',
     studyRoute: '/semestre/5/filosofia-analitica/lectura/glock-capitulo-2',
   },
+
+  {
+    id: 'analitica-2026-10-26-glock-continuar-lectura',
+    subject: 'Filosofía Analítica',
+    subjectCode: 'FI264',
+    assignedDate: '2026-10-26',
+    dueDate: '2026-10-26',
+    title: 'Glock · seguir leyendo hoy',
+    type: 'Estudio del día · lectura',
+    weight: null,
+    description:
+      'Seguir leyendo hoy el capítulo II de Hans-Johann Glock desde el punto alcanzado. No se fija un rango final de páginas porque sólo se confirmó la continuidad de la lectura para hoy. Este checkpoint no sustituye el objetivo de seguimiento del miércoles 28 de octubre.',
+    readingScope:
+      'Hans-Johann Glock · ¿Qué es la filosofía analítica? · capítulo II, «Breve panorama histórico»',
+    sourceClass:
+      'Seguimiento personal confirmado por el estudiante · 26 de octubre de 2026',
+    sourceRoute: '/semestre/5/filosofia-analitica',
+    studyRoute: '/semestre/5/filosofia-analitica/lectura/glock-capitulo-2',
+  },
   {
     id: 'ontologia-2026-08-24-leibniz',
     subject: 'Ontologia II',
