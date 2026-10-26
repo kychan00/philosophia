@@ -99,3 +99,29 @@
   }
   .ac1410-article > section { scroll-margin-top: 80px; }
 }
+
+/* Archivum Academicum · piloto monográfico; scoped a la sesión de octubre 14 */
+.ac1410-page{--arch-blue:#1d4ed8;--arch-border:#e2e8f0}
+.ac1410-memory{width:min(1160px,calc(100% - 2rem));margin:2rem auto 3rem;padding:clamp(1rem,3vw,2.75rem);border:1px solid var(--arch-border);border-top:5px solid var(--arch-blue);background:#f9f9ff;color:#192239}
+.ac1410-memory-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem;color:var(--arch-blue);font:700 .72rem Arial,sans-serif;letter-spacing:.1em}
+.ac1410-memory h2,.ac1410-recall h2,.ac1410-argument h2{font:normal clamp(1.7rem,3vw,2.7rem) Georgia,serif;margin:1.2rem 0}
+.ac1410-memory-thesis{font:1.23rem/1.6 Georgia,serif;max-width:67ch}
+.ac1410-memory-thesis strong{display:block;color:var(--arch-blue);font:700 .7rem Arial,sans-serif;letter-spacing:.1em;margin-bottom:.5rem}
+.ac1410-triad{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.5rem 0}
+.ac1410-triad div{padding:1rem;min-width:0;border:1px solid var(--arch-border);background:white}
+.ac1410-triad b,.ac1410-triad span{display:block}.ac1410-triad b{font:700 .73rem Arial,sans-serif;color:var(--arch-blue);margin-bottom:.6rem}
+.ac1410-triad span{font:1.15rem Georgia,serif}
+.ac1410-map{margin:1.4rem 0 0}.ac1410-map img{display:block;width:100%;height:auto;border:1px solid var(--arch-border);background:white}
+.ac1410-map figcaption,.ac1410-visual-credit{font:400 .8rem/1.6 Arial,sans-serif;color:#39475d}
+.ac1410-recall,.ac1410-argument{margin:2.5rem 0;padding:1.5rem;border:1px solid var(--arch-border);border-left:4px solid var(--arch-blue);background:#f9f9ff;color:#192239}
+.ac1410-recall details{border-bottom:1px solid var(--arch-border);padding:.5rem 0}
+.ac1410-recall summary{cursor:pointer;padding:.85rem .25rem;min-height:44px;font:600 1rem Arial,sans-serif}
+.ac1410-recall summary span{color:var(--arch-blue);margin-right:.8rem}
+.ac1410-recall details p{padding:.25rem 1rem 1rem}
+.ac1410-recall summary:focus-visible{outline:3px solid var(--arch-blue);outline-offset:3px}
+.ac1410-proof{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
+.ac1410-proof div{background:#fff;border:1px solid var(--arch-border);padding:1rem;min-width:0}
+.ac1410-proof span,.ac1410-proof code{display:block}.ac1410-proof span{font:700 .72rem Arial,sans-serif;color:#39475d;margin-bottom:.6rem}
+.ac1410-proof code{font:1.3rem ui-monospace,monospace;color:#1d4ed8;overflow-wrap:anywhere}
+@media(max-width:700px){.ac1410-triad,.ac1410-proof{grid-template-columns:1fr}.ac1410-memory{width:calc(100% - 1.25rem);box-sizing:border-box}.ac1410-recall,.ac1410-argument{padding:1rem}}
+@media print{.ac1410-memory,.ac1410-recall,.ac1410-argument{break-inside:avoid;background:#fff}.ac1410-recall details{display:block}.ac1410-recall details p{display:block!important}}
