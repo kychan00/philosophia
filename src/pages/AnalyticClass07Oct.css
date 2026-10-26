@@ -222,3 +222,18 @@
   .ac07-thesis,.ac07-note{padding:15px 16px}
   .ac07-index{margin-bottom:.75rem}
 }
+
+/* Archivum Academicum · sesión 7 de octubre */
+.ac07-archivum{width:min(1120px,calc(100% - 2rem));box-sizing:border-box;margin:2rem auto;padding:clamp(1rem,3vw,2.5rem);background:#f9f9ff;color:#192239;border:1px solid #e2e8f0;border-top:5px solid #1d4ed8}
+.ac07-archivum-label{font:700 .75rem Arial,sans-serif;letter-spacing:.08em;color:#1d4ed8}
+.ac07-archivum h2,.ac07-recall h2{font:normal clamp(1.7rem,3vw,2.5rem) Georgia,serif}
+.ac07-archivum-triad{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.5rem 0}
+.ac07-archivum-triad div{padding:1rem;background:white;border:1px solid #e2e8f0}
+.ac07-archivum-triad b,.ac07-archivum-triad span{display:block}
+.ac07-archivum-triad b{font:700 .75rem Arial,sans-serif;color:#1d4ed8;margin-bottom:.5rem}
+.ac07-archivum figure{margin:1.5rem 0}.ac07-archivum img{display:block;width:100%;height:auto}
+.ac07-archivum figcaption,.ac07-archivum-source{font:.82rem/1.6 Arial,sans-serif;color:#39475d}
+.ac07-recall{padding:1.5rem;margin:2rem 0;background:#f9f9ff;border-left:4px solid #1d4ed8;color:#192239}
+.ac07-recall details{padding:.8rem 0;border-bottom:1px solid #e2e8f0}.ac07-recall summary{cursor:pointer;min-height:44px}.ac07-recall summary:focus-visible{outline:3px solid #1d4ed8}.ac07-recall summary span{color:#1d4ed8}
+@media(max-width:700px){.ac07-archivum-triad{grid-template-columns:1fr}.ac07-recall{padding:1rem}}
+@media print{.ac07-archivum,.ac07-recall{background:#fff}}
