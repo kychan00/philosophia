@@ -162,3 +162,19 @@ test('La tarea Glock pp. 46–51 conserva FI264 y el objetivo de estudio confirm
   assert.match(task.sourceClass, /continuidad para la clase del 28 de octubre/)
   assert.ok(tasks.some(item => item.id === 'analitica-2026-08-19-glock-cap2'))
 })
+
+
+test('El checkpoint del 26 de octubre pide seguir leyendo a Glock hoy sin borrar el hito del 28', () => {
+  const today = tasks.filter(task => task.id === 'analitica-2026-10-26-glock-continuar-lectura')
+  assert.equal(today.length, 1)
+  assert.equal(today[0].subjectCode, 'FI264')
+  assert.equal(today[0].assignedDate, '2026-10-26')
+  assert.equal(today[0].dueDate, '2026-10-26')
+  assert.match(today[0].title, /seguir leyendo hoy/)
+  assert.match(today[0].description, /No se fija un rango final de páginas/)
+  assert.match(today[0].sourceClass, /Seguimiento personal confirmado/)
+  assert.equal(today[0].studyRoute, '/semestre/5/filosofia-analitica/lectura/glock-capitulo-2')
+
+  const nextClass = tasks.find(task => task.id === 'analitica-2026-10-21-glock-pp46-51-2d')
+  assert.equal(nextClass?.dueDate, '2026-10-28')
+})
