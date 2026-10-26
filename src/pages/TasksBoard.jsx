@@ -377,13 +377,14 @@ export default function TasksBoard() {
 
   const calendarTasks = useMemo(() => {
     return decoratedTasks.reduce((map, task) => {
-      if (!task.dueDate) return map
+      const calendarDate = task.dueDate || task.assignedDate
+      if (!calendarDate) return map
 
-      if (!map[task.dueDate]) {
-        map[task.dueDate] = []
+      if (!map[calendarDate]) {
+        map[calendarDate] = []
       }
 
-      map[task.dueDate].push(task)
+      map[calendarDate].push(task)
       return map
     }, {})
   }, [decoratedTasks])
@@ -535,6 +536,7 @@ export default function TasksBoard() {
           <span className="legend-urgent">≤ 2 días</span>
           <span className="legend-soon">≤ 7 días</span>
           <span className="legend-future">Programada</span>
+          <span className="legend-undated">Sin fecha · día de registro</span>
           <span className="legend-completed">Completada</span>
         </div>
 
@@ -669,17 +671,26 @@ export default function TasksBoard() {
                       </Link>
                     ))}
 
-                    {dayTasks.map((task) => (
-                      <button
-                        key={task.id}
-                        type="button"
-                        className={`calendar-task calendar-task--${task.status.key}`}
-                        onClick={() => openTask(task)}
-                      >
-                        <span>◆</span>
-                        {task.title}
-                      </button>
-                    ))}
+                    {dayTasks.map((task) => {
+                      const isUndated = !task.dueDate
+                      const calendarLabel = isUndated
+                        ? `Registrada el ${formatDate(task.assignedDate)} · sin fecha de entrega`
+                        : `Entrega ${formatDate(task.dueDate)}`
+
+                      return (
+                        <button
+                          key={task.id}
+                          type="button"
+                          className={`calendar-task calendar-task--${task.status.key}`}
+                          onClick={() => openTask(task)}
+                          title={calendarLabel}
+                          aria-label={`${task.title}. ${calendarLabel}`}
+                        >
+                          <span aria-hidden="true">{isUndated ? '◇' : '◆'}</span>
+                          {task.title}
+                        </button>
+                      )
+                    })}
                   </div>
                 </div>
               )
