@@ -18,7 +18,7 @@ const readings = [
     number: 'III',
     author: 'Hans-Johann Glock',
     title: 'Breve panorama histórico',
-    note: '¿Qué es la filosofía analítica? · capítulo II · pp. 40–86 · documentadas: 40–51; continuación pendiente: 52–86',
+    note: '¿Qué es la filosofía analítica? · capítulo II · texto cotejado: 40–53; atlas 2D: 40–51; continuación pendiente: 54–86',
     route: '/semestre/5/filosofia-analitica/lectura/glock-capitulo-2',
   },
   {
@@ -503,6 +503,19 @@ export default function AnalyticPhilosophy() {
             <p>
               Dos sentidos del análisis; Descartes, Leibniz y empirismo; juicios analíticos
               y sintéticos, sintético a priori, Kant, idealismo, naturalismo y neokantismo.
+            </p>
+          </div>
+          <div className="analytic-enter"><span>Abrir análisis</span><b>↗</b></div>
+        </Link>
+
+        <Link to="/semestre/5/filosofia-analitica/clase/26-octubre" className="analytic-class-card">
+          <div className="analytic-date"><strong>XXVI</strong><span>X · MMXXVI</span></div>
+          <div className="analytic-class-copy">
+            <span>Decimoctava clase · Glock pp. 50–53</span>
+            <h3>Frege, Russell y la rebelión contra el idealismo</h3>
+            <p>
+              Función y cuantificación; sentido, referencia y tercer reino; paradoja de Russell,
+              teoría de tipos, idealismo británico, relaciones y crítica de Moore a la verdad como coherencia.
             </p>
           </div>
           <div className="analytic-enter"><span>Abrir análisis</span><b>↗</b></div>
