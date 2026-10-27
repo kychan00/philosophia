@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
 import tasks from '../data/tasks'
 import CLASS_SCHEDULE from '../data/academicSchedule'
@@ -30,7 +30,48 @@ const VIEW_OPTIONS = [
   ['list', 'Lista general'],
 ]
 const STATUS_OPTIONS = ['Pendientes', 'Todas', 'Completadas']
-const FOCUS_TARGET_SECONDS = 50 * 60
+const POMODORO_MODES = [
+  {
+    id: 'pomodoro',
+    label: 'Pomodoro',
+    minutes: 25,
+    kind: 'focus',
+    description: 'Lectura o escritura concentrada',
+  },
+  {
+    id: 'deep',
+    label: 'Lectura profunda',
+    minutes: 50,
+    kind: 'focus',
+    description: 'Bloque largo para textos difíciles',
+  },
+  {
+    id: 'short-break',
+    label: 'Pausa breve',
+    minutes: 5,
+    kind: 'break',
+    description: 'Agua, respiración y descanso visual',
+  },
+  {
+    id: 'long-break',
+    label: 'Pausa larga',
+    minutes: 15,
+    kind: 'break',
+    description: 'Separarse de la mesa antes de volver',
+  },
+]
+
+const POMODORO_MODE_MAP = Object.fromEntries(
+  POMODORO_MODES.map((mode) => [
+    mode.id,
+    {
+      ...mode,
+      seconds: mode.minutes * 60,
+    },
+  ]),
+)
+
+const DEFAULT_POMODORO_MODE = 'pomodoro'
 
 const PRIORITY_ORDER = {
   Alta: 0,
@@ -172,12 +213,23 @@ function loadFocusSession() {
     const stored = JSON.parse(
       window.localStorage.getItem('philosophia-focus-session') || '{}',
     )
+    const mode = POMODORO_MODE_MAP[stored.mode]
+      ? stored.mode
+      : DEFAULT_POMODORO_MODE
+    const targetSeconds =
+      Number(stored.targetSeconds) || POMODORO_MODE_MAP[mode].seconds
 
     return {
       taskId: stored.taskId || null,
-      elapsedSeconds: Number(stored.elapsedSeconds) || 0,
+      elapsedSeconds: Math.min(
+        Number(stored.elapsedSeconds) || 0,
+        targetSeconds,
+      ),
       running: Boolean(stored.running && stored.startedAt),
       startedAt: stored.startedAt || null,
+      mode,
+      targetSeconds,
+      completedCycles: Number(stored.completedCycles) || 0,
     }
   } catch {
     return {
@@ -185,6 +237,9 @@ function loadFocusSession() {
       elapsedSeconds: 0,
       running: false,
       startedAt: null,
+      mode: DEFAULT_POMODORO_MODE,
+      targetSeconds: POMODORO_MODE_MAP[DEFAULT_POMODORO_MODE].seconds,
+      completedCycles: 0,
     }
   }
 }
@@ -460,6 +515,11 @@ export default function TasksBoard() {
   }))
   const [focusSession, setFocusSession] = useState(loadFocusSession)
   const [clock, setClock] = useState(Date.now())
+  const [notificationPermission, setNotificationPermission] = useState(() =>
+    typeof Notification === 'undefined' ? 'unsupported' : Notification.permission,
+  )
+  const studyAudioRef = useRef(null)
+  const completedSessionRef = useRef(null)
 
   const allTasks = useMemo(
     () => [
@@ -615,8 +675,18 @@ export default function TasksBoard() {
   )
   const focusProgress = Math.min(
     100,
-    Math.round((displayFocusSeconds / FOCUS_TARGET_SECONDS) * 100),
+    Math.round(
+      (displayFocusSeconds / Math.max(1, focusSession.targetSeconds)) * 100,
+    ),
   )
+  const remainingFocusSeconds = Math.max(
+    0,
+    focusSession.targetSeconds - displayFocusSeconds,
+  )
+  const activePomodoroMode =
+    POMODORO_MODE_MAP[focusSession.mode] ||
+    POMODORO_MODE_MAP[DEFAULT_POMODORO_MODE]
+  const isBreakMode = activePomodoroMode.kind === 'break'
   const trackedSeconds = todayClassSeconds + displayFocusSeconds
   const focusShare = trackedSeconds
     ? Math.round((displayFocusSeconds / trackedSeconds) * 100)
@@ -681,12 +751,13 @@ export default function TasksBoard() {
     if (selectedTask?.id === id) setSelectedTask(null)
 
     if (focusSession.taskId === id) {
-      setFocusSession({
+      setFocusSession((current) => ({
+        ...current,
         taskId: null,
         elapsedSeconds: 0,
         running: false,
         startedAt: null,
-      })
+      }))
     }
   }
 
@@ -733,13 +804,141 @@ export default function TasksBoard() {
     })
   }
 
+  const unlockStudyAudio = async () => {
+    const AudioContextClass =
+      window.AudioContext || window.webkitAudioContext
+
+    if (!AudioContextClass) return null
+
+    if (!studyAudioRef.current) {
+      studyAudioRef.current = new AudioContextClass()
+    }
+
+    if (studyAudioRef.current.state === 'suspended') {
+      try {
+        await studyAudioRef.current.resume()
+      } catch {
+        return studyAudioRef.current
+      }
+    }
+
+    return studyAudioRef.current
+  }
+
+  const playStudyChime = async () => {
+    const context = await unlockStudyAudio()
+    if (!context) return
+
+    const start = context.currentTime + 0.03
+
+    ;[523.25, 659.25, 783.99].forEach((frequency, index) => {
+      const oscillator = context.createOscillator()
+      const gain = context.createGain()
+      const noteStart = start + index * 0.22
+
+      oscillator.type = 'sine'
+      oscillator.frequency.setValueAtTime(frequency, noteStart)
+      gain.gain.setValueAtTime(0.0001, noteStart)
+      gain.gain.exponentialRampToValueAtTime(0.075, noteStart + 0.025)
+      gain.gain.exponentialRampToValueAtTime(0.0001, noteStart + 0.18)
+      oscillator.connect(gain)
+      gain.connect(context.destination)
+      oscillator.start(noteStart)
+      oscillator.stop(noteStart + 0.2)
+    })
+  }
+
+  const sendStudyNotification = async (title, body) => {
+    if (notificationPermission !== 'granted') return
+
+    const options = {
+      body,
+      icon: `${import.meta.env.BASE_URL}icons/icon-192.png`,
+      badge: `${import.meta.env.BASE_URL}icons/icon-192.png`,
+      tag: 'philosophia-pomodoro',
+      renotify: true,
+      data: {
+        route: `${import.meta.env.BASE_URL}#/tareas`,
+      },
+    }
+
+    try {
+      if ('serviceWorker' in navigator) {
+        const registration = await navigator.serviceWorker.ready
+        await registration.showNotification(title, options)
+        return
+      }
+
+      if (typeof Notification !== 'undefined') {
+        new Notification(title, options)
+      }
+    } catch {
+      // La campanilla local permanece como respaldo.
+    }
+  }
+
+  const fireStudyAlarm = async ({ test = false } = {}) => {
+    await playStudyChime()
+
+    if ('vibrate' in navigator) {
+      navigator.vibrate([180, 90, 180, 90, 260])
+    }
+
+    const title = test
+      ? 'Prueba de alarma · PHILOSOPHIA'
+      : isBreakMode
+        ? 'Pausa terminada · vuelva al texto'
+        : 'Sessio completa · PHILOSOPHIA'
+    const body = test
+      ? 'La campanilla y las notificaciones de estudio están preparadas.'
+      : isBreakMode
+        ? 'Su descanso terminó. La mesa de estudio vuelve a estar disponible.'
+        : 'Cierre la idea, anote lo pendiente y tome una pausa breve.'
+
+    await sendStudyNotification(title, body)
+  }
+
+  const requestStudyNotifications = async () => {
+    await unlockStudyAudio()
+
+    if (typeof Notification === 'undefined') {
+      setNotificationPermission('unsupported')
+      return
+    }
+
+    try {
+      const permission = await Notification.requestPermission()
+      setNotificationPermission(permission)
+    } catch {
+      setNotificationPermission(Notification.permission || 'default')
+    }
+  }
+
   const chooseFocusTask = (taskId) => {
-    setFocusSession({
+    setFocusSession((current) => ({
+      ...current,
       taskId,
       elapsedSeconds: 0,
       running: false,
       startedAt: null,
-    })
+    }))
+    completedSessionRef.current = null
+    setClock(Date.now())
+  }
+
+  const choosePomodoroMode = (modeId) => {
+    const mode = POMODORO_MODE_MAP[modeId]
+    if (!mode) return
+
+    setFocusSession((current) => ({
+      ...current,
+      mode: mode.id,
+      targetSeconds: mode.seconds,
+      elapsedSeconds: 0,
+      running: false,
+      startedAt: null,
+    }))
+    completedSessionRef.current = null
     setClock(Date.now())
   }
 
@@ -747,14 +946,21 @@ export default function TasksBoard() {
     if (focusSession.running) return
 
     const taskId = focusSession.taskId || priorityTasks[0]?.id || null
-    if (!taskId) return
+    if (!taskId && !isBreakMode) return
+
+    void unlockStudyAudio()
 
     setFocusSession((current) => ({
       ...current,
       taskId,
+      elapsedSeconds:
+        current.elapsedSeconds >= current.targetSeconds
+          ? 0
+          : current.elapsedSeconds,
       running: true,
       startedAt: Date.now(),
     }))
+    completedSessionRef.current = null
     setClock(Date.now())
   }
 
@@ -762,12 +968,14 @@ export default function TasksBoard() {
     setFocusSession((current) => {
       if (!current.running || !current.startedAt) return current
 
-      const elapsed =
+      const elapsed = Math.min(
+        current.targetSeconds,
         current.elapsedSeconds +
-        Math.max(
-          0,
-          Math.floor((Date.now() - current.startedAt) / 1000),
-        )
+          Math.max(
+            0,
+            Math.floor((Date.now() - current.startedAt) / 1000),
+          ),
+      )
 
       return {
         ...current,
@@ -785,8 +993,57 @@ export default function TasksBoard() {
       running: false,
       startedAt: null,
     }))
+    completedSessionRef.current = null
     setClock(Date.now())
   }
+
+  useEffect(() => {
+    if (!focusSession.running) return undefined
+
+    const synchronizeClock = () => setClock(Date.now())
+    document.addEventListener('visibilitychange', synchronizeClock)
+    window.addEventListener('pageshow', synchronizeClock)
+
+    return () => {
+      document.removeEventListener('visibilitychange', synchronizeClock)
+      window.removeEventListener('pageshow', synchronizeClock)
+    }
+  }, [focusSession.running])
+
+  useEffect(() => {
+    if (
+      !focusSession.running ||
+      !focusSession.startedAt ||
+      displayFocusSeconds < focusSession.targetSeconds
+    ) {
+      return
+    }
+
+    const sessionKey =
+      String(focusSession.startedAt) + ':' + focusSession.mode
+
+    if (completedSessionRef.current === sessionKey) return
+    completedSessionRef.current = sessionKey
+
+    void fireStudyAlarm()
+
+    setFocusSession((current) => ({
+      ...current,
+      elapsedSeconds: current.targetSeconds,
+      running: false,
+      startedAt: null,
+      completedCycles:
+        current.completedCycles +
+        (POMODORO_MODE_MAP[current.mode]?.kind === 'focus' ? 1 : 0),
+    }))
+    setClock(Date.now())
+  }, [
+    displayFocusSeconds,
+    focusSession.mode,
+    focusSession.running,
+    focusSession.startedAt,
+    focusSession.targetSeconds,
+  ])
 
   const classesForVisibleDate = (date) =>
     classesForDate(date).filter(
@@ -1180,7 +1437,13 @@ export default function TasksBoard() {
           : renderMonthlyView()
 
   return (
-    <main className="atelier-tasks">
+    <main
+      className={
+        focusSession.running
+          ? 'atelier-tasks is-study-mode'
+          : 'atelier-tasks'
+      }
+    >
       <header className="atelier-topbar">
         <Link to="/" className="atelier-brand">
           <span className="atelier-brand-mark">Φ</span>
@@ -1450,47 +1713,22 @@ export default function TasksBoard() {
                 )}
               </div>
 
-              <div className="atelier-focus-module">
+              <a className="atelier-focus-module" href="#pomodoro-filosofico">
                 <div className="atelier-focus-heading">
                   <div>
-                    <small>Sesión viva · bloque de 50 min</small>
+                    <small>Studium philosophicum</small>
                     <strong>
-                      {focusTask ? focusTask.title : 'Seleccione una tarea'}
+                      {focusTask ? focusTask.title : 'Prepare una sesión de estudio'}
                     </strong>
                   </div>
                   <span className={focusSession.running ? 'is-live' : ''}>
-                    {focusSession.running ? 'En curso' : 'En pausa'}
+                    {focusSession.running ? 'En curso' : 'Abrir Pomodoro'}
                   </span>
                 </div>
-
-                <div
-                  className="atelier-timer"
-                  aria-live="polite"
-                  aria-label={'Tiempo de enfoque: ' + formatDuration(displayFocusSeconds)}
-                >
-                  {formatDuration(displayFocusSeconds)}
-                </div>
-
-                <div className="atelier-focus-progress" aria-hidden="true">
-                  <span style={{ width: focusProgress + '%' }} />
-                </div>
                 <small className="atelier-progress-caption">
-                  {focusProgress}% del bloque de 50 minutos
+                  El temporizador vive al final del calendario, en una sala de estudio separada.
                 </small>
-
-                <div className="atelier-focus-controls">
-                  <button
-                    type="button"
-                    onClick={focusSession.running ? pauseFocus : startFocus}
-                    disabled={!focusTask && priorityTasks.length === 0}
-                  >
-                    {focusSession.running ? 'Pausar' : 'Iniciar / reanudar'}
-                  </button>
-                  <button type="button" onClick={resetFocus}>
-                    Reiniciar
-                  </button>
-                </div>
-              </div>
+              </a>
             </section>
 
             <section className="atelier-dossier-card atelier-projects-card">
@@ -1632,6 +1870,211 @@ export default function TasksBoard() {
             </button>
             <Link to="/semestre/5">Volver al quinto semestre</Link>
           </div>
+        </section>
+
+        <section
+          id="pomodoro-filosofico"
+          className={
+            focusSession.running
+              ? 'atelier-study-room is-live'
+              : 'atelier-study-room'
+          }
+        >
+          <div className="atelier-study-room-glow" aria-hidden="true" />
+
+          <header className="atelier-study-room-header">
+            <div>
+              <span>STUDIUM PHILOSOPHICUM · POMODORO</span>
+              <h2>Una habitación para pensar.</h2>
+              <p>
+                El calendario termina aquí. Al iniciar una sesión, PHILOSOPHIA
+                cambia de atmósfera para dejar sólo una pregunta, un texto y un
+                intervalo de atención.
+              </p>
+            </div>
+
+            <div className="atelier-study-state" aria-live="polite">
+              <span>{focusSession.running ? 'SILENTIUM' : 'MESA DISPONIBLE'}</span>
+              <strong>
+                {focusSession.running
+                  ? activePomodoroMode.label + ' en curso'
+                  : 'Elija un ritmo de estudio'}
+              </strong>
+              <small>
+                {focusSession.completedCycles} sesiones de concentración completadas
+              </small>
+            </div>
+          </header>
+
+          <div className="atelier-study-grid">
+            <aside className="atelier-study-console">
+              <div className="atelier-study-console-block">
+                <span className="atelier-study-label">I · Ritmo</span>
+                <div className="atelier-pomodoro-modes">
+                  {POMODORO_MODES.map((mode) => (
+                    <button
+                      type="button"
+                      key={mode.id}
+                      className={
+                        focusSession.mode === mode.id ? 'is-active' : ''
+                      }
+                      onClick={() => choosePomodoroMode(mode.id)}
+                      disabled={focusSession.running}
+                    >
+                      <strong>{mode.label}</strong>
+                      <span>{mode.minutes} min</span>
+                      <small>{mode.description}</small>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="atelier-study-console-block">
+                <span className="atelier-study-label">II · Materia</span>
+                <strong className="atelier-study-task-title">
+                  {isBreakMode
+                    ? 'Pausa deliberada'
+                    : focusTask
+                      ? focusTask.title
+                      : 'Seleccione «Enfocar» en una prioridad'}
+                </strong>
+                <small>
+                  {isBreakMode
+                    ? 'El descanso no necesita estar ligado a una tarea.'
+                    : focusTask
+                      ? focusTask.subjectGroup + ' · ' + focusTask.status.label
+                      : 'Si inicia sin escoger, se tomará la primera prioridad disponible.'}
+                </small>
+              </div>
+
+              <div className="atelier-study-console-block atelier-study-alarm-card">
+                <span className="atelier-study-label">III · Alarmas</span>
+                <strong>
+                  {notificationPermission === 'granted'
+                    ? 'Notificación del sistema activa'
+                    : notificationPermission === 'denied'
+                      ? 'Notificaciones bloqueadas'
+                      : notificationPermission === 'unsupported'
+                        ? 'Notificaciones no disponibles'
+                        : 'Notificaciones aún sin permiso'}
+                </strong>
+                <p>
+                  La campanilla local y la vibración funcionan como primera capa.
+                  La notificación persistente usa el Service Worker cuando el
+                  navegador concede permiso.
+                </p>
+                <div className="atelier-study-alarm-actions">
+                  {notificationPermission !== 'granted' && (
+                    <button type="button" onClick={requestStudyNotifications}>
+                      Activar alarmas
+                    </button>
+                  )}
+                  <button type="button" onClick={() => void fireStudyAlarm({ test: true })}>
+                    Probar alarma
+                  </button>
+                </div>
+              </div>
+            </aside>
+
+            <div className="atelier-study-clock">
+              <div
+                className="atelier-study-dial"
+                style={{ '--study-progress': focusProgress * 3.6 + 'deg' }}
+              >
+                <div>
+                  <small>{activePomodoroMode.label}</small>
+                  <strong
+                    aria-live="polite"
+                    aria-label={
+                      'Tiempo restante: ' + formatDuration(remainingFocusSeconds)
+                    }
+                  >
+                    {formatDuration(remainingFocusSeconds)}
+                  </strong>
+                  <span>
+                    {focusSession.running
+                      ? 'la atención está en curso'
+                      : focusProgress >= 100
+                        ? 'bloque concluido'
+                        : 'listo para comenzar'}
+                  </span>
+                </div>
+              </div>
+
+              <div className="atelier-study-clock-actions">
+                <button
+                  type="button"
+                  className="is-primary"
+                  onClick={focusSession.running ? pauseFocus : startFocus}
+                  disabled={
+                    !isBreakMode &&
+                    !focusTask &&
+                    priorityTasks.length === 0
+                  }
+                >
+                  {focusSession.running ? 'Pausar' : 'Iniciar / reanudar'}
+                </button>
+                <button type="button" onClick={resetFocus}>
+                  Reiniciar bloque
+                </button>
+              </div>
+
+              <div className="atelier-study-progress-copy">
+                <span>{focusProgress}%</span>
+                <div>
+                  <strong>{formatDuration(displayFocusSeconds)} atendidos</strong>
+                  <small>
+                    El tiempo se calcula contra una hora objetivo; al volver de
+                    una suspensión, el contador se sincroniza.
+                  </small>
+                </div>
+              </div>
+            </div>
+
+            <aside className="atelier-study-method">
+              <span className="atelier-study-label">RITUAL DE ESTUDIO</span>
+              <ol>
+                <li>
+                  <strong>Formule una pregunta.</strong>
+                  <span>No abra el texto sin saber qué quiere comprender.</span>
+                </li>
+                <li>
+                  <strong>Lea con lápiz.</strong>
+                  <span>Marque la tesis, el argumento y aquello que queda oscuro.</span>
+                </li>
+                <li>
+                  <strong>Cierre el bloque.</strong>
+                  <span>Escriba una frase con lo comprendido antes del descanso.</span>
+                </li>
+                <li>
+                  <strong>Descanse de verdad.</strong>
+                  <span>Durante la pausa, aléjese de la pantalla y de la lectura.</span>
+                </li>
+              </ol>
+
+              <div className="atelier-study-reliability">
+                <strong>Sobre la alarma</strong>
+                <p>
+                  Con PHILOSOPHIA abierta, el contador usa la hora real de
+                  finalización y corrige retrasos del navegador. Si el sistema
+                  cierra completamente la pestaña o la web app, una página
+                  estática no puede garantizar por sí sola una alarma futura.
+                </p>
+                <small>
+                  Para una alarma garantizada incluso con la app cerrada hará
+                  falta una segunda fase con Web Push programado desde un
+                  servicio externo.
+                </small>
+              </div>
+            </aside>
+          </div>
+
+          <footer className="atelier-study-room-footer" aria-hidden="true">
+            <span>LECTIO</span><b>·</b>
+            <span>MEDITATIO</span><b>·</b>
+            <span>SCRIPTURA</span><b>·</b>
+            <span>QUIES</span>
+          </footer>
         </section>
       </section>
 
