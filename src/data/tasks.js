@@ -1,5 +1,22 @@
 export const tasks = [
   {
+    id: 'metodos-2026-10-26-exposicion-tres-dialecticas',
+    subject: 'Métodos de Investigación',
+    subjectCode: 'FI104',
+    assignedDate: '2026-10-26',
+    dueDate: '2026-11-04',
+    title: 'Exponer dialéctica socrático-platónica, hegeliana y marxista',
+    type: 'Exposición oral · preparación personal',
+    weight: null,
+    description:
+      'El estudiante asume la exposición del método dialéctico en Sócrates/Platón, Hegel y Marx. El 4 de noviembre es una META PERSONAL TENTATIVA para seguimiento, NO fecha oficial confirmada: el profesor comentó que no habrá sesión el lunes 2 y que el orden de las exposiciones puede cambiar. No se indicó duración, diapositivas obligatorias, bibliografía mínima ni rúbrica.',
+    readingScope:
+      'Tres formas de dialéctica: Sócrates y Platón; Hegel; Marx. Preparar comparación, método, propósito y ejemplo de cada una.',
+    sourceClass: 'Clase del 26 de octubre · compromiso de exposición confirmado por el estudiante',
+    sourceRoute: '/semestre/5/metodos-de-investigacion/clase/26-octubre',
+    studyRoute: '/semestre/5/metodos-de-investigacion/clase/26-octubre',
+  },
+  {
     id: 'ontologia-2026-08-17-trabajo-final',
     subject: 'Ontología II',
     subjectCode: 'FI190',
