@@ -15,6 +15,7 @@
 
 .atelier-tasks {
   min-height: 100vh;
+  transition: background 420ms ease, color 420ms ease;
   background:
     radial-gradient(circle at 12% 4%, rgba(168, 132, 56, 0.08), transparent 26rem),
     linear-gradient(180deg, #fffaf6 0%, var(--atelier-paper) 46%, #f9efe7 100%);
@@ -63,6 +64,7 @@
   position: sticky;
   top: 0;
   z-index: 30;
+  transition: background 420ms ease, color 420ms ease, border-color 420ms ease;
 }
 
 .atelier-brand {
@@ -1569,6 +1571,474 @@ button.atelier-day-card {
   box-shadow: none;
 }
 
+.atelier-focus-module {
+  color: inherit;
+  text-decoration: none;
+}
+
+.atelier-tasks.is-study-mode {
+  background:
+    radial-gradient(circle at 50% 92%, rgba(183, 133, 66, 0.18), transparent 28rem),
+    radial-gradient(circle at 18% 12%, rgba(120, 76, 45, 0.16), transparent 32rem),
+    linear-gradient(180deg, #1b1714 0%, #211b17 28%, #2a211b 56%, #171412 100%);
+}
+
+.atelier-tasks.is-study-mode .atelier-topbar {
+  background: rgba(26, 22, 19, 0.94);
+  border-bottom-color: rgba(219, 190, 151, 0.18);
+  color: #f4eadc;
+}
+
+.atelier-tasks.is-study-mode .atelier-topbar-context small,
+.atelier-tasks.is-study-mode .atelier-topbar-context span,
+.atelier-tasks.is-study-mode .atelier-brand small {
+  color: #b9a996;
+}
+
+.atelier-tasks.is-study-mode .atelier-brand-mark {
+  color: #e1bd79;
+  border-color: rgba(225, 189, 121, 0.56);
+}
+
+.atelier-study-room {
+  margin-top: 34px;
+  min-height: 620px;
+  padding: clamp(28px, 5vw, 70px);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid #4d3d30;
+  background:
+    linear-gradient(rgba(26, 22, 18, 0.93), rgba(21, 18, 15, 0.97)),
+    radial-gradient(circle at 75% 24%, rgba(214, 166, 92, 0.22), transparent 24rem);
+  color: #f2e8d9;
+  box-shadow: 0 34px 100px rgba(22, 16, 12, 0.24);
+}
+
+.atelier-study-room::before,
+.atelier-study-room::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.atelier-study-room::before {
+  width: 420px;
+  height: 420px;
+  right: -120px;
+  top: -180px;
+  border-radius: 50%;
+  border: 1px solid rgba(224, 188, 124, 0.11);
+  box-shadow:
+    0 0 0 46px rgba(224, 188, 124, 0.025),
+    0 0 0 92px rgba(224, 188, 124, 0.018);
+}
+
+.atelier-study-room::after {
+  content: "Φ";
+  right: 2vw;
+  bottom: -0.22em;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: clamp(12rem, 28vw, 32rem);
+  line-height: 1;
+  color: rgba(231, 198, 143, 0.025);
+}
+
+.atelier-study-room-glow {
+  position: absolute;
+  width: min(44vw, 540px);
+  height: min(44vw, 540px);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -42%);
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(204, 151, 76, 0.12), transparent 68%);
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.atelier-study-room.is-live {
+  border-color: rgba(219, 172, 99, 0.66);
+  box-shadow:
+    0 34px 100px rgba(22, 16, 12, 0.34),
+    inset 0 0 90px rgba(184, 126, 64, 0.05);
+}
+
+.atelier-study-room-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(230px, 0.65fr);
+  gap: clamp(26px, 5vw, 70px);
+  align-items: end;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(230, 207, 177, 0.15);
+}
+
+.atelier-study-room-header > div:first-child > span,
+.atelier-study-label {
+  color: #d3ac6d;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.atelier-study-room-header h2 {
+  margin: 10px 0 12px;
+  max-width: 760px;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: clamp(2.8rem, 7vw, 6.8rem);
+  font-weight: 500;
+  line-height: 0.88;
+  letter-spacing: -0.035em;
+}
+
+.atelier-study-room-header p {
+  max-width: 720px;
+  margin: 0;
+  color: #bcae9e;
+  line-height: 1.72;
+  font-size: 0.88rem;
+}
+
+.atelier-study-state {
+  padding: 18px 0 4px 20px;
+  display: grid;
+  gap: 7px;
+  border-left: 1px solid rgba(223, 184, 118, 0.36);
+}
+
+.atelier-study-state span {
+  color: #d7b274;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.atelier-study-state strong {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 560;
+}
+
+.atelier-study-state small {
+  color: #9e9184;
+  line-height: 1.45;
+}
+
+.atelier-study-grid {
+  margin-top: clamp(32px, 5vw, 64px);
+  display: grid;
+  grid-template-columns: minmax(240px, 0.8fr) minmax(340px, 1.15fr) minmax(240px, 0.78fr);
+  gap: clamp(26px, 4vw, 58px);
+  align-items: center;
+}
+
+.atelier-study-console,
+.atelier-study-method {
+  align-self: stretch;
+  display: grid;
+  align-content: start;
+  gap: 26px;
+}
+
+.atelier-study-console-block {
+  display: grid;
+  gap: 10px;
+}
+
+.atelier-pomodoro-modes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.atelier-pomodoro-modes button {
+  min-height: 92px;
+  padding: 12px 13px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 3px 8px;
+  align-content: center;
+  text-align: left;
+  border: 1px solid rgba(227, 201, 167, 0.15);
+  border-radius: 0;
+  background: rgba(255, 248, 237, 0.035);
+  color: #eee2d1;
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.atelier-pomodoro-modes button:hover:not(:disabled),
+.atelier-pomodoro-modes button.is-active {
+  border-color: rgba(220, 174, 99, 0.7);
+  background: rgba(214, 163, 88, 0.09);
+  transform: translateY(-1px);
+}
+
+.atelier-pomodoro-modes button:disabled {
+  opacity: 0.58;
+  cursor: not-allowed;
+}
+
+.atelier-pomodoro-modes strong {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: 580;
+}
+
+.atelier-pomodoro-modes span {
+  color: #d6ad6d;
+  font-size: 0.67rem;
+  font-weight: 800;
+}
+
+.atelier-pomodoro-modes small {
+  grid-column: 1 / -1;
+  color: #918679;
+  font-size: 0.58rem;
+  line-height: 1.35;
+}
+
+.atelier-study-task-title {
+  color: #f1e5d4;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1.22rem;
+  font-weight: 570;
+  line-height: 1.1;
+}
+
+.atelier-study-console-block > small {
+  color: #9d9184;
+  line-height: 1.5;
+}
+
+.atelier-study-alarm-card {
+  padding: 16px;
+  border: 1px solid rgba(229, 201, 164, 0.14);
+  background: rgba(255, 250, 242, 0.035);
+}
+
+.atelier-study-alarm-card > strong {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1.02rem;
+  font-weight: 570;
+}
+
+.atelier-study-alarm-card p,
+.atelier-study-reliability p {
+  margin: 0;
+  color: #9f9385;
+  font-size: 0.68rem;
+  line-height: 1.55;
+}
+
+.atelier-study-alarm-actions,
+.atelier-study-clock-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.atelier-study-alarm-actions button,
+.atelier-study-clock-actions button {
+  min-height: 38px;
+  padding: 8px 13px;
+  border: 1px solid rgba(225, 190, 139, 0.32);
+  border-radius: 999px;
+  background: transparent;
+  color: #eadcc9;
+  cursor: pointer;
+}
+
+.atelier-study-alarm-actions button:hover,
+.atelier-study-clock-actions button:hover:not(:disabled) {
+  border-color: #d7ad6b;
+  background: rgba(215, 173, 107, 0.08);
+}
+
+.atelier-study-clock {
+  display: grid;
+  justify-items: center;
+  gap: 24px;
+}
+
+.atelier-study-dial {
+  width: min(100%, 440px);
+  aspect-ratio: 1;
+  padding: 10px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, #1c1815 0 63%, transparent 63.5%),
+    conic-gradient(
+      #d0a35f 0 var(--study-progress),
+      rgba(234, 213, 184, 0.09) var(--study-progress) 360deg
+    );
+  box-shadow:
+    inset 0 0 0 1px rgba(224, 194, 151, 0.11),
+    0 20px 70px rgba(0, 0, 0, 0.18);
+}
+
+.atelier-study-dial > div {
+  width: 72%;
+  aspect-ratio: 1;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  text-align: center;
+  border: 1px solid rgba(230, 204, 167, 0.11);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 32%, rgba(209, 157, 80, 0.08), transparent 42%),
+    #1b1714;
+}
+
+.atelier-study-dial small {
+  color: #b99a6b;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.atelier-study-dial strong {
+  margin: 6px 0 3px;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: clamp(3.4rem, 8vw, 7rem);
+  font-weight: 470;
+  line-height: 0.9;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.035em;
+}
+
+.atelier-study-dial span {
+  color: #8f8377;
+  font-size: 0.64rem;
+}
+
+.atelier-study-clock-actions .is-primary {
+  background: #d0a35f;
+  border-color: #d0a35f;
+  color: #1d1814;
+  font-weight: 800;
+}
+
+.atelier-study-clock-actions button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.atelier-study-progress-copy {
+  width: min(100%, 440px);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 13px;
+  align-items: start;
+  padding-top: 16px;
+  border-top: 1px solid rgba(230, 205, 171, 0.12);
+}
+
+.atelier-study-progress-copy > span {
+  color: #d1aa6d;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1.55rem;
+}
+
+.atelier-study-progress-copy > div {
+  display: grid;
+  gap: 3px;
+}
+
+.atelier-study-progress-copy strong {
+  font-size: 0.72rem;
+}
+
+.atelier-study-progress-copy small {
+  color: #8f8377;
+  font-size: 0.62rem;
+  line-height: 1.45;
+}
+
+.atelier-study-method ol {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 18px;
+  list-style: none;
+  counter-reset: study-step;
+}
+
+.atelier-study-method li {
+  position: relative;
+  padding-left: 34px;
+  display: grid;
+  gap: 3px;
+  counter-increment: study-step;
+}
+
+.atelier-study-method li::before {
+  content: counter(study-step, upper-roman);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #d0a35f;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 0.9rem;
+}
+
+.atelier-study-method li strong {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1rem;
+  font-weight: 570;
+}
+
+.atelier-study-method li span {
+  color: #94887b;
+  font-size: 0.66rem;
+  line-height: 1.5;
+}
+
+.atelier-study-reliability {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(230, 205, 171, 0.14);
+  display: grid;
+  gap: 8px;
+}
+
+.atelier-study-reliability > strong {
+  color: #d2ab6e;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.atelier-study-reliability small {
+  color: #776d64;
+  font-size: 0.6rem;
+  line-height: 1.5;
+}
+
+.atelier-study-room-footer {
+  margin-top: clamp(34px, 5vw, 66px);
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  border-top: 1px solid rgba(230, 205, 171, 0.12);
+  color: #85786b;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+}
+
+.atelier-study-room-footer b {
+  color: #b08c5a;
+  font-weight: 400;
+}
+
 .atelier-archive-note > div {
   display: flex;
   align-items: center;
@@ -1797,6 +2267,33 @@ button.atelier-day-card {
 }
 
 @media (max-width: 980px) {
+  .atelier-study-room-header {
+    grid-template-columns: 1fr;
+  }
+
+  .atelier-study-state {
+    padding-left: 0;
+    padding-top: 16px;
+    border-left: 0;
+    border-top: 1px solid rgba(223, 184, 118, 0.22);
+  }
+
+  .atelier-study-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .atelier-study-clock {
+    grid-row: 1;
+  }
+
+  .atelier-study-console {
+    grid-row: 2;
+  }
+
+  .atelier-study-method {
+    grid-row: 3;
+  }
+
   .atelier-shell {
     width: min(100% - 24px, 1760px);
   }
@@ -1876,6 +2373,39 @@ button.atelier-day-card {
 }
 
 @media (max-width: 760px) {
+  .atelier-study-room {
+    margin-top: 22px;
+    padding: 28px 18px;
+  }
+
+  .atelier-study-room-header h2 {
+    font-size: clamp(2.75rem, 16vw, 4.6rem);
+  }
+
+  .atelier-pomodoro-modes {
+    grid-template-columns: 1fr;
+  }
+
+  .atelier-study-dial {
+    width: min(86vw, 360px);
+  }
+
+  .atelier-study-clock-actions,
+  .atelier-study-alarm-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .atelier-study-clock-actions button,
+  .atelier-study-alarm-actions button {
+    width: 100%;
+  }
+
+  .atelier-study-room-footer {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+  }
+
   .atelier-topbar {
     position: static;
     padding: 12px 14px;
@@ -2146,6 +2676,7 @@ button.atelier-day-card {
   .atelier-tasks .task-composer,
   .atelier-dossier,
   .atelier-archive-note,
+  .atelier-study-room,
   .atelier-modal-backdrop {
     display: none !important;
   }
