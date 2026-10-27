@@ -1,10 +1,11 @@
-import { useEffect, useMemo, useState } from 'react'
-import { Link, useNavigate } from 'react-router'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { Link } from 'react-router'
 import tasks from '../data/tasks'
 import CLASS_SCHEDULE from '../data/academicSchedule'
 import { cafeEvents } from '../data/cafeFilosoficoEvents'
 import TaskComposer from '../components/TaskComposer'
 import { loadCustomTasks, saveCustomTasks } from '../data/localTasks'
+import './TasksBoardAtelier.css'
 
 const MONTHS = [
   'enero',
@@ -22,6 +23,55 @@ const MONTHS = [
 ]
 
 const WEEKDAYS = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom']
+const VIEW_OPTIONS = [
+  ['monthly', 'Mensual'],
+  ['weekly', 'Semanal'],
+  ['daily', 'Diaria'],
+  ['list', 'Lista general'],
+]
+const STATUS_OPTIONS = ['Pendientes', 'Todas', 'Completadas']
+const POMODORO_MODES = [
+  {
+    id: 'pomodoro',
+    label: 'Pomodoro',
+    minutes: 25,
+    kind: 'focus',
+    description: 'Lectura o escritura concentrada',
+  },
+  {
+    id: 'deep',
+    label: 'Lectura profunda',
+    minutes: 50,
+    kind: 'focus',
+    description: 'Bloque largo para textos difíciles',
+  },
+  {
+    id: 'short-break',
+    label: 'Pausa breve',
+    minutes: 5,
+    kind: 'break',
+    description: 'Agua, respiración y descanso visual',
+  },
+  {
+    id: 'long-break',
+    label: 'Pausa larga',
+    minutes: 15,
+    kind: 'break',
+    description: 'Separarse de la mesa antes de volver',
+  },
+]
+
+const POMODORO_MODE_MAP = Object.fromEntries(
+  POMODORO_MODES.map((mode) => [
+    mode.id,
+    {
+      ...mode,
+      seconds: mode.minutes * 60,
+    },
+  ]),
+)
+
+const DEFAULT_POMODORO_MODE = 'pomodoro'
 
 const PRIORITY_ORDER = {
   Alta: 0,
@@ -40,7 +90,7 @@ const STATUS_ORDER = {
 }
 
 const NO_CLASS_DATES = new Set([
-  '2026-10-12', // Aniversario UdeG · Día de la Raza · Romería
+  '2026-10-12',
 ])
 
 const NO_CLASS_DAY_DETAILS = {
@@ -52,11 +102,11 @@ const NO_CLASS_DAY_DETAILS = {
 }
 
 const SUBJECT_NO_CLASS_DATES = {
-  '2026-10-08': new Set(['Teoría Crítica']), // La maestra no asistirá.
+  '2026-10-08': new Set(['Teoría Crítica']),
 }
 
 const PERSONAL_CLASS_REPLACEMENTS = {
-  '2026-09-22': new Set(['Ética']), // Asistencia a clase abierta de Amilcar Paris Mandoki.
+  '2026-09-22': new Set(['Ética']),
 }
 
 const ACADEMIC_EVENTS = {
@@ -89,21 +139,63 @@ function dateKey(date) {
   const year = date.getFullYear()
   const month = String(date.getMonth() + 1).padStart(2, '0')
   const day = String(date.getDate()).padStart(2, '0')
-  return `${year}-${month}-${day}`
+  return year + '-' + month + '-' + day
+}
+
+function todayKey() {
+  return dateKey(new Date())
 }
 
 function formatDate(value) {
   if (!value) return 'Sin fecha'
 
   const [year, month, day] = value.split('-').map(Number)
-  return `${day} de ${MONTHS[month - 1]} de ${year}`
+  return day + ' de ' + MONTHS[month - 1] + ' de ' + year
 }
 
 function shortDate(value) {
   if (!value) return 'Por definir'
 
   const [, month, day] = value.split('-').map(Number)
-  return `${day} ${MONTHS[month - 1].slice(0, 3)}`
+  return day + ' ' + MONTHS[month - 1].slice(0, 3)
+}
+
+function longDate(date) {
+  return new Intl.DateTimeFormat('es-MX', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(date)
+}
+
+function monthTitle(year, month) {
+  const label = MONTHS[month] || ''
+  return label.charAt(0).toUpperCase() + label.slice(1) + ' ' + year
+}
+
+function isoWeekNumber(date) {
+  const target = new Date(date.valueOf())
+  const day = (date.getDay() + 6) % 7
+  target.setDate(target.getDate() - day + 3)
+  const firstThursday = new Date(target.getFullYear(), 0, 4, 12)
+  const firstDay = (firstThursday.getDay() + 6) % 7
+  firstThursday.setDate(firstThursday.getDate() - firstDay + 3)
+
+  return 1 + Math.round((target - firstThursday) / 604800000)
+}
+
+function getWeekDays(date) {
+  const start = new Date(date)
+  const day = (start.getDay() + 6) % 7
+  start.setDate(start.getDate() - day)
+  start.setHours(12, 0, 0, 0)
+
+  return Array.from({ length: 7 }, (_, index) => {
+    const current = new Date(start)
+    current.setDate(start.getDate() + index)
+    return current
+  })
 }
 
 function loadCompleted() {
@@ -113,6 +205,42 @@ function loadCompleted() {
     )
   } catch {
     return {}
+  }
+}
+
+function loadFocusSession() {
+  try {
+    const stored = JSON.parse(
+      window.localStorage.getItem('philosophia-focus-session') || '{}',
+    )
+    const mode = POMODORO_MODE_MAP[stored.mode]
+      ? stored.mode
+      : DEFAULT_POMODORO_MODE
+    const targetSeconds =
+      Number(stored.targetSeconds) || POMODORO_MODE_MAP[mode].seconds
+
+    return {
+      taskId: stored.taskId || null,
+      elapsedSeconds: Math.min(
+        Number(stored.elapsedSeconds) || 0,
+        targetSeconds,
+      ),
+      running: Boolean(stored.running && stored.startedAt),
+      startedAt: stored.startedAt || null,
+      mode,
+      targetSeconds,
+      completedCycles: Number(stored.completedCycles) || 0,
+    }
+  } catch {
+    return {
+      taskId: null,
+      elapsedSeconds: 0,
+      running: false,
+      startedAt: null,
+      mode: DEFAULT_POMODORO_MODE,
+      targetSeconds: POMODORO_MODE_MAP[DEFAULT_POMODORO_MODE].seconds,
+      completedCycles: 0,
+    }
   }
 }
 
@@ -126,13 +254,13 @@ function getTaskDeadline(task) {
   if (!time) {
     const course = CLASS_SCHEDULE.find(
       (item) =>
-        item.subject === task.subject &&
+        canonicalSubject(item.subject) === canonicalSubject(task.subject) &&
         item.weekdays.includes(due.getDay()),
     )
 
     if (course) {
       const parts = course.time.split('–')
-      const classEnd = parts[1]?.trim()
+      const classEnd = parts[1] && parts[1].trim()
 
       if (classEnd) {
         time = classEnd
@@ -201,8 +329,8 @@ function getTaskStatus(task, completed) {
       label: 'Vencida',
       detail:
         daysLate === 0
-          ? `La clase terminó a las ${deadline.time}`
-          : `${daysLate} ${daysLate === 1 ? 'día' : 'días'} tarde`,
+          ? 'La clase terminó a las ' + deadline.time
+          : daysLate + ' ' + (daysLate === 1 ? 'día' : 'días') + ' tarde',
     }
   }
 
@@ -212,8 +340,8 @@ function getTaskStatus(task, completed) {
       label: 'Hoy',
       detail:
         deadline.source === 'class'
-          ? `Vence al terminar la clase · ${deadline.time}`
-          : `Entrega hoy · ${deadline.time}`,
+          ? 'Vence al terminar la clase · ' + deadline.time
+          : 'Entrega hoy · ' + deadline.time,
     }
   }
 
@@ -221,7 +349,7 @@ function getTaskStatus(task, completed) {
     return {
       key: 'urgent',
       label: 'Urgente',
-      detail: `Faltan ${days} ${days === 1 ? 'día' : 'días'}`,
+      detail: 'Faltan ' + days + ' ' + (days === 1 ? 'día' : 'días'),
     }
   }
 
@@ -229,15 +357,34 @@ function getTaskStatus(task, completed) {
     return {
       key: 'soon',
       label: 'Próxima',
-      detail: `Faltan ${days} días`,
+      detail: 'Faltan ' + days + ' días',
     }
   }
 
   return {
     key: 'future',
     label: 'Programada',
-    detail: `Faltan ${days} días`,
+    detail: 'Faltan ' + days + ' días',
   }
+}
+
+function canonicalSubject(subject) {
+  if (!subject) return 'Otra'
+  if (subject.startsWith('Ética')) return 'Ética'
+  if (subject.startsWith('Métodos')) return 'Métodos de Investigación'
+  return subject
+}
+
+function subjectTone(subject) {
+  const value = canonicalSubject(subject)
+
+  if (value === 'Ontología II') return 'ochre'
+  if (value === 'Teoría Crítica') return 'terracotta'
+  if (value === 'Filosofía Analítica') return 'lavender'
+  if (value === 'Ética') return 'sage'
+  if (value === 'Métodos de Investigación') return 'ink'
+
+  return 'neutral'
 }
 
 function classesForDate(date) {
@@ -283,20 +430,96 @@ function buildCalendar(year, month) {
   return cells
 }
 
+function sortTasks(a, b) {
+  const statusDiff =
+    STATUS_ORDER[a.status.key] - STATUS_ORDER[b.status.key]
+
+  if (statusDiff !== 0) return statusDiff
+
+  const priorityDiff =
+    (PRIORITY_ORDER[a.priority] ?? 9) -
+    (PRIORITY_ORDER[b.priority] ?? 9)
+
+  if (priorityDiff !== 0) return priorityDiff
+
+  if (a.dueDate && b.dueDate) {
+    return a.dueDate.localeCompare(b.dueDate)
+  }
+
+  if (a.dueDate) return -1
+  if (b.dueDate) return 1
+
+  return (b.assignedDate || '').localeCompare(a.assignedDate || '')
+}
+
+function classDurationMinutes(timeRange) {
+  if (!timeRange) return 0
+
+  const [start, end] = timeRange.split('–').map((value) => value.trim())
+  if (!start || !end) return 0
+
+  const [startHour, startMinute] = start.split(':').map(Number)
+  const [endHour, endMinute] = end.split(':').map(Number)
+
+  return endHour * 60 + endMinute - (startHour * 60 + startMinute)
+}
+
+function formatDuration(seconds) {
+  const safeSeconds = Math.max(0, Math.floor(seconds))
+  const hours = Math.floor(safeSeconds / 3600)
+  const minutes = Math.floor((safeSeconds % 3600) / 60)
+  const remainingSeconds = safeSeconds % 60
+
+  return [hours, minutes, remainingSeconds]
+    .map((value) => String(value).padStart(2, '0'))
+    .join(' : ')
+}
+
+function formatHoursMinutes(seconds) {
+  const totalMinutes = Math.round(seconds / 60)
+  const hours = Math.floor(totalMinutes / 60)
+  const minutes = totalMinutes % 60
+
+  if (hours === 0) return minutes + ' min'
+  if (minutes === 0) return hours + ' h'
+  return hours + ' h ' + minutes + ' min'
+}
+
+function timeZoneLabel() {
+  const offsetMinutes = -new Date().getTimezoneOffset()
+  const sign = offsetMinutes >= 0 ? '+' : '−'
+  const hours = Math.floor(Math.abs(offsetMinutes) / 60)
+  const minutes = Math.abs(offsetMinutes) % 60
+  const suffix = minutes ? ':' + String(minutes).padStart(2, '0') : ''
+  const zone = Intl.DateTimeFormat().resolvedOptions().timeZone
+
+  return 'GMT' + sign + hours + suffix + ' · ' + zone
+}
+
 export default function TasksBoard() {
-  const navigate = useNavigate()
+  const now = new Date()
+  const currentDateKey = todayKey()
+
   const [subject, setSubject] = useState('Todas')
-  const [view, setView] = useState('Pendientes')
+  const [statusView, setStatusView] = useState('Pendientes')
+  const [calendarView, setCalendarView] = useState('monthly')
   const [completed, setCompleted] = useState(loadCompleted)
   const [customTasks, setCustomTasks] = useState(loadCustomTasks)
   const [selectedTask, setSelectedTask] = useState(null)
-  const [calendarCursor, setCalendarCursor] = useState(() => {
-    const now = new Date()
-    return {
-      year: now.getFullYear(),
-      month: now.getMonth(),
-    }
-  })
+  const [activeDate, setActiveDate] = useState(
+    () => new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12),
+  )
+  const [calendarCursor, setCalendarCursor] = useState(() => ({
+    year: now.getFullYear(),
+    month: now.getMonth(),
+  }))
+  const [focusSession, setFocusSession] = useState(loadFocusSession)
+  const [clock, setClock] = useState(Date.now())
+  const [notificationPermission, setNotificationPermission] = useState(() =>
+    typeof Notification === 'undefined' ? 'unsupported' : Notification.permission,
+  )
+  const studyAudioRef = useRef(null)
+  const completedSessionRef = useRef(null)
 
   const allTasks = useMemo(
     () => [
@@ -309,66 +532,55 @@ export default function TasksBoard() {
     [customTasks],
   )
 
-  const subjects = useMemo(
-    () => ['Todas', ...new Set(allTasks.map((task) => task.subject))],
-    [allTasks],
-  )
+  const subjects = useMemo(() => {
+    const values = new Set(
+      CLASS_SCHEDULE.map((course) => canonicalSubject(course.subject)),
+    )
+
+    allTasks.forEach((task) => values.add(canonicalSubject(task.subject)))
+
+    return ['Todas', ...values]
+  }, [allTasks])
 
   const decoratedTasks = useMemo(
     () =>
       allTasks.map((task) => ({
         ...task,
+        subjectGroup: canonicalSubject(task.subject),
+        tone: subjectTone(task.subject),
         status: getTaskStatus(task, completed),
       })),
     [allTasks, completed],
   )
 
-  const visibleTasks = useMemo(() => {
+  const filteredTasks = useMemo(() => {
     return decoratedTasks
-      .filter((task) => subject === 'Todas' || task.subject === subject)
+      .filter(
+        (task) => subject === 'Todas' || task.subjectGroup === subject,
+      )
       .filter((task) => {
         const isCompleted = task.status.key === 'completed'
 
-        if (view === 'Pendientes') return !isCompleted
-        if (view === 'Completadas') return isCompleted
+        if (statusView === 'Pendientes') return !isCompleted
+        if (statusView === 'Completadas') return isCompleted
         return true
       })
-      .sort((a, b) => {
-        const statusDiff =
-          STATUS_ORDER[a.status.key] - STATUS_ORDER[b.status.key]
-
-        if (statusDiff !== 0) return statusDiff
-
-        const priorityDiff =
-          (PRIORITY_ORDER[a.priority] ?? 9) -
-          (PRIORITY_ORDER[b.priority] ?? 9)
-
-        if (priorityDiff !== 0) return priorityDiff
-
-        if (a.dueDate && b.dueDate) {
-          return a.dueDate.localeCompare(b.dueDate)
-        }
-
-        if (a.dueDate) return -1
-        if (b.dueDate) return 1
-
-        return b.assignedDate.localeCompare(a.assignedDate)
-      })
-  }, [decoratedTasks, subject, view])
+      .sort(sortTasks)
+  }, [decoratedTasks, subject, statusView])
 
   const pendingCount = decoratedTasks.filter(
     (task) => task.status.key !== 'completed',
   ).length
-
   const completedCount = decoratedTasks.length - pendingCount
-
   const overdueCount = decoratedTasks.filter(
     (task) => task.status.key === 'overdue',
   ).length
-
   const urgentCount = decoratedTasks.filter((task) =>
     ['today', 'urgent'].includes(task.status.key),
   ).length
+  const completionRate = decoratedTasks.length
+    ? Math.round((completedCount / decoratedTasks.length) * 100)
+    : 0
 
   const calendarCells = useMemo(
     () => buildCalendar(calendarCursor.year, calendarCursor.month),
@@ -376,26 +588,138 @@ export default function TasksBoard() {
   )
 
   const calendarTasks = useMemo(() => {
-    return decoratedTasks.reduce((map, task) => {
-      if (!task.dueDate) return map
+    return filteredTasks.reduce((map, task) => {
+      const calendarDate = task.dueDate || task.assignedDate
+      if (!calendarDate) return map
 
-      if (!map[task.dueDate]) {
-        map[task.dueDate] = []
+      if (!map[calendarDate]) {
+        map[calendarDate] = []
       }
 
-      map[task.dueDate].push(task)
+      map[calendarDate].push(task)
       return map
     }, {})
+  }, [filteredTasks])
+
+  const weekDays = useMemo(() => getWeekDays(activeDate), [activeDate])
+
+  const projects = useMemo(() => {
+    const groups = new Map()
+
+    decoratedTasks.forEach((task) => {
+      const key = task.subjectGroup
+      const current = groups.get(key) || {
+        subject: key,
+        tone: subjectTone(key),
+        total: 0,
+        completed: 0,
+        pending: 0,
+      }
+
+      current.total += 1
+      if (task.status.key === 'completed') {
+        current.completed += 1
+      } else {
+        current.pending += 1
+      }
+
+      groups.set(key, current)
+    })
+
+    return Array.from(groups.values())
+      .map((project) => ({
+        ...project,
+        progress: project.total
+          ? Math.round((project.completed / project.total) * 100)
+          : 0,
+      }))
+      .sort((a, b) => b.pending - a.pending)
+      .slice(0, 5)
   }, [decoratedTasks])
 
-  const openTask = (task) => {
-    if (task.studyRoute) {
-      navigate(task.studyRoute)
-      return
+  const priorityTasks = useMemo(
+    () =>
+      decoratedTasks
+        .filter((task) => task.status.key !== 'completed')
+        .sort(sortTasks)
+        .slice(0, 5),
+    [decoratedTasks],
+  )
+
+  const todayClasses = useMemo(
+    () => classesForDate(new Date()),
+    [],
+  )
+  const todayClassSeconds =
+    todayClasses.reduce(
+      (total, course) => total + classDurationMinutes(course.time),
+      0,
+    ) * 60
+
+  const displayFocusSeconds = useMemo(() => {
+    if (!focusSession.running || !focusSession.startedAt) {
+      return focusSession.elapsedSeconds
     }
 
-    setSelectedTask(task)
-  }
+    return (
+      focusSession.elapsedSeconds +
+      Math.max(
+        0,
+        Math.floor((clock - focusSession.startedAt) / 1000),
+      )
+    )
+  }, [clock, focusSession])
+
+  const focusTask = decoratedTasks.find(
+    (task) => task.id === focusSession.taskId,
+  )
+  const focusProgress = Math.min(
+    100,
+    Math.round(
+      (displayFocusSeconds / Math.max(1, focusSession.targetSeconds)) * 100,
+    ),
+  )
+  const remainingFocusSeconds = Math.max(
+    0,
+    focusSession.targetSeconds - displayFocusSeconds,
+  )
+  const activePomodoroMode =
+    POMODORO_MODE_MAP[focusSession.mode] ||
+    POMODORO_MODE_MAP[DEFAULT_POMODORO_MODE]
+  const isBreakMode = activePomodoroMode.kind === 'break'
+  const trackedSeconds = todayClassSeconds + displayFocusSeconds
+  const focusShare = trackedSeconds
+    ? Math.round((displayFocusSeconds / trackedSeconds) * 100)
+    : 0
+  const classShare = trackedSeconds ? 100 - focusShare : 0
+
+  useEffect(() => {
+    if (!focusSession.running) return undefined
+
+    const timer = window.setInterval(() => {
+      setClock(Date.now())
+    }, 1000)
+
+    return () => window.clearInterval(timer)
+  }, [focusSession.running])
+
+  useEffect(() => {
+    window.localStorage.setItem(
+      'philosophia-focus-session',
+      JSON.stringify(focusSession),
+    )
+  }, [focusSession])
+
+  useEffect(() => {
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setSelectedTask(null)
+      }
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [])
 
   const addCustomTask = (task) => {
     setCustomTasks((current) => {
@@ -425,6 +749,16 @@ export default function TasksBoard() {
     })
 
     if (selectedTask?.id === id) setSelectedTask(null)
+
+    if (focusSession.taskId === id) {
+      setFocusSession((current) => ({
+        ...current,
+        taskId: null,
+        elapsedSeconds: 0,
+        running: false,
+        startedAt: null,
+      }))
+    }
   }
 
   const toggleTask = (id) => {
@@ -454,266 +788,777 @@ export default function TasksBoard() {
     })
   }
 
-  useEffect(() => {
-    const onKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        setSelectedTask(null)
+  const goToday = () => {
+    const today = new Date()
+    const normalized = new Date(
+      today.getFullYear(),
+      today.getMonth(),
+      today.getDate(),
+      12,
+    )
+
+    setActiveDate(normalized)
+    setCalendarCursor({
+      year: today.getFullYear(),
+      month: today.getMonth(),
+    })
+  }
+
+  const unlockStudyAudio = async () => {
+    const AudioContextClass =
+      window.AudioContext || window.webkitAudioContext
+
+    if (!AudioContextClass) return null
+
+    if (!studyAudioRef.current) {
+      studyAudioRef.current = new AudioContextClass()
+    }
+
+    if (studyAudioRef.current.state === 'suspended') {
+      try {
+        await studyAudioRef.current.resume()
+      } catch {
+        return studyAudioRef.current
       }
     }
 
-    window.addEventListener('keydown', onKeyDown)
+    return studyAudioRef.current
+  }
 
-    return () => window.removeEventListener('keydown', onKeyDown)
-  }, [])
+  const playStudyChime = async () => {
+    const context = await unlockStudyAudio()
+    if (!context) return
 
-  return (
-    <main className="tasks-page tasks-page--priority">
-      <nav className="tasks-nav">
-        <Link to="/semestre/5">← Quinto semestre</Link>
+    const start = context.currentTime + 0.03
 
-        <Link to="/" className="tasks-brand">
-          <span>Φ</span>
-          Philosophia
-        </Link>
+    ;[523.25, 659.25, 783.99].forEach((frequency, index) => {
+      const oscillator = context.createOscillator()
+      const gain = context.createGain()
+      const noteStart = start + index * 0.22
 
-        <span>2026 · B</span>
-      </nav>
+      oscillator.type = 'sine'
+      oscillator.frequency.setValueAtTime(frequency, noteStart)
+      gain.gain.setValueAtTime(0.0001, noteStart)
+      gain.gain.exponentialRampToValueAtTime(0.075, noteStart + 0.025)
+      gain.gain.exponentialRampToValueAtTime(0.0001, noteStart + 0.18)
+      oscillator.connect(gain)
+      gain.connect(context.destination)
+      oscillator.start(noteStart)
+      oscillator.stop(noteStart + 0.2)
+    })
+  }
 
-      <header className="tasks-hero">
-        <div className="tasks-hero-number" aria-hidden="true">
-          V
-        </div>
+  const sendStudyNotification = async (title, body) => {
+    if (notificationPermission !== 'granted') return
 
-        <div className="tasks-hero-content">
-          <p className="tasks-kicker">
-            Officia · Agenda academica
-          </p>
+    const options = {
+      body,
+      icon: `${import.meta.env.BASE_URL}icons/icon-192.png`,
+      badge: `${import.meta.env.BASE_URL}icons/icon-192.png`,
+      tag: 'philosophia-pomodoro',
+      renotify: true,
+      data: {
+        route: `${import.meta.env.BASE_URL}#/tareas`,
+      },
+    }
 
-          <h1>
-            Tablero de
-            <em>tareas</em>
-          </h1>
+    try {
+      if ('serviceWorker' in navigator) {
+        const registration = await navigator.serviceWorker.ready
+        await registration.showNotification(title, options)
+        return
+      }
 
-          <div className="tasks-ornament">
-            <span />
-            <b>❦</b>
-            <span />
+      if (typeof Notification !== 'undefined') {
+        new Notification(title, options)
+      }
+    } catch {
+      // La campanilla local permanece como respaldo.
+    }
+  }
+
+  const fireStudyAlarm = async ({ test = false } = {}) => {
+    await playStudyChime()
+
+    if ('vibrate' in navigator) {
+      navigator.vibrate([180, 90, 180, 90, 260])
+    }
+
+    const title = test
+      ? 'Prueba de alarma · PHILOSOPHIA'
+      : isBreakMode
+        ? 'Pausa terminada · vuelva al texto'
+        : 'Sessio completa · PHILOSOPHIA'
+    const body = test
+      ? 'La campanilla y las notificaciones de estudio están preparadas.'
+      : isBreakMode
+        ? 'Su descanso terminó. La mesa de estudio vuelve a estar disponible.'
+        : 'Cierre la idea, anote lo pendiente y tome una pausa breve.'
+
+    await sendStudyNotification(title, body)
+  }
+
+  const requestStudyNotifications = async () => {
+    await unlockStudyAudio()
+
+    if (typeof Notification === 'undefined') {
+      setNotificationPermission('unsupported')
+      return
+    }
+
+    try {
+      const permission = await Notification.requestPermission()
+      setNotificationPermission(permission)
+    } catch {
+      setNotificationPermission(Notification.permission || 'default')
+    }
+  }
+
+  const chooseFocusTask = (taskId) => {
+    setFocusSession((current) => ({
+      ...current,
+      taskId,
+      elapsedSeconds: 0,
+      running: false,
+      startedAt: null,
+    }))
+    completedSessionRef.current = null
+    setClock(Date.now())
+  }
+
+  const choosePomodoroMode = (modeId) => {
+    const mode = POMODORO_MODE_MAP[modeId]
+    if (!mode) return
+
+    setFocusSession((current) => ({
+      ...current,
+      mode: mode.id,
+      targetSeconds: mode.seconds,
+      elapsedSeconds: 0,
+      running: false,
+      startedAt: null,
+    }))
+    completedSessionRef.current = null
+    setClock(Date.now())
+  }
+
+  const startFocus = () => {
+    if (focusSession.running) return
+
+    const taskId = focusSession.taskId || priorityTasks[0]?.id || null
+    if (!taskId && !isBreakMode) return
+
+    void unlockStudyAudio()
+
+    setFocusSession((current) => ({
+      ...current,
+      taskId,
+      elapsedSeconds:
+        current.elapsedSeconds >= current.targetSeconds
+          ? 0
+          : current.elapsedSeconds,
+      running: true,
+      startedAt: Date.now(),
+    }))
+    completedSessionRef.current = null
+    setClock(Date.now())
+  }
+
+  const pauseFocus = () => {
+    setFocusSession((current) => {
+      if (!current.running || !current.startedAt) return current
+
+      const elapsed = Math.min(
+        current.targetSeconds,
+        current.elapsedSeconds +
+          Math.max(
+            0,
+            Math.floor((Date.now() - current.startedAt) / 1000),
+          ),
+      )
+
+      return {
+        ...current,
+        elapsedSeconds: elapsed,
+        running: false,
+        startedAt: null,
+      }
+    })
+  }
+
+  const resetFocus = () => {
+    setFocusSession((current) => ({
+      ...current,
+      elapsedSeconds: 0,
+      running: false,
+      startedAt: null,
+    }))
+    completedSessionRef.current = null
+    setClock(Date.now())
+  }
+
+  useEffect(() => {
+    if (!focusSession.running) return undefined
+
+    const synchronizeClock = () => setClock(Date.now())
+    document.addEventListener('visibilitychange', synchronizeClock)
+    window.addEventListener('pageshow', synchronizeClock)
+
+    return () => {
+      document.removeEventListener('visibilitychange', synchronizeClock)
+      window.removeEventListener('pageshow', synchronizeClock)
+    }
+  }, [focusSession.running])
+
+  useEffect(() => {
+    if (
+      !focusSession.running ||
+      !focusSession.startedAt ||
+      displayFocusSeconds < focusSession.targetSeconds
+    ) {
+      return
+    }
+
+    const sessionKey =
+      String(focusSession.startedAt) + ':' + focusSession.mode
+
+    if (completedSessionRef.current === sessionKey) return
+    completedSessionRef.current = sessionKey
+
+    void fireStudyAlarm()
+
+    setFocusSession((current) => ({
+      ...current,
+      elapsedSeconds: current.targetSeconds,
+      running: false,
+      startedAt: null,
+      completedCycles:
+        current.completedCycles +
+        (POMODORO_MODE_MAP[current.mode]?.kind === 'focus' ? 1 : 0),
+    }))
+    setClock(Date.now())
+  }, [
+    displayFocusSeconds,
+    focusSession.mode,
+    focusSession.running,
+    focusSession.startedAt,
+    focusSession.targetSeconds,
+  ])
+
+  const classesForVisibleDate = (date) =>
+    classesForDate(date).filter(
+      (course) =>
+        subject === 'Todas' ||
+        canonicalSubject(course.subject) === subject,
+    )
+
+  const renderTaskChip = (task) => {
+    const isUndated = !task.dueDate
+    const calendarLabel = isUndated
+      ? 'Registrada el ' +
+        formatDate(task.assignedDate) +
+        ' · sin fecha de entrega'
+      : 'Entrega ' + formatDate(task.dueDate)
+
+    return (
+      <button
+        key={task.id}
+        type="button"
+        className={
+          'atelier-task-chip atelier-task-chip--' +
+          task.status.key +
+          ' atelier-tone--' +
+          task.tone
+        }
+        onClick={(event) => {
+          event.stopPropagation()
+          setSelectedTask(task)
+        }}
+        title={calendarLabel}
+        aria-label={task.title + '. ' + calendarLabel}
+      >
+        <span aria-hidden="true">{isUndated ? '◇' : '◆'}</span>
+        <span>{task.title}</span>
+      </button>
+    )
+  }
+
+  const renderDayCell = (date, weekly = false) => {
+    const key = dateKey(date)
+    const dayTasks = calendarTasks[key] || []
+    const dayClasses = classesForVisibleDate(date)
+    const dayCafeEvents =
+      subject === 'Todas'
+        ? cafeEvents.filter((event) => event.date === key)
+        : []
+    const dayAcademicEvents =
+      subject === 'Todas' ? ACADEMIC_EVENTS[key] || [] : []
+    const isToday = currentDateKey === key
+    const isActive = dateKey(activeDate) === key
+    const absenceLabel = ABSENCE_DATES[key] || null
+    const noClassNotice = NO_CLASS_DAY_DETAILS[key] || null
+    const visibleDayTasks = weekly ? dayTasks : dayTasks.slice(0, 3)
+    const hiddenTaskCount = dayTasks.length - visibleDayTasks.length
+
+    return (
+      <article
+        key={key}
+        className={
+          'atelier-calendar-day' +
+          (isToday ? ' is-today' : '') +
+          (isActive ? ' is-active' : '') +
+          (absenceLabel ? ' is-absence' : '') +
+          (noClassNotice ? ' is-no-class' : '') +
+          (weekly ? ' is-weekly' : '')
+        }
+        role="gridcell"
+        tabIndex={0}
+        aria-label={longDate(date)}
+        onClick={() => setActiveDate(date)}
+        onKeyDown={(event) => {
+          if (
+            event.target === event.currentTarget &&
+            (event.key === 'Enter' || event.key === ' ')
+          ) {
+            event.preventDefault()
+            setActiveDate(date)
+          }
+        }}
+      >
+        <div className="atelier-day-heading">
+          <div>
+            <span className="atelier-day-number">{date.getDate()}</span>
+            {weekly && (
+              <small>{WEEKDAYS[(date.getDay() + 6) % 7]}</small>
+            )}
           </div>
 
-          <p>
-            Prioridades por fecha, calendario del semestre y una ficha
-            completa para cada tarea.
-          </p>
+          <div className="atelier-day-badges">
+            {isToday && <span>Hoy</span>}
+            {absenceLabel && <span className="is-danger">{absenceLabel}</span>}
+            {noClassNotice && <span>{noClassNotice.label}</span>}
+          </div>
+        </div>
+
+        <div className="atelier-day-events">
+          {noClassNotice && (
+            <div
+              className="atelier-calendar-notice"
+              title={noClassNotice.title}
+            >
+              <span aria-hidden="true">{noClassNotice.icons}</span>
+              <strong>{noClassNotice.label}</strong>
+              <small>{noClassNotice.title}</small>
+            </div>
+          )}
+
+          {dayClasses.map((course) => (
+            <Link
+              key={key + '-' + course.code}
+              to={course.route}
+              className={
+                'atelier-class-chip atelier-tone--' +
+                subjectTone(course.subject)
+              }
+              title={
+                course.subject + ' · ' + course.time + ' · ' + course.room
+              }
+              onClick={(event) => event.stopPropagation()}
+            >
+              <strong>{course.subject}</strong>
+              <span>{course.time}</span>
+            </Link>
+          ))}
+
+          {dayAcademicEvents.map((event) => (
+            <Link
+              key={event.id}
+              to={event.route}
+              className="atelier-event-chip"
+              onClick={(clickEvent) => clickEvent.stopPropagation()}
+            >
+              <small>{event.kind}</small>
+              <strong>{event.title}</strong>
+              {weekly && <span>{event.time}</span>}
+            </Link>
+          ))}
+
+          {dayCafeEvents.map((event) => (
+            <Link
+              key={event.id}
+              to={event.route}
+              className="atelier-event-chip is-cafe"
+              onClick={(clickEvent) => clickEvent.stopPropagation()}
+            >
+              <small>Café filosófico</small>
+              <strong>{event.title}</strong>
+            </Link>
+          ))}
+
+          {visibleDayTasks.map(renderTaskChip)}
+
+          {hiddenTaskCount > 0 && (
+            <button
+              type="button"
+              className="atelier-more-tasks"
+              onClick={(event) => {
+                event.stopPropagation()
+                setActiveDate(date)
+                setCalendarView('daily')
+              }}
+            >
+              +{hiddenTaskCount} más
+            </button>
+          )}
+        </div>
+      </article>
+    )
+  }
+
+  const renderMonthlyView = () => (
+    <div className="atelier-calendar-grid" role="grid">
+      {WEEKDAYS.map((day) => (
+        <div key={day} className="atelier-weekday" role="columnheader">
+          {day}
+        </div>
+      ))}
+
+      {calendarCells.map((date, index) => {
+        if (!date) {
+          return (
+            <div
+              key={'blank-' + index}
+              className="atelier-calendar-day is-blank"
+              aria-hidden="true"
+            />
+          )
+        }
+
+        return renderDayCell(date)
+      })}
+    </div>
+  )
+
+  const renderWeeklyView = () => (
+    <div className="atelier-week-grid" role="grid">
+      {weekDays.map((date) => renderDayCell(date, true))}
+    </div>
+  )
+
+  const activeKey = dateKey(activeDate)
+  const activeDayTasks = calendarTasks[activeKey] || []
+  const activeDayClasses = classesForVisibleDate(activeDate)
+  const activeCafeEvents =
+    subject === 'Todas'
+      ? cafeEvents.filter((event) => event.date === activeKey)
+      : []
+  const activeAcademicEvents =
+    subject === 'Todas' ? ACADEMIC_EVENTS[activeKey] || [] : []
+
+  const renderDailyView = () => (
+    <div className="atelier-day-view">
+      <div className="atelier-day-view-header">
+        <p>Dossier del día</p>
+        <h3>{longDate(activeDate)}</h3>
+        <span>
+          {activeDayTasks.length} tareas · {activeDayClasses.length} clases
+        </span>
+      </div>
+
+      <div className="atelier-day-view-sections">
+        <section>
+          <span className="atelier-section-label">Clases</span>
+          {activeDayClasses.length ? (
+            activeDayClasses.map((course) => (
+              <Link
+                key={course.code}
+                to={course.route}
+                className={
+                  'atelier-day-card atelier-tone--' +
+                  subjectTone(course.subject)
+                }
+              >
+                <small>{course.code}</small>
+                <strong>{course.subject}</strong>
+                <span>{course.time} · {course.room}</span>
+              </Link>
+            ))
+          ) : (
+            <p className="atelier-empty-copy">No hay clases registradas.</p>
+          )}
+        </section>
+
+        <section>
+          <span className="atelier-section-label">Tareas y entregas</span>
+          {activeDayTasks.length ? (
+            activeDayTasks.map((task) => (
+              <button
+                key={task.id}
+                type="button"
+                className={
+                  'atelier-day-card atelier-day-card--task atelier-tone--' +
+                  task.tone
+                }
+                onClick={() => setSelectedTask(task)}
+              >
+                <small>{task.status.label} · {task.status.detail}</small>
+                <strong>{task.title}</strong>
+                <span>{task.subjectGroup}</span>
+              </button>
+            ))
+          ) : (
+            <p className="atelier-empty-copy">
+              No hay tareas colocadas en este día.
+            </p>
+          )}
+        </section>
+
+        {(activeAcademicEvents.length > 0 || activeCafeEvents.length > 0) && (
+          <section>
+            <span className="atelier-section-label">Eventos</span>
+            {activeAcademicEvents.map((event) => (
+              <Link key={event.id} to={event.route} className="atelier-day-card">
+                <small>{event.kind}</small>
+                <strong>{event.title}</strong>
+                <span>{event.time} · {event.place}</span>
+              </Link>
+            ))}
+            {activeCafeEvents.map((event) => (
+              <Link key={event.id} to={event.route} className="atelier-day-card">
+                <small>Café filosófico</small>
+                <strong>{event.title}</strong>
+              </Link>
+            ))}
+          </section>
+        )}
+      </div>
+    </div>
+  )
+
+  const renderListView = () => (
+    <div className="atelier-list-view">
+      <div className="atelier-list-head">
+        <span>Materia</span>
+        <span>Tarea</span>
+        <span>Entrega</span>
+        <span>Estado</span>
+        <span>Acción</span>
+      </div>
+
+      {filteredTasks.length === 0 ? (
+        <div className="atelier-empty-state">
+          <strong>No hay tareas en esta vista.</strong>
+          <span>Cambie los filtros para recuperar otros registros.</span>
+        </div>
+      ) : (
+        filteredTasks.map((task) => (
+          <article
+            key={task.id}
+            className={
+              'atelier-list-row atelier-tone--' + task.tone
+            }
+          >
+            <div>
+              <small>{task.subjectCode}</small>
+              <strong>{task.subjectGroup}</strong>
+            </div>
+
+            <button
+              type="button"
+              className="atelier-list-title"
+              onClick={() => setSelectedTask(task)}
+            >
+              <small>{task.type}</small>
+              <strong>{task.title}</strong>
+              <span>{task.description}</span>
+            </button>
+
+            <div>
+              <strong>
+                {task.dueDate ? shortDate(task.dueDate) : 'Sin fecha'}
+              </strong>
+              <small>
+                {task.dueDate
+                  ? formatDate(task.dueDate)
+                  : 'Registrada ' + formatDate(task.assignedDate)}
+              </small>
+            </div>
+
+            <div>
+              <span
+                className={
+                  'atelier-status atelier-status--' + task.status.key
+                }
+              >
+                {task.status.label}
+              </span>
+              <small>{task.status.detail}</small>
+            </div>
+
+            <div className="atelier-list-actions">
+              <button
+                type="button"
+                onClick={() => toggleTask(task.id)}
+              >
+                {task.status.key === 'completed' ? '✓ Hecha' : 'Marcar hecha'}
+              </button>
+
+              {task.isLocal && (
+                <button
+                  type="button"
+                  className="is-danger"
+                  onClick={() => {
+                    if (
+                      window.confirm(
+                        '¿Eliminar esta tarea guardada en el navegador?',
+                      )
+                    ) {
+                      deleteCustomTask(task.id)
+                    }
+                  }}
+                >
+                  Eliminar
+                </button>
+              )}
+            </div>
+          </article>
+        ))
+      )}
+    </div>
+  )
+
+  const activeView =
+    calendarView === 'weekly'
+      ? renderWeeklyView()
+      : calendarView === 'daily'
+        ? renderDailyView()
+        : calendarView === 'list'
+          ? renderListView()
+          : renderMonthlyView()
+
+  return (
+    <main
+      className={
+        focusSession.running
+          ? 'atelier-tasks is-study-mode'
+          : 'atelier-tasks'
+      }
+    >
+      <header className="atelier-topbar">
+        <Link to="/" className="atelier-brand">
+          <span className="atelier-brand-mark">Φ</span>
+          <span>
+            <strong>Biblioteca de Tareas & Calendario</strong>
+            <small>PHILOSOPHIA · Edición Atelier</small>
+          </span>
+        </Link>
+
+        <div className="atelier-topbar-context">
+          <span>2026 · B</span>
+          <strong>Semana {isoWeekNumber(now)}</strong>
+          <small>5.º semestre · CUCSH</small>
         </div>
       </header>
 
-      <section className="tasks-dashboard tasks-dashboard--priority">
-        <div className="tasks-summary tasks-summary--priority">
-          <div>
-            <span>Pendientes</span>
-            <strong>{pendingCount}</strong>
+      <section className="atelier-shell">
+        <section className="atelier-hero">
+          <div className="atelier-hero-copy">
+            <p className="atelier-eyebrow">Registro maestro · cuaderno académico</p>
+            <h1>
+              Ordenar el semestre
+              <em> sin convertirlo en ruido.</em>
+            </h1>
+            <p>
+              Calendario de clases, lecturas, entregas y sesiones de enfoque
+              reunidos en una sola superficie editorial. Las fechas sin plazo
+              confirmado siguen distinguiéndose de los vencimientos reales.
+            </p>
           </div>
 
-          <div className={overdueCount ? 'summary-danger' : ''}>
-            <span>Vencidas</span>
-            <strong>{overdueCount}</strong>
-          </div>
-
-          <div className={urgentCount ? 'summary-warning' : ''}>
-            <span>Urgentes</span>
-            <strong>{urgentCount}</strong>
-          </div>
-
-          <div className="summary-success">
-            <span>Completadas</span>
-            <strong>{completedCount}</strong>
-          </div>
-        </div>
-
-        <div className="task-priority-legend" aria-label="Leyenda de prioridad">
-          <span className="legend-overdue">Vencida</span>
-          <span className="legend-urgent">≤ 2 días</span>
-          <span className="legend-soon">≤ 7 días</span>
-          <span className="legend-future">Programada</span>
-          <span className="legend-completed">Completada</span>
-        </div>
-
-        <TaskComposer onCreate={addCustomTask} />
-
-        <section className="tasks-calendar-shell">
-          <div className="tasks-calendar-heading">
+          <div className="atelier-hero-meta">
             <div>
-              <p>Calendarium · 2026-B</p>
-              <h2>Clases y entregas</h2>
+              <small>Hoy</small>
+              <strong>{longDate(now)}</strong>
+              <span>{timeZoneLabel()}</span>
             </div>
-
-            <div className="tasks-calendar-nav">
-              <button type="button" onClick={() => moveMonth(-1)}>
-                ←
-              </button>
-
-              <strong>
-                {MONTHS[calendarCursor.month]} {calendarCursor.year}
-              </strong>
-
-              <button type="button" onClick={() => moveMonth(1)}>
-                →
-              </button>
+            <div>
+              <small>Folio de agenda</small>
+              <strong>#{String(decoratedTasks.length).padStart(3, '0')}</strong>
+              <span>registros académicos y personales</span>
             </div>
           </div>
 
-          <div className="tasks-calendar">
-            {WEEKDAYS.map((day) => (
-              <div key={day} className="tasks-calendar-weekday">
-                {day}
-              </div>
-            ))}
-
-            {calendarCells.map((date, index) => {
-              if (!date) {
-                return (
-                  <div
-                    key={`blank-${index}`}
-                    className="tasks-calendar-day is-blank"
-                  />
-                )
-              }
-
-              const key = dateKey(date)
-              const dayTasks = calendarTasks[key] || []
-              const dayClasses = classesForDate(date)
-              const dayCafeEvents = cafeEvents.filter((event) => event.date === key)
-              const dayAcademicEvents = ACADEMIC_EVENTS[key] || []
-              const today = dateKey(new Date()) === key
-              const absenceLabel = ABSENCE_DATES[key] || null
-              const noClassNotice = NO_CLASS_DAY_DETAILS[key] || null
-
-              return (
-                <div
-                  key={key}
-                  className={`tasks-calendar-day ${today ? 'is-today' : ''} ${absenceLabel ? 'is-absence' : ''} ${noClassNotice ? 'is-no-class' : ''}`}
-                >
-                  <div className="tasks-calendar-day-number">
-                    <span>{date.getDate()}</span>
-                    <div className="tasks-calendar-day-flags">
-                      {absenceLabel && (
-                        <small className="calendar-absence-badge">{absenceLabel}</small>
-                      )}
-                      {noClassNotice && (
-                        <small className="calendar-no-class-badge">{noClassNotice.label}</small>
-                      )}
-                      {today && <small>hoy</small>}
-                    </div>
-                  </div>
-
-                  <div className="tasks-calendar-events">
-                    {noClassNotice && (
-                      <div className="calendar-no-class-notice" title={noClassNotice.title}>
-                        <span className="calendar-no-class-icons" aria-hidden="true">
-                          {noClassNotice.icons}
-                        </span>
-                        <strong>{noClassNotice.label}</strong>
-                        <small>{noClassNotice.title}</small>
-                      </div>
-                    )}
-
-                    {dayClasses.map((course) => (
-                      <Link
-                        key={`${key}-${course.code}`}
-                        to={course.route}
-                        className={`calendar-class calendar-class--${course.slug}`}
-                        title={`${course.subject} · ${course.time} · ${course.room}`}
-                      >
-                        <strong>{course.subject}</strong>
-                        <span>{course.time}</span>
-                      </Link>
-                    ))}
-
-                    {dayAcademicEvents.map((event) => (
-                      <Link
-                        key={event.id}
-                        to={event.route}
-                        className="calendar-academic-event"
-                        title={`${event.kind} · ${event.title} · ${event.speaker}`}
-                      >
-                        <span className="calendar-academic-event-mark" aria-hidden="true">
-                          🎤
-                        </span>
-                        <span className="calendar-academic-event-copy">
-                          <small>{event.kind}</small>
-                          <strong>{event.title}</strong>
-                          <span>{event.speaker}</span>
-                          <span>{event.time} · {event.place}</span>
-                        </span>
-                        <span className="calendar-academic-event-arrow" aria-hidden="true">↗</span>
-                      </Link>
-                    ))}
-
-                    {dayCafeEvents.map((event) => (
-                      <Link
-                        key={event.id}
-                        to={event.route}
-                        className="calendar-cafe-event"
-                        title={`Café filosófico · ${event.title}`}
-                      >
-                        <span className="calendar-cafe-event-mark" aria-hidden="true">
-                          ◉
-                        </span>
-                        <span className="calendar-cafe-event-copy">
-                          <small>Café filosófico</small>
-                          <strong>{event.title}</strong>
-                        </span>
-                        <span className="calendar-cafe-event-arrow" aria-hidden="true">
-                          ↗
-                        </span>
-                      </Link>
-                    ))}
-
-                    {dayTasks.map((task) => (
-                      <button
-                        key={task.id}
-                        type="button"
-                        className={`calendar-task calendar-task--${task.status.key}`}
-                        onClick={() => openTask(task)}
-                      >
-                        <span>◆</span>
-                        {task.title}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )
-            })}
+          <div
+            className="atelier-completion"
+            style={{
+              '--completion-angle': completionRate * 3.6 + 'deg',
+            }}
+            aria-label={
+              completionRate + '% de tareas registradas marcadas como completadas'
+            }
+          >
+            <div>
+              <strong>{completionRate}%</strong>
+              <span>cumplimiento</span>
+            </div>
           </div>
         </section>
 
-        <div className="tasks-controls">
-          <div className="tasks-filter-group">
-            <span>Estado</span>
-
+        <section className="atelier-commandbar" aria-label="Controles del calendario">
+          <div className="atelier-period-nav">
+            <button
+              type="button"
+              onClick={() => moveMonth(-1)}
+              aria-label="Mes anterior"
+            >
+              ←
+            </button>
             <div>
-              {['Pendientes', 'Todas', 'Completadas'].map((item) => (
-                <button
-                  key={item}
-                  type="button"
-                  className={view === item ? 'is-active' : ''}
-                  onClick={() => setView(item)}
-                >
-                  {item}
-                </button>
-              ))}
+              <small>Periodo visible</small>
+              <strong>
+                {monthTitle(calendarCursor.year, calendarCursor.month)}
+              </strong>
             </div>
+            <button
+              type="button"
+              onClick={() => moveMonth(1)}
+              aria-label="Mes siguiente"
+            >
+              →
+            </button>
+            <button type="button" className="is-today" onClick={goToday}>
+              Ir a hoy
+            </button>
           </div>
 
-          <div className="tasks-filter-group">
-            <span>Materia</span>
+          <div className="atelier-view-tabs" role="tablist" aria-label="Vista temporal">
+            {VIEW_OPTIONS.map(([key, label]) => (
+              <button
+                key={key}
+                type="button"
+                className={calendarView === key ? 'is-active' : ''}
+                onClick={() => setCalendarView(key)}
+                aria-pressed={calendarView === key}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </section>
 
-            <div>
+        <section className="atelier-filterbar">
+          <div>
+            <span className="atelier-filter-label">Materia</span>
+            <div className="atelier-filter-pills">
               {subjects.map((item) => (
                 <button
                   key={item}
                   type="button"
-                  className={subject === item ? 'is-active' : ''}
+                  className={
+                    (subject === item ? 'is-active ' : '') +
+                    'atelier-tone--' +
+                    subjectTone(item)
+                  }
                   onClick={() => setSubject(item)}
                 >
                   {item}
@@ -721,146 +1566,521 @@ export default function TasksBoard() {
               ))}
             </div>
           </div>
-        </div>
 
-        <section className="tasks-priority-section">
-          <div className="tasks-priority-heading">
-            <div>
-              <p>Ordo temporis</p>
-              <h2>Prioridad por tiempo</h2>
+          <div>
+            <span className="atelier-filter-label">Estado</span>
+            <div className="atelier-filter-pills is-status">
+              {STATUS_OPTIONS.map((item) => (
+                <button
+                  key={item}
+                  type="button"
+                  className={statusView === item ? 'is-active' : ''}
+                  onClick={() => setStatusView(item)}
+                >
+                  {item}
+                </button>
+              ))}
             </div>
-
-            <span>{visibleTasks.length} visibles</span>
-          </div>
-
-          <div className="tasks-priority-table">
-            <div className="tasks-priority-table-head">
-              <span>Materia</span>
-              <span>Tarea</span>
-              <span>Prioridad</span>
-              <span>Entrega</span>
-              <span>Estado</span>
-            </div>
-
-            {visibleTasks.length === 0 ? (
-              <div className="tasks-empty">
-                <span>✓</span>
-                <h2>No hay tareas en esta vista</h2>
-                <p>Cambie los filtros para mostrar otros registros.</p>
-              </div>
-            ) : (
-              visibleTasks.map((task) => {
-                const isCompleted = task.status.key === 'completed'
-
-                return (
-                  <article
-                    key={task.id}
-                    className={`task-priority-row task-priority-row--${task.status.key}`}
-                    role="button"
-                    tabIndex={0}
-                    onClick={() => openTask(task)}
-                    onKeyDown={(event) => {
-                      if (event.key === 'Enter' || event.key === ' ') {
-                        event.preventDefault()
-                        openTask(task)
-                      }
-                    }}
-                  >
-                    <div className="task-priority-subject">
-                      <span>{task.subjectCode}</span>
-                      <strong>{task.subject}</strong>
-                    </div>
-
-                    <div className="task-priority-title">
-                      <small>
-                        {task.type}
-                        {task.weight && ` · ${task.weight}`}
-                      </small>
-                      <strong>{task.title}</strong>
-                      <p>{task.description}</p>
-                    </div>
-
-                    <div>
-                      {task.priority ? (
-                        <>
-                          <span
-                            className={`task-manual-priority task-manual-priority--${task.priority.toLowerCase()}`}
-                          >
-                            {task.priority}
-                          </span>
-                          <small className="task-status-detail">
-                            {task.status.label} · {task.status.detail}
-                          </small>
-                        </>
-                      ) : (
-                        <>
-                          <span className={`task-status task-status--${task.status.key}`}>
-                            {task.status.label}
-                          </span>
-                          <small className="task-status-detail">
-                            {task.status.detail}
-                          </small>
-                        </>
-                      )}
-                    </div>
-
-                    <div className="task-priority-date">
-                      <strong>{task.dueDate ? shortDate(task.dueDate) : '—'}</strong>
-                      <span>{task.dueDate ? formatDate(task.dueDate) : 'Por definir'}</span>
-                    </div>
-
-                    <div className="task-priority-actions">
-                      <button
-                        type="button"
-                        className={isCompleted ? 'is-completed' : ''}
-                        onClick={(event) => {
-                          event.stopPropagation()
-                          toggleTask(task.id)
-                        }}
-                      >
-                        <span>{isCompleted ? '✓' : ''}</span>
-                        {isCompleted ? 'Hecha' : 'Marcar hecha'}
-                      </button>
-
-                      {task.isLocal && (
-                        <button
-                          type="button"
-                          className="task-delete-local"
-                          onClick={(event) => {
-                            event.stopPropagation()
-                            if (window.confirm('¿Eliminar esta tarea guardada en el navegador?')) {
-                              deleteCustomTask(task.id)
-                            }
-                          }}
-                        >
-                          Eliminar
-                        </button>
-                      )}
-                    </div>
-                  </article>
-                )
-              })
-            )}
           </div>
         </section>
 
-        <p className="tasks-local-note">
-          El estado “completada” y las tareas agregadas manualmente se guardan
-          únicamente en este navegador. La urgencia por fecha se recalcula
-          automáticamente; las tareas manuales también conservan la prioridad
-          Alta, Media o Baja que usted les asigne.
-        </p>
-      </section>
+        <TaskComposer onCreate={addCustomTask} />
 
-      <footer className="tasks-footer">
-        <Link to="/semestre/5">← Quinto semestre</Link>
-        <span>☙ &nbsp; Φ &nbsp; ❧</span>
-        <span>Agenda · MMXXVI</span>
-      </footer>
+        <section className="atelier-calendar-panel">
+          <div className="atelier-panel-heading">
+            <div>
+              <p>
+                Calendarium · {calendarView === 'monthly' ? 'mes' : calendarView === 'weekly' ? 'semana' : calendarView === 'daily' ? 'día' : 'archivo'}
+              </p>
+              <h2>
+                {calendarView === 'monthly'
+                  ? monthTitle(calendarCursor.year, calendarCursor.month)
+                  : calendarView === 'weekly'
+                    ? 'Semana ' + isoWeekNumber(activeDate)
+                    : calendarView === 'daily'
+                      ? longDate(activeDate)
+                      : 'Lista general de tareas'}
+              </h2>
+            </div>
+
+            <div className="atelier-panel-stats">
+              <span>
+                <strong>{pendingCount}</strong>
+                pendientes
+              </span>
+              <span className={overdueCount ? 'is-danger' : ''}>
+                <strong>{overdueCount}</strong>
+                vencidas
+              </span>
+              <span className={urgentCount ? 'is-warning' : ''}>
+                <strong>{urgentCount}</strong>
+                urgentes
+              </span>
+              <span className="is-success">
+                <strong>{completedCount}</strong>
+                completadas
+              </span>
+            </div>
+          </div>
+
+          <div className="atelier-calendar-body">{activeView}</div>
+
+          <div className="atelier-calendar-legend" aria-label="Leyenda del calendario">
+            <span><b>◆</b> fecha de entrega</span>
+            <span><b>◇</b> registro sin fecha de entrega</span>
+            <span><b className="legend-class" /> clase</span>
+            <span><b className="legend-today" /> hoy</span>
+          </div>
+        </section>
+
+        <section className="atelier-dossier">
+          <div className="atelier-dossier-heading">
+            <div>
+              <p>Cuaderno diario</p>
+              <h2>Operaciones para hoy</h2>
+            </div>
+            <span>
+              Máximo cinco prioridades visibles · {longDate(now)}
+            </span>
+          </div>
+
+          <div className="atelier-dossier-grid">
+            <section className="atelier-dossier-card atelier-actions-card">
+              <div className="atelier-card-heading">
+                <span>01</span>
+                <div>
+                  <small>Acciones del día</small>
+                  <h3>Prioridades</h3>
+                </div>
+              </div>
+
+              <div className="atelier-priority-list">
+                {priorityTasks.length ? (
+                  priorityTasks.map((task) => (
+                    <article
+                      key={task.id}
+                      className={
+                        'atelier-priority-item atelier-tone--' + task.tone
+                      }
+                    >
+                      <button
+                        type="button"
+                        className={
+                          'atelier-check ' +
+                          (task.status.key === 'completed'
+                            ? 'is-completed'
+                            : '')
+                        }
+                        onClick={() => toggleTask(task.id)}
+                        aria-label={
+                          task.status.key === 'completed'
+                            ? 'Marcar como pendiente'
+                            : 'Marcar como completada'
+                        }
+                      >
+                        {task.status.key === 'completed' ? '✓' : ''}
+                      </button>
+
+                      <button
+                        type="button"
+                        className="atelier-priority-copy"
+                        onClick={() => setSelectedTask(task)}
+                      >
+                        <small>
+                          {task.subjectGroup} · {task.status.label}
+                        </small>
+                        <strong>{task.title}</strong>
+                        <span>{task.status.detail}</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        className={
+                          focusSession.taskId === task.id
+                            ? 'atelier-focus-pick is-active'
+                            : 'atelier-focus-pick'
+                        }
+                        onClick={() => chooseFocusTask(task.id)}
+                      >
+                        Enfocar
+                      </button>
+                    </article>
+                  ))
+                ) : (
+                  <p className="atelier-empty-copy">
+                    No hay tareas pendientes en el registro.
+                  </p>
+                )}
+              </div>
+
+              <a className="atelier-focus-module" href="#pomodoro-filosofico">
+                <div className="atelier-focus-heading">
+                  <div>
+                    <small>Studium philosophicum</small>
+                    <strong>
+                      {focusTask ? focusTask.title : 'Prepare una sesión de estudio'}
+                    </strong>
+                  </div>
+                  <span className={focusSession.running ? 'is-live' : ''}>
+                    {focusSession.running ? 'En curso' : 'Abrir Pomodoro'}
+                  </span>
+                </div>
+                <small className="atelier-progress-caption">
+                  El temporizador vive al final del calendario, en una sala de estudio separada.
+                </small>
+              </a>
+            </section>
+
+            <section className="atelier-dossier-card atelier-projects-card">
+              <div className="atelier-card-heading">
+                <span>02</span>
+                <div>
+                  <small>Semestre 2026-B</small>
+                  <h3>Proyectos en curso</h3>
+                </div>
+              </div>
+
+              <div className="atelier-project-list">
+                {projects.map((project) => (
+                  <article
+                    key={project.subject}
+                    className={'atelier-project atelier-tone--' + project.tone}
+                  >
+                    <div>
+                      <strong>{project.subject}</strong>
+                      <span>
+                        {project.completed}/{project.total} cerradas · {project.pending} pendientes
+                      </span>
+                    </div>
+                    <div className="atelier-project-progress">
+                      <span style={{ width: project.progress + '%' }} />
+                    </div>
+                    <b>{project.progress}%</b>
+                  </article>
+                ))}
+              </div>
+
+              <div className="atelier-project-summary">
+                <span>Constancia</span>
+                <strong>
+                  {completedCount} tareas archivadas como completadas
+                </strong>
+                <small>
+                  El tablero no inventa rachas: sólo cuenta estados guardados
+                  en este navegador y cierres persistentes del catálogo.
+                </small>
+              </div>
+
+              <div className="atelier-card-actions">
+                <button
+                  type="button"
+                  onClick={() => setCalendarView('list')}
+                >
+                  Ver lista general
+                </button>
+                <button type="button" onClick={() => window.print()}>
+                  Exportar / imprimir
+                </button>
+              </div>
+            </section>
+
+            <section className="atelier-dossier-card atelier-time-card">
+              <div className="atelier-card-heading">
+                <span>03</span>
+                <div>
+                  <small>Registro horario</small>
+                  <h3>Distribución del tiempo</h3>
+                </div>
+              </div>
+
+              <div className="atelier-time-summary">
+                <div
+                  className="atelier-donut"
+                  style={{
+                    '--focus-angle': focusShare * 3.6 + 'deg',
+                  }}
+                  role="img"
+                  aria-label={
+                    focusShare +
+                    '% enfoque registrado y ' +
+                    classShare +
+                    '% clases programadas'
+                  }
+                >
+                  <div>
+                    <strong>{formatHoursMinutes(trackedSeconds)}</strong>
+                    <span>registrado / programado</span>
+                  </div>
+                </div>
+
+                <div className="atelier-time-legend">
+                  <div>
+                    <span className="time-swatch is-focus" />
+                    <p>
+                      <strong>Trabajo profundo · {focusShare}%</strong>
+                      <small>{formatHoursMinutes(displayFocusSeconds)} registrados</small>
+                    </p>
+                  </div>
+                  <div>
+                    <span className="time-swatch is-class" />
+                    <p>
+                      <strong>Clases · {classShare}%</strong>
+                      <small>{formatHoursMinutes(todayClassSeconds)} programados</small>
+                    </p>
+                  </div>
+                  <div>
+                    <span className="time-swatch is-empty" />
+                    <p>
+                      <strong>Planificación</strong>
+                      <small>Sin registro horario todavía</small>
+                    </p>
+                  </div>
+                  <div>
+                    <span className="time-swatch is-empty" />
+                    <p>
+                      <strong>Descanso & bienestar</strong>
+                      <small>Sin registro horario todavía</small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <p className="atelier-balance-note">
+                {displayFocusSeconds > 0
+                  ? 'La jornada combina agenda académica y trabajo profundo registrado sin completar datos que no existen.'
+                  : 'Inicie una sesión de enfoque para completar el registro horario del día sin estimaciones artificiales.'}
+              </p>
+            </section>
+          </div>
+        </section>
+
+        <section className="atelier-archive-note">
+          <div>
+            <span className="atelier-seal">Φ</span>
+            <p>
+              <strong>Registro local certificado por el navegador.</strong>
+              El estado de tareas, las tareas personales y el cronómetro de
+              enfoque permanecen en este dispositivo mediante localStorage.
+            </p>
+          </div>
+
+          <div>
+            <button type="button" onClick={() => window.print()}>
+              Imprimir calendario
+            </button>
+            <Link to="/semestre/5">Volver al quinto semestre</Link>
+          </div>
+        </section>
+
+        <section
+          id="pomodoro-filosofico"
+          className={
+            focusSession.running
+              ? 'atelier-study-room is-live'
+              : 'atelier-study-room'
+          }
+        >
+          <div className="atelier-study-room-glow" aria-hidden="true" />
+
+          <header className="atelier-study-room-header">
+            <div>
+              <span>STUDIUM PHILOSOPHICUM · POMODORO</span>
+              <h2>Una habitación para pensar.</h2>
+              <p>
+                El calendario termina aquí. Al iniciar una sesión, PHILOSOPHIA
+                cambia de atmósfera para dejar sólo una pregunta, un texto y un
+                intervalo de atención.
+              </p>
+            </div>
+
+            <div className="atelier-study-state" aria-live="polite">
+              <span>{focusSession.running ? 'SILENTIUM' : 'MESA DISPONIBLE'}</span>
+              <strong>
+                {focusSession.running
+                  ? activePomodoroMode.label + ' en curso'
+                  : 'Elija un ritmo de estudio'}
+              </strong>
+              <small>
+                {focusSession.completedCycles} sesiones de concentración completadas
+              </small>
+            </div>
+          </header>
+
+          <div className="atelier-study-grid">
+            <aside className="atelier-study-console">
+              <div className="atelier-study-console-block">
+                <span className="atelier-study-label">I · Ritmo</span>
+                <div className="atelier-pomodoro-modes">
+                  {POMODORO_MODES.map((mode) => (
+                    <button
+                      type="button"
+                      key={mode.id}
+                      className={
+                        focusSession.mode === mode.id ? 'is-active' : ''
+                      }
+                      onClick={() => choosePomodoroMode(mode.id)}
+                      disabled={focusSession.running}
+                    >
+                      <strong>{mode.label}</strong>
+                      <span>{mode.minutes} min</span>
+                      <small>{mode.description}</small>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="atelier-study-console-block">
+                <span className="atelier-study-label">II · Materia</span>
+                <strong className="atelier-study-task-title">
+                  {isBreakMode
+                    ? 'Pausa deliberada'
+                    : focusTask
+                      ? focusTask.title
+                      : 'Seleccione «Enfocar» en una prioridad'}
+                </strong>
+                <small>
+                  {isBreakMode
+                    ? 'El descanso no necesita estar ligado a una tarea.'
+                    : focusTask
+                      ? focusTask.subjectGroup + ' · ' + focusTask.status.label
+                      : 'Si inicia sin escoger, se tomará la primera prioridad disponible.'}
+                </small>
+              </div>
+
+              <div className="atelier-study-console-block atelier-study-alarm-card">
+                <span className="atelier-study-label">III · Alarmas</span>
+                <strong>
+                  {notificationPermission === 'granted'
+                    ? 'Notificación del sistema activa'
+                    : notificationPermission === 'denied'
+                      ? 'Notificaciones bloqueadas'
+                      : notificationPermission === 'unsupported'
+                        ? 'Notificaciones no disponibles'
+                        : 'Notificaciones aún sin permiso'}
+                </strong>
+                <p>
+                  La campanilla local y la vibración funcionan como primera capa.
+                  La notificación persistente usa el Service Worker cuando el
+                  navegador concede permiso.
+                </p>
+                <div className="atelier-study-alarm-actions">
+                  {notificationPermission !== 'granted' && (
+                    <button type="button" onClick={requestStudyNotifications}>
+                      Activar alarmas
+                    </button>
+                  )}
+                  <button type="button" onClick={() => void fireStudyAlarm({ test: true })}>
+                    Probar alarma
+                  </button>
+                </div>
+              </div>
+            </aside>
+
+            <div className="atelier-study-clock">
+              <div
+                className="atelier-study-dial"
+                style={{ '--study-progress': focusProgress * 3.6 + 'deg' }}
+              >
+                <div>
+                  <small>{activePomodoroMode.label}</small>
+                  <strong
+                    aria-live="polite"
+                    aria-label={
+                      'Tiempo restante: ' + formatDuration(remainingFocusSeconds)
+                    }
+                  >
+                    {formatDuration(remainingFocusSeconds)}
+                  </strong>
+                  <span>
+                    {focusSession.running
+                      ? 'la atención está en curso'
+                      : focusProgress >= 100
+                        ? 'bloque concluido'
+                        : 'listo para comenzar'}
+                  </span>
+                </div>
+              </div>
+
+              <div className="atelier-study-clock-actions">
+                <button
+                  type="button"
+                  className="is-primary"
+                  onClick={focusSession.running ? pauseFocus : startFocus}
+                  disabled={
+                    !isBreakMode &&
+                    !focusTask &&
+                    priorityTasks.length === 0
+                  }
+                >
+                  {focusSession.running ? 'Pausar' : 'Iniciar / reanudar'}
+                </button>
+                <button type="button" onClick={resetFocus}>
+                  Reiniciar bloque
+                </button>
+              </div>
+
+              <div className="atelier-study-progress-copy">
+                <span>{focusProgress}%</span>
+                <div>
+                  <strong>{formatDuration(displayFocusSeconds)} atendidos</strong>
+                  <small>
+                    El tiempo se calcula contra una hora objetivo; al volver de
+                    una suspensión, el contador se sincroniza.
+                  </small>
+                </div>
+              </div>
+            </div>
+
+            <aside className="atelier-study-method">
+              <span className="atelier-study-label">RITUAL DE ESTUDIO</span>
+              <ol>
+                <li>
+                  <strong>Formule una pregunta.</strong>
+                  <span>No abra el texto sin saber qué quiere comprender.</span>
+                </li>
+                <li>
+                  <strong>Lea con lápiz.</strong>
+                  <span>Marque la tesis, el argumento y aquello que queda oscuro.</span>
+                </li>
+                <li>
+                  <strong>Cierre el bloque.</strong>
+                  <span>Escriba una frase con lo comprendido antes del descanso.</span>
+                </li>
+                <li>
+                  <strong>Descanse de verdad.</strong>
+                  <span>Durante la pausa, aléjese de la pantalla y de la lectura.</span>
+                </li>
+              </ol>
+
+              <div className="atelier-study-reliability">
+                <strong>Sobre la alarma</strong>
+                <p>
+                  Con PHILOSOPHIA abierta, el contador usa la hora real de
+                  finalización y corrige retrasos del navegador. Si el sistema
+                  cierra completamente la pestaña o la web app, una página
+                  estática no puede garantizar por sí sola una alarma futura.
+                </p>
+                <small>
+                  Para una alarma garantizada incluso con la app cerrada hará
+                  falta una segunda fase con Web Push programado desde un
+                  servicio externo.
+                </small>
+              </div>
+            </aside>
+          </div>
+
+          <footer className="atelier-study-room-footer" aria-hidden="true">
+            <span>LECTIO</span><b>·</b>
+            <span>MEDITATIO</span><b>·</b>
+            <span>SCRIPTURA</span><b>·</b>
+            <span>QUIES</span>
+          </footer>
+        </section>
+      </section>
 
       {selectedTask && (
         <div
-          className="task-modal-backdrop"
+          className="atelier-modal-backdrop"
           role="presentation"
           onMouseDown={(event) => {
             if (event.target === event.currentTarget) {
@@ -869,65 +2089,61 @@ export default function TasksBoard() {
           }}
         >
           <section
-            className={`task-modal task-modal--${selectedTask.status.key}`}
+            className="atelier-modal"
             role="dialog"
             aria-modal="true"
-            aria-labelledby="task-modal-title"
+            aria-labelledby="atelier-task-modal-title"
           >
             <button
               type="button"
-              className="task-modal-close"
+              className="atelier-modal-close"
               onClick={() => setSelectedTask(null)}
               aria-label="Cerrar"
             >
               ×
             </button>
 
-            <div className="task-modal-kicker">
+            <div className="atelier-modal-kicker">
               <span>{selectedTask.subjectCode}</span>
               <strong>{selectedTask.subject}</strong>
             </div>
 
-            <span className={`task-status task-status--${selectedTask.status.key}`}>
+            <span
+              className={
+                'atelier-status atelier-status--' + selectedTask.status.key
+              }
+            >
               {selectedTask.status.label}
             </span>
 
-            <h2 id="task-modal-title">{selectedTask.title}</h2>
-
-            <p className="task-modal-description">
-              {selectedTask.description}
-            </p>
+            <h2 id="atelier-task-modal-title">{selectedTask.title}</h2>
+            <p>{selectedTask.description}</p>
 
             {(selectedTask.readingPages ||
               selectedTask.readingScope ||
               selectedTask.readingEdition) && (
-              <div className="task-modal-reading">
+              <div className="atelier-modal-reading">
                 <span>Lectura precisa</span>
-
                 {selectedTask.readingScope && (
                   <strong>{selectedTask.readingScope}</strong>
                 )}
-
                 {selectedTask.readingPages && (
                   <p>{selectedTask.readingPages}</p>
                 )}
-
                 {selectedTask.readingEdition && (
                   <small>{selectedTask.readingEdition}</small>
                 )}
-
                 {selectedTask.readingFullPart && (
                   <small>{selectedTask.readingFullPart}</small>
                 )}
               </div>
             )}
 
-            <div className="task-modal-meta">
+            <div className="atelier-modal-meta">
               <div>
                 <span>Asignada</span>
                 <strong>{formatDate(selectedTask.assignedDate)}</strong>
               </div>
-
               <div>
                 <span>Entrega</span>
                 <strong>
@@ -936,32 +2152,33 @@ export default function TasksBoard() {
                     : 'Por definir'}
                 </strong>
               </div>
-
               <div>
                 <span>Tipo</span>
                 <strong>{selectedTask.type}</strong>
               </div>
-
               <div>
-                <span>Prioridad</span>
+                <span>Estado</span>
                 <strong>{selectedTask.status.detail}</strong>
               </div>
             </div>
 
-            <div className="task-modal-footer">
-              <Link to={selectedTask.sourceRoute}>
-                Abrir fuente · {selectedTask.sourceClass}
-                <span>↗</span>
-              </Link>
+            <div className="atelier-modal-actions">
+              <div>
+                {selectedTask.studyRoute && (
+                  <Link to={selectedTask.studyRoute}>
+                    Abrir sistema de estudio ↗
+                  </Link>
+                )}
+                {selectedTask.sourceRoute && (
+                  <Link to={selectedTask.sourceRoute}>
+                    Abrir fuente · {selectedTask.sourceClass} ↗
+                  </Link>
+                )}
+              </div>
 
-              <div className="task-modal-footer-actions">
+              <div>
                 <button
                   type="button"
-                  className={
-                    selectedTask.status.key === 'completed'
-                      ? 'is-completed'
-                      : ''
-                  }
                   onClick={() => toggleTask(selectedTask.id)}
                 >
                   {selectedTask.status.key === 'completed'
@@ -972,11 +2189,13 @@ export default function TasksBoard() {
                 {selectedTask.isLocal && (
                   <button
                     type="button"
-                    className="task-delete-local task-delete-local--modal"
+                    className="is-danger"
                     onClick={() => {
                       if (
                         window.confirm(
-                          `¿Eliminar “${selectedTask.title}” de este navegador?`,
+                          '¿Eliminar “' +
+                            selectedTask.title +
+                            '” de este navegador?',
                         )
                       ) {
                         deleteCustomTask(selectedTask.id)

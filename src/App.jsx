@@ -87,6 +87,7 @@ const OntologiaClass30Sep = lazy(() => import('./pages/OntologiaClass30Sep'))
 const OntologiaClass07Oct = lazy(() => import('./pages/OntologiaClass07Oct'))
 const OntologiaClass14Oct = lazy(() => import('./pages/OntologiaClass14Oct'))
 const OntologiaClass19Oct = lazy(() => import('./pages/OntologiaClass19Oct'))
+const OntologiaClass26Oct = lazy(() => import('./pages/OntologiaClass26Oct'))
 const KantPrefacesMap = lazy(() => import('./pages/KantPrefacesMap'))
 const KantIntroductionMap = lazy(() => import('./pages/KantIntroductionMap'))
 const KantAestheticMap = lazy(() => import('./pages/KantAestheticMap'))
@@ -112,6 +113,7 @@ const MethodsClass23Sep = lazy(() => import('./pages/MethodsClass23Sep'))
 const MethodsClass14Oct = lazy(() => import('./pages/MethodsClass14Oct'))
 const MethodsClass19Oct = lazy(() => import('./pages/MethodsClass19Oct'))
 const MethodsClass21Oct = lazy(() => import('./pages/MethodsClass21Oct'))
+const MethodsClass26Oct = lazy(() => import('./pages/MethodsClass26Oct'))
 const MethodsRussSystem2D = lazy(() => import('./pages/MethodsRussSystem2D'))
 const AnalyticPhilosophy = lazy(() => import('./pages/AnalyticPhilosophy'))
 const AnalyticClass17Aug = lazy(() => import('./pages/AnalyticClass17Aug'))
@@ -397,6 +399,10 @@ function App() {
           element={<OntologiaClass19Oct />}
         />
         <Route
+          path="/semestre/5/ontologia-ii/clase/26-octubre"
+          element={<OntologiaClass26Oct />}
+        />
+        <Route
           path="/tareas/ontologia-ii/kant-dialectica-trascendental"
           element={<KantDialecticSystem />}
         />
@@ -487,6 +493,10 @@ function App() {
         <Route
           path="/semestre/5/metodos-de-investigacion/clase/21-octubre"
           element={<MethodsClass21Oct />}
+        />
+        <Route
+          path="/semestre/5/metodos-de-investigacion/clase/26-octubre"
+          element={<MethodsClass26Oct />}
         />
         <Route
           path="/tareas/metodos-de-investigacion/jacqueline-russ-capitulos-1-3"

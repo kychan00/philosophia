@@ -1,5 +1,22 @@
 export const tasks = [
   {
+    id: 'metodos-2026-10-26-exposicion-tres-dialecticas',
+    subject: 'Métodos de Investigación',
+    subjectCode: 'FI104',
+    assignedDate: '2026-10-26',
+    dueDate: '2026-11-04',
+    title: 'Exponer dialéctica socrático-platónica, hegeliana y marxista',
+    type: 'Exposición oral · preparación personal',
+    weight: null,
+    description:
+      'El estudiante asume la exposición del método dialéctico en Sócrates/Platón, Hegel y Marx. El 4 de noviembre es una META PERSONAL TENTATIVA para seguimiento, NO fecha oficial confirmada: el profesor comentó que no habrá sesión el lunes 2 y que el orden de las exposiciones puede cambiar. No se indicó duración, diapositivas obligatorias, bibliografía mínima ni rúbrica.',
+    readingScope:
+      'Tres formas de dialéctica: Sócrates y Platón; Hegel; Marx. Preparar comparación, método, propósito y ejemplo de cada una.',
+    sourceClass: 'Clase del 26 de octubre · compromiso de exposición confirmado por el estudiante',
+    sourceRoute: '/semestre/5/metodos-de-investigacion/clase/26-octubre',
+    studyRoute: '/semestre/5/metodos-de-investigacion/clase/26-octubre',
+  },
+  {
     id: 'ontologia-2026-08-17-trabajo-final',
     subject: 'Ontología II',
     subjectCode: 'FI190',
@@ -9,8 +26,8 @@ export const tasks = [
     type: 'Trabajo del curso',
     weight: null,
     description:
-      'Elegir una pregunta vinculada con un tema del curso, confrontar posiciones de autores y argumentar una postura propia.',
-    sourceClass: 'Clase del 17 de agosto',
+      'Elegir una pregunta vinculada con un tema del curso, confrontar posiciones de autores y argumentar una postura propia. La sesión inicial no fija una fecha de entrega; se conserva como trabajo del curso sin vencimiento confirmado.',
+    sourceClass: 'Clase del 17 de agosto · trabajo del curso sin fecha confirmada',
     sourceRoute: '/semestre/5/ontologia-ii/clase/17-agosto',
   },
   {
@@ -23,8 +40,8 @@ export const tasks = [
     type: 'Producto final',
     weight: '40 %',
     description:
-      'Construir un protocolo que sintetice lógicamente la futura investigación: problema, antecedentes, fuentes, método, estructura y argumentación.',
-    sourceClass: 'Clase del 17 de agosto',
+      'Construir un protocolo que sintetice lógicamente la futura investigación: problema, antecedentes, fuentes, método, estructura y argumentación. La clase lo define como producto final del 40 %, pero no documenta una fecha de entrega.',
+    sourceClass: 'Clase del 17 de agosto · producto final 40 % sin fecha confirmada',
     sourceRoute:
       '/semestre/5/metodos-de-investigacion/clase/17-agosto',
   },
@@ -33,12 +50,13 @@ export const tasks = [
     subject: 'Ontología II',
     subjectCode: 'FI190',
     assignedDate: '2026-08-17',
-    dueDate: null,
+    dueDate: '2026-08-19',
     title: 'Leer el Discurso del método',
     type: 'Lectura',
     weight: null,
+    completed: true,
     description:
-      'Leer por lo menos 15 páginas del Discurso del método de René Descartes.',
+      'Leer por lo menos 15 páginas del Discurso del método de René Descartes. Fecha histórica: primera semana del curso; entrega confirmada como realizada por el estudiante.',
     sourceClass: 'Clase del 17 de agosto',
     sourceRoute: '/semestre/5/ontologia-ii/clase/17-agosto',
   },
@@ -171,12 +189,12 @@ export const tasks = [
     subject: 'Filosofía Analítica',
     subjectCode: 'FI264',
     assignedDate: '2026-10-21',
-    dueDate: null,
+    dueDate: '2026-10-28',
     title: 'Glock · estudiar las páginas 46–51 en el sistema 2D',
     type: 'Estudio guiado · lectura',
     weight: null,
     description:
-      'Continuar el estudio del capítulo II de Hans-Johann Glock con los 18 nodos añadidos (G21–G38): fundamentos de la matemática, Bolzano, Boole, Frege, paradoja de Russell, Gödel e inicio de «La rebelión contra el idealismo». Este registro corresponde al avance solicitado para PHILOSOPHIA; no consta una nueva fecha de entrega ni una consigna docente específica para estas seis páginas.',
+      'Continuar el estudio del capítulo II de Hans-Johann Glock con los 18 nodos añadidos (G21–G38): fundamentos de la matemática, Bolzano, Boole, Frege, paradoja de Russell, Gödel e inicio de «La rebelión contra el idealismo». El 26 de octubre el estudiante confirmó que este seguimiento continúa hasta la siguiente clase, miércoles 28 de octubre. Es una fecha de estudio/seguimiento, no una nueva entrega docente documentada.',
     readingScope:
       'Hans-Johann Glock · ¿Qué es la filosofía analítica? · capítulo II, «Breve panorama histórico»',
     readingPages: 'pp. 46–51 · 18 nodos nuevos (G21–G38)',
@@ -184,7 +202,26 @@ export const tasks = [
       'Hans-Johann Glock · ¿Qué es la filosofía analítica? · Tecnos, 2012',
     readingFullPart:
       'La sección «Primeros vislumbres: matemática y lógica» comienza en la p. 46; «La rebelión contra el idealismo» comienza en la p. 51. Las pp. 52–86 aún no se han documentado en el sistema.',
-    sourceClass: 'Estudio personal registrado el 21 de octubre · no asignación docente nueva',
+    sourceClass: 'Estudio personal registrado el 21 de octubre · continuidad para la clase del 28 de octubre',
+    sourceRoute: '/semestre/5/filosofia-analitica',
+    studyRoute: '/semestre/5/filosofia-analitica/lectura/glock-capitulo-2',
+  },
+
+  {
+    id: 'analitica-2026-10-26-glock-continuar-lectura',
+    subject: 'Filosofía Analítica',
+    subjectCode: 'FI264',
+    assignedDate: '2026-10-26',
+    dueDate: '2026-10-26',
+    title: 'Glock · seguir leyendo hoy',
+    type: 'Estudio del día · lectura',
+    weight: null,
+    description:
+      'Seguir leyendo hoy el capítulo II de Hans-Johann Glock desde el punto alcanzado. No se fija un rango final de páginas porque sólo se confirmó la continuidad de la lectura para hoy. Este checkpoint no sustituye el objetivo de seguimiento del miércoles 28 de octubre.',
+    readingScope:
+      'Hans-Johann Glock · ¿Qué es la filosofía analítica? · capítulo II, «Breve panorama histórico»',
+    sourceClass:
+      'Seguimiento personal confirmado por el estudiante · 26 de octubre de 2026',
     sourceRoute: '/semestre/5/filosofia-analitica',
     studyRoute: '/semestre/5/filosofia-analitica/lectura/glock-capitulo-2',
   },
@@ -415,7 +452,7 @@ export const tasks = [
     subject: 'Ontología II',
     subjectCode: 'FI190',
     assignedDate: '2026-09-14',
-    dueDate: null,
+    dueDate: '2026-09-14',
     title: 'Kant · Crítica de la razón pura · Estética trascendental',
     type: 'Estudio',
     weight: null,
@@ -424,8 +461,8 @@ export const tasks = [
     readingScope:
       'Immanuel Kant · Crítica de la razón pura · Estética trascendental · §§1–8 y conclusión',
     readingPages: 'Ribas · pp. 42–61',
-    sourceClass: 'Estudio de la Estética trascendental',
-    sourceRoute: '/semestre/5/ontologia-ii',
+    sourceClass: 'Lectura para la clase del 14 de septiembre · Estética trascendental',
+    sourceRoute: '/semestre/5/ontologia-ii/clase/14-septiembre',
     studyRoute:
       '/tareas/ontologia-ii/kant-critica-razon-pura-estetica-trascendental',
   },
@@ -656,7 +693,7 @@ export const tasks = [
     readingScope: 'Sigmund Freud · El malestar en la cultura · continuidad de la lectura',
     readingPages: 'Sin rango nuevo indicado en clase',
     readingEdition: 'Biblioteca Libre OMEGALFA · trad. Luis López Ballesteros · maquetación 2010',
-    sourceClass: 'Clase del jueves 22 de octubre',
+    sourceClass: 'Clase del jueves 22 de octubre · continuidad de lectura sin fecha confirmada',
     sourceRoute: '/semestre/5/teoria-critica/clase/22-octubre',
     studyRoute: '/semestre/5/teoria-critica/clase/22-octubre',
   },
@@ -694,10 +731,10 @@ export const tasks = [
     weight: null,
     priority: 'Media',
     description:
-      'Continuar el bloque Croce/Hegel. La grabación parece remitir al capítulo II de Croce y el cuestionario adjunto contiene una segunda sección de 17 preguntas, pero no se recupera una fecha de entrega ni una orden inequívoca de entregarlo en la siguiente sesión.',
+      'Continuar el bloque Croce/Hegel. La documentación de la sesión remite de forma probable al capítulo II de Croce y el cuestionario adjunto contiene una segunda sección de 17 preguntas, pero no consta una fecha de entrega ni una orden inequívoca de entregarlo en la siguiente sesión. La clase del 19 de octubre tampoco registra una entrega de este bloque.',
     readingScope:
       'Benedetto Croce · capítulo II · Aclaraciones concernientes a la historia de la Dialéctica · cuestionario de 17 preguntas',
-    sourceClass: 'Clase del 14 de octubre · continuidad anunciada, sin fecha de entrega confirmada',
+    sourceClass: 'Clase del 14 de octubre · continuidad anunciada; revisión del 19 de octubre sin entrega registrada',
     sourceRoute: '/semestre/5/ontologia-ii/clase/14-octubre',
     studyRoute: '/tareas/ontologia-ii/hegel-croce-dialectica',
   },
@@ -727,7 +764,7 @@ export const tasks = [
     subject: 'Ética · Escuelas clásicas',
     subjectCode: 'FI194',
     assignedDate: '2026-10-08',
-    dueDate: null,
+    dueDate: '2026-10-13',
     title: 'Dos argumentos formales reducibles al absurdo',
     type: 'Argumentación formal',
     weight: null,
@@ -736,8 +773,8 @@ export const tasks = [
       'Construir dos argumentos formales que puedan ser trabajados mediante reducción al absurdo: formular una regla o afirmación, derivar una consecuencia, introducir un caso contrario posible y mostrar la contradicción que obliga a revisar una premisa, generalización o concepto.',
     readingScope:
       'Dialéctica socrática · reducción al absurdo · afirmación universal · contraejemplo · contradicción',
-    sourceClass: 'Clase del 8 de octubre · fecha de entrega no recuperada',
-    sourceRoute: '/semestre/5/etica',
+    sourceClass: 'Clase del 8 de octubre · entrega en la siguiente clase, martes 13 de octubre',
+    sourceRoute: '/semestre/5/etica/clase/8-octubre',
   },
 
 
@@ -746,14 +783,14 @@ export const tasks = [
     subject: 'Ontología II',
     subjectCode: 'FI190',
     assignedDate: '2026-10-18',
-    dueDate: null,
+    dueDate: '2026-10-19',
     title: 'Hegel · Ciencia de la lógica · páginas 77–98',
     type: 'Lectura de texto primario',
     weight: null,
     priority: 'Alta',
-    description: 'Consigna de lectura registrada el 18 de octubre: páginas impresas 77 a 98 de la edición Mondolfo. La fecha exacta del correo y la entrega no constan. Lectura comentada el 19 de octubre.',
+    description: 'Consigna de lectura registrada el 18 de octubre: páginas impresas 77 a 98 de la edición Mondolfo. La lectura debía estar preparada para la clase del lunes 19 de octubre, sesión en la que se trabajó el texto.',
     readingPages: 'Ciencia de la lógica · pp. 77–98',
-    sourceClass: 'Consigna comunicada antes de la clase del 19 de octubre',
+    sourceClass: 'Lectura para la clase del 19 de octubre',
     sourceRoute: '/semestre/5/ontologia-ii/clase/19-octubre',
     studyRoute: '/tareas/ontologia-ii/hegel-croce-dialectica',
   },
@@ -762,18 +799,36 @@ export const tasks = [
     subject: 'Ontología II',
     subjectCode: 'FI190',
     assignedDate: '2026-10-19',
-    dueDate: null,
+    dueDate: '2026-10-28',
     title: 'Marx frente a Hegel · Fromm, Bloch y tesis sobre Feuerbach',
     type: 'Lectura asignada · tres textos',
     weight: null,
     priority: 'Alta',
-    description: 'Consigna enviada el 19 de octubre por José Alejandro Fuerte: leer el capítulo de Marx «Crítica a la dialéctica y en general a la filosofía de Hegel» en el volumen de Erich Fromm; Bloch, capítulo XIX «Marx y la dialéctica idealista»; y las once Tesis sobre Feuerbach de Marx en La ideología alemana. El correo no indica fecha de entrega.',
+    description: 'Consigna enviada el 19 de octubre por José Alejandro Fuerte: leer el capítulo de Marx «Crítica a la dialéctica y en general a la filosofía de Hegel» en el volumen de Erich Fromm; Bloch, capítulo XIX «Marx y la dialéctica idealista»; y las once Tesis sobre Feuerbach de Marx en La ideología alemana. El correo original no fijó fecha; el 26 de octubre el estudiante confirmó que la lectura continúa y debe quedar preparada para la siguiente clase, miércoles 28 de octubre.',
     readingScope: 'Marx (Manuscritos de 1844, crítica de Hegel) · Bloch (Sujeto-objeto, XIX) · Marx (once Tesis sobre Feuerbach)',
     readingPages: 'PDF adjuntos: Fromm/Marx pp. 97–112; Bloch pp. 380–387; La ideología alemana pp. 500–503',
     readingEdition: 'PDF Fromm FCE, primera edición española 1962; Bloch FCE, segunda edición española 1983; Marx y Engels, Akal 2014. La obra de Fromm incluye el texto primario de Marx.',
-    sourceClass: 'Correo del profesor José Alejandro Fuerte · 19 de octubre de 2026',
+    sourceClass: 'Correo del profesor · 19 de octubre · continuidad de estudio para la clase del 28 de octubre',
     sourceRoute: '/semestre/5/ontologia-ii/clase/19-octubre',
     studyRoute: '/tareas/ontologia-ii/marx-hegel-bloch-feuerbach/sistema',
+  },
+
+  {
+    id: 'ontologia-2026-10-30-examen-diez-preguntas',
+    subject: 'Ontología II',
+    subjectCode: 'FI190',
+    assignedDate: '2026-10-26',
+    dueDate: '2026-10-30',
+    title: 'Examen · responder diez preguntas',
+    type: 'Examen / entrega',
+    weight: null,
+    priority: 'Alta',
+    description:
+      'Responder diez preguntas del examen en un documento Word y enviarlo por correo electrónico al profesor. Los enunciados se recibirán por correo el martes 27 de octubre de 2026 y la fecha máxima de entrega es el viernes 30 de octubre de 2026. La hora límite y la dirección de envío aún no están confirmadas.',
+    readingScope:
+      'Diez preguntas de examen · enunciados por recibir por correo el martes 27 de octubre',
+    sourceClass: 'Clase del 26 de octubre · examen de diez preguntas',
+    sourceRoute: '/semestre/5/ontologia-ii/clase/26-octubre',
   },
 ]
 

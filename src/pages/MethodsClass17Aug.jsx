@@ -123,7 +123,7 @@ export default function MethodsClass17Aug() {
               <div><small>Microestructura</small><strong>Cómo se construye el argumento</strong><p>Proposiciones, oraciones, párrafos y conexiones.</p></div>
               <div><small>Macroestructura</small><strong>Qué sostiene el texto en conjunto</strong><p>Idea general, conceptos clave y tesis principal.</p></div>
             </div>
-            <p className="methods-source-caution">El audio de esta parte quedó especialmente deformado. La atribución posible a Teun A. van Dijk no puede establecerse con seguridad a partir de la grabación y por eso no se presenta como dato confirmado.</p>
+            <p className="methods-source-caution">Esta parte de los apuntes quedó especialmente deformada. La atribución posible a Teun A. van Dijk no puede establecerse con seguridad a partir de la fuente disponible y por eso no se presenta como dato confirmado.</p>
           </section>
 
           <section id="escritura" className="methods-section">

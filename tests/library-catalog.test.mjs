@@ -17,9 +17,10 @@ test('all works are categorized, no ownership inferred',()=>{
 })
 test('recommendations with verified origins and no invented possession',()=>{
  const recommended=books.filter(x=>x.estado==='recomendada')
- assert.equal(recommended.length,10)
+ assert.equal(recommended.length,11)
  assert.deepEqual(new Set(recommended.map(x=>x.id)),new Set([
   'Adorno - Minima Moralia',
+  'Brentano - Psicología desde el punto de vista empírico',
   'Foucault - Vigilar y castigar',
   'Dilthey - Hegel y el idealismo',
   "Rendón - La lucha por el reconocimiento en el fragmento de 1803-1804 de Hegel",
@@ -30,7 +31,7 @@ test('recommendations with verified origins and no invented possession',()=>{
   'Nava - Tecnociencia, entorno y sujeto tecnocientífico',
   'Popper - La lógica de la investigación científica',
  ]))
- assert.ok(recommended.every(x=>!x.url || x.url.startsWith('https://archive.org/details/') || x.url.startsWith('https://www.revistadefilosofia.org/index.php/ERF/article/view/') || x.url.startsWith('https://revistas.pucp.edu.pe/index.php/arete/') || x.url.startsWith('https://raularagon.com.ar/biblioteca/libros/')))
+ assert.ok(recommended.every(x=>!x.url || x.url.startsWith('https://archive.org/details/') || x.url.startsWith('https://www.revistadefilosofia.org/index.php/ERF/article/view/') || x.url.startsWith('https://revistas.pucp.edu.pe/index.php/arete/') || x.url.startsWith('https://raularagon.com.ar/biblioteca/libros/') || x.url==='https://www.sigueme.es/docs/libros/psicologia-brentano-web.pdf'))
  assert.ok(recommended.every(x=>!('posesion' in x)))
  for (const id of ['Adorno - Minima Moralia','Illouz - Intimidades congeladas']) {
    const book=recommended.find(x=>x.id===id)
@@ -93,5 +94,18 @@ test('Bobbio se registra únicamente en Biblioteca, con edición cotejada y sin 
  assert.match(b.edicion,/2001/)
  assert.match(b.edicion,/2006/)
  assert.equal(b.url,undefined)
+ assert.ok(!('posesion' in b))
+})
+
+test('Brentano: recomendación de Métodos del 26 de octubre y muestra editorial, no tarea',()=>{
+ const b=books.find(x=>x.id==='Brentano - Psicología desde el punto de vista empírico')
+ assert.ok(b)
+ assert.equal(b.autor,'Brentano')
+ assert.equal(b.estado,'recomendada')
+ assert.equal(b.categoria,'investigación')
+ assert.match(b.lectura,/26-10-2026/)
+ assert.match(b.lectura,/17 páginas/)
+ assert.ok(authors.includes('Brentano, Franz'))
+ assert.equal(b.url,'https://www.sigueme.es/docs/libros/psicologia-brentano-web.pdf')
  assert.ok(!('posesion' in b))
 })

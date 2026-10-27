@@ -288,6 +288,32 @@ export default function MethodsResearch() {
           </div>
           <div className="methods-enter"><span>Abrir folio</span><b>↗</b></div>
         </Link>
+        <Link
+          to="/biblioteca?obra=Brentano%20-%20Psicolog%C3%ADa%20desde%20el%20punto%20de%20vista%20emp%C3%ADrico"
+          className="methods-class-card"
+          aria-label="Abrir recomendación bibliográfica de Franz Brentano del 26 de octubre"
+        >
+          <div className="methods-date"><strong>XXVI</strong><span>X · MMXXVI</span></div>
+          <div className="methods-class-copy">
+            <span>Registro parcial · Recomendación bibliográfica</span>
+            <h3>Franz Brentano · Psicología desde el punto de vista empírico</h3>
+            <p>Recomendación comunicada en la sesión del 26 de octubre. Ediciones Sígueme, 2020;
+              traducción de Sergio Sánchez-Migallón. El enlace disponible es una vista previa editorial
+              de 17 páginas. No consta lectura obligatoria ni el resto del contenido de la sesión.</p>
+          </div>
+          <div className="methods-enter"><span>Abrir ficha</span><b>↗</b></div>
+        </Link>
+        <Link to="/semestre/5/metodos-de-investigacion/clase/26-octubre" className="methods-class-card">
+          <div className="methods-date"><strong>XXVI</strong><span>X · MMXXVI</span></div>
+          <div className="methods-class-copy">
+            <span>Investigación cualitativa · Fenomenología · Exposición</span>
+            <h3>De los enfoques de investigación a la experiencia vivida</h3>
+            <p>Cuantitativo, cualitativo y mixto; Brentano, Husserl, Heidegger y Schütz;
+              problema de la creencia en Villoro y compromiso de exponer las tres dialécticas.
+              Incluye esquema SVG original y nota de calendario.</p>
+          </div>
+          <div className="methods-enter"><span>Abrir folio</span><b>↗</b></div>
+        </Link>
       </section>
 
       <footer className="methods-footer">

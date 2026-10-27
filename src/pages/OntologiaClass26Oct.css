@@ -1,0 +1,15 @@
+.ont26-page .ont19-portrait img { aspect-ratio:4/5; object-fit:contain; padding:.8rem; background:#eee4d3; }
+.ont26-exam { scroll-margin-top:1rem; padding:clamp(1.5rem,4vw,3.5rem); background:#f4ead8; border-block:6px solid #a7794d; color:#30221b; }
+.ont26-eyebrow { display:block; color:#7a2d1e; text-transform:uppercase; letter-spacing:.17em; font-size:.77rem; font-weight:700; }
+.ont26-exam h2 { font:400 clamp(2rem,4vw,3.3rem) Georgia,serif; margin:.8rem 0 1.2rem; }
+.ont26-exam-data { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin-bottom:1.3rem; }
+.ont26-exam-data > div { border:1px solid #c6ad8e; background:#fff8ea; padding:1.25rem; }
+.ont26-exam-data small { display:block; color:#7a2d1e; letter-spacing:.07em; margin-bottom:.7rem; }
+.ont26-exam-data strong { display:block; font:400 clamp(1.3rem,2.3vw,2.3rem) Georgia,serif; line-height:1.2; }
+.ont26-exam p { line-height:1.75; max-width:80ch; }
+.ont26-exam a { color:#7a2d1e; text-underline-offset:4px; }
+.ont26-plain { background:#e8dac7; padding:1.15rem; margin-block:1.25rem; border-left:4px solid #7a2d1e; }
+.ont26-plain summary { cursor:pointer; font-weight:700; color:#663222; }
+.ont26-plain p { line-height:1.7; margin-bottom:0; }
+.ont26-page .ont19-footer button { background:transparent; border:0; color:#722b1d; font:inherit; cursor:pointer; text-decoration:underline; }
+@media(max-width:760px){.ont26-exam-data{grid-template-columns:1fr}.ont26-exam-data strong{font-size:1.65rem}.ont26-page .ont19-portrait{max-width:420px}}

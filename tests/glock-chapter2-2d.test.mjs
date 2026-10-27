@@ -148,16 +148,33 @@ test('La tercera entrega sigue pp. 46–51, con frontera documental estricta', (
 })
 
 
-test('La tarea Glock pp. 46–51 aparece en FI264 sin fecha inventada y enlaza el atlas', () => {
+test('La tarea Glock pp. 46–51 conserva FI264 y el objetivo de estudio confirmado para el 28 de octubre', () => {
   const matches = tasks.filter(task => task.id === 'analitica-2026-10-21-glock-pp46-51-2d')
   assert.equal(matches.length, 1)
   const task = matches[0]
   assert.equal(task.subjectCode, 'FI264')
-  assert.equal(task.dueDate, null)
+  assert.equal(task.dueDate, '2026-10-28')
   assert.equal(task.assignedDate, '2026-10-21')
   assert.equal(task.studyRoute, '/semestre/5/filosofia-analitica/lectura/glock-capitulo-2')
   assert.match(task.readingPages, /46–51/)
   assert.match(task.description, /Bolzano, Boole, Frege/)
-  assert.match(task.sourceClass, /no asignación docente nueva/)
+  assert.match(task.description, /fecha de estudio\/seguimiento/)
+  assert.match(task.sourceClass, /continuidad para la clase del 28 de octubre/)
   assert.ok(tasks.some(item => item.id === 'analitica-2026-08-19-glock-cap2'))
+})
+
+
+test('El checkpoint del 26 de octubre pide seguir leyendo a Glock hoy sin borrar el hito del 28', () => {
+  const today = tasks.filter(task => task.id === 'analitica-2026-10-26-glock-continuar-lectura')
+  assert.equal(today.length, 1)
+  assert.equal(today[0].subjectCode, 'FI264')
+  assert.equal(today[0].assignedDate, '2026-10-26')
+  assert.equal(today[0].dueDate, '2026-10-26')
+  assert.match(today[0].title, /seguir leyendo hoy/)
+  assert.match(today[0].description, /No se fija un rango final de páginas/)
+  assert.match(today[0].sourceClass, /Seguimiento personal confirmado/)
+  assert.equal(today[0].studyRoute, '/semestre/5/filosofia-analitica/lectura/glock-capitulo-2')
+
+  const nextClass = tasks.find(task => task.id === 'analitica-2026-10-21-glock-pp46-51-2d')
+  assert.equal(nextClass?.dueDate, '2026-10-28')
 })
