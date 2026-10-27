@@ -78,6 +78,9 @@ jobs:
           VITE_ONESIGNAL_APP_ID: ${{ vars.ONESIGNAL_APP_ID }}
         run: npm run build
 
+      - name: Validate dialectics presentation isolation (33 slides · desktop and phone)
+        run: node tests/dialectica-presentacion-browser-smoke.mjs
+
       - name: Validate Critical Theory class 18 August (desktop, iPad, phone)
         run: node tests/critical-class18-browser-smoke.mjs
 

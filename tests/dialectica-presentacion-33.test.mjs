@@ -18,6 +18,11 @@ test('la presentación comparativa conserva las 33 láminas y navegación accesi
   assert.match(html,/aria-label="Diapositiva anterior"/)
   assert.match(html,/ArrowRight/)
   assert.match(html,/@media print/)
+  // Regresión BUG-030: los nombres de layout pertenecen al contenido, no al
+  // contenedor .slide. Si entran en la raíz, reglas como .triptych{display:grid}
+  // o .section{display:flex} anulan .slide{display:none} y apilan láminas.
+  assert.match(html,/class="slide \\${i===current\\?'active':''\\}"/)
+  assert.doesNotMatch(html,/class="slide[^"]*\\$\\{s\\.kind/)
 })
 
 test('la clase de Métodos enlaza la presentación publicada y ya no un PR histórico',()=>{

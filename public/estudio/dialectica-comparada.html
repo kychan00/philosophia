@@ -84,7 +84,7 @@ const slides=[
 const stage=document.getElementById('stage'),counter=document.getElementById('counter'),prev=document.getElementById('prev'),next=document.getElementById('next'),indexPanel=document.getElementById('indexPanel'),indexGrid=document.getElementById('indexGrid'),indexBtn=document.getElementById('indexBtn');
 let current=Math.max(0,Math.min(slides.length-1,(parseInt(location.hash.replace('#slide-',''),10)||1)-1));
 function render(){
-  stage.innerHTML=slides.map((s,i)=>`<section class="slide ${i===current?'active':''} ${s.kind||''}" data-number="${String(i+1).padStart(2,'0')}" aria-label="Diapositiva ${i+1} de ${slides.length}: ${s.title}"><div class="brandline">PHILOSOPHIA / ARCHIVUM ACADEMICUM</div><div class="folio">${s.folio}</div>${s.body}${s.source?`<div class="source">${s.source}</div>`:''}</section>`).join('');
+  stage.innerHTML=slides.map((s,i)=>`<section class="slide ${i===current?'active':''}" data-number="${String(i+1).padStart(2,'0')}" aria-label="Diapositiva ${i+1} de ${slides.length}: ${s.title}"><div class="brandline">PHILOSOPHIA / ARCHIVUM ACADEMICUM</div><div class="folio">${s.folio}</div>${s.body}${s.source?`<div class="source">${s.source}</div>`:''}</section>`).join('');
   counter.textContent=String(current+1).padStart(2,'0')+' / '+slides.length;
   prev.disabled=current===0; next.disabled=current===slides.length-1;
   document.querySelectorAll('.chapters button').forEach(b=>{const n=Number(b.dataset.go);const nextStart=[4,11,18,25,30,33].find(x=>x>n)??33;b.classList.toggle('on',current>=n&&current<nextStart)});
