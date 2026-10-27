@@ -731,10 +731,10 @@ export const tasks = [
     weight: null,
     priority: 'Media',
     description:
-      'Continuar el bloque Croce/Hegel. La grabación parece remitir al capítulo II de Croce y el cuestionario adjunto contiene una segunda sección de 17 preguntas, pero no se recupera una fecha de entrega ni una orden inequívoca de entregarlo en la siguiente sesión.',
+      'Continuar el bloque Croce/Hegel. La documentación de la sesión remite de forma probable al capítulo II de Croce y el cuestionario adjunto contiene una segunda sección de 17 preguntas, pero no consta una fecha de entrega ni una orden inequívoca de entregarlo en la siguiente sesión. La clase del 19 de octubre tampoco registra una entrega de este bloque.',
     readingScope:
       'Benedetto Croce · capítulo II · Aclaraciones concernientes a la historia de la Dialéctica · cuestionario de 17 preguntas',
-    sourceClass: 'Clase del 14 de octubre · continuidad anunciada, sin fecha de entrega confirmada',
+    sourceClass: 'Clase del 14 de octubre · continuidad anunciada; revisión del 19 de octubre sin entrega registrada',
     sourceRoute: '/semestre/5/ontologia-ii/clase/14-octubre',
     studyRoute: '/tareas/ontologia-ii/hegel-croce-dialectica',
   },
