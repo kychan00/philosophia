@@ -437,7 +437,7 @@ export default function OntologiaClass17Aug() {
               </div>
 
               <p>
-                La transcripción de esta primera clase contiene referencias
+                El registro conservado de esta primera clase contiene referencias
                 a porcentajes y a un posible trabajo final que quedaron
                 parcialmente dudosas. Para no mezclarlas con datos
                 reconstruidos, esta sección usa como fuente principal el

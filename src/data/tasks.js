@@ -26,8 +26,8 @@ export const tasks = [
     type: 'Trabajo del curso',
     weight: null,
     description:
-      'Elegir una pregunta vinculada con un tema del curso, confrontar posiciones de autores y argumentar una postura propia.',
-    sourceClass: 'Clase del 17 de agosto',
+      'Elegir una pregunta vinculada con un tema del curso, confrontar posiciones de autores y argumentar una postura propia. La sesión inicial no fija una fecha de entrega; se conserva como trabajo del curso sin vencimiento confirmado.',
+    sourceClass: 'Clase del 17 de agosto · trabajo del curso sin fecha confirmada',
     sourceRoute: '/semestre/5/ontologia-ii/clase/17-agosto',
   },
   {
@@ -40,8 +40,8 @@ export const tasks = [
     type: 'Producto final',
     weight: '40 %',
     description:
-      'Construir un protocolo que sintetice lógicamente la futura investigación: problema, antecedentes, fuentes, método, estructura y argumentación.',
-    sourceClass: 'Clase del 17 de agosto',
+      'Construir un protocolo que sintetice lógicamente la futura investigación: problema, antecedentes, fuentes, método, estructura y argumentación. La clase lo define como producto final del 40 %, pero no documenta una fecha de entrega.',
+    sourceClass: 'Clase del 17 de agosto · producto final 40 % sin fecha confirmada',
     sourceRoute:
       '/semestre/5/metodos-de-investigacion/clase/17-agosto',
   },
@@ -693,7 +693,7 @@ export const tasks = [
     readingScope: 'Sigmund Freud · El malestar en la cultura · continuidad de la lectura',
     readingPages: 'Sin rango nuevo indicado en clase',
     readingEdition: 'Biblioteca Libre OMEGALFA · trad. Luis López Ballesteros · maquetación 2010',
-    sourceClass: 'Clase del jueves 22 de octubre',
+    sourceClass: 'Clase del jueves 22 de octubre · continuidad de lectura sin fecha confirmada',
     sourceRoute: '/semestre/5/teoria-critica/clase/22-octubre',
     studyRoute: '/semestre/5/teoria-critica/clase/22-octubre',
   },
