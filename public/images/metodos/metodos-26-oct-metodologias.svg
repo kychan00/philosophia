@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="575" viewBox="0 0 1080 575" role="img" aria-labelledby="title desc">
+<title id="title">Enfoques de investigación: medición, comprensión e integración</title>
+<desc id="desc">Tres columnas enlazadas por una pregunta: cuantitativo busca datos y medición; cualitativo interpreta experiencias; mixto integra evidencias. Esquema pedagógico original, no una reproducción de la clase.</desc>
+<rect width="1080" height="575" fill="#fbfaf4"/>
+<text x="540" y="47" text-anchor="middle" font-family="Georgia,serif" font-size="30" fill="#273d3a">Una pregunta de investigación, distintos caminos</text>
+<text x="540" y="76" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#63706b">No equivalen a tres grados de validez: dependen del problema y del diseño</text>
+<rect x="370" y="103" width="340" height="67" rx="13" fill="#e8e4d9" stroke="#a1a9a1" stroke-width="2"/>
+<text x="540" y="133" font-family="Georgia,serif" font-size="22" text-anchor="middle" fill="#2a4039">¿Qué queremos conocer?</text>
+<text x="540" y="156" font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#576a61">Del objeto a una pregunta clara</text>
+<path d="M540 171 L540 194 M540 194 L181 194 L181 229 M540 194 L540 229 M540 194 L898 194 L898 229" fill="none" stroke="#718e82" stroke-width="3"/>
+<path d="M173 217 L181 229 L189 217 M532 217 L540 229 L548 217 M890 217 L898 229 L906 217" fill="none" stroke="#718e82" stroke-width="3"/>
+<g>
+<rect x="31" y="235" width="300" height="255" rx="17" fill="#ebf1f3" stroke="#658a98" stroke-width="2"/>
+<text x="181" y="275" text-anchor="middle" font-family="Georgia,serif" font-size="27" fill="#2f5264">CUANTITATIVO</text>
+<text x="181" y="307" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="bold" fill="#416a7b">Medir</text>
+<line x1="74" y1="324" x2="287" y2="324" stroke="#a0b9bf"/>
+<text x="181" y="354" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#2f5264">Datos numéricos</text>
+<text x="181" y="384" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#2f5264">Muestra y estadística</text>
+<text x="181" y="414" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#2f5264">Contrastar hipótesis</text>
+<text x="181" y="463" text-anchor="middle" font-family="Georgia,serif" font-size="16" font-style="italic" fill="#446776">¿Cuánto? ¿Con qué relación?</text>
+</g>
+<g>
+<rect x="390" y="235" width="300" height="255" rx="17" fill="#ebf1e7" stroke="#799373" stroke-width="2"/>
+<text x="540" y="275" text-anchor="middle" font-family="Georgia,serif" font-size="27" fill="#486741">CUALITATIVO</text>
+<text x="540" y="307" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="bold" fill="#547846">Comprender</text>
+<line x1="430" y1="324" x2="648" y2="324" stroke="#aabb9d"/>
+<text x="540" y="354" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#486741">Experiencias vividas</text>
+<text x="540" y="384" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#486741">Entrevistas y observación</text>
+<text x="540" y="414" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#486741">Sentidos en contexto</text>
+<text x="540" y="463" text-anchor="middle" font-family="Georgia,serif" font-size="16" font-style="italic" fill="#486741">¿Cómo se vive? ¿Qué significa?</text>
+</g>
+<g>
+<rect x="749" y="235" width="300" height="255" rx="17" fill="#f5efe2" stroke="#b1956d" stroke-width="2"/>
+<text x="899" y="275" text-anchor="middle" font-family="Georgia,serif" font-size="27" fill="#8c6546">MIXTO</text>
+<text x="899" y="307" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="bold" fill="#8c6546">Integrar</text>
+<line x1="791" y1="324" x2="1009" y2="324" stroke="#c9b89b"/>
+<text x="899" y="354" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#856647">Datos y relatos</text>
+<text x="899" y="384" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#856647">Articulación de técnicas</text>
+<text x="899" y="414" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#856647">Convergencia y contraste</text>
+<text x="899" y="463" text-anchor="middle" font-family="Georgia,serif" font-size="16" font-style="italic" fill="#856647">¿Qué aporta cada evidencia?</text>
+</g>
+<text x="540" y="537" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#596b64">Reconstrucción didáctica PHILOSOPHIA · 26 de octubre de 2026 · SVG original</text>
+</svg>
