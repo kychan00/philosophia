@@ -1883,7 +1883,7 @@ button.atelier-day-card {
 }
 
 .atelier-study-dial > div {
-  width: 72%;
+  width: 82%;
   aspect-ratio: 1;
   display: grid;
   place-content: center;
@@ -1904,13 +1904,16 @@ button.atelier-day-card {
 }
 
 .atelier-study-dial strong {
-  margin: 6px 0 3px;
+  width: 100%;
+  margin: 8px 0 5px;
   font-family: "EB Garamond", Georgia, serif;
-  font-size: clamp(3.4rem, 8vw, 7rem);
+  font-size: clamp(2.6rem, 4vw, 4rem);
   font-weight: 470;
-  line-height: 0.9;
+  line-height: 0.95;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .atelier-study-dial span {
@@ -2388,6 +2391,15 @@ button.atelier-day-card {
 
   .atelier-study-dial {
     width: min(86vw, 360px);
+  }
+
+  .atelier-study-dial > div {
+    width: 84%;
+  }
+
+  .atelier-study-dial strong {
+    font-size: clamp(2.35rem, 12vw, 3.35rem);
+    letter-spacing: -0.035em;
   }
 
   .atelier-study-clock-actions,
