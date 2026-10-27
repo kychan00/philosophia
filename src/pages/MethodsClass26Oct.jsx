@@ -130,7 +130,7 @@ export default function MethodsClass26Oct() {
         <div className="met26-taskgrid">{guide.map(([name,why],i)=><div key={name}><b>0{i+1}</b><h3>{name}</h3><p>{why}</p></div>)}</div>
         <p className="met26-taskdate"><strong>Planificación personal: miércoles 4 de noviembre de 2026 (tentativo).</strong> No se confirmó el día de exposición. Se comentó que el lunes 2 no habrá clase; si se modifica el orden o el calendario, esta previsión deberá corregirse.</p>
         <p><strong>Sin indicación documental:</strong> duración, formato exigido, número de diapositivas, bibliografía obligatoria, rúbrica o entrega escrita. Estos tres enfoques de preparación son propuestas editoriales, no instrucciones atribuidas al profesor.</p>
-        <p><a href="https://github.com/kychan00/philosophia/pull/34">Material comparativo previo: diapositiva Sócrates/Platón–Hegel–Marx (PR del recurso de estudio) ↗</a></p>
+        <p><a href={`${import.meta.env.BASE_URL}estudio/dialectica-comparada.html`}>Presentación principal · 33 láminas: Sócrates/Platón, Hegel y Marx ↗</a></p>
         <Link to="/tareas">Ver la tarea en el calendario ↗</Link>
       </section>
       <section className="met26-sources">
