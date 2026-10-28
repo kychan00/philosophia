@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
-import { Background, Controls, Handle, MarkerType, MiniMap, Position, ReactFlow, ReactFlowProvider } from '@xyflow/react'
+import { Background, Controls, Handle, MarkerType, Position, ReactFlow, ReactFlowProvider } from '@xyflow/react'
 import '@xyflow/react/dist/style.css'
 import '../components/philosophy/system2d/System2DTheme.css'
 import { SYSTEM_2D_THEME, resolveSystem2DEdgeColor } from '../components/philosophy/system2d/system2dTheme'
@@ -488,7 +488,6 @@ function Workspace() {
             proOptions={{ hideAttribution: true }}
           >
             <Background gap={22} size={1} color="#cbbfae" />
-            <MiniMap nodeColor={n => colors[n.data.chapter]} pannable zoomable />
             <Controls showInteractive={false} />
           </ReactFlow>
         </div>
