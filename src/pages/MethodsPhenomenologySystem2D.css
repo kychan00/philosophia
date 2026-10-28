@@ -19,9 +19,11 @@
 .phen2d-node{width:370px;height:184px}
 .phen2d-node strong{font-size:1.32rem}
 .phen2d-node p{-webkit-line-clamp:2}
+.phen2d-system .react-flow__edge-textbg{opacity:.96}
+.phen2d-system .react-flow__edge-text{paint-order:stroke;stroke:#f7f0e4;stroke-width:2px;stroke-linejoin:round}
 .phen2d-tools{min-height:48px}
 .phen2d-workspace{grid-template-columns:minmax(0,1fr) 430px}
-.phen2d-canvas,.phen2d-inspector{height:860px}
+.phen2d-canvas,.phen2d-inspector{height:960px}
 .phen2d-inspector .phen2d-say{margin:1.25rem 0;padding:1rem 1.1rem;background:#efe2c7;border-left:4px solid #9a702e}
 .phen2d-say h4{margin:0 0 .55rem!important;color:#6c4f1e!important;text-transform:none!important;letter-spacing:.02em!important}
 .phen2d-say p{font:700 1rem/1.6 Georgia,serif;margin:0}
@@ -42,7 +44,7 @@
 .phen2d-system.projection .phen2d-lesson{margin:.55rem 0;padding:1rem 1.35rem}
 .phen2d-system.projection .phen2d-lesson h3{font-size:clamp(2rem,4vw,3.3rem);margin:.25rem 0}
 .phen2d-system.projection .phen2d-workspace{min-height:70vh;grid-template-columns:minmax(0,1fr) minmax(390px,480px)}
-.phen2d-system.projection .phen2d-canvas,.phen2d-system.projection .phen2d-inspector{height:70vh}
+.phen2d-system.projection .phen2d-canvas,.phen2d-system.projection .phen2d-inspector{height:74vh}
 .phen2d-system.projection .phen2d-inspector h3{font-size:2.45rem}
 .phen2d-system.projection .phen2d-inspector>p:not(.m19-source),.phen2d-system.projection .phen2d-inspector li{font-size:1rem}
 .phen2d-system.projection .m19-node{opacity:.42;transition:opacity .2s ease,box-shadow .2s ease}
