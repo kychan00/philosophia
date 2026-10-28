@@ -57,6 +57,21 @@ async function viewport(width, height) {
   assert.equal((await evalJS("document.body.textContent.includes('estar perdido en una ciudad desconocida')")), true, 'falta el caso nuevo')
   assert.equal((await evalJS("/celular|mensaje amenazante|amenaza digital/i.test(document.body.textContent)")), false, 'persiste el caso anterior')
   if (width <= 1100) assert.ok(!state.columns.includes('430px'), 'inspector lateral rígido en tablet/teléfono')
+
+  // blur de foco: seleccionar m2 debe desenfocar m1 y mantener m2 nítido.
+  await evalJS("(document.querySelector('.phen2d-system .react-flow__node[data-id=\"m2\"]')?.click(),true)")
+  await until(() => evalJS("document.querySelector('.phen2d-system .react-flow__node.selected')?.getAttribute('data-id')==='m2'"), 'selección m2')
+  const focusState = await evalJS("(()=>{const a=document.querySelector('.phen2d-system .react-flow__node[data-id=\"m1\"]');const b=document.querySelector('.phen2d-system .react-flow__node[data-id=\"m2\"]');return {blur:getComputedStyle(a).filter,opacity:Number(getComputedStyle(a).opacity),selectedFilter:getComputedStyle(b).filter,hasFocus:document.querySelector('.phen2d-canvas')?.classList.contains('has-node-focus')}})()")
+  assert.equal(focusState.hasFocus, true, 'falta clase de foco')
+  assert.ok(focusState.blur.includes('blur'), 'nodo no seleccionado sin blur')
+  assert.ok(focusState.opacity < .5, 'nodo no seleccionado conserva demasiada presencia')
+  assert.ok(focusState.selectedFilter === 'none' || !focusState.selectedFilter.includes('blur'), 'nodo seleccionado quedó borroso')
+
+  // clic en el lienzo elimina selección y blur.
+  await evalJS("(document.querySelector('.phen2d-system .react-flow__pane')?.dispatchEvent(new MouseEvent('click',{bubbles:true,clientX:12,clientY:12})),true)")
+  await until(() => evalJS("document.querySelector('.phen2d-canvas')?.classList.contains('has-node-focus')===false"), 'limpiar foco')
+  const cleared = await evalJS("getComputedStyle(document.querySelector('.phen2d-system .react-flow__node[data-id=\"m1\"]')).filter")
+  assert.ok(cleared === 'none' || !cleared.includes('blur'), 'el blur no se limpió al pulsar el lienzo')
   console.log('Fenomenología 2D · pantalla', width, height, state)
 }
 
