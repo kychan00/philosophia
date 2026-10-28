@@ -45,6 +45,7 @@ const metrics = "(() => { const root=document.querySelector('.phen2d-system'); c
 
 async function viewport(width, height) {
   await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 2, mobile: width <= 768 })
+  await send('Emulation.setTouchEmulationEnabled', { enabled: width <= 768, maxTouchPoints: width <= 768 ? 5 : 1 })
   await send('Page.navigate', { url: 'about:blank' })
   await until(() => evalJS("location.href==='about:blank'"), 'reinicio')
   await send('Page.navigate', { url })
