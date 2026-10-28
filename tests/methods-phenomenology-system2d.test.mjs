@@ -127,3 +127,13 @@ test('Toda la superficie pública usa capas oscuras coherentes', () => {
   assert.match(visuals, /const paper = '#262626'/)
   assert.match(visuals, /const ink = '#f4f4f4'/)
 })
+
+
+test('El shell compartido no puede reintroducir superficies crema', () => {
+  assert.match(css, /\.m19-system\.phen2d-system\.ph2d-shell\{[\s\S]*--ph2d-bg:#161616/)
+  assert.match(css, /--ph2d-paper:#262626/)
+  assert.match(css, /--ph2d-paper2:#393939/)
+  assert.match(css, /--ph2d-node-surface:#262626/)
+  assert.match(css, /--mx-bg:#161616/)
+  assert.match(css, /\.phen2d-system \.m19-chapters button\.active\{[\s\S]*background:#393939/)
+})
