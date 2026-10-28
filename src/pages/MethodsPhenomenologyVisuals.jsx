@@ -1,5 +1,3 @@
-import React from 'react'
-
 const ink = '#24211d'
 const paper = '#f7f0e4'
 const moss = '#58735d'
