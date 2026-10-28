@@ -386,9 +386,9 @@ function Workspace() {
       </div>}
 
       <div className="m19-workspace phen2d-workspace">
-        <div className="m19-canvas phen2d-canvas" aria-label="Mapa bidimensional del método fenomenológico y su aplicación">
+        <div className={'m19-canvas phen2d-canvas'+(selectedId?' has-node-focus':'')} aria-label="Mapa bidimensional del método fenomenológico y su aplicación">
           <ReactFlow key={chapterId+(projection?'-projection':'')} onInit={instance=>{flowRef.current=instance}} fitView fitViewOptions={{padding:chapterId==='todo'?.15:.22,maxZoom:projection?.82:.95}} minZoom={.25} maxZoom={1.5} nodes={nodes} edges={edges} nodeTypes={nodeTypes} nodesDraggable={false} nodesConnectable={false} onNodeClick={(_,node)=>selectNode(node.id)} onPaneClick={()=>setSelectedId(null)} proOptions={{hideAttribution:true}}>
-            <Background gap={22} size={1} color="#cbbfae" />
+            <Background gap={22} size={1} color="#525252" />
             <Controls showInteractive={false} />
           </ReactFlow>
         </div>
