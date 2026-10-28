@@ -146,3 +146,16 @@ test('La ruta pública oculta el centro de notificaciones académicas', () => {
   assert.match(app, /hideAcademicNotifications\s*=\s*[\s\S]*isPublicCafeRoute\s*\|\|\s*isPublicPhenomenologyRoute/)
   assert.match(app, /!hideAcademicNotifications\s*&&\s*\(<AcademicNotifications/)
 })
+
+
+test('La navegación del folio responde a un solo toque móvil', () => {
+  assert.match(src, /const moveInspector=delta=>/)
+  assert.match(src, /const moveInspectorTouch=\(delta,event\)=>/)
+  assert.match(src, /event\.preventDefault\(\)/)
+  assert.match(src, /data-inspector-nav="prev"/)
+  assert.match(src, /data-inspector-nav="next"/)
+  assert.match(src, /onTouchEnd=\{event=>moveInspectorTouch\(-1,event\)\}/)
+  assert.match(src, /onTouchEnd=\{event=>moveInspectorTouch\(1,event\)\}/)
+  assert.match(css, /touch-action:manipulation/)
+  assert.match(css, /-webkit-tap-highlight-color:transparent/)
+})
