@@ -101,8 +101,8 @@ export default function MethodsPhenomenologyExposition() {
       <section className="phen-exp__system-entry" aria-label="Sistema 2D para proyección">
         <div>
           <span>SISTEMA 2D · PROYECCIÓN EN CLASE</span>
-          <h2>Recorra la exposición como un atlas vivo.</h2>
-          <p>Veinticuatro nodos, cinco actos, guía secuencial, modo estudio, folios con procedencia y un modo de proyección que amplía cada concepto mientras avanza la exposición.</p>
+          <h2>Método primero. Aplicación después.</h2>
+          <p>Doce nodos en dos movimientos: primero el método fenomenológico; después su aplicación completa a un caso. Incluye guía secuencial, modo estudio y proyección.</p>
         </div>
         <Link to="/estudio/fenomenologia-metodo/sistema-2d">Abrir sistema 2D ↗</Link>
       </section>
