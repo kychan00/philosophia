@@ -33,7 +33,7 @@ async function until(fn, label, attempts = 180) {
   throw new Error('Timeout: ' + label)
 }
 
-const metrics = "(() => { const root=document.querySelector('.phen2d-system'); const elements=[...document.querySelectorAll('.phen2d-system .react-flow__node')].filter(el=>{const r=el.getBoundingClientRect();return r.width>1&&r.height>1}).map(el=>({id:el.getAttribute('data-id'),box:el.getBoundingClientRect()})); const collisions=[]; for(let i=0;i<elements.length;i++) for(let j=i+1;j<elements.length;j++){const a=elements[i].box,b=elements[j].box;const x=Math.min(a.right,b.right)-Math.max(a.left,b.left);const y=Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top);if(x>2&&y>2)collisions.push(elements[i].id+' ~ '+elements[j].id)} return {count:elements.length,collisions,selected:document.querySelector('.phen2d-system .react-flow__node.selected')?.getAttribute('data-id')||null,simple:document.querySelector('.phen2d-system .m21-plain')?.textContent||'',inspector:document.querySelector('.phen2d-system .phen2d-inspector')?.getBoundingClientRect().width||0,scroll:document.documentElement.scrollWidth,width:innerWidth,chapters:document.querySelectorAll('.phen2d-system .m19-chapters button').length,projection:root?.classList.contains('projection')||false,columns:getComputedStyle(document.querySelector('.phen2d-system .phen2d-workspace')).gridTemplateColumns}; })()"
+const metrics = "(() => { const root=document.querySelector('.phen2d-system'); const elements=[...document.querySelectorAll('.phen2d-system .react-flow__node')].filter(el=>{const r=el.getBoundingClientRect();return r.width>1&&r.height>1}).map(el=>({id:el.getAttribute('data-id'),box:el.getBoundingClientRect()})); const collisions=[]; for(let i=0;i<elements.length;i++) for(let j=i+1;j<elements.length;j++){const a=elements[i].box,b=elements[j].box;const x=Math.min(a.right,b.right)-Math.max(a.left,b.left);const y=Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top);if(x>2&&y>2)collisions.push(elements[i].id+' ~ '+elements[j].id)} return {count:elements.length,collisions,selected:document.querySelector('.phen2d-system .react-flow__node.selected')?.getAttribute('data-id')||null,simple:document.querySelector('.phen2d-system .m21-plain')?.textContent||'',inspector:document.querySelector('.phen2d-system .phen2d-inspector')?.getBoundingClientRect().width||0,scroll:document.documentElement.scrollWidth,width:innerWidth,chapters:document.querySelectorAll('.phen2d-system .m19-chapters button').length,projection:root?.classList.contains('projection')||false,columns:getComputedStyle(document.querySelector('.phen2d-system .phen2d-workspace')).gridTemplateColumns,visual:document.querySelector('.phen2d-system .phen2d-visual-svg')?.getBoundingClientRect()||null,visualCaption:document.querySelector('.phen2d-system .phen2d-visual figcaption')?.textContent||''}; })()"
 
 async function viewport(width, height) {
   await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 2, mobile: width <= 768 })
@@ -48,6 +48,8 @@ async function viewport(width, height) {
   assert.deepEqual(state.collisions, [], 'solapamiento en ' + width + 'x' + height)
   assert.equal(state.selected, 'm1')
   assert.ok(state.simple.includes('En palabras simples:'), 'falta explicación sencilla')
+  assert.ok(state.visual && state.visual.width > 220 && state.visual.height > 100, 'visual SVG demasiado pequeño o ausente')
+  assert.ok(state.visualCaption.includes('Representación esquemática'), 'falta pie del visual SVG')
   assert.equal((await evalJS("document.body.textContent.includes('Para exponer')")), false, 'la página pública no debe mostrar notas para el expositor')
   assert.ok(state.inspector > 260, 'inspector demasiado estrecho')
   assert.ok(state.scroll <= state.width + 3, 'overflow global ' + JSON.stringify(state))
@@ -86,7 +88,9 @@ try {
   await evalJS("([...document.querySelectorAll('.phen2d-system .m19-chapters button')].find(b=>b.textContent.includes('Caso · estar perdido'))?.click(),true)")
   await until(() => evalJS("document.querySelectorAll('.phen2d-system .react-flow__node').length===10"), 'caso aplicado')
   await sleep(250)
-  assert.deepEqual((await evalJS(metrics)).collisions, [], 'colisiones en aplicación')
+  const caseState = await evalJS(metrics)
+  assert.deepEqual(caseState.collisions, [], 'colisiones en aplicación')
+  assert.ok(caseState.visual && caseState.visual.width > 220, 'visual del caso no visible')
 
   await evalJS("(document.querySelector('.phen2d-system .phen2d-project')?.click(),true)")
   await until(() => evalJS("document.querySelector('.phen2d-system.projection')!==null"), 'modo proyección')
