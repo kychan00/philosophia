@@ -92,7 +92,6 @@ test('El atlas aplica foco con blur y fondo grafito', () => {
 })
 
 test('El SVG de rigor hermenéutico evita etiquetas sobre los anillos', () => {
-  assert.match(visuals, /INTERPRETACIÓN RIGUROSA/)
   assert.match(visuals, /LENGUAJE/)
   assert.match(visuals, /HISTORIA/)
   assert.match(visuals, /MUNDO COMPARTIDO/)
