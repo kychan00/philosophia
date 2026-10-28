@@ -3,7 +3,6 @@ import { Link } from 'react-router'
 import { Background, Controls, Handle, MarkerType, Position, ReactFlow, ReactFlowProvider } from '@xyflow/react'
 import '@xyflow/react/dist/style.css'
 import '../components/philosophy/system2d/System2DTheme.css'
-import { SYSTEM_2D_THEME, resolveSystem2DEdgeColor } from '../components/philosophy/system2d/system2dTheme'
 import './MethodsClass19Oct.css'
 import './MethodsClass21Oct.css'
 import './MethodsPhenomenologySystem2D.css'
@@ -258,13 +257,18 @@ const quizzes = [
   { chapter:'caso', node:'c10', question:'¿Qué produce finalmente el análisis?', options:['Una ley universal','Una estructura provisional de la experiencia','Una medición de distancias'], correct:1, explanation:'La síntesis organiza rasgos estructurales sin convertirlos en ley universal.' },
 ]
 
-const palette = SYSTEM_2D_THEME.nodeTopics
-const colors = { metodo: palette.violet, caso: palette.moss }
+const nodeAccents = {
+  m1:'#0f62fe', m2:'#1192e8', m3:'#08bdba', m4:'#be95ff',
+  m5:'#ee5396', m6:'#42be65', m7:'#f1c21b', m8:'#fa4d56',
+  c1:'#4589ff', c2:'#33b1ff', c3:'#3ddbd9', c4:'#d4bbff',
+  c5:'#ff7eb6', c6:'#6fdc8c', c7:'#fddc69', c8:'#ff832b',
+  c9:'#ff8389', c10:'#78a9ff',
+}
 const nodeTypes = { study: StudyNode }
 
 function StudyNode({ data, selected }) {
   return (
-    <div className={'m19-node phen2d-node' + (selected ? ' selected' : '') + (data.guided ? ' guided' : '')} style={{ '--m19-node-accent': colors[data.chapter] }}>
+    <div className={'m19-node phen2d-node' + (selected ? ' selected' : '') + (data.guided ? ' guided' : '')} style={{ '--m19-node-accent': data.accent }}>
       <Handle type="target" position={Position.Top} />
       <div className="m19-node-top"><span>{data.number}</span><span>{data.chapter === 'metodo' ? 'MÉTODO' : 'CASO'}</span></div>
       <strong>{data.title}</strong>
@@ -318,14 +322,19 @@ function Workspace() {
       id:entry.id,type:'study',selected:entry.id===selectedId,
       position:{x:(i%columns)*xGap,y:Math.floor(i/columns)*yGap},
       style:{width:370,height:184},
-      data:{...entry,number:String(entries.findIndex(item=>item.id===entry.id)+1).padStart(2,'0'),guided:mode==='guia'&&visible[step]?.id===entry.id},
+      data:{...entry,accent:nodeAccents[entry.id],number:String(entries.findIndex(item=>item.id===entry.id)+1).padStart(2,'0'),guided:mode==='guia'&&visible[step]?.id===entry.id},
     }))
-    const edges=relationPairs.filter(([a,b])=>ids.has(a)&&ids.has(b)).map(([source,target,label])=>({
-      id:'rel-'+source+'-'+target,source,target,label,type:'smoothstep',
-      markerEnd:{type:MarkerType.ArrowClosed,color:resolveSystem2DEdgeColor({touchesSelected:source===selectedId||target===selectedId})},
-      style:{stroke:resolveSystem2DEdgeColor({touchesSelected:source===selectedId||target===selectedId,guidedActive:mode==='guia'&&visible[step]?.id===target}),strokeWidth:2},
-      labelStyle:{fontSize:11,fill:SYSTEM_2D_THEME.ink},labelBgStyle:{fill:SYSTEM_2D_THEME.background.paper},labelBgPadding:[8,5],labelBgBorderRadius:4,
-    }))
+    const edges=relationPairs.filter(([a,b])=>ids.has(a)&&ids.has(b)).map(([source,target,label])=>{
+      const active=source===selectedId||target===selectedId
+      const guided=mode==='guia'&&visible[step]?.id===target
+      const edgeColor=(active||guided)?(nodeAccents[target]||'#78a9ff'):'#8d8d8d'
+      return {
+        id:'rel-'+source+'-'+target,source,target,label,type:'smoothstep',
+        markerEnd:{type:MarkerType.ArrowClosed,color:edgeColor},
+        style:{stroke:edgeColor,strokeWidth:active||guided?3:1.5},
+        labelStyle:{fontSize:11,fill:'#f4f4f4'},labelBgStyle:{fill:'#262626'},labelBgPadding:[8,5],labelBgBorderRadius:2,
+      }
+    })
     return {nodes,edges}
   },[visible,selectedId,mode,step,columns,xGap,yGap])
 
@@ -374,7 +383,7 @@ function Workspace() {
       </div>}
 
       {mode==='estudio'&&question&&<div className="m19-lesson" aria-live="polite">
-        <span className="m19-kicker">DEFENSA ORAL · {qIndex+1} / {relevantQuizzes.length}</span>
+        <span className="m19-kicker">REPASO · {qIndex+1} / {relevantQuizzes.length}</span>
         <h3>{question.question}</h3>
         <div className="m19-options">{question.options.map((option,i)=><button type="button" key={option} aria-pressed={answer===i} className={answer===i?'chosen':''} onClick={()=>{setAnswer(i);setSelectedId(question.node);focusNode(question.node)}}>{option}</button>)}</div>
         {answer!==null&&<p className="m19-feedback"><b>{answer===question.correct?'Correcto.':'Revise el razonamiento.'}</b> {question.explanation}</p>}
@@ -392,7 +401,7 @@ function Workspace() {
             <Controls showInteractive={false} />
           </ReactFlow>
         </div>
-        <aside className="m19-inspector phen2d-inspector" aria-live="polite">
+        <aside className="m19-inspector phen2d-inspector" style={{'--phen2d-accent':nodeAccents[selected.id]}} aria-live="polite">
           <div className="m19-inspector-head"><span>FOLIO {String(entries.findIndex(item=>item.id===selected.id)+1).padStart(2,'0')} / {entries.length}</span><span>{selected.chapter==='metodo'?'MÉTODO':'CASO'}</span></div>
           <h3>{selected.title}</h3>
           <PhenomenologyNodeVisual id={selected.id} title={selected.title} />
@@ -426,20 +435,6 @@ export default function MethodsPhenomenologyAppliedSystem2D(){
       <p>El caso no procede de los ejemplos trabajados previamente. Se usa para demostrar que el método puede trasladarse a una experiencia distinta y producir una estructura filosóficamente argumentada.</p>
     </section>
     <ReactFlowProvider><Workspace/></ReactFlowProvider>
-    <section className="phen2d-defense">
-      <span className="m19-kicker">PREGUNTAS DE DEFENSA</span>
-      <h2>Lo que debe quedar filosóficamente claro.</h2>
-      <ol>
-        <li>¿Qué distingue descripción fenomenológica de explicación causal?</li>
-        <li>¿Qué se pone entre paréntesis mediante la epojé?</li>
-        <li>¿Cómo se relacionan noesis y noema?</li>
-        <li>¿Por qué estar perdido no es simplemente desconocer coordenadas?</li>
-        <li>¿Qué cambia en cuerpo, espacio y tiempo?</li>
-        <li>¿Qué papel tiene el destino intencional?</li>
-        <li>¿Qué muestran las variaciones eidéticas?</li>
-        <li>¿Por qué la síntesis es provisional?</li>
-      </ol>
-    </section>
     <section className="m19-outro phen2d-outro">
       <span className="m19-kicker">SÍNTESIS</span>
       <h2>Estar perdido es una ruptura de la orientación práctica.</h2>
