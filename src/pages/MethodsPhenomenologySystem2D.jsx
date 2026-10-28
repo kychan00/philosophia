@@ -392,7 +392,7 @@ function Workspace() {
         <div>
           <span className="m19-kicker">ATLAS DE EXPOSICIÓN · SISTEMA 2D</span>
           <h2>Fenomenología en operación.</h2>
-          <p>Veintidós nodos conectan problema, fundamento, mundo vivido, variación y límites. Cada folio distingue fuente de clase, reconstrucción editorial y alcance.</p>
+          <p>Veinticuatro nodos conectan problema, fundamento, mundo vivido, variación y límites. Cada folio distingue fuente de clase, reconstrucción editorial y alcance.</p>
         </div>
         <div className="phen2d-head-actions">
           {!projection && <button type="button" className="phen2d-project" onClick={startProjection}>Proyectar exposición ▶</button>}
@@ -566,7 +566,7 @@ export default function MethodsPhenomenologySystem2D() {
 
       <footer className="m19-footer">
         <span>PHILOSOPHIA · MÉTODOS DE INVESTIGACIÓN</span>
-        <span>22 nodos · 5 actos · modo proyección · modo estudio</span>
+        <span>24 nodos · 5 actos · modo proyección · modo estudio</span>
         <span className="m19-footer-mark" aria-hidden="true">Φ</span>
       </footer>
     </main>
