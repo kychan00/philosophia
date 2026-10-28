@@ -87,7 +87,7 @@ test('El atlas aplica foco con blur y fondo grafito', () => {
   assert.match(src, /color="#525252"/)
   assert.match(css, /background:#161616/)
   assert.match(css, /background:#262626/)
-  assert.match(css, /react-flow__node:not\(\.selected\)\{filter:blur\(2\.2px\);opacity:\.24\}/)
+  assert.match(css, /react-flow__node:not\(\.selected\)\{filter:blur\(2\.2px\);opacity:\.22\}/)
   assert.match(css, /react-flow__node\.selected\{filter:none;opacity:1/)
 })
 
@@ -96,4 +96,34 @@ test('El SVG de rigor hermenéutico evita etiquetas sobre los anillos', () => {
   assert.match(visuals, /HISTORIA/)
   assert.match(visuals, /MUNDO COMPARTIDO/)
   assert.match(visuals, /RIGOR = HACER EXPLÍCITOS LOS HORIZONTES/)
+})
+
+
+test('La página pública no contiene la sección de preguntas de defensa', () => {
+  assert.doesNotMatch(src, /phen2d-defense/)
+  assert.doesNotMatch(src, /PREGUNTAS DE DEFENSA/i)
+  assert.doesNotMatch(src, /Lo que debe quedar filosóficamente claro/i)
+  assert.doesNotMatch(css, /\.phen2d-defense/)
+})
+
+test('Los 18 nodos usan una paleta técnica multicolor propia', () => {
+  const accentBlock = src.match(/const nodeAccents = \{[\s\S]*?\n\}/)?.[0] || ''
+  for (const id of ids) assert.match(accentBlock, new RegExp('\\b'+id+':'), 'falta color para '+id)
+  const colors = [...accentBlock.matchAll(/#[0-9a-f]{6}/gi)].map(m => m[0].toLowerCase())
+  assert.ok(new Set(colors).size >= 10, 'la paleta de nodos es demasiado uniforme')
+  assert.match(css, /--p-blue:#0f62fe/)
+  assert.match(css, /--p-teal:#08bdba/)
+  assert.match(css, /--p-purple:#be95ff/)
+  assert.match(css, /--p-magenta:#ee5396/)
+  assert.match(css, /--p-green:#42be65/)
+})
+
+test('Toda la superficie pública usa capas oscuras coherentes', () => {
+  assert.match(css, /\.phen2d-page\{[\s\S]*--p-bg:#161616/)
+  assert.match(css, /\.phen2d-hero\{[\s\S]*background:/)
+  assert.match(css, /\.phen2d-thesis\{[\s\S]*background:#262626/)
+  assert.match(css, /\.phen2d-inspector\{[\s\S]*background:#262626/)
+  assert.match(css, /\.phen2d-node\{[\s\S]*background:#262626/)
+  assert.match(visuals, /const paper = '#262626'/)
+  assert.match(visuals, /const ink = '#f4f4f4'/)
 })
