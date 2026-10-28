@@ -71,6 +71,7 @@ async function viewport(width, height) {
   // clic en el lienzo elimina selección y blur.
   await evalJS("(document.querySelector('.phen2d-system .react-flow__pane')?.dispatchEvent(new MouseEvent('click',{bubbles:true,clientX:12,clientY:12})),true)")
   await until(() => evalJS("document.querySelector('.phen2d-canvas')?.classList.contains('has-node-focus')===false"), 'limpiar foco')
+  await sleep(320)
   const cleared = await evalJS("getComputedStyle(document.querySelector('.phen2d-system .react-flow__node[data-id=\"m1\"]')).filter")
   assert.ok(cleared === 'none' || !cleared.includes('blur'), 'el blur no se limpió al pulsar el lienzo')
   console.log('Fenomenología 2D · pantalla', width, height, state)
