@@ -411,7 +411,7 @@ function Workspace() {
 
 export default function MethodsPhenomenologyAppliedSystem2D(){
   return <main className="m19-page m21-page phen2d-page">
-    <nav className="m19-nav"><Link to="/estudio/fenomenologia-metodo">← Fenomenología</Link><Link to="/">Φ · PHILOSOPHIA</Link><span>FI104 · MÉTODO + CASO</span></nav>
+    <nav className="m19-nav"><Link to="/semestre/5/metodos-de-investigacion">← Métodos de Investigación</Link><Link to="/">Φ · PHILOSOPHIA</Link><span>FI104 · MÉTODO + CASO</span></nav>
     <header className="phen2d-hero">
       <p className="m19-kicker">FENOMENOLOGÍA · INVESTIGACIÓN FILOSÓFICA</p>
       <h1>Del método<br/><em>a la experiencia.</em></h1>
@@ -442,7 +442,7 @@ export default function MethodsPhenomenologyAppliedSystem2D(){
       <span className="m19-kicker">SÍNTESIS</span>
       <h2>Estar perdido es una ruptura de la orientación práctica.</h2>
       <p>El mundo deja de ofrecer un camino evidente hacia el destino; el espacio se vuelve ambiguo, el cuerpo busca, el tiempo se reorganiza y los otros pueden aparecer como fuentes de orientación.</p>
-      <Link to="/estudio/fenomenologia-metodo">← Volver a la página de estudio</Link>
+      <Link to="/semestre/5/metodos-de-investigacion">← Volver a Métodos de Investigación</Link>
     </section>
     <footer className="m19-footer"><span>PHILOSOPHIA · MÉTODOS DE INVESTIGACIÓN</span><span>18 nodos · método + aplicación sistemática</span><span className="m19-footer-mark" aria-hidden="true">Φ</span></footer>
   </main>
