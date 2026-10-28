@@ -375,6 +375,11 @@
   border-top:1px solid #525252;
 }
 .phen2d-inspector .m19-inspector-nav button:first-child{border-left:4px solid var(--phen2d-accent,#78a9ff)}
+.phen2d-inspector .m19-inspector-nav button{
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+  user-select:none;
+}
 .phen2d-inspector .m19-inspector-nav button:last-child{background:var(--phen2d-accent,#0f62fe);border-color:var(--phen2d-accent,#0f62fe);color:#161616}
 .phen2d-inspector .m21-plain{
   margin:1.3rem 0;
