@@ -80,3 +80,21 @@ test('Los 18 nodos tienen representación SVG propia', () => {
   assert.match(css, /\.phen2d-visual-svg/)
   assert.match(css, /max-height:220px/)
 })
+
+
+test('El atlas aplica foco con blur y fondo grafito', () => {
+  assert.match(src, /has-node-focus/)
+  assert.match(src, /color="#525252"/)
+  assert.match(css, /background:#161616/)
+  assert.match(css, /background:#262626/)
+  assert.match(css, /react-flow__node:not\(\.selected\)\{filter:blur\(2\.2px\);opacity:\.24\}/)
+  assert.match(css, /react-flow__node\.selected\{filter:none;opacity:1/)
+})
+
+test('El SVG de rigor hermenéutico evita etiquetas sobre los anillos', () => {
+  assert.match(visuals, /INTERPRETACIÓN RIGUROSA/)
+  assert.match(visuals, /LENGUAJE/)
+  assert.match(visuals, /HISTORIA/)
+  assert.match(visuals, /MUNDO COMPARTIDO/)
+  assert.match(visuals, /RIGOR = HACER EXPLÍCITOS LOS HORIZONTES/)
+})
