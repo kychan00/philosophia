@@ -131,6 +131,13 @@ export default function MethodsClass26Oct() {
         <p className="met26-taskdate"><strong>Planificación personal: miércoles 4 de noviembre de 2026 (tentativo).</strong> No se confirmó el día de exposición. Se comentó que el lunes 2 no habrá clase; si se modifica el orden o el calendario, esta previsión deberá corregirse.</p>
         <p><strong>Sin indicación documental:</strong> duración, formato exigido, número de diapositivas, bibliografía obligatoria, rúbrica o entrega escrita. Estos tres enfoques de preparación son propuestas editoriales, no instrucciones atribuidas al profesor.</p>
         <p><a href={`${import.meta.env.BASE_URL}estudio/dialectica-comparada.html`}>Presentación principal · 33 láminas: Sócrates/Platón, Hegel y Marx ↗</a></p>
+        <div className="met26-simple">
+          <strong>Actualización de preparación posterior a la sesión</strong>
+          <p>
+            El estudiante ha decidido asumir también la exposición de fenomenología originalmente prevista para otra participante. Esta decisión es posterior a la clase y no se atribuye al profesor como una nueva consigna.
+          </p>
+          <p><Link to="/estudio/fenomenologia-metodo">Abrir sistematización · Fenomenología como método de investigación ↗</Link></p>
+        </div>
         <Link to="/tareas">Ver la tarea en el calendario ↗</Link>
       </section>
       <section className="met26-sources">
