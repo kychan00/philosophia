@@ -25,6 +25,11 @@
 .phen2d-workspace{grid-template-columns:minmax(0,1fr) 430px}
 .phen2d-canvas,.phen2d-inspector{height:960px}
 .phen2d-projection-line{font:normal clamp(1.45rem,2.4vw,2.35rem)/1.25 Georgia,serif!important;color:#294a3c;margin:.7rem 0 1.1rem!important;max-width:1050px}
+.phen2d-visual{margin:.9rem 0 1.2rem;padding:.7rem;background:#f4ecdf;border:1px solid #c4b7a5;border-radius:14px}
+.phen2d-visual-svg{display:block;width:100%;height:auto;max-height:285px}
+.phen2d-visual figcaption{margin:.45rem .2rem 0;font:700 .62rem/1.25 Arial,sans-serif;letter-spacing:.08em;color:#786d60;text-transform:uppercase}
+.phen2d-system.projection .phen2d-visual-svg{max-height:320px}
+.phen2d-system.projection .phen2d-visual{margin:.7rem 0 1rem}
 .phen2d-lesson{border-left-color:#6f6d85}
 .phen2d-defense{padding:5rem clamp(1.2rem,7vw,8rem);background:#f7f0e4}
 .phen2d-defense h2{font:normal clamp(2.8rem,5vw,5rem)/1 Georgia,serif;max-width:900px;margin:.7rem 0 2rem}
@@ -51,6 +56,7 @@
   .phen2d-workspace{grid-template-columns:1fr}
   .phen2d-canvas{height:720px}
   .phen2d-inspector{height:auto}
+  .phen2d-visual-svg{max-height:260px}
   .phen2d-system.projection .phen2d-workspace{display:grid;grid-template-columns:1fr}
   .phen2d-system.projection .phen2d-canvas{height:58vh;min-height:520px}
   .phen2d-system.projection .phen2d-inspector{height:auto;max-height:none}
@@ -63,6 +69,8 @@
   .phen2d-head-actions button{flex:1 1 200px}
   .phen2d-defense ol{columns:1}
   .phen2d-system .m19-canvas{height:650px}
+  .phen2d-visual{margin:.7rem 0 1rem;padding:.5rem}
+  .phen2d-visual-svg{max-height:220px}
   .phen2d-system.projection .phen2d-canvas{height:520px;min-height:520px}
 }
 @media(max-width:480px){
