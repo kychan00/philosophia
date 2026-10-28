@@ -148,32 +148,30 @@ function VisualM7() {
 
 function VisualM8() {
   return <Frame>
-    <Label x="185" y="27" fill={ink}>INTERPRETACIÓN RIGUROSA</Label>
+    <circle cx="175" cy="115" r="34" fill="#fffdf8" stroke={ink} strokeWidth="2.5"/>
+    <circle cx="175" cy="115" r="56" fill="none" stroke={violet} strokeWidth="3"/>
+    <circle cx="175" cy="115" r="76" fill="none" stroke={gold} strokeWidth="3"/>
+    <circle cx="175" cy="115" r="94" fill="none" stroke={moss} strokeWidth="3" strokeDasharray="7 6"/>
 
-    <circle cx="185" cy="130" r="42" fill="#fffdf8" stroke={ink} strokeWidth="2.5"/>
-    <circle cx="185" cy="130" r="65" fill="none" stroke={violet} strokeWidth="3"/>
-    <circle cx="185" cy="130" r="84" fill="none" stroke={gold} strokeWidth="3"/>
-    <circle cx="185" cy="130" r="103" fill="none" stroke={moss} strokeWidth="3" strokeDasharray="7 6"/>
+    <Label x="175" y="111" size={9}>INTERPRETACIÓN</Label>
+    <Label x="175" y="128" size={8} weight={600}>argumentada</Label>
 
-    <Label x="185" y="126" size={10}>INTERPRETACIÓN</Label>
-    <Label x="185" y="143" size={8} weight={600}>argumentada</Label>
+    <line x1="227" y1="93" x2="318" y2="59" stroke={violet} strokeWidth="2"/>
+    <circle cx="227" cy="93" r="4" fill={violet}/>
+    <rect x="326" y="43" width="154" height="32" rx="16" fill="#eeecf3" stroke={violet}/>
+    <Label x="403" y="63" size={9} fill={violet}>LENGUAJE</Label>
 
-    <line x1="244" y1="102" x2="326" y2="72" stroke={violet} strokeWidth="2"/>
-    <circle cx="244" cy="102" r="4" fill={violet}/>
-    <rect x="334" y="55" width="142" height="34" rx="17" fill="#eeecf3" stroke={violet}/>
-    <Label x="405" y="76" size={9} fill={violet}>LENGUAJE</Label>
+    <line x1="251" y1="115" x2="318" y2="115" stroke={gold} strokeWidth="2"/>
+    <circle cx="251" cy="115" r="4" fill={gold}/>
+    <rect x="326" y="99" width="154" height="32" rx="16" fill="#f5ecd9" stroke={gold}/>
+    <Label x="403" y="119" size={9} fill={gold}>HISTORIA</Label>
 
-    <line x1="265" y1="135" x2="326" y2="135" stroke={gold} strokeWidth="2"/>
-    <circle cx="265" cy="135" r="4" fill={gold}/>
-    <rect x="334" y="118" width="142" height="34" rx="17" fill="#f5ecd9" stroke={gold}/>
-    <Label x="405" y="139" size={9} fill={gold}>HISTORIA</Label>
+    <line x1="242" y1="174" x2="318" y2="171" stroke={moss} strokeWidth="2"/>
+    <circle cx="242" cy="174" r="4" fill={moss}/>
+    <rect x="326" y="155" width="154" height="32" rx="16" fill="#e8efe9" stroke={moss}/>
+    <Label x="403" y="175" size={8} fill={moss}>MUNDO COMPARTIDO</Label>
 
-    <line x1="256" y1="190" x2="326" y2="198" stroke={moss} strokeWidth="2"/>
-    <circle cx="256" cy="190" r="4" fill={moss}/>
-    <rect x="334" y="181" width="142" height="34" rx="17" fill="#e8efe9" stroke={moss}/>
-    <Label x="405" y="202" size={8} fill={moss}>MUNDO COMPARTIDO</Label>
-
-    <Label x="185" y="239" size={8} fill={ink}>RIGOR = HACER EXPLÍCITOS LOS HORIZONTES</Label>
+    <Label x="260" y="231" size={8} fill={ink}>RIGOR = HACER EXPLÍCITOS LOS HORIZONTES</Label>
   </Frame>
 }
 
