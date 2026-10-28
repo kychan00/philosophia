@@ -116,6 +116,7 @@ const MethodsClass19Oct = lazy(() => import('./pages/MethodsClass19Oct'))
 const MethodsClass21Oct = lazy(() => import('./pages/MethodsClass21Oct'))
 const MethodsClass26Oct = lazy(() => import('./pages/MethodsClass26Oct'))
 const MethodsPhenomenologyExposition = lazy(() => import('./pages/MethodsPhenomenologyExposition'))
+const MethodsPhenomenologySystem2D = lazy(() => import('./pages/MethodsPhenomenologySystem2D'))
 const MethodsRussSystem2D = lazy(() => import('./pages/MethodsRussSystem2D'))
 const AnalyticPhilosophy = lazy(() => import('./pages/AnalyticPhilosophy'))
 const AnalyticClass17Aug = lazy(() => import('./pages/AnalyticClass17Aug'))
@@ -503,6 +504,10 @@ function App() {
         <Route
           path="/estudio/fenomenologia-metodo"
           element={<MethodsPhenomenologyExposition />}
+        />
+        <Route
+          path="/estudio/fenomenologia-metodo/sistema-2d"
+          element={<MethodsPhenomenologySystem2D />}
         />
         <Route
           path="/tareas/metodos-de-investigacion/jacqueline-russ-capitulos-1-3"
