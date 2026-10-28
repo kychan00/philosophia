@@ -4,6 +4,7 @@ import test from 'node:test'
 
 const src = readFileSync(new URL('../src/pages/MethodsPhenomenologyAppliedSystem2D.jsx', import.meta.url), 'utf8')
 const css = readFileSync(new URL('../src/pages/MethodsPhenomenologySystem2D.css', import.meta.url), 'utf8')
+const visuals = readFileSync(new URL('../src/pages/MethodsPhenomenologyVisuals.jsx', import.meta.url), 'utf8')
 const app = readFileSync(new URL('../src/App.jsx', import.meta.url), 'utf8')
 const study = readFileSync(new URL('../src/pages/MethodsPhenomenologyExposition.jsx', import.meta.url), 'utf8')
 const route = '/estudio/fenomenologia-metodo/sistema-2d'
@@ -68,4 +69,14 @@ test('Modo proyección recorre los 18 nodos y puede cerrarse', () => {
   assert.match(src, /Salir de proyección/)
   assert.match(src, /visible\[step\]\.short/)
   assert.match(css, /\.phen2d-system\.projection/)
+})
+
+
+test('Los 18 nodos tienen representación SVG propia', () => {
+  for (const id of ids) assert.match(visuals, new RegExp('\\b'+id+'\\s*:'), 'falta visual para '+id)
+  assert.match(src, /PhenomenologyNodeVisual/)
+  assert.match(src, /<PhenomenologyNodeVisual id=\{selected\.id\}/)
+  assert.match(visuals, /<svg className="phen2d-visual-svg"/)
+  assert.match(css, /\.phen2d-visual-svg/)
+  assert.match(css, /max-height:220px/)
 })
