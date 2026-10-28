@@ -34,10 +34,15 @@ async function until(fn, label, attempts = 180) {
 }
 
 async function tapTouch(selector) {
-  const point = await evalJS(`(()=>{const el=document.querySelector(${JSON.stringify(selector)});if(!el)return null;el.scrollIntoView({block:'center',inline:'center'});const r=el.getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+r.height/2}})()`)
-  assert.ok(point, 'elemento táctil no encontrado: ' + selector)
-  await sleep(120)
+  const exists = await evalJS(`(()=>{const el=document.querySelector(${JSON.stringify(selector)});if(!el)return false;el.scrollIntoView({behavior:'instant',block:'center',inline:'center'});return true})()`)
+  assert.ok(exists, 'elemento táctil no encontrado: ' + selector)
+  await sleep(260)
+  const point = await evalJS(`(()=>{const el=document.querySelector(${JSON.stringify(selector)});const r=el?.getBoundingClientRect();if(!r)return null;const x=r.left+r.width/2,y=r.top+r.height/2;const hit=document.elementFromPoint(x,y);return {x,y,hit:hit?.closest?.('[data-inspector-nav]')?.getAttribute('data-inspector-nav')||null}})()`)
+  assert.ok(point, 'coordenadas táctiles no disponibles: ' + selector)
+  const expected = selector.includes('next') ? 'next' : 'prev'
+  assert.equal(point.hit, expected, 'el toque no apunta al botón esperado: ' + JSON.stringify(point))
   await send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: point.x, y: point.y, radiusX: 2, radiusY: 2, force: 1 }] })
+  await sleep(60)
   await send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] })
 }
 
