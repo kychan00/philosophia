@@ -148,14 +148,32 @@ function VisualM7() {
 
 function VisualM8() {
   return <Frame>
-    <circle cx="260" cy="125" r="45" fill="#fffdf8" stroke={ink} strokeWidth="2"/>
-    <Label x="260" y="120" size={10}>INTERPRETACIÓN</Label>
-    <Label x="260" y="139" size={9}>argumentada</Label>
-    {[
-      {r:78,t:'lenguaje',c:violet},
-      {r:108,t:'historia',c:gold},
-      {r:138,t:'mundo compartido',c:moss}
-    ].map((o,i)=><g key={i}><circle cx="260" cy="125" r={o.r} fill="none" stroke={o.c} strokeWidth="2" strokeDasharray={i===2?'6 5':undefined}/><Label x={260+o.r-8} y={125-o.r+16} size={9} fill={o.c} anchor="end">{o.t}</Label></g>)}
+    <Label x="185" y="27" fill={ink}>INTERPRETACIÓN RIGUROSA</Label>
+
+    <circle cx="185" cy="130" r="42" fill="#fffdf8" stroke={ink} strokeWidth="2.5"/>
+    <circle cx="185" cy="130" r="65" fill="none" stroke={violet} strokeWidth="3"/>
+    <circle cx="185" cy="130" r="84" fill="none" stroke={gold} strokeWidth="3"/>
+    <circle cx="185" cy="130" r="103" fill="none" stroke={moss} strokeWidth="3" strokeDasharray="7 6"/>
+
+    <Label x="185" y="126" size={10}>INTERPRETACIÓN</Label>
+    <Label x="185" y="143" size={8} weight={600}>argumentada</Label>
+
+    <line x1="244" y1="102" x2="326" y2="72" stroke={violet} strokeWidth="2"/>
+    <circle cx="244" cy="102" r="4" fill={violet}/>
+    <rect x="334" y="55" width="142" height="34" rx="17" fill="#eeecf3" stroke={violet}/>
+    <Label x="405" y="76" size={9} fill={violet}>LENGUAJE</Label>
+
+    <line x1="265" y1="135" x2="326" y2="135" stroke={gold} strokeWidth="2"/>
+    <circle cx="265" cy="135" r="4" fill={gold}/>
+    <rect x="334" y="118" width="142" height="34" rx="17" fill="#f5ecd9" stroke={gold}/>
+    <Label x="405" y="139" size={9} fill={gold}>HISTORIA</Label>
+
+    <line x1="256" y1="190" x2="326" y2="198" stroke={moss} strokeWidth="2"/>
+    <circle cx="256" cy="190" r="4" fill={moss}/>
+    <rect x="334" y="181" width="142" height="34" rx="17" fill="#e8efe9" stroke={moss}/>
+    <Label x="405" y="202" size={8} fill={moss}>MUNDO COMPARTIDO</Label>
+
+    <Label x="185" y="239" size={8} fill={ink}>RIGOR = HACER EXPLÍCITOS LOS HORIZONTES</Label>
   </Frame>
 }
 
