@@ -7,6 +7,7 @@ import { SYSTEM_2D_THEME, resolveSystem2DEdgeColor } from '../components/philoso
 import './MethodsClass19Oct.css'
 import './MethodsClass21Oct.css'
 import './MethodsPhenomenologySystem2D.css'
+import PhenomenologyNodeVisual from './MethodsPhenomenologyVisuals'
 
 const chapters = [
   {
@@ -394,6 +395,7 @@ function Workspace() {
         <aside className="m19-inspector phen2d-inspector" aria-live="polite">
           <div className="m19-inspector-head"><span>FOLIO {String(entries.findIndex(item=>item.id===selected.id)+1).padStart(2,'0')} / {entries.length}</span><span>{selected.chapter==='metodo'?'MÉTODO':'CASO'}</span></div>
           <h3>{selected.title}</h3>
+          <PhenomenologyNodeVisual id={selected.id} title={selected.title} />
           <h4>Idea central</h4>
           <ul>{selected.points.map((point,i)=><li key={i}>{point}</li>)}</ul>
           <h4>Qué significa metodológicamente</h4>
