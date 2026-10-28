@@ -1,0 +1,73 @@
+.phen2d-page{background:#ebe3d5}
+.phen2d-hero{padding:4.8rem clamp(1.2rem,7vw,8rem) 3.7rem;background:linear-gradient(135deg,#f7f0e4 0%,#eee4d3 58%,#e5e9df 100%);border-bottom:5px double #b8ac9b;position:relative;overflow:hidden}
+.phen2d-hero::after{content:'ἐποχή';position:absolute;right:-1.5rem;top:1.2rem;font:normal clamp(5rem,16vw,14rem)/1 Georgia,serif;color:rgba(82,108,89,.06);pointer-events:none}
+.phen2d-hero>p,.phen2d-hero h1,.phen2d-hero-route{position:relative;z-index:1}
+.phen2d-hero h1{font:normal clamp(4rem,8vw,9.2rem)/.92 Georgia,serif;letter-spacing:-.06em;margin:1rem 0 2rem;max-width:1100px}
+.phen2d-hero h1 em{color:#59745c;font-weight:normal}
+.phen2d-hero>p:not(.m19-kicker){max-width:850px;font:normal clamp(1.1rem,2vw,1.55rem)/1.55 Georgia,serif}
+.phen2d-hero-route{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;margin-top:2.2rem;border-top:1px solid #b8ac9b;padding-top:1.25rem}
+.phen2d-hero-route span{border:1px solid #a99d8c;background:#f8f2e7;padding:.6rem .8rem;font:800 .69rem/1 Arial,sans-serif;letter-spacing:.08em}
+.phen2d-hero-route b{color:#9a702e}
+.phen2d-thesis{padding:4.2rem clamp(1.2rem,7vw,8rem);background:#f7f0e4;border-bottom:1px solid #c5b9a8}
+.phen2d-thesis h2{font:normal clamp(2.4rem,5vw,5.1rem)/1.04 Georgia,serif;letter-spacing:-.045em;margin:.7rem 0 1.6rem;max-width:1100px}
+.phen2d-thesis h2 em{color:#9b4b38;font-weight:normal}
+.phen2d-thesis>p{max-width:900px;font:normal 1rem/1.75 Arial,sans-serif}
+.phen2d-system{background:linear-gradient(#eee7dc,#e9e0d2)}
+.phen2d-head-actions{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:flex-end}
+.phen2d-head-actions button{border:1px solid var(--ph2d-line);background:var(--ph2d-paper);color:var(--ph2d-ink);padding:.9rem 1rem;font:800 .73rem/1.3 Arial,sans-serif}
+.phen2d-head-actions .phen2d-project{background:#211d18;color:#f7f0e4;border-color:#211d18}
+.phen2d-node{width:370px;height:184px}
+.phen2d-node strong{font-size:1.32rem}
+.phen2d-node p{-webkit-line-clamp:2}
+.phen2d-tools{min-height:48px}
+.phen2d-workspace{grid-template-columns:minmax(0,1fr) 430px}
+.phen2d-canvas,.phen2d-inspector{height:860px}
+.phen2d-inspector .phen2d-say{margin:1.25rem 0;padding:1rem 1.1rem;background:#efe2c7;border-left:4px solid #9a702e}
+.phen2d-say h4{margin:0 0 .55rem!important;color:#6c4f1e!important;text-transform:none!important;letter-spacing:.02em!important}
+.phen2d-say p{font:700 1rem/1.6 Georgia,serif;margin:0}
+.phen2d-projection-line{font:normal clamp(1.45rem,2.4vw,2.35rem)/1.25 Georgia,serif!important;color:#294a3c;margin:.7rem 0 1.1rem!important;max-width:1050px}
+.phen2d-lesson{border-left-color:#6f6d85}
+.phen2d-defense{padding:5rem clamp(1.2rem,7vw,8rem);background:#f7f0e4}
+.phen2d-defense h2{font:normal clamp(2.8rem,5vw,5rem)/1 Georgia,serif;max-width:900px;margin:.7rem 0 2rem}
+.phen2d-defense ol{columns:2;column-gap:4rem;max-width:1050px;padding-left:1.4rem}
+.phen2d-defense li{break-inside:avoid;margin:0 0 1.1rem;padding-left:.4rem;font:normal 1.08rem/1.55 Arial,sans-serif}
+.phen2d-outro .m19-kicker{color:#d7b568}
+
+.phen2d-system.projection{padding-top:.8rem}
+.phen2d-system.projection .phen2d-head{align-items:center}
+.phen2d-system.projection .phen2d-head h2{font-size:clamp(2rem,3vw,3rem);margin:.2rem 0}
+.phen2d-system.projection .phen2d-head p{display:none}
+.phen2d-system.projection .phen2d-tools{margin:.25rem 0}
+.phen2d-system.projection .phen2d-tools span{font-size:.82rem}
+.phen2d-system.projection .phen2d-lesson{margin:.55rem 0;padding:1rem 1.35rem}
+.phen2d-system.projection .phen2d-lesson h3{font-size:clamp(2rem,4vw,3.3rem);margin:.25rem 0}
+.phen2d-system.projection .phen2d-workspace{min-height:70vh;grid-template-columns:minmax(0,1fr) minmax(390px,480px)}
+.phen2d-system.projection .phen2d-canvas,.phen2d-system.projection .phen2d-inspector{height:70vh}
+.phen2d-system.projection .phen2d-inspector h3{font-size:2.45rem}
+.phen2d-system.projection .phen2d-inspector>p:not(.m19-source),.phen2d-system.projection .phen2d-inspector li{font-size:1rem}
+.phen2d-system.projection .m19-node{opacity:.42;transition:opacity .2s ease,box-shadow .2s ease}
+.phen2d-system.projection .m19-node.selected,.phen2d-system.projection .m19-node.guided{opacity:1}
+
+@media(max-width:1100px){
+  .phen2d-workspace{grid-template-columns:1fr}
+  .phen2d-canvas{height:720px}
+  .phen2d-inspector{height:auto}
+  .phen2d-system.projection .phen2d-workspace{display:grid;grid-template-columns:1fr}
+  .phen2d-system.projection .phen2d-canvas{height:58vh;min-height:520px}
+  .phen2d-system.projection .phen2d-inspector{height:auto;max-height:none}
+}
+@media(max-width:760px){
+  .phen2d-hero{padding-top:3.2rem}
+  .phen2d-hero::after{font-size:24vw;top:5rem}
+  .phen2d-hero h1{font-size:clamp(3.1rem,13vw,5.4rem)}
+  .phen2d-head-actions{width:100%;justify-content:flex-start}
+  .phen2d-head-actions button{flex:1 1 200px}
+  .phen2d-defense ol{columns:1}
+  .phen2d-system .m19-canvas{height:650px}
+  .phen2d-system.projection .phen2d-canvas{height:520px;min-height:520px}
+}
+@media(max-width:480px){
+  .phen2d-hero-route b{display:none}
+  .phen2d-hero-route span{flex:1 1 calc(50% - .5rem);text-align:center}
+  .phen2d-system .m19-chapters button{flex:1 1 100%}
+}
