@@ -1,54 +1,396 @@
-.phen2d-page{background:#ebe3d5}
-.phen2d-hero{padding:4.8rem clamp(1.2rem,7vw,8rem) 3.7rem;background:linear-gradient(135deg,#f7f0e4 0%,#eee4d3 58%,#e5e9df 100%);border-bottom:5px double #b8ac9b;position:relative;overflow:hidden}
-.phen2d-hero::after{content:'ἐποχή';position:absolute;right:-1.5rem;top:1.2rem;font:normal clamp(5rem,16vw,14rem)/1 Georgia,serif;color:rgba(82,108,89,.06);pointer-events:none}
+.phen2d-page{
+  --p-bg:#161616;
+  --p-layer-01:#262626;
+  --p-layer-02:#393939;
+  --p-layer-03:#525252;
+  --p-border:#525252;
+  --p-border-strong:#6f6f6f;
+  --p-text:#f4f4f4;
+  --p-text-secondary:#c6c6c6;
+  --p-text-muted:#a8a8a8;
+  --p-blue:#0f62fe;
+  --p-cyan:#1192e8;
+  --p-teal:#08bdba;
+  --p-green:#42be65;
+  --p-purple:#be95ff;
+  --p-magenta:#ee5396;
+  --p-red:#fa4d56;
+  --p-orange:#ff832b;
+  --p-yellow:#f1c21b;
+  background:var(--p-bg);
+  color:var(--p-text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
+.phen2d-page *{box-sizing:border-box}
+.phen2d-page button,.phen2d-page a{font-family:inherit}
+.phen2d-page a{color:inherit}
+
+/* navegación */
+.phen2d-page .m19-nav{
+  min-height:64px;
+  background:#161616;
+  color:#f4f4f4;
+  border-bottom:1px solid #393939;
+  padding:0 clamp(1rem,4vw,4rem);
+  font:600 .72rem/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  letter-spacing:.06em;
+}
+.phen2d-page .m19-nav a{
+  min-height:64px;
+  display:flex;
+  align-items:center;
+  padding:0 .65rem;
+  text-decoration:none;
+  border-bottom:3px solid transparent;
+}
+.phen2d-page .m19-nav a:hover{background:#262626;border-bottom-color:#0f62fe}
+.phen2d-page .m19-nav span{color:#a8a8a8}
+
+/* hero */
+.phen2d-hero{
+  min-height:560px;
+  padding:5.5rem clamp(1.2rem,7vw,8rem) 4rem;
+  background:
+    linear-gradient(90deg,rgba(15,98,254,.13) 0,rgba(15,98,254,0) 38%),
+    linear-gradient(180deg,#161616 0%,#1f1f1f 100%);
+  border-bottom:1px solid #393939;
+  position:relative;
+  overflow:hidden;
+}
+.phen2d-hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(#262626 1px,transparent 1px),
+    linear-gradient(90deg,#262626 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:linear-gradient(to right,rgba(0,0,0,.5),transparent 78%);
+  pointer-events:none;
+}
+.phen2d-hero::after{
+  content:'ἐποχή';
+  position:absolute;
+  right:-1rem;
+  top:1.2rem;
+  font:300 clamp(5rem,16vw,14rem)/1 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  color:rgba(120,169,255,.055);
+  pointer-events:none;
+}
 .phen2d-hero>p,.phen2d-hero h1,.phen2d-hero-route{position:relative;z-index:1}
-.phen2d-hero h1{font:normal clamp(4rem,8vw,9.2rem)/.92 Georgia,serif;letter-spacing:-.06em;margin:1rem 0 2rem;max-width:1100px}
-.phen2d-hero h1 em{color:#59745c;font-weight:normal}
-.phen2d-hero>p:not(.m19-kicker){max-width:850px;font:normal clamp(1.1rem,2vw,1.55rem)/1.55 Georgia,serif}
-.phen2d-hero-route{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;margin-top:2.2rem;border-top:1px solid #b8ac9b;padding-top:1.25rem}
-.phen2d-hero-route span{border:1px solid #a99d8c;background:#f8f2e7;padding:.6rem .8rem;font:800 .69rem/1 Arial,sans-serif;letter-spacing:.08em}
-.phen2d-hero-route b{color:#9a702e}
-.phen2d-thesis{padding:4.2rem clamp(1.2rem,7vw,8rem);background:#f7f0e4;border-bottom:1px solid #c5b9a8}
-.phen2d-thesis h2{font:normal clamp(2.4rem,5vw,5.1rem)/1.04 Georgia,serif;letter-spacing:-.045em;margin:.7rem 0 1.6rem;max-width:1100px}
-.phen2d-thesis h2 em{color:#9b4b38;font-weight:normal}
-.phen2d-thesis>p{max-width:900px;font:normal 1rem/1.75 Arial,sans-serif}
-.phen2d-system{background:#161616;color:#f4f4f4}
-.phen2d-canvas{background:#262626;border-color:#525252}
-.phen2d-inspector{background:#f4f4f4;color:#161616;border-color:#8d8d8d}
-.phen2d-system .m19-workspace-head,.phen2d-system .m19-tools,.phen2d-system .m19-journey{color:#f4f4f4}
-.phen2d-system .react-flow__controls{border:1px solid #525252;box-shadow:none}
-.phen2d-system .react-flow__controls-button{background:#262626;color:#f4f4f4;border-bottom-color:#525252}
+.phen2d-page .m19-kicker{
+  color:#78a9ff;
+  font:600 .72rem/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  letter-spacing:.12em;
+}
+.phen2d-hero h1{
+  max-width:1120px;
+  margin:1rem 0 2rem;
+  color:#f4f4f4;
+  font:300 clamp(4rem,8vw,8.8rem)/.94 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  letter-spacing:-.055em;
+}
+.phen2d-hero h1 em{color:#78a9ff;font-style:normal;font-weight:300}
+.phen2d-hero>p:not(.m19-kicker){
+  max-width:850px;
+  margin:0;
+  color:#c6c6c6;
+  font:400 clamp(1.05rem,1.8vw,1.45rem)/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
+.phen2d-hero-route{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:.55rem;
+  margin-top:2.5rem;
+  padding-top:1.25rem;
+  border-top:1px solid #393939;
+}
+.phen2d-hero-route span{
+  background:#262626;
+  color:#f4f4f4;
+  border:1px solid #525252;
+  border-left:4px solid #0f62fe;
+  padding:.7rem .9rem;
+  font:600 .68rem/1 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  letter-spacing:.06em;
+}
+.phen2d-hero-route span:nth-of-type(2){border-left-color:#be95ff}
+.phen2d-hero-route span:nth-of-type(3){border-left-color:#ee5396}
+.phen2d-hero-route span:nth-of-type(4){border-left-color:#42be65}
+.phen2d-hero-route span:nth-of-type(5){border-left-color:#f1c21b}
+.phen2d-hero-route span:nth-of-type(6){border-left-color:#fa4d56}
+.phen2d-hero-route b{color:#6f6f6f;font-weight:400}
+
+/* tesis */
+.phen2d-thesis{
+  padding:4.5rem clamp(1.2rem,7vw,8rem);
+  background:#262626;
+  border-bottom:1px solid #393939;
+  border-left:6px solid #ee5396;
+}
+.phen2d-thesis h2{
+  max-width:1120px;
+  margin:.7rem 0 1.5rem;
+  color:#f4f4f4;
+  font:300 clamp(2.5rem,5vw,5rem)/1.05 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  letter-spacing:-.04em;
+}
+.phen2d-thesis h2 em{color:#ff7eb6;font-style:normal;font-weight:300}
+.phen2d-thesis>p{max-width:900px;color:#c6c6c6;font:400 1rem/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+
+/* sistema */
+.phen2d-system{
+  background:#161616;
+  color:#f4f4f4;
+  padding:4rem clamp(.8rem,3.5vw,4rem);
+  border-bottom:1px solid #393939;
+}
+.phen2d-system .m19-workspace-head{color:#f4f4f4}
+.phen2d-system .m19-workspace-head h2{
+  margin:.35rem 0 .7rem;
+  color:#f4f4f4;
+  font:300 clamp(2.2rem,4vw,4.2rem)/1.03 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  letter-spacing:-.035em;
+}
+.phen2d-system .m19-workspace-head p{color:#c6c6c6;font:400 .98rem/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+.phen2d-head-actions{display:flex;gap:.55rem;flex-wrap:wrap;justify-content:flex-end}
+.phen2d-head-actions button,
+.phen2d-system .m19-tools button,
+.phen2d-system .m19-step-buttons button,
+.phen2d-system .m19-inspector-nav button,
+.phen2d-system .m19-chapters button{
+  min-height:42px;
+  border:1px solid #525252;
+  border-radius:0;
+  background:#262626;
+  color:#f4f4f4;
+  padding:.75rem 1rem;
+  font:600 .73rem/1.25 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  transition:background .15s ease,border-color .15s ease,color .15s ease;
+}
+.phen2d-head-actions button:hover,
+.phen2d-system .m19-tools button:hover,
+.phen2d-system .m19-step-buttons button:not(:disabled):hover,
+.phen2d-system .m19-inspector-nav button:not(:disabled):hover,
+.phen2d-system .m19-chapters button:hover{background:#393939;border-color:#8d8d8d}
+.phen2d-head-actions .phen2d-project{background:#0f62fe;color:#fff;border-color:#0f62fe}
+.phen2d-head-actions .phen2d-project:hover{background:#0353e9;border-color:#0353e9}
+.phen2d-page button:focus-visible,.phen2d-page a:focus-visible{outline:2px solid #78a9ff;outline-offset:2px}
+
+/* capítulos */
+.phen2d-system .m19-chapters{gap:0;margin:2rem 0 1rem;border-bottom:1px solid #525252}
+.phen2d-system .m19-chapters button{
+  border:0;
+  border-right:1px solid #525252;
+  border-top:1px solid #525252;
+  background:#262626;
+  padding:.85rem 1.05rem;
+}
+.phen2d-system .m19-chapters button:first-child{border-left:1px solid #525252}
+.phen2d-system .m19-chapters span{
+  width:26px;height:26px;
+  background:#393939;
+  color:#c6c6c6;
+}
+.phen2d-system .m19-chapters button.active{
+  background:#f4f4f4;
+  color:#161616;
+  box-shadow:inset 0 -4px 0 #0f62fe;
+}
+.phen2d-system .m19-chapters button.active span{background:#0f62fe;color:#fff}
+
+/* recorrido */
+.phen2d-system .m19-journey{gap:1px;margin-bottom:1rem;background:#525252}
+.phen2d-system .m19-journey p{
+  margin:0;
+  padding:1rem 1.1rem;
+  border:0;
+  background:#262626;
+  color:#c6c6c6;
+  font:400 .86rem/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
+.phen2d-system .m19-journey b{
+  display:block;
+  margin-bottom:.45rem;
+  color:#78a9ff;
+  font-size:.66rem;
+  letter-spacing:.08em;
+}
+
+/* herramientas */
+.phen2d-tools{min-height:48px;color:#f4f4f4}
+.phen2d-system .m19-tools button.active{background:#0f62fe;color:#fff;border-color:#0f62fe}
+.phen2d-system .m19-tools span{color:#a8a8a8;font:600 .72rem/1 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+
+/* lecciones / estudio */
+.phen2d-system .m19-lesson{
+  background:#262626;
+  color:#f4f4f4;
+  border:1px solid #525252;
+  border-left:5px solid #78a9ff;
+  box-shadow:none;
+  padding:1.35rem 1.5rem;
+}
+.phen2d-system .m19-lesson h3{
+  margin:.4rem 0 .65rem;
+  color:#f4f4f4;
+  font:400 clamp(1.8rem,3vw,2.7rem)/1.08 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
+.phen2d-system .m19-lesson>p{color:#c6c6c6}
+.phen2d-projection-line{
+  max-width:1050px;
+  margin:.6rem 0 1rem!important;
+  color:#78a9ff!important;
+  font:300 clamp(1.4rem,2.4vw,2.2rem)/1.25 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif!important;
+}
+.phen2d-system .m19-options{gap:1px;background:#525252}
+.phen2d-system .m19-options button{
+  text-align:left;
+  border:0;
+  border-radius:0;
+  background:#161616;
+  color:#f4f4f4;
+  padding:.9rem 1rem;
+  font:400 .94rem/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
+.phen2d-system .m19-options button:hover{background:#393939}
+.phen2d-system .m19-options button.chosen{outline:2px solid #78a9ff;outline-offset:-2px}
+.phen2d-system .m19-feedback{background:#16251c;color:#d7f5df;border-left:4px solid #42be65}
+
+/* workspace */
+.phen2d-workspace{grid-template-columns:minmax(0,1fr) 430px;gap:1px;background:#525252}
+.phen2d-canvas,.phen2d-inspector{height:960px}
+.phen2d-canvas{
+  background:#161616;
+  border:0;
+}
+.phen2d-inspector{
+  background:#262626;
+  color:#f4f4f4;
+  border:0;
+  border-top:4px solid var(--phen2d-accent,#78a9ff);
+  padding:1.45rem;
+}
+.phen2d-inspector .m19-inspector-head{
+  color:var(--phen2d-accent,#78a9ff);
+  font:600 .67rem/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
+.phen2d-inspector h3{
+  margin:1.25rem 0 1rem;
+  color:#f4f4f4;
+  font:300 2.25rem/1.05 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  letter-spacing:-.03em;
+}
+.phen2d-inspector h4{
+  margin-top:1.5rem;
+  color:#f4f4f4;
+  font:600 .7rem/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  letter-spacing:.08em;
+}
+.phen2d-inspector ul{color:#c6c6c6;font:400 .9rem/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+.phen2d-inspector li{margin:.62rem 0}
+.phen2d-inspector>p:not(.m19-source){color:#c6c6c6;font:400 .95rem/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+.phen2d-inspector .m19-inspector-nav{border-top:1px solid #525252}
+.phen2d-inspector .m19-inspector-nav button:first-child{border-left:4px solid var(--phen2d-accent,#78a9ff)}
+.phen2d-inspector .m19-inspector-nav button:last-child{background:var(--phen2d-accent,#0f62fe);border-color:var(--phen2d-accent,#0f62fe);color:#161616}
+
+/* en palabras simples */
+.phen2d-inspector .m21-plain{
+  margin:1.3rem 0;
+  padding:1rem 1.1rem;
+  background:#161616;
+  border:1px solid #525252;
+  border-left:4px solid var(--phen2d-accent,#78a9ff);
+  border-radius:0;
+}
+.phen2d-inspector .m21-plain h4{color:var(--phen2d-accent,#78a9ff);text-transform:none;letter-spacing:.01em}
+.phen2d-inspector .m21-plain p{color:#f4f4f4;font:400 .98rem/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+
+/* nodos */
+.phen2d-node{
+  width:370px;
+  height:184px;
+  background:#262626;
+  color:#f4f4f4;
+  border:1px solid #525252;
+  border-left:6px solid var(--m19-node-accent);
+  border-radius:0!important;
+  box-shadow:inset 0 3px 0 color-mix(in srgb,var(--m19-node-accent) 65%,transparent);
+  padding:1rem 1.1rem;
+}
+.phen2d-node.selected{
+  border-color:var(--m19-node-accent);
+  box-shadow:0 0 0 2px var(--m19-node-accent),inset 0 3px 0 var(--m19-node-accent);
+}
+.phen2d-node.guided{
+  border-color:var(--m19-node-accent);
+  box-shadow:0 0 0 2px var(--m19-node-accent),inset 0 3px 0 var(--m19-node-accent);
+}
+.phen2d-node .m19-node-top{
+  color:var(--m19-node-accent);
+  font:600 .67rem/1 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  letter-spacing:.08em;
+}
+.phen2d-node strong{
+  margin:.65rem 0 .35rem;
+  color:#f4f4f4;
+  font:400 1.3rem/1.14 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
+.phen2d-node p{
+  color:#c6c6c6;
+  font:400 .81rem/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  -webkit-line-clamp:2;
+}
+.phen2d-node .m19-node-foot{
+  border-top:1px solid #525252;
+  color:var(--m19-node-accent);
+  font:600 .65rem/1 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
+.phen2d-node .react-flow__handle{background:var(--m19-node-accent);border-color:#161616}
+
+/* edges / controls */
+.phen2d-system .react-flow__edge-textbg{opacity:1}
+.phen2d-system .react-flow__edge-text{paint-order:stroke;stroke:#262626;stroke-width:3px;stroke-linejoin:round}
+.phen2d-system .react-flow__controls{
+  overflow:hidden;
+  border:1px solid #525252;
+  border-radius:0;
+  box-shadow:none;
+}
+.phen2d-system .react-flow__controls-button{
+  background:#262626;
+  color:#f4f4f4;
+  border-bottom:1px solid #525252;
+}
 .phen2d-system .react-flow__controls-button:hover{background:#393939}
 .phen2d-system .react-flow__controls-button svg{fill:#f4f4f4}
+
+/* foco */
 .phen2d-canvas .react-flow__node{transition:filter .22s ease,opacity .22s ease,box-shadow .22s ease}
 .phen2d-canvas .react-flow__edge{transition:opacity .22s ease}
-.phen2d-canvas.has-node-focus .react-flow__node:not(.selected){filter:blur(2.2px);opacity:.24}
-.phen2d-canvas.has-node-focus .react-flow__edge{opacity:.24}
+.phen2d-canvas.has-node-focus .react-flow__node:not(.selected){filter:blur(2.2px);opacity:.22}
+.phen2d-canvas.has-node-focus .react-flow__edge{opacity:.22}
 .phen2d-canvas.has-node-focus .react-flow__node.selected{filter:none;opacity:1;z-index:20!important}
-.phen2d-head-actions{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:flex-end}
-.phen2d-head-actions button{border:1px solid var(--ph2d-line);background:var(--ph2d-paper);color:var(--ph2d-ink);padding:.9rem 1rem;font:800 .73rem/1.3 Arial,sans-serif}
-.phen2d-head-actions .phen2d-project{background:#211d18;color:#f7f0e4;border-color:#211d18}
-.phen2d-node{width:370px;height:184px}
-.phen2d-node strong{font-size:1.32rem}
-.phen2d-node p{-webkit-line-clamp:2}
-.phen2d-system .react-flow__edge-textbg{opacity:.96}
-.phen2d-system .react-flow__edge-text{paint-order:stroke;stroke:#f7f0e4;stroke-width:2px;stroke-linejoin:round}
-.phen2d-tools{min-height:48px}
-.phen2d-workspace{grid-template-columns:minmax(0,1fr) 430px}
-.phen2d-canvas,.phen2d-inspector{height:960px}
-.phen2d-projection-line{font:normal clamp(1.45rem,2.4vw,2.35rem)/1.25 Georgia,serif!important;color:#294a3c;margin:.7rem 0 1.1rem!important;max-width:1050px}
-.phen2d-visual{margin:.9rem 0 1.2rem;padding:.7rem;background:#f4ecdf;border:1px solid #c4b7a5;border-radius:14px}
-.phen2d-visual-svg{display:block;width:100%;height:auto;max-height:285px}
-.phen2d-visual figcaption{margin:.45rem .2rem 0;font:700 .62rem/1.25 Arial,sans-serif;letter-spacing:.08em;color:#786d60;text-transform:uppercase}
-.phen2d-system.projection .phen2d-visual-svg{max-height:320px}
-.phen2d-system.projection .phen2d-visual{margin:.7rem 0 1rem}
-.phen2d-lesson{border-left-color:#6f6d85}
-.phen2d-defense{padding:5rem clamp(1.2rem,7vw,8rem);background:#f7f0e4}
-.phen2d-defense h2{font:normal clamp(2.8rem,5vw,5rem)/1 Georgia,serif;max-width:900px;margin:.7rem 0 2rem}
-.phen2d-defense ol{columns:2;column-gap:4rem;max-width:1050px;padding-left:1.4rem}
-.phen2d-defense li{break-inside:avoid;margin:0 0 1.1rem;padding-left:.4rem;font:normal 1.08rem/1.55 Arial,sans-serif}
-.phen2d-outro .m19-kicker{color:#d7b568}
 
+/* visuales */
+.phen2d-visual{
+  margin:.9rem 0 1.2rem;
+  padding:.65rem;
+  background:#161616;
+  border:1px solid #525252;
+  border-radius:0;
+}
+.phen2d-visual-svg{display:block;width:100%;height:auto;max-height:285px}
+.phen2d-visual figcaption{
+  margin:.5rem .2rem .05rem;
+  color:#8d8d8d;
+  font:600 .61rem/1.25 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+
+/* proyección */
 .phen2d-system.projection{padding-top:.8rem}
 .phen2d-system.projection .phen2d-head{align-items:center}
 .phen2d-system.projection .phen2d-head h2{font-size:clamp(2rem,3vw,3rem);margin:.2rem 0}
@@ -56,13 +398,62 @@
 .phen2d-system.projection .phen2d-tools{margin:.25rem 0}
 .phen2d-system.projection .phen2d-tools span{font-size:.82rem}
 .phen2d-system.projection .phen2d-lesson{margin:.55rem 0;padding:1rem 1.35rem}
-.phen2d-system.projection .phen2d-lesson h3{font-size:clamp(2rem,4vw,3.3rem);margin:.25rem 0}
+.phen2d-system.projection .phen2d-lesson h3{font-size:clamp(2rem,4vw,3.2rem);margin:.25rem 0}
 .phen2d-system.projection .phen2d-workspace{min-height:70vh;grid-template-columns:minmax(0,1fr) minmax(390px,480px)}
 .phen2d-system.projection .phen2d-canvas,.phen2d-system.projection .phen2d-inspector{height:74vh}
-.phen2d-system.projection .phen2d-inspector h3{font-size:2.45rem}
+.phen2d-system.projection .phen2d-inspector h3{font-size:2.35rem}
 .phen2d-system.projection .phen2d-inspector>p:not(.m19-source),.phen2d-system.projection .phen2d-inspector li{font-size:1rem}
-.phen2d-system.projection .m19-node{opacity:.42;transition:opacity .2s ease,box-shadow .2s ease}
+.phen2d-system.projection .m19-node{opacity:.4}
 .phen2d-system.projection .m19-node.selected,.phen2d-system.projection .m19-node.guided{opacity:1}
+.phen2d-system.projection .phen2d-visual-svg{max-height:320px}
+
+/* cierre */
+.phen2d-outro{
+  background:#262626;
+  color:#f4f4f4;
+  border-top:1px solid #393939;
+  border-left:6px solid #42be65;
+  padding:5rem clamp(1.2rem,7vw,8rem);
+}
+.phen2d-outro .m19-kicker{color:#42be65}
+.phen2d-outro h2{
+  max-width:900px;
+  margin:.7rem 0 1.2rem;
+  font:300 clamp(2.8rem,5vw,5rem)/1.04 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  letter-spacing:-.04em;
+}
+.phen2d-outro p{max-width:800px;color:#c6c6c6;font:400 1rem/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+.phen2d-outro a{
+  display:inline-flex;
+  min-height:48px;
+  align-items:center;
+  margin-top:1.2rem;
+  padding:0 1rem;
+  background:#0f62fe;
+  color:#fff;
+  border:0;
+  text-decoration:none;
+  font-weight:600;
+}
+.phen2d-outro a:hover{background:#0353e9}
+.phen2d-page .m19-footer{
+  background:#161616;
+  color:#a8a8a8;
+  border-top:1px solid #393939;
+  font:600 .67rem/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
+.phen2d-page .m19-footer-mark{color:#78a9ff}
+
+/* fullscreen */
+.phen2d-system.expanded{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  overflow-y:auto;
+  height:100dvh;
+  padding:1rem clamp(.6rem,2vw,2rem);
+  background:#161616;
+}
 
 @media(max-width:1100px){
   .phen2d-workspace{grid-template-columns:1fr}
@@ -74,13 +465,14 @@
   .phen2d-system.projection .phen2d-inspector{height:auto;max-height:none}
 }
 @media(max-width:760px){
-  .phen2d-canvas.has-node-focus .react-flow__node:not(.selected){filter:blur(1.6px);opacity:.28}
-  .phen2d-hero{padding-top:3.2rem}
+  .phen2d-page .m19-nav{font-size:.6rem;flex-wrap:wrap}
+  .phen2d-page .m19-nav>span{display:none}
+  .phen2d-canvas.has-node-focus .react-flow__node:not(.selected){filter:blur(1.5px);opacity:.28}
+  .phen2d-hero{padding-top:3.3rem;min-height:auto}
   .phen2d-hero::after{font-size:24vw;top:5rem}
-  .phen2d-hero h1{font-size:clamp(3.1rem,13vw,5.4rem)}
+  .phen2d-hero h1{font-size:clamp(3.1rem,13vw,5.2rem)}
   .phen2d-head-actions{width:100%;justify-content:flex-start}
   .phen2d-head-actions button{flex:1 1 200px}
-  .phen2d-defense ol{columns:1}
   .phen2d-system .m19-canvas{height:650px}
   .phen2d-visual{margin:.7rem 0 1rem;padding:.5rem}
   .phen2d-visual-svg{max-height:220px}
@@ -90,4 +482,7 @@
   .phen2d-hero-route b{display:none}
   .phen2d-hero-route span{flex:1 1 calc(50% - .5rem);text-align:center}
   .phen2d-system .m19-chapters button{flex:1 1 100%}
+}
+@media(prefers-reduced-motion:reduce){
+  .phen2d-page *{transition:none!important;scroll-behavior:auto!important}
 }
