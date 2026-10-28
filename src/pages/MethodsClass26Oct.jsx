@@ -137,6 +137,7 @@ export default function MethodsClass26Oct() {
             El estudiante ha decidido asumir también la exposición de fenomenología originalmente prevista para otra participante. Esta decisión es posterior a la clase y no se atribuye al profesor como una nueva consigna.
           </p>
           <p><Link to="/estudio/fenomenologia-metodo">Abrir sistematización · Fenomenología como método de investigación ↗</Link></p>
+          <p><Link to="/estudio/fenomenologia-metodo/sistema-2d">Abrir sistema 2D para proyección ↗</Link></p>
         </div>
         <Link to="/tareas">Ver la tarea en el calendario ↗</Link>
       </section>
