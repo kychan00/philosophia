@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 620" role="img" aria-labelledby="title desc">
+  <title id="title">Recorrido de una investigación fenomenológica</title>
+  <desc id="desc">Diagrama de siete etapas desde un caso concreto hasta una estructura provisional y su contraste.</desc>
+  <rect width="1400" height="620" fill="#efe6d3"/>
+  <g fill="none" stroke="#2b2721" stroke-width="3">
+    <path d="M190 310 H290"/>
+    <path d="M490 310 H590"/>
+    <path d="M790 310 H890"/>
+    <path d="M1090 310 H1190"/>
+  </g>
+  <g fill="#2b2721">
+    <path d="M290 310 l-18 -10 v20 z"/>
+    <path d="M590 310 l-18 -10 v20 z"/>
+    <path d="M890 310 l-18 -10 v20 z"/>
+    <path d="M1190 310 l-18 -10 v20 z"/>
+  </g>
+
+  <g font-family="Georgia, serif" text-anchor="middle" fill="#1e1b17">
+    <rect x="40" y="225" width="150" height="170" rx="18" fill="#f8f3e8" stroke="#2b2721" stroke-width="2"/>
+    <text x="115" y="275" font-size="22">Caso</text>
+    <text x="115" y="306" font-size="22">concreto</text>
+    <text x="115" y="350" font-size="15">experiencia</text>
+
+    <rect x="290" y="225" width="200" height="170" rx="18" fill="#e1d4b9" stroke="#2b2721" stroke-width="2"/>
+    <text x="390" y="272" font-size="22">Acceso</text>
+    <text x="390" y="303" font-size="22">técnico</text>
+    <text x="390" y="344" font-size="15">participantes · relatos</text>
+
+    <rect x="590" y="225" width="200" height="170" rx="18" fill="#f8f3e8" stroke="#2b2721" stroke-width="2"/>
+    <text x="690" y="284" font-size="26">Epojé</text>
+    <text x="690" y="329" font-size="15">suspender explicaciones</text>
+
+    <rect x="890" y="225" width="200" height="170" rx="18" fill="#e1d4b9" stroke="#2b2721" stroke-width="2"/>
+    <text x="990" y="276" font-size="22">Noesis</text>
+    <text x="990" y="309" font-size="22">↔ noema</text>
+    <text x="990" y="349" font-size="15">correlación intencional</text>
+
+    <rect x="1190" y="225" width="170" height="170" rx="18" fill="#f8f3e8" stroke="#2b2721" stroke-width="2"/>
+    <text x="1275" y="272" font-size="22">Horizontes</text>
+    <text x="1275" y="315" font-size="15">cuerpo · espacio</text>
+    <text x="1275" y="340" font-size="15">tiempo · mundo</text>
+  </g>
+
+  <g fill="none" stroke="#866b34" stroke-width="3">
+    <path d="M1275 395 C1275 500 1035 525 920 525"/>
+    <path d="M920 525 H610"/>
+  </g>
+  <g fill="#866b34">
+    <path d="M920 525 l18 -10 v20 z"/>
+    <path d="M610 525 l18 -10 v20 z"/>
+  </g>
+
+  <g font-family="Georgia, serif" text-anchor="middle" fill="#1e1b17">
+    <rect x="720" y="460" width="200" height="120" rx="18" fill="#d8c79f" stroke="#866b34" stroke-width="2"/>
+    <text x="820" y="505" font-size="21">Variación</text>
+    <text x="820" y="535" font-size="21">eidética</text>
+    <text x="820" y="558" font-size="14">probar invariantes</text>
+
+    <rect x="410" y="460" width="200" height="120" rx="18" fill="#f8f3e8" stroke="#866b34" stroke-width="2"/>
+    <text x="510" y="500" font-size="21">Estructura</text>
+    <text x="510" y="530" font-size="21">provisional</text>
+    <text x="510" y="555" font-size="14">con límites explícitos</text>
+  </g>
+
+  <text x="700" y="82" font-family="ui-sans-serif, system-ui, sans-serif" text-anchor="middle" font-size="18" letter-spacing="4" fill="#866b34">PHILOSOPHIA · RECORRIDO METODOLÓGICO</text>
+  <text x="700" y="126" font-family="Georgia, serif" text-anchor="middle" font-size="34" fill="#1e1b17">De la experiencia al análisis fenomenológico</text>
+</svg>
