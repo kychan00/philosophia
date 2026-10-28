@@ -286,6 +286,7 @@ function Workspace() {
   const [expanded,setExpanded]=useState(false)
   const [projection,setProjection]=useState(false)
   const flowRef=useRef(null)
+  const lastTouchNavRef=useRef(0)
   const chapter=chapters.find(item=>item.id===chapterId)
   const visible=useMemo(()=>chapterId==='todo'?entries:entries.filter(e=>e.chapter===chapterId),[chapterId])
   const relevantQuizzes=useMemo(()=>quizzes.filter(q=>chapterId==='todo'||q.chapter===chapterId),[chapterId])
@@ -315,8 +316,14 @@ function Workspace() {
     if(next===current)return
     selectNode(visible[next].id)
   }
-  const moveInspectorTouch=(delta,event)=>{
+  const moveInspectorPointer=(delta,event)=>{
+    if(event.pointerType!=='touch'&&event.pointerType!=='pen')return
     event.preventDefault()
+    lastTouchNavRef.current=Date.now()
+    moveInspector(delta)
+  }
+  const moveInspectorClick=delta=>{
+    if(Date.now()-lastTouchNavRef.current<700)return
     moveInspector(delta)
   }
   const chooseQuestion=n=>{ setQIndex(Math.max(0,Math.min(relevantQuizzes.length-1,n))); setAnswer(null) }
@@ -422,15 +429,15 @@ function Workspace() {
               type="button"
               data-inspector-nav="prev"
               disabled={selectedIndex<=0}
-              onTouchEnd={event=>moveInspectorTouch(-1,event)}
-              onClick={()=>moveInspector(-1)}
+              onPointerDown={event=>moveInspectorPointer(-1,event)}
+              onClick={()=>moveInspectorClick(-1)}
             >← Previa</button>
             <button
               type="button"
               data-inspector-nav="next"
               disabled={selectedIndex>=visible.length-1}
-              onTouchEnd={event=>moveInspectorTouch(1,event)}
-              onClick={()=>moveInspector(1)}
+              onPointerDown={event=>moveInspectorPointer(1,event)}
+              onClick={()=>moveInspectorClick(1)}
             >Siguiente →</button>
           </div>
         </aside>
