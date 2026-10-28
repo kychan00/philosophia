@@ -7,39 +7,40 @@ const css = readFileSync(new URL('../src/pages/MethodsPhenomenologySystem2D.css'
 const app = readFileSync(new URL('../src/App.jsx', import.meta.url), 'utf8')
 const study = readFileSync(new URL('../src/pages/MethodsPhenomenologyExposition.jsx', import.meta.url), 'utf8')
 const route = '/estudio/fenomenologia-metodo/sistema-2d'
-const ids = [...src.matchAll(/id: '([pfvrl]\d+)', chapter:/g)].map(match => match[1])
+const ids = [...src.matchAll(/id: '([mc]\d+)',\n    chapter:/g)].map(match => match[1])
 
-test('Sistema 2D fenomenológico: ruta, acceso y 24 nodos únicos', () => {
+test('Sistema 2D fenomenológico: ruta, acceso y 12 nodos únicos', () => {
   assert.ok(app.includes(route))
   assert.ok(study.includes(route))
-  assert.equal(ids.length, 24)
-  assert.equal(new Set(ids).size, 24)
+  assert.equal(ids.length, 12)
+  assert.equal(new Set(ids).size, 12)
 })
 
-test('Cinco actos, atlas completo y geometría sin arrastre', () => {
-  for (const chapter of ['problema', 'fundamento', 'vivencia', 'rigor', 'limite']) {
-    assert.ok(src.includes("id: '" + chapter + "', number:"))
+test('Dos movimientos: método y aplicación', () => {
+  for (const chapter of ['metodo', 'caso']) {
+    assert.ok(src.includes("id: '" + chapter + "',"))
   }
   assert.match(src, /chapterId === 'todo' \? 3 : 2/)
-  assert.match(src, /xGap = chapterId === 'todo' \? 520 : 560/)
-  assert.match(src, /yGap = chapterId === 'todo' \? 320 : 340/)
+  assert.match(src, /xGap = chapterId === 'todo' \? 540 : 570/)
+  assert.match(src, /yGap = chapterId === 'todo' \? 330 : 350/)
   assert.match(src, /style: \{ width: 370, height: 184 \}/)
   assert.match(src, /nodesDraggable=\{false\}/)
   assert.match(src, /nodesConnectable=\{false\}/)
   assert.doesNotMatch(src, /MiniMap/)
 })
 
-test('Todos los folios tienen procedencia, límites, palabras simples y frase de proyección', () => {
-  assert.equal([...src.matchAll(/source: '/g)].length, ids.length)
-  assert.equal([...src.matchAll(/analysis: '/g)].length, ids.length)
-  assert.equal([...src.matchAll(/simple: '/g)].length, ids.length)
-  assert.equal([...src.matchAll(/projection: '/g)].length, ids.length)
-  assert.match(src, /En palabras simples:/)
-  assert.match(src, /Para decir en clase:/)
+test('La proyección pública es autónoma y no expone arqueología de clase', () => {
+  assert.doesNotMatch(src, /source: '/)
+  assert.doesNotMatch(src, /Clase \d+/)
+  assert.doesNotMatch(src, /octubre/i)
   assert.doesNotMatch(src, /grabaci[oó]n|transcripci[oó]n/i)
+  assert.match(src, /Idea central/)
+  assert.match(src, /Qué significa metodológicamente/)
+  assert.match(src, /En palabras simples:/)
+  assert.match(src, /Para exponer:/)
 })
 
-test('Modo proyección recorre los 24 nodos y puede cerrarse', () => {
+test('Modo proyección recorre los 12 nodos y puede cerrarse', () => {
   assert.match(src, /Proyectar exposición/)
   assert.match(src, /setChapterId\('todo'\)/)
   assert.match(src, /setMode\('guia'\)/)
@@ -50,10 +51,10 @@ test('Modo proyección recorre los 24 nodos y puede cerrarse', () => {
   assert.match(css, /\.phen2d-system\.projection/)
 })
 
-test('Fidelidad conceptual: límites explícitos y relaciones de estudio', () => {
-  assert.match(src, /no representa un estudio empírico concluido/i)
-  assert.match(src, /no (?:una )?esencia universal ya demostrada/i)
-  assert.match(src, /testimonio no da acceso transparente/i)
-  assert.match(src, /relaciones de estudio/)
-  assert.match(src, /Frontera documental/)
+test('La aplicación concreta ejecuta el método completo', () => {
+  assert.match(src, /Miedo ante una amenaza recibida por celular/)
+  assert.match(src, /Entrevistar para reconstruir una escena/)
+  assert.match(src, /Epojé \+ noesis\/noema \+ cuerpo \+ espacio \+ tiempo/)
+  assert.match(src, /Variar y sintetizar/)
+  assert.match(src, /estructura provisional/i)
 })
