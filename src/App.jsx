@@ -180,11 +180,16 @@ function App() {
   const isPublicCafeRoute =
     typeof window !== 'undefined' &&
     window.location.hash.startsWith('#/cafe-filosofico')
+  const isPublicPhenomenologyRoute =
+    typeof window !== 'undefined' &&
+    window.location.hash.startsWith('#/estudio/fenomenologia-metodo/sistema-2d')
+  const hideAcademicNotifications =
+    isPublicCafeRoute || isPublicPhenomenologyRoute
 
   return (
     <HashRouter>
       <ScrollToTop />
-      {!isPublicCafeRoute && (<AcademicNotifications  />)}
+      {!hideAcademicNotifications && (<AcademicNotifications />)}
       <Suspense
         fallback={
           <div className="route-loading" role="status" aria-live="polite">
