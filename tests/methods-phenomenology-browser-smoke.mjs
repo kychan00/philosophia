@@ -61,6 +61,7 @@ async function viewport(width, height) {
   // blur de foco: seleccionar m2 debe desenfocar m1 y mantener m2 nítido.
   await evalJS("(document.querySelector('.phen2d-system .react-flow__node[data-id=\"m2\"]')?.click(),true)")
   await until(() => evalJS("document.querySelector('.phen2d-system .react-flow__node.selected')?.getAttribute('data-id')==='m2'"), 'selección m2')
+  await sleep(320)
   const focusState = await evalJS("(()=>{const a=document.querySelector('.phen2d-system .react-flow__node[data-id=\"m1\"]');const b=document.querySelector('.phen2d-system .react-flow__node[data-id=\"m2\"]');return {blur:getComputedStyle(a).filter,opacity:Number(getComputedStyle(a).opacity),selectedFilter:getComputedStyle(b).filter,hasFocus:document.querySelector('.phen2d-canvas')?.classList.contains('has-node-focus')}})()")
   assert.equal(focusState.hasFocus, true, 'falta clase de foco')
   assert.ok(focusState.blur.includes('blur'), 'nodo no seleccionado sin blur')
