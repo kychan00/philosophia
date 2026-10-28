@@ -34,10 +34,11 @@ test('La proyección pública es autónoma y no expone arqueología de clase', (
   assert.doesNotMatch(src, /Clase \d+/)
   assert.doesNotMatch(src, /octubre/i)
   assert.doesNotMatch(src, /grabaci[oó]n|transcripci[oó]n/i)
+  assert.doesNotMatch(src, /Para exponer/i)
+  assert.doesNotMatch(src, /projection: '/)
   assert.match(src, /Idea central/)
   assert.match(src, /Qué significa metodológicamente/)
   assert.match(src, /En palabras simples:/)
-  assert.match(src, /Para exponer:/)
 })
 
 test('Modo proyección recorre los 12 nodos y puede cerrarse', () => {
@@ -47,7 +48,7 @@ test('Modo proyección recorre los 12 nodos y puede cerrarse', () => {
   assert.match(src, /setProjection\(true\)/)
   assert.match(src, /setExpanded\(true\)/)
   assert.match(src, /Salir de proyección/)
-  assert.match(src, /visible\[step\]\.projection/)
+  assert.match(src, /visible\[step\]\.short/)
   assert.match(css, /\.phen2d-system\.projection/)
 })
 
