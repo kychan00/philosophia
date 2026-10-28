@@ -1,11 +1,11 @@
-const ink = '#24211d'
-const paper = '#f7f0e4'
-const moss = '#58735d'
-const rust = '#a9563f'
-const violet = '#6f6d85'
-const gold = '#a8792e'
-const line = '#b9ad9c'
-const pale = '#e9e0d2'
+const ink = '#f4f4f4'
+const paper = '#262626'
+const moss = '#42be65'
+const rust = '#fa4d56'
+const violet = '#be95ff'
+const gold = '#f1c21b'
+const line = '#525252'
+const pale = '#393939'
 
 function Label({ x, y, children, anchor = 'middle', size = 11, weight = 700, fill = ink }) {
   return <text x={x} y={y} textAnchor={anchor} fontFamily="Arial, sans-serif" fontSize={size} fontWeight={weight} fill={fill}>{children}</text>
@@ -87,7 +87,7 @@ function VisualM3() {
 
 function VisualM4() {
   return <Frame>
-    <rect x="185" y="66" width="150" height="118" rx="14" fill="#fffdf8" stroke={moss} strokeWidth="3"/>
+    <rect x="185" y="66" width="150" height="118" rx="14" fill="#161616" stroke={moss} strokeWidth="3"/>
     <Label x="260" y="115" fill={moss}>EXPERIENCIA</Label>
     <Label x="260" y="137" size={10}>tal como aparece</Label>
     <path d="M150 48 H120 V202 H150" fill="none" stroke={violet} strokeWidth="4"/>
@@ -103,8 +103,8 @@ function VisualM4() {
 
 function VisualM5() {
   return <Frame>
-    <rect x="35" y="65" width="180" height="120" rx="14" fill="#eeecf3" stroke={violet} strokeWidth="2"/>
-    <rect x="305" y="65" width="180" height="120" rx="14" fill="#e8efe9" stroke={moss} strokeWidth="2"/>
+    <rect x="35" y="65" width="180" height="120" rx="14" fill="#2f2340" stroke={violet} strokeWidth="2"/>
+    <rect x="305" y="65" width="180" height="120" rx="14" fill="#173325" stroke={moss} strokeWidth="2"/>
     <Label x="125" y="92" fill={violet}>NOESIS</Label>
     <Label x="395" y="92" fill={moss}>NOEMA</Label>
     <Label x="125" y="125" size={11}>buscar · dudar</Label>
@@ -136,7 +136,7 @@ function VisualM7() {
   return <Frame>
     <Label x="260" y="26" fill={gold}>VARIAR SIN PERDER EL FENÓMENO</Label>
     {[70,190,310,430].map((x,i)=><g key={x}>
-      <rect x={x-45} y="60" width="90" height="105" rx="12" fill={i===1?'#e8efe9':'#f0e9dc'} stroke={i===1?moss:line}/>
+      <rect x={x-45} y="60" width="90" height="105" rx="12" fill={i===1?'#173325':'#2d2d2d'} stroke={i===1?moss:line}/>
       <circle cx={x} cy="96" r="14" fill={i===1?moss:gold} opacity=".75"/>
       <path d={'M '+(x-25)+' 135 Q '+x+' '+(112+i*7)+' '+(x+25)+' 135'} fill="none" stroke={ink} strokeWidth="2"/>
       <Label x={x} y="187" size={9}>{['A','B','C','D'][i]}</Label>
@@ -148,7 +148,7 @@ function VisualM7() {
 
 function VisualM8() {
   return <Frame>
-    <circle cx="175" cy="115" r="34" fill="#fffdf8" stroke={ink} strokeWidth="2.5"/>
+    <circle cx="175" cy="115" r="34" fill="#161616" stroke={ink} strokeWidth="2.5"/>
     <circle cx="175" cy="115" r="56" fill="none" stroke={violet} strokeWidth="3"/>
     <circle cx="175" cy="115" r="76" fill="none" stroke={gold} strokeWidth="3"/>
     <circle cx="175" cy="115" r="94" fill="none" stroke={moss} strokeWidth="3" strokeDasharray="7 6"/>
@@ -158,17 +158,17 @@ function VisualM8() {
 
     <line x1="227" y1="93" x2="318" y2="59" stroke={violet} strokeWidth="2"/>
     <circle cx="227" cy="93" r="4" fill={violet}/>
-    <rect x="326" y="43" width="154" height="32" rx="16" fill="#eeecf3" stroke={violet}/>
+    <rect x="326" y="43" width="154" height="32" rx="16" fill="#2f2340" stroke={violet}/>
     <Label x="403" y="63" size={9} fill={violet}>LENGUAJE</Label>
 
     <line x1="251" y1="115" x2="318" y2="115" stroke={gold} strokeWidth="2"/>
     <circle cx="251" cy="115" r="4" fill={gold}/>
-    <rect x="326" y="99" width="154" height="32" rx="16" fill="#f5ecd9" stroke={gold}/>
+    <rect x="326" y="99" width="154" height="32" rx="16" fill="#382f13" stroke={gold}/>
     <Label x="403" y="119" size={9} fill={gold}>HISTORIA</Label>
 
     <line x1="242" y1="174" x2="318" y2="171" stroke={moss} strokeWidth="2"/>
     <circle cx="242" cy="174" r="4" fill={moss}/>
-    <rect x="326" y="155" width="154" height="32" rx="16" fill="#e8efe9" stroke={moss}/>
+    <rect x="326" y="155" width="154" height="32" rx="16" fill="#173325" stroke={moss}/>
     <Label x="403" y="175" size={8} fill={moss}>MUNDO COMPARTIDO</Label>
 
     <Label x="260" y="231" size={8} fill={ink}>RIGOR = HACER EXPLÍCITOS LOS HORIZONTES</Label>
@@ -193,7 +193,7 @@ function VisualC2() {
     <Person x={410} y={128} scale={.85} fill={violet}/>
     <path d="M155 82 Q260 35 365 82" fill="none" stroke={line} strokeWidth="2"/>
     <path d="M155 164 Q260 213 365 164" fill="none" stroke={line} strokeWidth="2"/>
-    <rect x="196" y="77" width="128" height="95" rx="12" fill="#fffdf8" stroke={gold} strokeWidth="2"/>
+    <rect x="196" y="77" width="128" height="95" rx="12" fill="#161616" stroke={gold} strokeWidth="2"/>
     <Label x="260" y="105" fill={gold}>ENTREVISTA</Label>
     <Label x="260" y="131" size={10}>escena concreta</Label>
     <Label x="260" y="151" size={10}>descripción abierta</Label>
@@ -207,7 +207,7 @@ function VisualC3() {
     <path d="M40 205 L190 80 L260 145 L340 60 L485 190" fill="none" stroke={line} strokeWidth="18" strokeLinejoin="round"/>
     <Person x={255} y={140} scale={.65} fill={rust}/>
     <path d="M185 72 L150 55 M185 72 L155 95 M335 57 L366 40 M335 57 L372 80" stroke={gold} strokeWidth="3"/>
-    <rect x="55" y="26" width="220" height="46" rx="10" fill="#fffdf8" stroke={ink}/>
+    <rect x="55" y="26" width="220" height="46" rx="10" fill="#161616" stroke={ink}/>
     <Label x="165" y="47" size={9}>“¿AVANZO O REGRESO?”</Label>
     <Label x="165" y="61" size={8} fill={violet}>descripción antes de teoría</Label>
   </Frame>
@@ -222,7 +222,7 @@ function VisualC4() {
       {x:460,y:55,t:'mal diseño'},
       {x:55,y:205,t:'ansiedad'},
       {x:460,y:205,t:'falta atención'}
-    ].map((o,i)=><g key={i}><rect x={o.x-48} y={o.y-16} width="96" height="32" rx="16" fill="#f4e4df" stroke={rust}/><Label x={o.x} y={o.y+3} size={8} fill={rust}>{o.t}</Label><line x1={o.x+(o.x<260?50:-50)} y1={o.y} x2={o.x<260?175:355} y2={125} stroke={rust} strokeDasharray="4 4"/></g>)}
+    ].map((o,i)=><g key={i}><rect x={o.x-48} y={o.y-16} width="96" height="32" rx="16" fill="#3b1f21" stroke={rust}/><Label x={o.x} y={o.y+3} size={8} fill={rust}>{o.t}</Label><line x1={o.x+(o.x<260?50:-50)} y1={o.y} x2={o.x<260?175:355} y2={125} stroke={rust} strokeDasharray="4 4"/></g>)}
     <path d="M165 44 H145 V205 H165 M355 44 H375 V205 H355" fill="none" stroke={violet} strokeWidth="4"/>
   </Frame>
 }
@@ -287,7 +287,7 @@ function VisualC9() {
       {x:325,label:'C · sin urgencia',symbol:'≈'},
       {x:445,label:'D · con guía',symbol:'↗'},
     ].map((o,i)=><g key={o.label}>
-      <rect x={o.x-52} y="55" width="104" height="115" rx="12" fill={i===1?'#e8efe9':'#f0e9dc'} stroke={i===1?moss:line}/>
+      <rect x={o.x-52} y="55" width="104" height="115" rx="12" fill={i===1?'#173325':'#2d2d2d'} stroke={i===1?moss:line}/>
       <text x={o.x} y="128" textAnchor="middle" fontFamily="Georgia,serif" fontSize="42" fill={[gold,moss,violet,rust][i]}>{o.symbol}</text>
       <Label x={o.x} y="195" size={8}>{o.label}</Label>
     </g>)}
@@ -297,10 +297,10 @@ function VisualC9() {
 
 function VisualC10() {
   return <Frame>
-    <circle cx="70" cy="80" r="26" fill="#eef0e8" stroke={moss}/><Label x="70" y="84" size={8}>DESTINO</Label>
-    <circle cx="180" cy="80" r="26" fill="#f3e7e2" stroke={rust}/><Label x="180" y="84" size={8}>RUPTURA</Label>
-    <circle cx="290" cy="80" r="26" fill="#eeecf3" stroke={violet}/><Label x="290" y="84" size={8}>ESPACIO</Label>
-    <circle cx="400" cy="80" r="26" fill="#f5ecd9" stroke={gold}/><Label x="400" y="84" size={8}>BÚSQUEDA</Label>
+    <circle cx="70" cy="80" r="26" fill="#1d3223" stroke={moss}/><Label x="70" y="84" size={8}>DESTINO</Label>
+    <circle cx="180" cy="80" r="26" fill="#3a2222" stroke={rust}/><Label x="180" y="84" size={8}>RUPTURA</Label>
+    <circle cx="290" cy="80" r="26" fill="#2f2340" stroke={violet}/><Label x="290" y="84" size={8}>ESPACIO</Label>
+    <circle cx="400" cy="80" r="26" fill="#382f13" stroke={gold}/><Label x="400" y="84" size={8}>BÚSQUEDA</Label>
     <Arrow x1={95} y1={105} x2={235} y2={163} stroke={moss}/><Arrow x1={190} y1={108} x2={245} y2={160} stroke={rust}/><Arrow x1={288} y1={108} x2={272} y2={157} stroke={violet}/><Arrow x1={395} y1={108} x2={290} y2={162} stroke={gold}/>
     <rect x="175" y="158" width="170" height="55" rx="16" fill={ink}/>
     <Label x="260" y="183" fill={paper}>ESTAR PERDIDO</Label>
