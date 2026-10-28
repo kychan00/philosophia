@@ -119,7 +119,7 @@ test('Los 18 nodos usan una paleta técnica multicolor propia', () => {
 })
 
 test('Toda la superficie pública usa capas oscuras coherentes', () => {
-  assert.match(css, /\.phen2d-page\{[\s\S]*--p-bg:#161616/)
+  assert.match(css, /\.m19-page\.phen2d-page\{[\s\S]*--p-bg:#161616/)
   assert.match(css, /\.phen2d-hero\{[\s\S]*background:/)
   assert.match(css, /\.phen2d-thesis\{[\s\S]*background:#262626/)
   assert.match(css, /\.phen2d-inspector\{[\s\S]*background:#262626/)
