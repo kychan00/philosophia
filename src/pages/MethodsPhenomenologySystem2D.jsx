@@ -9,240 +9,227 @@ import './MethodsClass21Oct.css'
 import './MethodsPhenomenologySystem2D.css'
 
 const chapters = [
-  { id: 'problema', number: 'I', title: 'Del hecho al problema', question: '¿Qué cambia cuando dejamos de medir un hecho y preguntamos cómo se vive?', before: 'La clase compara investigación cuantitativa y cualitativa.', after: 'La pregunta conduce a la intencionalidad y al método fenomenológico.' },
-  { id: 'fundamento', number: 'II', title: 'Intencionalidad y reducción', question: '¿Cómo se vuelve método la relación entre conciencia y fenómeno?', before: 'Ya existe un caso delimitado y una pregunta por su significado vivido.', after: 'La correlación intencional permite analizar cuerpo, espacio y tiempo.' },
-  { id: 'vivencia', number: 'III', title: 'El mundo vivido', question: '¿Cómo se transforma una amenaza digital en material fenomenológico?', before: 'Epojé y noesis/noema fijan la actitud de análisis.', after: 'Las unidades de sentido permiten ensayar variaciones eidéticas.' },
-  { id: 'rigor', number: 'IV', title: 'Variación, estructura y rigor', question: '¿Cómo se buscan invariantes sin inventar una esencia?', before: 'La experiencia fue descrita en sus dimensiones corporales, espaciales y temporales.', after: 'La estructura provisional abre el problema epistemológico del testimonio.' },
-  { id: 'limite', number: 'V', title: 'Hermenéutica y defensa', question: '¿Qué límites tiene la reducción y cómo se defiende el rigor del método?', before: 'La síntesis fenomenológica permanece provisional y explícita sus límites.', after: 'La exposición cierra mostrando qué aporta la fenomenología a la investigación filosófica.' },
+  {
+    id: 'metodo',
+    number: 'I',
+    title: 'La fenomenología como método',
+    question: '¿Cómo investiga filosóficamente una experiencia?',
+    before: 'Partimos de una experiencia que queremos comprender, no sólo medir.',
+    after: 'Con el método claro, lo aplicamos paso a paso a un caso concreto.',
+  },
+  {
+    id: 'caso',
+    number: 'II',
+    title: 'Aplicación a un caso',
+    question: '¿Cómo se convierte una vivencia concreta en análisis fenomenológico?',
+    before: 'Ya contamos con epojé, intencionalidad, análisis de horizontes y variación eidética.',
+    after: 'El resultado será una estructura provisional de la experiencia, no una ley causal.',
+  },
 ]
 
 const entries = [
   {
-    id: 'p1', chapter: 'problema', title: 'Medir no es comprender', short: 'Un mismo hecho admite preguntas numéricas y preguntas por el significado vivido.',
-    source: 'Clase 26 de octubre · comparación cuantitativo / cualitativo; reconstrucción editorial de exposición.',
-    points: ['Una investigación cuantitativa puede preguntar por frecuencia, porcentaje o asociación.', 'La fenomenología pregunta cómo se da una experiencia y qué significa para quien la vive.', 'La oposición es pedagógica: medir y comprender responden preguntas distintas.', 'No se afirma que un enfoque sea universalmente superior al otro.'],
-    analysis: 'El punto de partida de la exposición es metodológico: cambiar la pregunta cambia el objeto que se investiga. La fenomenología no reemplaza toda medición; delimita otro nivel de análisis.',
-    simple: 'Contar cuántas veces ocurre algo no dice todavía cómo se siente vivirlo.',
-    projection: 'Un mismo hecho puede medirse o comprenderse. La fenomenología elige la segunda pregunta.'
+    id: 'm1',
+    chapter: 'metodo',
+    title: '¿Qué investiga la fenomenología?',
+    short: 'La experiencia tal como es vivida y aparece con sentido.',
+    points: [
+      'No pregunta primero cuántas veces ocurre algo, sino cómo se da para quien lo vive.',
+      'Su objeto no es una “opinión privada” aislada, sino la estructura de una experiencia.',
+      'Describe antes de explicar causalmente.',
+    ],
+    analysis: 'La fenomenología convierte la experiencia vivida en un problema filosófico: pregunta por el modo en que algo aparece, adquiere sentido y organiza la relación del sujeto con su mundo.',
+    simple: 'No empieza contando hechos; empieza preguntando qué significa vivirlos.',
+    projection: 'La fenomenología investiga la experiencia tal como aparece y tiene sentido para quien la vive.',
   },
   {
-    id: 'p2', chapter: 'problema', title: 'Estudio de caso ≠ fenomenología', short: 'El diseño técnico organiza el acceso; la fenomenología orienta la pregunta filosófica.',
-    source: 'Consigna reconstruida de la exposición + organización editorial PHILOSOPHIA.',
-    points: ['El estudio de caso delimita caso, participantes, técnicas y registro.', 'La fenomenología orienta el análisis hacia el aparecer de la experiencia.', 'Ambos niveles pueden combinarse sin identificarse.', 'La frase exacta del profesor no se conserva como cita literal.'],
-    analysis: 'Esta distinción evita confundir una estrategia de investigación con una tradición filosófica. El caso organiza el material; la fenomenología determina cómo será interrogado.',
-    simple: 'El estudio de caso dice cómo reunir el material. La fenomenología dice qué queremos comprender de ese material.',
-    projection: 'Técnicamente: estudio de caso. Filosóficamente: fenomenología.'
+    id: 'm2',
+    chapter: 'metodo',
+    title: 'Fenómeno y experiencia vivida',
+    short: 'El fenómeno es aquello que se muestra en una experiencia.',
+    points: [
+      '“Fenómeno” no significa simplemente apariencia falsa.',
+      'Importa cómo algo se presenta: amenazante, cercano, ausente, valioso, extraño.',
+      'La descripción debe volver a escenas concretas.',
+    ],
+    analysis: 'Investigar fenomenológicamente es atender al modo de aparición. El mismo objeto físico puede adquirir sentidos distintos según la experiencia en la que aparece.',
+    simple: 'No sólo importa qué cosa hay, sino cómo se le presenta a una persona.',
+    projection: 'El fenómeno es el objeto tal como aparece dentro de una experiencia concreta.',
   },
   {
-    id: 'p3', chapter: 'problema', title: 'Caso conductor · amenaza digital', short: 'Un mensaje amenazante reorganiza cuerpo, espacio, tiempo y expectativa.',
-    source: 'Clases 19 y 21 de octubre · miedo digital; caso unificado para la exposición.',
-    points: ['Una persona recibe un mensaje que interpreta como amenazante.', 'El agresor no está físicamente presente.', 'Aun así pueden aparecer vigilancia, tensión corporal y anticipación.', 'El caso es didáctico; no representa un estudio empírico concluido.'],
-    analysis: 'El caso concentra los conceptos trabajados en clase y permite mostrar el método en operación sin cambiar de ejemplo a cada paso.',
-    simple: 'Alguien puede estar lejos y, aun así, un mensaje puede hacer que usted sienta el peligro encima.',
-    projection: 'Este será nuestro laboratorio: una amenaza que llega por pantalla.'
+    id: 'm3',
+    chapter: 'metodo',
+    title: 'Intencionalidad',
+    short: 'Toda conciencia es conciencia de algo.',
+    points: [
+      'Temer es temer algo; recordar es recordar algo; esperar es esperar algo.',
+      'La conciencia no se estudia como una caja cerrada.',
+      'La relación sujeto–mundo es constitutiva de la experiencia.',
+    ],
+    analysis: 'La intencionalidad permite estudiar la experiencia como una relación: un acto de conciencia está dirigido hacia algo que aparece con determinado sentido.',
+    simple: 'La conciencia siempre está orientada hacia algo.',
+    projection: 'La primera clave es la intencionalidad: toda experiencia está dirigida hacia algo.',
   },
   {
-    id: 'p4', chapter: 'problema', title: 'Pregunta rectora', short: '¿Cómo convertir una experiencia concreta en objeto de investigación filosófica rigurosa?',
-    source: 'Reconstrucción editorial de estudio a partir del curso.',
-    points: ['La pregunta exige descripción y procedimiento.', 'Debe evitar reducir la experiencia a opinión privada.', 'Debe evitar confundir relato con explicación causal ya probada.', 'Debe hacer explícitos los límites del investigador.'],
-    analysis: 'Toda la exposición puede entenderse como respuesta progresiva a esta pregunta. Cada nodo posterior añade una operación o un límite.',
-    simple: '¿Cómo pasamos de “me pasó esto” a una investigación filosófica seria?',
-    projection: 'La exposición responde una sola pregunta: ¿cómo investigar rigurosamente una experiencia?'
-  },
-
-  {
-    id: 'f1', chapter: 'fundamento', title: 'Brentano · intencionalidad', short: 'La vida psíquica está orientada hacia algo.',
-    source: 'Clase 26 de octubre · recomendación de Brentano y explicación de intencionalidad.',
-    points: ['Temer es temer algo; recordar es recordar algo; esperar es esperar algo.', 'Intencionalidad no significa simplemente proponerse realizar una acción.', 'La noción funciona como antecedente para la fenomenología husserliana.', 'La exposición no pretende resumir exhaustivamente la psicología de Brentano.'],
-    analysis: 'La intencionalidad permite abandonar la idea de una conciencia cerrada sobre sí misma: la experiencia tiene una dirección y un correlato.',
-    simple: 'La conciencia nunca está completamente vacía: siempre está ocupada con algo.',
-    projection: 'Antes de Husserl: la conciencia ya aparece como dirigida hacia algo.'
+    id: 'm4',
+    chapter: 'metodo',
+    title: 'Epojé',
+    short: 'Suspender explicaciones automáticas para poder describir.',
+    points: [
+      'No significa negar el mundo.',
+      'Se ponen entre paréntesis diagnósticos, causas y juicios previos.',
+      'La pregunta es: ¿qué puedo describir antes de explicar?',
+    ],
+    analysis: 'La epojé cambia la actitud del investigador. En vez de cerrar rápidamente el fenómeno con una teoría, mantiene abierta la descripción de cómo se da la experiencia.',
+    simple: 'Por un momento dejamos de explicar para mirar mejor.',
+    projection: 'La epojé no borra el mundo: suspende nuestras explicaciones sobre él.',
   },
   {
-    id: 'f2', chapter: 'fundamento', title: 'Husserl · giro metodológico', short: 'La pregunta pasa de qué es el objeto a cómo se da en la experiencia.',
-    source: 'Clases 7, 14 y 26 de octubre · método fenomenológico.',
-    points: ['El método prioriza descripción antes que explicación automática.', 'El fenómeno se examina en su modo de darse.', 'La reducción modifica la actitud del investigador.', 'No se equipara fenomenología con introspección psicológica.'],
-    analysis: 'El giro husserliano organiza la exposición: no basta identificar un objeto; hay que analizar la correlación entre acto y sentido.',
-    simple: 'No preguntamos primero “¿qué es esto en sí?”, sino “¿cómo aparece para quien lo vive?”.',
-    projection: 'Husserl convierte la pregunta por la experiencia en un método.'
+    id: 'm5',
+    chapter: 'metodo',
+    title: 'Noesis ↔ noema',
+    short: 'Acto de conciencia y objeto tal como aparece forman una correlación.',
+    points: [
+      'Noesis: percibir, temer, anticipar, recordar, imaginar.',
+      'Noema: aquello tal como aparece en ese acto.',
+      'El análisis busca la correlación, no dos objetos independientes.',
+    ],
+    analysis: 'Noesis y noema permiten describir con precisión qué hace la conciencia y qué sentido adquiere su objeto dentro de esa vivencia.',
+    simple: 'Noesis es el acto; noema es aquello tal como aparece en ese acto.',
+    projection: 'Fenomenológicamente no analizamos sólo el objeto: analizamos la correlación entre acto y sentido.',
   },
   {
-    id: 'f3', chapter: 'fundamento', title: 'Epojé · suspender', short: 'Poner entre paréntesis explicaciones automáticas para describir primero.',
-    source: 'Clases 7 y 21 de octubre · epojé y depuración de la actitud natural.',
-    points: ['No significa negar que el mundo exista.', 'No significa borrar conocimiento ni destruir testimonios.', 'Suspende provisionalmente causas, diagnósticos y juicios previos.', 'Permite atender a la forma concreta en que aparece una vivencia.'],
-    analysis: 'La epojé es una disciplina de atención. Su función es impedir que una teoría cierre el fenómeno antes de que éste haya sido descrito.',
-    simple: 'Por un momento dejamos de decir “esto pasa por X” y vemos primero qué se vivió.',
-    projection: 'Epojé: no borrar el mundo; suspender nuestras explicaciones sobre él.'
+    id: 'm6',
+    chapter: 'metodo',
+    title: 'Horizontes de experiencia',
+    short: 'Cuerpo, espacio, tiempo y mundo participan en el sentido.',
+    points: [
+      'El cuerpo puede tensarse, paralizarse o prepararse.',
+      'Un espacio físicamente igual puede dejar de sentirse seguro.',
+      'El futuro puede hacerse presente mediante anticipación.',
+      'La experiencia siempre ocurre dentro de un mundo de relaciones y significados.',
+    ],
+    analysis: 'La experiencia no se reduce a una frase mental. Está encarnada, situada espacialmente, temporalmente orientada e inserta en un mundo.',
+    simple: 'Una experiencia cambia cómo se vive el cuerpo, el espacio, el tiempo y el mundo.',
+    projection: 'El sentido de una vivencia se distribuye entre cuerpo, espacio, tiempo y mundo.',
   },
   {
-    id: 'f4', chapter: 'fundamento', title: 'Noesis ↔ noema', short: 'Acto de conciencia y objeto tal como aparece forman una correlación.',
-    source: 'Clase 21 de octubre · indagación noética y noemática.',
-    points: ['Noesis: temer, anticipar, imaginar, recordar, vigilar.', 'Noema: el mensaje en cuanto amenaza, el otro en cuanto agresor posible.', 'Noesis y noema no son dos cosas independientes.', 'La correlación permite describir el sentido vivido sin confundirlo con comprobación externa.'],
-    analysis: 'Este par es el centro analítico de la exposición: muestra cómo un mismo objeto puede aparecer con sentidos diferentes según el acto vivido.',
-    simple: 'Noesis es lo que hace su conciencia; noema es aquello tal como se le aparece.',
-    projection: 'Noesis y noema: el acto de temer y la amenaza tal como aparece.'
-  },
-
-  {
-    id: 'v1', chapter: 'vivencia', title: 'Cuerpo vivido', short: 'La experiencia se manifiesta corporalmente antes de convertirse en teoría.',
-    source: 'Clases 14 y 21 de octubre · corporalidad como eje de descripción.',
-    points: ['Pueden describirse tensión, postura, respiración, sobresalto o inmovilidad.', 'No son síntomas universales ni una lista diagnóstica.', 'Deben proceder de escenas concretas relatadas por participantes.', 'El cuerpo forma parte del modo de darse del fenómeno.'],
-    analysis: 'La corporalidad evita reducir la vivencia a una idea abstracta. El miedo no sólo se “piensa”: puede reorganizar la experiencia corporal.',
-    simple: 'El cuerpo también “sabe” que algo da miedo: se tensa, se paraliza o se prepara.',
-    projection: 'Primera dimensión del mundo vivido: el cuerpo.'
+    id: 'm7',
+    chapter: 'metodo',
+    title: 'Variación eidética',
+    short: 'Cambiar imaginariamente rasgos para buscar qué parece estructural.',
+    points: [
+      'Se modifica un rasgo del caso y se pregunta si la experiencia sigue siendo la misma.',
+      'Permite distinguir lo accidental de candidatos invariantes.',
+      'No autoriza a proclamar una esencia universal sin justificación.',
+    ],
+    analysis: 'La variación eidética funciona como un experimento conceptual: ayuda a probar qué elementos pueden cambiar y cuáles parecen necesarios para que la experiencia conserve su identidad.',
+    simple: 'Cambiamos mentalmente el caso para ver qué puede variar y qué parece indispensable.',
+    projection: 'La variación eidética prueba la estructura de la experiencia mediante cambios imaginarios.',
   },
   {
-    id: 'v2', chapter: 'vivencia', title: 'Espacio vivido', short: 'Un lugar físicamente igual puede adquirir un sentido completamente distinto.',
-    source: 'Clase 21 de octubre · espacialidad del miedo digital.',
-    points: ['La habitación puede pasar de sentirse cotidiana a vulnerable.', 'La distancia física del agresor no coincide con la cercanía vivida.', 'El espacio se describe desde la situación del sujeto.', 'No se afirma que el peligro externo esté objetivamente próximo.'],
-    analysis: 'La fenomenología distingue espacio geométrico y espacio vivido. El sentido del lugar cambia aunque sus medidas permanezcan idénticas.',
-    simple: 'Las paredes no cambian, pero el cuarto puede dejar de sentirse seguro.',
-    projection: 'El espacio físico puede ser idéntico y el espacio vivido, completamente distinto.'
-  },
-  {
-    id: 'v3', chapter: 'vivencia', title: 'Tiempo vivido', short: 'La amenaza puede ocupar el presente mediante anticipación del futuro.',
-    source: 'Clases 21 de octubre · temporalidad e inminencia.',
-    points: ['La experiencia puede acelerarse, prolongarse o quedar dominada por la espera.', 'El miedo puede estar dirigido a algo que todavía no ocurre.', 'La inminencia se examina como dimensión posible, no como esencia ya demostrada.', 'El tiempo vivido no se reduce a la duración del reloj.'],
-    analysis: 'La anticipación muestra que el futuro puede modificar el presente antes de que el acontecimiento ocurra.',
-    simple: 'Algo que todavía no pasa puede empezar a ocupar todo su presente.',
-    projection: 'En el miedo, el futuro puede invadir el presente.'
-  },
-  {
-    id: 'v4', chapter: 'vivencia', title: 'Entrevista fenomenológica', short: 'Volver a una escena concreta y pedir descripción antes que teoría.',
-    source: 'Clase 21 de octubre · guía de entrevista; organización editorial.',
-    points: ['Se solicita una situación concreta y reciente.', 'Se pregunta qué apareció primero y qué ocurrió después.', 'Se indaga cuerpo, espacio, tiempo y sentido.', 'En investigación real se mantienen consentimiento informado y obligaciones éticas.'],
-    analysis: 'La entrevista busca producir descripciones densas, no respuestas dirigidas hacia una teoría anticipada. La pregunta debe devolver al participante a una escena.',
-    simple: 'En vez de “¿usted tiene ansiedad?”, preguntamos: “¿qué pasó exactamente y cómo lo vivió?”.',
-    projection: 'La entrevista no pide etiquetas: pide escenas.'
-  },
-  {
-    id: 'v5', chapter: 'vivencia', title: 'Unidades de sentido', short: 'El relato se organiza sin convertir cada frase en una conclusión.',
-    source: 'Clases 21 y 26 de octubre · análisis cualitativo; reconstrucción de estudio.',
-    points: ['Se distinguen actos, objetos, cuerpo, espacio, tiempo y relaciones.', 'Se conservan los relatos originales.', 'La codificación no es equivalente a una esencia.', 'Las unidades permiten comparar experiencias y preparar variaciones.'],
-    analysis: 'Organizar material no significa mecanizarlo. Las unidades de sentido son ayudas para leer correlaciones y recurrencias.',
-    simple: 'Ordenamos el relato por temas para entenderlo mejor, pero no fingimos que ya encontramos la verdad final.',
-    projection: 'Del relato pasamos a unidades de sentido, no todavía a una esencia.'
-  },
-
-  {
-    id: 'r1', chapter: 'rigor', title: 'Variación I · presencia', short: '¿Sigue habiendo miedo sin agresor físicamente presente?',
-    source: 'Clase 21 de octubre · variación imaginativa.',
-    points: ['Se retira imaginariamente la copresencia corporal del agresor.', 'La amenaza continúa llegando mediante pantalla o llamada.', 'Si el miedo persiste, la presencia física no sería indispensable en ese caso.', 'No se universaliza automáticamente.'],
-    analysis: 'La variación eidética funciona como prueba conceptual: cambia un rasgo y observa qué sucede con la identidad de la experiencia.',
-    simple: 'Quitamos mentalmente al agresor de la habitación y preguntamos si la experiencia sigue siendo miedo.',
-    projection: 'Primera variación: quitar la presencia física.'
-  },
-  {
-    id: 'r2', chapter: 'rigor', title: 'Variación II · inminencia', short: '¿Qué cambia si la amenaza se desplaza muy lejos en el tiempo?',
-    source: 'Clase 21 de octubre · amenaza aplazada.',
-    points: ['Se altera el cuándo de la amenaza.', 'Puede cambiar intensidad, cualidad o persistencia.', 'La temporalidad aparece como rasgo a investigar.', 'La disminución del miedo no demuestra por sí sola necesidad eidética.'],
-    analysis: 'La variación examina qué tan decisiva es la cercanía temporal para esta forma de miedo sin convertir el resultado en ley psicológica.',
-    simple: 'No se siente igual un peligro mañana que uno dentro de cincuenta años.',
-    projection: 'Segunda variación: cambiar la distancia temporal.'
-  },
-  {
-    id: 'r3', chapter: 'rigor', title: 'Variación III · vulnerabilidad', short: '¿Qué ocurre si nada puede dañarnos?',
-    source: 'Clase 21 de octubre · invulnerabilidad imaginaria.',
-    points: ['Se imagina al sujeto y a sus seres queridos como invulnerables.', 'Se pregunta si persiste el mismo miedo.', 'La vulnerabilidad aparece como candidato estructural.', 'La clase no la demuestra como esencia universal.'],
-    analysis: 'La prueba muestra cómo una condición aparentemente obvia puede convertirse en hipótesis filosófica que todavía exige justificación.',
-    simple: 'Si usted supiera que ningún daño es posible, ¿seguiría sintiendo exactamente el mismo miedo?',
-    projection: 'Tercera variación: retirar la posibilidad de daño.'
-  },
-  {
-    id: 'r4', chapter: 'rigor', title: 'Estructura provisional', short: 'Invariantes posibles, no esencia universal ya demostrada.',
-    source: 'Clases 7 y 21 de octubre · reducción eidética; síntesis editorial.',
-    points: ['La variación permite distinguir rasgos accidentales y candidatos invariantes.', 'La síntesis debe permanecer argumentada y revisable.', 'No hay en estas clases un estudio de campo concluido.', 'No se presenta una esencia trascendental definitiva del miedo digital.'],
-    analysis: 'La palabra clave es provisional. La fenomenología gana rigor cuando explicita qué se sostiene, con qué material y hasta dónde puede generalizarse.',
-    simple: 'Encontramos pistas de estructura, no una fórmula eterna del miedo.',
-    projection: 'El resultado correcto es una estructura provisional, no una esencia proclamada.'
-  },
-  {
-    id: 'r5', chapter: 'rigor', title: '¿Y si el participante miente?', short: 'El testimonio no da acceso transparente e infalible a una mente privada.',
-    source: 'Clase 26 de octubre · pregunta epistemológica vinculada a Luis Villoro.',
-    points: ['Una persona puede omitir, exagerar, reinterpretar o mentir.', 'Una declaración verbal no equivale automáticamente a una creencia verdadera.', 'La fenomenología trabaja con relatos sin tratarlos como infalibles.', 'El límite debe reconocerse en lugar de ocultarse.'],
-    analysis: 'Esta objeción fortalece la exposición porque obliga a distinguir experiencia relatada, inferencia del investigador y realidad externa.',
-    simple: 'Que alguien diga “sentí esto” es importante, pero no vuelve al investigador lector perfecto de su mente.',
-    projection: 'Objeción fuerte: el otro puede mentir o entenderse mal a sí mismo.'
-  },
-  {
-    id: 'r6', chapter: 'rigor', title: 'Cinco controles de rigor', short: 'Escena concreta, capas separadas, contraste, reflexividad y límites explícitos.',
-    source: 'Síntesis editorial a partir de las clases y la discusión epistemológica.',
-    points: ['Volver a escenas y expresiones concretas.', 'Separar descripción del participante e interpretación del investigador.', 'Comparar relatos y buscar recurrencias sin forzarlas.', 'Examinar los propios presupuestos mediante reflexividad.', 'Explicitar límites inferenciales y alcance de la síntesis.'],
-    analysis: 'La investigación cualitativa no se vuelve rigurosa por imitar una estadística; gana rigor al documentar procedimientos, distinciones y límites.',
-    simple: 'Subjetivo no significa arbitrario: hay reglas para no inventar lo que queremos encontrar.',
-    projection: 'Rigor cualitativo: procedimiento visible y límites visibles.'
+    id: 'm8',
+    chapter: 'metodo',
+    title: 'Rigor y límite hermenéutico',
+    short: 'Descripción disciplinada, reflexividad y reconocimiento de los límites.',
+    points: [
+      'El testimonio no es acceso infalible a una mente privada.',
+      'El investigador distingue descripción, interpretación e inferencia.',
+      'La comprensión siempre ocurre desde un horizonte histórico y lingüístico.',
+      'El resultado debe presentarse como estructura argumentada y revisable.',
+    ],
+    analysis: 'El rigor fenomenológico no consiste en fingir neutralidad absoluta, sino en hacer visible el procedimiento, controlar las inferencias y reconocer que toda comprensión es situada.',
+    simple: 'Subjetivo no significa arbitrario: hay método, contraste y límites.',
+    projection: 'El rigor está en mostrar cómo interpretamos y hasta dónde podemos sostener lo que concluimos.',
   },
 
   {
-    id: 'l1', chapter: 'limite', title: 'Heidegger · ser-en-el-mundo', short: 'Comprender siempre ocurre desde una historia, un lenguaje y un mundo.',
-    source: 'Clase 26 de octubre · contraste fenomenología trascendental / hermenéutica.',
-    points: ['La comprensión no parte de un observador socialmente vacío.', 'Historia, relaciones y lenguaje forman horizonte.', 'La existencia situada modifica la pregunta por la reducción.', 'La exposición usa este contraste pedagógicamente, no como resumen exhaustivo de Heidegger.'],
-    analysis: 'Heidegger introduce un límite productivo: incluso la descripción fenomenológica ocurre desde condiciones previas de comprensión.',
-    simple: 'Nunca miramos el mundo desde “ningún lugar”: siempre ya estamos dentro de una historia y un lenguaje.',
-    projection: 'Heidegger pregunta: ¿puede alguien comprender desde ningún lugar?'
+    id: 'c1',
+    chapter: 'caso',
+    title: '1 · Delimitar el caso',
+    short: 'Miedo ante una amenaza recibida por celular.',
+    points: [
+      'Situación: una persona recibe un mensaje que interpreta como amenazante.',
+      'No hay agresor físicamente presente.',
+      'Pregunta: ¿cómo se vive esa amenaza y cómo reorganiza la experiencia?',
+    ],
+    analysis: 'El caso se delimita lo suficiente para investigar una experiencia concreta. No estudia “el celular” ni “el miedo” en abstracto, sino una forma específica de amenaza vivida.',
+    simple: 'Elegimos una experiencia precisa, no un tema gigantesco.',
+    projection: 'Nuestro caso será el miedo ante una amenaza digital sin presencia física del agresor.',
   },
   {
-    id: 'l2', chapter: 'limite', title: 'Husserl ↔ Heidegger', short: 'Suspender presupuestos y reconocer el horizonte situado forman una tensión fértil.',
-    source: 'Clase 26 de octubre + reconstrucción comparativa de exposición.',
-    points: ['Husserl enfatiza reducción y estructura del aparecer.', 'Heidegger enfatiza comprensión situada y mundo.', 'La comparación no exige elegir un ganador.', 'La tensión evita convertir el método en receta mecánica.'],
-    analysis: 'Este contraste muestra que la fenomenología tiene debates internos sobre qué tanto puede suspenderse y qué papel juega el horizonte previo.',
-    simple: 'Husserl pregunta cómo aparece; Heidegger pregunta desde qué mundo puede aparecer así.',
-    projection: 'La tensión final: reducción y situación.'
+    id: 'c2',
+    chapter: 'caso',
+    title: '2 · Obtener una descripción',
+    short: 'Entrevistar para reconstruir una escena, no para obtener etiquetas.',
+    points: [
+      'Pregunta inicial: “Cuénteme una situación concreta”.',
+      'Después: ¿qué apareció primero?, ¿qué cambió en su cuerpo?, ¿cómo sintió el espacio y el tiempo?',
+      'Se evita inducir respuestas como “¿eso le produjo ansiedad?”.',
+    ],
+    analysis: 'La entrevista fenomenológica busca una descripción densa de la experiencia. El investigador vuelve a escenas, acciones, percepciones y sentidos antes de imponer categorías explicativas.',
+    simple: 'Pedimos que describa lo que pasó y cómo lo vivió.',
+    projection: 'La entrevista no pide diagnósticos: pide una escena concreta y su modo de vivirse.',
   },
   {
-    id: 'l3', chapter: 'limite', title: 'No es simplemente psicología', short: 'El interés principal no es diagnosticar ni explicar causalmente un estado mental.',
-    source: 'Clases 7, 21 y 26 de octubre · fronteras metodológicas; síntesis editorial.',
-    points: ['La fenomenología describe estructuras de experiencia y sentido.', 'La psicología puede estudiar procesos, diagnósticos y relaciones causales con otros diseños.', 'La sociología puede estudiar instituciones, grupos y regularidades sociales.', 'Las fronteras son de énfasis y método, no muros absolutos.'],
-    analysis: 'La exposición gana precisión cuando evita definir disciplinas por caricaturas. El mismo fenómeno puede ser investigado desde varios enfoques.',
-    simple: 'No competimos con la psicología: estamos haciendo otra pregunta sobre la misma experiencia.',
-    projection: 'Mismo fenómeno, preguntas distintas.'
+    id: 'c3',
+    chapter: 'caso',
+    title: '3 · Analizar la experiencia',
+    short: 'Epojé + noesis/noema + cuerpo + espacio + tiempo.',
+    points: [
+      'Relato: “Vi el mensaje y sentí que podía pasarme algo aunque estaba solo en mi cuarto”.',
+      'Noesis: temer, anticipar, vigilar.',
+      'Noema: el mensaje como amenaza y el agresor como presencia posible.',
+      'Horizontes: cuerpo tenso, cuarto vulnerable, futuro ocupado por la posibilidad de daño.',
+    ],
+    analysis: 'Aquí el método se vuelve visible. La escena deja de ser una anécdota y se descompone en actos, sentidos y horizontes de experiencia.',
+    simple: 'Tomamos una frase cotidiana y mostramos su estructura fenomenológica.',
+    projection: 'Ahora aplicamos el método: acto, objeto tal como aparece y transformación del mundo vivido.',
   },
   {
-    id: 'l4', chapter: 'limite', title: 'Defensa oral', short: 'Diez preguntas difíciles convierten la exposición en argumentación.',
-    source: 'Preparación editorial de la exposición magna.',
-    points: ['¿Por qué sigue siendo investigación si no mide porcentajes?', '¿Cuál es la diferencia entre estudio de caso y fenomenología?', '¿Qué suspende exactamente la epojé?', '¿Cómo se obtiene una estructura sin inventarla?', '¿Qué ocurre si el participante miente?'],
-    analysis: 'La defensa obliga a dominar relaciones conceptuales y límites, no memorizar nombres. El sistema de estudio desarrolla las diez preguntas completas.',
-    simple: 'Si puede responder las objeciones sin mirar la pantalla, ya domina la exposición.',
-    projection: 'La mejor exposición termina cuando usted puede defender el método sin diapositivas.'
-  },
-  {
-    id: 'l5', chapter: 'limite', title: 'Qué aporta la fenomenología', short: 'Un camino explícito desde la vivencia hacia una descripción estructural y situada.',
-    source: 'Cierre editorial construido a partir del recorrido del curso.',
-    points: ['No produce principalmente porcentajes ni leyes causales.', 'Produce descripciones, unidades de sentido y correlaciones intencionales.', 'Puede proponer estructuras de experiencia con límites explícitos.', 'La investigación filosófica conserva su rigor al hacer visible el camino de análisis.'],
-    analysis: 'El cierre reúne la tesis de la exposición sin atribuirla al profesor como frase literal: el rigor fenomenológico consiste en hacer explícito cómo se pasa de vivencia a estructura.',
-    simple: 'La fenomenología intenta comprender con disciplina cómo una experiencia llega a tener el sentido que tiene.',
-    projection: 'Del “me pasó” al “así se estructura esta experiencia”: ésa es la ganancia metodológica.'
+    id: 'c4',
+    chapter: 'caso',
+    title: '4 · Variar y sintetizar',
+    short: 'Probar invariantes y formular una estructura provisional.',
+    points: [
+      'Variación A: retirar la presencia física del agresor.',
+      'Variación B: alejar la amenaza en el tiempo.',
+      'Variación C: imaginar que ningún daño es posible.',
+      'Síntesis: presencia posible del daño + vulnerabilidad + anticipación reorganizan el mundo vivido.',
+    ],
+    analysis: 'El resultado no es una ley causal ni una esencia definitiva. Es una estructura provisional que organiza lo encontrado y puede ser discutida, contrastada o reformulada.',
+    simple: 'Después de probar cambios, proponemos qué parece sostener esa experiencia.',
+    projection: 'La aplicación termina con una estructura provisional, no con una verdad universal.',
   },
 ]
 
 const relationPairs = [
-  ['p1', 'p2', 'distingue niveles'], ['p2', 'p3', 'delimita el caso'], ['p3', 'p4', 'formula el problema'],
-  ['p4', 'f1', 'abre fundamento'], ['f1', 'f2', 'antecede'], ['f2', 'f3', 'opera mediante'], ['f3', 'f4', 'permite analizar'],
-  ['f4', 'v1', 'se encarna'], ['f4', 'v2', 'organiza sentido'], ['f4', 'v3', 'organiza sentido'], ['v1', 'v4', 'orienta preguntas'],
-  ['v2', 'v4', 'orienta preguntas'], ['v3', 'v4', 'orienta preguntas'], ['v4', 'v5', 'produce material'],
-  ['v5', 'r1', 'abre prueba'], ['r1', 'r2', 'continúa variación'], ['r2', 'r3', 'continúa variación'], ['r3', 'r4', 'permite síntesis'],
-  ['r4', 'r5', 'abre objeción'], ['r5', 'r6', 'exige controles'], ['r6', 'l1', 'encuentra límite'], ['l1', 'l2', 'se contrasta'],
-  ['l2', 'l3', 'aclara frontera'], ['l3', 'l4', 'prepara defensa'], ['l4', 'l5', 'culmina en']
+  ['m1', 'm2', 'delimita'],
+  ['m2', 'm3', 'abre'],
+  ['m3', 'm4', 'orienta'],
+  ['m4', 'm5', 'permite'],
+  ['m5', 'm6', 'se despliega en'],
+  ['m6', 'm7', 'prepara'],
+  ['m7', 'm8', 'exige rigor'],
+  ['m8', 'c1', 'se aplica a'],
+  ['c1', 'c2', 'recoge'],
+  ['c2', 'c3', 'analiza'],
+  ['c3', 'c4', 'sintetiza'],
 ]
 
 const quizzes = [
-  { chapter: 'problema', node: 'p2', question: '¿Qué diferencia hay entre estudio de caso y fenomenología?', options: ['Son exactamente el mismo método', 'El primero organiza el diseño; la segunda orienta el análisis filosófico', 'La fenomenología sólo sirve para entrevistas'], correct: 1, explanation: 'El estudio de caso organiza el acceso al material; la fenomenología determina qué se pregunta y cómo se analiza la experiencia.' },
-  { chapter: 'fundamento', node: 'f3', question: '¿Qué hace la epojé?', options: ['Niega que exista el mundo', 'Borra todo conocimiento previo', 'Suspende provisionalmente explicaciones y juicios'], correct: 2, explanation: 'La epojé cambia la actitud del investigador; no destruye ni niega el mundo.' },
-  { chapter: 'fundamento', node: 'f4', question: '¿Qué relación hay entre noesis y noema?', options: ['Son polos correlativos de una experiencia', 'Son dos objetos físicos', 'No tienen relación'], correct: 0, explanation: 'La noesis nombra el acto y el noema el objeto tal como aparece en ese acto.' },
-  { chapter: 'vivencia', node: 'v2', question: '¿Por qué el espacio vivido no es igual al espacio geométrico?', options: ['Porque cambia la medida de las paredes', 'Porque el sentido del lugar puede cambiar sin cambiar su geometría', 'Porque la fenomenología niega la física'], correct: 1, explanation: 'La habitación puede adquirir un sentido de vulnerabilidad aunque físicamente permanezca igual.' },
-  { chapter: 'rigor', node: 'r4', question: '¿Qué resultado legítimo dejan las variaciones del caso?', options: ['Una esencia universal demostrada', 'Candidatos estructurales y una síntesis provisional', 'Una ley causal'], correct: 1, explanation: 'Las clases no presentan datos suficientes para proclamar una esencia universal del miedo digital.' },
-  { chapter: 'rigor', node: 'r5', question: '¿El relato del participante es infalible?', options: ['Sí, siempre', 'No; debe analizarse sin tratarlo como acceso transparente a la mente', 'Sólo cuando dura más de una hora'], correct: 1, explanation: 'El testimonio es material central, pero no vuelve innecesarios el contraste, la reflexividad y los límites inferenciales.' },
-  { chapter: 'limite', node: 'l2', question: '¿Cómo se resume el contraste pedagógico Husserl–Heidegger?', options: ['Husserl mide y Heidegger entrevista', 'Husserl enfatiza reducción; Heidegger situación y mundo', 'Son doctrinas idénticas'], correct: 1, explanation: 'El contraste de la exposición gira en torno a estructura del aparecer y horizonte situado.' },
-  { chapter: 'limite', node: 'l5', question: '¿Qué aporta principalmente la fenomenología en esta exposición?', options: ['Una estadística', 'Una descripción estructural, argumentada y situada de la experiencia', 'Un diagnóstico clínico'], correct: 1, explanation: 'Su producto central es una comprensión rigurosa del sentido y estructura de la experiencia.' },
+  { chapter: 'metodo', node: 'm1', question: '¿Qué investiga principalmente la fenomenología en esta exposición?', options: ['Frecuencias estadísticas', 'La experiencia tal como es vivida y aparece con sentido', 'Sólo conductas observables'], correct: 1, explanation: 'La fenomenología centra la investigación en el modo de darse y el sentido de la experiencia.' },
+  { chapter: 'metodo', node: 'm4', question: '¿Qué hace la epojé?', options: ['Niega el mundo', 'Suspende provisionalmente explicaciones y juicios previos', 'Elimina toda interpretación'], correct: 1, explanation: 'La epojé modifica la actitud del investigador para describir antes de explicar.' },
+  { chapter: 'metodo', node: 'm5', question: '¿Qué relación existe entre noesis y noema?', options: ['Son polos correlativos de una experiencia', 'Son dos objetos físicos', 'No tienen relación'], correct: 0, explanation: 'La noesis es el acto; el noema es aquello tal como aparece en ese acto.' },
+  { chapter: 'metodo', node: 'm7', question: '¿Para qué sirve la variación eidética?', options: ['Para calcular porcentajes', 'Para probar qué rasgos pueden variar y cuáles parecen estructurales', 'Para diagnosticar clínicamente'], correct: 1, explanation: 'La variación eidética modifica imaginariamente el caso para explorar candidatos invariantes.' },
+  { chapter: 'caso', node: 'c2', question: '¿Qué busca primero una entrevista fenomenológica?', options: ['Una escena descrita con detalle', 'Una etiqueta diagnóstica', 'Una explicación causal completa'], correct: 0, explanation: 'La prioridad es reconstruir cómo se vivió una situación concreta.' },
+  { chapter: 'caso', node: 'c4', question: '¿Qué tipo de resultado produce aquí el análisis?', options: ['Una ley universal', 'Una estructura provisional de la experiencia', 'Una correlación estadística'], correct: 1, explanation: 'El resultado se formula como estructura argumentada y revisable.' },
 ]
 
 const palette = SYSTEM_2D_THEME.nodeTopics
 const colors = {
-  problema: palette.blue,
-  fundamento: palette.violet,
-  vivencia: palette.moss,
-  rigor: palette.ochre,
-  limite: palette.rust,
+  metodo: palette.violet,
+  caso: palette.moss,
 }
 const nodeTypes = { study: StudyNode }
 
@@ -263,8 +250,8 @@ function StudyNode({ data, selected }) {
 }
 
 function Workspace() {
-  const [chapterId, setChapterId] = useState('problema')
-  const [selectedId, setSelectedId] = useState('p1')
+  const [chapterId, setChapterId] = useState('metodo')
+  const [selectedId, setSelectedId] = useState('m1')
   const [mode, setMode] = useState('folio')
   const [step, setStep] = useState(0)
   const [qIndex, setQIndex] = useState(0)
@@ -286,8 +273,8 @@ function Workspace() {
   const selectedIndex = visible.findIndex(item => item.id === selected.id)
   const question = relevantQuizzes[qIndex] || relevantQuizzes[0]
   const columns = chapterId === 'todo' ? 3 : 2
-  const xGap = chapterId === 'todo' ? 520 : 560
-  const yGap = chapterId === 'todo' ? 320 : 340
+  const xGap = chapterId === 'todo' ? 540 : 570
+  const yGap = chapterId === 'todo' ? 330 : 350
 
   const focusNode = (id) => {
     const i = visible.findIndex(item => item.id === id)
@@ -388,13 +375,13 @@ function Workspace() {
     <section
       id="sistema-fenomenologia"
       className={'m19-system m21-system phen2d-system ph2d-shell' + (expanded ? ' expanded' : '') + (projection ? ' projection' : '')}
-      aria-label="Sistema 2D de la exposición de fenomenología"
+      aria-label="Sistema 2D de fenomenología como método"
     >
       <div className="m19-workspace-head phen2d-head">
         <div>
-          <span className="m19-kicker">ATLAS DE EXPOSICIÓN · SISTEMA 2D</span>
-          <h2>Fenomenología en operación.</h2>
-          <p>Veinticuatro nodos conectan problema, fundamento, mundo vivido, variación y límites. Cada folio distingue fuente de clase, reconstrucción editorial y alcance.</p>
+          <span className="m19-kicker">SISTEMA 2D · EXPOSICIÓN</span>
+          <h2>Fenomenología: método y aplicación.</h2>
+          <p>Primero se explica el método. Después se ejecuta sobre un caso concreto. Nada más.</p>
         </div>
         <div className="phen2d-head-actions">
           {!projection && <button type="button" className="phen2d-project" onClick={startProjection}>Proyectar exposición ▶</button>}
@@ -406,17 +393,17 @@ function Workspace() {
 
       {!projection && (
         <>
-          <div className="m19-chapters" role="group" aria-label="Actos de la exposición">
-            {[...chapters, { id: 'todo', number: 'Σ', title: 'Atlas completo' }].map(item => (
+          <div className="m19-chapters" role="group" aria-label="Partes de la exposición">
+            {[...chapters, { id: 'todo', number: 'Σ', title: 'Recorrido completo' }].map(item => (
               <button type="button" key={item.id} className={item.id === chapterId ? 'active' : ''} onClick={() => switchChapter(item.id)}>
                 <span>{item.number}</span>{item.title}
               </button>
             ))}
           </div>
           <div className="m19-journey">
-            <p><b>ANTES</b>{chapter?.before || 'La exposición parte de la diferencia entre medir y comprender.'}</p>
-            <p><b>AHORA</b>{chapter?.question || '¿Cómo se articula el recorrido completo?'}</p>
-            <p><b>DESPUÉS</b>{chapter?.after || 'El cierre vuelve a la pregunta por el rigor filosófico.'}</p>
+            <p><b>PUNTO DE PARTIDA</b>{chapter?.before || 'Primero explicamos el método y luego lo aplicamos.'}</p>
+            <p><b>PREGUNTA</b>{chapter?.question || '¿Cómo pasa la fenomenología de concepto a investigación?'}</p>
+            <p><b>RESULTADO</b>{chapter?.after || 'Una estructura provisional de la experiencia.'}</p>
           </div>
         </>
       )}
@@ -425,16 +412,15 @@ function Workspace() {
         {!projection && <button type="button" className={mode === 'guia' ? 'active' : ''} onClick={() => guideStep(0)}>Iniciar guía</button>}
         {!projection && <button type="button" className={mode === 'estudio' ? 'active' : ''} onClick={() => { setMode('estudio'); setAnswer(null); setQIndex(0); setSelectedId(relevantQuizzes[0]?.node || visible[0].id) }}>Modo estudio</button>}
         {!projection && <button type="button" className={mode === 'folio' ? 'active' : ''} onClick={() => setMode('folio')}>Folio</button>}
-        <span>{visible.length} nodos · {edges.length} relaciones · relaciones de estudio</span>
+        <span>{visible.length} nodos · {edges.length} relaciones</span>
       </div>
 
       {mode === 'guia' && (
         <div className="m19-lesson phen2d-lesson" aria-live="polite">
-          <span className="m19-kicker">{projection ? 'MODO PROYECCIÓN' : 'GUÍA COMPLETA'} · PASO {step + 1} / {visible.length}</span>
+          <span className="m19-kicker">{projection ? 'MODO PROYECCIÓN' : 'GUÍA'} · PASO {step + 1} / {visible.length}</span>
           <h3>{visible[step].title}</h3>
           {projection && <p className="phen2d-projection-line">{visible[step].projection}</p>}
           <p>{visible[step].analysis}</p>
-          <p><strong>Procedencia:</strong> {visible[step].source}</p>
           <div className="m19-step-buttons">
             <button type="button" disabled={step === 0} onClick={() => guideStep(step - 1)}>← Anterior</button>
             {!projection && <button type="button" onClick={() => setMode('folio')}>Consultar folio</button>}
@@ -470,13 +456,13 @@ function Workspace() {
       )}
 
       <div className="m19-workspace phen2d-workspace">
-        <div className="m19-canvas phen2d-canvas" aria-label="Mapa bidimensional de la exposición">
+        <div className="m19-canvas phen2d-canvas" aria-label="Mapa bidimensional del método fenomenológico">
           <ReactFlow
             key={chapterId + (projection ? '-projection' : '')}
             onInit={instance => { flowRef.current = instance }}
             fitView
-            fitViewOptions={{ padding: chapterId === 'todo' ? .12 : .2, maxZoom: projection ? .72 : .92 }}
-            minZoom={.22}
+            fitViewOptions={{ padding: chapterId === 'todo' ? .15 : .22, maxZoom: projection ? .82 : .95 }}
+            minZoom={.25}
             maxZoom={1.5}
             nodes={nodes}
             edges={edges}
@@ -495,16 +481,15 @@ function Workspace() {
         <aside className="m19-inspector phen2d-inspector" aria-live="polite">
           <div className="m19-inspector-head">
             <span>FOLIO {String(entries.findIndex(item => item.id === selected.id) + 1).padStart(2, '0')} / {entries.length}</span>
-            <span>{selected.chapter.toUpperCase()}</span>
+            <span>{selected.chapter === 'metodo' ? 'MÉTODO' : 'APLICACIÓN'}</span>
           </div>
           <h3>{selected.title}</h3>
-          <p className="m19-source">{selected.source}</p>
-          <h4>Contenido sistematizado</h4>
+          <h4>Idea central</h4>
           <ul>{selected.points.map((point, i) => <li key={i}>{point}</li>)}</ul>
-          <h4>Explicación y límites · PHILOSOPHIA</h4>
+          <h4>Qué significa metodológicamente</h4>
           <p>{selected.analysis}</p>
           <div className="m21-plain"><h4>En palabras simples:</h4><p>{selected.simple}</p></div>
-          <div className="phen2d-say"><h4>Para decir en clase:</h4><p>{selected.projection}</p></div>
+          <div className="phen2d-say"><h4>Para exponer:</h4><p>{selected.projection}</p></div>
           <div className="m19-inspector-nav">
             <button type="button" disabled={selectedIndex <= 0} onClick={() => selectNode(visible[selectedIndex - 1].id)}>← Previa</button>
             <button type="button" disabled={selectedIndex >= visible.length - 1} onClick={() => selectNode(visible[selectedIndex + 1].id)}>Siguiente →</button>
@@ -519,55 +504,53 @@ export default function MethodsPhenomenologySystem2D() {
   return (
     <main className="m19-page m21-page phen2d-page">
       <nav className="m19-nav">
-        <Link to="/estudio/fenomenologia-metodo">← Exposición de fenomenología</Link>
+        <Link to="/estudio/fenomenologia-metodo">← Fenomenología</Link>
         <Link to="/">Φ · PHILOSOPHIA</Link>
-        <span>FI104 · PROYECCIÓN 2D</span>
+        <span>FI104 · EXPOSICIÓN 2D</span>
       </nav>
 
       <header className="phen2d-hero">
-        <p className="m19-kicker">EXPOSITIO · MÉTODO FENOMENOLÓGICO</p>
-        <h1>Del caso vivido<br /><em>a la estructura</em>.</h1>
-        <p>Un atlas para proyectar en clase y recorrer la fenomenología como método: problema, intencionalidad, epojé, mundo vivido, variación, rigor y límite hermenéutico.</p>
+        <p className="m19-kicker">MÉTODO FENOMENOLÓGICO · INVESTIGACIÓN FILOSÓFICA</p>
+        <h1>Comprender la experiencia.<br /><em>Después, demostrarlo.</em></h1>
+        <p>Una exposición en dos movimientos: primero explicar cómo funciona la fenomenología como método; después aplicar ese método a una experiencia concreta.</p>
         <div className="phen2d-hero-route" aria-label="Recorrido de la exposición">
-          <span>CASO</span><b>→</b><span>EPOJÉ</span><b>→</b><span>NOESIS / NOEMA</span><b>→</b><span>HORIZONTES</span><b>→</b><span>VARIACIÓN</span><b>→</b><span>ESTRUCTURA</span>
+          <span>EXPERIENCIA</span><b>→</b><span>INTENCIONALIDAD</span><b>→</b><span>EPOJÉ</span><b>→</b><span>ANÁLISIS</span><b>→</b><span>VARIACIÓN</span><b>→</b><span>ESTRUCTURA</span>
         </div>
       </header>
 
       <section className="phen2d-thesis">
-        <span className="m19-kicker">TESIS RECTORA</span>
-        <h2>La fenomenología no pregunta primero <em>cuántas veces ocurre algo</em>, sino cómo se da, qué significa y qué estructura puede reconocerse en su aparecer.</h2>
-        <p><strong>Frontera documental:</strong> el atlas integra contenidos de las clases del 7, 14, 19, 21 y 26 de octubre. La arquitectura completa, el caso conductor unificado y las frases de proyección son reconstrucción editorial de estudio, no un guion literal del profesor ni resultados empíricos concluidos.</p>
+        <span className="m19-kicker">TESIS</span>
+        <h2>La fenomenología es un método para describir y analizar <em>cómo una experiencia aparece y adquiere sentido</em>, hasta formular una estructura argumentada de esa vivencia.</h2>
+        <p>La segunda mitad de la exposición demostrará este procedimiento con un caso de miedo ante una amenaza digital.</p>
       </section>
 
       <ReactFlowProvider><Workspace /></ReactFlowProvider>
 
       <section className="phen2d-defense">
-        <span className="m19-kicker">DEFENSA ORAL · DIEZ PREGUNTAS</span>
-        <h2>Lo que debe poder responder sin mirar el mapa.</h2>
+        <span className="m19-kicker">PREGUNTAS DE DEFENSA</span>
+        <h2>Lo que debe quedar filosóficamente claro.</h2>
         <ol>
-          <li>¿Por qué esto sigue siendo investigación si no mide porcentajes?</li>
-          <li>¿Cuál es la diferencia entre estudio de caso y fenomenología?</li>
-          <li>¿Qué suspende exactamente la epojé?</li>
-          <li>¿Qué diferencia hay entre noesis y noema?</li>
-          <li>¿Cómo se obtiene una estructura sin inventarla?</li>
-          <li>¿Qué papel cumple la variación eidética?</li>
-          <li>¿Por qué la selección de participantes no tiene que ser aleatoria?</li>
-          <li>¿Qué ocurre si el participante miente o se interpreta mal a sí mismo?</li>
-          <li>¿En qué se distinguen Husserl y Heidegger?</li>
-          <li>¿Por qué esto no es simplemente psicología?</li>
+          <li>¿Qué diferencia a la fenomenología de una medición cuantitativa?</li>
+          <li>¿Qué significa que la conciencia sea intencional?</li>
+          <li>¿Qué suspende la epojé y qué no suspende?</li>
+          <li>¿Cómo se relacionan noesis y noema?</li>
+          <li>¿Qué papel cumplen cuerpo, espacio y tiempo?</li>
+          <li>¿Cómo funciona la variación eidética?</li>
+          <li>¿Qué hace rigurosa una interpretación fenomenológica?</li>
+          <li>¿Por qué el resultado es una estructura provisional y no una ley causal?</li>
         </ol>
       </section>
 
       <section className="m19-outro phen2d-outro">
-        <span className="m19-kicker">CIERRE · FORMULACIÓN EDITORIAL</span>
-        <h2>Hacer explícito el camino de la vivencia a la estructura.</h2>
-        <p>El rigor fenomenológico no consiste en convertir la experiencia en número, sino en volver visible cómo una vivencia se describe, se depura, se analiza y se propone como estructura sin ocultar los límites de la interpretación.</p>
-        <Link to="/estudio/fenomenologia-metodo">← Volver a la sistematización de la exposición</Link>
+        <span className="m19-kicker">CIERRE</span>
+        <h2>Del “me pasó” a una estructura filosóficamente inteligible.</h2>
+        <p>La fuerza del método está en volver explícito cómo pasamos de una vivencia concreta a una descripción rigurosa de su sentido, sin reducirla a un número ni convertirla en una verdad universal.</p>
+        <Link to="/estudio/fenomenologia-metodo">← Volver a la página de estudio</Link>
       </section>
 
       <footer className="m19-footer">
         <span>PHILOSOPHIA · MÉTODOS DE INVESTIGACIÓN</span>
-        <span>24 nodos · 5 actos · modo proyección · modo estudio</span>
+        <span>12 nodos · 2 movimientos · método + aplicación</span>
         <span className="m19-footer-mark" aria-hidden="true">Φ</span>
       </footer>
     </main>
