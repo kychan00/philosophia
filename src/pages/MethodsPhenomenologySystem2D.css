@@ -140,6 +140,26 @@
 .phen2d-thesis>p{max-width:900px;color:#c6c6c6;font:400 1rem/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
 
 /* sistema */
+
+/* aislamiento cromático del sistema: neutraliza la paleta crema compartida */
+.m19-system.phen2d-system.ph2d-shell{
+  --ph2d-bg:#161616;
+  --ph2d-paper:#262626;
+  --ph2d-paper2:#393939;
+  --ph2d-node-surface:#262626;
+  --ph2d-folio:#262626;
+  --ph2d-ink:#f4f4f4;
+  --ph2d-muted:#c6c6c6;
+  --ph2d-line:#525252;
+  --mx-bg:#161616;
+  --mx-paper:#262626;
+  --mx-paper2:#393939;
+  --mx-ink:#f4f4f4;
+  --mx-muted:#c6c6c6;
+  --mx-line:#525252;
+  background:#161616;
+  color:#f4f4f4;
+}
 .phen2d-system{
   background:#161616;
   color:#f4f4f4;
@@ -194,8 +214,8 @@
   color:#c6c6c6;
 }
 .phen2d-system .m19-chapters button.active{
-  background:#f4f4f4;
-  color:#161616;
+  background:#393939;
+  color:#f4f4f4;
   box-shadow:inset 0 -4px 0 #0f62fe;
 }
 .phen2d-system .m19-chapters button.active span{background:#0f62fe;color:#fff}
