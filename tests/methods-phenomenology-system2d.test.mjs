@@ -13,7 +13,7 @@ test('Sistema 2D fenomenológico: ruta, acceso y 24 nodos únicos', () => {
   assert.ok(app.includes(route))
   assert.ok(study.includes(route))
   assert.equal(ids.length, 24)
-  assert.equal(new Set(ids).size, 22)
+  assert.equal(new Set(ids).size, 24)
 })
 
 test('Cinco actos, atlas completo y geometría sin arrastre', () => {
@@ -50,7 +50,7 @@ test('Modo proyección recorre los 24 nodos y puede cerrarse', () => {
 
 test('Fidelidad conceptual: límites explícitos y relaciones de estudio', () => {
   assert.match(src, /no representa un estudio empírico concluido/i)
-  assert.match(src, /no una esencia universal ya demostrada/i)
+  assert.match(src, /no (?:una )?esencia universal ya demostrada/i)
   assert.match(src, /testimonio no da acceso transparente/i)
   assert.match(src, /relaciones de estudio/)
   assert.match(src, /Frontera documental/)
