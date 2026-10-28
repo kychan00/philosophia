@@ -2,9 +2,6 @@ import { useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
 import { Background, Controls, Handle, MarkerType, Position, ReactFlow, ReactFlowProvider } from '@xyflow/react'
 import '@xyflow/react/dist/style.css'
-import '../components/philosophy/system2d/System2DTheme.css'
-import './MethodsClass19Oct.css'
-import './MethodsClass21Oct.css'
 import './MethodsPhenomenologySystem2D.css'
 import PhenomenologyNodeVisual from './MethodsPhenomenologyVisuals'
 
@@ -339,7 +336,7 @@ function Workspace() {
   },[visible,selectedId,mode,step,columns,xGap,yGap])
 
   return (
-    <section id="sistema-fenomenologia" className={'m19-system m21-system phen2d-system ph2d-shell'+(expanded?' expanded':'')+(projection?' projection':'')} aria-label="Sistema 2D de fenomenología como método">
+    <section id="sistema-fenomenologia" className={'m19-system m21-system phen2d-system'+(expanded?' expanded':'')+(projection?' projection':'')} aria-label="Sistema 2D de fenomenología como método">
       <div className="m19-workspace-head phen2d-head">
         <div>
           <span className="m19-kicker">SISTEMA 2D · MÉTODO + CASO</span>
