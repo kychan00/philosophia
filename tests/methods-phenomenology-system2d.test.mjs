@@ -21,6 +21,8 @@ test('Cinco actos, atlas completo y geometría sin arrastre', () => {
     assert.ok(src.includes("id: '" + chapter + "', number:"))
   }
   assert.match(src, /chapterId === 'todo' \? 3 : 2/)
+  assert.match(src, /xGap = chapterId === 'todo' \? 520 : 560/)
+  assert.match(src, /yGap = chapterId === 'todo' \? 320 : 340/)
   assert.match(src, /style: \{ width: 370, height: 184 \}/)
   assert.match(src, /nodesDraggable=\{false\}/)
   assert.match(src, /nodesConnectable=\{false\}/)
