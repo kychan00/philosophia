@@ -26,7 +26,7 @@ test('Cinco actos, atlas completo y geometría sin arrastre', () => {
   assert.match(src, /style: \{ width: 370, height: 184 \}/)
   assert.match(src, /nodesDraggable=\{false\}/)
   assert.match(src, /nodesConnectable=\{false\}/)
-  assert.match(src, /<MiniMap/)
+  assert.doesNotMatch(src, /MiniMap/)
 })
 
 test('Todos los folios tienen procedencia, límites, palabras simples y frase de proyección', () => {
