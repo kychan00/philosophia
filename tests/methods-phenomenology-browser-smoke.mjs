@@ -40,7 +40,7 @@ async function viewport(width, height) {
   await send('Page.navigate', { url: 'about:blank' })
   await until(() => evalJS("location.href==='about:blank'"), 'reinicio')
   await send('Page.navigate', { url })
-  await until(() => evalJS("document.querySelector('.phen2d-page h1')?.textContent.includes('Del caso vivido')"), 'página 2D')
+  await until(() => evalJS("document.querySelector('.phen2d-page h1')?.textContent.includes('Comprender la experiencia')"), 'página 2D')
   await until(() => evalJS("document.querySelectorAll('.phen2d-system .react-flow__node').length===8"), 'nodos del acto I')
   await sleep(250)
   const state = await evalJS(metrics)
@@ -48,7 +48,7 @@ async function viewport(width, height) {
   assert.deepEqual(state.collisions, [], 'solapamiento en ' + width + 'x' + height)
   assert.equal(state.selected, 'm1')
   assert.ok(state.simple.includes('En palabras simples:'), 'falta explicación sencilla')
-  assert.ok(state.say.includes('Para decir en clase:'), 'falta frase de proyección')
+  assert.ok(state.say.includes('Para exponer:'), 'falta frase de proyección')
   assert.ok(state.inspector > 260, 'inspector demasiado estrecho')
   assert.ok(state.scroll <= state.width + 3, 'overflow global ' + JSON.stringify(state))
   assert.equal(state.chapters, 3)
@@ -75,16 +75,16 @@ try {
   await send('Page.enable')
   await send('Runtime.enable')
 
-  for (const size of [[1440, 900], [768, 1012], [1012, 768], [390, 844]]) await viewport(...size)
+  for (const size of [[1440, 900], [768, 1024], [1024, 768], [390, 844]]) await viewport(...size)
 
   await send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false })
   await send('Page.navigate', { url })
   await until(() => evalJS("document.querySelectorAll('.phen2d-system .react-flow__node').length===8"), 'recarga desktop')
 
   await evalJS("([...document.querySelectorAll('.phen2d-system .m19-chapters button')].find(b=>b.textContent.includes('Aplicación a un caso'))?.click(),true)")
-  await until(() => evalJS("document.querySelectorAll('.phen2d-system .react-flow__node').length===4"), 'acto IV')
+  await until(() => evalJS("document.querySelectorAll('.phen2d-system .react-flow__node').length===4"), 'aplicación')
   await sleep(250)
-  assert.deepEqual((await evalJS(metrics)).collisions, [], 'colisiones en acto IV')
+  assert.deepEqual((await evalJS(metrics)).collisions, [], 'colisiones en aplicación')
 
   await evalJS("(document.querySelector('.phen2d-system .phen2d-project')?.click(),true)")
   await until(() => evalJS("document.querySelector('.phen2d-system.projection')!==null"), 'modo proyección')
