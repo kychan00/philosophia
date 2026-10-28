@@ -12,7 +12,19 @@
 .phen2d-thesis h2{font:normal clamp(2.4rem,5vw,5.1rem)/1.04 Georgia,serif;letter-spacing:-.045em;margin:.7rem 0 1.6rem;max-width:1100px}
 .phen2d-thesis h2 em{color:#9b4b38;font-weight:normal}
 .phen2d-thesis>p{max-width:900px;font:normal 1rem/1.75 Arial,sans-serif}
-.phen2d-system{background:linear-gradient(#eee7dc,#e9e0d2)}
+.phen2d-system{background:#161616;color:#f4f4f4}
+.phen2d-canvas{background:#262626;border-color:#525252}
+.phen2d-inspector{background:#f4f4f4;color:#161616;border-color:#8d8d8d}
+.phen2d-system .m19-workspace-head,.phen2d-system .m19-tools,.phen2d-system .m19-journey{color:#f4f4f4}
+.phen2d-system .react-flow__controls{border:1px solid #525252;box-shadow:none}
+.phen2d-system .react-flow__controls-button{background:#262626;color:#f4f4f4;border-bottom-color:#525252}
+.phen2d-system .react-flow__controls-button:hover{background:#393939}
+.phen2d-system .react-flow__controls-button svg{fill:#f4f4f4}
+.phen2d-canvas .react-flow__node{transition:filter .22s ease,opacity .22s ease,box-shadow .22s ease}
+.phen2d-canvas .react-flow__edge{transition:opacity .22s ease}
+.phen2d-canvas.has-node-focus .react-flow__node:not(.selected){filter:blur(2.2px);opacity:.24}
+.phen2d-canvas.has-node-focus .react-flow__edge{opacity:.24}
+.phen2d-canvas.has-node-focus .react-flow__node.selected{filter:none;opacity:1;z-index:20!important}
 .phen2d-head-actions{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:flex-end}
 .phen2d-head-actions button{border:1px solid var(--ph2d-line);background:var(--ph2d-paper);color:var(--ph2d-ink);padding:.9rem 1rem;font:800 .73rem/1.3 Arial,sans-serif}
 .phen2d-head-actions .phen2d-project{background:#211d18;color:#f7f0e4;border-color:#211d18}
@@ -62,6 +74,7 @@
   .phen2d-system.projection .phen2d-inspector{height:auto;max-height:none}
 }
 @media(max-width:760px){
+  .phen2d-canvas.has-node-focus .react-flow__node:not(.selected){filter:blur(1.6px);opacity:.28}
   .phen2d-hero{padding-top:3.2rem}
   .phen2d-hero::after{font-size:24vw;top:5rem}
   .phen2d-hero h1{font-size:clamp(3.1rem,13vw,5.4rem)}
