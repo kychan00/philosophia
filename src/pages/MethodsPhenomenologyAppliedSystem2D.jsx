@@ -286,6 +286,7 @@ function Workspace() {
   const [expanded,setExpanded]=useState(false)
   const [projection,setProjection]=useState(false)
   const flowRef=useRef(null)
+  const lastTouchNavRef=useRef(0)
   const chapter=chapters.find(item=>item.id===chapterId)
   const visible=useMemo(()=>chapterId==='todo'?entries:entries.filter(e=>e.chapter===chapterId),[chapterId])
   const relevantQuizzes=useMemo(()=>quizzes.filter(q=>chapterId==='todo'||q.chapter===chapterId),[chapterId])
@@ -308,7 +309,23 @@ function Workspace() {
   const guideStep=n=>{
     const next=Math.max(0,Math.min(visible.length-1,n)); setStep(next); setSelectedId(visible[next].id); setMode('guia'); focusNode(visible[next].id)
   }
-  const selectNode=id=>{ setSelectedId(id); if(mode==='guia')setStep(visible.findIndex(e=>e.id===id)); focusNode(id) }
+  const selectNode=id=>{ setSelectedId(id); if(mode==='guia')setStep(visible.findIndex(e=>e.id===id)); requestAnimationFrame(()=>focusNode(id)) }
+  const moveInspector=delta=>{
+    const current=visible.findIndex(e=>e.id===selected.id)
+    const next=Math.max(0,Math.min(visible.length-1,current+delta))
+    if(next===current)return
+    selectNode(visible[next].id)
+  }
+  const moveInspectorPointer=(delta,event)=>{
+    if(event.pointerType!=='touch'&&event.pointerType!=='pen')return
+    event.preventDefault()
+    lastTouchNavRef.current=Date.now()
+    moveInspector(delta)
+  }
+  const moveInspectorClick=delta=>{
+    if(Date.now()-lastTouchNavRef.current<700)return
+    moveInspector(delta)
+  }
   const chooseQuestion=n=>{ setQIndex(Math.max(0,Math.min(relevantQuizzes.length-1,n))); setAnswer(null) }
   const startProjection=()=>{ setChapterId('todo'); setSelectedId(entries[0].id); setStep(0); setMode('guia'); setProjection(true); setExpanded(true) }
   const exitProjection=()=>{ setProjection(false); setExpanded(false); setMode('folio') }
@@ -408,8 +425,20 @@ function Workspace() {
           <p>{selected.analysis}</p>
           <div className="m21-plain"><h4>En palabras simples:</h4><p>{selected.simple}</p></div>
           <div className="m19-inspector-nav">
-            <button type="button" disabled={selectedIndex<=0} onClick={()=>selectNode(visible[selectedIndex-1].id)}>← Previa</button>
-            <button type="button" disabled={selectedIndex>=visible.length-1} onClick={()=>selectNode(visible[selectedIndex+1].id)}>Siguiente →</button>
+            <button
+              type="button"
+              data-inspector-nav="prev"
+              disabled={selectedIndex<=0}
+              onPointerDown={event=>moveInspectorPointer(-1,event)}
+              onClick={()=>moveInspectorClick(-1)}
+            >← Previa</button>
+            <button
+              type="button"
+              data-inspector-nav="next"
+              disabled={selectedIndex>=visible.length-1}
+              onPointerDown={event=>moveInspectorPointer(1,event)}
+              onClick={()=>moveInspectorClick(1)}
+            >Siguiente →</button>
           </div>
         </aside>
       </div>

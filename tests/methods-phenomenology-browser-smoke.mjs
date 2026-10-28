@@ -33,10 +33,24 @@ async function until(fn, label, attempts = 180) {
   throw new Error('Timeout: ' + label)
 }
 
+async function tapTouch(selector) {
+  const exists = await evalJS(`(()=>{const el=document.querySelector(${JSON.stringify(selector)});if(!el)return false;el.scrollIntoView({behavior:'instant',block:'center',inline:'center'});return true})()`)
+  assert.ok(exists, 'elemento táctil no encontrado: ' + selector)
+  await sleep(260)
+  const point = await evalJS(`(()=>{const el=document.querySelector(${JSON.stringify(selector)});const r=el?.getBoundingClientRect();if(!r)return null;const x=r.left+r.width/2,y=r.top+r.height/2;const hit=document.elementFromPoint(x,y);return {x,y,hit:hit?.closest?.('[data-inspector-nav]')?.getAttribute('data-inspector-nav')||null}})()`)
+  assert.ok(point, 'coordenadas táctiles no disponibles: ' + selector)
+  const expected = selector.includes('next') ? 'next' : 'prev'
+  assert.equal(point.hit, expected, 'el toque no apunta al botón esperado: ' + JSON.stringify(point))
+  await send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: point.x, y: point.y, radiusX: 2, radiusY: 2, force: 1 }] })
+  await sleep(60)
+  await send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] })
+}
+
 const metrics = "(() => { const root=document.querySelector('.phen2d-system'); const elements=[...document.querySelectorAll('.phen2d-system .react-flow__node')].filter(el=>{const r=el.getBoundingClientRect();return r.width>1&&r.height>1}).map(el=>({id:el.getAttribute('data-id'),box:el.getBoundingClientRect()})); const collisions=[]; for(let i=0;i<elements.length;i++) for(let j=i+1;j<elements.length;j++){const a=elements[i].box,b=elements[j].box;const x=Math.min(a.right,b.right)-Math.max(a.left,b.left);const y=Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top);if(x>2&&y>2)collisions.push(elements[i].id+' ~ '+elements[j].id)} return {count:elements.length,collisions,selected:document.querySelector('.phen2d-system .react-flow__node.selected')?.getAttribute('data-id')||null,simple:document.querySelector('.phen2d-system .m21-plain')?.textContent||'',inspector:document.querySelector('.phen2d-system .phen2d-inspector')?.getBoundingClientRect().width||0,scroll:document.documentElement.scrollWidth,width:innerWidth,chapters:document.querySelectorAll('.phen2d-system .m19-chapters button').length,projection:root?.classList.contains('projection')||false,columns:getComputedStyle(document.querySelector('.phen2d-system .phen2d-workspace')).gridTemplateColumns,visual:(()=>{const r=document.querySelector('.phen2d-system .phen2d-visual-svg')?.getBoundingClientRect();return r?{width:r.width,height:r.height}:null})(),visualCaption:document.querySelector('.phen2d-system .phen2d-visual figcaption')?.textContent||''}; })()"
 
 async function viewport(width, height) {
   await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 2, mobile: width <= 768 })
+  await send('Emulation.setTouchEmulationEnabled', { enabled: width <= 768, maxTouchPoints: width <= 768 ? 5 : 1 })
   await send('Page.navigate', { url: 'about:blank' })
   await until(() => evalJS("location.href==='about:blank'"), 'reinicio')
   await send('Page.navigate', { url })
@@ -67,6 +81,16 @@ async function viewport(width, height) {
   assert.equal((await evalJS("document.body.textContent.includes('estar perdido en una ciudad desconocida')")), true, 'falta el caso nuevo')
   assert.equal((await evalJS("/celular|mensaje amenazante|amenaza digital/i.test(document.body.textContent)")), false, 'persiste el caso anterior')
   if (width <= 1100) assert.ok(!state.columns.includes('430px'), 'inspector lateral rígido en tablet/teléfono')
+
+  if (width <= 480) {
+    // Un solo toque real debe avanzar exactamente un folio, nunca requerir dos taps ni saltar dos nodos.
+    await tapTouch('.phen2d-inspector [data-inspector-nav="next"]')
+    await until(() => evalJS("document.querySelector('.phen2d-system .react-flow__node.selected')?.getAttribute('data-id')==='m2'"), 'un solo toque en Siguiente')
+    await sleep(420)
+    assert.equal((await evalJS("document.querySelector('.phen2d-system .react-flow__node.selected')?.getAttribute('data-id')")), 'm2', 'un toque móvil avanzó más de un nodo')
+    await tapTouch('.phen2d-inspector [data-inspector-nav="prev"]')
+    await until(() => evalJS("document.querySelector('.phen2d-system .react-flow__node.selected')?.getAttribute('data-id')==='m1'"), 'un solo toque en Previa')
+  }
 
   // blur de foco: seleccionar m2 debe desenfocar m1 y mantener m2 nítido.
   await evalJS("(document.querySelector('.phen2d-system .react-flow__node[data-id=\"m2\"]')?.click(),true)")
