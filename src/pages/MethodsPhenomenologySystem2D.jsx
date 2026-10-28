@@ -40,7 +40,6 @@ const entries = [
     ],
     analysis: 'La fenomenología convierte la experiencia vivida en un problema filosófico: pregunta por el modo en que algo aparece, adquiere sentido y organiza la relación del sujeto con su mundo.',
     simple: 'No empieza contando hechos; empieza preguntando qué significa vivirlos.',
-    projection: 'La fenomenología investiga la experiencia tal como aparece y tiene sentido para quien la vive.',
   },
   {
     id: 'm2',
@@ -54,7 +53,6 @@ const entries = [
     ],
     analysis: 'Investigar fenomenológicamente es atender al modo de aparición. El mismo objeto físico puede adquirir sentidos distintos según la experiencia en la que aparece.',
     simple: 'No sólo importa qué cosa hay, sino cómo se le presenta a una persona.',
-    projection: 'El fenómeno es el objeto tal como aparece dentro de una experiencia concreta.',
   },
   {
     id: 'm3',
@@ -68,7 +66,6 @@ const entries = [
     ],
     analysis: 'La intencionalidad permite estudiar la experiencia como una relación: un acto de conciencia está dirigido hacia algo que aparece con determinado sentido.',
     simple: 'La conciencia siempre está orientada hacia algo.',
-    projection: 'La primera clave es la intencionalidad: toda experiencia está dirigida hacia algo.',
   },
   {
     id: 'm4',
@@ -82,7 +79,6 @@ const entries = [
     ],
     analysis: 'La epojé cambia la actitud del investigador. En vez de cerrar rápidamente el fenómeno con una teoría, mantiene abierta la descripción de cómo se da la experiencia.',
     simple: 'Por un momento dejamos de explicar para mirar mejor.',
-    projection: 'La epojé no borra el mundo: suspende nuestras explicaciones sobre él.',
   },
   {
     id: 'm5',
@@ -96,7 +92,6 @@ const entries = [
     ],
     analysis: 'Noesis y noema permiten describir con precisión qué hace la conciencia y qué sentido adquiere su objeto dentro de esa vivencia.',
     simple: 'Noesis es el acto; noema es aquello tal como aparece en ese acto.',
-    projection: 'Fenomenológicamente no analizamos sólo el objeto: analizamos la correlación entre acto y sentido.',
   },
   {
     id: 'm6',
@@ -111,7 +106,6 @@ const entries = [
     ],
     analysis: 'La experiencia no se reduce a una frase mental. Está encarnada, situada espacialmente, temporalmente orientada e inserta en un mundo.',
     simple: 'Una experiencia cambia cómo se vive el cuerpo, el espacio, el tiempo y el mundo.',
-    projection: 'El sentido de una vivencia se distribuye entre cuerpo, espacio, tiempo y mundo.',
   },
   {
     id: 'm7',
@@ -125,7 +119,6 @@ const entries = [
     ],
     analysis: 'La variación eidética funciona como un experimento conceptual: ayuda a probar qué elementos pueden cambiar y cuáles parecen necesarios para que la experiencia conserve su identidad.',
     simple: 'Cambiamos mentalmente el caso para ver qué puede variar y qué parece indispensable.',
-    projection: 'La variación eidética prueba la estructura de la experiencia mediante cambios imaginarios.',
   },
   {
     id: 'm8',
@@ -140,7 +133,6 @@ const entries = [
     ],
     analysis: 'El rigor fenomenológico no consiste en fingir neutralidad absoluta, sino en hacer visible el procedimiento, controlar las inferencias y reconocer que toda comprensión es situada.',
     simple: 'Subjetivo no significa arbitrario: hay método, contraste y límites.',
-    projection: 'El rigor está en mostrar cómo interpretamos y hasta dónde podemos sostener lo que concluimos.',
   },
 
   {
@@ -155,7 +147,6 @@ const entries = [
     ],
     analysis: 'El caso se delimita lo suficiente para investigar una experiencia concreta. No estudia “el celular” ni “el miedo” en abstracto, sino una forma específica de amenaza vivida.',
     simple: 'Elegimos una experiencia precisa, no un tema gigantesco.',
-    projection: 'Nuestro caso será el miedo ante una amenaza digital sin presencia física del agresor.',
   },
   {
     id: 'c2',
@@ -169,7 +160,6 @@ const entries = [
     ],
     analysis: 'La entrevista fenomenológica busca una descripción densa de la experiencia. El investigador vuelve a escenas, acciones, percepciones y sentidos antes de imponer categorías explicativas.',
     simple: 'Pedimos que describa lo que pasó y cómo lo vivió.',
-    projection: 'La entrevista no pide diagnósticos: pide una escena concreta y su modo de vivirse.',
   },
   {
     id: 'c3',
@@ -184,7 +174,6 @@ const entries = [
     ],
     analysis: 'Aquí el método se vuelve visible. La escena deja de ser una anécdota y se descompone en actos, sentidos y horizontes de experiencia.',
     simple: 'Tomamos una frase cotidiana y mostramos su estructura fenomenológica.',
-    projection: 'Ahora aplicamos el método: acto, objeto tal como aparece y transformación del mundo vivido.',
   },
   {
     id: 'c4',
@@ -199,7 +188,6 @@ const entries = [
     ],
     analysis: 'El resultado no es una ley causal ni una esencia definitiva. Es una estructura provisional que organiza lo encontrado y puede ser discutida, contrastada o reformulada.',
     simple: 'Después de probar cambios, proponemos qué parece sostener esa experiencia.',
-    projection: 'La aplicación termina con una estructura provisional, no con una verdad universal.',
   },
 ]
 
@@ -419,7 +407,7 @@ function Workspace() {
         <div className="m19-lesson phen2d-lesson" aria-live="polite">
           <span className="m19-kicker">{projection ? 'MODO PROYECCIÓN' : 'GUÍA'} · PASO {step + 1} / {visible.length}</span>
           <h3>{visible[step].title}</h3>
-          {projection && <p className="phen2d-projection-line">{visible[step].projection}</p>}
+          {projection && <p className="phen2d-projection-line">{visible[step].short}</p>}
           <p>{visible[step].analysis}</p>
           <div className="m19-step-buttons">
             <button type="button" disabled={step === 0} onClick={() => guideStep(step - 1)}>← Anterior</button>
@@ -489,7 +477,6 @@ function Workspace() {
           <h4>Qué significa metodológicamente</h4>
           <p>{selected.analysis}</p>
           <div className="m21-plain"><h4>En palabras simples:</h4><p>{selected.simple}</p></div>
-          <div className="phen2d-say"><h4>Para exponer:</h4><p>{selected.projection}</p></div>
           <div className="m19-inspector-nav">
             <button type="button" disabled={selectedIndex <= 0} onClick={() => selectNode(visible[selectedIndex - 1].id)}>← Previa</button>
             <button type="button" disabled={selectedIndex >= visible.length - 1} onClick={() => selectNode(visible[selectedIndex + 1].id)}>Siguiente →</button>
