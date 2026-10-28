@@ -138,3 +138,11 @@ test('La página está aislada de las hojas beige heredadas', () => {
   assert.match(css, /--xy-background-color:#161616/)
   assert.match(css, /\.phen2d-system \.m19-chapters button\.active\{[\s\S]*background:#393939/)
 })
+
+
+test('La ruta pública oculta el centro de notificaciones académicas', () => {
+  assert.match(app, /isPublicPhenomenologyRoute/)
+  assert.match(app, /#\/estudio\/fenomenologia-metodo\/sistema-2d/)
+  assert.match(app, /hideAcademicNotifications\s*=\s*[\s\S]*isPublicCafeRoute\s*\|\|\s*isPublicPhenomenologyRoute/)
+  assert.match(app, /!hideAcademicNotifications\s*&&\s*\(<AcademicNotifications/)
+})
