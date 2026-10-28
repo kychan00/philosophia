@@ -286,8 +286,8 @@ function Workspace() {
   const selectedIndex = visible.findIndex(item => item.id === selected.id)
   const question = relevantQuizzes[qIndex] || relevantQuizzes[0]
   const columns = chapterId === 'todo' ? 3 : 2
-  const xGap = chapterId === 'todo' ? 430 : 485
-  const yGap = chapterId === 'todo' ? 245 : 270
+  const xGap = chapterId === 'todo' ? 520 : 560
+  const yGap = chapterId === 'todo' ? 320 : 340
 
   const focusNode = (id) => {
     const i = visible.findIndex(item => item.id === id)
@@ -377,6 +377,8 @@ function Workspace() {
         },
         labelStyle: { fontSize: 11, fill: SYSTEM_2D_THEME.ink },
         labelBgStyle: { fill: SYSTEM_2D_THEME.background.paper },
+        labelBgPadding: [8, 5],
+        labelBgBorderRadius: 4,
       }))
 
     return { nodes, edges }
