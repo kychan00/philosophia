@@ -9,10 +9,10 @@ const study = readFileSync(new URL('../src/pages/MethodsPhenomenologyExposition.
 const route = '/estudio/fenomenologia-metodo/sistema-2d'
 const ids = [...src.matchAll(/id: '([pfvrl]\d+)', chapter:/g)].map(match => match[1])
 
-test('Sistema 2D fenomenológico: ruta, acceso y 22 nodos únicos', () => {
+test('Sistema 2D fenomenológico: ruta, acceso y 24 nodos únicos', () => {
   assert.ok(app.includes(route))
   assert.ok(study.includes(route))
-  assert.equal(ids.length, 22)
+  assert.equal(ids.length, 24)
   assert.equal(new Set(ids).size, 22)
 })
 
@@ -37,7 +37,7 @@ test('Todos los folios tienen procedencia, límites, palabras simples y frase de
   assert.doesNotMatch(src, /grabaci[oó]n|transcripci[oó]n/i)
 })
 
-test('Modo proyección recorre los 22 nodos y puede cerrarse', () => {
+test('Modo proyección recorre los 24 nodos y puede cerrarse', () => {
   assert.match(src, /Proyectar exposición/)
   assert.match(src, /setChapterId\('todo'\)/)
   assert.match(src, /setMode\('guia'\)/)
