@@ -4,6 +4,19 @@ export const libraryAcademicConnections = {
   "source": "Relaciones documentadas por títulos de tareas y fichas de obra. Una fecha de nota no prueba la realización de la lectura.",
   "tasksReviewed": 61,
   "works": {
+    "Brentano - Psicología desde el punto de vista empírico": {
+      "events": [{
+        "kind": "procedencia",
+        "date": "2026-10-26",
+        "dateLabel": "Sesión del 26 de octubre: recomendación bibliográfica comunicada por el estudiante",
+        "area": "Métodos de Investigación Filosófica",
+        "title": "Recomendación de Franz Brentano · Psicología desde el punto de vista empírico",
+        "status": "referencia documentada en la biblioteca y el vault",
+        "type": "recomendación de clase; no se ha acreditado tarea obligatoria",
+        "note": "Ediciones Sígueme 2020, trad. Sergio Sánchez-Migallón; obra original de 1874. Vista previa editorial de 17 páginas, no lectura completa.",
+        "url": null
+      }]
+    },
     "Bloch - Sujeto-objeto": {
       "events": [{
         "kind": "tarea", "date": "2026-10-19",
@@ -1070,6 +1083,16 @@ export const libraryAcademicConnections = {
     }
   },
   "authors": {
+    "Brentano, Franz": {"events": [{
+      "kind": "procedencia",
+      "date": "2026-10-26",
+      "dateLabel": "Mención bibliográfica documentada del 26 de octubre",
+      "area": "Métodos de Investigación Filosófica",
+      "title": "Franz Brentano · recomendación bibliográfica",
+      "type": "autor registrado por obra recomendada, no biografía estudiada",
+      "url": null,
+      "work": ["Brentano - Psicología desde el punto de vista empírico"]
+    }]},
     "Bloch, Ernst": {"events": []},
     "Bolzano, Bernhard": {"events": [{
       "kind": "clase", "date": "2026-10-21",

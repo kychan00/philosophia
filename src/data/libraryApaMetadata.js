@@ -1,5 +1,15 @@
 // APA 7: metadatos auditados a partir de notas del vault; valores ausentes no se inventan.
 export const libraryApaMetadata = {
+  "Brentano - Psicología desde el punto de vista empírico": {
+    "kind": "book",
+    "title": "Psicología desde el punto de vista empírico",
+    "year": 2020,
+    "originalYear": 1874,
+    "publisher": "Ediciones Sígueme",
+    "translators": ["Sánchez-Migallón, Sergio"],
+    "url": "https://www.sigueme.es/docs/libros/psicologia-brentano-web.pdf",
+    "studyPart": "Recomendación de Métodos de Investigación Filosófica del 26-10-2026; sólo prólogo, presentación e índice disponibles en vista previa editorial de 17 páginas; lectura personal no acreditada"
+  },
   "Bloch - Sujeto-objeto": {
     "kind": "book",
     "title": "Sujeto-objeto: El pensamiento de Hegel",

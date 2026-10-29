@@ -21,6 +21,8 @@ const AnalyticClass07Oct = lazy(() => import('./pages/AnalyticClass07Oct'))
 const AnalyticClass14Oct = lazy(() => import('./pages/AnalyticClass14Oct'))
 const AnalyticClass19Oct = lazy(() => import('./pages/AnalyticClass19Oct'))
 const AnalyticClass21Oct = lazy(() => import('./pages/AnalyticClass21Oct'))
+const AnalyticClass26Oct = lazy(() => import('./pages/AnalyticClass26Oct'))
+const AnalyticClass28Oct = lazy(() => import('./pages/AnalyticClass28Oct'))
 const Home = lazy(() => import('./pages/Home'))
 const PhilosophiaLibrary = lazy(() => import('./pages/PhilosophiaLibrary'))
 const LibraryCartography = lazy(() => import('./pages/LibraryCartography'))
@@ -113,6 +115,9 @@ const MethodsClass23Sep = lazy(() => import('./pages/MethodsClass23Sep'))
 const MethodsClass14Oct = lazy(() => import('./pages/MethodsClass14Oct'))
 const MethodsClass19Oct = lazy(() => import('./pages/MethodsClass19Oct'))
 const MethodsClass21Oct = lazy(() => import('./pages/MethodsClass21Oct'))
+const MethodsClass26Oct = lazy(() => import('./pages/MethodsClass26Oct'))
+const MethodsPhenomenologyExposition = lazy(() => import('./pages/MethodsPhenomenologyExposition'))
+const MethodsPhenomenologySystem2D = lazy(() => import('./pages/MethodsPhenomenologySystem2D'))
 const MethodsRussSystem2D = lazy(() => import('./pages/MethodsRussSystem2D'))
 const AnalyticPhilosophy = lazy(() => import('./pages/AnalyticPhilosophy'))
 const AnalyticClass17Aug = lazy(() => import('./pages/AnalyticClass17Aug'))
@@ -176,11 +181,16 @@ function App() {
   const isPublicCafeRoute =
     typeof window !== 'undefined' &&
     window.location.hash.startsWith('#/cafe-filosofico')
+  const isPublicPhenomenologyRoute =
+    typeof window !== 'undefined' &&
+    window.location.hash.startsWith('#/estudio/fenomenologia-metodo/sistema-2d')
+  const hideAcademicNotifications =
+    isPublicCafeRoute || isPublicPhenomenologyRoute
 
   return (
     <HashRouter>
       <ScrollToTop />
-      {!isPublicCafeRoute && (<AcademicNotifications  />)}
+      {!hideAcademicNotifications && (<AcademicNotifications />)}
       <Suspense
         fallback={
           <div className="route-loading" role="status" aria-live="polite">
@@ -494,6 +504,18 @@ function App() {
           element={<MethodsClass21Oct />}
         />
         <Route
+          path="/semestre/5/metodos-de-investigacion/clase/26-octubre"
+          element={<MethodsClass26Oct />}
+        />
+        <Route
+          path="/estudio/fenomenologia-metodo"
+          element={<MethodsPhenomenologyExposition />}
+        />
+        <Route
+          path="/estudio/fenomenologia-metodo/sistema-2d"
+          element={<MethodsPhenomenologySystem2D />}
+        />
+        <Route
           path="/tareas/metodos-de-investigacion/jacqueline-russ-capitulos-1-3"
           element={<MethodsRussSystem2D />}
         />
@@ -564,6 +586,14 @@ function App() {
         <Route
           path="/semestre/5/filosofia-analitica/clase/21-octubre"
           element={<AnalyticClass21Oct />}
+        />
+        <Route
+          path="/semestre/5/filosofia-analitica/clase/26-octubre"
+          element={<AnalyticClass26Oct />}
+        />
+        <Route
+          path="/semestre/5/filosofia-analitica/clase/28-octubre"
+          element={<AnalyticClass28Oct />}
         />
 
         <Route

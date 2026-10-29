@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 500" role="img" aria-labelledby="title desc">
+<title id="title">Frege, Russell y Moore: cuatro movimientos de la clase del 26 de octubre</title>
+<desc id="desc">Cuatro estaciones conectadas: función y argumento; objetividad y tercer reino; paradoja y teoría de tipos; rebelión de Moore y Russell contra el idealismo británico.</desc>
+<rect width="1280" height="500" fill="#f8fbff"/>
+<g font-family="Arial, Helvetica, sans-serif" fill="#172033">
+  <text x="60" y="58" font-size="18" font-weight="700" letter-spacing="3" fill="#1d4ed8">ARCHIVUM ACADEMICUM · 26 X 2026</text>
+  <text x="60" y="96" font-family="Georgia, serif" font-size="30">Forma lógica → objetividad → crisis → rebelión</text>
+</g>
+<g stroke="#1d4ed8" stroke-width="3" fill="none">
+  <path d="M284 270 H352"/><path d="M604 270 H672"/><path d="M924 270 H992"/>
+  <path d="M340 260 l12 10 -12 10"/><path d="M660 260 l12 10 -12 10"/><path d="M980 260 l12 10 -12 10"/>
+</g>
+<g font-family="Arial, Helvetica, sans-serif">
+  <g transform="translate(60 155)">
+    <rect width="224" height="230" rx="18" fill="#ffffff" stroke="#1d4ed8" stroke-width="3"/>
+    <text x="20" y="36" font-size="13" font-weight="700" fill="#1d4ed8">α · FORMA</text>
+    <text x="20" y="78" font-family="Georgia,serif" font-size="25" fill="#172033">Función</text>
+    <text x="20" y="108" font-family="Georgia,serif" font-size="25" fill="#172033">+ argumento</text>
+    <text x="20" y="150" font-size="16" fill="#43516b">x conquistó y</text>
+    <text x="20" y="180" font-size="16" fill="#43516b">∀x · ∃y</text>
+    <text x="20" y="207" font-size="13" fill="#6d7788">relaciones y cuantificación</text>
+  </g>
+  <g transform="translate(380 155)">
+    <rect width="224" height="230" rx="18" fill="#eef4ff" stroke="#1d4ed8" stroke-width="3"/>
+    <text x="20" y="36" font-size="13" font-weight="700" fill="#1d4ed8">β · OBJETIVIDAD</text>
+    <text x="20" y="78" font-family="Georgia,serif" font-size="25" fill="#172033">Sentido</text>
+    <text x="20" y="108" font-family="Georgia,serif" font-size="25" fill="#172033">+ referencia</text>
+    <circle cx="54" cy="159" r="17" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+    <circle cx="112" cy="159" r="17" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+    <circle cx="170" cy="159" r="17" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+    <text x="20" y="207" font-size="13" fill="#6d7788">tercer reino · antipsicologismo</text>
+  </g>
+  <g transform="translate(700 155)">
+    <rect width="224" height="230" rx="18" fill="#ffffff" stroke="#1d4ed8" stroke-width="3"/>
+    <text x="20" y="36" font-size="13" font-weight="700" fill="#1d4ed8">γ · CRISIS</text>
+    <text x="20" y="78" font-family="Georgia,serif" font-size="25" fill="#172033">Russell</text>
+    <rect x="34" y="116" width="156" height="28" fill="#eef4ff" stroke="#1d4ed8"/>
+    <rect x="54" y="151" width="116" height="28" fill="#eef4ff" stroke="#1d4ed8"/>
+    <rect x="74" y="186" width="76" height="28" fill="#eef4ff" stroke="#1d4ed8"/>
+    <text x="112" y="136" text-anchor="middle" font-size="12">tipo 2</text>
+    <text x="112" y="171" text-anchor="middle" font-size="12">tipo 1</text>
+    <text x="112" y="206" text-anchor="middle" font-size="12">tipo 0</text>
+  </g>
+  <g transform="translate(1020 155)">
+    <rect width="200" height="230" rx="18" fill="#eef4ff" stroke="#1d4ed8" stroke-width="3"/>
+    <text x="20" y="36" font-size="13" font-weight="700" fill="#1d4ed8">δ · REBELIÓN</text>
+    <text x="20" y="78" font-family="Georgia,serif" font-size="25" fill="#172033">Moore</text>
+    <text x="20" y="108" font-family="Georgia,serif" font-size="25" fill="#172033">+ Russell</text>
+    <text x="20" y="151" font-size="15" fill="#43516b">contra el Absoluto</text>
+    <text x="20" y="181" font-size="15" fill="#43516b">relaciones objetivas</text>
+    <text x="20" y="207" font-size="13" fill="#6d7788">proposiciones independientes</text>
+  </g>
+</g>
+</svg>

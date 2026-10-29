@@ -1,5 +1,22 @@
 export const tasks = [
   {
+    id: 'metodos-2026-10-26-exposicion-tres-dialecticas',
+    subject: 'Métodos de Investigación',
+    subjectCode: 'FI104',
+    assignedDate: '2026-10-26',
+    dueDate: '2026-11-04',
+    title: 'Exponer dialéctica socrático-platónica, hegeliana y marxista',
+    type: 'Exposición oral · preparación personal',
+    weight: null,
+    description:
+      'El estudiante asume la exposición del método dialéctico en Sócrates/Platón, Hegel y Marx. El 4 de noviembre es una META PERSONAL TENTATIVA para seguimiento, NO fecha oficial confirmada: el profesor comentó que no habrá sesión el lunes 2 y que el orden de las exposiciones puede cambiar. No se indicó duración, diapositivas obligatorias, bibliografía mínima ni rúbrica.',
+    readingScope:
+      'Tres formas de dialéctica: Sócrates y Platón; Hegel; Marx. Preparar comparación, método, propósito y ejemplo de cada una.',
+    sourceClass: 'Clase del 26 de octubre · compromiso de exposición confirmado por el estudiante',
+    sourceRoute: '/semestre/5/metodos-de-investigacion/clase/26-octubre',
+    studyRoute: '/semestre/5/metodos-de-investigacion/clase/26-octubre',
+  },
+  {
     id: 'ontologia-2026-08-17-trabajo-final',
     subject: 'Ontología II',
     subjectCode: 'FI190',
@@ -9,8 +26,8 @@ export const tasks = [
     type: 'Trabajo del curso',
     weight: null,
     description:
-      'Elegir una pregunta vinculada con un tema del curso, confrontar posiciones de autores y argumentar una postura propia.',
-    sourceClass: 'Clase del 17 de agosto',
+      'Elegir una pregunta vinculada con un tema del curso, confrontar posiciones de autores y argumentar una postura propia. La sesión inicial no fija una fecha de entrega; se conserva como trabajo del curso sin vencimiento confirmado.',
+    sourceClass: 'Clase del 17 de agosto · trabajo del curso sin fecha confirmada',
     sourceRoute: '/semestre/5/ontologia-ii/clase/17-agosto',
   },
   {
@@ -23,8 +40,8 @@ export const tasks = [
     type: 'Producto final',
     weight: '40 %',
     description:
-      'Construir un protocolo que sintetice lógicamente la futura investigación: problema, antecedentes, fuentes, método, estructura y argumentación.',
-    sourceClass: 'Clase del 17 de agosto',
+      'Construir un protocolo que sintetice lógicamente la futura investigación: problema, antecedentes, fuentes, método, estructura y argumentación. La clase lo define como producto final del 40 %, pero no documenta una fecha de entrega.',
+    sourceClass: 'Clase del 17 de agosto · producto final 40 % sin fecha confirmada',
     sourceRoute:
       '/semestre/5/metodos-de-investigacion/clase/17-agosto',
   },
@@ -196,6 +213,7 @@ export const tasks = [
     subjectCode: 'FI264',
     assignedDate: '2026-10-26',
     dueDate: '2026-10-26',
+    completed: true,
     title: 'Glock · seguir leyendo hoy',
     type: 'Estudio del día · lectura',
     weight: null,
@@ -667,16 +685,16 @@ export const tasks = [
     subject: 'Teoría Crítica',
     subjectCode: 'FI265',
     assignedDate: '2026-10-22',
-    dueDate: null,
+    dueDate: '2026-10-27',
     title: 'Freud · seguir leyendo El malestar en la cultura',
     type: 'Continuidad de lectura',
     weight: null,
     priority: 'Alta',
-    description: 'Continuar la lectura de El malestar en la cultura después de la clase del 22 de octubre. La sesión trabajó inconsciente, interpretación, subjetividad, sentimiento oceánico, separación, principio del placer y principio de realidad. No se indicó un rango nuevo de páginas, entrega escrita ni fecha límite.',
+    description: 'Continuar la lectura de El malestar en la cultura después de la clase del 22 de octubre. El estudiante fijó el martes 27 de octubre como meta personal de lectura, no como fecha límite docente. La sesión trabajó inconsciente, interpretación, subjetividad, sentimiento oceánico, separación, principio del placer y principio de realidad. No se indicó un rango nuevo de páginas ni entrega escrita.',
     readingScope: 'Sigmund Freud · El malestar en la cultura · continuidad de la lectura',
     readingPages: 'Sin rango nuevo indicado en clase',
     readingEdition: 'Biblioteca Libre OMEGALFA · trad. Luis López Ballesteros · maquetación 2010',
-    sourceClass: 'Clase del jueves 22 de octubre',
+    sourceClass: 'Clase del jueves 22 de octubre · continuidad de lectura sin fecha confirmada',
     sourceRoute: '/semestre/5/teoria-critica/clase/22-octubre',
     studyRoute: '/semestre/5/teoria-critica/clase/22-octubre',
   },
@@ -714,10 +732,10 @@ export const tasks = [
     weight: null,
     priority: 'Media',
     description:
-      'Continuar el bloque Croce/Hegel. La grabación parece remitir al capítulo II de Croce y el cuestionario adjunto contiene una segunda sección de 17 preguntas, pero no se recupera una fecha de entrega ni una orden inequívoca de entregarlo en la siguiente sesión.',
+      'Continuar el bloque Croce/Hegel. La documentación de la sesión remite de forma probable al capítulo II de Croce y el cuestionario adjunto contiene una segunda sección de 17 preguntas, pero no consta una fecha de entrega ni una orden inequívoca de entregarlo en la siguiente sesión. La clase del 19 de octubre tampoco registra una entrega de este bloque.',
     readingScope:
       'Benedetto Croce · capítulo II · Aclaraciones concernientes a la historia de la Dialéctica · cuestionario de 17 preguntas',
-    sourceClass: 'Clase del 14 de octubre · continuidad anunciada, sin fecha de entrega confirmada',
+    sourceClass: 'Clase del 14 de octubre · continuidad anunciada; revisión del 19 de octubre sin entrega registrada',
     sourceRoute: '/semestre/5/ontologia-ii/clase/14-octubre',
     studyRoute: '/tareas/ontologia-ii/hegel-croce-dialectica',
   },

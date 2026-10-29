@@ -165,7 +165,7 @@ export default function OntologiaClass14Oct(){
                 Algunas respuestas aparecen expresamente en Croce y otras necesitan relacionar
                 pasajes. El objetivo de la sesión es entender el movimiento, no memorizar fórmulas.
               </p>
-              <div className="oaf-callout"><span>EVALUACIÓN</span><strong>Se anuncia un examen aproximadamente dentro de quince días; la grabación no fija una fecha exacta.</strong></div>
+              <div className="oaf-callout"><span>EVALUACIÓN</span><strong>Se anuncia un examen aproximadamente dentro de quince días; no se recupera una fecha exacta.</strong></div>
             </Section>
 
             <Section n="02" id="metodo" eyebrow="Methodus philosophiae" title="La totalidad exige un método propio">
@@ -267,7 +267,7 @@ export default function OntologiaClass14Oct(){
               <p className="oaf-oct14-source-warning">
                 La apertura de la sesión parece referirse también al capítulo II de Croce, y el
                 cuestionario adjunto contiene efectivamente una segunda sección con 17 preguntas.
-                Como la grabación no permite recuperar una orden literal de entrega ni una fecha,
+                Como la documentación disponible no permite recuperar una orden literal de entrega ni una fecha,
                 se registra sólo como continuidad probable de lectura, no como fecha límite.
               </p>
               <div className="oaf-oct14-next">
@@ -282,7 +282,7 @@ export default function OntologiaClass14Oct(){
         <section className="oaf-documentum oaf-sep30-documentum">
           <div><span>DOCUMENTUM</span><h2>Fuente y criterio editorial</h2></div>
           <p>
-            Clase del 14 de octubre de 2026 reconstruida desde una grabación con ASR muy degradado.
+            Clase del 14 de octubre de 2026 reconstruida desde los materiales disponibles de la sesión, con pasajes de calidad desigual.
             Croce, Hegel y la explicación oral se mantienen como capas distintas. Los ejemplos
             históricos, políticos y sociales conservan su función pedagógica y no se presentan como
             verificación externa.
