@@ -67,6 +67,7 @@ async function viewport(width, height) {
   assert.ok(state.visualCaption.includes('Representación esquemática'), 'falta pie del visual SVG')
   assert.equal((await evalJS("document.body.textContent.includes('Para exponer')")), false, 'la página pública no debe mostrar notas para el expositor')
   assert.equal((await evalJS("document.querySelector('.academic-bell')===null")), true, 'la campana académica sigue visible en la página pública')
+  assert.equal((await evalJS("document.querySelector('.phen2d-class-context')===null")), true, 'la ruta pública muestra contexto archivístico de clase')
   assert.equal((await evalJS("/PREGUNTAS DE DEFENSA|Lo que debe quedar filosóficamente claro/i.test(document.body.textContent)")), false, 'persiste la sección de defensa')
   assert.equal((await evalJS("getComputedStyle(document.querySelector('.phen2d-page')).backgroundColor")), 'rgb(22, 22, 22)', 'fondo global no es oscuro')
   assert.equal((await evalJS("getComputedStyle(document.querySelector('.phen2d-system')).backgroundColor")), 'rgb(22, 22, 22)', 'el sistema 2D no es grafito')
