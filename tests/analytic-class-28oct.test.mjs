@@ -22,7 +22,7 @@ test('Clase 28 octubre: separa fuente de interpretación docente y no finge cote
   assert.match(page, /EXPLICACIÓN DE CLASE/)
   assert.match(page, /PRECISIÓN EDITORIAL/)
   assert.match(page, /p\. 55 visible/)
-  assert.match(page, /no una edición completa/i)
+  assert.match(page, /No se presentan como íntegramente cotejadas/i)
   assert.match(page, /No se identifica una nueva entrega evaluable/)
   assert.doesNotMatch(page, /grabaci[oó]n|transcripci[oó]n/i)
 })
@@ -31,7 +31,7 @@ test('Clase 28 octubre: comprende sentido/referencia, bivalencia y críticas en 
   for (const term of ['Moore', 'Russell', 'Frege', 'Wittgenstein', 'Kant', 'Existencia', 'Unicidad', 'Predicación', 'Bivalencia']) {
     assert.ok(page.includes(term), term)
   }
-  assert.match(page, /¿se las descubre o se las introduce/)
+  assert.match(page, /¿el análisis revela lo que ya estaba en la oración/)
   assert.match(page, /∃x \[K\(x\)/)
   assert.match(page, /La lectura dualista del primer Wittgenstein/)
   assert.match(page, /¿Qué viene después/)
