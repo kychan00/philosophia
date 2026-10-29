@@ -6,6 +6,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
 const url = 'http://127.0.0.1:4193/philosophia/#/estudio/fenomenologia-metodo/sistema-2d'
+const classUrl = 'http://127.0.0.1:4193/philosophia/#/semestre/5/metodos-de-investigacion/clase/28-octubre'
 const chrome = ['google-chrome', 'google-chrome-stable', 'chromium', 'chromium-browser']
   .find(bin => spawnSync('which', [bin], { stdio: 'ignore' }).status === 0)
 assert.ok(chrome, 'Chromium no disponible')
@@ -159,7 +160,16 @@ try {
 
   await evalJS("([...document.querySelectorAll('.phen2d-system .phen2d-head-actions button')].find(b=>b.textContent.includes('Salir de proyección'))?.click(),true)")
   await until(() => evalJS("document.querySelector('.phen2d-system.projection')===null"), 'salida de proyección')
-  console.log('OK · 18 nodos, método + caso nuevo, responsive y proyección verificados')
+
+  await send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false })
+  await send('Emulation.setTouchEmulationEnabled', { enabled: false, maxTouchPoints: 1 })
+  await send('Page.navigate', { url: classUrl })
+  await until(() => evalJS("document.querySelector('.phen2d-class-context')!==null"), 'archivo de clase del 28')
+  assert.equal((await evalJS("document.querySelector('.phen2d-class-context')?.textContent.includes('CLASE · 28 OCTUBRE 2026')")), true, 'falta fecha archivística de la clase')
+  assert.equal((await evalJS("document.querySelector('.phen2d-class-context')?.textContent.includes('Exposición impartida por el estudiante')")), true, 'falta autoría de la exposición en el archivo de clase')
+  assert.equal((await evalJS("document.querySelectorAll('.phen2d-system .react-flow__node').length")), 8, 'la ruta de clase no reutiliza el sistema 2D')
+
+  console.log('OK · 18 nodos, método + caso nuevo, responsive, proyección y archivo de clase del 28 verificados')
 } finally {
   ws?.close()
   browser?.kill('SIGTERM')
