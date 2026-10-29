@@ -1,5 +1,19 @@
 export const tasks = [
   {
+    id: 'etica-2026-10-27-ejemplo-estoicismo',
+    subject: 'Ética',
+    subjectCode: 'FI194',
+    assignedDate: '2026-10-27',
+    dueDate: null,
+    title: 'Desarrollar un ejemplo de estoicismo griego temprano',
+    type: 'Ejercicio filosófico',
+    weight: null,
+    description: 'Relacionar fundamentos físicos y metafísicos del estoicismo con un ejemplo moral. El profesor no indicó una fecha límite inequívoca.',
+    sourceClass: 'Clase del 27 de octubre de 2026',
+    sourceRoute: '/semestre/5/etica/clase/27-octubre',
+    studyRoute: '/semestre/5/etica/clase/27-octubre',
+  },
+  {
     id: 'metodos-2026-10-26-exposicion-tres-dialecticas',
     subject: 'Métodos de Investigación',
     subjectCode: 'FI104',
