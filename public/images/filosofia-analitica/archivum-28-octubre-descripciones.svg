@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 330" role="img" aria-labelledby="title desc">
+<title id="title">Del enunciado cotidiano a la forma lógica de la descripción definida</title>
+<desc id="desc">Una oración cotidiana se analiza en tres condiciones: existencia, unicidad y predicación. Una flecha conduce al valor de verdad: si falla la existencia, el conjunto de condiciones es falso.</desc>
+<rect width="1180" height="330" fill="#0b182b"/>
+<path d="M0 45H1180 M0 165H1180 M0 285H1180" stroke="#233650" stroke-width="1" opacity=".52"/>
+<text x="38" y="38" fill="#a6c8ff" font-family="Arial" font-size="15" letter-spacing="2">ANÁLISIS DE UNA DESCRIPCIÓN DEFINIDA</text>
+<rect x="34" y="74" width="360" height="176" rx="8" fill="#192e4a" stroke="#4589ff" stroke-width="2"/>
+<text x="54" y="111" fill="#a6c8ff" font-family="Arial" font-size="14">01 · GRAMÁTICA VISIBLE</text>
+<text x="54" y="162" fill="#fff" font-family="Georgia" font-size="24">El actual rey de Francia</text>
+<text x="54" y="199" fill="#fff" font-family="Georgia" font-size="24">es calvo</text>
+<text x="54" y="229" fill="#c6d9f0" font-family="Arial" font-size="13">Parece sujeto + predicado</text>
+<path d="M406 160H445" stroke="#42be65" stroke-width="4"/><path d="M436 151L447 160 436 169" fill="none" stroke="#42be65" stroke-width="4"/>
+<rect x="458" y="74" width="440" height="176" rx="8" fill="#11253e" stroke="#42be65" stroke-width="2"/>
+<text x="478" y="111" fill="#a7f0ba" font-family="Arial" font-size="14">02 · CONDICIONES LÓGICAS</text>
+<circle cx="492" cy="143" r="7" fill="#42be65"/><text x="513" y="150" fill="#fff" font-family="Arial" font-size="19">Existe un rey actual</text>
+<circle cx="492" cy="181" r="7" fill="#42be65"/><text x="513" y="188" fill="#fff" font-family="Arial" font-size="19">Hay uno solo</text>
+<circle cx="492" cy="219" r="7" fill="#42be65"/><text x="513" y="226" fill="#fff" font-family="Arial" font-size="19">Ese individuo es calvo</text>
+<path d="M909 160H942" stroke="#ffb000" stroke-width="4"/><path d="M933 151L944 160 933 169" fill="none" stroke="#ffb000" stroke-width="4"/>
+<rect x="954" y="74" width="194" height="176" rx="8" fill="#3e2b18" stroke="#ffb000" stroke-width="2"/>
+<text x="974" y="111" fill="#ffdba3" font-family="Arial" font-size="14">03 · EVALUACIÓN</text>
+<text x="974" y="164" fill="#fff" font-family="Arial" font-size="22" font-weight="bold">FALSA</text>
+<text x="974" y="195" fill="#f8d6a8" font-family="Arial" font-size="14">Falla la existencia</text>
+<text x="974" y="215" fill="#f8d6a8" font-family="Arial" font-size="14">en el caso actual</text>
+<text x="40" y="299" fill="#bac9dd" font-family="Arial" font-size="14">Esquema editorial original de PHILOSOPHIA · La formalización no reproduce el pizarrón ni una figura del libro.</text>
+</svg>
