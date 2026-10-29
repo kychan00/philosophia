@@ -1,0 +1,404 @@
+.phen-exp {
+  --ink: #1e1b17;
+  --paper: #f3eddf;
+  --paper-deep: #e6dcc7;
+  --accent: #866b34;
+  --rule: rgba(30, 27, 23, 0.22);
+  min-height: 100vh;
+  padding: 28px clamp(18px, 4vw, 56px) 56px;
+  color: var(--ink);
+  background:
+    linear-gradient(rgba(134, 107, 52, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(134, 107, 52, 0.05) 1px, transparent 1px),
+    var(--paper);
+  background-size: 28px 28px;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.phen-exp__nav,
+.phen-exp__footer {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font: 700 0.78rem/1.3 ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.phen-exp a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.phen-exp__hero,
+.phen-exp > section,
+.phen-exp__boundary {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.phen-exp__hero {
+  padding: clamp(72px, 10vw, 132px) 0 54px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.phen-exp__hero > p:first-child,
+.phen-exp__label,
+.phen-exp__close > span {
+  font: 800 0.72rem/1.4 ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.phen-exp__hero h1 {
+  max-width: 960px;
+  margin: 14px 0 22px;
+  font-size: clamp(3rem, 7vw, 7.4rem);
+  line-height: 0.92;
+  font-weight: 500;
+  letter-spacing: -0.055em;
+}
+
+.phen-exp__hero h1 em {
+  display: block;
+  margin-top: 0.12em;
+  font-weight: 400;
+}
+
+.phen-exp__dek,
+.phen-exp__intro {
+  max-width: 780px;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  line-height: 1.6;
+}
+
+.phen-exp__thesis {
+  margin-top: 38px;
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: minmax(130px, 0.25fr) 1fr;
+  gap: 24px;
+  padding: 22px 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.phen-exp__thesis span {
+  font: 800 0.72rem/1.4 ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.phen-exp__thesis strong {
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  line-height: 1.5;
+}
+
+.phen-exp__boundary {
+  margin-top: 28px;
+  padding: 18px 22px;
+  border-left: 5px solid var(--accent);
+  background: rgba(255,255,255,0.35);
+}
+
+.phen-exp__boundary strong {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+.phen-exp > section {
+  padding: 72px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.phen-exp h2 {
+  margin: 10px 0 20px;
+  max-width: 900px;
+  font-size: clamp(2rem, 4vw, 4.2rem);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+.phen-exp__figure figure {
+  margin: 34px 0 0;
+}
+
+.phen-exp__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  background: #efe6d3;
+}
+
+.phen-exp__figure figcaption {
+  max-width: 820px;
+  margin-top: 14px;
+  font: 0.9rem/1.55 ui-sans-serif, system-ui, sans-serif;
+  color: rgba(30,27,23,0.72);
+}
+
+.phen-exp__case {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(30px, 6vw, 88px);
+  align-items: start;
+}
+
+.phen-exp__case > div:first-child p,
+.phen-exp__epistemic p {
+  font-size: 1.12rem;
+  line-height: 1.7;
+}
+
+.phen-exp__contrast {
+  display: grid;
+  gap: 16px;
+}
+
+.phen-exp__contrast article {
+  padding: 26px;
+  border: 1px solid var(--ink);
+  background: rgba(255,255,255,0.25);
+}
+
+.phen-exp__contrast span,
+.phen-exp__demo-flow span,
+.phen-exp__tension span {
+  display: block;
+  margin-bottom: 10px;
+  font: 800 0.68rem/1.4 ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.phen-exp__contrast strong {
+  font-size: 1.3rem;
+  line-height: 1.45;
+}
+
+.phen-exp__techgrid,
+.phen-exp__stagegrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.phen-exp__techgrid article,
+.phen-exp__stagegrid article {
+  min-height: 190px;
+  padding: 22px;
+  border: 1px solid var(--rule);
+  background: rgba(255,255,255,0.25);
+}
+
+.phen-exp__techgrid h3,
+.phen-exp__stagegrid h3 {
+  margin: 8px 0 10px;
+  font-size: 1.25rem;
+}
+
+.phen-exp__techgrid p,
+.phen-exp__stagegrid p {
+  line-height: 1.58;
+}
+
+.phen-exp__stagegrid article > span {
+  font: 800 0.72rem/1 ui-sans-serif, system-ui, sans-serif;
+  color: var(--accent);
+}
+
+.phen-exp__stagegrid article > strong {
+  display: block;
+  line-height: 1.45;
+}
+
+.phen-exp__demo-flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  gap: 14px;
+  align-items: stretch;
+  margin-top: 36px;
+}
+
+.phen-exp__demo-flow > div {
+  padding: 22px;
+  border: 1px solid var(--ink);
+  background: var(--paper-deep);
+}
+
+.phen-exp__demo-flow > b {
+  align-self: center;
+  font-size: 1.7rem;
+}
+
+.phen-exp__demo-flow p {
+  margin-bottom: 0;
+  line-height: 1.55;
+}
+
+.phen-exp__tension {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.phen-exp__tension article {
+  padding: clamp(24px, 4vw, 44px);
+  border: 1px solid var(--ink);
+  min-height: 320px;
+}
+
+.phen-exp__tension h2 {
+  font-size: clamp(1.9rem, 3vw, 3.2rem);
+}
+
+.phen-exp__tension p {
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.phen-exp__versus {
+  font-size: 2rem;
+}
+
+.phen-exp__defense ol {
+  max-width: 900px;
+  padding-left: 1.4em;
+  columns: 2;
+  column-gap: 60px;
+}
+
+.phen-exp__defense li {
+  break-inside: avoid;
+  margin: 0 0 18px;
+  padding-left: 8px;
+  font-size: 1.08rem;
+  line-height: 1.5;
+}
+
+.phen-exp__close blockquote {
+  max-width: 960px;
+  margin: 22px 0;
+  font-size: clamp(1.8rem, 4vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.phen-exp__close p {
+  max-width: 720px;
+  line-height: 1.65;
+}
+
+.phen-exp__footer {
+  padding-top: 34px;
+}
+
+@media (max-width: 900px) {
+  .phen-exp__case,
+  .phen-exp__tension {
+    grid-template-columns: 1fr;
+  }
+
+  .phen-exp__versus {
+    transform: rotate(90deg);
+    justify-self: center;
+  }
+
+  .phen-exp__techgrid,
+  .phen-exp__stagegrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .phen-exp__demo-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .phen-exp__demo-flow > b {
+    transform: rotate(90deg);
+    justify-self: center;
+  }
+}
+
+@media (max-width: 620px) {
+  .phen-exp {
+    padding-inline: 16px;
+  }
+
+  .phen-exp__nav,
+  .phen-exp__footer {
+    flex-direction: column;
+  }
+
+  .phen-exp__hero {
+    padding-top: 64px;
+  }
+
+  .phen-exp__hero h1 {
+    font-size: clamp(2.7rem, 14vw, 4.5rem);
+  }
+
+  .phen-exp__thesis {
+    grid-template-columns: 1fr;
+  }
+
+  .phen-exp__techgrid,
+  .phen-exp__stagegrid {
+    grid-template-columns: 1fr;
+  }
+
+  .phen-exp__defense ol {
+    columns: 1;
+  }
+}
+
+
+.phen-exp__system-entry{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:clamp(24px,5vw,70px);
+  align-items:center;
+  padding:38px 0!important;
+}
+.phen-exp__system-entry>div>span{
+  font:800 .72rem/1.4 ui-sans-serif,system-ui,sans-serif;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--accent);
+}
+.phen-exp__system-entry h2{
+  margin:8px 0 12px;
+  font-size:clamp(2rem,4vw,4rem);
+}
+.phen-exp__system-entry p{
+  max-width:760px;
+  margin:0;
+  font-size:1.06rem;
+  line-height:1.65;
+}
+.phen-exp__system-entry>a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:54px;
+  padding:14px 18px;
+  border:1px solid var(--ink);
+  background:var(--ink);
+  color:var(--paper);
+  text-decoration:none;
+  font:800 .76rem/1.3 ui-sans-serif,system-ui,sans-serif;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+@media(max-width:760px){
+  .phen-exp__system-entry{grid-template-columns:1fr}
+  .phen-exp__system-entry>a{justify-self:start}
+}
