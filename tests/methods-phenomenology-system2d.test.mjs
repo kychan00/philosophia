@@ -33,7 +33,7 @@ test('Dos movimientos: método y caso aplicado', () => {
 test('La proyección pública es autónoma y sin notas privadas', () => {
   assert.doesNotMatch(src, /source: '/)
   assert.doesNotMatch(src, /Clase \d+/)
-  assert.doesNotMatch(src, /octubre/i)
+  assert.match(src, /isClassArchive&&<aside className="phen2d-class-context"/)
   assert.doesNotMatch(src, /grabaci[oó]n|transcripci[oó]n/i)
   assert.doesNotMatch(src, /Para exponer/i)
   assert.match(src, /Idea central/)
