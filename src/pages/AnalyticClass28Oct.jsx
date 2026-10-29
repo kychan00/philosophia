@@ -105,7 +105,7 @@ export default function AnalyticClass28Oct() {
         </div>
         <aside className="ac1910-source-card">
           <span>CONTROL DOCUMENTAL</span>
-          <div><b>01</b><strong>Material cotejado</strong><p>Notas del 28 de octubre; capturas parciales de Glock, capítulo histórico, incluida la p. 55; exposición docente transcrita.</p></div>
+          <div><b>01</b><strong>Material cotejado</strong><p>Notas del 28 de octubre; capturas parciales de Glock, capítulo histórico, incluida la p. 55; explicación del profesor aportada para esta clase.</p></div>
           <div><b>02</b><strong>Continuidad</strong><p>La sesión del 26 había llegado al comienzo de la rebelión de Moore y Russell contra el idealismo.</p></div>
           <div><b>03</b><strong>Límite</strong><p>No se presentan como íntegramente cotejadas las páginas del libro sólo visibles en fragmentos. Los ejemplos no literales están identificados.</p></div>
         </aside>
