@@ -1,5 +1,5 @@
 import { useMemo, useRef, useState } from 'react'
-import { Link } from 'react-router'
+import { Link, useLocation } from 'react-router'
 import { Background, Controls, Handle, MarkerType, Position, ReactFlow, ReactFlowProvider } from '@xyflow/react'
 import '@xyflow/react/dist/style.css'
 import './MethodsPhenomenologySystem2D.css'
@@ -447,8 +447,18 @@ function Workspace() {
 }
 
 export default function MethodsPhenomenologyAppliedSystem2D(){
+  const location=useLocation()
+  const isClassArchive=location.pathname.endsWith('/semestre/5/metodos-de-investigacion/clase/28-octubre')
   return <main className="m19-page m21-page phen2d-page">
     <nav className="m19-nav"><Link to="/semestre/5/metodos-de-investigacion">← Métodos de Investigación</Link><Link to="/">Φ · PHILOSOPHIA</Link><span>FI104 · MÉTODO + CASO</span></nav>
+    {isClassArchive&&<aside className="phen2d-class-context" aria-label="Contexto de la clase del 28 de octubre">
+      <div>
+        <span>CLASE · 28 OCTUBRE 2026</span>
+        <strong>Exposición impartida por el estudiante</strong>
+        <p>Fenomenología como método de investigación filosófica y aplicación al caso de estar perdido en una ciudad desconocida.</p>
+      </div>
+      <Link to="/estudio/fenomenologia-metodo/sistema-2d">Abrir versión pública ↗</Link>
+    </aside>}
     <header className="phen2d-hero">
       <p className="m19-kicker">FENOMENOLOGÍA · INVESTIGACIÓN FILOSÓFICA</p>
       <h1>Del método<br/><em>a la experiencia.</em></h1>
