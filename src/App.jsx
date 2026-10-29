@@ -508,6 +508,10 @@ function App() {
           element={<MethodsClass26Oct />}
         />
         <Route
+          path="/semestre/5/metodos-de-investigacion/clase/28-octubre"
+          element={<MethodsPhenomenologySystem2D />}
+        />
+        <Route
           path="/estudio/fenomenologia-metodo"
           element={<MethodsPhenomenologyExposition />}
         />

@@ -7,6 +7,7 @@ const css = readFileSync(new URL('../src/pages/MethodsPhenomenologySystem2D.css'
 const visuals = readFileSync(new URL('../src/pages/MethodsPhenomenologyVisuals.jsx', import.meta.url), 'utf8')
 const app = readFileSync(new URL('../src/App.jsx', import.meta.url), 'utf8')
 const study = readFileSync(new URL('../src/pages/MethodsPhenomenologyExposition.jsx', import.meta.url), 'utf8')
+const methodsIndex = readFileSync(new URL('../src/pages/MethodsResearch.jsx', import.meta.url), 'utf8')
 const route = '/estudio/fenomenologia-metodo/sistema-2d'
 const ids = [...src.matchAll(/id: '([mc]\d+)'/g)].map(match => match[1])
 
@@ -32,7 +33,7 @@ test('Dos movimientos: método y caso aplicado', () => {
 test('La proyección pública es autónoma y sin notas privadas', () => {
   assert.doesNotMatch(src, /source: '/)
   assert.doesNotMatch(src, /Clase \d+/)
-  assert.doesNotMatch(src, /octubre/i)
+  assert.match(src, /isClassArchive&&<aside className="phen2d-class-context"/)
   assert.doesNotMatch(src, /grabaci[oó]n|transcripci[oó]n/i)
   assert.doesNotMatch(src, /Para exponer/i)
   assert.match(src, /Idea central/)
@@ -161,4 +162,23 @@ test('La navegación del folio responde a un solo toque móvil', () => {
   assert.match(src, /onPointerDown=\{event=>moveInspectorPointer\(1,event\)\}/)
   assert.match(css, /touch-action:manipulation/)
   assert.match(css, /-webkit-tap-highlight-color:transparent/)
+})
+
+
+test('La exposición queda archivada como clase del 28 de octubre', () => {
+  const classRoute = '/semestre/5/metodos-de-investigacion/clase/28-octubre'
+  assert.ok(app.includes(classRoute))
+  assert.ok(methodsIndex.includes(classRoute))
+  assert.match(methodsIndex, /Exposición del estudiante · Fenomenología aplicada/)
+  assert.match(methodsIndex, /Fenomenología como método de investigación filosófica/)
+  assert.match(src, /isClassArchive/)
+  assert.match(src, /CLASE · 28 OCTUBRE 2026/)
+  assert.match(src, /Exposición impartida por el estudiante/)
+  assert.match(src, /Abrir versión pública/)
+  assert.match(css, /\.phen2d-class-context/)
+})
+
+test('La ruta pública compartible no depende del contexto archivístico de clase', () => {
+  assert.match(src, /isClassArchive&&<aside className="phen2d-class-context"/)
+  assert.match(src, /to="\/estudio\/fenomenologia-metodo\/sistema-2d"/)
 })
