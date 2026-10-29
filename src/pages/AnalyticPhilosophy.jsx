@@ -520,6 +520,16 @@ export default function AnalyticPhilosophy() {
           </div>
           <div className="analytic-enter"><span>Abrir análisis</span><b>↗</b></div>
         </Link>
+        <Link to="/semestre/5/filosofia-analitica/clase/28-octubre" className="analytic-class-card">
+          <div className="analytic-date"><strong>XXVIII</strong><span>X · MMXXVI</span></div>
+          <div className="analytic-class-copy">
+            <span>Decimonovena clase · Glock · teoría de las descripciones</span>
+            <h3>Moore, Russell y la estructura lógica oculta</h3>
+            <p>Monismo y análisis, lógica fregeana, rey de Francia, descripción definida, bivalencia, objeciones docentes y límites del decir.</p>
+          </div>
+          <div className="analytic-enter"><span>Abrir análisis</span><b>↗</b></div>
+        </Link>
+
 
 </section>
 
