@@ -35,3 +35,35 @@ El título tapa controles, la ruta no muestra nodos útiles, el inspector ocupa 
 - `src/components/philosophy/system2d/SectionPedagogy.jsx`
 
 **Filosofía de diseño:** contenido fiel a sus fuentes, arquitectura Marx, estudio por secciones Kant, lectura editorial Hacker y experiencia táctil robusta en iPad.
+
+
+## 11 · Presupuesto de renderizado y supervivencia en Safari móvil · 25 de octubre de 2026
+
+**Incidente de referencia:** Safari/iPhone mostró «Ocurrió un problema varias veces» al abrir directamente `#/tareas/teoria-critica/lukacs-cosificacion`. La captura acredita el aborto repetido de la página; no permite atribuir por sí sola una causa interna exacta de WebKit.
+
+**Hallazgo de código transversal:** varios sistemas 2D históricos abrían con `route = 'all'`, entregaban al canvas nodos ocultos además de los visibles, ejecutaban `fitView` sobre el atlas completo y montaban `MiniMap` aun en viewport compacto. Ese patrón multiplica simultáneamente DOM, SVG, medición geométrica y composición.
+
+### Regla obligatoria para grafos densos
+
+En viewport compacto (referencia operativa actual: ≤850 CSS px):
+
+1. **No iniciar en `all`** cuando existe una ruta temática más pequeña. Abrir la primera ruta documental válida.
+2. **Filtrar antes de React Flow** los nodos y aristas marcados `hidden`; no basta confiar en que React Flow los oculte visualmente.
+3. Activar **`onlyRenderVisibleElements`** en atlas densos.
+4. **No montar `MiniMap` por defecto** en móvil. Si existe una acción explícita para mostrarlo, debe seguir desactivada en compacto cuando el grafo es pesado.
+5. **No ejecutar `fitView` global sobre `all`** al cargar ni al pulsar «Sistema completo» en móvil. Conservar la cámara actual o encuadrar una ruta/subconjunto acotado.
+6. La vista completa puede seguir disponible, pero debe ser **opt-in** y no convertir todos los nodos en simultáneamente visibles mediante un zoom extremo.
+7. Guías que internamente usan `route='all'` son válidas sólo si su propio estado oculta/filtra el resto y mantiene como máximo el paso actual/siguiente o un subconjunto pequeño.
+8. Un smoke Chromium verde **no certifica Safari/iOS**. La aceptación final de un crash reportado en Safari exige prueba física cuando sea posible.
+
+### Invariante de regresión
+
+Todo sistema 2D refactorizado debe poder abrirse a 390×844 sin:
+- montar el atlas completo por defecto;
+- minimapa automático;
+- overflow global;
+- solapes críticos;
+- reset de cámara por selección;
+- cierre/reload del proceso de página.
+
+La prioridad es **supervivencia y lectura progresiva**, no mostrar el universo conceptual entero en el primer frame.

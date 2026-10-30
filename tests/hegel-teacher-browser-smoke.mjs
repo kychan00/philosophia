@@ -107,18 +107,25 @@ try{
   })
   await send('Page.enable')
   await send('Runtime.enable')
-  for(const [width,height,codes] of [
-    [834,1112,['F01','F02','F03','F04','F05','F06','F07','F08','E03','E04','E05','E06','E07','E08','E09']],
-    [1024,768,['E01','E02']],
-  ]){
-    await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:2,mobile:false})
-    await send('Page.navigate',{url:base})
-    await until(()=>evaluate("document.querySelectorAll('.react-flow__node').length===169"),'169 nodos en '+width+'×'+height,160)
-    assert.equal(await evaluate("document.body.textContent.includes('Ver las presentaciones')"),false,'Debe desaparecer la ruta separada')
-    assert.equal(await evaluate("([...document.querySelectorAll('.hegel-reading-actions button')].filter(b=>b.textContent.includes('Explorar lectura')).length)"),1)
-    for(const code of codes)await validateFolio(code,expected[code])
-  }
-  console.log('OK Hegel: 17 diapositivas íntegras y esquemas sin solapes en viewports tablet')
+  await send('Emulation.setDeviceMetricsOverride',{width:834,height:1112,deviceScaleFactor:2,mobile:false})
+  await send('Page.navigate',{url:'about:blank'})
+  await until(()=>evaluate("location.href==='about:blank'"),'reset 834×1112')
+  await send('Page.navigate',{url:base})
+  await until(()=>evaluate("document.querySelectorAll('.react-flow__node').length>0"),'ruta progresiva en 834×1112',160)
+  const compactCount=await evaluate("document.querySelectorAll('.react-flow__node').length")
+  assert.ok(compactCount<169,'834×1112 no debe montar los 169 nodos de golpe: '+compactCount)
+  assert.equal(await evaluate("!!document.querySelector('.react-flow__minimap')"),false,'834×1112 no debe montar minimapa')
+  assert.equal(await evaluate("document.documentElement.scrollWidth<=window.innerWidth+3"),true,'834×1112 sin overflow global')
+
+  await send('Emulation.setDeviceMetricsOverride',{width:1024,height:768,deviceScaleFactor:2,mobile:false})
+  await send('Page.navigate',{url:'about:blank'})
+  await until(()=>evaluate("location.href==='about:blank'"),'reset 1024×768')
+  await send('Page.navigate',{url:base})
+  await until(()=>evaluate("document.querySelectorAll('.react-flow__node').length===169"),'169 nodos en 1024×768',160)
+  assert.equal(await evaluate("document.body.textContent.includes('Ver las presentaciones')"),false,'Debe desaparecer la ruta separada')
+  assert.equal(await evaluate("([...document.querySelectorAll('.hegel-reading-actions button')].filter(b=>b.textContent.includes('Explorar lectura')).length)"),1)
+  for(const code of Object.keys(expected))await validateFolio(code,expected[code])
+  console.log('OK Hegel: carga progresiva en 834 y 17 diapositivas íntegras en viewport amplio')
 } finally {
   if(socket)socket.close()
   if(browser){browser.kill('SIGTERM');await Promise.race([new Promise(r=>browser.once('exit',r)),pause(1500)])}
