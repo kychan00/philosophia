@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500" role="img" aria-labelledby="title desc">
+<title id="title">Del programa positivista a sus dificultades</title>
+<desc id="desc">Tres niveles conceptuales conectados con flechas: proyecto de verificación y unidad de la ciencia; ocho dificultades del reduccionismo; apertura a los usos del lenguaje y a la pluralidad de métodos.</desc>
+<rect width="900" height="500" fill="#f9f9ff"/>
+<g font-family="Georgia,serif" fill="#192239" text-anchor="middle">
+<rect x="180" y="32" width="540" height="105" rx="8" fill="#edf2ff" stroke="#1d4ed8" stroke-width="3"/>
+<text x="450" y="72" font-size="24">PROGRAMA POSITIVISTA</text>
+<text x="450" y="105" font-size="17">Verificación · reducción · unidad de las ciencias</text>
+<path d="M450 140 V178" fill="none" stroke="#1d4ed8" stroke-width="3"/>
+<path d="M440 169 L450 181 L460 169" fill="none" stroke="#1d4ed8" stroke-width="3"/>
+<rect x="105" y="186" width="690" height="118" rx="8" fill="#fff" stroke="#59687a" stroke-width="2.5"/>
+<text x="450" y="221" font-size="25">OCHO DIFICULTADES</text>
+<text x="450" y="253" font-size="18">Base · solipsismo · extensionalidad · verificación</text>
+<text x="450" y="280" font-size="18">Convencionalismo · lógica · ciencias · filosofía</text>
+<path d="M450 307 V352" fill="none" stroke="#1d4ed8" stroke-width="3"/>
+<path d="M440 342 L450 354 L460 342" fill="none" stroke="#1d4ed8" stroke-width="3"/>
+<rect x="180" y="360" width="540" height="104" rx="8" fill="#edf2ff" stroke="#1d4ed8" stroke-width="3"/>
+<text x="450" y="399" font-size="24">APERTURA CONCEPTUAL</text>
+<text x="450" y="432" font-size="17">Lenguaje ordinario · pluralidad metodológica</text>
+</g>
+</svg>

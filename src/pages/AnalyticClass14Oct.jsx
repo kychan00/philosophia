@@ -37,6 +37,52 @@ const objections = [
   ['08','Filosofía demasiado estrecha','La reducción al lenguaje científico desatiende ética, política, derecho y estética.','En clase: la filosofía también examina el deber ser.'],
 ]
 
+
+const mnemonicQuestions = [
+  ['¿En qué se distinguen significado, verdad y cientificidad?', 'Tener significado no garantiza verdad ni pertenencia a la ciencia: el imperativo «Cierra la puerta» es comprensible sin valor de verdad.'],
+  ['¿Por qué la unidad de método no equivale a reducción fisicalista?', 'Una orientación metodológica compartida puede convivir con objetos y métodos disciplinares distintos; no obliga a traducir todo enunciado al vocabulario físico.'],
+  ['¿Qué dificultad encuentra el principio de verificación?', 'No logró fijar un criterio general y satisfactorio de significado cognoscitivo sin excluir expresiones comprensibles o suscitar nuevas dificultades.'],
+  ['¿Qué función tiene la falsabilidad en Popper?', 'Se propone como criterio para demarcar hipótesis científicas, no como criterio del significado de toda expresión.'],
+]
+
+function ArchivumMnemonic() {
+  return <section className="ac1410-memory" aria-labelledby="ac1410-memory-title">
+    <div className="ac1410-memory-head"><span>ARCHIVUM ACADEMICUM · ACTIVACIÓN / 90 SEGUNDOS</span><span>14 · X · 2026</span></div>
+    <h2 id="ac1410-memory-title">El límite del programa reduccionista</h2>
+    <p className="ac1410-memory-thesis"><strong>TESIS SEMINAL · RECONSTRUCCIÓN EDITORIAL</strong> El intento de reducir el significado a verificación y lenguaje científico común enfrenta objeciones sobre experiencia, inferencia y pluralidad metodológica.</p>
+    <div className="ac1410-triad" aria-label="Tríada conceptual para recordar la sesión">
+      <div><b>α · PROYECTO</b><span>Verificación y unidad</span></div>
+      <div><b>β · CRÍTICA</b><span>Ocho dificultades</span></div>
+      <div><b>γ · APERTURA</b><span>Lenguaje y métodos plurales</span></div>
+    </div>
+    <figure className="ac1410-map">
+      <img src={`${import.meta.env.BASE_URL}images/filosofia-analitica/archivum-14-octubre-mapa.svg`} alt="Mapa de tres niveles: el programa positivista de verificación y unidad conduce a ocho dificultades sobre reducción, significado, inferencia y método, abriendo paso a una filosofía analítica más amplia." loading="lazy" />
+      <figcaption>Figura 1 · Mapa argumental original de PHILOSOPHIA. Lectura: programa positivista → dificultades críticas → apertura conceptual. Reconstrucción editorial de esta clase, no reproducción de una figura de Hacker ni del docente.</figcaption>
+    </figure>
+    <p className="ac1410-visual-credit">Imagen: PHILOSOPHIA, elaboración original (SVG); titular: proyecto PHILOSOPHIA; uso: recurso original del proyecto. No se emplearon imágenes externas.</p>
+  </section>
+}
+
+function ArchivumRecall() {
+  return <section className="ac1410-recall" aria-labelledby="ac1410-recall-title">
+    <h2 id="ac1410-recall-title">Examen mnemónico decenal</h2>
+    <p>Responda antes de abrir cada ficha. Estas respuestas son síntesis editoriales de estudio, no citas literales del autor.</p>
+    {mnemonicQuestions.map(([question, answer], index) => <details key={question}>
+      <summary><span>0{index + 1}</span> {question}</summary>
+      <p>{answer}</p>
+    </details>)}
+  </section>
+}
+
+function ArchivumArgument() {
+  return <section className="ac1410-argument" aria-labelledby="ac1410-argument-title">
+    <h2 id="ac1410-argument-title">Scholium · La inferencia no debe confundirse con el criterio de significado</h2>
+    <p><strong>Reconstrucción editorial de estudio, no demostración atribuida a Hacker:</strong> el <em>modus tollens</em> ilustra una inferencia deductivamente válida que sirve para distinguir una regla lógica de los debates filosóficos sobre verificación y demarcación.</p>
+    <div className="ac1410-proof"><div><span>P₁ · Condicional</span><code>P → Q</code></div><div><span>P₂ · Negación</span><code>¬Q</code></div><div><span>Regla</span><code>Modus tollens</code></div><div><span>C · Conclusión</span><code>¬P</code></div></div>
+    <p><strong>Validez formal:</strong> sí. <strong>Solidez:</strong> sólo si las premisas usadas en una aplicación concreta son verdaderas; este esquema abstracto no las acredita. La forma lógica no determina por sí sola el significado de todos los enunciados.</p>
+  </section>
+}
+
 function Heading({ n, eyebrow, children }) {
   return <AnalyticEditorialHeading n={n} eyebrow={eyebrow} className="ac1410-heading">
     {children}
@@ -82,6 +128,7 @@ export default function AnalyticClass14Oct() {
         </aside>
       </div>
     </header>
+    <ArchivumMnemonic />
     <div className="ac9-layout ac1410-layout">
       <AnalyticEditorialIndex
         sections={sections}
@@ -150,6 +197,7 @@ export default function AnalyticClass14Oct() {
             o no reúna los criterios exigidos para la investigación empírica.</p>
           <p className="ac1410-provenance">Estos ejemplos pertenecen a la discusión de clase. La precisión conceptual no convierte por sí misma en verdaderas las proposiciones consideradas.</p>
         </section>
+        <ArchivumArgument />
         <section id="metodo">
           <Heading n="06" eyebrow="Philosophia scientiae">Popper, conjeturas e inferencias</Heading>
           <p>Se presenta a <strong>Karl Popper</strong> como interlocutor crítico del verificacionismo:
@@ -192,6 +240,7 @@ export default function AnalyticClass14Oct() {
           <p className="ac1410-provenance">Los desarrollos y ejemplos de la sesión son notas docentes organizadas para estudio. El texto principal de Hacker y los comentarios del aula permanecen diferenciados.</p>
           <Link className="ac1410-return" to="/semestre/5/filosofia-analitica/reporte/hacker">Explorar los nodos ampliados de Hacker ↗</Link>
         </section>
+        <ArchivumRecall />
       </article>
     </div>
     <footer className="ac1410-footer"><Link to="/semestre/5/filosofia-analitica">← Materia</Link><span>FI264 · Notas de clase · 14 OCT 2026</span><Link to="/semestre/5/filosofia-analitica/reporte/hacker">Sistema 2D ↗</Link></footer>

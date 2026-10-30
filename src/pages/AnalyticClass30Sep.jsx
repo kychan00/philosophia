@@ -23,6 +23,25 @@ const sections = [
   ['12','cierre','Punto de corte del fragmento'],
 ]
 
+
+const archivum30Questions=[
+ ['¿Equivale el origen de la analítica al inicio de su giro lingüístico?','No: Moore y Russell son presentados como orígenes; Hacker sitúa el comienzo, no la culminación, del giro lingüístico en el Tractatus.'],
+ ['¿Qué diferencia a Frege de la tesis historiográfica de Hacker?','La estrategia contextual de Frege antecede al Tractatus, pero un antecedente metodológico no prueba por sí mismo una transformación histórica generalizada.'],
+ ['¿Por qué se menciona a Bentham?','Como posible antecedente que muestra el problema de identificar el giro sólo por encontrar la formulación más antigua de un método.'],
+ ['¿Cuál es la diferencia entre prioridad y transformación?','La prioridad pregunta quién formuló primero una idea; la transformación indaga cuándo esa estrategia reorganizó la práctica filosófica.']
+];
+function Archivum30(){
+ return <section className="ac30-archivum" aria-label="Archivum Academicum: recuerdo de la sesión">
+ <p className="ac30-archivum-label">ARCHIVUM ACADEMICUM · ACTIVACIÓN DE 90 SEGUNDOS</p>
+ <h2>Una idea anterior no constituye por sí sola un giro histórico</h2>
+ <p><strong>TESIS SEMINAL · RECONSTRUCCIÓN EDITORIAL</strong> Hacker distingue los orígenes plurales de la filosofía analítica del inicio de su giro lingüístico: la prioridad de una estrategia no equivale a su transformación de la práctica filosófica.</p>
+ <div className="ac30-archivum-triad"><div><b>α · ORÍGENES</b><span>Moore y Russell</span></div><div><b>β · MÉTODO</b><span>Frege, principio contextual</span></div><div><b>γ · GIRO</b><span>Tractatus, cambio histórico</span></div></div>
+ <figure><img src={`${import.meta.env.BASE_URL}images/filosofia-analitica/archivum-30-septiembre-giro.svg`} loading="lazy" alt="Diagrama de tres columnas que distingue orígenes con Moore y Russell, antecedentes lingüísticos con Frege y Bentham, y transformación histórica atribuida al Tractatus en la lectura de Hacker."/><figcaption>Figura 1 · Origen, antecedente y giro. Esquema original de PHILOSOPHIA basado en esta clase; no es una reproducción de Hacker ni del profesor.</figcaption></figure>
+ <p className="ac30-archivum-credit">Autor/titular PHILOSOPHIA; SVG original para el proyecto (ORIGINAL-OWNED), sin recursos gráficos externos. Cajas y conectores representan distinciones historiográficas.</p>
+ </section>
+}
+function Archivum30Recall(){return <section className="ac30-recall"><h2>Prueba de recuperación decenal</h2><p>Responda antes de abrir las síntesis editoriales.</p>{archivum30Questions.map(([q,a],i)=><details key={q}><summary><span>0{i+1} · </span>{q}</summary><p>{a}</p></details>)}</section>}
+
 const goTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior:'smooth', block:'start' })
 
 function Heading({ n, eyebrow, children }) {
@@ -89,6 +108,7 @@ export default function AnalyticClass30Sep() {
         </div>
       </header>
 
+      <Archivum30 />
       <div className="ac9-layout ac21-layout ac23-layout ac28-layout ac30-layout">
         <aside className="ac9-index ac21-index ac23-index ac28-index ac30-index">
           <p>Index analyticorum</p>
@@ -194,7 +214,7 @@ export default function AnalyticClass30Sep() {
           <section id="cronologia">
             <Heading n="06" eyebrow="Chronologia">1918, 1922 y la difusión del Tractatus</Heading>
             <p className="ac9-prose">
-              La clase distingue la publicación alemana del texto —situada en 1918 dentro de la explicación— de la
+              La clase distingue la publicación alemana del texto —asociada a 1918 en la explicación de clase (fecha que corresponde a la conclusión del manuscrito, no a su publicación alemana de 1921)— de la
               edición inglesa de 1922, que favorece su difusión. La fecha importa menos como efeméride aislada que como
               punto de referencia para la transformación que el libro provoca en la tradición analítica.
             </p>
@@ -285,7 +305,8 @@ export default function AnalyticClass30Sep() {
               <strong>No aparece una tarea explícita en el fragmento entregado.</strong>
             </div>
           </section>
-        </article>
+        <Archivum30Recall />
+</article>
       </div>
     </main>
   )
