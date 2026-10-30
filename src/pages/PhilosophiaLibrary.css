@@ -145,31 +145,3 @@
 .library-ideas-content li span{font:13px/1.5 Arial,sans-serif;color:#273e52;}
 @media(max-width:470px){.library-ideas-content{padding:10px;}.library-ideas-content li{padding:10px;}}
 
-/* Fuentes de clase: acordeón documental, sin atribuir lecturas no demostradas. */
-.library-class-reference-index{padding:clamp(36px,5vw,70px) 5vw;background:#e4dccb;border-bottom:2px solid var(--i);}
-.library-class-reference-header{display:flex;align-items:end;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:24px;}
-.library-class-reference-header>div{max-width:680px;}
-.library-class-reference-header span{font:800 10px Arial,sans-serif;letter-spacing:.13em;color:var(--r);}
-.library-class-reference-header h2{font:normal clamp(33px,4vw,59px)/1 Georgia,serif;letter-spacing:-.04em;margin:12px 0 18px;}
-.library-class-reference-header p{font:15px/1.6 Arial,sans-serif;margin:0;}
-.library-class-reference-header label{font:800 11px/1.7 Arial,sans-serif;display:flex;flex-direction:column;min-width:min(100%,250px);gap:5px;}
-.library-class-reference-header select{background:var(--cream);border:1px solid var(--i);padding:13px;min-height:48px;color:var(--i);font:15px Arial,sans-serif;max-width:100%;}
-.library-class-reference-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:start;}
-.library-class-reference{background:var(--cream);border:1px solid #19221b55;min-width:0;}
-.library-class-reference[open]{grid-column:1/-1;border-color:var(--i);}
-.library-class-reference>summary{cursor:pointer;display:flex;flex-direction:column;gap:7px;min-height:100px;padding:18px 45px 18px 19px;position:relative;list-style:none;}
-.library-class-reference>summary::-webkit-details-marker{display:none;}
-.library-class-reference>summary:after{content:'+';position:absolute;right:18px;top:19px;font:26px Georgia,serif;}
-.library-class-reference[open]>summary:after{content:'−';}
-.library-class-reference>summary:focus-visible{outline:3px solid var(--r);outline-offset:-3px;}
-.library-class-reference-date{font:800 10px Arial,sans-serif;color:var(--r);letter-spacing:.05em;}
-.library-class-reference>summary strong{font:normal 21px/1.18 Georgia,serif;overflow-wrap:anywhere;}
-.library-class-reference>summary small{font:11px/1.4 Arial,sans-serif;color:#635f50;}
-.library-class-reference-details{padding:22px 20px 26px;border-top:1px solid #19221b44;display:grid;gap:22px;}
-.library-class-reference-details h3{font:700 12px/1.4 Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;margin:0 0 12px;}
-.library-class-reference-tags{display:flex;flex-wrap:wrap;gap:9px;}
-.library-class-reference-tags button{background:#f3ead9;border:1px solid #536f59;color:#1d4329;cursor:pointer;padding:10px 12px;min-height:43px;max-width:100%;overflow-wrap:anywhere;text-align:left;font:12px/1.4 Arial,sans-serif;}
-.library-class-reference-tags button:hover{background:#dae5d5;}
-.library-class-reference-open{font:800 12px Arial,sans-serif;color:#235d3c;text-decoration:underline;text-underline-offset:4px;justify-self:start;}
-.library-class-reference-unlinked{font:12px/1.4 Arial,sans-serif;color:#685f53;margin:0;}
-@media(max-width:720px){.library-class-reference-index{padding:35px 17px;}.library-class-reference-list{grid-template-columns:1fr;}.library-class-reference-header label{width:100%;}.library-class-reference>summary{min-height:0;}.library-class-reference[open]{grid-column:auto;}}
