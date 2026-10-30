@@ -1,6 +1,7 @@
 // Correspondencia explícita entre firmas abreviadas de obra y fichas canónicas de autor.
 // Evitar dividir apellidos compuestos ("Ortega y Gasset") en supuestos coautores.
 export const libraryAuthorAliases = {
+  "Ptolomeo": ["Ptolomeo, Claudio"],
   "Reale y Antiseri": ["Reale, Giovanni", "Antiseri, Dario"],
   "Marx y Engels": ["Marx, Karl", "Engels, Friedrich"],
   "Ortega y Gasset": ["Ortega y Gasset, José"],
