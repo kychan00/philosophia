@@ -54,6 +54,15 @@ test('los atlas auditados reducen el trabajo de React Flow en móvil', () => {
   }
 })
 
+test('Kant Analítica invoca el detector compacto antes de usar compactViewport', () => {
+  const text = source('../src/pages/KantAnalyticSystem.jsx')
+  assert.match(
+    text,
+    /const\s+compactViewport\s*=\s*useSystem2DCompactViewport\(\)/,
+    'Kant Analítica usa compactViewport sin declarar el hook',
+  )
+})
+
 test('Lukács cosificación filtra nodos y aristas ocultos antes del canvas', () => {
   const text = source('../src/pages/LukacsReificationSystem.jsx')
   assert.match(text, /nodes=\{compactViewport \? nodes\.filter\(\(node\) => !node\.hidden\) : nodes\}/)
