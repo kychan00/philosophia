@@ -362,6 +362,15 @@ export default function EthicsClassics() {
           <div className="ethicsx-class-card-copy"><span>Clase · Ética pública y estoicismo temprano</span><h3>Compromiso social y logos estoico</h3><p>Universidad pública, práctica filosófica, atomismo, destino, justicia y pensamiento mágico.</p></div>
           <div className="ethicsx-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
         </Link>
+        <Link to="/semestre/5/etica/clase/29-octubre" className="ethicsx-class-card">
+          <div className="ethicsx-class-card-date"><strong>XXIX</strong><span>X · MMXXVI</span></div>
+          <div className="ethicsx-class-card-copy">
+            <span>Clase · Lecturas y problemas de la Stoa</span>
+            <h3>Razón, estima social y límites de la vida</h3>
+            <p>Cartas estoicas, examen del sentimiento, vergüenza, convivencia, protección de la vida y lectura propuesta.</p>
+          </div>
+          <div className="ethicsx-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
+        </Link>
       </section>
 
       <section className="ethicsx-section ethicsx-note">
