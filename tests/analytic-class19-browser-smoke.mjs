@@ -60,7 +60,7 @@ async function check(width,height){
   assert.ok(state.sourceWidth>250,'tarjeta de procedencia ilegible')
   assert.ok(state.classLayer,'falta capa docente')
   assert.ok(state.glockLink,'falta enlace al sistema Glock')
-  assert.equal(state.sections,8)
+  assert.equal(state.sections,9)
   console.log('OK Analítica 19 oct',width,height,state)
 }
 

@@ -56,6 +56,27 @@ const guide = [
  ['48','Boole: lógica tratada algebraicamente'],
  ['48–49','Frege: lógica de funciones y cuantificadores'],
 ]
+
+const recall21 = [
+ ['¿Qué diferencia hay entre demostrar un teorema y fundamentar sus axiomas?', 'Una derivación sigue reglas desde axiomas; la pregunta filosófica investiga por qué adoptar esos axiomas y qué significan los objetos matemáticos.'],
+ ['¿Qué ilustra P ∨ ¬P en Bolzano?', 'Que la forma lógica conserva la verdad clásica bajo sustitución uniforme: es tercero excluido, no no contradicción.'],
+ ['¿En qué difieren Boole y Frege?', 'Boole algebraiza operaciones lógicas; Frege desarrolla una lógica funcional y cuantificacional orientada a la fundamentación de la aritmética.'],
+ ['¿Cómo se lee ∀x (E(x) → N(x))?', 'Para todo x, si x es un electrón, entonces x es negativo; no afirma que todos los objetos sean electrones.'],
+]
+function Archivum21() {
+ return <section className="ac2121-archivum" aria-label="Archivo mnemónico de la clase">
+  <div className="ac2121-eyebrow">ARCHIVUM ACADEMICUM · ACTIVACIÓN DE 90 SEGUNDOS · RECONSTRUCCIÓN EDITORIAL</div>
+  <h2>De los fundamentos a la lógica de funciones</h2>
+  <p><strong>TESIS SEMINAL</strong> La búsqueda de rigor matemático impulsó una lógica capaz de separar la verdad del pensamiento individual, tratar estructuras formalmente y representar funciones y cuantificadores.</p>
+  <div className="ac2121-triad"><div><b>α · FUNDAMENTO</b><span>Axiomas, reglas y prueba</span></div><div><b>β · OBJETIVIDAD</b><span>Bolzano y Boole</span></div><div><b>γ · FORMALIZACIÓN</b><span>Frege y cuantificación</span></div></div>
+  <figure><img src={`${import.meta.env.BASE_URL}images/filosofia-analitica/archivum-21-octubre-frege.svg`} loading="lazy" alt="Diagrama de tres etapas: crisis de los fundamentos y método axiomático, análisis de forma lógica en Bolzano y Boole, y lógica de predicados de Frege con cuantificación universal de electrones."/><figcaption>Figura 1 · Del problema fundacional a la cuantificación. Imagen original de PHILOSOPHIA; reconstrucción editorial de las pp. 46–49 y su discusión de clase, no ilustración extraída de Glock.</figcaption></figure>
+  <p className="ac2121-credit">Procedencia: SVG propio del proyecto (ORIGINAL-OWNED), sin imágenes externas. Las cajas y flechas expresan la transición conceptual; no afirman una cadena de influencia causal directa entre autores.</p>
+ </section>
+}
+function Archivum21Recall() {
+ return <section className="ac2121-recall"><h2>Recuperación activa · 10 años después</h2><p>Responda mentalmente antes de desplegar las síntesis editoriales.</p>{recall21.map(([question,answer],i)=><details key={question}><summary><span>0{i+1} · </span>{question}</summary><p>{answer}</p></details>)}</section>
+}
+
 function scrollToSection(id){ document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'}) }
 function Heading({n,eyebrow,children}){return <AnalyticEditorialHeading n={n} eyebrow={eyebrow} className="ac1910-heading">{children}</AnalyticEditorialHeading>}
 function Layer({type,children}){return <aside className={'ac1910-provenance '+(type==='clase'?'is-class':'is-source')}><span>{type==='clase'?'EXPLICACIÓN DE CLASE':type==='cotejo'?'PRECISIÓN DOCUMENTAL':'GLOCK · TEXTO COTEJADO'}</span><p>{children}</p></aside>}
@@ -88,6 +109,7 @@ export default function AnalyticClass21Oct(){
       </aside>
     </div>
   </header>
+  <Archivum21 />
   <div className="ac9-layout ac1910-layout">
     <AnalyticEditorialIndex sections={sections} onNavigate={scrollToSection} className="ac1910-index">
       <Link className="ac1910-index-link" to="/semestre/5/filosofia-analitica/lectura/glock-capitulo-2">Mapa histórico 2D ↗</Link>
@@ -144,6 +166,7 @@ export default function AnalyticClass21Oct(){
         <div className="ac1910-final"><span>CIERRE DE LA SESIÓN</span><strong>La lectura se detuvo en la p. 49.</strong><p>Se acordó continuar el próximo miércoles. El material ya sistematizado de las pp. 50–51 se conserva para estudio anticipado, pero no se adjudica a esta clase.</p></div>
         <div className="ac1910-actions"><Link to="/semestre/5/filosofia-analitica/lectura/glock-capitulo-2">IR AL ATLAS 2D ↗</Link><Link to="/semestre/5/filosofia-analitica/clase/19-octubre">CLASE ANTERIOR ↗</Link></div>
       </section>
+      <Archivum21Recall />
     </article>
   </div>
   <footer className="ac1910-study-footer"><Link to="/semestre/5/filosofia-analitica">← Índice de Filosofía Analítica</Link><span>Glock · cap. II · pp. 46–49 · reconstrucción académica</span></footer>

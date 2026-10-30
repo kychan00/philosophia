@@ -195,6 +195,12 @@ try {
       'Cartografía adaptada '+width+'×'+height,100)
     const state=await evaluate("(()=>{const open=document.querySelector('.bc-open-inspector'), inspector=document.querySelector('.bc-inspector'), recenter=document.querySelector('.bc-recenter'),ctrl=document.querySelector('.bc-flow .react-flow__controls-button');return {overflow:document.documentElement.scrollWidth-window.innerWidth,compact:document.querySelector('.bc-shell').dataset.compact==='true',inspectorHidden:inspector?.getAttribute('aria-hidden')==='true',openWidth:open?.getBoundingClientRect().width,openHeight:open?.getBoundingClientRect().height,recenterHeight:recenter?.getBoundingClientRect().height,zoomHeight:ctrl?.getBoundingClientRect().height}})()")
     assert.ok(state.overflow<=2,'Desbordamiento táctil '+width+'×'+height+': '+JSON.stringify(state))
+    // matchMedia/change + React state update are asynchronous after CDP viewport emulation.
+    // Wait for the actual responsive mode instead of asserting on the first frame.
+    await until(()=>evaluate("document.querySelector('.bc-shell')?.dataset.compact==='"+String(width<=1120)+"'"),
+      'Estabilizar umbral responsive '+width,100)
+    state.compact = await evaluate("document.querySelector('.bc-shell')?.dataset.compact==='true'")
+    state.inspectorHidden = await evaluate("document.querySelector('.bc-inspector')?.getAttribute('aria-hidden')==='true'")
     assert.equal(state.compact,width<=1120,'Umbral responsive '+width)
     assert.ok(state.openHeight>=43&&state.recenterHeight>=43&&state.zoomHeight>=43,
       'Controles táctiles demasiado pequeños: '+JSON.stringify(state))

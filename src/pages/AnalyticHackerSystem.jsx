@@ -1,4 +1,5 @@
 import SectionPedagogy from '../components/philosophy/system2d/SectionPedagogy'
+import { initialSystem2DRoute, useSystem2DCompactViewport } from '../components/philosophy/system2d/mobilePerformance.js'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
 import {
@@ -107,7 +108,8 @@ function buildGuidedRouteFor(route) {
 }
 
 function StudyCanvas() {
-  const [route, setRoute] = useState('all')
+  const [route, setRoute] = useState(() => initialSystem2DRoute(hackerRoutes))
+  const compactViewport = useSystem2DCompactViewport()
   const [selectedId, setSelectedId] = useState('H00')
   const [history, setHistory] = useState(['H00'])
   const [guidedMode, setGuidedMode] = useState(false)
@@ -141,7 +143,7 @@ function StudyCanvas() {
     return () => {
       document.removeEventListener('fullscreenchange', handleFullscreenChange)
     }
-  }, [fitView])
+  }, [compactViewport, fitView])
 
   const toggleFullscreen = useCallback(async () => {
     if (!workspaceRef.current) return
@@ -492,8 +494,8 @@ function StudyCanvas() {
     setGuidedMode(false)
     setSelectedId(null)
     setRoute('all')
-    setTimeout(() => fitView({ padding: 0.1, duration: 500 }), 0)
-  }, [fitView])
+    if (!compactViewport) setTimeout(() => fitView({ padding: 0.1, duration: 500 }), 0)
+  }, [compactViewport, fitView])
 
   const resetGuided = useCallback(() => {
     try {
@@ -504,8 +506,8 @@ function StudyCanvas() {
     setGuidedMode(false)
     setSelectedId(null)
     setRoute('all')
-    setTimeout(() => fitView({ padding: 0.1, duration: 500 }), 0)
-  }, [fitView])
+    if (!compactViewport) setTimeout(() => fitView({ padding: 0.1, duration: 500 }), 0)
+  }, [compactViewport, fitView])
 
   return (
     <div className="hacker-study-shell">
@@ -735,9 +737,10 @@ function StudyCanvas() {
 
           <div className="hacker-flow-canvas">
             <ReactFlow
-              nodes={nodes}
-              edges={edges}
+              nodes={compactViewport ? nodes.filter((node) => !node.hidden) : nodes}
+              edges={compactViewport ? edges.filter((edge) => !edge.hidden) : edges}
               nodeTypes={nodeTypes}
+              onlyRenderVisibleElements={compactViewport && route === 'all'}
               onNodeClick={(_, node) => selectNode(node)}
               onPaneClick={() => {
                 if (!guidedMode) setSelectedId(null)
@@ -751,7 +754,7 @@ function StudyCanvas() {
             >
               <Background gap={28} size={1} />
               <Controls showInteractive={false} />
-              <MiniMap pannable zoomable nodeStrokeWidth={3} />
+              {!compactViewport && <MiniMap pannable zoomable nodeStrokeWidth={3} />} 
             </ReactFlow>
           </div>
         </div>

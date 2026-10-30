@@ -1,4 +1,5 @@
 import SectionPedagogy from '../components/philosophy/system2d/SectionPedagogy'
+import { initialSystem2DRoute, useSystem2DCompactViewport } from '../components/philosophy/system2d/mobilePerformance.js'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
 import { createPortal } from 'react-dom'
@@ -80,7 +81,8 @@ function relatedSet(id, includeConceptual = false) {
 }
 
 function StudyCanvas() {
-  const [route, setRoute] = useState('all')
+  const [route, setRoute] = useState(() => initialSystem2DRoute(lukacsOntologyRoutes))
+  const compactViewport = useSystem2DCompactViewport()
   const [relationRouteId, setRelationRouteId] = useState(null)
   const [selectedId, setSelectedId] = useState(null)
   const [folioId, setFolioId] = useState(null)
@@ -375,10 +377,10 @@ function StudyCanvas() {
 
     setRelationRouteId(null)
     setRoute(id)
-    if (id === 'all') {
+    if (id === 'all' && !compactViewport) {
       window.setTimeout(() => fitView({ padding:0.08, duration:500 }), 0)
     }
-  }, [fitView])
+  }, [compactViewport, fitView])
 
   const selectNode = useCallback(
     (node) => {
@@ -611,10 +613,10 @@ function StudyCanvas() {
             onClick={() => {
               setGuidedMode(false)
               setDetailMode((value) => !value)
-              if (route !== 'all') setRoute('all')
+              if (route !== 'all' && !compactViewport) setRoute('all')
               setRelationRouteId(null)
               setSelectedId(null)
-              window.setTimeout(() => fitView({ padding:0.08, duration:450 }), 0)
+              if (!compactViewport || route !== 'all') window.setTimeout(() => fitView({ padding:0.08, duration:450 }), 0)
             }}
           >
             Detalles · {detailMode ? 'ON' : 'OFF'}
@@ -639,7 +641,7 @@ function StudyCanvas() {
               setRelationRouteId(null)
               setSelectedId(null)
               setRelationId(null)
-              setTimeout(() => fitView({ padding:0.08, duration:500 }), 0)
+              if (!compactViewport) setTimeout(() => fitView({ padding:0.08, duration:500 }), 0)
             }}
           >
             Ver sistema completo
@@ -713,9 +715,10 @@ function StudyCanvas() {
 
           <div className="marx-flow-canvas">
             <ReactFlow
-              nodes={nodes}
-              edges={edges}
+              nodes={compactViewport ? nodes.filter((node) => !node.hidden) : nodes}
+              edges={compactViewport ? edges.filter((edge) => !edge.hidden) : edges}
               nodeTypes={nodeTypes}
+              onlyRenderVisibleElements={compactViewport && route === 'all'}
               onNodeClick={(_, node) => selectNode(node)}
               onEdgeClick={(event, edge) => {
                 if (!edge.relationSheetId) return
@@ -734,7 +737,7 @@ function StudyCanvas() {
             >
               <Background gap={32} size={1} />
               <Controls showInteractive={false} />
-              <MiniMap pannable zoomable nodeStrokeWidth={3} />
+              {!compactViewport && <MiniMap pannable zoomable nodeStrokeWidth={3} />} 
             </ReactFlow>
           </div>
         </div>

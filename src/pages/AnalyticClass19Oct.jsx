@@ -109,6 +109,26 @@ const historicalMoves = [
   ['KANT', 'Conocimiento', 'examinar condiciones', 'facultades / a priori'],
 ]
 
+
+const archivumQuestions19 = [
+ ['¿En qué difieren análisis descomposicional y regresivo?','El primero resuelve un concepto en componentes para definirlo; el segundo retrocede desde una proposición que se quiere demostrar hacia sus principios.'],
+ ['¿Qué busca el proyecto de Leibniz?','Analizar verdades hacia identidades y proyectar un cálculo universal; no equivale todavía a la lógica contemporánea de Frege.'],
+ ['¿Cómo se distingue un juicio sintético a priori?','Amplía el conocimiento y reclama validez necesaria que no se fundamenta en la experiencia particular.'],
+ ['¿Qué dos respuestas siguen a la crisis del idealismo?','Naturalismo y neokantismo: conocimiento empírico frente a estudio de las condiciones conceptuales y metodológicas.']
+]
+function Archivum19() {
+ return <section className="ac1910-archivum" aria-label="Archivum Academicum: repaso y memoria activa">
+ <p className="ac1910-label">ARCHIVUM ACADEMICUM · 90 SEGUNDOS · RECONSTRUCCIÓN EDITORIAL</p>
+ <h2>Del concepto a las condiciones del conocer</h2>
+ <p><strong>Tesis seminal:</strong> El análisis cambia de objeto y método: descompone conceptos, retrocede desde proposiciones hacia sus principios y, con Kant, examina las condiciones del conocimiento.</p>
+ <div className="ac1910-triad"><div><b>α · DESCOMPONER</b><span>Concepto → definición</span></div><div><b>β · RETROCEDER</b><span>Teorema → principios</span></div><div><b>γ · CONDICIONAR</b><span>Experiencia → a priori</span></div></div>
+ <figure><img src={`${import.meta.env.BASE_URL}images/filosofia-analitica/archivum-19-octubre-analisis.svg`} loading="lazy" alt="Dos diagramas paralelos: análisis descomposicional del concepto hasta sus partes y definición, y análisis regresivo de la proposición por probar hasta sus principios y demostración."/><figcaption>Figura 1. Dos procedimientos históricos del análisis, reconstrucción editorial original, no facsímil de Glock o del profesor. PHILOSOPHIA: SVG original de uso propio (ORIGINAL-OWNED), sin recursos de terceros.</figcaption></figure>
+ </section>
+}
+function Archivum19Recall() {
+ return <section className="ac1910-recall"><h2>Recuperación activa · Prueba decenal</h2><p>Estas respuestas son síntesis editoriales de estudio, no citas del texto.</p>{archivumQuestions19.map(([q,a],i)=><details key={q}><summary><span>0{i+1} · </span>{q}</summary><p>{a}</p></details>)}</section>
+}
+
 function scrollToSection(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
@@ -175,6 +195,7 @@ export default function AnalyticClass19Oct() {
         </div>
       </header>
 
+      <Archivum19 />
       <div className="ac9-layout ac1910-layout">
         <AnalyticEditorialIndex
           sections={sections}
@@ -523,7 +544,8 @@ export default function AnalyticClass19Oct() {
               </Link>
             </div>
           </section>
-        </article>
+        <Archivum19Recall />
+</article>
       </div>
 
       <footer className="ac1910-footer">

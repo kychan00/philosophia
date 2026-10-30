@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" role="img" aria-labelledby="title desc">
+<title id="title">Razón, sentimiento y responsabilidad</title>
+<desc id="desc">Mapa original de estudio: tres planos, orden racional del cosmos, examen del juicio y convivencia. Flechas discontinuas señalan preguntas editoriales y no implicaciones lógicas.</desc>
+<defs><pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#b8cadd" stroke-width=".7"/></pattern><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#566f88" stroke-width="1.5"/></marker></defs>
+<rect width="1000" height="430" fill="#f6f9ff"/><rect width="1000" height="430" fill="url(#grid)" opacity=".48"/>
+<path d="M0 9H1000M0 420H1000" stroke="#1a365d" stroke-width="18"/>
+<g fill="none" stroke="#1a365d" stroke-width="2"><path d="M15 9v16h19V9m14 0v16h19V9m14 0v16h19V9m14 0v16h19V9m14 0v16h19V9m14 0v16h19V9m14 0v16h19V9m14 0v16h19V9"/></g>
+<text x="40" y="69" fill="#1a365d" font-family="Georgia,serif" font-size="22">ETHOS / ESQUEMA DE ESTUDIO</text>
+<text x="962" y="68" text-anchor="end" fill="#47627d" font-family="Arial,sans-serif" font-size="14">29 · X · 2026</text>
+<g>
+<rect x="40" y="124" width="255" height="204" fill="#1a365d"/><rect x="40" y="124" width="255" height="9" fill="#b89758"/>
+<text x="63" y="172" fill="#e3d2a9" font-family="Georgia,serif" font-size="32">λόγος</text>
+<text x="63" y="215" fill="white" font-size="23" font-family="Georgia,serif">Orden racional</text>
+<text x="63" y="244" fill="#e6eff9" font-size="16" font-family="Arial,sans-serif">Cosmos e inteligibilidad</text>
+<text x="63" y="293" fill="#e3d2a9" font-size="13" font-family="Arial,sans-serif">PLANO COSMOLÓGICO</text>
+<rect x="373" y="124" width="255" height="204" fill="#e3eaf3" stroke="#1a365d" stroke-width="2"/><rect x="373" y="124" width="255" height="9" fill="#b89758"/>
+<text x="396" y="172" fill="#1a365d" font-family="Georgia,serif" font-size="32">κρίσις</text>
+<text x="396" y="215" fill="#1a365d" font-size="23" font-family="Georgia,serif">Examen del juicio</text>
+<text x="396" y="244" fill="#405a76" font-size="16" font-family="Arial,sans-serif">Vergüenza y valoración</text>
+<text x="396" y="293" fill="#566d87" font-size="13" font-family="Arial,sans-serif">PLANO EXPERIENCIAL</text>
+<rect x="706" y="124" width="255" height="204" fill="#e7efe8" stroke="#486b59" stroke-width="2"/><rect x="706" y="124" width="255" height="9" fill="#7c8f7e"/>
+<text x="729" y="172" fill="#1a365d" font-family="Georgia,serif" font-size="32">ἦθος</text>
+<text x="729" y="215" fill="#1a365d" font-size="23" font-family="Georgia,serif">Convivencia</text>
+<text x="729" y="244" fill="#405a76" font-size="16" font-family="Arial,sans-serif">Cuidado y responsabilidad</text>
+<text x="729" y="293" fill="#566d87" font-size="13" font-family="Arial,sans-serif">PLANO PRÁCTICO</text>
+</g>
+<path d="M304 221H358M637 221H691" stroke="#526b84" stroke-width="3" stroke-dasharray="7 7" marker-end="url(#arrow)"/>
+<text x="330" y="189" fill="#1a365d" font-size="13" font-family="Arial,sans-serif" text-anchor="middle">¿cómo?</text>
+<text x="663" y="189" fill="#1a365d" font-size="13" font-family="Arial,sans-serif" text-anchor="middle">¿qué debo?</text>
+<text x="500" y="374" fill="#314a63" font-size="17" text-anchor="middle" font-family="Georgia,serif">Relaciones reconstruidas para estudiar — no inferencias automáticas</text>
+<text x="500" y="399" fill="#56708c" font-size="12" text-anchor="middle" font-family="Arial,sans-serif">ILUSTRACIÓN VECTORIAL ORIGINAL · PHILOSOPHIA · ORIGINAL-OWNED</text>
+</svg>

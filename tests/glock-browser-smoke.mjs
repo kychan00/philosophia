@@ -50,7 +50,8 @@ const metrics=`(()=>{
     selectedOpacity:selected?Number(getComputedStyle(selected).opacity):0,
     width:innerWidth,scroll:document.documentElement.scrollWidth,
     schemaHeight:schema?.getBoundingClientRect().height||0,
-    workspaceCols:getComputedStyle(document.querySelector('.glock-study-workspace')).gridTemplateColumns
+    workspaceCols:getComputedStyle(document.querySelector('.glock-study-workspace')).gridTemplateColumns,
+    activeRoute:document.querySelector('.glock-study-routes button.is-active')?.textContent.trim()||''
   }
 })()`
 
@@ -60,12 +61,16 @@ async function navigate(width,height){
   await until(()=>evalJS("location.href==='about:blank'"),'reset')
   await send('Page.navigate',{url})
   await until(()=>evalJS("document.querySelector('.glock-study-hero h1')?.textContent.includes('Breve panorama')"),'Glock cargado')
-  await until(async()=>((await evalJS(metrics))?.count||0)>3,'React Flow')
+  await until(async()=>((await evalJS(metrics))?.count||0)>0,'React Flow')
 
   let state=await evalJS(metrics)
   assert.deepEqual(state.hits,[],'Nodos superpuestos '+width+'×'+height+' '+state.hits.join(','))
   assert.equal(state.selected,'G00')
   assert.ok(state.selectedOpacity>.9)
+  if(width<=850){
+    assert.ok(state.count<39,'La apertura compacta no debe montar los 39 nodos: '+JSON.stringify(state))
+    assert.ok(state.activeRoute.includes('Programa histórico'),'Ruta compacta inicial inesperada: '+JSON.stringify(state))
+  }
   assert.ok(state.scroll<=state.width+3,'overflow global '+JSON.stringify(state))
   assert.ok(state.schemaHeight>500,'esquema general comprimido')
 
