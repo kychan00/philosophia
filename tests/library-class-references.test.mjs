@@ -9,13 +9,20 @@ import { libraryTimelines as originalTimelines } from '../src/data/libraryTimeli
 const works = new Set(books.map(book=>book.id))
 const people = new Set(authors)
 const app = readFileSync(new URL('../src/App.jsx', import.meta.url),'utf8')
+const libraryPage = readFileSync(new URL('../src/pages/PhilosophiaLibrary.jsx', import.meta.url),'utf8')
 
-test('el índice recupera referencias de las nueve materias revisadas sin duplicar notas',()=>{
+test('el corpus recupera referencias de las nueve materias revisadas sin duplicar notas',()=>{
   assert.equal(documentedClassReferenceStats.examinedNotes,115)
   assert.equal(documentedClassReferenceStats.classesWithReferences,documentedClassReferences.length)
   assert.ok(documentedClassReferences.length >= 100)
   assert.equal(new Set(documentedClassReferences.map(x=>x.date+'|'+x.area+'|'+x.title)).size,documentedClassReferences.length)
   assert.equal(new Set(documentedClassReferences.map(x=>x.area)).size,9)
+})
+
+test('la biblioteca no muestra las referencias de clase como sección independiente',()=>{
+  assert.ok(!libraryPage.includes('Referencias de las clases'))
+  assert.ok(!libraryPage.includes('library-class-reference-index'))
+  assert.ok(!libraryPage.includes('documentedClassReferences'))
 })
 
 test('cada identificación apunta a ficha canónica y ninguna se confunde con lectura terminada',()=>{
