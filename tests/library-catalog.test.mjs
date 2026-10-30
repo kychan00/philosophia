@@ -109,3 +109,19 @@ test('Brentano: recomendación de Métodos del 26 de octubre y muestra editorial
  assert.equal(b.url,'https://www.sigueme.es/docs/libros/psicologia-brentano-web.pdf')
  assert.ok(!('posesion' in b))
 })
+
+
+test('referencias históricas documentadas sin inventar lectura', () => {
+ for (const [id, author] of [
+  ['Platón - Timeo', 'Platón'],
+  ['Ptolomeo - Almagesto', 'Ptolomeo'],
+  ['Kafka - Informe para una academia', 'Kafka'],
+ ]) {
+  const entry = books.find(x => x.id === id)
+  assert.ok(entry, id)
+  assert.equal(entry.autor, author)
+  assert.equal(entry.estado, 'documentada')
+  assert.match(entry.lectura, /no consta/i)
+  assert.ok(!('posesion' in entry))
+ }
+})
