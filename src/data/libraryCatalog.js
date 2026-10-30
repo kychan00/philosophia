@@ -243,6 +243,21 @@ export const books = [
     ]
   },
   {
+    "id": "Séneca - Séneca",
+    "autor": "Séneca",
+    "titulo": "Séneca",
+    "categoria": "ética",
+    "estado": "documentada",
+    "lectura": "Material visto en Ética con respecto a Zenón y el estoicismo; la fecha exacta de la sesión y el tramo leído no fueron precisados.",
+    "edicion": "Editorial Gredos, 2013 · Biblioteca de Grandes Pensadores · estudio introductorio de Juan Manuel Díaz Torres · ISBN 978-84-249-3673-0",
+    "temas": ["Zenón de Citio", "Estoicismo", "Stoa antigua"],
+    "ideas": [
+      {"lema":"I · Herencia de Zenón","detalle":"El estudio introductorio presenta a Séneca como heredero de la Stoa antigua, en particular de Zenón y Crisipo."},
+      {"lema":"II · Ética, virtud y libertad","detalle":"La introducción destaca en Séneca la ética, la búsqueda de la virtud y la práctica de la libertad."},
+      {"lema":"III · Vivir conforme a la naturaleza","detalle":"El glosario de la edición caracteriza el ideal estoico mediante razón, naturaleza, autodominio y virtud."}
+    ]
+  },
+  {
     "id": "Foucault - Vigilar y castigar",
     "autor": "Foucault",
     "titulo": "Vigilar y castigar: Nacimiento de la prisión",
@@ -854,6 +869,7 @@ export const authors = [
   "Schelling, Friedrich Wilhelm Joseph",
   "Schlick, Moritz",
   "Schulze, Gottlob Ernst",
+  "Séneca, Lucio Anneo",
   "Sócrates",
   "Spinoza, Baruch",
   "Strawson, P. F.",
@@ -862,6 +878,7 @@ export const authors = [
   "Wainerman, Catalina",
   "Waismann, Friedrich",
   "Wittgenstein, Ludwig",
-  "Zagzebski, Linda"
+  "Zagzebski, Linda",
+  "Zenón de Citio"
 ]
 export const categories = ["crítica","ontología","analítica","epistemología","ética","política","investigación"]

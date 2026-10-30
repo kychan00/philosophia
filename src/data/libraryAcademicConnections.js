@@ -168,6 +168,19 @@ export const libraryAcademicConnections = {
         "url": null
       }]
     },
+    "Séneca - Séneca": {
+      "events": [{
+        "kind": "procedencia",
+        "date": "2026-10-29",
+        "dateLabel": "Fecha de registro en biblioteca; la fecha exacta de la sesión no consta",
+        "area": "Ética",
+        "title": "Séneca · volumen Gredos vinculado al bloque de Zenón",
+        "status": "ficha bibliográfica cotejada con el PDF compartido",
+        "type": "material visto en Ética con relación a Zenón y el estoicismo, confirmado por el estudiante",
+        "note": "No acredita lectura integral: no se precisaron páginas ni tramo efectivamente leído. El PDF es fuente privada y no se publica.",
+        "url": null
+      }]
+    },
     "Foucault - Vigilar y castigar": {
       "events": [
         {
@@ -1424,6 +1437,28 @@ export const libraryAcademicConnections = {
       ]
     },
     "Cicerón, Marco Tulio": {"events": []},
+    "Séneca, Lucio Anneo": {"events": [{
+      "kind": "procedencia",
+      "date": "2026-10-29",
+      "dateLabel": "Fecha de registro bibliográfico; no fecha de sesión",
+      "area": "Ética",
+      "title": "Lucio Anneo Séneca · lectura estoica vinculada a Zenón",
+      "type": "autor registrado por el volumen Gredos compartido por el estudiante",
+      "note": "La edición presenta a Séneca como heredero de la Stoa antigua de Zenón y Crisipo.",
+      "url": null,
+      "work": ["Séneca - Séneca"]
+    }]},
+    "Zenón de Citio": {"events": [{
+      "kind": "procedencia",
+      "date": "2026-10-29",
+      "dateLabel": "Fecha de registro de la relación; no fecha de sesión",
+      "area": "Ética",
+      "title": "Zenón de Citio · relación de estudio con el volumen de Séneca",
+      "type": "pensador estudiado en relación temática; no autor del volumen",
+      "note": "La relación se apoya en el estudio introductorio de la edición Gredos, que sitúa a Séneca como heredero de la Stoa antigua de Zenón y Crisipo.",
+      "url": null,
+      "work": ["Séneca - Séneca"]
+    }]},
     "Foucault, Michel": {
       "events": [
         {
