@@ -1,4 +1,5 @@
 import SectionPedagogy from '../components/philosophy/system2d/SectionPedagogy'
+import { initialSystem2DRoute, useSystem2DCompactViewport } from '../components/philosophy/system2d/mobilePerformance.js'
 import { useCallback, useEffect, useMemo, useState, useRef} from 'react'
 import { Link } from 'react-router'
 import { createPortal } from 'react-dom'
@@ -141,7 +142,8 @@ function buildRouteReadingOrder(routeId) {
 }
 
 function StudyCanvas() {
-  const [route, setRoute] = useState('all')
+  const [route, setRoute] = useState(() => initialSystem2DRoute(marxCommodityRoutes))
+  const compactViewport = useSystem2DCompactViewport()
   const [selectedId, setSelectedId] = useState(null)
   const [folioId, setFolioId] = useState(null)
   const [relationId, setRelationId] = useState(null)
@@ -668,8 +670,8 @@ function StudyCanvas() {
     setRelationId(null)
     setRoute('all')
     setSelectedId(null)
-    setTimeout(() => fitView({ padding: 0.08, duration: 500 }), 0)
-  }, [fitView, resetStudyReveal])
+    if (!compactViewport) setTimeout(() => fitView({ padding: 0.08, duration: 500 }), 0)
+  }, [compactViewport, fitView, resetStudyReveal])
 
   // PHILOSOPHIA_ROUTE_FIT_SELECTION_SAFE
   // Reencuadrar sólo cuando cambia la ruta. Una selección modifica `nodes`
@@ -834,7 +836,7 @@ function StudyCanvas() {
                   setConceptualMode(true)
                 }
 
-                if (item.id === 'all') {
+                if (item.id === 'all' && !compactViewport) {
                   setTimeout(() => fitView({ padding: 0.08, duration: 500 }), 0)
                 }
               }}
@@ -932,9 +934,10 @@ function StudyCanvas() {
 
           <div className="marx-flow-canvas">
             <ReactFlow
-              nodes={nodes}
-              edges={edges}
+              nodes={compactViewport ? nodes.filter((node) => !node.hidden) : nodes}
+              edges={compactViewport ? edges.filter((edge) => !edge.hidden) : edges}
               nodeTypes={nodeTypes}
+              onlyRenderVisibleElements={compactViewport && route === 'all'}
               onNodeClick={(_, node) => selectNode(node)}
               onEdgeClick={(event, edge) => {
                 if (!edge.relationSheetId) return
@@ -953,7 +956,7 @@ function StudyCanvas() {
             >
               <Background gap={32} size={1} />
               <Controls showInteractive={false} />
-              <MiniMap pannable zoomable nodeStrokeWidth={3} />
+              {!compactViewport && <MiniMap pannable zoomable nodeStrokeWidth={3} />} 
             </ReactFlow>
           </div>
         </div>
