@@ -8,6 +8,7 @@ import '@xyflow/react/dist/style.css'
 
 import GlockNode from '../components/analytic/GlockNode.jsx'
 import SectionPedagogy from '../components/philosophy/system2d/SectionPedagogy.jsx'
+import { initialSystem2DRoute, useSystem2DCompactViewport } from '../components/philosophy/system2d/mobilePerformance.js'
 import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema.jsx'
 import { SYSTEM_2D_THEME, resolveSystem2DEdgeColor } from '../components/philosophy/system2d/system2dTheme.js'
 import {
@@ -68,7 +69,8 @@ function buildGuidedRouteFor(route) {
 }
 
 function StudyCanvas() {
-  const [route, setRoute] = useState('all')
+  const [route, setRoute] = useState(() => initialSystem2DRoute(glockRoutes))
+  const compactViewport = useSystem2DCompactViewport()
   const [selectedId, setSelectedId] = useState('G00')
   const [history, setHistory] = useState(['G00'])
   const [guidedMode, setGuidedMode] = useState(false)
@@ -615,9 +617,10 @@ function StudyCanvas() {
 
           <div className="glock-flow-canvas" aria-label="Mapa interactivo del capítulo de Glock">
             <ReactFlow
-              nodes={nodes}
-              edges={edges}
+              nodes={compactViewport ? nodes.filter((node) => !node.hidden) : nodes}
+              edges={compactViewport ? edges.filter((edge) => !edge.hidden) : edges}
               nodeTypes={nodeTypes}
+              onlyRenderVisibleElements={compactViewport && route === 'all'}
               onNodeClick={(_, node) => selectNode(node)}
               onPaneClick={() => {
                 if (!guidedMode) setSelectedId(null)
@@ -631,7 +634,7 @@ function StudyCanvas() {
             >
               <Background color={SYSTEM_2D_THEME.muted} gap={28} size={1} />
               <Controls showInteractive={false} />
-              {showMinimap && (
+              {showMinimap && !compactViewport && (
                 <MiniMap pannable zoomable nodeStrokeWidth={3} nodeColor={(node) => node.data.color} />
               )}
             </ReactFlow>
