@@ -4,6 +4,9 @@ export const libraryAcademicConnections = {
   "source": "Relaciones documentadas por títulos de tareas y fichas de obra. Una fecha de nota no prueba la realización de la lectura.",
   "tasksReviewed": 61,
   "works": {
+    "Platón - Timeo": {"events":[{"kind":"procedencia","date":"2026-02-13","dateLabel":"Mención en nota de Cosmología","area":"Cosmología","title":"Platón · Timeo y astronomía matemática","type":"referencia en clase; no lectura acreditada","note":"Edición del curso no identificada.","url":null}]},
+    "Ptolomeo - Almagesto": {"events":[{"kind":"procedencia","date":"2026-04-17","dateLabel":"Mención en nota de Cosmología","area":"Cosmología","title":"Ptolomeo · Almagesto","type":"referencia en clase; no lectura acreditada","note":"Edición del curso no identificada.","url":null}]},
+    "Kafka - Informe para una academia": {"events":[{"kind":"procedencia","date":null,"dateLabel":"Mención contextual en Ética, octubre de 2026; día por cotejar","area":"Ética","title":"Kafka · Informe para una academia","type":"referencia contextual; no tarea acreditada","note":"Publicación original de 1917, edición del curso sin confirmar.","url":null}]},
     "Brentano - Psicología desde el punto de vista empírico": {
       "events": [{
         "kind": "procedencia",
@@ -1096,6 +1099,8 @@ export const libraryAcademicConnections = {
     }
   },
   "authors": {
+    "Kafka, Franz": {"events":[{"kind":"procedencia","date":null,"dateLabel":"Referencia contextual en Ética","area":"Ética","title":"Kafka · Informe para una academia","type":"mención de obra","url":null}]},
+    "Ptolomeo, Claudio": {"events":[{"kind":"procedencia","date":"2026-04-17","dateLabel":"Mención en Cosmología","area":"Cosmología","title":"Ptolomeo · Almagesto","type":"mención de obra","url":null}]},
     "Brentano, Franz": {"events": [{
       "kind": "procedencia",
       "date": "2026-10-26",

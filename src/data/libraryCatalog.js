@@ -2,6 +2,35 @@
 // No contiene apuntes ni inventario personal de ejemplares.
 export const books = [
   {
+    "id": "Platón - Timeo",
+    "autor": "Platón",
+    "titulo": "Timeo",
+    "categoria": "ontología",
+    "estado": "documentada",
+    "lectura": "Mención explícita en Cosmología, clase del 13-02-2026. No consta lectura asignada ni avance personal.",
+    "edicion": "Diálogo griego; edición utilizada en clase no confirmada.",
+    "url": "https://plato.stanford.edu/entries/plato-timaeus/"
+  },
+  {
+    "id": "Ptolomeo - Almagesto",
+    "autor": "Ptolomeo",
+    "titulo": "Almagesto (Sintaxis matemática)",
+    "categoria": "investigación",
+    "estado": "documentada",
+    "lectura": "Referencia explícita en Cosmología, clase del 17-04-2026. No consta lectura directa ni edición utilizada.",
+    "edicion": "Obra astronómica de Claudio Ptolomeo; edición y traducción no confirmadas."
+  },
+  {
+    "id": "Kafka - Informe para una academia",
+    "autor": "Kafka",
+    "titulo": "Informe para una academia (Ein Bericht für eine Akademie)",
+    "categoria": "ética",
+    "estado": "documentada",
+    "lectura": "Referencia contextual en Ética, octubre de 2026; no consta que fuera lectura obligatoria ni completada.",
+    "edicion": "Relato publicado en Der Jude en noviembre de 1917; edición española no confirmada.",
+    "url": "https://www.franzkafka.de/werk/saemtliche-titel/ein-bericht-fuer-eine-akademie"
+  },
+  {
     "id": "Brentano - Psicología desde el punto de vista empírico",
     "autor": "Brentano",
     "titulo": "Psicología desde el punto de vista empírico",
@@ -835,6 +864,7 @@ export const authors = [
   "Illouz, Eva",
   "Jacobi, Friedrich Heinrich",
   "Kant, Immanuel",
+  "Kafka, Franz",
   "Kornblith, Hilary",
   "Kuhn, Thomas",
   "Leibniz, G. W.",
@@ -853,6 +883,7 @@ export const authors = [
   "Peirce, Charles Sanders",
   "Platón",
   "Popper, Karl",
+  "Ptolomeo, Claudio",
   "Quine, W. V. O.",
   "Rawls, John",
   "Reale, Giovanni",

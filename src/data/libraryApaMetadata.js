@@ -1,5 +1,8 @@
 // APA 7: metadatos auditados a partir de notas del vault; valores ausentes no se inventan.
 export const libraryApaMetadata = {
+  "Platón - Timeo": {"kind":"book","title":"Timeo","studyPart":"Mencionado en Cosmología 13-02-2026; edición utilizada sin confirmar"},
+  "Ptolomeo - Almagesto": {"kind":"book","title":"Almagesto","studyPart":"Mencionado en Cosmología 17-04-2026; edición utilizada sin confirmar"},
+  "Kafka - Informe para una academia": {"kind":"book","title":"Ein Bericht für eine Akademie","originalYear":1917,"studyPart":"Mención contextual en Ética, lectura no confirmada"},
   "Brentano - Psicología desde el punto de vista empírico": {
     "kind": "book",
     "title": "Psicología desde el punto de vista empírico",
