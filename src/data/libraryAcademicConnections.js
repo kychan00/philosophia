@@ -1099,6 +1099,8 @@ export const libraryAcademicConnections = {
     }
   },
   "authors": {
+    "Kafka, Franz": {"events":[{"kind":"procedencia","date":null,"dateLabel":"Referencia contextual en Ética","area":"Ética","title":"Kafka · Informe para una academia","type":"mención de obra","url":null}]},
+    "Ptolomeo, Claudio": {"events":[{"kind":"procedencia","date":"2026-04-17","dateLabel":"Mención en Cosmología","area":"Cosmología","title":"Ptolomeo · Almagesto","type":"mención de obra","url":null}]},
     "Brentano, Franz": {"events": [{
       "kind": "procedencia",
       "date": "2026-10-26",
