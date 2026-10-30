@@ -84,6 +84,9 @@ jobs:
           VITE_ONESIGNAL_APP_ID: ${{ vars.ONESIGNAL_APP_ID }}
         run: npm run build
 
+      - name: Validate Ethics class 29 October (desktop, iPad, phone)
+        run: node tests/ethics-class-29oct-browser-smoke.mjs
+
       - name: Validate dialectics presentation isolation (33 slides · desktop and phone)
         run: node tests/dialectica-presentacion-browser-smoke.mjs
 
