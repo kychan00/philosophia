@@ -101,6 +101,14 @@ export const libraryApaMetadata = {
     "studyPart": "Recomendación de Ética registrada el 20-10-2026; fecha de 2000 corresponde a la edición editorial catalogada, cotejar escaneo",
     "url": "https://archive.org/details/ciceron-paradoxa-stoicorum-las-paradojas-de-los-estoicos-ed.-julio-pimentel-alvarez_202601/page/VIII/mode/2up"
   },
+  "Séneca - Séneca": {
+    "kind": "book",
+    "title": "Séneca",
+    "year": 2013,
+    "publisher": "Editorial Gredos",
+    "translators": ["Mariné Isidro, Juan", "Roca Meliá, Ismael"],
+    "studyPart": "Volumen de Biblioteca de Grandes Pensadores con estudio introductorio de Juan Manuel Díaz Torres; material visto en Ética con respecto a Zenón/estoicismo; fecha exacta de sesión y tramo leído no precisados"
+  },
   "Foucault - Vigilar y castigar": {
     "kind": "book",
     "title": "Vigilar y castigar: Nacimiento de la prisión",
