@@ -1,4 +1,5 @@
 import SectionPedagogy from '../components/philosophy/system2d/SectionPedagogy'
+import { useSystem2DCompactViewport } from '../components/philosophy/system2d/mobilePerformance.js'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
 import {
@@ -1079,7 +1080,7 @@ function Workspace() {
               panOnDrag
             >
               <Background gap={28} size={1} color="rgba(50, 66, 82, .12)" />
-              <MiniMap
+              {!compactViewport && <MiniMap
                 pannable
                 zoomable
                 nodeColor={(node) => {
@@ -1088,7 +1089,7 @@ function Workspace() {
                   return '#7c6e8f'
                 }}
                 maskColor="rgba(239, 234, 224, .78)"
-              />
+              />} 
               <Controls showInteractive={false} />
             </ReactFlow>
           </div>
