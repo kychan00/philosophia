@@ -406,6 +406,7 @@ function Workspace() {
   const [nodes, setNodes, onNodesChange] = useNodesState(buildNodes('architecture'))
   const [edges, setEdges, onEdgesChange] = useEdgesState(buildEdges('architecture'))
   const { fitView } = useReactFlow()
+  const compactViewport = useSystem2DCompactViewport()
 
   const currentMap = MAPS[mode]
 

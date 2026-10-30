@@ -14,6 +14,7 @@ const routes=[
   '/tareas/ontologia-ii/hartmann-cosa-en-si/sistema',
   '/tareas/ontologia-ii/hegel-croce-dialectica',
   '/tareas/ontologia-ii/kant-dialectica-trascendental',
+  '/tareas/ontologia-ii/kant-analitica-trascendental',
   '/semestre/5/filosofia-analitica/lectura/nava-tecnociencia',
   '/cafe-filosofico/2026/10/05/mercadotecnia/sistema-2d',
 ]
