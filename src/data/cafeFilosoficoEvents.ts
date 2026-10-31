@@ -76,6 +76,17 @@ export const cafeEvents: CafeEvent[] = [
     themes: ['agua', 'derecho', 'recurso', 'bien común', 'responsabilidad'],
   },
 
+  {
+    id: 'cafe-2026-11-03-redes-sociales',
+    date: '2026-11-03',
+    slug: 'redes-sociales',
+    eyebrow: 'Café filosófico · interdisciplinario',
+    title: 'Redes sociales',
+    deck: 'Próximo diálogo sobre identidad digital, privacidad, exposición pública y reconocimiento medido en likes y seguidores.',
+    route: '/cafe-filosofico/2026/11/03/redes-sociales',
+    status: 'proximo',
+    themes: ['redes sociales', 'identidad', 'privacidad', 'reconocimiento', 'validación'],
+  },
 
 ]
 

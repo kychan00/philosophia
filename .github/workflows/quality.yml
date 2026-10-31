@@ -79,10 +79,19 @@ jobs:
       - name: Lint mobile 2D survival regression
         run: npx eslint src/components/philosophy/system2d/mobilePerformance.js tests/system2d-mobile-performance.test.mjs tests/system2d-mobile-survival-browser-smoke.mjs
 
+      - name: Validate Café Filosófico 05 editorial data
+        run: node --test tests/cafe-redes-sociales.test.mjs
+
+      - name: Lint Café Filosófico 05
+        run: npx eslint src/pages/CafeRedesSocialesEvent.tsx tests/cafe-redes-sociales.test.mjs tests/cafe-redes-sociales-browser-smoke.mjs
+
       - name: Build
         env:
           VITE_ONESIGNAL_APP_ID: ${{ vars.ONESIGNAL_APP_ID }}
         run: npm run build
+
+      - name: Validate Café Filosófico 05 (desktop, iPad, phone)
+        run: node tests/cafe-redes-sociales-browser-smoke.mjs
 
       - name: Validate Ethics class 29 October (desktop, iPad, phone)
         run: node tests/ethics-class-29oct-browser-smoke.mjs
