@@ -34,6 +34,7 @@ const CafeMercadotecniaDefinitions = lazy(() => import('./pages/CafeMercadotecni
 const CafeMercadotecniaSystem2D = lazy(() => import('./pages/CafeMercadotecniaSystem2D'))
 const CafeAguaEvent = lazy(() => import('./pages/CafeAguaEvent'))
 const CafeAguaSystem2D = lazy(() => import('./pages/CafeAguaSystem2D'))
+const CafeRedesSocialesEvent = lazy(() => import('./pages/CafeRedesSocialesEvent'))
 const AcademicTalkAI22Sep = lazy(() => import('./pages/AcademicTalkAI22Sep'))
 const FourthSemester = lazy(() => import('./pages/FourthSemester'))
 const OntologiaI = lazy(() => import('./pages/OntologiaI'))
@@ -233,6 +234,10 @@ function App() {
         <Route
           path="/cafe-filosofico/2026/10/19/agua/sistema-2d"
           element={<CafeAguaSystem2D />}
+        />
+        <Route
+          path="/cafe-filosofico/2026/11/03/redes-sociales"
+          element={<CafeRedesSocialesEvent />}
         />
         <Route
           path="/eventos/2026/09/22/filosofia-en-la-era-de-la-ia"
