@@ -78,5 +78,7 @@ try{
   if(socket)socket.close()
   if(child&&!child.killed)child.kill('SIGTERM')
   if(!vite.killed)vite.kill('SIGTERM')
-  rmSync(userData,{recursive:true,force:true})
+  // Chromium may still be writing its profile when SIGTERM returns.
+  await wait(500)
+  rmSync(userData,{recursive:true,force:true,maxRetries:12,retryDelay:250})
 }
