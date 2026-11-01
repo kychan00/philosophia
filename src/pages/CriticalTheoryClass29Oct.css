@@ -144,6 +144,7 @@
   border-right:1px solid #525252;
   text-align:left;
   cursor:pointer;
+  font-family:Arial,sans-serif;
   transition:background .15s,color .15s,box-shadow .15s;
 }
 
