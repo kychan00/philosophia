@@ -172,6 +172,19 @@ El número y la estructura de apartados provienen de la clase realmente document
 - Tests: `critical-class22oct-study.test.mjs` y `critical-class22oct-browser-smoke.mjs`; workflow `quality.yml`. La revisión estructural no reemplaza CI.
 - No se publica ni modifica una clase posterior por esta adaptación.
 
+
+## Adopción · sesión 14 / 29 de octubre
+
+- Página nueva: `src/pages/CriticalTheoryClass29Oct.jsx`, enlazada al Cuaderno de Cátedra mediante `DialecticalSessionFrame`.
+- La sesión del **27 de octubre no existió** y no se crea una página ficticia para llenar el hueco cronológico.
+- Doble capa: atlas de **5 problemas** y **17 apartados** con explicación, figura conceptual, guía, “en palabras simples”, contraste y recuperación editorial.
+- Núcleos: psicología profunda e inconsciente; devenir y sufrimiento; placer/falta/realidad; fuentes y estrategias frente al sufrimiento; memoria, transferencia y repetición.
+- SVG original: `29-octubre-malestar-repeticion.svg`, `ORIGINAL-OWNED`, con texto alternativo y límite de atribución.
+- Fronteras: Lacan = ampliación docente; neurosis/psicosis = formulación académica, no diagnóstico; “conservación de lo psíquico” = analogía de clase; ejemplos de repetición = ilustraciones docentes, no ley clínica universal.
+- Agenda documentada: continuar Freud para cerrar el bloque el **martes 3 de noviembre** sin rango de páginas confirmado; **examen jueves 5 de noviembre**, sin temario, formato ni hora documentados.
+- QA: `critical-theory-29oct.test.mjs` y `critical-class29oct-browser-smoke.mjs` deben formar parte del workflow antes de integración.
+
+
 ## Revisión de otras sesiones
 
 Aplicar únicamente cuando se trabaje ese folio, con cotejo individual de las notas del vault, incluyendo `05 - Clases` y la ficha de la materia. Las trece clases no se consideran refactorizadas por añadir esta regla.

@@ -136,13 +136,15 @@ test('Popper: recomendación temática sobre falsabilidad sin sesión ni lectura
  assert.match(event.dateLabel,/registro/)
 })
 
-test('Freud: lectura para el 22-10-2026, fuente identificada y sin avance inventado',()=>{
+test('Freud: conserva inicio 22 oct, avance confirmado 29 y lectura total abierta',()=>{
   const id='Freud - El malestar en la cultura'
   const book=books.find(w=>w.id===id)
   assert.ok(book)
   assert.equal(book.categoria,'crítica')
   assert.match(book.lectura,/22-10-2026/)
-  assert.match(book.lectura,/pendiente/)
+  assert.match(book.lectura,/29-10-2026/)
+  assert.match(book.lectura,/capítulo I completo/)
+  assert.match(book.lectura,/obra completa no confirmada/)
   assert.match(book.edicion,/Luis López Ballesteros/)
   assert.equal(book.ideas.length,8)
   assert.ok(authorsForWork(book,authors).includes('Freud, Sigmund'))

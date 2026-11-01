@@ -8,13 +8,13 @@ const view = read('src/pages/DialecticalArchive.jsx')
 const styles = read('src/pages/DialecticalArchive.css')
 const app = read('src/App.jsx')
 
-test('archivo integral registra trece sesiones y preserva sus rutas', () => {
-  assert.equal(dialecticalSessions.length, 13)
-  assert.equal(new Set(dialecticalSessions.map((s) => s.id)).size, 13)
+test('archivo integral registra catorce sesiones y preserva sus rutas', () => {
+  assert.equal(dialecticalSessions.length, 14)
+  assert.equal(new Set(dialecticalSessions.map((s) => s.id)).size, 14)
   assert.ok(dialecticalSessions.every((s) => /^2026-(08|09|10)-\d{2}$/.test(s.date)))
   assert.ok(dialecticalSessions.every((s) => s.title && s.question && s.before && s.conflict && s.after && s.layers))
   assert.ok(dialecticalSessions.every((s) => app.includes('path="' + dialecticalRoute(s.id) + '"')))
-  assert.equal((app.match(/<DialecticalSessionFrame id=/g) || []).length, 13)
+  assert.equal((app.match(/<DialecticalSessionFrame id=/g) || []).length, 14)
   assert.equal((app.match(/<DialecticalRestoredClass id=/g) || []).length, 0)
   assert.match(app, /<DialecticalSessionFrame id="17-septiembre"><CriticalTheoryClass17Sep \/><\/DialecticalSessionFrame>/)
   assert.match(app, /<DialecticalSessionFrame id="22-septiembre"><CriticalTheoryClass22Sep \/><\/DialecticalSessionFrame>/)

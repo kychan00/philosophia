@@ -12,7 +12,7 @@ const app = readFileSync(new URL('../src/App.jsx', import.meta.url),'utf8')
 const libraryPage = readFileSync(new URL('../src/pages/PhilosophiaLibrary.jsx', import.meta.url),'utf8')
 
 test('el corpus recupera referencias de las nueve materias revisadas sin duplicar notas',()=>{
-  assert.equal(documentedClassReferenceStats.examinedNotes,115)
+  assert.equal(documentedClassReferenceStats.examinedNotes,116)
   assert.equal(documentedClassReferenceStats.classesWithReferences,documentedClassReferences.length)
   assert.ok(documentedClassReferences.length >= 100)
   assert.equal(new Set(documentedClassReferences.map(x=>x.date+'|'+x.area+'|'+x.title)).size,documentedClassReferences.length)

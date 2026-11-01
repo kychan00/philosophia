@@ -23,7 +23,7 @@ export const documentedClassReferences = [
 ].sort((a,b)=> b.date.localeCompare(a.date) || a.area.localeCompare(b.area,'es') || a.title.localeCompare(b.title,'es'))
 
 export const documentedClassReferenceStats = {
-  examinedNotes: 115,
+  examinedNotes: 116,
   classesWithReferences: documentedClassReferences.length,
   worksMentioned: documentedClassReferences.reduce((n,row)=>n+row.works.length,0),
   authorsMentioned: documentedClassReferences.reduce((n,row)=>n+row.authors.length,0),
