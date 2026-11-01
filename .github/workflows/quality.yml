@@ -156,6 +156,9 @@ jobs:
       - name: Validate Analytic Philosophy 19 October class in Chromium
         run: node tests/analytic-class19-browser-smoke.mjs
 
+      - name: Validate Kołakowski positivism 2D (desktop, iPad, phone)
+        run: node tests/kolakowski-positivism-browser-smoke.mjs
+
       - name: Validate Nava 2D in Chromium (desktop, phone and iPad)
         run: node tests/nava-technoscience-browser-smoke.mjs
 

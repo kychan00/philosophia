@@ -865,6 +865,26 @@ export const tasks = [
   },
 
   {
+    id: 'ontologia-2026-11-03-kolakowski-positivismo',
+    subject: 'Ontología II',
+    subjectCode: 'FI190',
+    assignedDate: '2026-11-01',
+    dueDate: '2026-11-03',
+    title: 'Kołakowski · Introducción a la filosofía positivista',
+    type: 'Lectura y sistematización',
+    weight: null,
+    priority: 'Alta',
+    description:
+      'El correo del profesor solicita leer la Introducción de La filosofía positivista para la clase del miércoles 4 de noviembre de 2026. El estudiante fija el martes 3 de noviembre como fecha de entrega/objetivo en PHILOSOPHIA. La página de estudio reconstruye el capítulo «Características generales del positivismo» del PDF aportado, pp. impresas 13–23, sin confundir esa fecha personal con la indicación docente.',
+    readingScope:
+      'Leszek Kołakowski · La filosofía positivista · capítulo I: Características generales del positivismo',
+    readingPages: 'pp. impresas 13–23 del PDF aportado para Ontología II',
+    sourceClass:
+      'Correo del profesor · lectura para miércoles 4 de noviembre; fecha de organización del martes 3 confirmada por el estudiante el 1 de noviembre',
+    studyRoute: '/tareas/ontologia-ii/kolakowski-positivismo',
+  },
+
+  {
     id: 'ontologia-2026-10-30-examen-diez-preguntas',
     subject: 'Ontología II',
     subjectCode: 'FI190',
