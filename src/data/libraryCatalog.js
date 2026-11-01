@@ -95,7 +95,7 @@ export const books = [
     "titulo": "El malestar en la cultura",
     "categoria": "crítica",
     "estado": "documentada",
-    "lectura": "Lectura en curso · el 29-10-2026 el estudiante reportó capítulo I completo y un avance adicional; obra completa no confirmada",
+    "lectura": "Lectura iniciada para 22-10-2026 · avance confirmado el 29-10-2026: capítulo I completo y un avance adicional; obra completa no confirmada",
     "edicion": "PDF facilitado · 90 páginas · trad. Luis López Ballesteros · Biblioteca Libre OMEGALFA · maquetación 2010 (no año editorial confirmado)",
     "url": "https://omegalfa.es/downloadfile.php?file=libros/el.malestar.de.la.cultura.pdf",
     "ideas": [
