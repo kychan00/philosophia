@@ -63,3 +63,8 @@ jobs:
         env:
           PAGE_URL: ${{ steps.deployment.outputs.page_url }}
         run: node tests/kolakowski-production-smoke.mjs "${PAGE_URL}#/tareas/ontologia-ii/kolakowski-positivismo"
+
+      - name: Verify public Teoría Crítica 29 October and calendar
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: node tests/critical-theory-29oct-production-smoke.mjs "${PAGE_URL}"
