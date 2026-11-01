@@ -31,7 +31,7 @@ async function until(fn,label,checks=150){
   for(let i=0;i<checks;i++){try{if(await fn())return}catch{}await sleep(140)}
   throw Error('No llegó: '+label)
 }
-const metrics=\`(()=>{
+const metrics=`(()=>{
   const rects=[...document.querySelectorAll('.kol-canvas .react-flow__node')]
     .filter(n=>{const r=n.getBoundingClientRect(),s=getComputedStyle(n);return r.width>1&&r.height>1&&s.display!=='none'&&s.visibility!=='hidden'})
     .map(n=>({id:n.getAttribute('data-id'),rect:n.getBoundingClientRect()}))
@@ -49,7 +49,7 @@ const metrics=\`(()=>{
     question:document.querySelectorAll('.kol-inspector .kol-question').length,
     masterSchema:!!document.querySelector('.kol-master-schema .animated-concept-schema')
   }
-})()\`
+})()`
 try{
   await until(async()=>{const r=await fetch('http://127.0.0.1:4196/philosophia/');return r.ok},'Vite preview')
   browser=spawn(chrome,['--headless=new','--no-sandbox','--disable-setuid-sandbox',
@@ -57,7 +57,7 @@ try{
     '--remote-debugging-port=0','--user-data-dir='+profile,'about:blank'],{stdio:'ignore'})
   const activePort=join(profile,'DevToolsActivePort')
   await until(()=>existsSync(activePort),'DevToolsActivePort',180)
-  const port=Number(readFileSync(activePort,'utf8').split('\\n')[0])
+  const port=Number(readFileSync(activePort,'utf8').split('\n')[0])
   const tabs=await(await fetch('http://127.0.0.1:'+port+'/json/list')).json()
   const tab=tabs.find(item=>item.type==='page')
   assert.ok(tab?.webSocketDebuggerUrl)
