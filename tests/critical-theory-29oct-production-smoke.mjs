@@ -79,20 +79,40 @@ try{
       ()=>evaluate("document.querySelectorAll('.ct1510-detail-folio').length===17"),
       '17 apartados públicos TC29 '+width,
     )
-    const state=await evaluate(`(()=>({
-      href:location.href,
-      sections:document.querySelectorAll('.ct1510-detail-folio').length,
-      hero:document.querySelector('.ct1510-hero h1')?.textContent||'',
-      agenda:[...document.querySelectorAll('.ct1510-relation span')].map(x=>x.textContent).join(' | '),
-      noClass27:document.body.textContent.includes('El 27 de octubre no hubo sesión'),
-      w:innerWidth,
-      scroll:document.documentElement.scrollWidth
-    }))()`)
+    const state=await evaluate(`(()=>{
+      const root=document.querySelector('.ct2910-page')
+      const atlas=document.querySelector('.ct2210-atlasx')
+      const tabs=document.querySelector('.ct2210-atlasx-tabs')
+      const study=document.querySelector('.ct2210-studyx')
+      const detail=document.querySelector('.ct1510-detail')
+      const css=node=>node?getComputedStyle(node):null
+      return {
+        href:location.href,
+        sections:document.querySelectorAll('.ct1510-detail-folio').length,
+        hero:document.querySelector('.ct1510-hero h1')?.textContent||'',
+        agenda:[...document.querySelectorAll('.ct1510-relation span')].map(x=>x.textContent).join(' | '),
+        noClass27:document.body.textContent.includes('El 27 de octubre no hubo sesión'),
+        themeBg:css(root)?.getPropertyValue('--ph2d-bg').trim()||'',
+        atlasBg:css(atlas)?.backgroundColor||'',
+        tabsDisplay:css(tabs)?.display||'',
+        studyBorder:css(study)?.borderTopStyle||'',
+        detailWidth:detail?.getBoundingClientRect().width||0,
+        atlasWidth:atlas?.getBoundingClientRect().width||0,
+        w:innerWidth,
+        scroll:document.documentElement.scrollWidth
+      }
+    })()`)
     assert.equal(state.sections,17,JSON.stringify(state))
     assert.ok(state.hero.includes('Freud'),JSON.stringify(state))
     assert.ok(state.agenda.includes('3 NOV · CERRAR FREUD'),JSON.stringify(state))
     assert.ok(state.agenda.includes('5 NOV · EXAMEN'),JSON.stringify(state))
     assert.ok(state.noClass27,JSON.stringify(state))
+    assert.ok(state.themeBg,'tokens ph2d ausentes en producción '+JSON.stringify(state))
+    assert.equal(state.atlasBg,'rgb(22, 22, 22)','atlas sin CSS en producción '+JSON.stringify(state))
+    assert.equal(state.tabsDisplay,'grid','tabs sin CSS en producción '+JSON.stringify(state))
+    assert.notEqual(state.studyBorder,'none','estudio sin CSS en producción '+JSON.stringify(state))
+    assert.ok(state.detailWidth>280 && state.detailWidth<=1512,'folio fuera de contrato editorial '+JSON.stringify(state))
+    assert.ok(state.atlasWidth>280 && state.atlasWidth<=1512,'atlas fuera de contrato editorial '+JSON.stringify(state))
     assert.ok(state.scroll<=state.w+3,'desbordamiento horizontal TC29 producción '+JSON.stringify(state))
     console.log('PRODUCTION TC29 OK',width+'x'+height,JSON.stringify(state))
   }
