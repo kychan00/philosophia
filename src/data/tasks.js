@@ -724,7 +724,7 @@ export const tasks = [
     type: 'Continuidad de lectura',
     weight: null,
     priority: 'Alta',
-    description: 'Continuar El malestar en la cultura para la sesión del martes 3 de noviembre, en la que la profesora anunció que se cerrará este bloque. La consigna final quedó parcialmente truncada y no permite fijar un rango de páginas, capítulo obligatorio ni producto escrito; se publica únicamente la continuidad de lectura confirmada.',
+    description: 'Continuar El malestar en la cultura para la sesión del martes 3 de noviembre, en la que la profesora anunció que se cerrará este bloque. La formulación final confirma la continuidad de la lectura, pero no fija un rango de páginas, capítulo obligatorio ni producto escrito; se publica únicamente lo que quedó confirmado.',
     readingScope: 'Sigmund Freud · El malestar en la cultura · continuar la lectura para cerrar el bloque',
     readingPages: 'Sin un rango de páginas confirmado en la sesión del 29 de octubre',
     readingEdition: 'Biblioteca Libre OMEGALFA · trad. Luis López Ballesteros · maquetación 2010',
