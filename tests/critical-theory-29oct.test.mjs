@@ -23,7 +23,7 @@ test('clase 29 octubre queda registrada sin inventar una sesión el 27', () => {
 
 test('doble capa, imagen y límites documentales', () => {
   assert.match(page, /Cinco problemas para reconstruir la sesión/)
-  assert.match(page, /Dieciséis apartados de estudio/)
+  assert.match(page, /Diecisiete apartados de estudio/)
   assert.match(page, /RECONSTRUCCIÓN DE PHILOSOPHIA/)
   assert.match(page, /No se registra temario, formato, páginas ni hora límite/)
   const media = criticalTheoryImages.find(item => item.classPath === '/semestre/5/teoria-critica/clase/29-octubre')
