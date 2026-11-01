@@ -21,7 +21,7 @@ async function viewport(width,height){
   await send('Page.navigate',{url:'about:blank'})
   await until(()=>evaluate("location.href==='about:blank'"),'reset')
   await send('Page.navigate',{url})
-  await until(()=>evaluate("document.querySelectorAll('.ct1510-detail-folio').length===16"),'clase 29 octubre')
+  await until(()=>evaluate("document.querySelectorAll('.ct1510-detail-folio').length===17"),'clase 29 octubre')
   const result=await evaluate(`(()=>({
     viewport:innerWidth,
     scroll:document.documentElement.scrollWidth,
@@ -32,8 +32,8 @@ async function viewport(width,height){
     agenda:document.body.textContent.includes('5 NOV · EXAMEN')
   }))()`)
   assert.ok(result.scroll<=result.viewport+3,'desbordamiento '+width+'x'+height+': '+JSON.stringify(result))
-  assert.equal(result.sections,16)
-  assert.equal(result.studies,16)
+  assert.equal(result.sections,17)
+  assert.equal(result.studies,17)
   assert.equal(result.themes,5)
   assert.ok(result.image&&result.agenda)
   console.log('OK FI265 / 29 octubre',width,height)
