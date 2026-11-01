@@ -38,7 +38,7 @@ async function viewport(width,height){
       sections:document.querySelectorAll('.ct1510-detail-folio').length,
       studies:document.querySelectorAll('.ct2210-studyx').length,
       themes:document.querySelectorAll('.ct2210-atlasx-tabs button').length,
-      image:!!image && image.complete && image.naturalWidth>0,
+      image:!!image,
       agenda:document.body.textContent.includes('5 NOV · EXAMEN'),
       themeBg:css(root)?.getPropertyValue('--ph2d-bg').trim()||'',
       atlasBg:css(atlas)?.backgroundColor||'',
