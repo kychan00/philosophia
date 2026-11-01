@@ -136,22 +136,25 @@ test('Popper: recomendación temática sobre falsabilidad sin sesión ni lectura
  assert.match(event.dateLabel,/registro/)
 })
 
-test('Freud: lectura para el 22-10-2026, fuente identificada y sin avance inventado',()=>{
+test('Freud: conserva inicio 22 oct, avance confirmado 29 y lectura total abierta',()=>{
   const id='Freud - El malestar en la cultura'
   const book=books.find(w=>w.id===id)
   assert.ok(book)
   assert.equal(book.categoria,'crítica')
   assert.match(book.lectura,/22-10-2026/)
-  assert.match(book.lectura,/pendiente/)
+  assert.match(book.lectura,/29-10-2026/)
+  assert.match(book.lectura,/capítulo I completo/)
+  assert.match(book.lectura,/obra completa no confirmada/)
   assert.match(book.edicion,/Luis López Ballesteros/)
   assert.equal(book.ideas.length,8)
   assert.ok(authorsForWork(book,authors).includes('Freud, Sigmund'))
   const events=connected.works[id]?.events
-  assert.equal(events?.length,2)
-  assert.deepEqual(events.map(e=>e.date),['2026-10-20','2026-10-22'])
+  assert.equal(events?.length,3)
+  assert.deepEqual(events.map(e=>e.date),['2026-10-20','2026-10-22','2026-10-29'])
   assert.equal(events[0].kind,'tarea')
   assert.match(events[0].note,/Sin páginas/)
   assert.equal(events[1].kind,'procedencia')
+  assert.equal(events[2].kind,'procedencia')
 })
 
 test('Bobbio tiene procedencia curricular de tercer semestre sin clase ni tarea fabricada',()=>{
