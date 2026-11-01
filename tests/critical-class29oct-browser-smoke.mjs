@@ -22,21 +22,50 @@ async function viewport(width,height){
   await until(()=>evaluate("location.href==='about:blank'"),'reset')
   await send('Page.navigate',{url})
   await until(()=>evaluate("document.querySelectorAll('.ct1510-detail-folio').length===17"),'clase 29 octubre')
-  const result=await evaluate(`(()=>({
-    viewport:innerWidth,
-    scroll:document.documentElement.scrollWidth,
-    sections:document.querySelectorAll('.ct1510-detail-folio').length,
-    studies:document.querySelectorAll('.ct2210-studyx').length,
-    themes:document.querySelectorAll('.ct2210-atlasx-tabs button').length,
-    image:!!document.querySelector('.ct1510-licensed-item img'),
-    agenda:document.body.textContent.includes('5 NOV · EXAMEN')
-  }))()`)
+  const result=await evaluate(`(()=>{
+    const root=document.querySelector('.ct2910-page')
+    const atlas=document.querySelector('.ct2210-atlasx')
+    const tabs=document.querySelector('.ct2210-atlasx-tabs')
+    const tab=document.querySelector('.ct2210-atlasx-tabs button')
+    const study=document.querySelector('.ct2210-studyx')
+    const detail=document.querySelector('.ct1510-detail')
+    const index=document.querySelector('.ct1510-detail-index')
+    const image=document.querySelector('.ct1510-licensed-item img')
+    const css=node=>node?getComputedStyle(node):null
+    return {
+      viewport:innerWidth,
+      scroll:document.documentElement.scrollWidth,
+      sections:document.querySelectorAll('.ct1510-detail-folio').length,
+      studies:document.querySelectorAll('.ct2210-studyx').length,
+      themes:document.querySelectorAll('.ct2210-atlasx-tabs button').length,
+      image:!!image,
+      agenda:document.body.textContent.includes('5 NOV · EXAMEN'),
+      themeBg:css(root)?.getPropertyValue('--ph2d-bg').trim()||'',
+      atlasBg:css(atlas)?.backgroundColor||'',
+      atlasWidth:atlas?.getBoundingClientRect().width||0,
+      tabsDisplay:css(tabs)?.display||'',
+      tabFont:css(tab)?.fontFamily||'',
+      studyBg:css(study)?.backgroundColor||'',
+      studyBorder:css(study)?.borderTopStyle||'',
+      detailWidth:detail?.getBoundingClientRect().width||0,
+      indexDisplay:css(index)?.display||''
+    }
+  })()`)
   assert.ok(result.scroll<=result.viewport+3,'desbordamiento '+width+'x'+height+': '+JSON.stringify(result))
   assert.equal(result.sections,17)
   assert.equal(result.studies,17)
   assert.equal(result.themes,5)
   assert.ok(result.image&&result.agenda)
-  console.log('OK FI265 / 29 octubre',width,height)
+  assert.ok(result.themeBg,'tokens ph2d ausentes '+JSON.stringify(result))
+  assert.equal(result.atlasBg,'rgb(22, 22, 22)','atlas sin superficie diseñada '+JSON.stringify(result))
+  assert.equal(result.tabsDisplay,'grid','tabs sin layout CSS '+JSON.stringify(result))
+  assert.match(result.tabFont,/Arial/,'botones conservaron tipografía nativa '+JSON.stringify(result))
+  assert.notEqual(result.studyBg,'rgba(0, 0, 0, 0)','bloque de estudio transparente '+JSON.stringify(result))
+  assert.notEqual(result.studyBorder,'none','bloque de estudio sin borde '+JSON.stringify(result))
+  assert.equal(result.indexDisplay,'grid','índice sin contrato de grid '+JSON.stringify(result))
+  assert.ok(result.detailWidth>280 && result.detailWidth<=1512,'ancho editorial inválido '+JSON.stringify(result))
+  assert.ok(result.atlasWidth>280 && result.atlasWidth<=1512,'ancho atlas inválido '+JSON.stringify(result))
+  console.log('OK FI265 / 29 octubre',width,height,JSON.stringify(result))
 }
 
 try{

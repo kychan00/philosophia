@@ -9,6 +9,7 @@ const read = path => readFileSync(new URL('../' + path, import.meta.url), 'utf8'
 const page = read('src/pages/CriticalTheoryClass29Oct.jsx')
 const app = read('src/App.jsx')
 const refs = read('src/data/classReferences/part7.js')
+const css = read('src/pages/CriticalTheoryClass29Oct.css')
 
 test('clase 29 octubre queda registrada sin inventar una sesión el 27', () => {
   const session = dialecticalSessions.find(item => item.id === '29-octubre')
@@ -46,4 +47,20 @@ test('calendario conserva lectura y examen como hechos distintos', () => {
   assert.match(exam.description, /no quedaron confirmados/i)
   assert.match(refs, /2026-10-29/)
   assert.match(refs, /Freud - El malestar en la cultura/)
+})
+
+
+test('contrato visual dedicado cubre atlas, folios y tema 2D', () => {
+  assert.match(page, /System2DTheme\.css/)
+  assert.match(page, /CriticalTheoryClass29Oct\.css/)
+  assert.match(page, /className="ct1510-detail"/)
+  assert.doesNotMatch(page, /className="ct1510-details"/)
+  for (const selector of [
+    '.ct2210-atlasx{',
+    '.ct2210-atlasx-tabs{',
+    '.ct2210-atlasx-tabs button{',
+    '.ct2210-studyx{',
+    '.ct2210-studyx__guide summary',
+    '.ct2910-page .ct1510-detail-copy{',
+  ]) assert.ok(css.includes(selector), 'Falta selector visual: ' + selector)
 })
