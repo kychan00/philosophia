@@ -161,5 +161,17 @@ export const classReferencesPart7 = [
       "Parménides"
     ],
     "url": "/semestre/5/etica/clase/18-agosto"
+  },
+  {
+    "date": "2026-10-29",
+    "area": "Teoría Crítica",
+    "title": "Teoría Crítica - Freud: placer, sufrimiento y repetición",
+    "works": [
+      "Freud - El malestar en la cultura"
+    ],
+    "authors": [
+      "Freud, Sigmund"
+    ],
+    "url": "/semestre/5/teoria-critica/clase/29-octubre"
   }
 ]
