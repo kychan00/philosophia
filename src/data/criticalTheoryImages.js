@@ -32,7 +32,7 @@ export const criticalTheoryImages = [
     alt: 'Hegel, Marx, Lukács y Freud aparecen alrededor de Teoría Crítica, conectados por líneas punteadas que indican relaciones de estudio y no una genealogía causal.',
     pedagogicalPurpose: 'Ayuda a entender la genealogía de la sesión como constelación de problemas históricos, sociales y psíquicos que Frankfurt reelabora.',
     sourceBoundary: 'Reconstrucción visual editorial; no es un diagrama literal de la profesora ni afirma una filiación doctrinal automática.',
-  },,
+  },
   {
     id: 'critica-2026-10-29-malestar-repeticion',
     classPath: '/semestre/5/teoria-critica/clase/29-octubre',
