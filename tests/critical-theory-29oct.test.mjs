@@ -41,7 +41,7 @@ test('calendario conserva lectura y examen como hechos distintos', () => {
   assert.ok(reading && exam)
   assert.equal(reading.assignedDate, '2026-10-29')
   assert.equal(reading.dueDate, '2026-11-03')
-  assert.match(reading.description, /sin un rango de páginas/i)
+  assert.match(reading.description, /no fija un rango de páginas/i)
   assert.equal(exam.dueDate, '2026-11-05')
   assert.match(exam.description, /no quedaron confirmados/i)
   assert.match(refs, /2026-10-29/)
