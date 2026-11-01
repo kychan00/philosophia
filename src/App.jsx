@@ -101,6 +101,7 @@ const HartmannChapterOneSystem = lazy(() => import('./pages/HartmannChapterOneSy
 const HegelPhenomenologyPrefaceStudy = lazy(() => import('./pages/HegelPhenomenologyPrefaceStudy'))
 const HegelLogicBeingNothingBecomingStudy = lazy(() => import('./pages/HegelLogicBeingNothingBecomingStudy'))
 const HegelCroceTaskSystem = lazy(() => import('./pages/HegelCroceTaskSystem'))
+const KolakowskiPositivismTask = lazy(() => import('./pages/KolakowskiPositivismTask'))
 const MarxCritiqueHegelStudy = lazy(() => import('./pages/MarxCritiqueHegelStudy'))
 const MarxHegelThreeReadingsSystem = lazy(() => import('./pages/MarxHegelThreeReadingsSystem'))
 const MethodsResearch = lazy(() => import('./pages/MethodsResearch'))
@@ -441,6 +442,10 @@ function App() {
         <Route
           path="/tareas/ontologia-ii/hegel-croce-dialectica"
           element={<HegelCroceTaskSystem />}
+        />
+        <Route
+          path="/tareas/ontologia-ii/kolakowski-positivismo"
+          element={<KolakowskiPositivismTask />}
         />
         <Route
           path="/estudios/ontologia-ii/marx-critica-dialectica-hegeliana"
