@@ -91,6 +91,13 @@ export const dialecticalSessions = [
     before: 'Estructuras objetivas y experiencias sociales', conflict: 'Deseo, separación y límites de la vida en común tensionan al sujeto', after: 'Continuar El malestar en la cultura',
     example: 'La separación temprana entre el bebé y la madre ilustra la diferenciación del yo frente a lo otro.',
     reading: 'Freud · El malestar en la cultura', layers: 'Clase / analogía docente; no cita literal', status: 'Documentada'
+  },
+  {
+    id: '29-octubre', date: '2026-10-29', title: 'Freud: placer, sufrimiento y repetición', phase: 'Freud',
+    question: '¿Cómo intenta el sujeto reducir un malestar que proviene del cuerpo, del mundo y de sus vínculos?',
+    before: 'Inconsciente, sentimiento oceánico, separación y principio de realidad', conflict: 'La búsqueda de satisfacción choca con vulnerabilidad corporal, naturaleza, vínculos y límites culturales', after: 'Cerrar Freud el 3 de noviembre; examen confirmado el 5 de noviembre',
+    example: 'La profesora usa Roma y el iceberg para explicar la persistencia dinámica de huellas psíquicas, y patrones de pareja para ilustrar la repetición.',
+    reading: 'Freud · El malestar en la cultura · continuidad sin rango de páginas confirmado', layers: 'Clase / ampliaciones docentes / reconstrucción editorial', status: 'Documentada'
   }
 ]
 
