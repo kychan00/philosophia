@@ -177,7 +177,7 @@ El número y la estructura de apartados provienen de la clase realmente document
 
 - Página nueva: `src/pages/CriticalTheoryClass29Oct.jsx`, enlazada al Cuaderno de Cátedra mediante `DialecticalSessionFrame`.
 - La sesión del **27 de octubre no existió** y no se crea una página ficticia para llenar el hueco cronológico.
-- Doble capa: atlas de **5 problemas** y **16 apartados** con explicación, figura conceptual, guía, “en palabras simples”, contraste y recuperación editorial.
+- Doble capa: atlas de **5 problemas** y **17 apartados** con explicación, figura conceptual, guía, “en palabras simples”, contraste y recuperación editorial.
 - Núcleos: psicología profunda e inconsciente; devenir y sufrimiento; placer/falta/realidad; fuentes y estrategias frente al sufrimiento; memoria, transferencia y repetición.
 - SVG original: `29-octubre-malestar-repeticion.svg`, `ORIGINAL-OWNED`, con texto alternativo y límite de atribución.
 - Fronteras: Lacan = ampliación docente; neurosis/psicosis = formulación académica, no diagnóstico; “conservación de lo psíquico” = analogía de clase; ejemplos de repetición = ilustraciones docentes, no ley clínica universal.
