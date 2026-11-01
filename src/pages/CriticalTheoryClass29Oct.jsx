@@ -398,7 +398,7 @@ export default function CriticalTheoryClass29Oct(){
     </section>
 
     <section className="ct1510-details">
-      <div className="ct1510-section-head"><div><span className="ct1510-number">03 · DESARROLLO</span><h2>Dieciséis apartados de estudio</h2><p>Cada apartado conserva la idea de clase y añade una capa pedagógica explícitamente editorial.</p></div></div>
+      <div className="ct1510-section-head"><div><span className="ct1510-number">03 · DESARROLLO</span><h2>Diecisiete apartados de estudio</h2><p>Cada apartado conserva la idea de clase y añade una capa pedagógica explícitamente editorial.</p></div></div>
       <nav className="ct1510-detail-index" aria-label="Índice de apartados">{sections.map((section,index)=><button type="button" key={section.id} onClick={()=>document.getElementById(section.id)?.scrollIntoView({behavior:'smooth',block:'start'})}><span>{String(index+1).padStart(2,'0')}</span>{section.title}</button>)}</nav>
       {sections.map((section,index)=><section className="ct1510-detail-folio" id={section.id} key={section.id}><div className="ct1510-detail-copy"><span>APARTADO {String(index+1).padStart(2,'0')}</span><h3>{section.title}</h3><p>{section.explanation}</p></div><StudyBlock section={section} index={index}/></section>)}
     </section>
