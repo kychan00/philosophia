@@ -32,7 +32,23 @@ export const criticalTheoryImages = [
     alt: 'Hegel, Marx, Lukács y Freud aparecen alrededor de Teoría Crítica, conectados por líneas punteadas que indican relaciones de estudio y no una genealogía causal.',
     pedagogicalPurpose: 'Ayuda a entender la genealogía de la sesión como constelación de problemas históricos, sociales y psíquicos que Frankfurt reelabora.',
     sourceBoundary: 'Reconstrucción visual editorial; no es un diagrama literal de la profesora ni afirma una filiación doctrinal automática.',
-  },
+  },,
+  {
+    id: 'critica-2026-10-29-malestar-repeticion',
+    classPath: '/semestre/5/teoria-critica/clase/29-octubre',
+    imagePath: 'images/teoria-critica/29-octubre-malestar-repeticion.svg',
+    imageType: 'original',
+    imageSource: 'PHILOSOPHIA · diagrama vectorial creado para la clase del 29 de octubre',
+    imageAuthor: 'PHILOSOPHIA',
+    imageLicense: 'ORIGINAL-OWNED',
+    imageLicenseUrl: null,
+    licenseEvidenceUrl: null,
+    imageAttribution: 'Ilustración original de PHILOSOPHIA',
+    modifications: 'ninguna',
+    alt: 'Diagrama que conecta principio del placer, frustración y principio de realidad con las fuentes del sufrimiento y dos respuestas: estrategias culturales y elaboración analítica.',
+    pedagogicalPurpose: 'Resume el movimiento de la sesión desde deseo y límite hacia cuerpo, naturaleza, vínculos, cultura, transferencia y repetición.',
+    sourceBoundary: 'Reconstrucción visual editorial basada en la sesión; no reproduce un pizarrón ni atribuye el esquema a Freud o a la profesora.',
+  }
 ]
 
 export function imagesForCriticalTheoryClass(classPath) {
