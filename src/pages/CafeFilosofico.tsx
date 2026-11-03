@@ -82,7 +82,7 @@ const sessions = [
       '¿Quién soy cuando me muestro? Una convocatoria para conversar sobre identidad digital, privacidad y reconocimiento cuantificado.',
     tags: ['Redes sociales', 'Identidad', 'Privacidad', 'Visibilidad', 'Reconocimiento'],
     route: '/cafe-filosofico/2026/11/03/redes-sociales',
-    image: `${import.meta.env.BASE_URL}images/cafe-filosofico/redes-sociales/poster-editorial.svg`,
+    image: `${import.meta.env.BASE_URL}images/cafe-filosofico/redes-sociales/poster-oficial.png`,
     imageMode: 'poster',
     badge: 'PRÓXIMO · 03 NOV · 2:00 P. M.',
     actionLabel: 'Conocer el encuentro',
