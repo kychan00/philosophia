@@ -1,7 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
-import { books, authors } from '../src/data/libraryCatalog.js'
+import { books, authors, recommendedCreators } from '../src/data/libraryCatalog.js'
 import { authorsForWork, worksByAuthor } from '../src/data/libraryCatalogUtils.js'
 import { libraryTimelines } from '../src/data/libraryTimelines.js'
 import { libraryAcademicConnections as connected } from '../src/data/libraryAcademicConnections.js'
@@ -134,6 +134,22 @@ test('Popper: recomendación temática sobre falsabilidad sin sesión ni lectura
  assert.equal(event.date,'2026-10-21')
  assert.equal(event.url,null)
  assert.match(event.dateLabel,/registro/)
+})
+
+test('Louise Bourgeois: artista recomendada sin inventar una obra bibliográfica',()=>{
+ const person=recommendedCreators.find(p=>p.nombre==='Bourgeois, Louise')
+ assert.ok(person)
+ assert.equal(person.estado,'recomendada')
+ assert.equal(person.rol,'Artista visual')
+ assert.match(person.fuente,/moma\.org\/artists\/710-louise-bourgeois/)
+ assert.ok(authors.includes('Bourgeois, Louise'))
+ assert.equal(worksByAuthor(books,'Bourgeois, Louise').length,0)
+ const event=connected.authors['Bourgeois, Louise']?.events?.[0]
+ assert.ok(event)
+ assert.equal(event.kind,'procedencia')
+ assert.equal(event.date,'2026-11-03')
+ assert.equal(event.url,null)
+ assert.match(event.type,/recomendación personal/)
 })
 
 test('Freud: conserva inicio 22 oct, avance confirmado 29 y lectura total abierta',()=>{
