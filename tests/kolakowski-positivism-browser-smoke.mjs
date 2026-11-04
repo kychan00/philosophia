@@ -47,7 +47,10 @@ const metrics=`(()=>{
     w:innerWidth,scroll:document.documentElement.scrollWidth,
     inspector:!!document.querySelector('.kol-inspector h3'),
     question:document.querySelectorAll('.kol-inspector .kol-question').length,
-    masterSchema:!!document.querySelector('.kol-master-schema .animated-concept-schema')
+    masterSchema:!!document.querySelector('.kol-master-schema .animated-concept-schema'),
+    studyCards:document.querySelectorAll('.kol-rule-card').length,
+    warnings:document.querySelectorAll('.kol-warning-list article').length,
+    memory:!!document.querySelector('.kol-memory-strip')
   }
 })()`
 try{
@@ -88,6 +91,9 @@ try{
     assert.deepEqual(state.hits,[],'nodos encimados '+width)
     assert.ok(state.scroll<=state.w+3,'desbordamiento horizontal '+width+' '+JSON.stringify(state))
     assert.ok(state.inspector&&state.question===1&&state.masterSchema)
+    assert.equal(state.studyCards,4,'faltan las cuatro tarjetas de estudio '+width)
+    assert.equal(state.warnings,5,'faltan precisiones de lectura '+width)
+    assert.ok(state.memory,'falta repaso de memoria '+width)
     console.log('KOLAKOWSKI OK',width+'x'+height,JSON.stringify(state))
   }
   await evaluate("document.querySelector('.kol-open').click()")
