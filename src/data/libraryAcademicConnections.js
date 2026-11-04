@@ -1137,6 +1137,16 @@ export const libraryAcademicConnections = {
       "url": null
     }]},
     "Engels, Friedrich": {"events": []},
+    "Bourgeois, Louise": {"events": [{
+      "kind": "procedencia",
+      "date": "2026-11-03",
+      "dateLabel": "Fecha de registro de la recomendación en Biblioteca",
+      "area": "Biblioteca",
+      "title": "Louise Bourgeois · recomendación de artista",
+      "type": "recomendación personal comunicada por el estudiante; no obra bibliográfica ni lectura acreditada",
+      "note": "Identidad contrastada con la ficha institucional de MoMA. No se atribuye una obra concreta, lectura, clase, tarea ni posesión.",
+      "url": null
+    }]},
     "Bobbio, Norberto": {"events": []},
     "Rendón, Carlos": {"events": []},
     "Dilthey, Wilhelm": {"events": []},

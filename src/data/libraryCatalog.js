@@ -806,6 +806,20 @@ export const books = [
     "estado": "documentada"
   }
 ]
+
+// Recomendaciones de personas creadoras: no son obras bibliográficas y no generan APA ficticia.
+export const recommendedCreators = [
+  {
+    "nombre": "Bourgeois, Louise",
+    "nombreVisible": "Louise Bourgeois",
+    "rol": "Artista visual",
+    "estado": "recomendada",
+    "fechaRegistro": "2026-11-03",
+    "fuente": "https://www.moma.org/artists/710-louise-bourgeois",
+    "nota": "Recomendación personal registrada el 03-11-2026; no se ha asociado una obra específica ni un estudio académico a esta ficha."
+  }
+]
+
 export const authors = [
   "Adorno, Theodor W.",
   "Agazzi, Evandro",
@@ -824,6 +838,7 @@ export const authors = [
   "Bolzano, Bernhard",
   "Boole, George",
   "BonJour, Laurence",
+  "Bourgeois, Louise",
   "Brentano, Franz",
   "Carnap, Rudolf",
   "Cicerón, Marco Tulio",

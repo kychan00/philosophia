@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
-import { books, authors, categories } from '../data/libraryCatalog'
+import { books, authors, categories, recommendedCreators } from '../data/libraryCatalog'
 import { authorsForWork, isWorkByAuthor, matchesLibrarySearch, normalizeLibraryText, worksByAuthor, worksStudyingAuthor } from '../data/libraryCatalogUtils'
 import { libraryTimelines } from '../data/libraryReferenceTimelines'
 import { libraryAcademicConnections } from '../data/libraryAcademicConnections'
@@ -119,6 +119,14 @@ export default function PhilosophiaLibrary() {
       ? a.titulo.localeCompare(b.titulo,'es')
       : a.autor.localeCompare(b.autor,'es') || a.titulo.localeCompare(b.titulo,'es'))
   }, [tab, term, category, order, selectedAuthor])
+  const recommendedCreatorResults = useMemo(() => {
+    if (tab !== 'recomendaciones' || category !== 'todas') return []
+    const query = normalizeLibraryText(term)
+    return recommendedCreators.filter(person =>
+      normalizeLibraryText([person.nombre, person.nombreVisible, person.rol, person.nota].join(' ')).includes(query)
+    ).sort((a,b)=>a.nombre.localeCompare(b.nombre,'es'))
+  }, [tab, term, category])
+  const resultCount = results.length + (tab === 'recomendaciones' ? recommendedCreatorResults.length : 0)
   const changeTab = (next) => {
     setTab(next)
     setTerm('')
@@ -174,7 +182,7 @@ export default function PhilosophiaLibrary() {
     <section className="library-stats" aria-label="Cifras del catálogo">
       <div><b>{books.length}</b><span>Obras registradas</span></div>
       <div><b>{authors.length}</b><span>Autores</span></div>
-      <div><b>{books.filter(x=>x.estado==='recomendada').length}</b>
+      <div><b>{(books.filter(x=>x.estado==='recomendada').length + recommendedCreators.length)}</b>
         <span>Recomendaciones</span></div>
     </section>
     <section className="library-cartography-launch" aria-label="Cartografía bibliográfica">
@@ -191,7 +199,7 @@ export default function PhilosophiaLibrary() {
       <div className="library-tabs" role="group" aria-label="Secciones">
         {[
           ['obras','Obras',books.length],
-          ['recomendaciones','Recomendaciones',books.filter(x=>x.estado==='recomendada').length],
+          ['recomendaciones','Recomendaciones',(books.filter(x=>x.estado==='recomendada').length + recommendedCreators.length)],
           ['autores','Autores',authors.length]
         ].map(([id,label,count])=><button type="button" key={id}
           aria-pressed={tab===id} onClick={()=>changeTab(id)}>
@@ -222,9 +230,30 @@ export default function PhilosophiaLibrary() {
           </label></>}
       </div>
       <div className="library-result-count" aria-live="polite">
-        {results.length} {tab==='autores'?'autores':'referencias'}
+        {resultCount} {tab==='autores'?'autores':'referencias'}
         <span>CATÁLOGO DOCUMENTAL · SIN TEXTO DE LAS OBRAS</span>
       </div>
+      {tab==='recomendaciones'&&recommendedCreatorResults.length>0&&<section className="library-recommended-creators" aria-label="Artistas recomendados">
+        <header className="library-recommended-creators-head">
+          <span>PERSONAE / ARS</span>
+          <div><h3>Artistas recomendados</h3><p>Personas creadoras registradas sin convertirlas en obras bibliográficas.</p></div>
+        </header>
+        <div className="library-authors">
+          {recommendedCreatorResults.map((person,i)=><article className="library-author library-recommended-creator" key={person.nombre}>
+            <span>ART {String(i+1).padStart(2,'0')}</span>
+            <strong aria-hidden="true">{person.nombreVisible[0]}</strong>
+            <h3>{person.nombreVisible}</h3>
+            <p>{person.rol}</p>
+            <small className="library-recommended-note">{person.nota}</small>
+            <a className="library-author-works" href={person.fuente} target="_blank" rel="noopener noreferrer">
+              Fuente institucional <span aria-hidden="true">↗</span>
+            </a>
+            <button type="button" className="library-related-work" onClick={()=>showAuthorRecord(person.nombre)}>
+              Abrir ficha de autora <span aria-hidden="true">↗</span>
+            </button>
+          </article>)}
+        </div>
+      </section>}
       {tab==='autores'
         ? <div className="library-authors">
           {results.map((author,i)=>{
@@ -322,7 +351,7 @@ export default function PhilosophiaLibrary() {
           </article>
           })}
         </div>}
-      {results.length===0&&<div className="library-empty">
+      {resultCount===0&&<div className="library-empty">
         <strong>Sin coincidencias.</strong><p>Pruebe otra palabra o cambie los filtros.</p>
       </div>}
     </section>
