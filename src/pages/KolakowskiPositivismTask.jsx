@@ -32,6 +32,65 @@ const INK = '#26201B'
 const BURGUNDY = '#7A2D1E'
 const GOLD = '#A98045'
 
+const STUDY_RULES = [
+  {
+    number: '01',
+    title: 'Fenomenalismo',
+    pages: 'pp. 15–17',
+    thesis: 'No convertir una esencia inaccesible en conocimiento.',
+    bullets: [
+      'El conocimiento debe permanecer ligado a experiencia posible.',
+      'No se elimina la investigación causal: se exige que la causa tenga consecuencias observables o controlables.',
+      'Una entidad que no cambia ninguna observación ni explicación queda fuera del saber legítimo.',
+    ],
+    example: 'Ejemplo del texto: un bacilo causal puede aceptarse porque explica síntomas y entra en investigación empírica.',
+  },
+  {
+    number: '02',
+    title: 'Nominalismo',
+    pages: 'pp. 17–20',
+    thesis: 'Un concepto general no prueba un universal existente por sí mismo.',
+    bullets: [
+      'Las abstracciones ordenan, simplifican y comunican la experiencia.',
+      'Modelos ideales y conceptos generales pueden ser científicamente indispensables.',
+      'Su utilidad no autoriza a reificarlos como entidades independientes.',
+    ],
+    example: 'Ejemplo: hablar del triángulo en general no obliga a postular “el Triángulo” como cosa separada.',
+  },
+  {
+    number: '03',
+    title: 'Hechos, valores y normas',
+    pages: 'pp. 20–21',
+    thesis: 'Del hecho no se deriva científicamente, por sí solo, el deber.',
+    bullets: [
+      'La experiencia describe hechos, relaciones y consecuencias.',
+      'Un juicio de valor o una norma no se verifica del mismo modo que un enunciado empírico.',
+      'La ciencia puede evaluar medios para un fin, pero no demostrar por ese mismo procedimiento el valor último del fin.',
+    ],
+    example: 'Ejemplo: la ciencia puede indicar cómo curar; que debamos querer curar no aparece como dato experimental.',
+  },
+  {
+    number: '04',
+    title: 'Unidad del método científico',
+    pages: 'pp. 21–22',
+    thesis: 'Las ciencias comparten una exigencia básica de control del conocimiento.',
+    bullets: [
+      'Los objetos y técnicas de las ciencias pueden ser distintos.',
+      'La orientación común exige observación, comunicación, contraste y control público.',
+      'Esto no implica que todas las ciencias deban reducirse sin más a una sola disciplina.',
+    ],
+    example: 'La física funciona históricamente como modelo fuerte, pero la reducción total exige supuestos adicionales.',
+  },
+]
+
+const STUDY_WARNINGS = [
+  ['No dice', 'que sólo exista lo que vemos directamente.', 'Sí permite causas no observadas si tienen consecuencias empíricas.'],
+  ['No dice', 'que las abstracciones sean inútiles.', 'Las considera instrumentos necesarios para ordenar y prever.'],
+  ['No dice', 'que no podamos tener valores.', 'Sostiene que no se prueban científicamente del mismo modo que los hechos.'],
+  ['No dice', 'que todo deba reducirse automáticamente a física.', 'Defiende una unidad metodológica básica, no una reducción ya demostrada.'],
+  ['No equivale', 'simplemente a materialismo.', 'También critica un materialismo que se presente como metafísica no comprobable.'],
+]
+
 function KolakowskiNode({ data, selected }) {
   return (
     <article
@@ -269,7 +328,7 @@ function KolakowskiCanvas() {
       <header className="kol-hero">
         <div className="kol-hero-copy">
           <span className="kol-overline">
-            ARCHIVUM ONTOLOGICUM · TAREA · 03 XI 2026
+            ARCHIVUM ONTOLOGICUM · LECTURA · 04 XI 2026
           </span>
           <p className="kol-folio-label">LESZEK KOŁAKOWSKI · CAPÍTULO I · PP. 13–23</p>
           <h1>
@@ -289,7 +348,7 @@ function KolakowskiCanvas() {
         </div>
 
         <aside className="kol-hero-plate" aria-label="Ficha documental">
-          <span>EXPEDIENTE / ONT-II / 2026-11-03</span>
+          <span>CORREO / ONT-II / 2026-10-28</span>
           <strong>POSITIVISMO</strong>
           <dl>
             <div><dt>FUENTE</dt><dd>Texto asignado</dd></div>
@@ -329,6 +388,99 @@ function KolakowskiCanvas() {
         <div className="kol-master-schema">
           <AnimatedConceptSchema schema={kolakowskiCoreSchema} />
         </div>
+      </section>
+
+      <section className="kol-study" aria-labelledby="kol-study-title">
+        <header className="kol-study-head">
+          <div>
+            <span>RESUMEN DE ESTUDIO · PP. 13–23</span>
+            <h2 id="kol-study-title">Cuatro reglas, punto por punto</h2>
+          </div>
+          <p>
+            Capa de estudio basada únicamente en el capítulo
+            «Características generales del positivismo». Todo lo que sigue es
+            paráfrasis sintética; no cita literal.
+          </p>
+        </header>
+
+        <div className="kol-study-grid">
+          {STUDY_RULES.map((rule) => (
+            <article className="kol-rule-card" key={rule.number}>
+              <header>
+                <span>REGLA {rule.number}</span>
+                <b>{rule.pages}</b>
+              </header>
+              <h3>{rule.title}</h3>
+              <p className="kol-rule-thesis">{rule.thesis}</p>
+              <ul>
+                {rule.bullets.map((bullet) => (
+                  <li key={bullet}>{bullet}</li>
+                ))}
+              </ul>
+              <p className="kol-rule-example">
+                <strong>EJEMPLO / MATIZ</strong>
+                {rule.example}
+              </p>
+            </article>
+          ))}
+        </div>
+
+        <div className="kol-system-strip" aria-label="Sistema completo del capítulo">
+          <div>
+            <span>RECORRIDO POSITIVISTA</span>
+            <strong>experiencia</strong>
+            <i>→</i>
+            <strong>fenómenos</strong>
+            <i>→</i>
+            <strong>conceptos</strong>
+            <i>→</i>
+            <strong>regularidades</strong>
+            <i>→</i>
+            <strong>conocimiento</strong>
+          </div>
+          <div className="is-rejected">
+            <span>SALTO QUE SE RECHAZA</span>
+            <strong>fenómeno</strong>
+            <i>→</i>
+            <strong>esencia metafísica incognoscible</strong>
+          </div>
+        </div>
+      </section>
+
+      <section className="kol-misconceptions" aria-labelledby="kol-not-title">
+        <div className="kol-misconceptions-intro">
+          <span>LECTURA DE PRECISIÓN</span>
+          <h2 id="kol-not-title">Lo que el positivismo de este capítulo no dice</h2>
+          <p>
+            Estas distinciones evitan convertir la lectura en una caricatura
+            empirista más fuerte que el propio texto.
+          </p>
+        </div>
+        <div className="kol-warning-list">
+          {STUDY_WARNINGS.map(([label, wrong, right]) => (
+            <article key={wrong}>
+              <span>{label}</span>
+              <p><s>{wrong}</s></p>
+              <strong>{right}</strong>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="kol-memory-strip">
+        <span>REPASO DE MEMORIA · 60 SEGUNDOS</span>
+        <h2>Positivismo = límites del conocimiento legítimo.</h2>
+        <div>
+          <p><b>1.</b> Fenomenalismo → no esencia incognoscible.</p>
+          <p><b>2.</b> Nominalismo → concepto general ≠ entidad universal.</p>
+          <p><b>3.</b> Hecho ≠ valor → el “es” no demuestra el “debe”.</p>
+          <p><b>4.</b> Unidad científica → control, contraste y experiencia.</p>
+        </div>
+        <blockquote>
+          En una frase: Kołakowski presenta el positivismo menos como una
+          teoría sobre qué existe que como una disciplina sobre qué tenemos
+          derecho a presentar como conocimiento.
+        </blockquote>
       </section>
 
       <section className="kol-guide">
@@ -584,13 +736,12 @@ function KolakowskiCanvas() {
       </section>
 
       <section className="kol-calendar-note">
-        <span>CALENDARIUM · NOTA DE FECHAS</span>
+        <span>CALENDARIUM · FECHA DOCENTE VERIFICADA</span>
         <p>
-          El correo docente solicita tener leída la introducción para el
-          <b> miércoles 4 de noviembre de 2026</b>. En PHILOSOPHIA se registra
-          el <b>martes 3 de noviembre</b> como fecha de entrega/objetivo
-          confirmada por el estudiante. Son dos datos distintos y se conservan
-          como tales.
+          Correo del profesor enviado el <b>miércoles 28 de octubre de 2026</b>:
+          la lectura debe estar preparada para el <b>miércoles 4 de noviembre
+          de 2026</b>. PHILOSOPHIA usa ahora esa misma fecha como objetivo del
+          calendario.
         </p>
       </section>
 
