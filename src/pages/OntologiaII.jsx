@@ -560,6 +560,26 @@ export default function OntologiaII() {
           <div className="ontology-program-enter"><span>Abrir folio</span><b>↗</b></div>
         </Link>
 
+        <Link
+          to="/semestre/5/ontologia-ii/clase/4-noviembre"
+          className="ontology-program-class-card"
+        >
+          <div className="ontology-program-date">
+            <strong>IV</strong>
+            <span>XI · MMXXVI</span>
+          </div>
+          <div className="ontology-program-class-copy">
+            <span>Clase del 4 de noviembre · Positivismo</span>
+            <h3>Ciencia, método y límites</h3>
+            <p>
+              Hume, Kant y Descartes como antecedentes; Comte y la concepción
+              científico-tecnológica del mundo; cuatro reglas de Kołakowski y
+              crítica contemporánea del poder técnico.
+            </p>
+          </div>
+          <div className="ontology-program-enter"><span>Abrir folio</span><b>↗</b></div>
+        </Link>
+
       </section>
 
       <section className="ontology-program-classes ontology-program-thresholds">
