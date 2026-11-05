@@ -85,10 +85,19 @@ jobs:
       - name: Lint Café Filosófico 05
         run: npx eslint src/pages/CafeRedesSocialesEvent.tsx tests/cafe-redes-sociales.test.mjs tests/cafe-redes-sociales-browser-smoke.mjs
 
+      - name: Validate Ontología II class 4 November
+        run: node --test tests/ontologia-class-04nov.test.mjs
+
+      - name: Lint Ontología II class 4 November
+        run: npx eslint src/pages/OntologiaClass04Nov.jsx tests/ontologia-class-04nov.test.mjs tests/ontologia-class04nov-browser-smoke.mjs
+
       - name: Build
         env:
           VITE_ONESIGNAL_APP_ID: ${{ vars.ONESIGNAL_APP_ID }}
         run: npm run build
+
+      - name: Validate Ontología II class 4 November (desktop, iPad, phone)
+        run: node tests/ontologia-class04nov-browser-smoke.mjs
 
       - name: Validate Café Filosófico 05 (desktop, iPad, phone)
         run: node tests/cafe-redes-sociales-browser-smoke.mjs

@@ -1,0 +1,134 @@
+.ont04nov-page .ont19-cover {
+  background:
+    linear-gradient(145deg, rgba(54, 31, 24, .97), rgba(83, 43, 32, .94)),
+    #4b2f25;
+}
+
+.ont04nov-page .ont19-cover em,
+.ont04nov-page .ont19-question strong,
+.ont04nov-page .ont19-atlas-head span,
+.ont04nov-page .ont19-chapter-marker small {
+  color: #d8b47c;
+}
+
+.ont04-cover .ont19-actions {
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.ont04-cover .ont19-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: .72rem 1rem;
+  border: 1px solid rgba(242, 224, 191, .46);
+  color: #f4ead8;
+  text-decoration: none;
+}
+
+.ont04-figure img {
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  padding: .7rem;
+  background: #efe4d1;
+}
+
+.ont04-source {
+  padding: clamp(1.4rem, 4vw, 3rem);
+  background: #eee2cd;
+  border-block: 1px solid #c7aa80;
+  color: #33231c;
+}
+
+.ont04-source > span,
+.ont04-memory > span {
+  display: block;
+  margin-bottom: .5rem;
+  color: #7a2d1e;
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.ont04-source h2,
+.ont04-memory h2 {
+  margin: 0 0 1rem;
+  font: 400 clamp(1.8rem, 3.8vw, 3rem) Georgia, serif;
+}
+
+.ont04-source p {
+  max-width: 82ch;
+  margin: 0;
+  line-height: 1.75;
+}
+
+.ont04-thesis {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.ont04-plain {
+  margin-block: 1.15rem;
+  padding: 1rem 1.1rem;
+  border-left: 4px solid #7a2d1e;
+  background: #eadcc8;
+}
+
+.ont04-plain summary {
+  cursor: pointer;
+  color: #6a3123;
+  font-weight: 800;
+}
+
+.ont04-plain p {
+  margin-bottom: 0;
+  line-height: 1.7;
+}
+
+.ont04-memory {
+  margin: 0;
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  background: #f6eddd;
+  color: #30221b;
+  border-top: 6px solid #986a40;
+}
+
+.ont04-memory ol {
+  display: grid;
+  gap: .9rem;
+  max-width: 88ch;
+  padding-left: 1.3rem;
+  line-height: 1.7;
+}
+
+.ont04nov-page .ont19-footer button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: #722b1d;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media (max-width: 980px) {
+  .ont04-thesis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .ont04-thesis {
+    grid-template-columns: 1fr;
+  }
+
+  .ont04-cover .ont19-actions {
+    align-items: stretch;
+  }
+
+  .ont04-cover .ont19-actions button,
+  .ont04-cover .ont19-actions a {
+    width: 100%;
+  }
+}
