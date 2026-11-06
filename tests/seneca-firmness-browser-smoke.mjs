@@ -76,6 +76,13 @@ const metrics = `(() => {
   return {
     count: rects.length,
     hits,
+    positions: Object.fromEntries(rects.map(item => [
+      item.id,
+      {
+        x: item.rect.left + item.rect.width / 2,
+        y: item.rect.top + item.rect.height / 2,
+      },
+    ])),
     selected: active?.getAttribute('data-id') || null,
     opacity: active ? Number(getComputedStyle(active).opacity) : 0,
     width: innerWidth,
@@ -145,12 +152,18 @@ try {
       () => evaluate("document.querySelector('.seneca2d-hero h1')?.textContent.includes('La firmeza')"),
       'hero ' + width,
     )
-    await until(async () => (await evaluate(metrics))?.count === 6, 'seis nodos ' + width)
+    await until(async () => (await evaluate(metrics))?.count === 14, 'catorce nodos ' + width)
 
     const state = await evaluate(metrics)
     assert.equal(state.selected, 'S01', JSON.stringify(state))
     assert.ok(state.opacity > 0.9, 'nodo seleccionado atenuado ' + width)
     assert.deepEqual(state.hits, [], 'nodos encimados ' + width)
+    assert.ok(state.positions.S03.x < state.positions.S04.x, 'virtud debe quedar a la izquierda de externos ' + width)
+    assert.ok(state.positions.S05.x < state.positions.S06.x, 'ramas de pérdida invertidas ' + width)
+    assert.ok(state.positions.S09.x < state.positions.S10.x, 'ultraje debe quedar a la izquierda de ofensa ' + width)
+    assert.ok(state.positions.S01.y < state.positions.S02.y, 'el eje no desciende S01→S02 ' + width)
+    assert.ok(state.positions.S07.y < state.positions.S08.y, 'el eje no desciende S07→S08 ' + width)
+    assert.ok(state.positions.S11.y < state.positions.S14.y, 'la conclusión no queda debajo de magnanimidad ' + width)
     assert.ok(state.scroll <= state.width + 3, 'overflow horizontal ' + width + ' ' + JSON.stringify(state))
     assert.ok(state.inspector && state.schema, 'inspector o esquema ausente ' + width)
     assert.equal(state.minimap, false, 'el sistema sencillo no debe montar minimapa')
@@ -171,7 +184,17 @@ try {
     'paso 2',
   )
   assert.ok((await evaluate(metrics)).opacity > 0.9, 'nodo guiado atenuado')
-  console.log('SENECA: folio + guía verificados')
+
+  await evaluate("document.querySelector('.seneca2d-canvas .react-flow__node[data-id=\"S03\"]').click()")
+  await until(
+    () => evaluate("!!document.querySelector('.seneca2d-source-text.is-paraphrase')"),
+    'paráfrasis separada de cita literal',
+  )
+  assert.equal(
+    await evaluate("!!document.querySelector('.seneca2d-source-text.is-paraphrase blockquote')"),
+    false,
+  )
+  console.log('SENECA: folio + guía + fidelidad de fuente verificados')
 } finally {
   try { ws?.close() } catch {}
   browser?.kill('SIGKILL')
