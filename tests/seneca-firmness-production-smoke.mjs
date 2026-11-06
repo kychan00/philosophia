@@ -64,6 +64,9 @@ const metrics=`(()=>{
     hero:document.querySelector('.seneca2d-hero h1')?.textContent||'',
     mapTitle:document.querySelector('.seneca2d-flow-caption strong')?.textContent||'',
     inspector:document.querySelector('.seneca2d-inspector h2')?.textContent||'',
+    flowRect:(()=>{const r=document.querySelector('.seneca2d-flow-panel')?.getBoundingClientRect();return r?{left:r.left,right:r.right,top:r.top,bottom:r.bottom}:null})(),
+    inspectorRect:(()=>{const r=document.querySelector('.seneca2d-inspector')?.getBoundingClientRect();return r?{left:r.left,right:r.right,top:r.top,bottom:r.bottom}:null})(),
+    inspectorPosition:getComputedStyle(document.querySelector('.seneca2d-inspector')).position,
     w:innerWidth,
     scroll:document.documentElement.scrollWidth,
     minimap:!!document.querySelector('.react-flow__minimap'),
@@ -120,6 +123,13 @@ try{
     assert.ok(state.hero.includes('La firmeza'),JSON.stringify(state))
     assert.ok(state.mapTitle.includes('gobierno de sí'),JSON.stringify(state))
     assert.equal(state.inspector,'Firmeza del sabio',JSON.stringify(state))
+    if(width>1180){
+      assert.ok(state.inspectorRect.left>=state.flowRect.right-2,'inspector derecho ausente en producción '+JSON.stringify(state))
+      assert.equal(state.inspectorPosition,'sticky','inspector de escritorio debe ser sticky')
+    }else{
+      assert.ok(state.inspectorRect.top>=state.flowRect.bottom-2,'inspector no se apila bajo el mapa '+JSON.stringify(state))
+      assert.equal(state.inspectorPosition,'static','inspector tablet/móvil debe ser estático')
+    }
     assert.deepEqual(state.hits,[],'nodos encimados en producción '+JSON.stringify(state))
     assert.ok(state.positions.S03.x<state.positions.S04.x,'virtud/externos invertidos '+JSON.stringify(state))
     assert.ok(state.positions.S09.x<state.positions.S10.x,'ultraje/ofensa invertidos '+JSON.stringify(state))
