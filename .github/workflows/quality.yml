@@ -92,7 +92,7 @@ jobs:
         run: npx eslint src/pages/OntologiaClass04Nov.jsx tests/ontologia-class-04nov.test.mjs tests/ontologia-class04nov-browser-smoke.mjs
 
       - name: Lint Séneca firmness 2D
-        run: npx eslint src/data/senecaFirmnessSystem.js src/pages/SenecaFirmnessSystem.jsx tests/seneca-firmness-2d.test.mjs tests/seneca-firmness-browser-smoke.mjs
+        run: npx eslint src/data/senecaFirmnessSystem.js src/pages/SenecaFirmnessSystem.jsx tests/seneca-firmness-2d.test.mjs tests/seneca-firmness-browser-smoke.mjs tests/seneca-firmness-production-smoke.mjs
 
       - name: Build
         env:
