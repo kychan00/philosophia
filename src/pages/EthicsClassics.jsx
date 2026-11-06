@@ -371,6 +371,16 @@ export default function EthicsClassics() {
           </div>
           <div className="ethicsx-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
         </Link>
+
+        <Link to="/semestre/5/etica/seneca/firmeza-del-sabio/sistema-2d" className="ethicsx-class-card">
+          <div className="ethicsx-class-card-date"><strong>2D</strong><span>SÉNECA · CONSTANTIA</span></div>
+          <div className="ethicsx-class-card-copy">
+            <span>Sistema de estudio · Sobre la firmeza del sabio</span>
+            <h3>Firmeza, ultraje y libertad interior</h3>
+            <p>Seis nodos para explicar virtud, daño, dolor, corrección y libertad sin separar el mapa de la fuente.</p>
+          </div>
+          <div className="ethicsx-class-card-enter"><span>Abrir sistema</span><b>↗</b></div>
+        </Link>
       </section>
 
       <section className="ethicsx-section ethicsx-note">
