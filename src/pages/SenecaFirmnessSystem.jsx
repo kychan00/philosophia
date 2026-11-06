@@ -37,7 +37,7 @@ function SenecaFirmnessNode({ data, selected }) {
         data.guidedNext ? 'is-guided-next' : '',
       ].filter(Boolean).join(' ')}
     >
-      <Handle type="target" position={Position.Left} className="seneca2d-handle" />
+      <Handle type="target" position={Position.Top} className="seneca2d-handle" />
       <div className="seneca2d-node-meta">
         <span>{data.phase}</span>
         <b>{data.code}</b>
@@ -62,7 +62,7 @@ function SenecaFirmnessNode({ data, selected }) {
           abrir folio ↗
         </button>
       </footer>
-      <Handle type="source" position={Position.Right} className="seneca2d-handle" />
+      <Handle type="source" position={Position.Bottom} className="seneca2d-handle" />
     </article>
   )
 }
@@ -90,7 +90,7 @@ function SenecaCanvas() {
     window.setTimeout(() => {
       const node = getNodes().find((item) => item.id === id)
       if (!node) return
-      const width = node.measured?.width || 300
+      const width = node.measured?.width || 320
       const height = node.measured?.height || 210
       setCenter(node.position.x + width / 2, node.position.y + height / 2, {
         zoom: 0.98,
@@ -106,7 +106,7 @@ function SenecaCanvas() {
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
-      fitView({ padding: 0.14, duration: 450, maxZoom: 0.92 })
+      fitView({ padding: 0.08, duration: 450, maxZoom: 1 })
     }, 80)
     return () => window.clearTimeout(timer)
   }, [fitView])
@@ -218,8 +218,8 @@ function SenecaCanvas() {
           <p>AD SERENUM · DE CONSTANTIA SAPIENTIS</p>
           <h1>La firmeza <em>del sabio</em></h1>
           <p className="seneca2d-lead">
-            Seis nodos para seguir una sola idea: el ataque exterior puede doler,
-            pero no decide por sí mismo el valor moral del sabio.
+            Un mapa axial para seguir la firmeza desde el gobierno de sí:
+            virtud y externos, ultraje y ofensa, magnanimidad, corrección y libertad.
           </p>
         </div>
         <aside>
@@ -250,8 +250,8 @@ function SenecaCanvas() {
       <section className="seneca2d-guide-launch">
         <div>
           <span>RECORRIDO ÚNICO</span>
-          <strong>virtud → distinción → dolor → corrección → libertad</strong>
-          <p>Seis pasos. Sin subrutas ni atlas paralelo.</p>
+          <strong>gobierno de sí → virtud / externos → ultraje / ofensa → libertad</strong>
+          <p>Catorce estaciones organizadas como un argumento vertical con dos bifurcaciones y dos reconvergencias.</p>
         </div>
         <button type="button" onClick={startGuide}>
           {guided ? 'Reiniciar guía' : 'Iniciar guía'}
@@ -284,7 +284,7 @@ function SenecaCanvas() {
       <section className="seneca2d-route">
         <span>RUTA</span>
         <button type="button" className="is-active" aria-pressed="true">
-          Única · firmeza del sabio
+          Axial · virtud / externos / ultraje / libertad
         </button>
       </section>
 
@@ -296,7 +296,7 @@ function SenecaCanvas() {
           <div className="seneca2d-flow-caption">
             <div>
               <span>MAPA ARGUMENTAL</span>
-              <strong>del ultraje intentado a la libertad interior</strong>
+              <strong>gobierno de sí → virtud / externos → ultraje / ofensa → libertad</strong>
             </div>
             <button type="button" onClick={toggleFullscreen}>
               {workspaceFullscreen ? 'Salir ⛶' : 'Pantalla completa ⛶'}
@@ -312,10 +312,10 @@ function SenecaCanvas() {
               nodesDraggable={false}
               nodesConnectable={false}
               elementsSelectable
-              minZoom={0.45}
-              maxZoom={1.35}
+              minZoom={0.22}
+              maxZoom={1.4}
               fitView
-              fitViewOptions={{ padding: 0.14, maxZoom: 0.92 }}
+              fitViewOptions={{ padding: 0.08, maxZoom: 1 }}
               proOptions={{ hideAttribution: true }}
             >
               <Background gap={36} size={1} color="rgba(26,54,93,.12)" />
@@ -333,10 +333,24 @@ function SenecaCanvas() {
               </header>
               <h2>{selected.data.title}</h2>
 
-              <section className="seneca2d-source-text">
-                <span>TEXTO DE SÉNECA</span>
-                <blockquote>“{selected.data.sourceText}”</blockquote>
-                <small>{selected.data.sourceRef}</small>
+              <section
+                className={
+                  selected.data.sourceKind === 'CITA LITERAL COTEJADA'
+                    ? 'seneca2d-source-text'
+                    : 'seneca2d-source-text is-paraphrase'
+                }
+              >
+                <span>
+                  {selected.data.sourceKind === 'CITA LITERAL COTEJADA'
+                    ? 'TEXTO DE SÉNECA'
+                    : 'RECONSTRUCCIÓN DE ESTUDIO'}
+                </span>
+                {selected.data.sourceKind === 'CITA LITERAL COTEJADA' ? (
+                  <blockquote>“{selected.data.sourceText}”</blockquote>
+                ) : (
+                  <p>{selected.data.sourceText}</p>
+                )}
+                <small>{selected.data.sourceRef} · {selected.data.sourceKind}</small>
               </section>
 
               <section>
@@ -390,10 +404,24 @@ function SenecaCanvas() {
                 <button type="button" aria-label="Cerrar folio" onClick={() => setFolioId(null)}>×</button>
               </header>
               <div className="seneca2d-folio-grid">
-                <section className="seneca2d-folio-source">
-                  <span>TEXTO ORIGINAL COTEJADO</span>
-                  <blockquote>“{folio.data.sourceText}”</blockquote>
-                  <small>{folio.data.sourceRef}</small>
+                <section
+                  className={
+                    folio.data.sourceKind === 'CITA LITERAL COTEJADA'
+                      ? 'seneca2d-folio-source'
+                      : 'seneca2d-folio-source is-paraphrase'
+                  }
+                >
+                  <span>
+                    {folio.data.sourceKind === 'CITA LITERAL COTEJADA'
+                      ? 'TEXTO ORIGINAL COTEJADO'
+                      : 'RECONSTRUCCIÓN DE ESTUDIO'}
+                  </span>
+                  {folio.data.sourceKind === 'CITA LITERAL COTEJADA' ? (
+                    <blockquote>“{folio.data.sourceText}”</blockquote>
+                  ) : (
+                    <p>{folio.data.sourceText}</p>
+                  )}
+                  <small>{folio.data.sourceRef} · {folio.data.sourceKind}</small>
                 </section>
                 <section>
                   <span>EXPLICACIÓN</span>
