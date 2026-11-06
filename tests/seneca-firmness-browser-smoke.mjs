@@ -89,6 +89,15 @@ const metrics = `(() => {
     scroll: document.documentElement.scrollWidth,
     inspector: !!document.querySelector('.seneca2d-inspector h2'),
     schema: !!document.querySelector('.seneca2d-inspector .animated-concept-schema'),
+    flowRect: (() => {
+      const rect = document.querySelector('.seneca2d-flow-panel')?.getBoundingClientRect()
+      return rect ? { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom } : null
+    })(),
+    inspectorRect: (() => {
+      const rect = document.querySelector('.seneca2d-inspector')?.getBoundingClientRect()
+      return rect ? { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom } : null
+    })(),
+    inspectorPosition: getComputedStyle(document.querySelector('.seneca2d-inspector')).position,
     minimap: !!document.querySelector('.react-flow__minimap'),
   }
 })()`
@@ -166,6 +175,19 @@ try {
     assert.ok(state.positions.S11.y < state.positions.S14.y, 'la conclusión no queda debajo de magnanimidad ' + width)
     assert.ok(state.scroll <= state.width + 3, 'overflow horizontal ' + width + ' ' + JSON.stringify(state))
     assert.ok(state.inspector && state.schema, 'inspector o esquema ausente ' + width)
+    if (width > 1180) {
+      assert.ok(
+        state.inspectorRect.left >= state.flowRect.right - 2,
+        'el inspector debe quedar a la derecha del mapa en escritorio ' + width + ' ' + JSON.stringify(state),
+      )
+      assert.equal(state.inspectorPosition, 'sticky', 'inspector derecho debe ser sticky en escritorio')
+    } else {
+      assert.ok(
+        state.inspectorRect.top >= state.flowRect.bottom - 2,
+        'el inspector debe apilarse debajo del mapa en tablet/móvil ' + width + ' ' + JSON.stringify(state),
+      )
+      assert.equal(state.inspectorPosition, 'static', 'inspector apilado debe dejar de ser sticky')
+    }
     assert.equal(state.minimap, false, 'el sistema sencillo no debe montar minimapa')
     console.log('SENECA OK', width + 'x' + height, JSON.stringify(state))
   }
