@@ -91,6 +91,9 @@ jobs:
       - name: Lint Ontología II class 4 November
         run: npx eslint src/pages/OntologiaClass04Nov.jsx tests/ontologia-class-04nov.test.mjs tests/ontologia-class04nov-browser-smoke.mjs
 
+      - name: Lint Séneca firmness 2D
+        run: npx eslint src/data/senecaFirmnessSystem.js src/pages/SenecaFirmnessSystem.jsx tests/seneca-firmness-2d.test.mjs tests/seneca-firmness-browser-smoke.mjs
+
       - name: Build
         env:
           VITE_ONESIGNAL_APP_ID: ${{ vars.ONESIGNAL_APP_ID }}
@@ -104,6 +107,9 @@ jobs:
 
       - name: Validate Ethics class 29 October (desktop, iPad, phone)
         run: node tests/ethics-class-29oct-browser-smoke.mjs
+
+      - name: Validate Séneca firmness 2D (desktop, iPad, phone)
+        run: node tests/seneca-firmness-browser-smoke.mjs
 
       - name: Validate dialectics presentation isolation (33 slides · desktop and phone)
         run: node tests/dialectica-presentacion-browser-smoke.mjs
