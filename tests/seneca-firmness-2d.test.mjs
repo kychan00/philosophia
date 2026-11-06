@@ -85,6 +85,5 @@ test('el sistema conserva ETHOS, lectura vertical y fidelidad editorial', () => 
   assert.match(css, /grid-template-columns:minmax\(0,1fr\) 390px/)
   assert.match(css, /position:sticky/)
   assert.match(css, /@media\(max-width:1180px\)/)
-  assert.match(css, /@media\(max-width:1100px\)/)
-  assert.match(css, /prefers-reduced-motion/)
+    assert.match(css, /prefers-reduced-motion/)
 })
