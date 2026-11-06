@@ -59,6 +59,11 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v5
 
+      - name: Verify public Séneca axial route
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: node tests/seneca-firmness-production-smoke.mjs "${PAGE_URL}#/semestre/5/etica/seneca/firmeza-del-sabio/sistema-2d"
+
       - name: Verify public Kołakowski route
         env:
           PAGE_URL: ${{ steps.deployment.outputs.page_url }}
