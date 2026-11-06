@@ -80,7 +80,7 @@ try{
     const state=await evaluate("(()=>({href:location.href,nodes:document.querySelectorAll('.kol-canvas .react-flow__node').length,hero:document.querySelector('.kol-hero h1')?.textContent||'',calendar:document.querySelector('.kol-calendar-note')?.textContent||'',w:innerWidth,scroll:document.documentElement.scrollWidth}))()")
     assert.equal(state.nodes,8,JSON.stringify(state))
     assert.ok(state.hero.includes('Cuatro reglas'),JSON.stringify(state))
-    assert.ok(state.calendar.includes('martes 3 de noviembre'),JSON.stringify(state))
+    assert.ok(state.calendar.includes('4 de noviembre de 2026'),JSON.stringify(state))
     assert.ok(state.scroll<=state.w+3,'desbordamiento horizontal en producción '+JSON.stringify(state))
     console.log('PRODUCTION KOLAKOWSKI OK',width+'x'+height,JSON.stringify(state))
   }
