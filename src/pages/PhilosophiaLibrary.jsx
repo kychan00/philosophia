@@ -5,6 +5,8 @@ import { authorsForWork, isWorkByAuthor, matchesLibrarySearch, normalizeLibraryT
 import { libraryTimelines } from '../data/libraryReferenceTimelines'
 import { libraryAcademicConnections } from '../data/libraryAcademicConnections'
 import { formatApaRecord } from '../data/libraryApa.js'
+import { editorialUdgBooks } from '../data/editorialUdgCatalog.generated'
+import EditorialUdgCatalog from '../components/EditorialUdgCatalog'
 import './PhilosophiaLibrary.css'
 
 const labels = {
@@ -107,6 +109,7 @@ export default function PhilosophiaLibrary() {
   const activity = (kind,id) => [...(libraryTimelines[kind][id]||[]),...(libraryAcademicConnections[kind][id]?.events||[])]
   const toggleTimeline = (key) => setExpandedCard(current => current===key ? null : key)
   const results = useMemo(() => {
+    if(tab === 'editorial') return []
     if(tab === 'autores')
       return authors.filter(a => normalizeLibraryText(a).includes(normalizeLibraryText(term)))
         .sort((a,b)=>a.localeCompare(b,'es'))
@@ -200,7 +203,8 @@ export default function PhilosophiaLibrary() {
         {[
           ['obras','Obras',books.length],
           ['recomendaciones','Recomendaciones',(books.filter(x=>x.estado==='recomendada').length + recommendedCreators.length)],
-          ['autores','Autores',authors.length]
+          ['autores','Autores',authors.length],
+          ['editorial','Editorial UdeG',editorialUdgBooks.length]
         ].map(([id,label,count])=><button type="button" key={id}
           aria-pressed={tab===id} onClick={()=>changeTab(id)}>
             {label} <span>{count}</span>
@@ -212,7 +216,7 @@ export default function PhilosophiaLibrary() {
           Mostrar todas las obras <span aria-hidden="true">×</span>
         </button>
       </div>}
-      <div className="library-controls">
+      {tab!=='editorial'&&<div className="library-controls">
         <label><span>BUSCAR</span>
           <input type="search" value={term} onChange={e=>setTerm(e.target.value)}
             placeholder={tab==='autores'?'Nombre de autor…':'Título, autor o tema…'}/>
@@ -228,11 +232,11 @@ export default function PhilosophiaLibrary() {
               <option value="titulo">Por título</option>
             </select>
           </label></>}
-      </div>
-      <div className="library-result-count" aria-live="polite">
+      </div>}
+      {tab!=='editorial'&&<div className="library-result-count" aria-live="polite">
         {resultCount} {tab==='autores'?'autores':'referencias'}
         <span>CATÁLOGO DOCUMENTAL · SIN TEXTO DE LAS OBRAS</span>
-      </div>
+      </div>}
       {tab==='recomendaciones'&&recommendedCreatorResults.length>0&&<section className="library-recommended-creators" aria-label="Artistas recomendados">
         <header className="library-recommended-creators-head">
           <span>PERSONAE / ARS</span>
@@ -254,7 +258,9 @@ export default function PhilosophiaLibrary() {
           </article>)}
         </div>
       </section>}
-      {tab==='autores'
+      {tab==='editorial'
+        ? <EditorialUdgCatalog/>
+        : tab==='autores'
         ? <div className="library-authors">
           {results.map((author,i)=>{
             const workCount = worksByAuthor(books, author).length
