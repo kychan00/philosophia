@@ -12,19 +12,19 @@ import {
   nietzscheSystem2DStats,
 } from '../src/data/nietzscheTruthSystem2D.js'
 
-test('Nietzsche 2D canónico: 77 nodos, 86 relaciones, 148 fragmentos y guía completa', () => {
+test('Nietzsche 2D canónico: 104 nodos, 119 relaciones, 226 fragmentos y guía completa', () => {
   assert.deepEqual(nietzscheSystem2DStats, {
-    nodeCount: 77,
-    edgeCount: 86,
-    fragmentCount: 148,
+    nodeCount: 104,
+    edgeCount: 119,
+    fragmentCount: 226,
     firstPage: 21,
-    lastPage: 33,
+    lastPage: 37,
   })
-  assert.equal(nietzscheSystem2DNodes.length, 77)
-  assert.equal(nietzscheSystem2DEdges.length, 86)
-  assert.equal(nietzscheSystem2DOrder.length, 77)
-  assert.equal(nietzscheSystem2DGuidedRoute.length, 77)
-  assert.equal(new Set(nietzscheSystem2DOrder).size, 77)
+  assert.equal(nietzscheSystem2DNodes.length, 104)
+  assert.equal(nietzscheSystem2DEdges.length, 119)
+  assert.equal(nietzscheSystem2DOrder.length, 104)
+  assert.equal(nietzscheSystem2DGuidedRoute.length, 104)
+  assert.equal(new Set(nietzscheSystem2DOrder).size, 104)
   assert.deepEqual(nietzscheSystem2DGuidedRoute.map((step) => step.id), [...nietzscheSystem2DOrder])
 })
 
@@ -32,7 +32,7 @@ test('Nietzsche 2D canónico: cada nodo conserva fuente literal, explicación, A
   for (const node of nietzscheSystem2DNodes) {
     assert.ok(node.data.code)
     assert.ok(node.data.title)
-    assert.ok(node.data.page >= 21 && node.data.page <= 33)
+    assert.ok(node.data.page >= 21 && node.data.page <= 37)
     assert.ok(node.data.excerpt)
     assert.notEqual(node.data.excerpt, 'cita literal pendiente de cotejo')
     assert.ok(node.data.sourceFragments.length >= 1)
@@ -50,7 +50,7 @@ test('Nietzsche 2D canónico: cada nodo conserva fuente literal, explicación, A
   }
 })
 
-test('Nietzsche 2D canónico: las rutas por folio cubren exactamente los 77 nodos', () => {
+test('Nietzsche 2D canónico: las rutas por folio cubren exactamente los 104 nodos', () => {
   const ids = new Set()
   for (const route of nietzscheSystem2DRoutes.filter((item) => item.id !== 'all')) {
     const order = nietzscheSystem2DRouteOrder(route.id)
@@ -60,10 +60,10 @@ test('Nietzsche 2D canónico: las rutas por folio cubren exactamente los 77 nodo
       ids.add(id)
     }
   }
-  assert.equal(ids.size, 77)
+  assert.equal(ids.size, 104)
   assert.deepEqual(
     nietzscheSystem2DRoutes.map((item) => item.id),
-    ['all','p21','p22','p23','p24','p25','p26','p27','p28','p29','p30','p31','p32','p33'],
+    ['all','p21','p22','p23','p24','p25','p26','p27','p28','p29','p30','p31','p32','p33','p34','p35','p36','p37'],
   )
 })
 
@@ -82,7 +82,7 @@ test('Nietzsche 2D canónico: dependencias y continuidades provienen de relacion
   assert.ok(nietzscheSystem2DEdges.every((edge) => edge.reconstruction === true))
   assert.match(nietzscheSystem2DSource.boundary, /reconstrucción de estudio/i)
   assert.match(nietzscheSystem2DSource.boundary, /aparato editorial/i)
-  assert.equal(nietzscheSystem2DSource.range, 'pp. 21–33')
+  assert.equal(nietzscheSystem2DSource.range, 'pp. 21–37')
 })
 
 test('Nietzsche 2D canónico: distribución documental por página', () => {
@@ -99,8 +99,12 @@ test('Nietzsche 2D canónico: distribución documental por página', () => {
   assert.equal(count(30), 5)
   assert.equal(count(31), 5)
   assert.equal(count(32), 4)
-  assert.equal(count(33), 5)
-  assert.equal(nietzscheSystem2DOrder.at(-1), 'S33-5')
+  assert.equal(count(33), 7)
+  assert.equal(count(34), 7)
+  assert.equal(count(35), 6)
+  assert.equal(count(36), 6)
+  assert.equal(count(37), 6)
+  assert.equal(nietzscheSystem2DOrder.at(-1), 'S37-6')
 })
 
 test('Nietzsche 2D canónico: el tramo nuevo conserva el movimiento gnoseológico-ontológico', () => {
@@ -112,4 +116,8 @@ test('Nietzsche 2D canónico: el tramo nuevo conserva el movimiento gnoseológic
   assert.match(nietzscheSystem2DNodeById('S32-4').data.title, /ley natural/i)
   assert.match(nietzscheSystem2DNodeById('S33-1').data.title, /aportamos/i)
   assert.match(nietzscheSystem2DNodeById('S33-5').data.title, /formas/i)
+  assert.match(nietzscheSystem2DNodeById('S34-5').data.title, /Mito y arte/i)
+  assert.match(nietzscheSystem2DNodeById('S35-5').data.title, /fingir sin causar daño/i)
+  assert.match(nietzscheSystem2DNodeById('S36-4').data.title, /intuiciones/i)
+  assert.match(nietzscheSystem2DNodeById('S37-6').data.title, /máscara de fingimiento/i)
 })

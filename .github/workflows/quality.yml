@@ -95,7 +95,7 @@ jobs:
         run: npx eslint src/data/senecaFirmnessSystem.js src/pages/SenecaFirmnessSystem.jsx tests/seneca-firmness-2d.test.mjs tests/seneca-firmness-browser-smoke.mjs tests/seneca-firmness-production-smoke.mjs
 
       - name: Lint Nietzsche canonical 2D
-        run: npx eslint src/data/nietzscheTruthSystem24to33.js src/data/nietzscheTruthSystem2D.js src/components/nietzsche/NietzscheTruthNode.jsx src/components/nietzsche/NietzscheTruthSystem2D.jsx tests/nietzsche-truth-system-24-33.test.mjs tests/nietzsche-system2d-canonical.test.mjs tests/nietzsche-system2d-browser-smoke.mjs tests/nietzsche-production-smoke.mjs
+        run: npx eslint src/data/nietzscheTruthSystem24to33.js src/data/nietzscheTruthSystem33to37.js src/data/nietzscheTruthSystem2D.js src/components/nietzsche/NietzscheTruthNode.jsx src/components/nietzsche/NietzscheTruthSystem2D.jsx tests/nietzsche-truth-system-24-33.test.mjs tests/nietzsche-truth-system-33-37.test.mjs tests/nietzsche-system2d-canonical.test.mjs tests/nietzsche-system2d-browser-smoke.mjs tests/nietzsche-production-smoke.mjs
 
       - name: Build
         env:

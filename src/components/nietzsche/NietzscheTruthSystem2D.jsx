@@ -380,11 +380,11 @@ function NietzscheTruthSystemCanvas() {
   const selectedRoute = nietzscheSystem2DRoutes.find((item) => item.id === route)
 
   return (
-    <section id="lectura-21-33" className="nt2d-shell" aria-labelledby="nt2d-title">
+    <section id="lectura-21-37" className="nt2d-shell" aria-labelledby="nt2d-title">
       <header className="nt2d-head">
         <div>
-          <span>SISTEMA 2D CANÓNICO · TECNOS 2012 · PP. 21–33</span>
-          <h2 id="nt2d-title">De la invención del conocimiento a las formas que ordenan la naturaleza</h2>
+          <span>SISTEMA 2D CANÓNICO · TECNOS 2012 · PP. 21–37</span>
+          <h2 id="nt2d-title">De la invención del conocimiento al arte, el mito y las formas de vivir</h2>
           <p>
             React Flow, rutas por folio, guía completa {nietzscheSystem2DStats.nodeCount}/{nietzscheSystem2DStats.nodeCount},
             inspector documental, folios, esquemas por nodo y pedagogía por sección.
@@ -689,11 +689,11 @@ function NietzscheTruthSystemCanvas() {
 
       <section className="nt2d-continuity">
         <span>CONTINUIDAD DOCUMENTAL</span>
-        <strong>Este sistema se detiene en la p. 33.</strong>
+        <strong>Este sistema se detiene en la p. 37, cierre del ensayo trabajado.</strong>
         <p>
-          El tramo documentado llega desde la invención del conocimiento hasta la tesis
-          de que espacio, tiempo, sucesión y número forman parte de lo que aportamos al
-          conocer. No se incorporan pp. 34 y siguientes hasta disponer del siguiente tramo.
+          El tramo documentado recorre la crítica del conocimiento hasta la Parte 2:
+          ciencia, persistencia del impulso metafórico, mito, arte, intuición y la oposición
+          final entre hombre racional y hombre intuitivo. No se anticipan materiales posteriores.
         </p>
       </section>
 

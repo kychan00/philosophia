@@ -8,6 +8,11 @@ import {
   nietzscheCloseReadingEdges24to33,
   nietzscheCloseReadingNodes24to33,
 } from './nietzscheTruthSystem24to33.js'
+import {
+  nietzscheCloseReading33to37,
+  nietzscheCloseReadingEdges33to37,
+  nietzscheCloseReadingNodes33to37,
+} from './nietzscheTruthSystem33to37.js'
 
 export const NIETZSCHE_SYSTEM2D_GEOMETRY = Object.freeze({
   width: 310,
@@ -17,29 +22,32 @@ export const NIETZSCHE_SYSTEM2D_GEOMETRY = Object.freeze({
 const closeReadingFragments = Object.freeze([
   ...nietzscheCloseReading21to24,
   ...nietzscheCloseReading24to33,
+  ...nietzscheCloseReading33to37,
 ])
 
 const closeReadingNodes = Object.freeze([
   ...nietzscheCloseReadingNodes21to24,
   ...nietzscheCloseReadingNodes24to33,
+  ...nietzscheCloseReadingNodes33to37,
 ])
 
 const closeReadingEdges = Object.freeze([
   ...nietzscheCloseReadingSchema21to24.edges,
   ...nietzscheCloseReadingEdges24to33,
+  ...nietzscheCloseReadingEdges33to37,
 ])
 
 export const nietzscheSystem2DSource = Object.freeze({
   work: 'Friedrich Nietzsche · Sobre verdad y mentira en sentido extramoral',
   edition: 'Tecnos · 2.ª ed. · 2012 · edición preparada por Manuel Garrido',
-  range: 'pp. 21–33',
+  range: 'pp. 21–37',
   apa: 'Nietzsche, F. (2012). Sobre verdad y mentira en sentido extramoral y otros fragmentos de filosofía del conocimiento. Tecnos. (2.ª ed.; M. Garrido, ed. prep.).',
   boundary:
-    'Los fragmentos entrecomillados proceden de las pp. 21–33 del ejemplar Tecnos 2012 aportado. Explicaciones, preguntas, rutas y relaciones se identifican como reconstrucción de estudio de PHILOSOPHIA. Los epígrafes entre corchetes y las notas al pie pertenecen al aparato editorial de esta edición.',
+    'Los fragmentos entrecomillados proceden de las pp. 21–37 del ejemplar Tecnos 2012 aportado. Explicaciones, preguntas, rutas y relaciones se identifican como reconstrucción de estudio de PHILOSOPHIA. Los epígrafes entre corchetes y las notas al pie pertenecen al aparato editorial de esta edición.',
 })
 
 export const nietzscheSystem2DRoutes = Object.freeze([
-  { id: 'all', label: 'Sistema completo', short: 'pp. 21–33 · recorrido documental completo' },
+  { id: 'all', label: 'Sistema completo', short: 'pp. 21–37 · recorrido documental completo' },
   { id: 'p21', label: 'P. 21 · Invención', short: 'Invención y contingencia del conocer', guidingQuestion: '¿Qué ocurre cuando el conocimiento deja de pensarse como rasgo eterno del mundo?' },
   { id: 'p22', label: 'P. 22 · Descentramiento', short: 'Humanidad, mosca y soberbia filosófica', guidingQuestion: '¿Cómo desmonta Nietzsche la centralidad que el ser humano atribuye a su intelecto?' },
   { id: 'p23', label: 'P. 23 · Conservación y fingimiento', short: 'Engaño, máscara, vanidad y límite perceptivo', guidingQuestion: '¿Qué función cumple el intelecto si su operación primaria está ligada a conservar la vida?' },
@@ -52,7 +60,11 @@ export const nietzscheSystem2DRoutes = Object.freeze([
   { id: 'p30', label: 'P. 30 · Antropomorfismo', short: 'Genio constructor, descubrimiento y medida humana', guidingQuestion: '¿Qué descubre la razón cuando busca verdad dentro de un mundo que ella misma conceptualizó?' },
   { id: 'p31', label: 'P. 31 · Sujeto y objeto', short: 'Olvido del creador, perspectivas y traducción estética', guidingQuestion: '¿Puede existir una percepción absolutamente correcta entre sujeto y objeto?' },
   { id: 'p32', label: 'P. 32 · Ley natural', short: 'Repetición, percepción y regularidad de la naturaleza', guidingQuestion: '¿La repetición de una metáfora demuestra su necesidad o sólo su estabilidad?' },
-  { id: 'p33', label: 'P. 33 · Formas aportadas', short: 'Espacio, tiempo, número y regularidad', guidingQuestion: '¿Qué parte de la regularidad que admiramos procede de las formas con las que conocemos?' },
+  { id: 'p33', label: 'P. 33 · Formas y ciencia', short: 'Espacio, tiempo, número y comienzo de la Parte 2', guidingQuestion: '¿Cómo pasa Nietzsche de las formas que aportamos al trabajo científico sobre el edificio conceptual?' },
+  { id: 'p34', label: 'P. 34 · Metáfora, mito y arte', short: 'Ciencia, impulso metafórico y mundo artístico', guidingQuestion: '¿Por qué el orden científico no consigue extinguir el impulso de construir metáforas?' },
+  { id: 'p35', label: 'P. 35 · Hechizo y fingimiento', short: 'Sueño, mito, engaño feliz y Saturnales del intelecto', guidingQuestion: '¿Cómo cambia el valor del engaño cuando deja de perjudicar y se vuelve experiencia artística?' },
+  { id: 'p36', label: 'P. 36 · Intelecto liberado', short: 'Destrucción conceptual, intuición y dos tipos humanos', guidingQuestion: '¿Qué ocurre cuando el intelecto deja de servir a la necesidad y se guía por intuiciones?' },
+  { id: 'p37', label: 'P. 37 · Racional e intuitivo', short: 'Arte sobre la vida, sufrimiento y máscara estoica', guidingQuestion: '¿Qué gana y qué pierde cada forma de dominar la vida?' },
 ])
 
 export const nietzscheSystem2DOrder = Object.freeze(
@@ -93,8 +105,13 @@ const OLD_POSITION = Object.freeze({
   'S24-7': { x: 3010, y: 1020 },
 })
 
+const post24Nodes = Object.freeze([
+  ...nietzscheCloseReadingNodes24to33,
+  ...nietzscheCloseReadingNodes33to37,
+])
+
 const pageNodes = new Map()
-nietzscheCloseReadingNodes24to33.forEach((node) => {
+post24Nodes.forEach((node) => {
   const page = Number(node.id.slice(1, 3))
   if (!pageNodes.has(page)) pageNodes.set(page, [])
   pageNodes.get(page).push(node.id)
@@ -102,7 +119,7 @@ nietzscheCloseReadingNodes24to33.forEach((node) => {
 
 const NEW_POSITION = Object.freeze(
   Object.fromEntries(
-    nietzscheCloseReadingNodes24to33.map((node) => {
+    post24Nodes.map((node) => {
       const page = Number(node.id.slice(1, 3))
       const index = pageNodes.get(page).indexOf(node.id)
       const x = 3440 + (page - 24) * 430
@@ -129,7 +146,11 @@ const PAGE_META = Object.freeze({
   30: { route: 'p30', phase: 'P. 30 · antropomorfismo', tone: 'moss', concepts: ['antropomorfismo', 'concepto', 'medida humana', 'descubrimiento'] },
   31: { route: 'p31', phase: 'P. 31 · sujeto y objeto', tone: 'violet', concepts: ['sujeto', 'objeto', 'perspectiva', 'traducción'] },
   32: { route: 'p32', phase: 'P. 32 · ley natural', tone: 'blue', concepts: ['ley natural', 'percepción', 'repetición', 'relación'] },
-  33: { route: 'p33', phase: 'P. 33 · formas aportadas', tone: 'plum', concepts: ['espacio', 'tiempo', 'número', 'regularidad'] },
+  33: { route: 'p33', phase: 'P. 33 · formas aportadas y ciencia', tone: 'plum', concepts: ['espacio', 'tiempo', 'número', 'ciencia'] },
+  34: { route: 'p34', phase: 'P. 34 · metáfora, mito y arte', tone: 'rust', concepts: ['ciencia', 'metáfora', 'mito', 'arte'] },
+  35: { route: 'p35', phase: 'P. 35 · hechizo y fingimiento', tone: 'gold', concepts: ['sueño', 'mito', 'engaño', 'fingimiento'] },
+  36: { route: 'p36', phase: 'P. 36 · intelecto liberado', tone: 'violet', concepts: ['intuición', 'arte', 'intelecto', 'concepto'] },
+  37: { route: 'p37', phase: 'P. 37 · racional e intuitivo', tone: 'sage', concepts: ['hombre racional', 'hombre intuitivo', 'estoicismo', 'vida'] },
 })
 
 const SIMPLE = Object.freeze({
@@ -211,6 +232,33 @@ const SIMPLE = Object.freeze({
   'S33-3': 'Nietzsche insiste en que esas formas proceden de nuestra propia actividad cognoscitiva.',
   'S33-4': 'Si sólo podemos pensar bajo ciertas formas, encontrarlas en toda experiencia no demuestra que existan fuera de esas formas.',
   'S33-5': 'El edificio de los conceptos reproduce un orden que ya estaba organizado por nuestras formas de percepción.',
+  'S33-6': 'La ciencia no parte de cero: trabaja sobre el mundo conceptual que el lenguaje ya había construido.',
+  'S33-7': 'Como la abeja con sus celdas, la ciencia construye y llena continuamente su arquitectura conceptual.',
+  'S34-1': 'La ciencia amplía un archivo de conceptos cuya estabilidad ha sustituido la viveza de las intuiciones.',
+  'S34-2': 'Ordenar científicamente el mundo empírico sigue siendo ordenarlo mediante formas humanas.',
+  'S34-3': 'El investigador se protege dentro del orden científico frente a otras formas de verdad que lo amenazan.',
+  'S34-4': 'El impulso a crear metáforas no desaparece cuando nacen los conceptos; sólo queda parcialmente contenido.',
+  'S34-5': 'Cuando la ciencia rigidiza el mundo, la metáfora encuentra salida en mito y, sobre todo, en arte.',
+  'S34-6': 'El arte altera las clasificaciones y vuelve extraño, móvil y nuevo el mundo cotidiano.',
+  'S34-7': 'Si el arte rompe la red conceptual con la que reconocemos la vigilia, podemos experimentar el mundo como sueño.',
+  'S35-1': 'La regularidad ayuda a decidir qué llamamos realidad: un sueño repetido podría adquirir el peso de la vigilia.',
+  'S35-2': 'Una cultura mítica habita un mundo donde el milagro y la transformación forman parte de la experiencia ordinaria.',
+  'S35-3': 'La naturaleza puede aparecer como una representación cambiante en la que los dioses juegan con las formas.',
+  'S35-4': 'El ser humano no sólo teme ser engañado: también disfruta la ficción cuando no lo perjudica.',
+  'S35-5': 'En el arte, el mismo intelecto que fingía para sobrevivir puede fingir libremente y sin daño.',
+  'S35-6': 'Liberado de la necesidad, el intelecto crea metáforas y mueve las fronteras de las abstracciones.',
+  'S36-1': 'El intelecto artístico ya no actúa como sirviente de la supervivencia: se comporta como creador soberano.',
+  'S36-2': 'La estructura conceptual que antes era refugio se convierte en material de juego.',
+  'S36-3': 'Crear significa desmontar y volver a combinar clasificaciones que parecían fijas.',
+  'S36-4': 'La intuición sustituye al concepto como guía inmediata del intelecto liberado.',
+  'S36-5': 'Algunas intuiciones exceden el lenguaje corriente y sólo encuentran salida en silencios o metáforas nuevas.',
+  'S36-6': 'Racional e intuitivo quieren afrontar la vida, pero uno confía en cálculo y regularidad y el otro en apariencia y creación.',
+  'S37-1': 'Cuando domina la intuición, el arte puede organizar la cultura entera y no sólo obras aisladas.',
+  'S37-2': 'La forma artística puede hacer que incluso la necesidad cotidiana aparezca como belleza y juego.',
+  'S37-3': 'La razón conceptual protege contra el dolor, pero no produce necesariamente una felicidad positiva.',
+  'S37-4': 'La intuición ofrece claridad y liberación, pero también expone a sufrimientos más intensos y repetidos.',
+  'S37-5': 'El estoico representa el dominio racional de sí mediante experiencia y conceptos.',
+  'S37-6': 'El cierre es irónico: el hombre que combate el engaño también necesita una máscara para atravesar la desgracia.',
 })
 
 const byMapTo = new Map()
@@ -365,7 +413,7 @@ export const nietzscheSystem2DStats = Object.freeze({
   edgeCount: nietzscheSystem2DEdges.length,
   fragmentCount: closeReadingFragments.length,
   firstPage: 21,
-  lastPage: 33,
+  lastPage: 37,
 })
 
 export function nietzscheSystem2DNodeById(id) {
