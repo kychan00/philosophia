@@ -59,6 +59,9 @@ function NietzscheTruthSystemCanvas() {
   const [folioId, setFolioId] = useState(null)
   const [history, setHistory] = useState(['S21-1'])
   const [workspaceFullscreen, setWorkspaceFullscreen] = useState(false)
+  const [overlayHost, setOverlayHost] = useState(() =>
+    typeof document !== 'undefined' ? document.body : null,
+  )
 
   const workspaceRef = useRef(null)
   const lastFocusRef = useRef(null)
@@ -301,7 +304,16 @@ function NietzscheTruthSystemCanvas() {
         document.fullscreenElement ||
         document.webkitFullscreenElement ||
         null
-      setWorkspaceFullscreen(active === workspaceRef.current)
+      const workspace = workspaceRef.current
+      const isWorkspaceFullscreen = active === workspace
+      setWorkspaceFullscreen(isWorkspaceFullscreen)
+      setOverlayHost(
+        isWorkspaceFullscreen && workspace
+          ? workspace
+          : typeof document !== 'undefined'
+            ? document.body
+            : null,
+      )
       window.setTimeout(() => fitView({ padding: 0.08, duration: 380 }), 100)
     }
     document.addEventListener('fullscreenchange', sync)
@@ -334,20 +346,29 @@ function NietzscheTruthSystemCanvas() {
         return
       }
 
-      setWorkspaceFullscreen((value) => !value)
+      const next = !workspaceFullscreen
+      setWorkspaceFullscreen(next)
+      setOverlayHost(
+        next
+          ? element
+          : typeof document !== 'undefined'
+            ? document.body
+            : null,
+      )
     } catch {
-      setWorkspaceFullscreen((value) => !value)
+      const next = !workspaceFullscreen
+      setWorkspaceFullscreen(next)
+      setOverlayHost(
+        next
+          ? element
+          : typeof document !== 'undefined'
+            ? document.body
+            : null,
+      )
     }
 
     window.setTimeout(() => fitView({ padding: 0.08, duration: 380 }), 100)
-  }, [fitView])
-
-  const overlayHost =
-    workspaceFullscreen && workspaceRef.current
-      ? workspaceRef.current
-      : typeof document !== 'undefined'
-        ? document.body
-        : null
+  }, [fitView, workspaceFullscreen])
 
   const selectedDeps = selected?.data.dependsOn.map(nietzscheSystem2DNodeById).filter(Boolean) || []
   const selectedNext = selected?.data.produces.map(nietzscheSystem2DNodeById).filter(Boolean) || []
