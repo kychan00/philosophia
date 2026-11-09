@@ -501,5 +501,22 @@ export const libraryApaMetadata = {
     ],
     "authorshipUncertain": true,
     "studyPart": "Autoría tradicional del corpus; no lectura directa de esta obra"
+  },
+  "Nietzsche - Más allá del bien y del mal": {
+    "kind": "book",
+    "title": "Más allá del bien y del mal",
+    "year": 2005,
+    "originalYear": 1886,
+    "publisher": "Alianza Editorial",
+    "translators": ["Sánchez Pascual, Andrés"],
+    "studyPart": "Ontología II, 09-11-2026: prólogo y Primera Parte («De los prejuicios de los filósofos»), lectura asignada como alternativa; no acredita lectura completa."
+  },
+  "Nietzsche - Sobre verdad y mentira en sentido extramoral": {
+    "kind": "book",
+    "title": "Sobre verdad y mentira en sentido extramoral",
+    "year": 1996,
+    "publisher": "Editorial Tecnos",
+    "translators": ["Valdés, Luis M."],
+    "studyPart": "Ontología II, 09-11-2026: ensayo de Nietzsche, pp. impresas 15–38 del volumen aportado; texto compuesto en 1873; no acredita lectura completada."
   }
 }

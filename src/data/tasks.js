@@ -884,6 +884,28 @@ export const tasks = [
     studyRoute: '/tareas/ontologia-ii/kolakowski-positivismo',
   },
 
+
+  {
+    id: 'ontologia-2026-11-09-nietzsche-verdad-metafisica',
+    subject: 'Ontología II',
+    subjectCode: 'FI190',
+    assignedDate: '2026-11-05',
+    dueDate: '2026-11-09',
+    title: 'Nietzsche · problemas gnoseológicos y ontológicos',
+    type: 'Lectura de texto primario',
+    weight: null,
+    priority: 'Alta',
+    description:
+      'Correo del profesor José Alejandro Fuerte del 5 de noviembre de 2026: la siguiente sesión revisará problemas gnoseológicos y ontológicos en Friedrich Nietzsche. La consigna permite elegir entre el prólogo y la Primera Parte de Más allá del bien y del mal, o Sobre verdad y mentira en sentido extramoral.',
+    readingScope:
+      'Friedrich Nietzsche · Más allá del bien y del mal: prólogo + Primera Parte («De los prejuicios de los filósofos») · o Sobre verdad y mentira en sentido extramoral',
+    readingPages:
+      'Edición Alianza: prólogo y Primera Parte; edición Tecnos: ensayo de Nietzsche, pp. impresas 15–38',
+    sourceClass:
+      'Correo del profesor · 5 de noviembre de 2026 · lectura para la siguiente sesión, lunes 9 de noviembre',
+    studyRoute: '/tareas/ontologia-ii/nietzsche-verdad-metafisica',
+  },
+
   {
     id: 'ontologia-2026-10-30-examen-diez-preguntas',
     subject: 'Ontología II',

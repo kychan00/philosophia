@@ -47,7 +47,7 @@ test('autorías y referencias Glock registradas sin inventar obras originales',(
     assert.equal(events[0].url,null)
     assert.match(events[0].type,/no (leída|leído|acreditada)/)
   }
-  assert.equal(books.length,79)
+  assert.equal(books.length,81)
   assert.equal(authors.length,99)
   assert.deepEqual(Object.keys(libraryApaMetadata).sort(),books.map(b=>b.id).sort())
 })
