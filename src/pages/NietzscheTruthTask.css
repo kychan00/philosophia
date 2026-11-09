@@ -11,3 +11,38 @@
 .nietzsche-bib-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px!important}
 .nietzsche-bib-links a{display:inline-flex;align-items:center;min-height:40px;padding:9px 11px;border:1px solid #19171455;text-decoration:none;font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
 .nietzsche-bib-links a:hover{text-decoration:underline;text-underline-offset:4px}
+
+.nietzsche-close-reading{padding:72px clamp(20px,6vw,88px);border-bottom:1px solid #19171429;background:#dcd4c6}
+.nietzsche-source-boundary{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start;max-width:980px;margin:-8px 0 30px;padding:16px 18px;border-left:4px solid var(--nt-red);background:#f4ede0;font-size:12px;line-height:1.65}
+.nietzsche-source-boundary strong{font-size:10px;letter-spacing:.09em;text-transform:uppercase}
+.nietzsche-close-reading-map{max-width:1500px;margin:0 auto}
+.nietzsche-close-reading-scroll{overflow-x:auto;overflow-y:hidden;padding:18px;border:1px solid #19171435;background:#f8f3e8;overscroll-behavior-inline:contain}
+.nietzsche-close-reading-scroll .animated-concept-schema{min-width:1240px}
+.nietzsche-close-reading-scroll .animated-concept-schema__svg{display:block}
+.nietzsche-close-reading-mobile-note{margin:10px 0 0;color:var(--nt-muted);font-size:10px;line-height:1.5}
+.nietzsche-close-reading-thesis{display:grid;grid-template-columns:180px minmax(0,1fr);gap:24px;max-width:1180px;margin:28px auto 40px;padding:22px 24px;border-top:5px solid var(--nt-red);background:#1d1b18;color:#f6f0e3}
+.nietzsche-close-reading-thesis span{font-size:9px;font-weight:900;letter-spacing:.13em;color:#d3aa70}
+.nietzsche-close-reading-thesis p{margin:0;font:400 20px/1.5 Georgia,serif}
+.nietzsche-folio-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.nietzsche-folio-card{min-width:0;background:#faf5ea;border:1px solid #19171435}
+.nietzsche-folio-card>header{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:end;padding:16px 18px;border-bottom:1px solid #1917142e;background:#eee4d3}
+.nietzsche-folio-card>header span{font-size:9px;font-weight:900;letter-spacing:.12em;color:var(--nt-red)}
+.nietzsche-folio-card>header strong{font:400 42px/.9 Georgia,serif}
+.nietzsche-folio-card>header small{color:var(--nt-muted);font-size:10px}
+.nietzsche-folio-card ol{margin:0;padding:0;list-style:none}
+.nietzsche-folio-card li{padding:18px;border-bottom:1px solid #1917141c}
+.nietzsche-folio-card li:last-child{border-bottom:0}
+.nietzsche-fragment-id{display:flex;justify-content:space-between;gap:10px;margin-bottom:10px;color:var(--nt-muted);font-size:9px;font-weight:800;letter-spacing:.06em}
+.nietzsche-fragment-id code{font:inherit;color:var(--nt-red)}
+.nietzsche-folio-card q{display:block;font:400 18px/1.4 Georgia,serif}
+.nietzsche-folio-card q:before{content:"“"}.nietzsche-folio-card q:after{content:"”"}
+.nietzsche-folio-card li p{margin:9px 0 0;color:#4f493f;font-size:12px;line-height:1.6}
+.nietzsche-apparatus{margin-top:44px;padding-top:34px;border-top:1px solid #19171435}
+.nietzsche-section-head.is-compact{margin-bottom:20px}.nietzsche-section-head.is-compact h3{margin:0;font:400 32px/1.05 Georgia,serif}
+.nietzsche-apparatus-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.nietzsche-apparatus-grid article{padding:20px;border:1px solid #19171435;background:#f3ecdf}
+.nietzsche-apparatus-grid article>span{font-size:9px;font-weight:900;letter-spacing:.1em;color:var(--nt-red)}
+.nietzsche-apparatus-grid h4{margin:12px 0 8px;font:400 22px/1.1 Georgia,serif}
+.nietzsche-apparatus-grid p{margin:0;color:#514b42;font-size:12px;line-height:1.65}
+@media(max-width:900px){.nietzsche-folio-grid{grid-template-columns:1fr}.nietzsche-close-reading-thesis{grid-template-columns:1fr}.nietzsche-apparatus-grid{grid-template-columns:1fr}}
+@media(max-width:740px){.nietzsche-source-boundary{grid-template-columns:1fr}.nietzsche-close-reading{padding-inline:16px}.nietzsche-close-reading-scroll{margin-inline:-4px;padding:12px}.nietzsche-close-reading-scroll .animated-concept-schema{min-width:1120px}.nietzsche-folio-card q{font-size:17px}}
