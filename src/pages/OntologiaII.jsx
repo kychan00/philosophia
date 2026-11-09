@@ -580,6 +580,26 @@ export default function OntologiaII() {
           <div className="ontology-program-enter"><span>Abrir folio</span><b>↗</b></div>
         </Link>
 
+        <Link
+          to="/semestre/5/ontologia-ii/clase/9-noviembre"
+          className="ontology-program-class-card"
+        >
+          <div className="ontology-program-date">
+            <strong>IX</strong>
+            <span>XI · MMXXVI</span>
+          </div>
+          <div className="ontology-program-class-copy">
+            <span>Clase del 9 de noviembre · Schopenhauer y Nietzsche</span>
+            <h3>Voluntad, representación y ruptura</h3>
+            <p>
+              Kant y la cosa en sí; la objeción de Jacobi; Schopenhauer como mundo
+              de representación y voluntad; voluntad de vida, influencia sobre Nietzsche,
+              El origen de la tragedia y el gesto anti-cartesiano de Más allá del bien y del mal.
+            </p>
+          </div>
+          <div className="ontology-program-enter"><span>Abrir folio</span><b>↗</b></div>
+        </Link>
+
       </section>
 
       <section className="ontology-program-classes ontology-program-thresholds">

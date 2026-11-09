@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Kant, Schopenhauer y Nietzsche</title>
+  <desc id="desc">Diagrama pedagógico original que muestra el paso desde fenómeno y cosa en sí en Kant hacia representación y voluntad en Schopenhauer, y desde allí a Nietzsche.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7b382f"/>
+    </marker>
+    <style>
+      .bg{fill:#f5eee3}.paper{fill:#fffaf2;stroke:#cbbba7;stroke-width:2}.accent{fill:#7b382f}.ink{fill:#211d18}.muted{fill:#6d6358}
+      .line{stroke:#7b382f;stroke-width:4;fill:none;marker-end:url(#arrow)}.soft{stroke:#9d8465;stroke-width:3;fill:none;marker-end:url(#arrow)}
+      .k{font:700 20px Georgia,serif;letter-spacing:2px}.h{font:700 34px Georgia,serif}.p{font:20px Georgia,serif}.s{font:17px Arial,sans-serif}
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="760"/>
+  <text x="70" y="72" class="k accent">ONTOLOGÍA II · 9 NOVIEMBRE 2026</text>
+  <text x="70" y="118" class="h ink">Del límite kantiano a la entrada de Nietzsche</text>
+
+  <rect class="paper" x="70" y="180" width="300" height="190" rx="22"/>
+  <text x="100" y="225" class="k accent">KANT</text>
+  <text x="100" y="270" class="h ink">Fenómeno</text>
+  <text x="100" y="304" class="s muted">espacio · tiempo · categorías</text>
+  <text x="100" y="340" class="p ink">Cosa en sí</text>
+
+  <rect class="paper" x="450" y="180" width="300" height="190" rx="22"/>
+  <text x="480" y="225" class="k accent">SCHOPENHAUER</text>
+  <text x="480" y="270" class="h ink">Representación</text>
+  <text x="480" y="307" class="p ink">+ voluntad</text>
+  <text x="480" y="340" class="s muted">fondo de la vida según la clase</text>
+
+  <rect class="paper" x="830" y="180" width="300" height="190" rx="22"/>
+  <text x="860" y="225" class="k accent">NIETZSCHE</text>
+  <text x="860" y="270" class="h ink">Entrada</text>
+  <text x="860" y="307" class="p ink">estética · crítica</text>
+  <text x="860" y="340" class="s muted">influencia schopenhaueriana</text>
+
+  <path class="line" d="M370 275 C405 275 415 275 450 275"/>
+  <path class="line" d="M750 275 C785 275 795 275 830 275"/>
+
+  <rect class="paper" x="150" y="470" width="260" height="150" rx="20"/>
+  <text x="180" y="515" class="k accent">JACOBI</text>
+  <text x="180" y="553" class="p ink">presiona el problema</text>
+  <text x="180" y="583" class="s muted">de la cosa en sí</text>
+
+  <rect class="paper" x="470" y="470" width="260" height="150" rx="20"/>
+  <text x="500" y="515" class="k accent">VOLUNTAD</text>
+  <text x="500" y="553" class="p ink">voluntad de vida</text>
+  <text x="500" y="583" class="s muted">fondo último en el apunte</text>
+
+  <rect class="paper" x="790" y="470" width="300" height="150" rx="20"/>
+  <text x="820" y="515" class="k accent">OBRAS DESTACADAS</text>
+  <text x="820" y="553" class="p ink">Origen de la tragedia</text>
+  <text x="820" y="583" class="s muted">Más allá del bien y del mal</text>
+
+  <path class="soft" d="M280 470 C280 420 220 410 220 370"/>
+  <path class="soft" d="M600 370 C600 410 600 430 600 470"/>
+  <path class="soft" d="M980 370 C980 410 940 430 940 470"/>
+
+  <text x="70" y="700" class="s muted">Ilustración original PHILOSOPHIA · sin materiales externos · reconstrucción pedagógica del apunte de clase</text>
+</svg>

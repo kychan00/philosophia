@@ -91,6 +91,12 @@ jobs:
       - name: Lint Ontología II class 4 November
         run: npx eslint src/pages/OntologiaClass04Nov.jsx tests/ontologia-class-04nov.test.mjs tests/ontologia-class04nov-browser-smoke.mjs
 
+      - name: Validate Ontología II class 9 November
+        run: node --test tests/ontologia-class-09nov.test.mjs
+
+      - name: Lint Ontología II class 9 November
+        run: npx eslint src/pages/OntologiaClass09Nov.jsx tests/ontologia-class-09nov.test.mjs tests/ontologia-class09nov-browser-smoke.mjs
+
       - name: Lint Séneca firmness 2D
         run: npx eslint src/data/senecaFirmnessSystem.js src/pages/SenecaFirmnessSystem.jsx tests/seneca-firmness-2d.test.mjs tests/seneca-firmness-browser-smoke.mjs tests/seneca-firmness-production-smoke.mjs
 
@@ -104,6 +110,9 @@ jobs:
 
       - name: Validate Ontología II class 4 November (desktop, iPad, phone)
         run: node tests/ontologia-class04nov-browser-smoke.mjs
+
+      - name: Validate Ontología II class 9 November (desktop, iPad, phone)
+        run: node tests/ontologia-class09nov-browser-smoke.mjs
 
       - name: Validate Café Filosófico 05 (desktop, iPad, phone)
         run: node tests/cafe-redes-sociales-browser-smoke.mjs
