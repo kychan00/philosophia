@@ -75,7 +75,7 @@ try{
     assert.equal(state.stations,8,JSON.stringify(state))
     assert.ok(state.schema,JSON.stringify(state))
     assert.ok(state.bib,JSON.stringify(state))
-    assert.ok(state.policy.includes('no publica copias'),JSON.stringify(state))
+    assert.ok(/no publica copias|no se aloja ninguna copia/i.test(state.policy),JSON.stringify(state))
     assert.ok(state.href.includes('#/tareas/ontologia-ii/nietzsche-verdad-metafisica'),JSON.stringify(state))
     assert.ok(state.scroll<=state.w+3,'desbordamiento horizontal en producción '+JSON.stringify(state))
     console.log('PRODUCTION NIETZSCHE OK',width+'x'+height,JSON.stringify(state))
