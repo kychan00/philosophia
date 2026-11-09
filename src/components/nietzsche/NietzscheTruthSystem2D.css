@@ -63,7 +63,7 @@
 .nt2d-routes button.is-active{outline:2px solid var(--ph2d-gold);outline-offset:1px;background:var(--ph2d-paper)}
 .nt2d-routes span{display:block;font-weight:800;font-size:12px}.nt2d-routes small{display:block;margin-top:3px;color:var(--ph2d-muted);line-height:1.35}
 
-.nt2d-shell>.ph2d-pedagogy{margin:14px clamp(20px,5vw,72px) 20px}
+.nt2d-shell>.ph2d-pedagogy{width:auto;max-width:none;min-width:0;margin:14px clamp(20px,5vw,72px) 20px}
 
 .nt2d-workspace{
   position:relative;display:grid;grid-template-columns:minmax(0,1fr) 410px;min-height:860px;
