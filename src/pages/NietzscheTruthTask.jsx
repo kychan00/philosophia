@@ -1,16 +1,12 @@
 import { Link } from 'react-router'
 import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema'
+import NietzscheTruthSystem2D from '../components/nietzsche/NietzscheTruthSystem2D'
 import {
-  nietzscheCloseReading21to24,
-  nietzscheCloseReadingSchema21to24,
-  nietzscheEditorialApparatus21to24,
   nietzscheStudySchema,
   nietzscheStudySource,
   nietzscheStudyStations,
 } from '../data/nietzscheTruthSystem'
 import './NietzscheTruthTask.css'
-
-const CLOSE_READING_PAGES = [21, 22, 23, 24]
 
 const QUESTIONS = [
   '¿Qué quiere decir Nietzsche al problematizar el valor de la verdad, y no sólo las condiciones para alcanzarla?',
@@ -78,88 +74,7 @@ export default function NietzscheTruthTask() {
       </section>
 
 
-      <section id="lectura-21-24" className="nietzsche-close-reading" aria-labelledby="close-reading-title">
-        <div className="nietzsche-section-head">
-          <span>05 · LECTURA CERCANA · TECNOS 2012 · PP. 21–24</span>
-          <h2 id="close-reading-title">Del “conocimiento inventado” a la pregunta por el impulso hacia la verdad</h2>
-          <p>
-            Este segundo sistema no resume el ensayo completo. Reconstruye sólo las páginas
-            21–24 del ejemplar Tecnos 2012 que estamos trabajando, conserva cada folio y
-            enlaza 41 fragmentos breves con 28 nodos argumentales.
-          </p>
-        </div>
-
-        <div className="nietzsche-source-boundary">
-          <strong>Frontera de fuente.</strong>
-          <span>
-            Los textos entre corchetes que funcionan como epígrafes en esta edición son
-            añadidos editoriales para orientar al lector. El mapa atribuye a Nietzsche
-            únicamente el cuerpo del ensayo; el aparato crítico aparece por separado.
-          </span>
-        </div>
-
-        <div className="nietzsche-close-reading-map" aria-label="Sistema 2D de las páginas 21 a 24">
-          <div className="nietzsche-close-reading-scroll">
-            <AnimatedConceptSchema schema={nietzscheCloseReadingSchema21to24} />
-          </div>
-          <p className="nietzsche-close-reading-mobile-note">
-            En pantallas estrechas, el sistema conserva su escala y se recorre horizontalmente dentro de este marco.
-          </p>
-        </div>
-
-        <div className="nietzsche-close-reading-thesis">
-          <span>RECORRIDO ARGUMENTAL</span>
-          <p>
-            invención contingente del conocimiento → descentramiento del intelecto →
-            conservación mediante fingimiento → ilusión y superficie →
-            desconocimiento de sí → <strong>¿de dónde procede el impulso hacia la verdad?</strong>
-          </p>
-        </div>
-
-        <div className="nietzsche-folio-grid">
-          {CLOSE_READING_PAGES.map((pageNumber) => {
-            const passages = nietzscheCloseReading21to24.filter((item) => item.page === pageNumber)
-
-            return (
-              <article key={pageNumber} className="nietzsche-folio-card">
-                <header>
-                  <span>FOLIO</span>
-                  <strong>{pageNumber}</strong>
-                  <small>{passages.length} fragmentos</small>
-                </header>
-                <ol>
-                  {passages.map((passage) => (
-                    <li key={passage.id}>
-                      <div className="nietzsche-fragment-id">
-                        <code>{passage.id}</code>
-                        <span>→ {passage.mapTo}</span>
-                      </div>
-                      <q>{passage.phrase}</q>
-                      <p>{passage.reading}</p>
-                    </li>
-                  ))}
-                </ol>
-              </article>
-            )
-          })}
-        </div>
-
-        <div className="nietzsche-apparatus">
-          <div className="nietzsche-section-head is-compact">
-            <span>APARATO EDITORIAL · NO ATRIBUIR A NIETZSCHE</span>
-            <h3>Qué añade esta edición</h3>
-          </div>
-          <div className="nietzsche-apparatus-grid">
-            {nietzscheEditorialApparatus21to24.map((item) => (
-              <article key={item.id}>
-                <span>{item.page}</span>
-                <h4>{item.title}</h4>
-                <p>{item.note}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <NietzscheTruthSystem2D />
 
       <section className="nietzsche-stations">
         <div className="nietzsche-section-head"><span>06 · OCHO ESTACIONES</span><h2>Qué debe poder explicar mañana</h2></div>
