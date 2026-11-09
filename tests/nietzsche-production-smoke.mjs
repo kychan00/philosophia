@@ -28,15 +28,12 @@ async function evaluate(expression){
   return response.result?.value
 }
 async function until(fn,label,checks=240){
-  for(let i=0;i<checks;i++){try{if(await fn())return}catch{}await sleep(250)}
+  for(let i=0;i<checks;i+=1){try{if(await fn())return}catch{}await sleep(250)}
   throw Error('No llegó: '+label)
 }
 
 try{
-  await until(async()=>{
-    const response=await fetch(base,{cache:'no-store'})
-    return response.ok
-  },'GitHub Pages base')
+  await until(async()=>{const response=await fetch(base,{cache:'no-store'});return response.ok},'GitHub Pages base')
 
   browser=spawn(chrome,['--headless=new','--no-sandbox','--disable-setuid-sandbox',
     '--disable-dev-shm-usage','--disable-gpu','--no-first-run','--disable-extensions',
@@ -67,23 +64,52 @@ try{
 
   for(const [width,height] of [[1440,900],[390,844]]){
     await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:2,mobile:width<=768})
+    await send('Page.navigate',{url:'about:blank'})
+    await until(()=>evaluate("location.href==='about:blank'"),'reset '+width)
     await send('Page.navigate',{url:target})
+
     await until(()=>evaluate("document.querySelector('.nietzsche-hero h1')?.textContent.includes('Nietzsche')"),'hero Nietzsche '+width)
-    await until(()=>evaluate("document.querySelectorAll('.nietzsche-station-grid article').length===8"),'ocho estaciones '+width)
-    await until(()=>evaluate("Boolean(document.querySelector('.nietzsche-schema-wrap svg'))"),'esquema 2D '+width)
-    await until(()=>evaluate("document.querySelectorAll('.nietzsche-close-reading-scroll [data-concept-node]').length===28"),'28 nodos lectura cercana '+width)
-    await until(()=>evaluate("document.querySelectorAll('.nietzsche-folio-card li').length===41"),'41 fragmentos pp. 21–24 '+width)
-    const state=await evaluate("(()=>({href:location.href,hero:document.querySelector('.nietzsche-hero h1')?.textContent||'',stations:document.querySelectorAll('.nietzsche-station-grid article').length,schema:Boolean(document.querySelector('.nietzsche-schema-wrap svg')),closeNodes:document.querySelectorAll('.nietzsche-close-reading-scroll [data-concept-node]').length,closeFragments:document.querySelectorAll('.nietzsche-folio-card li').length,closeSection:Boolean(document.querySelector('#lectura-21-24')),bib:Boolean(document.querySelector('.nietzsche-bibliography')),policy:document.querySelector('.nietzsche-library-policy')?.textContent||'',w:innerWidth,scroll:document.documentElement.scrollWidth}))()")
-    assert.equal(state.stations,8,JSON.stringify(state))
-    assert.ok(state.schema,JSON.stringify(state))
-    assert.equal(state.closeNodes,28,JSON.stringify(state))
-    assert.equal(state.closeFragments,41,JSON.stringify(state))
-    assert.ok(state.closeSection,JSON.stringify(state))
+    await until(()=>evaluate("!!document.querySelector('.nt2d-shell')"),'sistema canónico '+width)
+    await until(()=>evaluate("document.querySelector('.nt2d-inspector h3')?.textContent.length>0"),'inspector '+width)
+
+    const state=await evaluate(`(()=>({
+      href:location.href,
+      hero:document.querySelector('.nietzsche-hero h1')?.textContent||'',
+      system:!!document.querySelector('.nt2d-shell'),
+      nodes:document.querySelectorAll('.nt2d-canvas .react-flow__node').length,
+      selected:document.querySelector('.nt2d-canvas .react-flow__node.selected')?.getAttribute('data-id')||null,
+      inspector:!!document.querySelector('.nt2d-inspector h3'),
+      schema:!!document.querySelector('.nt2d-inspector .animated-concept-schema'),
+      pedagogy:!!document.querySelector('.nt2d-shell .ph2d-pedagogy'),
+      routes:document.querySelectorAll('.nt2d-routes button').length,
+      guide:!!document.querySelector('.nt2d-guide-launch button'),
+      counts:document.querySelector('.nt2d-head dl')?.textContent||'',
+      bib:!!document.querySelector('.nietzsche-bibliography'),
+      policy:document.querySelector('.nietzsche-library-policy')?.textContent||'',
+      w:innerWidth,
+      scroll:document.documentElement.scrollWidth
+    }))()`)
+
+    assert.ok(state.system,JSON.stringify(state))
+    assert.equal(state.nodes,width<=850?3:28,JSON.stringify(state))
+    assert.equal(state.selected,'S21-1',JSON.stringify(state))
+    assert.ok(state.inspector&&state.schema&&state.pedagogy,JSON.stringify(state))
+    assert.equal(state.routes,5,JSON.stringify(state))
+    assert.ok(state.guide,JSON.stringify(state))
+    assert.match(state.counts,/28/)
+    assert.match(state.counts,/31/)
+    assert.match(state.counts,/41/)
     assert.ok(state.bib,JSON.stringify(state))
     assert.ok(/no publica copias|no se aloja ninguna copia/i.test(state.policy),JSON.stringify(state))
     assert.ok(state.href.includes('#/tareas/ontologia-ii/nietzsche-verdad-metafisica'),JSON.stringify(state))
     assert.ok(state.scroll<=state.w+3,'desbordamiento horizontal en producción '+JSON.stringify(state))
-    console.log('PRODUCTION NIETZSCHE OK',width+'x'+height,JSON.stringify(state))
+
+    await evaluate("document.querySelector('.nt2d-open-folio').click()")
+    await until(()=>evaluate("!!document.querySelector('.nt2d-folio[role=dialog]')"),'folio producción '+width)
+    assert.ok(await evaluate("!!document.querySelector('.nt2d-folio .animated-concept-schema')"))
+    await evaluate("document.querySelector('.nt2d-folio>header button').click()")
+
+    console.log('PRODUCTION NIETZSCHE 2D OK',width+'x'+height,JSON.stringify(state))
   }
 }finally{
   try{ws?.close()}catch{}
