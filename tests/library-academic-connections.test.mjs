@@ -26,7 +26,7 @@ test('todos los autores se relacionan con obras, tareas, clases o su ficha de es
 })
 
 test('las notas de tarea conservan su naturaleza, sin inventar lecturas ni fechas',()=>{
- assert.equal(docs.tasksReviewed,61)
+ assert.equal(docs.tasksReviewed,62)
  const all=Object.values(docs.works).flatMap(x=>x.events)
  assert.ok(all.some(x=>x.area==='Cosmología' && x.title.includes('El universo como problema')))
  assert.ok(all.some(x=>x.area==='Cosmología' && x.title.includes('Materia, universo, vida')))

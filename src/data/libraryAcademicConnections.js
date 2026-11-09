@@ -2,7 +2,7 @@
 export const libraryAcademicConnections = {
   "version": 2,
   "source": "Relaciones documentadas por títulos de tareas y fichas de obra. Una fecha de nota no prueba la realización de la lectura.",
-  "tasksReviewed": 61,
+  "tasksReviewed": 62,
   "works": {
     "Platón - Timeo": {"events":[{"kind":"procedencia","date":"2026-02-13","dateLabel":"Mención en nota de Cosmología","area":"Cosmología","title":"Platón · Timeo y astronomía matemática","type":"referencia en clase; no lectura acreditada","note":"Edición del curso no identificada.","url":null}]},
     "Ptolomeo - Almagesto": {"events":[{"kind":"procedencia","date":"2026-04-17","dateLabel":"Mención en nota de Cosmología","area":"Cosmología","title":"Ptolomeo · Almagesto","type":"referencia en clase; no lectura acreditada","note":"Edición del curso no identificada.","url":null}]},
@@ -1096,6 +1096,30 @@ export const libraryAcademicConnections = {
     },
     "Luciano - El banquete o los lapitas": {
       "events": []
+    },
+    "Nietzsche - Más allá del bien y del mal": {
+      "events": [{
+        "kind": "tarea",
+        "date": "2026-11-05",
+        "dateLabel": "Correo del profesor del 5 de noviembre; lectura para la sesión del 9 de noviembre",
+        "area": "Ontología II",
+        "title": "Nietzsche · problemas gnoseológicos y ontológicos · prólogo y Primera Parte",
+        "type": "lectura asignada como una de dos alternativas; no acredita lectura completada",
+        "note": "La consigna permite elegir esta lectura o Sobre verdad y mentira en sentido extramoral. La secuencia recomendada en PHILOSOPHIA es una reconstrucción pedagógica y no parte de la consigna docente.",
+        "url": "/tareas/ontologia-ii/nietzsche-verdad-metafisica"
+      }]
+    },
+    "Nietzsche - Sobre verdad y mentira en sentido extramoral": {
+      "events": [{
+        "kind": "tarea",
+        "date": "2026-11-05",
+        "dateLabel": "Correo del profesor del 5 de noviembre; lectura para la sesión del 9 de noviembre",
+        "area": "Ontología II",
+        "title": "Nietzsche · Sobre verdad y mentira en sentido extramoral",
+        "type": "lectura asignada como alternativa; no acredita lectura completada",
+        "note": "El volumen aportado incluye después un ensayo de Hans Vaihinger; la tarea se refiere al texto de Nietzsche. PHILOSOPHIA recomienda comenzar por este ensayo como decisión pedagógica editorial.",
+        "url": "/tareas/ontologia-ii/nietzsche-verdad-metafisica"
+      }]
     }
   },
   "authors": {

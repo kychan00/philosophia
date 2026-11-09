@@ -804,6 +804,24 @@ export const books = [
     "titulo": "La trastienda de la investigación",
     "categoria": "investigación",
     "estado": "documentada"
+  },
+  {
+    "id": "Nietzsche - Más allá del bien y del mal",
+    "autor": "Nietzsche",
+    "titulo": "Más allá del bien y del mal",
+    "categoria": "ontología",
+    "estado": "documentada",
+    "lectura": "Ontología II · lectura asignada para 09-11-2026: prólogo y Primera Parte («De los prejuicios de los filósofos»), como una de dos alternativas indicadas por el profesor; lectura personal no acreditada.",
+    "edicion": "Alianza Editorial, Biblioteca de autor; introducción, traducción y notas de Andrés Sánchez Pascual; edición revisada de 1997, séptima reimpresión 2005; ISBN 84-206-3820-8."
+  },
+  {
+    "id": "Nietzsche - Sobre verdad y mentira en sentido extramoral",
+    "autor": "Nietzsche",
+    "titulo": "Sobre verdad y mentira en sentido extramoral",
+    "categoria": "ontología",
+    "estado": "documentada",
+    "lectura": "Ontología II · lectura asignada como alternativa para 09-11-2026; el tramo de Nietzsche ocupa las pp. impresas 15–38 del volumen aportado; lectura personal no acreditada.",
+    "edicion": "Editorial Tecnos, Madrid, 3.ª ed., 1996; traducción del texto de Nietzsche por Luis M. Valdés. El volumen incluye después un ensayo de Hans Vaihinger."
   }
 ]
 

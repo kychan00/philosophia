@@ -103,6 +103,7 @@ const HegelPhenomenologyPrefaceStudy = lazy(() => import('./pages/HegelPhenomeno
 const HegelLogicBeingNothingBecomingStudy = lazy(() => import('./pages/HegelLogicBeingNothingBecomingStudy'))
 const HegelCroceTaskSystem = lazy(() => import('./pages/HegelCroceTaskSystem'))
 const KolakowskiPositivismTask = lazy(() => import('./pages/KolakowskiPositivismTask'))
+const NietzscheTruthTask = lazy(() => import('./pages/NietzscheTruthTask'))
 const MarxCritiqueHegelStudy = lazy(() => import('./pages/MarxCritiqueHegelStudy'))
 const MarxHegelThreeReadingsSystem = lazy(() => import('./pages/MarxHegelThreeReadingsSystem'))
 const MethodsResearch = lazy(() => import('./pages/MethodsResearch'))
@@ -453,6 +454,10 @@ function App() {
         <Route
           path="/tareas/ontologia-ii/kolakowski-positivismo"
           element={<KolakowskiPositivismTask />}
+        />
+        <Route
+          path="/tareas/ontologia-ii/nietzsche-verdad-metafisica"
+          element={<NietzscheTruthTask />}
         />
         <Route
           path="/estudios/ontologia-ii/marx-critica-dialectica-hegeliana"
