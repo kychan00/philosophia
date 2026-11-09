@@ -114,7 +114,7 @@ try{
     await until(()=>evaluate("document.querySelector('.nt2d-inspector h3')?.textContent.length>0"),'inspector '+width)
 
     const state=await evaluate(metrics)
-    const expected=width<=850?3:77
+    const expected=width<=1180?3:77
     assert.equal(state.count,expected,'nodos iniciales '+width+' '+JSON.stringify(state))
     assert.equal(state.selectedId,'S21-1',JSON.stringify(state))
     assert.ok(state.selectedOpacity>.9,'seleccionado atenuado '+width)

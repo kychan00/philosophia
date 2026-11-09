@@ -50,7 +50,11 @@ function relatedSet(id) {
 }
 
 function NietzscheTruthSystemCanvas() {
-  const initialRoute = initialSystem2DRoute(nietzscheSystem2DRoutes)
+  const initialRoute =
+    typeof window !== 'undefined' &&
+    window.matchMedia?.('(max-width: 1180px)').matches
+      ? nietzscheSystem2DRoutes.find((item) => item.id !== 'all')?.id || 'all'
+      : initialSystem2DRoute(nietzscheSystem2DRoutes)
   const compactViewport = useSystem2DCompactViewport()
 
   const [route, setRoute] = useState(initialRoute)
@@ -483,8 +487,8 @@ function NietzscheTruthSystemCanvas() {
 
           <div className="nt2d-canvas">
             <ReactFlow
-              nodes={compactViewport ? nodes.filter((node) => !node.hidden) : nodes}
-              edges={compactViewport ? edges.filter((edge) => !edge.hidden) : edges}
+              nodes={nodes.filter((node) => !node.hidden)}
+              edges={edges.filter((edge) => !edge.hidden)}
               nodeTypes={nodeTypes}
               onlyRenderVisibleElements={compactViewport}
               onNodeClick={(_, node) => focusNode(node.id)}
