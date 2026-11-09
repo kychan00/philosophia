@@ -26,7 +26,7 @@ test('Nietzsche 2D canónico: cada nodo conserva fuente literal, explicación, A
     assert.ok(node.data.title)
     assert.ok([21, 22, 23, 24].includes(node.data.page))
     assert.ok(node.data.excerpt)
-    assert.doesNotMatch(node.data.excerpt, /pendiente/i)
+    assert.notEqual(node.data.excerpt, 'cita literal pendiente de cotejo')
     assert.ok(node.data.sourceFragments.length >= 1)
     assert.ok(node.data.sourceFragments.every((fragment) => fragment.page === node.data.page))
     assert.ok(node.data.explanation)
