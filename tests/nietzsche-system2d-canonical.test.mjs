@@ -12,16 +12,16 @@ import {
   nietzscheSystem2DStats,
 } from '../src/data/nietzscheTruthSystem2D.js'
 
-test('Nietzsche 2D canónico: 104 nodos, 119 relaciones, 226 fragmentos y guía completa', () => {
+test('Nietzsche 2D canónico: 104 nodos, 151 relaciones, 226 fragmentos y guía completa', () => {
   assert.deepEqual(nietzscheSystem2DStats, {
     nodeCount: 104,
-    edgeCount: 119,
+    edgeCount: 151,
     fragmentCount: 226,
     firstPage: 21,
     lastPage: 37,
   })
   assert.equal(nietzscheSystem2DNodes.length, 104)
-  assert.equal(nietzscheSystem2DEdges.length, 119)
+  assert.equal(nietzscheSystem2DEdges.length, 151)
   assert.equal(nietzscheSystem2DOrder.length, 104)
   assert.equal(nietzscheSystem2DGuidedRoute.length, 104)
   assert.equal(new Set(nietzscheSystem2DOrder).size, 104)
@@ -45,6 +45,7 @@ test('Nietzsche 2D canónico: cada nodo conserva fuente literal, explicación, A
     assert.ok(node.data.schema?.nodes?.length >= 1)
     assert.ok(Array.isArray(node.data.dependsOn))
     assert.ok(Array.isArray(node.data.produces))
+    assert.ok(Array.isArray(node.data.transversalRelations))
     assert.ok(Array.isArray(node.data.branch) && node.data.branch.length >= 1)
     assert.ok(node.data.topicTone)
   }

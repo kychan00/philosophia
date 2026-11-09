@@ -68,6 +68,7 @@ const metrics=`(()=>{
     pedagogy:!!document.querySelector('.nt2d-shell .ph2d-pedagogy'),
     routeButtons:document.querySelectorAll('.nt2d-routes button').length,
     guideButton:!!document.querySelector('.nt2d-guide-launch button'),
+    transversals:document.querySelectorAll('.nt2d-edge-transversal').length,
     minimap:!!document.querySelector('.nt2d-canvas .react-flow__minimap'),
     flow:flow?{left:flow.left,right:flow.right,top:flow.top,bottom:flow.bottom}:null,
     inspector:inspector?{left:inspector.left,right:inspector.right,top:inspector.top,bottom:inspector.bottom}:null,
@@ -128,6 +129,19 @@ try{
       assert.ok(state.inspector.left>=state.flow.right-2,'inspector no está a la derecha '+JSON.stringify(state))
       assert.equal(state.inspectorPosition,'sticky')
       assert.equal(state.minimap,true,'minimapa debe existir en escritorio')
+      assert.ok(state.transversals>=32,'faltan relaciones transversales '+JSON.stringify(state))
+
+      await evaluate("document.querySelector('.react-flow__node[data-id=\"S25-2\"]')?.dispatchEvent(new MouseEvent('click',{bubbles:true}))")
+      await until(()=>evaluate("document.querySelector('.nt2d-canvas .react-flow__node.selected')?.getAttribute('data-id')==='S25-2'"),'selección transversal S25-2')
+      assert.equal(
+        await evaluate("document.querySelector('.react-flow__node[data-id=\"S35-5\"] .nt2d-node')?.classList.contains('is-dimmed')"),
+        false,
+        'el nodo conectado S35-5 no debe quedar atenuado',
+      )
+      assert.match(
+        await evaluate("document.querySelector('.nt2d-inspector-relations')?.textContent||''"),
+        /contrasta engaño perjudicial con fingimiento sin daño/i,
+      )
     }else{
       assert.ok(state.inspector.top>=state.flow.bottom-2,'inspector no se apila '+JSON.stringify(state))
       assert.equal(state.inspectorPosition,'static')
