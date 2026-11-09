@@ -92,6 +92,7 @@ const OntologiaClass14Oct = lazy(() => import('./pages/OntologiaClass14Oct'))
 const OntologiaClass19Oct = lazy(() => import('./pages/OntologiaClass19Oct'))
 const OntologiaClass26Oct = lazy(() => import('./pages/OntologiaClass26Oct'))
 const OntologiaClass04Nov = lazy(() => import('./pages/OntologiaClass04Nov'))
+const OntologiaClass09Nov = lazy(() => import('./pages/OntologiaClass09Nov'))
 const KantPrefacesMap = lazy(() => import('./pages/KantPrefacesMap'))
 const KantIntroductionMap = lazy(() => import('./pages/KantIntroductionMap'))
 const KantAestheticMap = lazy(() => import('./pages/KantAestheticMap'))
@@ -426,6 +427,10 @@ function App() {
         <Route
           path="/semestre/5/ontologia-ii/clase/4-noviembre"
           element={<OntologiaClass04Nov />}
+        />
+        <Route
+          path="/semestre/5/ontologia-ii/clase/9-noviembre"
+          element={<OntologiaClass09Nov />}
         />
         <Route
           path="/tareas/ontologia-ii/kant-dialectica-trascendental"
