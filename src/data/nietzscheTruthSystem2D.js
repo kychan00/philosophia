@@ -3,34 +3,63 @@ import {
   nietzscheCloseReadingNodes21to24,
   nietzscheCloseReadingSchema21to24,
 } from './nietzscheTruthSystem.js'
+import {
+  nietzscheCloseReading24to33,
+  nietzscheCloseReadingEdges24to33,
+  nietzscheCloseReadingNodes24to33,
+} from './nietzscheTruthSystem24to33.js'
 
 export const NIETZSCHE_SYSTEM2D_GEOMETRY = Object.freeze({
   width: 310,
   height: 250,
 })
 
+const closeReadingFragments = Object.freeze([
+  ...nietzscheCloseReading21to24,
+  ...nietzscheCloseReading24to33,
+])
+
+const closeReadingNodes = Object.freeze([
+  ...nietzscheCloseReadingNodes21to24,
+  ...nietzscheCloseReadingNodes24to33,
+])
+
+const closeReadingEdges = Object.freeze([
+  ...nietzscheCloseReadingSchema21to24.edges,
+  ...nietzscheCloseReadingEdges24to33,
+])
+
 export const nietzscheSystem2DSource = Object.freeze({
   work: 'Friedrich Nietzsche · Sobre verdad y mentira en sentido extramoral',
   edition: 'Tecnos · 2.ª ed. · 2012 · edición preparada por Manuel Garrido',
-  range: 'pp. 21–24',
+  range: 'pp. 21–33',
   apa: 'Nietzsche, F. (2012). Sobre verdad y mentira en sentido extramoral y otros fragmentos de filosofía del conocimiento. Tecnos. (2.ª ed.; M. Garrido, ed. prep.).',
   boundary:
-    'Los fragmentos entrecomillados proceden de las pp. 21–24 del ejemplar Tecnos 2012 aportado. Explicaciones, preguntas, rutas y relaciones se identifican como reconstrucción de estudio de PHILOSOPHIA. Los epígrafes entre corchetes y las notas al pie pertenecen al aparato editorial de esta edición.',
+    'Los fragmentos entrecomillados proceden de las pp. 21–33 del ejemplar Tecnos 2012 aportado. Explicaciones, preguntas, rutas y relaciones se identifican como reconstrucción de estudio de PHILOSOPHIA. Los epígrafes entre corchetes y las notas al pie pertenecen al aparato editorial de esta edición.',
 })
 
 export const nietzscheSystem2DRoutes = Object.freeze([
-  { id: 'all', label: 'Sistema completo', short: 'pp. 21–24 · 28 nodos' },
+  { id: 'all', label: 'Sistema completo', short: 'pp. 21–33 · recorrido documental completo' },
   { id: 'p21', label: 'P. 21 · Invención', short: 'Invención y contingencia del conocer', guidingQuestion: '¿Qué ocurre cuando el conocimiento deja de pensarse como rasgo eterno del mundo?' },
   { id: 'p22', label: 'P. 22 · Descentramiento', short: 'Humanidad, mosca y soberbia filosófica', guidingQuestion: '¿Cómo desmonta Nietzsche la centralidad que el ser humano atribuye a su intelecto?' },
   { id: 'p23', label: 'P. 23 · Conservación y fingimiento', short: 'Engaño, máscara, vanidad y límite perceptivo', guidingQuestion: '¿Qué función cumple el intelecto si su operación primaria está ligada a conservar la vida?' },
-  { id: 'p24', label: 'P. 24 · Autoconocimiento y verdad', short: 'Conciencia, cuerpo oculto e impulso a la verdad', guidingQuestion: '¿Cómo puede surgir un impulso hacia la verdad en una conciencia descrita como limitada e ilusa?' },
+  { id: 'p24', label: 'P. 24 · Conciencia y pacto', short: 'Autoconocimiento, impulso a la verdad y pacto social', guidingQuestion: '¿Cómo pasa Nietzsche del problema del autoconocimiento a la institución social de la verdad?' },
+  { id: 'p25', label: 'P. 25 · Convención y olvido', short: 'Verdad/mentira, utilidad y adecuación del lenguaje', guidingQuestion: '¿Por qué la sociedad distingue verdad y mentira, y qué tiene que ver esa distinción con el daño y el olvido?' },
+  { id: 'p26', label: 'P. 26 · Metáfora y cosa en sí', short: 'Relaciones humanas, metáforas y límite de la cosa en sí', guidingQuestion: '¿Qué media entre estímulo, imagen, sonido y cosa?' },
+  { id: 'p27', label: 'P. 27 · Formación del concepto', short: 'Palabra, generalización y equiparación de lo desigual', guidingQuestion: '¿Qué operación hace posible que una palabra funcione como concepto?' },
+  { id: 'p28', label: 'P. 28 · Verdad y olvido', short: 'Antropomorfismo, metáforas gastadas y deber de verdad', guidingQuestion: '¿Qué significa llamar a la verdad una red de metáforas olvidadas?' },
+  { id: 'p29', label: 'P. 29 · Abstracción y orden', short: 'Abstracciones, edificio conceptual y reglas de clasificación', guidingQuestion: '¿Cómo transforma la razón metáforas intuitivas en un orden conceptual estable?' },
+  { id: 'p30', label: 'P. 30 · Antropomorfismo', short: 'Genio constructor, descubrimiento y medida humana', guidingQuestion: '¿Qué descubre la razón cuando busca verdad dentro de un mundo que ella misma conceptualizó?' },
+  { id: 'p31', label: 'P. 31 · Sujeto y objeto', short: 'Olvido del creador, perspectivas y traducción estética', guidingQuestion: '¿Puede existir una percepción absolutamente correcta entre sujeto y objeto?' },
+  { id: 'p32', label: 'P. 32 · Ley natural', short: 'Repetición, percepción y regularidad de la naturaleza', guidingQuestion: '¿La repetición de una metáfora demuestra su necesidad o sólo su estabilidad?' },
+  { id: 'p33', label: 'P. 33 · Formas aportadas', short: 'Espacio, tiempo, número y regularidad', guidingQuestion: '¿Qué parte de la regularidad que admiramos procede de las formas con las que conocemos?' },
 ])
 
 export const nietzscheSystem2DOrder = Object.freeze(
-  nietzscheCloseReadingNodes21to24.map((node) => node.id),
+  closeReadingNodes.map((node) => node.id),
 )
 
-const POSITION = Object.freeze({
+const OLD_POSITION = Object.freeze({
   'S21-1': { x: 0, y: 0 },
   'S21-2': { x: 0, y: 340 },
   'S21-3': { x: 0, y: 680 },
@@ -64,11 +93,43 @@ const POSITION = Object.freeze({
   'S24-7': { x: 3010, y: 1020 },
 })
 
+const pageNodes = new Map()
+nietzscheCloseReadingNodes24to33.forEach((node) => {
+  const page = Number(node.id.slice(1, 3))
+  if (!pageNodes.has(page)) pageNodes.set(page, [])
+  pageNodes.get(page).push(node.id)
+})
+
+const NEW_POSITION = Object.freeze(
+  Object.fromEntries(
+    nietzscheCloseReadingNodes24to33.map((node) => {
+      const page = Number(node.id.slice(1, 3))
+      const index = pageNodes.get(page).indexOf(node.id)
+      const x = 3440 + (page - 24) * 430
+      return [node.id, { x, y: index * 340 }]
+    }),
+  ),
+)
+
+const POSITION = Object.freeze({
+  ...OLD_POSITION,
+  ...NEW_POSITION,
+})
+
 const PAGE_META = Object.freeze({
   21: { route: 'p21', phase: 'P. 21 · invención', tone: 'moss', concepts: ['conocimiento', 'invención', 'contingencia'] },
   22: { route: 'p22', phase: 'P. 22 · descentramiento', tone: 'gold', concepts: ['intelecto', 'antropocentrismo', 'soberbia'] },
   23: { route: 'p23', phase: 'P. 23 · conservación y fingimiento', tone: 'blue', concepts: ['conservación', 'engaño', 'fingimiento', 'percepción'] },
-  24: { route: 'p24', phase: 'P. 24 · autoconocimiento y verdad', tone: 'plum', concepts: ['autoconocimiento', 'conciencia', 'cuerpo', 'verdad'] },
+  24: { route: 'p24', phase: 'P. 24 · conciencia, pacto y verdad', tone: 'plum', concepts: ['autoconocimiento', 'pacto social', 'verdad', 'lenguaje'] },
+  25: { route: 'p25', phase: 'P. 25 · convención y olvido', tone: 'rust', concepts: ['convención', 'verdad y mentira', 'utilidad', 'olvido'] },
+  26: { route: 'p26', phase: 'P. 26 · metáfora y cosa en sí', tone: 'ochre', concepts: ['metáfora', 'lenguaje', 'cosa en sí', 'relación'] },
+  27: { route: 'p27', phase: 'P. 27 · formación del concepto', tone: 'gold', concepts: ['concepto', 'generalización', 'igualación', 'hoja'] },
+  28: { route: 'p28', phase: 'P. 28 · verdad y olvido', tone: 'bronze', concepts: ['verdad', 'metáfora', 'antropomorfismo', 'olvido'] },
+  29: { route: 'p29', phase: 'P. 29 · abstracción y orden', tone: 'sage', concepts: ['abstracción', 'clasificación', 'edificio conceptual', 'regla'] },
+  30: { route: 'p30', phase: 'P. 30 · antropomorfismo', tone: 'moss', concepts: ['antropomorfismo', 'concepto', 'medida humana', 'descubrimiento'] },
+  31: { route: 'p31', phase: 'P. 31 · sujeto y objeto', tone: 'violet', concepts: ['sujeto', 'objeto', 'perspectiva', 'traducción'] },
+  32: { route: 'p32', phase: 'P. 32 · ley natural', tone: 'blue', concepts: ['ley natural', 'percepción', 'repetición', 'relación'] },
+  33: { route: 'p33', phase: 'P. 33 · formas aportadas', tone: 'plum', concepts: ['espacio', 'tiempo', 'número', 'regularidad'] },
 })
 
 const SIMPLE = Object.freeze({
@@ -100,10 +161,60 @@ const SIMPLE = Object.freeze({
   'S24-5': 'Bajo la conciencia hay impulsos que ella no controla ni contempla plenamente.',
   'S24-6': 'La conciencia vive con una seguridad aparente sobre fuerzas que pueden desbordarla.',
   'S24-7': 'Después de describir conservación, engaño e ilusión, Nietzsche pregunta por qué buscamos verdad.',
+
+  'S24-8': 'La convivencia necesita estabilizar cómo nos tratamos y cómo nombramos.',
+  'S24-9': 'La verdad empieza a adquirir una forma social cuando el grupo fija usos compartidos.',
+  'S24-10': 'El lenguaje funciona como una especie de legislador de designaciones comunes.',
+  'S25-1': 'Verdad y mentira sólo tienen sentido dentro de un sistema de nombres ya aceptado.',
+  'S25-2': 'La sociedad castiga sobre todo el engaño que daña la convivencia.',
+  'S25-3': 'No buscamos cualquier verdad: preferimos las que sirven o protegen la vida.',
+  'S25-4': 'Nietzsche pregunta si una palabra realmente coincide con aquello que nombra.',
+  'S25-5': 'Sentirse dueño de la verdad requiere olvidar cómo se formaron nuestras palabras.',
+  'S25-6': 'Una palabra no llega directamente desde la cosa: hay transformaciones intermedias.',
+  'S26-1': 'Incluso cualidades aparentemente objetivas pasan por una experiencia del sujeto y por clasificaciones lingüísticas.',
+  'S26-2': 'Si hubiera una palabra necesariamente correcta para cada cosa, la diversidad de lenguas sería difícil de explicar.',
+  'S26-3': 'El lenguaje no alcanza una cosa tal como sería completamente independiente de nosotros.',
+  'S26-4': 'Nombramos relaciones humanas con las cosas usando traslaciones metafóricas.',
+  'S26-5': 'Estímulo, imagen y sonido pertenecen a planos distintos; pasar de uno a otro ya es interpretar.',
+  'S27-1': 'El lenguaje no nace deduciendo lógicamente la esencia de las cosas.',
+  'S27-2': 'Una palabra se vuelve concepto cuando sirve para muchos casos diferentes.',
+  'S27-3': 'Conceptualizar significa tratar como iguales cosas que nunca son idénticas.',
+  'S27-4': 'Decir «hoja» borra diferencias entre hojas y puede hacernos imaginar una hoja-modelo.',
+  'S28-1': 'Lo mismo ocurre con «honestidad»: agrupamos acciones distintas y postulamos una cualidad común.',
+  'S28-2': 'El concepto simplifica lo singular y proyecta clasificaciones humanas sobre la naturaleza.',
+  'S28-3': 'La verdad aparece como una red humana de metáforas y relaciones estabilizadas.',
+  'S28-4': 'Una verdad puede parecer literal cuando olvidamos que comenzó como una construcción figurativa.',
+  'S28-5': 'Ser veraz significa respetar el vocabulario y las reglas que la comunidad reconoce.',
+  'S28-6': 'El hábito hace olvidar la convención hasta convertirla en sentimiento y deber de verdad.',
+  'S29-1': 'La verdad gana prestigio porque permite confianza y coordinación social.',
+  'S29-2': 'La razón convierte imágenes singulares en conceptos más generales y fríos.',
+  'S29-3': 'Con esos conceptos construimos un orden jerárquico de leyes, clases y límites.',
+  'S29-4': 'Detrás de un concepto sigue habiendo una metáfora que se ha endurecido.',
+  'S29-5': 'Dentro del sistema conceptual, ser verdadero consiste en clasificar según las reglas del sistema.',
+  'S29-6': 'Cada cultura puede ordenar el mundo con su propio cielo conceptual.',
+  'S30-1': 'El ser humano construye una arquitectura conceptual enorme sobre fundamentos que no son absolutos.',
+  'S30-2': 'El material del edificio conceptual es producido por nuestra propia actividad.',
+  'S30-3': 'A veces llamamos descubrimiento a encontrar lo que nuestras definiciones ya habían puesto allí.',
+  'S30-4': 'Las verdades conceptuales siguen teniendo forma humana; no son una visión desde ningún lugar.',
+  'S30-5': 'Conocer vuelve el mundo asimilable a categorías humanas y después olvida esa transformación.',
+  'S31-1': 'Tomamos nuestras representaciones por cosas mismas cuando olvidamos que eran metáforas.',
+  'S31-2': 'También olvidamos que el sujeto participa creativamente en la forma de lo percibido.',
+  'S31-3': 'No tenemos una regla externa a toda percepción para declarar una perspectiva absolutamente correcta.',
+  'S31-4': 'Objeto y sujeto no encajan como una copia exacta y automática.',
+  'S31-5': 'Conocer se parece más a traducir entre lenguajes distintos que a calcar una cosa.',
+  'S32-1': 'Repetir una traducción durante generaciones puede hacerla parecer necesaria.',
+  'S32-2': 'Que una metáfora se vuelva rígida y habitual no demuestra que sea verdadera en sí.',
+  'S32-3': 'Lo que llamamos regularidad natural está ligado a la forma compartida en que percibimos.',
+  'S32-4': 'No conocemos la ley natural por dentro; conocemos efectos y relaciones.',
+  'S33-1': 'Al conocer leyes también reconocemos estructuras que nosotros aportamos: espacio, tiempo, sucesión y número.',
+  'S33-2': 'La regularidad científica aparece dentro de formas matemáticas y espacio-temporales muy estables.',
+  'S33-3': 'Nietzsche insiste en que esas formas proceden de nuestra propia actividad cognoscitiva.',
+  'S33-4': 'Si sólo podemos pensar bajo ciertas formas, encontrarlas en toda experiencia no demuestra que existan fuera de esas formas.',
+  'S33-5': 'El edificio de los conceptos reproduce un orden que ya estaba organizado por nuestras formas de percepción.',
 })
 
 const byMapTo = new Map()
-nietzscheCloseReading21to24.forEach((fragment) => {
+closeReadingFragments.forEach((fragment) => {
   if (!byMapTo.has(fragment.mapTo)) byMapTo.set(fragment.mapTo, [])
   byMapTo.get(fragment.mapTo).push(fragment)
 })
@@ -111,7 +222,7 @@ nietzscheCloseReading21to24.forEach((fragment) => {
 const incomingById = new Map(nietzscheSystem2DOrder.map((id) => [id, []]))
 const outgoingById = new Map(nietzscheSystem2DOrder.map((id) => [id, []]))
 
-nietzscheCloseReadingSchema21to24.edges.forEach((edge) => {
+closeReadingEdges.forEach((edge) => {
   incomingById.get(edge.to)?.push(edge.from)
   outgoingById.get(edge.from)?.push(edge.to)
 })
@@ -132,7 +243,7 @@ function shortExplanation(fragments) {
 }
 
 export function nietzscheNodeSchema(id) {
-  const node = nietzscheCloseReadingNodes21to24.find((item) => item.id === id)
+  const node = closeReadingNodes.find((item) => item.id === id)
   if (!node) return null
 
   const neighborIds = [
@@ -140,7 +251,7 @@ export function nietzscheNodeSchema(id) {
     ...(outgoingById.get(id) || []),
   ]
   const unique = [...new Set(neighborIds)]
-  const radius = 0.34
+  const radius = unique.length > 5 ? 0.37 : 0.34
 
   const nodes = [
     {
@@ -152,7 +263,7 @@ export function nietzscheNodeSchema(id) {
       shapeRole: 'concept',
     },
     ...unique.map((neighborId, index) => {
-      const neighbor = nietzscheCloseReadingNodes21to24.find((item) => item.id === neighborId)
+      const neighbor = closeReadingNodes.find((item) => item.id === neighborId)
       const angle = (-Math.PI / 2) + (Math.PI * 2 * index) / Math.max(unique.length, 1)
       return {
         id: neighborId,
@@ -167,7 +278,7 @@ export function nietzscheNodeSchema(id) {
     }),
   ]
 
-  const edges = nietzscheCloseReadingSchema21to24.edges
+  const edges = closeReadingEdges
     .filter((edge) => edge.from === id || edge.to === id)
     .map((edge) => ({
       from: edge.from,
@@ -178,9 +289,9 @@ export function nietzscheNodeSchema(id) {
 
   return {
     layout: 'constellation',
-    canvas: { width: 720, height: 500 },
-    minHeight: 440,
-    fitPadding: 34,
+    canvas: { width: 760, height: 540 },
+    minHeight: 460,
+    fitPadding: 36,
     legend: false,
     ariaLabel: `Relaciones documentadas de estudio para ${node.label}`,
     nodes,
@@ -189,7 +300,7 @@ export function nietzscheNodeSchema(id) {
 }
 
 export const nietzscheSystem2DNodes = Object.freeze(
-  nietzscheCloseReadingNodes21to24.map((baseNode) => {
+  closeReadingNodes.map((baseNode) => {
     const page = pageFromId(baseNode.id)
     const meta = PAGE_META[page]
     const fragments = byMapTo.get(baseNode.id) || []
@@ -227,8 +338,8 @@ export const nietzscheSystem2DNodes = Object.freeze(
 )
 
 export const nietzscheSystem2DEdges = Object.freeze(
-  nietzscheCloseReadingSchema21to24.edges.map((edge, index) => ({
-    id: `NT-E${String(index + 1).padStart(2, '0')}`,
+  closeReadingEdges.map((edge, index) => ({
+    id: `NT-E${String(index + 1).padStart(3, '0')}`,
     source: edge.from,
     target: edge.to,
     label: edge.label || 'continúa',
@@ -249,6 +360,14 @@ export const nietzscheSystem2DGuidedRoute = Object.freeze(
   }),
 )
 
+export const nietzscheSystem2DStats = Object.freeze({
+  nodeCount: nietzscheSystem2DNodes.length,
+  edgeCount: nietzscheSystem2DEdges.length,
+  fragmentCount: closeReadingFragments.length,
+  firstPage: 21,
+  lastPage: 33,
+})
+
 export function nietzscheSystem2DNodeById(id) {
   return nietzscheSystem2DNodes.find((node) => node.id === id) || null
 }
@@ -260,4 +379,7 @@ export function nietzscheSystem2DRouteOrder(routeId) {
   )
 }
 
-export const nietzscheSystem2DMasterSchema = nietzscheCloseReadingSchema21to24
+export const nietzscheSystem2DMasterSchema = Object.freeze({
+  nodes: closeReadingNodes,
+  edges: closeReadingEdges,
+})

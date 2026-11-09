@@ -14,6 +14,8 @@ const QUESTIONS = [
   '¿Qué papel cumple el ejemplo de la “hoja” en la crítica de la formación conceptual?',
   '¿Por qué los §§16–22 de Más allá del bien y del mal afectan problemas ontológicos como sujeto, voluntad y causalidad?',
   '¿En qué sentido la crítica del conocimiento puede convertirse en crítica de la metafísica?',
+  '¿Qué implica que sujeto y objeto aparezcan como esferas distintas mediadas por una traducción estética?',
+  '¿Por qué espacio, tiempo, sucesión y número aparecen al final del tramo como formas que nosotros aportamos?',
 ]
 
 export default function NietzscheTruthTask() {
@@ -29,8 +31,8 @@ export default function NietzscheTruthTask() {
         <div className="nietzsche-hero-copy">
           <p className="nietzsche-kicker">ARCHIVUM ONTOLOGICUM · LECTURA · 09 XI 2026</p>
           <h1>Nietzsche: de la <em>verdad</em> al ser</h1>
-          <p className="nietzsche-lead">Una ruta para entrar a Nietzsche desde el problema del conocimiento: lenguaje, concepto y verdad; después, sujeto, causalidad y los presupuestos metafísicos de la filosofía.</p>
-          <div className="nietzsche-actions"><a href="#ruta">Comenzar ruta ↓</a><a href="#lectura-21-24">Páginas 21–24 ↓</a><a href="#bibliografia">Bibliografía ↓</a></div>
+          <p className="nietzsche-lead">Una ruta para entrar a Nietzsche desde el problema del conocimiento: pacto, lenguaje, metáfora, concepto y verdad; después, sujeto, ley natural y las formas con las que ordenamos lo real.</p>
+          <div className="nietzsche-actions"><a href="#ruta">Comenzar ruta ↓</a><a href="#lectura-21-33">Páginas 21–33 ↓</a><a href="#bibliografia">Bibliografía ↓</a></div>
         </div>
         <aside className="nietzsche-hero-card">
           <span>PROBLEMA DE LA SESIÓN</span><strong>gnoseología ↔ ontología</strong>

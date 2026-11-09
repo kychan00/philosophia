@@ -114,14 +114,14 @@ try{
     await until(()=>evaluate("document.querySelector('.nt2d-inspector h3')?.textContent.length>0"),'inspector '+width)
 
     const state=await evaluate(metrics)
-    const expected=width<=850?3:28
+    const expected=width<=1180?3:77
     assert.equal(state.count,expected,'nodos iniciales '+width+' '+JSON.stringify(state))
     assert.equal(state.selectedId,'S21-1',JSON.stringify(state))
     assert.ok(state.selectedOpacity>.9,'seleccionado atenuado '+width)
     assert.deepEqual(state.overlaps,[],'nodos superpuestos '+width+' '+JSON.stringify(state))
     assert.ok(state.inspectorSchema,'esquema local ausente '+width)
     assert.ok(state.pedagogy,'SectionPedagogy ausente '+width)
-    assert.equal(state.routeButtons,5,'rutas incompletas '+width)
+    assert.equal(state.routeButtons,14,'rutas incompletas '+width)
     assert.ok(state.guideButton,'guía completa ausente '+width)
     assert.ok(state.scroll<=state.width+3,'overflow global '+width+' '+JSON.stringify(state))
     if(width>1180){
@@ -154,7 +154,13 @@ try{
   await until(()=>evaluate("document.querySelectorAll('.nt2d-canvas .react-flow__node').length===12"),'doce nodos ruta p23')
   assert.equal(await evaluate("document.querySelectorAll('.nt2d-canvas .react-flow__node').length"),12)
   assert.match(await evaluate("document.querySelector('.nt2d-inspector h3')?.textContent||''"),/Intelecto/)
-  console.log('NIETZSCHE 2D CANÓNICO OK')
+
+  await evaluate("document.querySelectorAll('.nt2d-routes button')[13].click()")
+  await until(()=>evaluate("document.querySelector('.nt2d-canvas .react-flow__node.selected')?.getAttribute('data-id')==='S33-1'"),'ruta p33')
+  await until(()=>evaluate("document.querySelectorAll('.nt2d-canvas .react-flow__node').length===5"),'cinco nodos ruta p33')
+  assert.match(await evaluate("document.querySelector('.nt2d-inspector h3')?.textContent||''"),/aportamos/i)
+  assert.ok((await evaluate(metrics)).selectedOpacity>.9,'nodo p33 seleccionado atenuado')
+  console.log('NIETZSCHE 2D CANÓNICO 21–33 OK')
 }finally{
   try{ws?.close()}catch{}
   browser?.kill('SIGKILL')
