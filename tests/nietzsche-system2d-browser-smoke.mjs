@@ -151,6 +151,7 @@ try{
 
   await evaluate("document.querySelectorAll('.nt2d-routes button')[3].click()")
   await until(()=>evaluate("document.querySelector('.nt2d-canvas .react-flow__node.selected')?.getAttribute('data-id')==='S23-1'"),'ruta p23')
+  await until(()=>evaluate("document.querySelectorAll('.nt2d-canvas .react-flow__node').length===12"),'doce nodos ruta p23')
   assert.equal(await evaluate("document.querySelectorAll('.nt2d-canvas .react-flow__node').length"),12)
   assert.match(await evaluate("document.querySelector('.nt2d-inspector h3')?.textContent||''"),/Intelecto/)
   console.log('NIETZSCHE 2D CANÓNICO OK')
