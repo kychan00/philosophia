@@ -91,14 +91,14 @@ try{
     }))()`)
 
     assert.ok(state.system,JSON.stringify(state))
-    assert.equal(state.nodes,width<=850?3:28,JSON.stringify(state))
+    assert.equal(state.nodes,width<=850?3:77,JSON.stringify(state))
     assert.equal(state.selected,'S21-1',JSON.stringify(state))
     assert.ok(state.inspector&&state.schema&&state.pedagogy,JSON.stringify(state))
-    assert.equal(state.routes,5,JSON.stringify(state))
+    assert.equal(state.routes,14,JSON.stringify(state))
     assert.ok(state.guide,JSON.stringify(state))
-    assert.match(state.counts,/28/)
-    assert.match(state.counts,/31/)
-    assert.match(state.counts,/41/)
+    assert.match(state.counts,/77/)
+    assert.match(state.counts,/86/)
+    assert.match(state.counts,/148/)
     assert.ok(state.bib,JSON.stringify(state))
     assert.ok(/no publica copias|no se aloja ninguna copia/i.test(state.policy),JSON.stringify(state))
     assert.ok(state.href.includes('#/tareas/ontologia-ii/nietzsche-verdad-metafisica'),JSON.stringify(state))
@@ -109,7 +109,7 @@ try{
     assert.ok(await evaluate("!!document.querySelector('.nt2d-folio .animated-concept-schema')"))
     await evaluate("document.querySelector('.nt2d-folio>header button').click()")
 
-    console.log('PRODUCTION NIETZSCHE 2D OK',width+'x'+height,JSON.stringify(state))
+    console.log('PRODUCTION NIETZSCHE 2D 21–33 OK',width+'x'+height,JSON.stringify(state))
   }
 }finally{
   try{ws?.close()}catch{}

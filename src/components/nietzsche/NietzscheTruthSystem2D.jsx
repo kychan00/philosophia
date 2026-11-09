@@ -33,6 +33,7 @@ import {
   nietzscheSystem2DRouteOrder,
   nietzscheSystem2DRoutes,
   nietzscheSystem2DSource,
+  nietzscheSystem2DStats,
 } from '../../data/nietzscheTruthSystem2D'
 import './NietzscheTruthSystem2D.css'
 
@@ -375,21 +376,22 @@ function NietzscheTruthSystemCanvas() {
   const selectedRoute = nietzscheSystem2DRoutes.find((item) => item.id === route)
 
   return (
-    <section id="lectura-21-24" className="nt2d-shell" aria-labelledby="nt2d-title">
+    <section id="lectura-21-33" className="nt2d-shell" aria-labelledby="nt2d-title">
       <header className="nt2d-head">
         <div>
-          <span>SISTEMA 2D CANÓNICO · TECNOS 2012 · PP. 21–24</span>
-          <h2 id="nt2d-title">Del conocimiento inventado al impulso hacia la verdad</h2>
+          <span>SISTEMA 2D CANÓNICO · TECNOS 2012 · PP. 21–33</span>
+          <h2 id="nt2d-title">De la invención del conocimiento a las formas que ordenan la naturaleza</h2>
           <p>
-            React Flow, rutas, guía completa 28/28, inspector documental, folios,
-            esquemas por nodo y pedagogía por sección. El esquema ya no sustituye al sistema.
+            React Flow, rutas por folio, guía completa {nietzscheSystem2DStats.nodeCount}/{nietzscheSystem2DStats.nodeCount},
+            inspector documental, folios, esquemas por nodo y pedagogía por sección.
+            La expansión conserva la misma arquitectura canónica.
           </p>
         </div>
         <dl>
-          <div><dt>NODOS</dt><dd>28</dd></div>
-          <div><dt>RELACIONES</dt><dd>31</dd></div>
-          <div><dt>FRAGMENTOS</dt><dd>41</dd></div>
-          <div><dt>FOLIOS</dt><dd>21–24</dd></div>
+          <div><dt>NODOS</dt><dd>{nietzscheSystem2DStats.nodeCount}</dd></div>
+          <div><dt>RELACIONES</dt><dd>{nietzscheSystem2DStats.edgeCount}</dd></div>
+          <div><dt>FRAGMENTOS</dt><dd>{nietzscheSystem2DStats.fragmentCount}</dd></div>
+          <div><dt>FOLIOS</dt><dd>{nietzscheSystem2DStats.firstPage}–{nietzscheSystem2DStats.lastPage}</dd></div>
         </dl>
       </header>
 
@@ -401,10 +403,10 @@ function NietzscheTruthSystemCanvas() {
 
       <section className="nt2d-guide-launch">
         <div>
-          <span>GUÍA COMPLETA · 28 / 28</span>
+          <span>GUÍA COMPLETA · {nietzscheSystem2DStats.nodeCount} / {nietzscheSystem2DStats.nodeCount}</span>
           <strong>Recorrer el argumento sin perder la fuente</strong>
           <p>
-            La guía completa sigue los 28 nodos. En teléfono sólo monta el paso actual
+            La guía completa sigue los {nietzscheSystem2DStats.nodeCount} nodos. En teléfono sólo monta el paso actual
             y el siguiente para no cargar el atlas entero de golpe.
           </p>
         </div>
@@ -550,7 +552,7 @@ function NietzscheTruthSystemCanvas() {
                         <b>{node.data.code}</b><small>{node.data.title}</small>
                       </button>
                     ))
-                    : <em>No consta antecedente dentro de pp. 21–24.</em>}
+                    : <em>No consta antecedente dentro de pp. 21–33.</em>}
                 </div>
                 <span>DESPUÉS · CONTINUIDADES</span>
                 <div>
@@ -683,11 +685,11 @@ function NietzscheTruthSystemCanvas() {
 
       <section className="nt2d-continuity">
         <span>CONTINUIDAD DOCUMENTAL</span>
-        <strong>Este sistema se detiene en la p. 24.</strong>
+        <strong>Este sistema se detiene en la p. 33.</strong>
         <p>
-          No se incorporan pp. 25 y siguientes hasta disponer del siguiente tramo
-          de la edición de trabajo. La pregunta por el impulso hacia la verdad queda
-          como frontera de continuidad, no como respuesta anticipada.
+          El tramo documentado llega desde la invención del conocimiento hasta la tesis
+          de que espacio, tiempo, sucesión y número forman parte de lo que aportamos al
+          conocer. No se incorporan pp. 34 y siguientes hasta disponer del siguiente tramo.
         </p>
       </section>
 
@@ -695,7 +697,7 @@ function NietzscheTruthSystemCanvas() {
         <button type="button" disabled={!prevId} onClick={() => navigate(-1)}>← Anterior</button>
         <span>
           {guidedMode
-            ? `LECTURA GUIADA · ${String(guidedIndex + 1).padStart(2, '0')} / 28`
+            ? `LECTURA GUIADA · ${String(guidedIndex + 1).padStart(2, '0')} / ${nietzscheSystem2DStats.nodeCount}`
             : `${selectedRoute?.label || 'RUTA'} · ${String(currentIndex + 1).padStart(2, '0')} / ${currentSequence.length}`}
         </span>
         <button type="button" disabled={!nextId} onClick={() => navigate(1)}>Siguiente →</button>
