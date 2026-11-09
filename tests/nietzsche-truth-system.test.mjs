@@ -1,6 +1,14 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { nietzscheStudySchema, nietzscheStudySource, nietzscheStudyStations } from '../src/data/nietzscheTruthSystem.js'
+import {
+  nietzscheCloseReading21to24,
+  nietzscheCloseReadingNodes21to24,
+  nietzscheCloseReadingSchema21to24,
+  nietzscheEditorialApparatus21to24,
+  nietzscheStudySchema,
+  nietzscheStudySource,
+  nietzscheStudyStations,
+} from '../src/data/nietzscheTruthSystem.js'
 
 test('Nietzsche: ocho estaciones con frontera documental explícita', () => {
   assert.equal(nietzscheStudyStations.length, 8)
@@ -22,4 +30,32 @@ test('Nietzsche: la edición preferida es Tecnos 2012 y el sistema no hereda pag
   assert.match(nietzscheStudySource.optionB, /Tecnos, 2\.ª ed\., 2012/)
   assert.ok(nietzscheStudyStations.slice(0,4).every((item)=>item.source.includes('§1')))
   assert.ok(nietzscheStudyStations.slice(0,4).every((item)=>!item.source.includes('pp. impresas')))
+})
+
+
+test('Nietzsche: lectura cercana pp. 21–24 conserva folios y trazabilidad', () => {
+  assert.equal(nietzscheCloseReading21to24.length, 41)
+  assert.deepEqual(
+    [...new Set(nietzscheCloseReading21to24.map((item)=>item.page))],
+    [21,22,23,24],
+  )
+  assert.ok(nietzscheCloseReading21to24.every((item)=>item.phrase && item.reading && item.mapTo))
+  const nodeIds=new Set(nietzscheCloseReadingNodes21to24.map((node)=>node.id))
+  assert.ok(nietzscheCloseReading21to24.every((item)=>nodeIds.has(item.mapTo)))
+  assert.equal(nietzscheEditorialApparatus21to24.length,2)
+})
+
+test('Nietzsche: sistema 2D pp. 21–24 tiene 28 nodos y cierre en el impulso hacia la verdad', () => {
+  assert.equal(nietzscheCloseReadingSchema21to24.layout,'constellation')
+  assert.equal(nietzscheCloseReadingSchema21to24.nodes.length,28)
+  assert.equal(nietzscheCloseReadingSchema21to24.edges.length,31)
+  assert.match(
+    nietzscheCloseReadingSchema21to24.nodes.at(-1).label,
+    /impulso hacia la verdad/i,
+  )
+  assert.ok(
+    nietzscheCloseReadingSchema21to24.edges.some(
+      (edge)=>edge.label==='paradoja central' && edge.to==='S24-7',
+    ),
+  )
 })
