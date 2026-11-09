@@ -137,7 +137,8 @@
 .nt2d-inspector-relations>div{display:grid;gap:5px;margin:7px 0 12px}
 .nt2d-inspector-relations button{display:grid;grid-template-columns:50px minmax(0,1fr);gap:6px;padding:7px;text-align:left}
 .nt2d-inspector-relations button b{color:var(--ph2d-red)}.nt2d-inspector-relations button small{color:var(--ph2d-muted)}
-.nt2d-inspector-relations em{color:var(--ph2d-muted);font-size:11px}
+.nt2d-inspector-relations button em{grid-column:2;margin-top:1px;color:var(--ph2d-muted);font-size:10px;line-height:1.35}
+.nt2d-inspector-relations>em{color:var(--ph2d-muted);font-size:11px}
 .nt2d-inspector-question{padding-top:12px;border-top:1px solid var(--ph2d-line)}
 .nt2d-inspector-question strong{display:block;margin-top:7px;font:600 16px/1.4 Georgia,serif}
 .nt2d-open-folio{width:100%;padding:10px 12px;border-color:var(--ph2d-red)!important;background:var(--ph2d-red)!important;color:var(--ph2d-paper)!important}

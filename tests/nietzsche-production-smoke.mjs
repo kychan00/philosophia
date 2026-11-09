@@ -86,6 +86,7 @@ try{
       counts:document.querySelector('.nt2d-head dl')?.textContent||'',
       bib:!!document.querySelector('.nietzsche-bibliography'),
       policy:document.querySelector('.nietzsche-library-policy')?.textContent||'',
+      transversals:document.querySelectorAll('.nt2d-edge-transversal').length,
       w:innerWidth,
       scroll:document.documentElement.scrollWidth
     }))()`)
@@ -97,9 +98,10 @@ try{
     assert.equal(state.routes,18,JSON.stringify(state))
     assert.ok(state.guide,JSON.stringify(state))
     assert.match(state.counts,/104/)
-    assert.match(state.counts,/119/)
+    assert.match(state.counts,/151/)
     assert.match(state.counts,/226/)
     assert.ok(state.bib,JSON.stringify(state))
+    if(width>1180)assert.ok(state.transversals>=32,JSON.stringify(state))
     assert.ok(/no publica copias|no se aloja ninguna copia/i.test(state.policy),JSON.stringify(state))
     assert.ok(state.href.includes('#/tareas/ontologia-ii/nietzsche-verdad-metafisica'),JSON.stringify(state))
     assert.ok(state.scroll<=state.w+3,'desbordamiento horizontal en producción '+JSON.stringify(state))

@@ -13,6 +13,7 @@ import {
   nietzscheCloseReadingEdges33to37,
   nietzscheCloseReadingNodes33to37,
 } from './nietzscheTruthSystem33to37.js'
+import { nietzscheCrossRelations } from './nietzscheTruthCrossRelations.js'
 
 export const NIETZSCHE_SYSTEM2D_GEOMETRY = Object.freeze({
   width: 310,
@@ -35,6 +36,7 @@ const closeReadingEdges = Object.freeze([
   ...nietzscheCloseReadingSchema21to24.edges,
   ...nietzscheCloseReadingEdges24to33,
   ...nietzscheCloseReadingEdges33to37,
+  ...nietzscheCrossRelations,
 ])
 
 export const nietzscheSystem2DSource = Object.freeze({
@@ -269,8 +271,27 @@ closeReadingFragments.forEach((fragment) => {
 
 const incomingById = new Map(nietzscheSystem2DOrder.map((id) => [id, []]))
 const outgoingById = new Map(nietzscheSystem2DOrder.map((id) => [id, []]))
+const transversalById = new Map(nietzscheSystem2DOrder.map((id) => [id, []]))
 
 closeReadingEdges.forEach((edge) => {
+  if (edge.relationKind === 'transversal') {
+    transversalById.get(edge.from)?.push({
+      id: edge.to,
+      label: edge.label || 'se relaciona con',
+      theme: edge.theme || null,
+      note: edge.note || null,
+      evidence: edge.evidence || [],
+    })
+    transversalById.get(edge.to)?.push({
+      id: edge.from,
+      label: edge.label || 'se relaciona con',
+      theme: edge.theme || null,
+      note: edge.note || null,
+      evidence: edge.evidence || [],
+    })
+    return
+  }
+
   incomingById.get(edge.to)?.push(edge.from)
   outgoingById.get(edge.from)?.push(edge.to)
 })
@@ -297,6 +318,7 @@ export function nietzscheNodeSchema(id) {
   const neighborIds = [
     ...(incomingById.get(id) || []),
     ...(outgoingById.get(id) || []),
+    ...(transversalById.get(id) || []).map((relation) => relation.id),
   ]
   const unique = [...new Set(neighborIds)]
   const radius = unique.length > 5 ? 0.37 : 0.34
@@ -313,10 +335,15 @@ export function nietzscheNodeSchema(id) {
     ...unique.map((neighborId, index) => {
       const neighbor = closeReadingNodes.find((item) => item.id === neighborId)
       const angle = (-Math.PI / 2) + (Math.PI * 2 * index) / Math.max(unique.length, 1)
+      const transversal = (transversalById.get(id) || []).some((relation) => relation.id === neighborId)
       return {
         id: neighborId,
         label: neighbor?.label || neighborId,
-        caption: (incomingById.get(id) || []).includes(neighborId) ? 'antecede' : 'abre hacia',
+        caption: transversal
+          ? 'relación transversal'
+          : (incomingById.get(id) || []).includes(neighborId)
+            ? 'antecede'
+            : 'abre hacia',
         position: {
           x: 0.5 + Math.cos(angle) * radius,
           y: 0.5 + Math.sin(angle) * radius,
@@ -376,6 +403,7 @@ export const nietzscheSystem2DNodes = Object.freeze(
         concepts: meta.concepts,
         dependsOn: [...(incomingById.get(baseNode.id) || [])],
         produces: [...(outgoingById.get(baseNode.id) || [])],
+        transversalRelations: [...(transversalById.get(baseNode.id) || [])],
         question: `Explique desde la p. ${page} qué función cumple «${baseNode.label}» dentro del movimiento del argumento.`,
         questionProvenance: 'philosophia',
         schema: nietzscheNodeSchema(baseNode.id),
@@ -392,6 +420,9 @@ export const nietzscheSystem2DEdges = Object.freeze(
     target: edge.to,
     label: edge.label || 'continúa',
     relationKind: edge.relationKind || 'derives',
+    theme: edge.theme || null,
+    evidence: edge.evidence || [],
+    note: edge.note || null,
     reconstruction: true,
   })),
 )

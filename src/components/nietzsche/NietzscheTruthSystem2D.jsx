@@ -161,16 +161,20 @@ function NietzscheTruthSystemCanvas() {
         guidedActive,
         touchesSelected,
       })
+      const transversal = edge.relationKind === 'transversal'
 
       return {
         ...edge,
         hidden,
         type: 'smoothstep',
         animated: guidedActive,
+        className: transversal ? 'nt2d-edge-transversal' : 'nt2d-edge-derivation',
+        label: transversal && !touchesSelected ? undefined : edge.label,
         style: {
           stroke: color,
-          strokeWidth: guidedActive || touchesSelected ? 2.8 : 1.45,
-          opacity: guidedActive || touchesSelected ? 1 : 0.46,
+          strokeWidth: guidedActive || touchesSelected ? 2.8 : transversal ? 1.1 : 1.45,
+          strokeDasharray: transversal ? '7 6' : undefined,
+          opacity: guidedActive || touchesSelected ? 1 : transversal ? 0.24 : 0.46,
         },
         labelStyle: {
           fill: 'var(--ph2d-ink)',
@@ -377,6 +381,12 @@ function NietzscheTruthSystemCanvas() {
 
   const selectedDeps = selected?.data.dependsOn.map(nietzscheSystem2DNodeById).filter(Boolean) || []
   const selectedNext = selected?.data.produces.map(nietzscheSystem2DNodeById).filter(Boolean) || []
+  const selectedTransversal = selected?.data.transversalRelations
+    .map((relation) => ({
+      ...relation,
+      node: nietzscheSystem2DNodeById(relation.id),
+    }))
+    .filter((relation) => relation.node) || []
   const selectedRoute = nietzscheSystem2DRoutes.find((item) => item.id === route)
 
   return (
@@ -478,6 +488,7 @@ function NietzscheTruthSystemCanvas() {
                 <b>selección = dorado</b>
                 <b>guía = verde</b>
                 <b>familia = franja cromática</b>
+                <b>punteado = relación transversal</b>
               </span>
               <button type="button" onClick={toggleFullscreen}>
                 {workspaceFullscreen ? 'Salir ⛶' : 'Pantalla completa ⛶'}
@@ -556,7 +567,7 @@ function NietzscheTruthSystemCanvas() {
                         <b>{node.data.code}</b><small>{node.data.title}</small>
                       </button>
                     ))
-                    : <em>No consta antecedente dentro de pp. 21–33.</em>}
+                    : <em>No consta antecedente derivativo dentro de pp. 21–37.</em>}
                 </div>
                 <span>DESPUÉS · CONTINUIDADES</span>
                 <div>
@@ -566,7 +577,19 @@ function NietzscheTruthSystemCanvas() {
                         <b>{node.data.code}</b><small>{node.data.title}</small>
                       </button>
                     ))
-                    : <em>Este tramo cierra aquí con una pregunta abierta.</em>}
+                    : <em>No consta continuidad derivativa dentro de pp. 21–37.</em>}
+                </div>
+                <span>SE CONECTA CON · RELACIONES TRANSVERSALES</span>
+                <div>
+                  {selectedTransversal.length
+                    ? selectedTransversal.map((relation) => (
+                      <button key={relation.id + relation.label} type="button" onClick={() => focusNode(relation.id)}>
+                        <b>{relation.node.data.code}</b>
+                        <small>{relation.node.data.title}</small>
+                        <em>{relation.label}</em>
+                      </button>
+                    ))
+                    : <em>Sin relación transversal documentada para este nodo.</em>}
                 </div>
               </section>
 
@@ -651,7 +674,20 @@ function NietzscheTruthSystemCanvas() {
                         const node = nietzscheSystem2DNodeById(id)
                         return <button key={id} type="button" onClick={() => { setFolioId(null); focusNode(id) }}>{node?.data.code} · {node?.data.title}</button>
                       })
-                      : <em>Pregunta abierta al cierre del tramo.</em>}
+                      : <em>Sin continuidad derivativa interna.</em>}
+                  </div>
+                  <div>
+                    <small>se conecta con</small>
+                    {folio.data.transversalRelations.length
+                      ? folio.data.transversalRelations.map((relation) => {
+                        const node = nietzscheSystem2DNodeById(relation.id)
+                        return (
+                          <button key={relation.id + relation.label} type="button" onClick={() => { setFolioId(null); focusNode(relation.id) }}>
+                            {node?.data.code} · {node?.data.title} · {relation.label}
+                          </button>
+                        )
+                      })
+                      : <em>Sin relación transversal documentada.</em>}
                   </div>
                 </section>
 
