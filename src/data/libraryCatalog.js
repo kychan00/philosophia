@@ -820,8 +820,9 @@ export const books = [
     "titulo": "Sobre verdad y mentira en sentido extramoral",
     "categoria": "ontología",
     "estado": "documentada",
-    "lectura": "Ontología II · lectura asignada como alternativa para 09-11-2026; el tramo de Nietzsche ocupa las pp. impresas 15–38 del volumen aportado; lectura personal no acreditada.",
-    "edicion": "Editorial Tecnos, Madrid, 3.ª ed., 1996; traducción del texto de Nietzsche por Luis M. Valdés. El volumen incluye después un ensayo de Hans Vaihinger."
+    "lectura": "Ontología II · lectura asignada como alternativa para 09-11-2026; se trabaja el ensayo «Sobre verdad y mentira en sentido extramoral». La lectura personal no está acreditada. La paginación se registra por edición y no se traslada entre ejemplares.",
+    "edicion": "Edición de trabajo preferida: Friedrich Nietzsche, Sobre verdad y mentira en sentido extramoral y otros fragmentos de filosofía del conocimiento, Tecnos, Madrid, 2.ª ed., 2012, 120 pp.; edición preparada por Manuel Garrido; ISBN 978-84-309-5485-8.",
+    "url": "https://www.tecnos.es/libro/los-esenciales-de-la-filosofia/sobre-verdad-y-mentira-en-sentido-extramoral-y-otros-fragmentos-de-filosofia-del-conocimiento-friedrich-nietzsche-9788430954858/"
   }
 ]
 

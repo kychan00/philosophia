@@ -89,12 +89,21 @@ export default function NietzscheTruthTask() {
       </section>
 
       <section id="bibliografia" className="nietzsche-bibliography">
-        <div className="nietzsche-section-head"><span>07 · BIBLIOGRAFÍA DE LA TAREA</span><h2>Ediciones efectivamente aportadas</h2></div>
+        <div className="nietzsche-section-head"><span>07 · BIBLIOGRAFÍA DE LA TAREA</span><h2>Ediciones de trabajo verificadas</h2></div>
         <div className="nietzsche-bib-grid">
           <article><span>LECTURA A</span><h3>Más allá del bien y del mal</h3><p>Nietzsche, F. (2005). <em>Más allá del bien y del mal: Preludio de una filosofía del futuro</em> (A. Sánchez Pascual, Trad.). Alianza Editorial. (Obra original publicada en 1886).</p><small>Edición revisada en Biblioteca de autor: 1997; séptima reimpresión: 2005. Tramo asignado: prólogo + Primera Parte.</small></article>
-          <article><span>LECTURA B</span><h3>Sobre verdad y mentira en sentido extramoral</h3><p>Nietzsche, F. (1996). <em>Sobre verdad y mentira en sentido extramoral</em> (L. M. Valdés, Trad.). Editorial Tecnos.</p><small>3.ª edición. Tramo de Nietzsche en el volumen: pp. impresas 15–38. El ensayo de Hans Vaihinger que sigue en el mismo PDF no forma parte de la consigna indicada en el correo.</small></article>
+          <article>
+            <span>LECTURA B · EDICIÓN PREFERIDA</span>
+            <h3>Sobre verdad y mentira en sentido extramoral</h3>
+            <p>Nietzsche, F. (2012). <em>Sobre verdad y mentira en sentido extramoral y otros fragmentos de filosofía del conocimiento</em>. Tecnos. (2.ª ed.; M. Garrido, ed. prep.).</p>
+            <small>ISBN 978-84-309-5485-8 · 120 pp. El volumen reúne el ensayo, fragmentos paralelos de Nietzsche sobre el problema de la verdad y el estudio de Hans Vaihinger. La tarea del profesor se limita al ensayo de Nietzsche.</small>
+            <p className="nietzsche-bib-links">
+              <a href="https://archive.org/details/nietzsche-f.-sobre-verdad-y-mentira-en-sentido-extramoral-y-otros-fragmentos-d/page/12/mode/2up" target="_blank" rel="noreferrer">Consultar ejemplar en Internet Archive ↗</a>
+              <a href="https://www.tecnos.es/libro/los-esenciales-de-la-filosofia/sobre-verdad-y-mentira-en-sentido-extramoral-y-otros-fragmentos-de-filosofia-del-conocimiento-friedrich-nietzsche-9788430954858/" target="_blank" rel="noreferrer">Ficha editorial Tecnos ↗</a>
+            </p>
+          </article>
         </div>
-        <p className="nietzsche-library-policy">La Biblioteca PHILOSOPHIA registra metadatos, procedencia y tramo de lectura; no publica copias de los PDFs recibidos para el curso.</p>
+        <p className="nietzsche-library-policy">La Biblioteca PHILOSOPHIA registra metadatos, procedencia y tramo de lectura. La copia Tecnos 1996 recibida para el curso se conserva como soporte previo; para la consulta pública se prefiere la edición Tecnos 2012 enlazada externamente. No se aloja ninguna copia del libro en PHILOSOPHIA.</p>
       </section>
 
       <footer className="nietzsche-footer"><Link to="/semestre/5/ontologia-ii">← Ontología II</Link><span>verdad · lenguaje · interpretación · ser</span><Link to="/biblioteca">Biblioteca →</Link></footer>
