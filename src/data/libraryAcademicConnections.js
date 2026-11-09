@@ -1117,7 +1117,7 @@ export const libraryAcademicConnections = {
         "area": "Ontología II",
         "title": "Nietzsche · Sobre verdad y mentira en sentido extramoral",
         "type": "lectura asignada como alternativa; no acredita lectura completada",
-        "note": "El volumen aportado incluye después un ensayo de Hans Vaihinger; la tarea se refiere al texto de Nietzsche. PHILOSOPHIA recomienda comenzar por este ensayo como decisión pedagógica editorial.",
+        "note": "La tarea se refiere al ensayo de Nietzsche. Para la consulta pública se adopta como edición de trabajo preferida Tecnos, 2.ª ed., 2012, preparada por Manuel Garrido; la copia de 1996 permanece documentada como soporte previo del curso. PHILOSOPHIA recomienda comenzar por este ensayo como decisión pedagógica editorial.",
         "url": "/tareas/ontologia-ii/nietzsche-verdad-metafisica"
       }]
     }

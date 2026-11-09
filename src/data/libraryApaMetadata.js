@@ -513,10 +513,16 @@ export const libraryApaMetadata = {
   },
   "Nietzsche - Sobre verdad y mentira en sentido extramoral": {
     "kind": "book",
-    "title": "Sobre verdad y mentira en sentido extramoral",
-    "year": 1996,
+    "title": "Sobre verdad y mentira en sentido extramoral y otros fragmentos de filosofía del conocimiento",
+    "year": 2012,
     "publisher": "Editorial Tecnos",
-    "translators": ["Valdés, Luis M."],
-    "studyPart": "Ontología II, 09-11-2026: ensayo de Nietzsche, pp. impresas 15–38 del volumen aportado; texto compuesto en 1873; no acredita lectura completada."
+    "translators": [
+      "Valdés Villanueva, Luis Manuel",
+      "de Santiago Guervós, Luis Enrique",
+      "Llinares Chover, Joan Bautista",
+      "Garrido Giménez, Manuel",
+      "Orduña, Teresa"
+    ],
+    "studyPart": "Ontología II, 09-11-2026: la tarea se limita al ensayo «Sobre verdad y mentira en sentido extramoral». Edición de trabajo preferida: Tecnos, 2.ª ed., 2012, preparada por Manuel Garrido; la paginación no se hereda de la copia de 1996."
   }
 }

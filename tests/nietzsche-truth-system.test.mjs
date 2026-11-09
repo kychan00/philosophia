@@ -17,3 +17,9 @@ test('Nietzsche: esquema 2D conserva orden, fuentes y relaciones', () => {
   assert.ok(nietzscheStudyStations.slice(0,4).every((item)=>item.source.includes('Sobre verdad y mentira')))
   assert.ok(nietzscheStudyStations.slice(4,7).every((item)=>item.source.includes('Más allá del bien y del mal')))
 })
+
+test('Nietzsche: la edición preferida es Tecnos 2012 y el sistema no hereda paginación de 1996', () => {
+  assert.match(nietzscheStudySource.optionB, /Tecnos, 2\.ª ed\., 2012/)
+  assert.ok(nietzscheStudyStations.slice(0,4).every((item)=>item.source.includes('§1')))
+  assert.ok(nietzscheStudyStations.slice(0,4).every((item)=>!item.source.includes('pp. impresas')))
+})

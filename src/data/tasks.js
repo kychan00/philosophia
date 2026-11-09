@@ -900,7 +900,7 @@ export const tasks = [
     readingScope:
       'Friedrich Nietzsche · Más allá del bien y del mal: prólogo + Primera Parte («De los prejuicios de los filósofos») · o Sobre verdad y mentira en sentido extramoral',
     readingPages:
-      'Edición Alianza: prólogo y Primera Parte; edición Tecnos: ensayo de Nietzsche, pp. impresas 15–38',
+      'Edición Alianza: prólogo y Primera Parte. Para Sobre verdad y mentira se adopta Tecnos 2012 como edición de trabajo preferida; la paginación se registra por ejemplar y no se hereda de la copia de 1996.',
     sourceClass:
       'Correo del profesor · 5 de noviembre de 2026 · lectura para la siguiente sesión, lunes 9 de noviembre',
     studyRoute: '/tareas/ontologia-ii/nietzsche-verdad-metafisica',
