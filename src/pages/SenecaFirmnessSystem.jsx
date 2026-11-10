@@ -187,6 +187,22 @@ function SenecaCanvas() {
 
   const selected = senecaFirmnessNodeById(selectedId)
   const folio = senecaFirmnessNodeById(folioId)
+  const presentationIndex = Math.max(senecaFirmnessOrder.indexOf(selectedId), 0)
+  const previousPresentationId =
+    presentationIndex > 0 ? senecaFirmnessOrder[presentationIndex - 1] : null
+  const nextPresentationId =
+    presentationIndex < senecaFirmnessOrder.length - 1
+      ? senecaFirmnessOrder[presentationIndex + 1]
+      : null
+
+  const movePresentation = (delta) => {
+    const next = Math.min(
+      Math.max(presentationIndex + delta, 0),
+      senecaFirmnessOrder.length - 1,
+    )
+    if (guided) setGuidedIndex(next)
+    chooseNode(senecaFirmnessOrder[next], { center: true })
+  }
 
   const startGuide = () => {
     setGuided(true)
@@ -333,25 +349,40 @@ function SenecaCanvas() {
               </header>
               <h2>{selected.data.title}</h2>
 
-              <section
-                className={
-                  selected.data.sourceKind === 'CITA LITERAL COTEJADA'
-                    ? 'seneca2d-source-text'
-                    : 'seneca2d-source-text is-paraphrase'
-                }
-              >
-                <span>
-                  {selected.data.sourceKind === 'CITA LITERAL COTEJADA'
-                    ? 'TEXTO DE SÉNECA'
-                    : 'RECONSTRUCCIÓN DE ESTUDIO'}
-                </span>
-                {selected.data.sourceKind === 'CITA LITERAL COTEJADA' ? (
-                  <blockquote>“{selected.data.sourceText}”</blockquote>
-                ) : (
-                  <p>{selected.data.sourceText}</p>
-                )}
-                <small>{selected.data.sourceRef} · {selected.data.sourceKind}</small>
+              <nav className="seneca2d-inspector-nav" aria-label="Navegación de exposición">
+                <button
+                  type="button"
+                  disabled={!previousPresentationId}
+                  onClick={() => movePresentation(-1)}
+                >
+                  ← Anterior
+                </button>
+                <div aria-live="polite">
+                  <span>EXPOSICIÓN</span>
+                  <strong>{presentationIndex + 1} / {senecaFirmnessOrder.length}</strong>
+                </div>
+                <button
+                  type="button"
+                  disabled={!nextPresentationId}
+                  onClick={() => movePresentation(1)}
+                >
+                  Siguiente →
+                </button>
+              </nav>
+
+              <section className="seneca2d-explicit-text">
+                <span>TEXTO EXPLÍCITO · GREDOS · p. {selected.data.explicitPage}</span>
+                <blockquote>“{selected.data.explicitText}”</blockquote>
+                <small>{selected.data.explicitRef} · CITA LITERAL COTEJADA</small>
               </section>
+
+              {selected.data.sourceKind !== 'CITA LITERAL COTEJADA' && (
+                <section className="seneca2d-source-text is-paraphrase">
+                  <span>RECONSTRUCCIÓN DE ESTUDIO</span>
+                  <p>{selected.data.sourceText}</p>
+                  <small>{selected.data.sourceRef} · {selected.data.sourceKind}</small>
+                </section>
+              )}
 
               <section>
                 <span>EN POCAS PALABRAS</span>
@@ -404,25 +435,18 @@ function SenecaCanvas() {
                 <button type="button" aria-label="Cerrar folio" onClick={() => setFolioId(null)}>×</button>
               </header>
               <div className="seneca2d-folio-grid">
-                <section
-                  className={
-                    folio.data.sourceKind === 'CITA LITERAL COTEJADA'
-                      ? 'seneca2d-folio-source'
-                      : 'seneca2d-folio-source is-paraphrase'
-                  }
-                >
-                  <span>
-                    {folio.data.sourceKind === 'CITA LITERAL COTEJADA'
-                      ? 'TEXTO ORIGINAL COTEJADO'
-                      : 'RECONSTRUCCIÓN DE ESTUDIO'}
-                  </span>
-                  {folio.data.sourceKind === 'CITA LITERAL COTEJADA' ? (
-                    <blockquote>“{folio.data.sourceText}”</blockquote>
-                  ) : (
-                    <p>{folio.data.sourceText}</p>
-                  )}
-                  <small>{folio.data.sourceRef} · {folio.data.sourceKind}</small>
+                <section className="seneca2d-folio-source">
+                  <span>TEXTO EXPLÍCITO COTEJADO · GREDOS · p. {folio.data.explicitPage}</span>
+                  <blockquote>“{folio.data.explicitText}”</blockquote>
+                  <small>{folio.data.explicitRef} · CITA LITERAL COTEJADA</small>
                 </section>
+                {folio.data.sourceKind !== 'CITA LITERAL COTEJADA' && (
+                  <section className="seneca2d-folio-source is-paraphrase">
+                    <span>RECONSTRUCCIÓN DE ESTUDIO</span>
+                    <p>{folio.data.sourceText}</p>
+                    <small>{folio.data.sourceRef} · {folio.data.sourceKind}</small>
+                  </section>
+                )}
                 <section>
                   <span>EXPLICACIÓN</span>
                   <p>{folio.data.explanation}</p>
