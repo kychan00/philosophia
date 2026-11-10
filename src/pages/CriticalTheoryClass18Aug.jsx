@@ -518,27 +518,6 @@ export default function CriticalTheoryClass18Aug() {
 
         </article>
       </div>
-      <section className="ct18-rehearsal" id="ct18-exam-study-20261109" aria-labelledby="ct18-exam-study-heading">
-        <div className="ct18-rehearsal-top"><span>CUADERNO DE EXAMEN / 01</span><span>11 APARTADOS · ESTUDIO FIEL</span></div>
-        <h2 id="ct18-exam-study-heading">Guía de repaso integral · primera clase</h2>
-        <p>Esta guía de lectura acompaña el folio académico original del 18 de agosto. Sus recomendaciones son elaboración pedagógica de PHILOSOPHIA, no preguntas oficiales ni nuevos contenidos atribuidos a la profesora.</p>
-        <ol>
-          <li><strong>Encuadre:</strong> comprender por qué reconocer al grupo tiene una finalidad pedagógica.</li>
-          <li><strong>Objetivo:</strong> identificar referentes, problemas, métodos y formas de razonamiento.</li>
-          <li><strong>Pluralidad:</strong> ampliar recursos sin asumir relativismo ni rechazar la filosofía analítica.</li>
-          <li><strong>Analítica y dialéctica:</strong> recordar que Kant–Hegel–Adorno fue una comparación introductoria, no una genealogía histórica demostrada.</li>
-          <li><strong>Aprender a filosofar:</strong> reconstruir preguntas, razones y objeciones de un autor; Adorno fue el ejemplo formativo mencionado.</li>
-          <li><strong>Transdisciplina:</strong> articular filosofía, historia, sociología, psicología e investigación empírica.</li>
-          <li><strong>Género:</strong> examinar la selección del canon y la contribución históricamente invisibilizada de mujeres.</li>
-          <li><strong>Evaluación:</strong> participación 30 %, examen 30 % y exposición con defensa 40 %.</li>
-          <li><strong>Lecturas:</strong> las indicaciones de Classroom orientan, sin implicar reporte obligatorio.</li>
-          <li><strong>Frankfurt:</strong> iniciar con Reale y Antiseri, sin fingir una exégesis exhaustiva de su capítulo.</li>
-          <li><strong>Continuidad:</strong> preparar la lectura inicial; no consta otra tarea separada en el cierre.</li>
-        </ol>
-        <p><strong>Modo de responder:</strong> definición → problema → argumento → distinción → ejemplo propio → conclusión. Para cada tema, diferenciar <em>clase</em>, <em>programa</em> y <em>ampliación de estudio</em>. El examen anunciado en agosto y sus materiales permitidos no sustituyen instrucciones posteriores.</p>
-        <p><strong>Procedencia:</strong> folio 001 de PHILOSOPHIA; programa 2026-B de Dinora Hernández López; nota correspondiente en Obsidian. El cuaderno PDF de 17 páginas se entregó como archivo independiente; no se considera un recurso alojado en este sitio.</p>
-        <button type="button" onClick={() => goToSection('encuadre')}>Volver al encuadre de la clase</button>
-      </section>
       <section className="ct18-rehearsal" aria-labelledby="ct18-review-heading">
         <div className="ct18-rehearsal-top"><span>CUADERNO ACTIVO / REPASO</span><span>{String(activeCard + 1).padStart(2, '0')} / {String(rehearsal.length).padStart(2, '0')}</span></div>
         <h2 id="ct18-review-heading">Recordar es volver a argumentar.</h2>
