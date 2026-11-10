@@ -232,6 +232,9 @@ try {
     'paso 2',
   )
   assert.ok((await evaluate(metrics)).opacity > 0.9, 'nodo guiado atenuado')
+  // La guía centra el nodo con una animación de 420 ms. Esperamos a que termine
+  // antes de comprobar que un clic directo, por sí mismo, no mueve el viewport.
+  await sleep(520)
 
   const viewportBeforeNodeClick = await evaluate(
     "document.querySelector('.seneca2d-canvas .react-flow__viewport')?.style.transform || ''",
