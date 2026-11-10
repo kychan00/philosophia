@@ -99,9 +99,9 @@ function SenecaCanvas() {
     }, 20)
   }, [getNodes, setCenter])
 
-  const chooseNode = useCallback((id) => {
+  const chooseNode = useCallback((id, { center = false } = {}) => {
     setSelectedId(id)
-    centerNode(id)
+    if (center) centerNode(id)
   }, [centerNode])
 
   useEffect(() => {
@@ -191,7 +191,7 @@ function SenecaCanvas() {
   const startGuide = () => {
     setGuided(true)
     setGuidedIndex(0)
-    chooseNode(senecaFirmnessOrder[0])
+    chooseNode(senecaFirmnessOrder[0], { center: true })
   }
 
   const moveGuide = (delta) => {
@@ -200,7 +200,7 @@ function SenecaCanvas() {
       senecaFirmnessOrder.length - 1,
     )
     setGuidedIndex(next)
-    chooseNode(senecaFirmnessOrder[next])
+    chooseNode(senecaFirmnessOrder[next], { center: true })
   }
 
   return (
