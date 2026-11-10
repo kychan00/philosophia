@@ -40,6 +40,8 @@ const node = ({
   excerpt,
   sourceText,
   sourcePage,
+  explicitText,
+  explicitPage = sourcePage,
   sourceKind = 'PARÁFRASIS DE ESTUDIO',
   explanation,
   role,
@@ -59,6 +61,9 @@ const node = ({
     excerpt,
     sourceText,
     sourcePage,
+    explicitText,
+    explicitPage,
+    explicitRef: 'Séneca · Sobre la firmeza del sabio · p. ' + explicitPage,
     sourceRef: 'Séneca · Sobre la firmeza del sabio · p. ' + sourcePage,
     sourceKind,
     explanation,
@@ -83,6 +88,8 @@ export const senecaFirmnessNodes = [
     sourceText: 'el sabio no puede recibir ningún ultraje ni ofensa',
     sourcePage: '140',
     sourceKind: 'CITA LITERAL COTEJADA',
+    explicitText: 'el sabio no puede recibir ningún ultraje ni ofensa',
+    explicitPage: '140',
     explanation:
       'La tesis no niega insultos, golpes o humillaciones. Niega que esos ataques destruyan por sí solos la virtud del sabio.',
     role:
@@ -104,6 +111,8 @@ export const senecaFirmnessNodes = [
     sourceText: 'todo lo ha basado en sí mismo',
     sourcePage: '143',
     sourceKind: 'CITA LITERAL COTEJADA',
+    explicitText: 'el sabio nada puede perder: todo lo ha basado en sí mismo, no confía nada a la suerte',
+    explicitPage: '143',
     explanation:
       'Séneca sitúa el bien propio del sabio en aquello que depende de su virtud y su juicio, no en lo que la fortuna concede.',
     role:
@@ -126,6 +135,8 @@ export const senecaFirmnessNodes = [
     sourceText:
       'Reconstrucción del argumento de pp. 142–143: el único mal verdadero es la indecencia moral y el bien propio del sabio está en la virtud.',
     sourcePage: '142–143',
+    explicitText: 'para ella la única desgracia es la indecencia',
+    explicitPage: '142',
     explanation:
       'Esta rama identifica lo verdaderamente propio del sabio. La virtud pertenece al orden moral y no funciona como una posesión externa.',
     role:
@@ -148,6 +159,8 @@ export const senecaFirmnessNodes = [
     sourceText:
       'Reconstrucción del argumento de pp. 143–144: la fortuna sólo puede quitar lo que ella misma dio; los bienes externos se poseen en precario.',
     sourcePage: '143–144',
+    explicitText: 'lo demás lo tiene en precario',
+    explicitPage: '143',
     explanation:
       'Los externos no constituyen el bien moral. Por eso su pérdida puede ser dolorosa sin equivaler a pérdida de virtud.',
     role:
@@ -170,6 +183,8 @@ export const senecaFirmnessNodes = [
     sourceText:
       'Reconstrucción de p. 143: la virtud es libre, inviolable e independiente de lo que la fortuna da y quita.',
     sourcePage: '143',
+    explicitText: 'la suerte no arrebata nada más que lo que ha dado; ahora bien, no da virtud, por tanto tampoco la quita',
+    explicitPage: '143',
     explanation:
       'La virtud no es un objeto exterior que otro pueda apropiarse. Sólo el propio sujeto puede abandonar el juicio recto.',
     role:
@@ -192,6 +207,8 @@ export const senecaFirmnessNodes = [
     sourceText:
       'Reconstrucción de pp. 143–144 y del ejemplo de Estilpón: bienes, ciudad y vínculos externos pueden perderse sin agotar lo verdaderamente propio.',
     sourcePage: '143–144',
+    explicitText: 'Nada, todo lo mío lo llevo conmigo',
+    explicitPage: '143',
     explanation:
       'Esta pérdida es real en el plano material, corporal o social, pero no equivale por sí sola a corrupción moral.',
     role:
@@ -214,6 +231,8 @@ export const senecaFirmnessNodes = [
     sourceText:
       'Reconstrucción de pp. 142–144: pérdida material y mal moral pertenecen a planos distintos mientras la virtud permanezca a salvo.',
     sourcePage: '142–144',
+    explicitText: 'si su virtud está a salvo, sus bienes están a salvo',
+    explicitPage: '143',
     explanation:
       'Las dos ramas convergen aquí: los externos pueden perderse, pero esa pérdida no se identifica automáticamente con un mal moral.',
     role:
@@ -236,6 +255,8 @@ export const senecaFirmnessNodes = [
     sourceText: 'puede ocurrir que alguien me haga un ultraje y yo no lo reciba',
     sourcePage: '145',
     sourceKind: 'CITA LITERAL COTEJADA',
+    explicitText: 'puede ocurrir que alguien me haga un ultraje y yo no lo reciba',
+    explicitPage: '145',
     explanation:
       'Séneca separa la injusticia del agresor del efecto interior que consigue. La intención culpable no garantiza dominio sobre la víctima.',
     role:
@@ -258,6 +279,8 @@ export const senecaFirmnessNodes = [
     sourceText:
       'Reconstrucción de la distinción de pp. 142 y 150: el ultraje pretende daño y puede implicar golpes o pérdidas sin convertirse por ello en mal moral.',
     sourcePage: '142, 150',
+    explicitText: 'El ultraje tiene esta intención: afectar a alguien con una desgracia',
+    explicitPage: '142',
     explanation:
       'Aquí importa separar el daño exterior de su interpretación moral: el sabio puede sufrir físicamente sin quedar moralmente vencido.',
     role:
@@ -280,6 +303,8 @@ export const senecaFirmnessNodes = [
     sourceText:
       'Reconstrucción de pp. 146–151: la ofensa es más leve que el ultraje y depende en gran medida del juicio con que se recibe el desprecio.',
     sourcePage: '146–151',
+    explicitText: 'Es menos importante que el ultraje: por ella podemos quejarnos más que querellarnos',
+    explicitPage: '146',
     explanation:
       'Séneca analiza burlas, desprecios y gestos sociales para mostrar que la ofensa depende de la interpretación que se les concede.',
     role:
@@ -302,6 +327,8 @@ export const senecaFirmnessNodes = [
     sourceText:
       'Reconstrucción de pp. 147–149: Séneca presenta la magnanimidad como capacidad de pasar por encima del desprecio sin someterse a él.',
     sourcePage: '147–149',
+    explicitText: 'la virtud más hermosa de todas, la magnanimidad',
+    explicitPage: '147',
     explanation:
       'Las dos ramas vuelven a converger: frente al daño y al menosprecio, la firmeza adopta la forma de magnanimidad.',
     role:
@@ -324,6 +351,8 @@ export const senecaFirmnessNodes = [
     sourceText: 'no se venga, sino que los enmienda',
     sourcePage: '148',
     sourceKind: 'CITA LITERAL COTEJADA',
+    explicitText: 'el sabio está libre de la ira que enciende la impresión de ultraje',
+    explicitPage: '146',
     explanation:
       'La ausencia de venganza no significa pasividad. Significa que la respuesta no está gobernada por ira personal.',
     role:
@@ -346,6 +375,8 @@ export const senecaFirmnessNodes = [
     sourceText: 'no se venga, sino que los enmienda',
     sourcePage: '148',
     sourceKind: 'CITA LITERAL COTEJADA',
+    explicitText: 'no se venga, sino que los enmienda',
+    explicitPage: '148',
     explanation:
       'Séneca compara al sabio con el médico: la intervención racional tiene una finalidad correctiva y no vengativa.',
     role:
@@ -368,6 +399,8 @@ export const senecaFirmnessNodes = [
     sourceText: 'la libertad es sobreponer el ánimo a los ultrajes',
     sourcePage: '152',
     sourceKind: 'CITA LITERAL COTEJADA',
+    explicitText: 'la libertad es sobreponer el ánimo a los ultrajes',
+    explicitPage: '152',
     explanation:
       'La libertad no consiste en evitar todo ataque, sino en que aquello externo no se convierta en autoridad sobre el propio valor moral.',
     role:

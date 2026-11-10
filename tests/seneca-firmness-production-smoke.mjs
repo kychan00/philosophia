@@ -64,6 +64,9 @@ const metrics=`(()=>{
     hero:document.querySelector('.seneca2d-hero h1')?.textContent||'',
     mapTitle:document.querySelector('.seneca2d-flow-caption strong')?.textContent||'',
     inspector:document.querySelector('.seneca2d-inspector h2')?.textContent||'',
+    explicitText:document.querySelector('.seneca2d-explicit-text blockquote')?.textContent||'',
+    presentationNav:!!document.querySelector('.seneca2d-inspector-nav'),
+    presentationStep:document.querySelector('.seneca2d-inspector-nav strong')?.textContent||'',
     flowRect:(()=>{const r=document.querySelector('.seneca2d-flow-panel')?.getBoundingClientRect();return r?{left:r.left,right:r.right,top:r.top,bottom:r.bottom}:null})(),
     inspectorRect:(()=>{const r=document.querySelector('.seneca2d-inspector')?.getBoundingClientRect();return r?{left:r.left,right:r.right,top:r.top,bottom:r.bottom}:null})(),
     inspectorPosition:getComputedStyle(document.querySelector('.seneca2d-inspector')).position,
@@ -123,6 +126,9 @@ try{
     assert.ok(state.hero.includes('La firmeza'),JSON.stringify(state))
     assert.ok(state.mapTitle.includes('gobierno de sí'),JSON.stringify(state))
     assert.equal(state.inspector,'Firmeza del sabio',JSON.stringify(state))
+    assert.equal(state.presentationNav,true,JSON.stringify(state))
+    assert.equal(state.presentationStep.trim(),'1 / 14',JSON.stringify(state))
+    assert.ok(state.explicitText.includes('el sabio no puede recibir'),JSON.stringify(state))
     if(width>1180){
       assert.ok(state.inspectorRect.left>=state.flowRect.right-2,'inspector derecho ausente en producción '+JSON.stringify(state))
       assert.equal(state.inspectorPosition,'sticky','inspector de escritorio debe ser sticky')

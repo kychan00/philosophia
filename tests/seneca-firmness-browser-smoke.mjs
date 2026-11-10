@@ -89,6 +89,9 @@ const metrics = `(() => {
     scroll: document.documentElement.scrollWidth,
     inspector: !!document.querySelector('.seneca2d-inspector h2'),
     schema: !!document.querySelector('.seneca2d-inspector .animated-concept-schema'),
+    explicitText: document.querySelector('.seneca2d-explicit-text blockquote')?.textContent || '',
+    presentationNav: !!document.querySelector('.seneca2d-inspector-nav'),
+    presentationStep: document.querySelector('.seneca2d-inspector-nav strong')?.textContent || '',
     flowRect: (() => {
       const rect = document.querySelector('.seneca2d-flow-panel')?.getBoundingClientRect()
       return rect ? { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom } : null
@@ -175,6 +178,9 @@ try {
     assert.ok(state.positions.S11.y < state.positions.S14.y, 'la conclusión no queda debajo de magnanimidad ' + width)
     assert.ok(state.scroll <= state.width + 3, 'overflow horizontal ' + width + ' ' + JSON.stringify(state))
     assert.ok(state.inspector && state.schema, 'inspector o esquema ausente ' + width)
+    assert.ok(state.presentationNav, 'navegación de exposición ausente ' + width)
+    assert.equal(state.presentationStep.trim(), '1 / 14', 'paso inicial incorrecto ' + width)
+    assert.ok(state.explicitText.length > 20, 'texto explícito ausente ' + width)
     if (width > 1180) {
       assert.ok(
         state.inspectorRect.left >= state.flowRect.right - 2,
@@ -192,9 +198,29 @@ try {
     console.log('SENECA OK', width + 'x' + height, JSON.stringify(state))
   }
 
+  await evaluate("document.querySelector('.seneca2d-inspector-nav button:last-child').click()")
+  await until(
+    () => evaluate("document.querySelector('.seneca2d-canvas .react-flow__node.selected')?.getAttribute('data-id') === 'S02'"),
+    'siguiente de exposición S02',
+  )
+  assert.equal(
+    await evaluate("document.querySelector('.seneca2d-inspector-nav strong')?.textContent.trim()"),
+    '2 / 14',
+  )
+  assert.ok(
+    await evaluate("document.querySelector('.seneca2d-explicit-text blockquote')?.textContent.includes('todo lo ha basado en sí mismo')"),
+    'S02 debe mostrar su texto explícito cotejado',
+  )
+  await evaluate("document.querySelector('.seneca2d-inspector-nav button:first-child').click()")
+  await until(
+    () => evaluate("document.querySelector('.seneca2d-canvas .react-flow__node.selected')?.getAttribute('data-id') === 'S01'"),
+    'anterior de exposición S01',
+  )
+
   await evaluate("document.querySelector('.seneca2d-open-folio').click()")
   await until(() => evaluate("!!document.querySelector('.seneca2d-folio[role=dialog]')"), 'folio')
   assert.ok(await evaluate("!!document.querySelector('.seneca2d-folio .animated-concept-schema')"))
+  assert.ok(await evaluate("document.querySelector('.seneca2d-folio-source blockquote')?.textContent.includes('el sabio no puede recibir')"))
   await evaluate("document.querySelector('.seneca2d-folio>header button').click()")
   assert.equal(await evaluate("!!document.querySelector('.seneca2d-folio')"), false)
 
@@ -206,6 +232,9 @@ try {
     'paso 2',
   )
   assert.ok((await evaluate(metrics)).opacity > 0.9, 'nodo guiado atenuado')
+  // La guía centra el nodo con una animación de 420 ms. Esperamos a que termine
+  // antes de comprobar que un clic directo, por sí mismo, no mueve el viewport.
+  await sleep(520)
 
   const viewportBeforeNodeClick = await evaluate(
     "document.querySelector('.seneca2d-canvas .react-flow__viewport')?.style.transform || ''",
@@ -235,7 +264,11 @@ try {
     await evaluate("!!document.querySelector('.seneca2d-source-text.is-paraphrase blockquote')"),
     false,
   )
-  console.log('SENECA: folio + guía + clic estable + fidelidad de fuente verificados')
+  assert.ok(
+    await evaluate("document.querySelector('.seneca2d-explicit-text blockquote')?.textContent.includes('única desgracia es la indecencia')"),
+    'S03 debe conservar texto explícito además de la reconstrucción',
+  )
+  console.log('SENECA: exposición + texto explícito + folio + guía + clic estable verificados')
 } finally {
   try { ws?.close() } catch {}
   browser?.kill('SIGKILL')

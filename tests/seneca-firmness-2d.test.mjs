@@ -21,10 +21,13 @@ test('Séneca 2D conserva catorce estaciones y una lectura axial', () => {
   assert.equal(senecaFirmnessSource.pages, '140–153')
 })
 
-test('cada nodo separa fuente, explicación, ejemplo y esquema', () => {
+test('cada nodo separa texto explícito, reconstrucción, explicación, ejemplo y esquema', () => {
   for (const node of senecaFirmnessNodes) {
     assert.match(node.data.sourceKind, /CITA LITERAL COTEJADA|PARÁFRASIS DE ESTUDIO/)
     assert.ok(node.data.sourceText.length > 20)
+    assert.ok(node.data.explicitText.length > 20, node.id + ' debe tener texto explícito cotejado')
+    assert.match(node.data.explicitPage, /^\d{3}(?:–\d{3})?$/)
+    assert.match(node.data.explicitRef, /Séneca · Sobre la firmeza del sabio · p\./)
     assert.ok(node.data.explanation.length > 65)
     assert.ok(node.data.example.length > 35)
     assert.ok(node.data.question.endsWith('?'))
@@ -76,7 +79,10 @@ test('ruta web y acceso desde Ética están registrados', () => {
 test('el sistema conserva ETHOS, lectura vertical y fidelidad editorial', () => {
   assert.match(page, /Position\.Top/)
   assert.match(page, /Position\.Bottom/)
+  assert.match(page, /TEXTO EXPLÍCITO/)
   assert.match(page, /RECONSTRUCCIÓN DE ESTUDIO/)
+  assert.match(page, /seneca2d-inspector-nav/)
+  assert.match(page, /movePresentation/)
   assert.match(page, /AnimatedConceptSchema/)
   assert.match(page, /ReactFlowProvider/)
   assert.doesNotMatch(page, /MiniMap/)
@@ -84,6 +90,8 @@ test('el sistema conserva ETHOS, lectura vertical y fidelidad editorial', () => 
   assert.match(css, /height:3020px/)
   assert.match(css, /grid-template-columns:minmax\(0,1fr\) 390px/)
   assert.match(css, /position:sticky/)
+  assert.match(css, /seneca2d-inspector-nav/)
+  assert.match(css, /seneca2d-explicit-text/)
   assert.match(css, /@media\(max-width:1180px\)/)
     assert.match(css, /prefers-reduced-motion/)
 })
