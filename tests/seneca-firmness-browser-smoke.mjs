@@ -207,7 +207,26 @@ try {
   )
   assert.ok((await evaluate(metrics)).opacity > 0.9, 'nodo guiado atenuado')
 
+  const viewportBeforeNodeClick = await evaluate(
+    "document.querySelector('.seneca2d-canvas .react-flow__viewport')?.style.transform || ''",
+  )
   await evaluate("document.querySelector('.seneca2d-canvas .react-flow__node[data-id=\"S03\"]').click()")
+  await until(
+    () => evaluate("document.querySelector('.seneca2d-canvas .react-flow__node.selected')?.getAttribute('data-id') === 'S03'"),
+    'selección directa S03',
+  )
+  await until(
+    () => evaluate("document.querySelector('.seneca2d-inspector h2')?.textContent === 'Virtud'"),
+    'inspector actualizado por clic',
+  )
+  const viewportAfterNodeClick = await evaluate(
+    "document.querySelector('.seneca2d-canvas .react-flow__viewport')?.style.transform || ''",
+  )
+  assert.equal(
+    viewportAfterNodeClick,
+    viewportBeforeNodeClick,
+    'seleccionar un nodo con clic no debe desplazar el viewport',
+  )
   await until(
     () => evaluate("!!document.querySelector('.seneca2d-source-text.is-paraphrase')"),
     'paráfrasis separada de cita literal',
@@ -216,7 +235,7 @@ try {
     await evaluate("!!document.querySelector('.seneca2d-source-text.is-paraphrase blockquote')"),
     false,
   )
-  console.log('SENECA: folio + guía + fidelidad de fuente verificados')
+  console.log('SENECA: folio + guía + clic estable + fidelidad de fuente verificados')
 } finally {
   try { ws?.close() } catch {}
   browser?.kill('SIGKILL')
