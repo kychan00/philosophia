@@ -451,15 +451,15 @@
 .seneca-svg-fall{animation:seneca-fall 3.2s ease-in-out infinite}
 .seneca-svg-dash{animation:seneca-dash 8s linear infinite}
 .seneca-svg-steady{filter:drop-shadow(0 10px 4px rgba(23,50,77,.12))}
-@keyframes seneca-drift{to{transform:translateX(35px)}}
-@keyframes seneca-bob{50%{transform:translateY(-7px)}}
-@keyframes seneca-walk{to{transform:translate(70px,-40px)}}
-@keyframes seneca-wave{to{transform:translateY(-9px) scale(1.04)}}
-@keyframes seneca-arrow{0%{transform:translateX(-30px);opacity:0}25%{opacity:1}80%{transform:translateX(110px);opacity:1}100%{transform:translateX(140px);opacity:0}}
+@keyframes seneca-drift{to{translate:35px 0}}
+@keyframes seneca-bob{50%{translate:0 -7px}}
+@keyframes seneca-walk{to{translate:70px -40px}}
+@keyframes seneca-wave{to{translate:0 -9px;scale:1.04}}
+@keyframes seneca-arrow{0%{translate:-30px 0;opacity:0}25%{opacity:1}80%{translate:110px 0;opacity:1}100%{translate:140px 0;opacity:0}}
 @keyframes seneca-spit{to{stroke-dashoffset:-28}}
-@keyframes seneca-spin{to{transform:rotate(360deg)}}
-@keyframes seneca-breathe{50%{transform:scale(1.035)}}
-@keyframes seneca-fall{50%{transform:translate(18px,24px) rotate(7deg)}}
+@keyframes seneca-spin{to{rotate:360deg}}
+@keyframes seneca-breathe{50%{scale:1.035}}
+@keyframes seneca-fall{50%{translate:18px 24px;rotate:7deg}}
 @keyframes seneca-dash{to{stroke-dashoffset:-128}}
 
 @media(max-width:760px){
@@ -478,3 +478,5 @@
     animation:none!important
   }
 }
+
+.seneca-svg-drift,.seneca-svg-bob,.seneca-svg-walk,.seneca-svg-wave,.seneca-svg-arrow,.seneca-svg-spin,.seneca-svg-breathe,.seneca-svg-fall{transform-box:fill-box;transform-origin:center}
