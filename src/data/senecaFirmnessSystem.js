@@ -112,7 +112,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'P02',
     x: 650,
-    y: 270,
+    y: 340,
     phase: 'Apertura',
     title: 'Médicos complacientes',
     excerpt:
@@ -140,7 +140,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'P03',
     x: 650,
-    y: 500,
+    y: 640,
     phase: 'Apertura',
     title: 'La vía viril y la cumbre',
     excerpt:
@@ -168,7 +168,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'P04',
     x: 650,
-    y: 730,
+    y: 940,
     phase: 'Apertura',
     title: 'Empinado y pedregoso',
     excerpt:
@@ -196,7 +196,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'P05',
     x: 650,
-    y: 960,
+    y: 1240,
     phase: 'Ejemplo',
     title: 'Catón en el foro',
     excerpt:
@@ -224,7 +224,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'P06',
     x: 650,
-    y: 1190,
+    y: 1540,
     phase: 'Imagen',
     title: 'Diamante, fuego, escollos y flechas',
     excerpt:
@@ -252,7 +252,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S01',
     x: 650,
-    y: 1360,
+    y: 1840,
     phase: 'Tesis',
     title: 'Firmeza del sabio',\n    visual: 'shield',
     excerpt:
@@ -275,7 +275,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S02',
     x: 650,
-    y: 1590,
+    y: 2140,
     phase: 'Fundamento',
     title: 'Gobierno de sí',\n    visual: 'inner',
     excerpt:
@@ -299,7 +299,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S03',
     x: 230,
-    y: 1860,
+    y: 2460,
     phase: 'Rama I',
     title: 'Virtud',\n    visual: 'sun',
     excerpt:
@@ -323,7 +323,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S04',
     x: 1070,
-    y: 1860,
+    y: 2460,
     phase: 'Rama II',
     title: 'Externos',\n    visual: 'coins',
     excerpt:
@@ -347,7 +347,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S05',
     x: 230,
-    y: 2140,
+    y: 2790,
     phase: 'Consecuencia',
     title: 'No puede ser arrebatada',\n    visual: 'diamond',
     excerpt:
@@ -371,7 +371,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S06',
     x: 1070,
-    y: 2140,
+    y: 2790,
     phase: 'Consecuencia',
     title: 'Pueden ser perdidos',\n    visual: 'falling',
     excerpt:
@@ -395,7 +395,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S07',
     x: 650,
-    y: 2430,
+    y: 3120,
     phase: 'Síntesis',
     title: 'Pérdida externa ≠ mal moral',\n    visual: 'balance',
     excerpt:
@@ -419,7 +419,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S08',
     x: 650,
-    y: 2690,
+    y: 3430,
     phase: 'Distinción',
     title: 'Ultraje intentado ≠ ultraje recibido',\n    visual: 'arrows',
     excerpt:
@@ -443,7 +443,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S09',
     x: 250,
-    y: 2960,
+    y: 3750,
     phase: 'Rama I',
     title: 'Ultraje',\n    visual: 'storm',
     excerpt:
@@ -467,7 +467,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S10',
     x: 1050,
-    y: 2960,
+    y: 3750,
     phase: 'Rama II',
     title: 'Ofensa',\n    visual: 'mask',
     excerpt:
@@ -491,7 +491,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S11',
     x: 650,
-    y: 3240,
+    y: 4070,
     phase: 'Éthos',
     title: 'Magnanimidad',\n    visual: 'tree',
     excerpt:
@@ -515,7 +515,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S12',
     x: 650,
-    y: 3490,
+    y: 4360,
     phase: 'Respuesta',
     title: 'Sin ira / sin venganza',\n    visual: 'calm',
     excerpt:
@@ -539,7 +539,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S13',
     x: 650,
-    y: 3740,
+    y: 4650,
     phase: 'Práctica',
     title: 'Corrección',\n    visual: 'doctor',
     excerpt:
@@ -563,7 +563,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S14',
     x: 650,
-    y: 3990,
+    y: 4940,
     phase: 'Resultado',
     title: 'Libertad',\n    visual: 'summit',
     excerpt:
