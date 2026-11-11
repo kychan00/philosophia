@@ -129,7 +129,7 @@ test('el sistema conserva ETHOS, lectura vertical y fidelidad editorial', () => 
   assert.match(page, /SenecaStudyArchive/)
   assert.match(page, /Abrir 52 claves/)
   assert.match(archive, /52 claves/)
-  assert.match(archive, /SISTEMATIZACIÓN ANALÍTICA DE ESTUDIO/)
+  assert.match(archive, /senecaStudySource\.kind/)
   assert.match(page, /Veinte estaciones/)
   assert.match(page, /setTheaterOpen/)
   assert.match(css, /seneca-study-overlay/)
