@@ -104,6 +104,8 @@ const metrics = `(() => {
     minimap: !!document.querySelector('.react-flow__minimap'),
     miniSvgCount: document.querySelectorAll('.seneca-svg-mini').length,
     animationLaunch: !!document.querySelector('.seneca2d-animation-launch button'),
+    studyLaunch: !!document.querySelector('.seneca2d-study-launch button'),
+    relatedStudy: document.querySelectorAll('.seneca-study-node .seneca-study-card').length,
   }
 })()`
 
@@ -187,6 +189,8 @@ try {
     assert.ok(state.explicitText.includes('hembras y los machos'), 'apertura explícita ausente ' + width)
     assert.equal(state.miniSvgCount, 20, 'cada nodo debe mostrar una mini ilustración SVG ' + width)
     assert.ok(state.animationLaunch, 'botón de teatro ausente ' + width)
+    assert.ok(state.studyLaunch, 'archivo de 52 claves ausente ' + width)
+    assert.ok(state.relatedStudy >= 1, 'bloques de sistematización relacionados ausentes ' + width)
     if (width > 1180) {
       assert.ok(
         state.inspectorRect.left >= state.flowRect.right - 2,
@@ -227,11 +231,50 @@ try {
   await until(() => evaluate("!!document.querySelector('.seneca-theater[role=dialog]')"), 'teatro SVG')
   assert.ok(await evaluate("!!document.querySelector('.seneca-theater .seneca-svg-stage')"), 'escena SVG ausente')
   assert.ok(await evaluate("document.querySelector('.seneca-theater-bubble blockquote')?.textContent.includes('hembras y los machos')"), 'globo inicial incorrecto')
-  await evaluate("document.querySelector('.seneca-theater-controls button:last-child').click()")
-  await until(() => evaluate("document.querySelector('.seneca-theater-header h2')?.textContent.includes('Médicos complacientes')"), 'escena P02')
-  assert.ok(await evaluate("document.querySelector('.seneca-theater-bubble blockquote')?.textContent.includes('curan no según lo mejor')"))
+
+  const bubbleGeometry = async () => evaluate(`(() => {
+    const stage=document.querySelector('.seneca-theater-stage')
+    const bubble=document.querySelector('.seneca-theater-bubble')
+    const quote=bubble?.querySelector('blockquote')
+    if(!stage||!bubble||!quote)return null
+    const s=stage.getBoundingClientRect(), b=bubble.getBoundingClientRect(), q=quote.getBoundingClientRect()
+    const style=getComputedStyle(bubble)
+    return {
+      stage:{left:s.left,right:s.right,top:s.top,bottom:s.bottom},
+      bubble:{left:b.left,right:b.right,top:b.top,bottom:b.bottom},
+      quote:{left:q.left,right:q.right,top:q.top,bottom:q.bottom},
+      overflowX:style.overflowX,overflowY:style.overflowY,
+      scrollWidth:bubble.scrollWidth,clientWidth:bubble.clientWidth,
+      impact:!!document.querySelector('.seneca-theater-impact-word'),
+      vignette:!!document.querySelector('.seneca-theater-vignette'),
+      fragments:!!document.querySelector('.seneca-theater-fragments'),
+    }
+  })()`)
+
+  for(let scene=0;scene<20;scene+=1){
+    const g=await bubbleGeometry()
+    assert.ok(g,'geometría de globo ausente en escena '+scene)
+    assert.ok(g.bubble.left>=g.stage.left-2 && g.bubble.right<=g.stage.right+2,'globo horizontal fuera de escena '+scene+' '+JSON.stringify(g))
+    assert.ok(g.bubble.top>=g.stage.top-2 && g.bubble.bottom<=g.stage.bottom+2,'globo vertical fuera de escena '+scene+' '+JSON.stringify(g))
+    assert.ok(g.quote.left>=g.bubble.left-2 && g.quote.right<=g.bubble.right+2,'texto horizontal fuera del globo '+scene+' '+JSON.stringify(g))
+    assert.ok(['auto','scroll'].includes(g.overflowY),'globo debe contener overflow vertical '+scene+' '+JSON.stringify(g))
+    assert.ok(g.scrollWidth<=g.clientWidth+3,'texto provoca overflow horizontal '+scene+' '+JSON.stringify(g))
+    assert.ok(g.impact && g.vignette,'capas dramáticas ausentes '+scene)
+    if(scene<19){
+      await evaluate("document.querySelector('.seneca-theater-controls button:last-child').click()")
+      await sleep(45)
+    }
+  }
+
   await evaluate("document.querySelector('.seneca-theater-header button').click()")
   await until(() => evaluate("!document.querySelector('.seneca-theater')"), 'cerrar teatro')
+
+  await evaluate("document.querySelector('.seneca2d-study-launch button').click()")
+  await until(() => evaluate("!!document.querySelector('.seneca-study-overlay[role=dialog]')"), 'archivo 52 claves')
+  assert.equal(await evaluate("document.querySelectorAll('.seneca-study-grid .seneca-study-card').length"),52)
+  assert.ok(await evaluate("document.querySelector('.seneca-study-formula')?.textContent.includes('Acontecimiento externo')"))
+  await evaluate("document.querySelector('.seneca-study-archive>header button').click()")
+  await until(() => evaluate("!document.querySelector('.seneca-study-overlay')"), 'cerrar archivo 52 claves')
 
   await evaluate("document.querySelector('.seneca2d-canvas .react-flow__node[data-id=\"S01\"]').click()")
   await until(() => evaluate("document.querySelector('.seneca2d-canvas .react-flow__node.selected')?.getAttribute('data-id') === 'S01'"), 'seleccionar S01 para folio')
@@ -286,7 +329,7 @@ try {
     await evaluate("document.querySelector('.seneca2d-explicit-text blockquote')?.textContent.includes('única desgracia es la indecencia')"),
     'S03 debe conservar texto explícito además de la reconstrucción',
   )
-  console.log('SENECA: 20 estaciones + SVG + teatro + exposición + folio + clic estable verificados')
+  console.log('SENECA: 20 estaciones + 52 claves + teatro dramático contenido + exposición + folio verificados')
 } finally {
   try { ws?.close() } catch {}
   browser?.kill('SIGKILL')
