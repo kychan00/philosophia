@@ -90,7 +90,7 @@ test('el sistema conserva ETHOS, lectura vertical y fidelidad editorial', () => 
   assert.match(page, /ReactFlowProvider/)
   assert.doesNotMatch(page, /MiniMap/)
   assert.match(css, /#1a365d/)
-  assert.match(css, /height:5350px/)
+  assert.match(css, /height:5880px/)
   assert.match(css, /grid-template-columns:minmax\(0,1fr\) 390px/)
   assert.match(css, /position:sticky/)
   assert.match(css, /seneca2d-inspector-nav/)
