@@ -36,6 +36,7 @@ test('cada nodo separa texto explícito, reconstrucción, explicación, ejemplo 
     assert.ok(node.data.schema.nodes.length >= 2)
     assert.ok(node.data.schema.edges.length >= 1)
     assert.ok(node.data.visual.length > 2, node.id + ' debe tener motivo SVG')
+    assert.ok(node.data.textExamples.length >= 2, node.id + ' debe conservar escenas del texto')
   }
 })
 
@@ -104,6 +105,7 @@ test('el sistema conserva ETHOS, lectura vertical y fidelidad editorial', () => 
   assert.match(page, /SenecaSvgTheater/)
   assert.match(page, /animación ▶/)
   assert.match(page, /Abrir telón ▶/)
+  assert.match(page, /ESCENAS DEL TEXTO/)
   assert.match(page, /Veinte estaciones/)
   assert.match(page, /setTheaterOpen/)
   assert.match(css, /@media\(max-width:1180px\)/)
