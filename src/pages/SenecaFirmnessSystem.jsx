@@ -15,6 +15,7 @@ import './SenecaFirmnessSystem.css'
 
 import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema'
 import SenecaSvgTheater, { SenecaNodeIllustration } from '../components/seneca/SenecaSvgTheater'
+import SenecaStudyArchive, { SenecaStudyNodeSections } from '../components/seneca/SenecaStudyArchive'
 import { resolveSystem2DEdgeColor } from '../components/philosophy/system2d/system2dTheme'
 import {
   senecaFirmnessEdges,
@@ -99,6 +100,7 @@ function SenecaCanvas() {
   const [workspaceFullscreen, setWorkspaceFullscreen] = useState(false)
   const [theaterOpen, setTheaterOpen] = useState(false)
   const [theaterStartId, setTheaterStartId] = useState('P01')
+  const [studyOpen, setStudyOpen] = useState(false)
   const workspaceRef = useRef(null)
   const { fitView, getNodes, setCenter } = useReactFlow()
 
@@ -314,6 +316,20 @@ function SenecaCanvas() {
         </button>
       </section>
 
+      <section className="seneca2d-study-launch">
+        <div>
+          <span>SISTEMATIZACIÓN ANALÍTICA COMPLETA</span>
+          <strong>52 claves · del problema inicial a la libertad</strong>
+          <p>
+            La exposición conserva veinte estaciones visuales, pero debajo de ellas vive el desarrollo
+            completo: tesis, objeciones, ejemplos, distinciones, ejercicios, conceptos y arquitectura final.
+          </p>
+        </div>
+        <button type="button" onClick={() => setStudyOpen(true)}>
+          Abrir 52 claves ↗
+        </button>
+      </section>
+
       {guided && (
         <section className="seneca2d-guide" aria-live="polite">
           <div className="seneca2d-progress">
@@ -445,6 +461,8 @@ function SenecaCanvas() {
                 </section>
               )}
 
+              <SenecaStudyNodeSections nodeId={selected.id} />
+
               <section>
                 <span>FUNCIÓN EN EL ARGUMENTO</span>
                 <p>{selected.data.role}</p>
@@ -474,6 +492,11 @@ function SenecaCanvas() {
         startId={theaterStartId}
         onClose={() => setTheaterOpen(false)}
       />
+
+        <SenecaStudyArchive
+          open={studyOpen}
+          onClose={() => setStudyOpen(false)}
+        />
 
       {folio && (
           <div className="seneca2d-folio-overlay" role="presentation" onMouseDown={() => setFolioId(null)}>
@@ -522,6 +545,8 @@ function SenecaCanvas() {
                     </ul>
                   </section>
                 )}
+
+                <SenecaStudyNodeSections nodeId={folio.id} compact={false} />
                 <section className="seneca2d-folio-schema">
                   <span>ESQUEMA · RECONSTRUCCIÓN DE ESTUDIO</span>
                   <AnimatedConceptSchema
