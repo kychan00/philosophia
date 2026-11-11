@@ -50,6 +50,7 @@ const node = ({
   diagram,
   visual = 'sage',
   sceneNote = '',
+  textExamples = [],
   dependsOn = [],
   schemaLabels,
 }) => ({
@@ -75,6 +76,7 @@ const node = ({
     diagram,
     visual,
     sceneNote,
+    textExamples,
     dependsOn,
     schema: schema('Reconstrucción de estudio: ' + title, schemaLabels),
   },
@@ -103,6 +105,10 @@ export const senecaFirmnessNodes = [
       'Abre el tratado marcando el tono polémico y la oposición entre una medicina moral complaciente y una vía que pretende elevar al sujeto con rapidez.',
     example:
       'Dos caminos de formación: uno evita incomodar; el otro acepta una disciplina más áspera para llegar a una mayor autonomía.',
+    textExamples: [
+          "Séneca formula la oposición con el lenguaje antiguo de «hembras y machos», mando y obediencia; PHILOSOPHIA la conserva como dato textual e histórico, no como norma actual.",
+          "Ambos grupos contribuyen a la vida de la comunidad, pero Séneca usa la comparación para acentuar la energía que atribuye al estoicismo."
+    ],
     question: '¿Qué quiere destacar Séneca con esta comparación inicial?',
     diagram: ['estoicos', '≠', 'sabiduría complaciente'],
     visual: 'figures',
@@ -130,6 +136,10 @@ export const senecaFirmnessNodes = [
       'Introduce la diferencia entre terapia complaciente y terapia filosófica exigente.',
     example:
       'Un médico que sólo receta lo agradable puede aliviar, pero no necesariamente cura la causa.',
+    textExamples: [
+          "Los otros sabios aparecen como médicos de cabecera que acomodan la cura a lo que el enfermo permite.",
+          "El contraste sirve para justificar una filosofía que prefiere la eficacia moral a resultar agradable."
+    ],
     question: '¿Qué critica Séneca en la imagen del médico complaciente?',
     diagram: ['médico', 'comodidad', 'cura lenta'],
     visual: 'doctor',
@@ -158,6 +168,10 @@ export const senecaFirmnessNodes = [
       'Convierte el estoicismo en una pedagogía de ascenso y prepara la metáfora de la montaña.',
     example:
       'Subir exige esfuerzo, pero la altura ofrece una perspectiva que no existe en el llano.',
+    textExamples: [
+          "La «vía viril» es la expresión explícita de Séneca para la disciplina estoica.",
+          "La meta es una «alta cumbre» colocada fuera del alcance de los proyectiles y por encima de la suerte."
+    ],
     question: '¿Por qué Séneca representa la sabiduría como una elevación?',
     diagram: ['disciplina', '↑', 'cumbre'],
     visual: 'mountain',
@@ -186,6 +200,10 @@ export const senecaFirmnessNodes = [
       'Justifica pedagógicamente la dureza del método y prepara al oyente para una tesis que parecerá extrema.',
     example:
       'Una montaña vista desde lejos parece una pared; al recorrerla aparecen senderos y descansos.',
+    textExamples: [
+          "Desde lejos, rocas y piedras parecen un precipicio continuo; al acercarse, la confusión visual se descompone en una pendiente transitable.",
+          "La dificultad inicial es real, pero el miedo anticipado la agranda."
+    ],
     question: '¿Qué cambia cuando el camino se recorre en lugar de contemplarse desde lejos?',
     diagram: ['distancia', '→', 'miedo exagerado'],
     visual: 'trail',
@@ -214,6 +232,10 @@ export const senecaFirmnessNodes = [
       'Da un rostro histórico a la figura del sabio y anticipa la distinción entre ataque exterior y daño recibido.',
     example:
       'La multitud puede quitar la toga o escupir, pero no puede decidir por sí misma el carácter de Catón.',
+    textExamples: [
+          "A Catón le arrebatan la toga y lo obligan a atravesar el foro entre palabras insolentes y salivazos.",
+          "Séneca lo presenta como modelo más próximo que Ulises y Hércules para mostrar una firmeza ejercida en conflictos civiles reales."
+    ],
     question: '¿Qué puede hacer la multitud contra Catón y qué no puede decidir por él?',
     diagram: ['multitud', '→', 'ataque exterior'],
     visual: 'forum',
@@ -242,6 +264,11 @@ export const senecaFirmnessNodes = [
       'Formula la imagen decisiva de invulnerabilidad antes de entrar en la demostración sobre virtud, fortuna, ultraje y ofensa.',
     example:
       'Las olas golpean un escollo durante siglos sin convertirlo en agua; la imagen representa la constancia del ánimo.',
+    textExamples: [
+          "Piedras impenetrables al hierro y diamante que mella aquello que lo golpea.",
+          "Materiales rodeados de fuego que conservan su forma; escollos que rompen olas durante siglos.",
+          "Flechas y catapultas que suben pero no alcanzan el cielo: el ataque existe, el alcance fracasa."
+    ],
     question: '¿Qué diferencia hay entre recibir un golpe y quedar herido moralmente?',
     diagram: ['golpe', '≠', 'herida moral'],
     visual: 'rock',
@@ -269,6 +296,10 @@ export const senecaFirmnessNodes = [
       'Plantea la afirmación que todo el diálogo intenta defender: invulnerabilidad moral no significa ausencia de ataques.',
     example:
       'Catón puede ser humillado públicamente sin que la multitud convierta esa agresión en pérdida de su carácter.',
+    textExamples: [
+          "La objeción de Sereno distingue entre soportar un ultraje con ecuanimidad y sostener que el ultraje, en sentido moral, ni siquiera llega al sabio.",
+          "Séneca define lo invulnerable no como lo que nunca recibe golpes, sino como aquello que no puede ser herido."
+    ],
     question: '¿Qué tendría que perder el sabio para quedar realmente dañado?',
     diagram: ['ataque exterior', '≠', 'derrota moral'],
     dependsOn: ['P06'],
@@ -294,6 +325,10 @@ export const senecaFirmnessNodes = [
       'Introduce el principio de autogobierno desde el cual se distinguen virtud y bienes externos.',
     example:
       'Si mi valor depende enteramente del aplauso ajeno, otra persona gobierna mi ánimo; si depende del juicio recto, conservo ese gobierno.',
+    textExamples: [
+          "El sabio «todo lo ha basado en sí mismo» y no deposita su bien en la suerte.",
+          "Más adelante se dice que no sabe vivir para la esperanza ni para la aprensión: no entrega su tranquilidad a lo futuro."
+    ],
     question: '¿Qué gobierna al sabio: la fortuna o su propio juicio?',
     diagram: ['firmeza', '→', 'gobierno de sí'],
     dependsOn: ['S01'],
@@ -319,6 +354,10 @@ export const senecaFirmnessNodes = [
       'Define el bien que debe permanecer a salvo para que no exista daño moral.',
     example:
       'Puede desaparecer el dinero sin que por ello desaparezca la rectitud del juicio.',
+    textExamples: [
+          "La única desgracia propiamente moral es la indecencia; virtud y honradez excluyen ese mal mientras permanezcan intactas.",
+          "La virtud se describe como libre, inviolable, inmutable e inquebrantable."
+    ],
     question: '¿Qué considera Séneca el verdadero bien?',
     diagram: ['virtud', '→', 'verdadero bien'],
     dependsOn: ['S02'],
@@ -344,6 +383,10 @@ export const senecaFirmnessNodes = [
       'Contrasta la virtud con aquello que no está completamente bajo el gobierno del sujeto.',
     example:
       'La fama puede cambiar en un día; la rectitud moral no debería cambiar con ella.',
+    textExamples: [
+          "Séneca distingue dignidad, cuerpo y cosas exteriores: pueden padecer menoscabo sin que eso equivalga automáticamente a corrupción moral.",
+          "Los bienes llegados desde fuera son descritos como posesión precaria, escurridiza e insegura."
+    ],
     question: '¿Qué tienen en común riqueza, fama, cuerpo y poder?',
     diagram: ['externos', '→', 'fortuna'],
     dependsOn: ['S02'],
@@ -369,6 +412,10 @@ export const senecaFirmnessNodes = [
       'Extrae la consecuencia de la rama de la virtud.',
     example:
       'Pueden quitarme una posesión, pero no pueden obligarme a volverme injusto.',
+    textExamples: [
+          "La suerte sólo puede arrebatar lo que previamente ha dado.",
+          "Como la suerte no da la virtud, tampoco puede quitarla; el argumento separa radicalmente bien moral y fortuna."
+    ],
     question: '¿Por qué la virtud no puede ser arrebatada como un objeto?',
     diagram: ['virtud', '→', 'no arrebatable'],
     dependsOn: ['S03'],
@@ -394,6 +441,10 @@ export const senecaFirmnessNodes = [
       'Extrae la consecuencia de la rama de los externos.',
     example:
       'La salud puede deteriorarse, una propiedad puede perderse y la reputación puede cambiar.',
+    textExamples: [
+          "Demetrio toma Megara; Estilpón ha perdido hacienda, hijos y patria, pero responde: «Nada, todo lo mío lo llevo conmigo».",
+          "La ciudad arde entre espadas, sangre y ruinas; Séneca insiste en que ninguna máquina de asedio puede remover un espíritu bien cimentado."
+    ],
     question: '¿Qué pueden hacer la fortuna y los demás con los bienes externos?',
     diagram: ['externos', '→', 'pérdida posible'],
     dependsOn: ['S04'],
@@ -419,6 +470,10 @@ export const senecaFirmnessNodes = [
       'Une la oposición virtud/externos y prepara la distinción entre ultraje intentado y recibido.',
     example:
       'Perder reputación puede afectar la vida social sin volver injusta a una persona.',
+    textExamples: [
+          "El hombre perfecto no pierde sus bienes verdaderos: sus fortificaciones son comparadas con murallas infranqueables.",
+          "Dolor, daños, deshonra, exilio, pérdidas familiares y separaciones pueden rodearlo sin hundirlo."
+    ],
     question: '¿Por qué una pérdida externa no equivale todavía a un mal moral?',
     diagram: ['pérdida externa', '≠', 'mal moral'],
     dependsOn: ['S05', 'S06'],
@@ -444,6 +499,11 @@ export const senecaFirmnessNodes = [
       'Formula la distinción decisiva que explica cómo puede haber agresión sin derrota moral.',
     example:
       'Como en el ejemplo del veneno: la intención criminal existe aunque el veneno no produzca su efecto.',
+    textExamples: [
+          "Hurto sin pérdida: alguien puede cometer el acto dañino aunque el supuesto destinatario no pierda nada.",
+          "Veneno que pierde su poder en la comida y puñalada detenida por la ropa: intención culpable no implica daño consumado.",
+          "Mover los pies/correr y estar en el agua/nadar: Séneca usa pares lógicos para distinguir «hecho» y «recibido»."
+    ],
     question: '¿Qué diferencia hay entre intentar dañar y lograr daño moral?',
     diagram: ['ultraje intentado', '≠', 'ultraje recibido'],
     dependsOn: ['S07'],
@@ -469,6 +529,10 @@ export const senecaFirmnessNodes = [
       'Desarrolla la rama del daño pretendido.',
     example:
       'Un golpe puede doler sin decidir el valor moral de quien lo recibe.',
+    textExamples: [
+          "Acusador sobornado, delación calumniosa y encono de los poderosos muestran formas políticas y jurídicas del ultraje.",
+          "También cuentan pérdidas de ganancias, recompensas, herencias o favores cuando se viven como daño del bien propio."
+    ],
     question: '¿Qué pretende el ultraje y qué es lo que no logra por sí solo?',
     diagram: ['ultraje', '→', 'pretende daño'],
     dependsOn: ['S08'],
@@ -494,6 +558,11 @@ export const senecaFirmnessNodes = [
       'Desarrolla la rama del menosprecio y la valoración social.',
     example:
       'Una burla no define mi valor sólo porque otro la pronuncie.',
+    textExamples: [
+          "No ser recibido, ver desatendidas las palabras o ser colocado al extremo del triclinio son ejemplos de ofensa social.",
+          "Séneca critica que algunas personas se alteren por burlas, gestos y desprecios; compara esa reacción con miedos infantiles.",
+          "El tratado incluye juicios antiguos y sexistas sobre las mujeres y lo «afeminado»; se registran como contenido histórico del texto, no como posición de PHILOSOPHIA."
+    ],
     question: '¿De qué depende que una ofensa gobierne realmente el ánimo?',
     diagram: ['ofensa', '→', 'interpretación'],
     dependsOn: ['S08'],
@@ -519,6 +588,11 @@ export const senecaFirmnessNodes = [
       'Convierte la distinción conceptual en disposición estable del carácter.',
     example:
       'Quien no necesita devolver inmediatamente la agresión muestra que su ánimo no está gobernado por ella.',
+    textExamples: [
+          "Los niños golpean, tiran del cabello o escupen a sus padres sin que se les atribuya el mismo menosprecio moral que a un adulto.",
+          "Los adultos necios son comparados con niños que cambiaron nueces y monedas pequeñas por oro, cargos y casas.",
+          "La magnanimidad permite pasar de largo ofensas que se consideran apariencias sin consistencia."
+    ],
     question: '¿Qué actitud hace posible no quedar preso del agravio?',
     diagram: ['ultraje / ofensa', '→', 'magnanimidad'],
     dependsOn: ['S09', 'S10'],
@@ -544,6 +618,11 @@ export const senecaFirmnessNodes = [
       'Purifica la respuesta ética de la reacción pasional.',
     example:
       'No se trata de desquitarse, sino de decidir qué respuesta es racionalmente adecuada.',
+    textExamples: [
+          "El sabio está libre de la ira que enciende la impresión de ultraje.",
+          "Cuando Catón recibe un golpe en la boca, no se encoleriza ni se venga: niega que se le haya hecho un ultraje.",
+          "Séneca compara la firmeza con un atleta entrenado que agota los puños de quien lo golpea."
+    ],
     question: '¿Qué cambia cuando la respuesta deja de buscar venganza?',
     diagram: ['magnanimidad', '→', 'sin venganza'],
     dependsOn: ['S11'],
@@ -569,6 +648,10 @@ export const senecaFirmnessNodes = [
       'Formula positivamente qué debe reemplazar a la revancha.',
     example:
       'El médico no odia al enfermo por sus síntomas; intenta tratar la causa.',
+    textExamples: [
+          "El sabio corrige a los ofensores como se corrige a niños o se doma una caballería: no por venganza personal, sino para modificar la conducta.",
+          "El médico no se enfada con el demente ni con el febril; del mismo modo, el sabio ve a los demás como enfermos que requieren tratamiento."
+    ],
     question: '¿Para qué responde el sabio si no busca venganza?',
     diagram: ['sin venganza', '→', 'corrección'],
     dependsOn: ['S12'],
@@ -594,6 +677,13 @@ export const senecaFirmnessNodes = [
       'Cierra el sistema con la consecuencia práctica de la constantia.',
     example:
       'Si otros me desprecian, ese desprecio no decide quién soy mientras conserve el juicio recto.',
+    textExamples: [
+          "Séneca contrapone su tesis a Epicuro: uno admite ultrajes tolerables; el estoico afirma que el ultraje no alcanza el bien moral.",
+          "Burlas sobre calvicie, ojos, piernas o estatura sirven para preguntar por qué damos poder a lo evidente cuando otro lo pronuncia.",
+          "Calígula y Casio Quérea muestran el peligro de una sensibilidad obsesionada con la ofensa.",
+          "Sócrates ríe de las burlas teatrales y del agua sucia de Jantipa; Antístenes responde con ingenio a la burla sobre el origen de su madre.",
+          "El cierre vuelve a la batalla: resistir gritos, piedras y heridas sin abandonar el puesto; libertad es que los motivos de alegría provengan de uno mismo."
+    ],
     question: '¿En qué consiste la libertad que Séneca asocia con la firmeza?',
     diagram: ['corrección', '→', 'libertad interior'],
     dependsOn: ['S13'],
