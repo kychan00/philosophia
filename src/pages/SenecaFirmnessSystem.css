@@ -183,7 +183,7 @@
   cursor:pointer;
 }
 .seneca2d-canvas{
-  height:5350px;
+  height:5880px;
   background:
     linear-gradient(rgba(26,54,93,.035) 1px,transparent 1px),
     linear-gradient(90deg,rgba(26,54,93,.035) 1px,transparent 1px),
@@ -318,7 +318,7 @@
 @media(max-width:1180px){
   .seneca2d-workspace{grid-template-columns:1fr}
   .seneca2d-flow-panel{border-right:0;border-bottom:1px solid rgba(26,54,93,.18)}
-  .seneca2d-canvas{height:5280px}
+  .seneca2d-canvas{height:5820px}
   .seneca2d-inspector{
     position:static;
     width:min(900px,calc(100% - 2rem));
@@ -339,7 +339,7 @@
   .seneca2d-progress{grid-template-columns:1fr}
   .seneca2d-route{align-items:flex-start;flex-direction:column}
   .seneca2d-flow-caption{align-items:flex-start;flex-direction:column;padding:.85rem 1rem}
-  .seneca2d-canvas{height:5000px}
+  .seneca2d-canvas{height:5520px}
   .seneca2d-node{width:286px;min-height:172px}
   .seneca2d-node-title{font-size:1.16rem}
   .seneca2d-node>p{font-size:.7rem}
