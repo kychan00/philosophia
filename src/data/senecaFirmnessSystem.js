@@ -252,7 +252,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S01',
     x: 650,
-    y: 1840,
+    y: 1940,
     phase: 'Tesis',
     title: 'Firmeza del sabio',
     visual: 'shield',
@@ -277,7 +277,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S02',
     x: 650,
-    y: 2140,
+    y: 2240,
     phase: 'Fundamento',
     title: 'Gobierno de sí',
     visual: 'inner',
@@ -302,7 +302,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S03',
     x: 230,
-    y: 2460,
+    y: 2580,
     phase: 'Rama I',
     title: 'Virtud',
     visual: 'sun',
@@ -327,7 +327,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S04',
     x: 1070,
-    y: 2460,
+    y: 2580,
     phase: 'Rama II',
     title: 'Externos',
     visual: 'coins',
@@ -352,7 +352,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S05',
     x: 230,
-    y: 2790,
+    y: 2920,
     phase: 'Consecuencia',
     title: 'No puede ser arrebatada',
     visual: 'diamond',
@@ -377,7 +377,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S06',
     x: 1070,
-    y: 2790,
+    y: 2920,
     phase: 'Consecuencia',
     title: 'Pueden ser perdidos',
     visual: 'falling',
@@ -402,7 +402,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S07',
     x: 650,
-    y: 3120,
+    y: 3260,
     phase: 'Síntesis',
     title: 'Pérdida externa ≠ mal moral',
     visual: 'balance',
@@ -427,7 +427,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S08',
     x: 650,
-    y: 3430,
+    y: 3600,
     phase: 'Distinción',
     title: 'Ultraje intentado ≠ ultraje recibido',
     visual: 'arrows',
@@ -452,7 +452,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S09',
     x: 250,
-    y: 3750,
+    y: 3940,
     phase: 'Rama I',
     title: 'Ultraje',
     visual: 'storm',
@@ -477,7 +477,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S10',
     x: 1050,
-    y: 3750,
+    y: 3940,
     phase: 'Rama II',
     title: 'Ofensa',
     visual: 'mask',
@@ -502,7 +502,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S11',
     x: 650,
-    y: 4070,
+    y: 4280,
     phase: 'Éthos',
     title: 'Magnanimidad',
     visual: 'tree',
@@ -527,7 +527,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S12',
     x: 650,
-    y: 4360,
+    y: 4660,
     phase: 'Respuesta',
     title: 'Sin ira / sin venganza',
     visual: 'calm',
@@ -552,7 +552,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S13',
     x: 650,
-    y: 4650,
+    y: 5040,
     phase: 'Práctica',
     title: 'Corrección',
     visual: 'doctor',
@@ -577,7 +577,7 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S14',
     x: 650,
-    y: 4940,
+    y: 5420,
     phase: 'Resultado',
     title: 'Libertad',
     visual: 'summit',
