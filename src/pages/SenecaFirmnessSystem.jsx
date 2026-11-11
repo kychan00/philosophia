@@ -434,6 +434,17 @@ function SenecaCanvas() {
                 <p>{selected.data.example}</p>
               </section>
 
+              {selected.data.textExamples?.length > 0 && (
+                <section className="seneca2d-text-scenes">
+                  <span>ESCENAS DEL TEXTO</span>
+                  <ul>
+                    {selected.data.textExamples.map((item, index) => (
+                      <li key={selected.data.code + '-scene-' + index}>{item}</li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+
               <section>
                 <span>FUNCIÓN EN EL ARGUMENTO</span>
                 <p>{selected.data.role}</p>
@@ -501,6 +512,16 @@ function SenecaCanvas() {
                   <span>EJEMPLO PARA EXPLICARLO</span>
                   <p>{folio.data.example}</p>
                 </section>
+                {folio.data.textExamples?.length > 0 && (
+                  <section className="seneca2d-folio-scenes">
+                    <span>ESCENAS Y EJEMPLOS DEL TRATADO</span>
+                    <ul>
+                      {folio.data.textExamples.map((item, index) => (
+                        <li key={folio.data.code + '-folio-scene-' + index}>{item}</li>
+                      ))}
+                    </ul>
+                  </section>
+                )}
                 <section className="seneca2d-folio-schema">
                   <span>ESQUEMA · RECONSTRUCCIÓN DE ESTUDIO</span>
                   <AnimatedConceptSchema
