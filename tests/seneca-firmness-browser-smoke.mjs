@@ -102,6 +102,8 @@ const metrics = `(() => {
     })(),
     inspectorPosition: getComputedStyle(document.querySelector('.seneca2d-inspector')).position,
     minimap: !!document.querySelector('.react-flow__minimap'),
+    miniSvgCount: document.querySelectorAll('.seneca-svg-mini').length,
+    animationLaunch: !!document.querySelector('.seneca2d-animation-launch button'),
   }
 })()`
 
@@ -164,23 +166,27 @@ try {
       () => evaluate("document.querySelector('.seneca2d-hero h1')?.textContent.includes('La firmeza')"),
       'hero ' + width,
     )
-    await until(async () => (await evaluate(metrics))?.count === 14, 'catorce nodos ' + width)
+    await until(async () => (await evaluate(metrics))?.count === 20, 'veinte nodos ' + width)
 
     const state = await evaluate(metrics)
-    assert.equal(state.selected, 'S01', JSON.stringify(state))
+    assert.equal(state.selected, 'P01', JSON.stringify(state))
     assert.ok(state.opacity > 0.9, 'nodo seleccionado atenuado ' + width)
     assert.deepEqual(state.hits, [], 'nodos encimados ' + width)
     assert.ok(state.positions.S03.x < state.positions.S04.x, 'virtud debe quedar a la izquierda de externos ' + width)
     assert.ok(state.positions.S05.x < state.positions.S06.x, 'ramas de pérdida invertidas ' + width)
     assert.ok(state.positions.S09.x < state.positions.S10.x, 'ultraje debe quedar a la izquierda de ofensa ' + width)
+    assert.ok(state.positions.P01.y < state.positions.P06.y, 'la apertura no desciende P01→P06 ' + width)
+    assert.ok(state.positions.P06.y < state.positions.S01.y, 'la apertura debe conducir a la tesis ' + width)
     assert.ok(state.positions.S01.y < state.positions.S02.y, 'el eje no desciende S01→S02 ' + width)
     assert.ok(state.positions.S07.y < state.positions.S08.y, 'el eje no desciende S07→S08 ' + width)
     assert.ok(state.positions.S11.y < state.positions.S14.y, 'la conclusión no queda debajo de magnanimidad ' + width)
     assert.ok(state.scroll <= state.width + 3, 'overflow horizontal ' + width + ' ' + JSON.stringify(state))
     assert.ok(state.inspector && state.schema, 'inspector o esquema ausente ' + width)
     assert.ok(state.presentationNav, 'navegación de exposición ausente ' + width)
-    assert.equal(state.presentationStep.trim(), '1 / 14', 'paso inicial incorrecto ' + width)
-    assert.ok(state.explicitText.length > 20, 'texto explícito ausente ' + width)
+    assert.equal(state.presentationStep.trim(), '1 / 20', 'paso inicial incorrecto ' + width)
+    assert.ok(state.explicitText.includes('hembras y los machos'), 'apertura explícita ausente ' + width)
+    assert.equal(state.miniSvgCount, 20, 'cada nodo debe mostrar una mini ilustración SVG ' + width)
+    assert.ok(state.animationLaunch, 'botón de teatro ausente ' + width)
     if (width > 1180) {
       assert.ok(
         state.inspectorRect.left >= state.flowRect.right - 2,
@@ -200,23 +206,35 @@ try {
 
   await evaluate("document.querySelector('.seneca2d-inspector-nav button:last-child').click()")
   await until(
-    () => evaluate("document.querySelector('.seneca2d-canvas .react-flow__node.selected')?.getAttribute('data-id') === 'S02'"),
-    'siguiente de exposición S02',
+    () => evaluate("document.querySelector('.seneca2d-canvas .react-flow__node.selected')?.getAttribute('data-id') === 'P02'"),
+    'siguiente de exposición P02',
   )
   assert.equal(
     await evaluate("document.querySelector('.seneca2d-inspector-nav strong')?.textContent.trim()"),
-    '2 / 14',
+    '2 / 20',
   )
   assert.ok(
-    await evaluate("document.querySelector('.seneca2d-explicit-text blockquote')?.textContent.includes('todo lo ha basado en sí mismo')"),
-    'S02 debe mostrar su texto explícito cotejado',
+    await evaluate("document.querySelector('.seneca2d-explicit-text blockquote')?.textContent.includes('curan no según lo mejor')"),
+    'P02 debe mostrar el pasaje de los médicos complacientes',
   )
   await evaluate("document.querySelector('.seneca2d-inspector-nav button:first-child').click()")
   await until(
-    () => evaluate("document.querySelector('.seneca2d-canvas .react-flow__node.selected')?.getAttribute('data-id') === 'S01'"),
-    'anterior de exposición S01',
+    () => evaluate("document.querySelector('.seneca2d-canvas .react-flow__node.selected')?.getAttribute('data-id') === 'P01'"),
+    'anterior de exposición P01',
   )
 
+  await evaluate("document.querySelector('.seneca2d-animation-launch button').click()")
+  await until(() => evaluate("!!document.querySelector('.seneca-theater[role=dialog]')"), 'teatro SVG')
+  assert.ok(await evaluate("!!document.querySelector('.seneca-theater .seneca-svg-stage')"), 'escena SVG ausente')
+  assert.ok(await evaluate("document.querySelector('.seneca-theater-bubble blockquote')?.textContent.includes('hembras y los machos')"), 'globo inicial incorrecto')
+  await evaluate("document.querySelector('.seneca-theater-controls button:last-child').click()")
+  await until(() => evaluate("document.querySelector('.seneca-theater-header h2')?.textContent.includes('Médicos complacientes')"), 'escena P02')
+  assert.ok(await evaluate("document.querySelector('.seneca-theater-bubble blockquote')?.textContent.includes('curan no según lo mejor')"))
+  await evaluate("document.querySelector('.seneca-theater-header button').click()")
+  await until(() => evaluate("!document.querySelector('.seneca-theater')"), 'cerrar teatro')
+
+  await evaluate("document.querySelector('.seneca2d-canvas .react-flow__node[data-id=\"S01\"]').click()")
+  await until(() => evaluate("document.querySelector('.seneca2d-canvas .react-flow__node.selected')?.getAttribute('data-id') === 'S01'"), 'seleccionar S01 para folio')
   await evaluate("document.querySelector('.seneca2d-open-folio').click()")
   await until(() => evaluate("!!document.querySelector('.seneca2d-folio[role=dialog]')"), 'folio')
   assert.ok(await evaluate("!!document.querySelector('.seneca2d-folio .animated-concept-schema')"))
@@ -228,7 +246,7 @@ try {
   await until(() => evaluate("!!document.querySelector('.seneca2d-guide')"), 'guía')
   await evaluate("document.querySelector('.seneca2d-guide-nav button:last-child').click()")
   await until(
-    () => evaluate("document.querySelector('.seneca2d-canvas .react-flow__node.selected')?.getAttribute('data-id') === 'S02'"),
+    () => evaluate("document.querySelector('.seneca2d-canvas .react-flow__node.selected')?.getAttribute('data-id') === 'P02'"),
     'paso 2',
   )
   assert.ok((await evaluate(metrics)).opacity > 0.9, 'nodo guiado atenuado')
@@ -268,7 +286,7 @@ try {
     await evaluate("document.querySelector('.seneca2d-explicit-text blockquote')?.textContent.includes('única desgracia es la indecencia')"),
     'S03 debe conservar texto explícito además de la reconstrucción',
   )
-  console.log('SENECA: exposición + texto explícito + folio + guía + clic estable verificados')
+  console.log('SENECA: 20 estaciones + SVG + teatro + exposición + folio + clic estable verificados')
 } finally {
   try { ws?.close() } catch {}
   browser?.kill('SIGKILL')
