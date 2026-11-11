@@ -48,6 +48,8 @@ const node = ({
   example,
   question,
   diagram,
+  visual = 'sage',
+  sceneNote = '',
   dependsOn = [],
   schemaLabels,
 }) => ({
@@ -71,18 +73,188 @@ const node = ({
     example,
     question,
     diagram,
+    visual,
+    sceneNote,
     dependsOn,
     schema: schema('Reconstrucción de estudio: ' + title, schemaLabels),
   },
 })
 
 export const senecaFirmnessNodes = [
+
+  node({
+    id: 'P01',
+    x: 650,
+    y: 40,
+    phase: 'Apertura',
+    title: 'Estoicos y demás sabios',
+    excerpt:
+      'Séneca abre con una comparación provocadora: contrapone la firmeza estoica a una sabiduría más blanda y complaciente.',
+    sourceText:
+      'Séneca compara a los estoicos con los demás consagrados a la sabiduría mediante la oposición antigua entre mando y obediencia.',
+    sourcePage: '140',
+    explicitText:
+      'hay tanta diferencia entre los estoicos y los demás consagrados a la sabiduría como entre las hembras y los machos',
+    explicitPage: '140',
+    sourceKind: 'PARÁFRASIS DE ESTUDIO',
+    explanation:
+      'Es una comparación histórica y retórica de Séneca, no una afirmación editorial de PHILOSOPHIA. Sirve para presentar al estoicismo como una disciplina exigente y activa.',
+    role:
+      'Abre el tratado marcando el tono polémico y la oposición entre una medicina moral complaciente y una vía que pretende elevar al sujeto con rapidez.',
+    example:
+      'Dos caminos de formación: uno evita incomodar; el otro acepta una disciplina más áspera para llegar a una mayor autonomía.',
+    question: '¿Qué quiere destacar Séneca con esta comparación inicial?',
+    diagram: ['estoicos', '≠', 'sabiduría complaciente'],
+    visual: 'figures',
+    sceneNote: 'Dos grupos frente a frente; el grupo estoico avanza mientras el otro permanece junto a un camino llano.',
+    schemaLabels: ['estoicos', 'firmeza', 'disciplina'],
+  }),
+  node({
+    id: 'P02',
+    x: 650,
+    y: 270,
+    phase: 'Apertura',
+    title: 'Médicos complacientes',
+    excerpt:
+      'Los demás sabios son comparados con médicos que curan según lo que el enfermo tolera, no según lo mejor y más rápido.',
+    sourceText:
+      'Séneca usa la medicina como imagen de una filosofía que adapta el tratamiento moral a la comodidad del discípulo.',
+    sourcePage: '140',
+    explicitText:
+      'curan no según lo mejor y más rápido sino según les permiten',
+    explicitPage: '140',
+    sourceKind: 'PARÁFRASIS DE ESTUDIO',
+    explanation:
+      'La metáfora médica explica por contraste por qué el estoicismo no busca agradar. La filosofía debe curar el juicio, aunque el tratamiento resulte incómodo.',
+    role:
+      'Introduce la diferencia entre terapia complaciente y terapia filosófica exigente.',
+    example:
+      'Un médico que sólo receta lo agradable puede aliviar, pero no necesariamente cura la causa.',
+    question: '¿Qué critica Séneca en la imagen del médico complaciente?',
+    diagram: ['médico', 'comodidad', 'cura lenta'],
+    visual: 'doctor',
+    sceneNote: 'Un médico ofrece un remedio dulce; al fondo, un estoico señala una medicina más amarga pero eficaz.',
+    dependsOn: ['P01'],
+    schemaLabels: ['comodidad', 'tratamiento', 'firmeza'],
+  }),
+  node({
+    id: 'P03',
+    x: 650,
+    y: 500,
+    phase: 'Apertura',
+    title: 'La vía viril y la cumbre',
+    excerpt:
+      'La vía estoica no pretende parecer agradable: busca levantar al discípulo hasta una cumbre por encima de la fortuna.',
+    sourceText:
+      'La expresión “vía viril” pertenece al lenguaje de Séneca y se conserva como dato histórico del texto.',
+    sourcePage: '140',
+    explicitText:
+      'los estoicos, que han acometido una vía viril, no se cuidan de que parezca agradable',
+    explicitPage: '140',
+    sourceKind: 'PARÁFRASIS DE ESTUDIO',
+    explanation:
+      'La imagen vertical es fundamental: la firmeza se representa como ascenso. La meta es una posición desde la que la fortuna ya no domina el juicio.',
+    role:
+      'Convierte el estoicismo en una pedagogía de ascenso y prepara la metáfora de la montaña.',
+    example:
+      'Subir exige esfuerzo, pero la altura ofrece una perspectiva que no existe en el llano.',
+    question: '¿Por qué Séneca representa la sabiduría como una elevación?',
+    diagram: ['disciplina', '↑', 'cumbre'],
+    visual: 'mountain',
+    sceneNote: 'Un caminante asciende; arriba, una cumbre iluminada sobresale sobre nubes y proyectiles.',
+    dependsOn: ['P02'],
+    schemaLabels: ['vía estoica', 'ascenso', 'cumbre'],
+  }),
+  node({
+    id: 'P04',
+    x: 650,
+    y: 730,
+    phase: 'Apertura',
+    title: 'Empinado y pedregoso',
+    excerpt:
+      'El camino parece impracticable desde lejos, pero al acercarse la pendiente se vuelve menos terrible de lo que parecía.',
+    sourceText:
+      'Séneca insiste en que la dificultad inicial de la disciplina se exagera cuando se contempla desde la distancia.',
+    sourcePage: '140',
+    explicitText:
+      '¿A pie llano se llega a las alturas?',
+    explicitPage: '140',
+    sourceKind: 'PARÁFRASIS DE ESTUDIO',
+    explanation:
+      'La metáfora corrige el miedo anticipado: la imaginación junta las dificultades como un precipicio, mientras la práctica las descompone paso a paso.',
+    role:
+      'Justifica pedagógicamente la dureza del método y prepara al oyente para una tesis que parecerá extrema.',
+    example:
+      'Una montaña vista desde lejos parece una pared; al recorrerla aparecen senderos y descansos.',
+    question: '¿Qué cambia cuando el camino se recorre en lugar de contemplarse desde lejos?',
+    diagram: ['distancia', '→', 'miedo exagerado'],
+    visual: 'trail',
+    sceneNote: 'Montañas con sendero serpenteante; las rocas grandes se separan conforme avanza el caminante.',
+    dependsOn: ['P03'],
+    schemaLabels: ['lejanía', 'apariencia', 'sendero real'],
+  }),
+  node({
+    id: 'P05',
+    x: 650,
+    y: 960,
+    phase: 'Ejemplo',
+    title: 'Catón en el foro',
+    excerpt:
+      'Catón soporta despojo, insultos y salivazos sin que la multitud consiga convertir la agresión en derrota moral.',
+    sourceText:
+      'Séneca presenta a Catón como modelo histórico de firmeza frente a una multitud enloquecida.',
+    sourcePage: '140–141',
+    explicitText:
+      'hubiera soportado hasta el final palabras insolentes, salivazos y todas las demás ofensas propias de una multitud enloquecida',
+    explicitPage: '140',
+    sourceKind: 'PARÁFRASIS DE ESTUDIO',
+    explanation:
+      'El ejemplo vuelve concreta la tesis: la agresión pública existe, pero Séneca niega que tenga autoridad suficiente para destruir el bien moral del sabio.',
+    role:
+      'Da un rostro histórico a la figura del sabio y anticipa la distinción entre ataque exterior y daño recibido.',
+    example:
+      'La multitud puede quitar la toga o escupir, pero no puede decidir por sí misma el carácter de Catón.',
+    question: '¿Qué puede hacer la multitud contra Catón y qué no puede decidir por él?',
+    diagram: ['multitud', '→', 'ataque exterior'],
+    visual: 'forum',
+    sceneNote: 'Foro romano, multitud gesticulando, Catón firme en el centro con toga parcialmente arrancada.',
+    dependsOn: ['P04'],
+    schemaLabels: ['Catón', 'multitud', 'firmeza'],
+  }),
+  node({
+    id: 'P06',
+    x: 650,
+    y: 1190,
+    phase: 'Imagen',
+    title: 'Diamante, fuego, escollos y flechas',
+    excerpt:
+      'Séneca acumula imágenes de resistencia: piedra, diamante, fuego, escollos y proyectiles que no alcanzan el cielo.',
+    sourceText:
+      'La invulnerabilidad no significa ausencia de golpes, sino incapacidad del golpe para producir la herida moral buscada.',
+    sourcePage: '141–142',
+    explicitText:
+      'invulnerable es no lo que no recibe golpes, sino lo que no puede ser herido',
+    explicitPage: '141',
+    sourceKind: 'PARÁFRASIS DE ESTUDIO',
+    explanation:
+      'Estas comparaciones visuales son la mejor transición hacia el sistema central: el sabio recibe impactos externos, pero su centro moral no queda sometido a ellos.',
+    role:
+      'Formula la imagen decisiva de invulnerabilidad antes de entrar en la demostración sobre virtud, fortuna, ultraje y ofensa.',
+    example:
+      'Las olas golpean un escollo durante siglos sin convertirlo en agua; la imagen representa la constancia del ánimo.',
+    question: '¿Qué diferencia hay entre recibir un golpe y quedar herido moralmente?',
+    diagram: ['golpe', '≠', 'herida moral'],
+    visual: 'rock',
+    sceneNote: 'Escollos con olas, fuego alrededor de una figura firme y flechas que se curvan antes de alcanzar el sol.',
+    dependsOn: ['P05'],
+    schemaLabels: ['golpe', 'resistencia', 'invulnerabilidad'],
+  }),
   node({
     id: 'S01',
     x: 650,
-    y: 40,
+    y: 1360,
     phase: 'Tesis',
-    title: 'Firmeza del sabio',
+    title: 'Firmeza del sabio',\n    visual: 'shield',
     excerpt:
       'El ataque exterior puede ocurrir sin convertirse por ello en derrota moral.',
     sourceText: 'el sabio no puede recibir ningún ultraje ni ofensa',
@@ -98,14 +270,14 @@ export const senecaFirmnessNodes = [
       'Catón puede ser humillado públicamente sin que la multitud convierta esa agresión en pérdida de su carácter.',
     question: '¿Qué tendría que perder el sabio para quedar realmente dañado?',
     diagram: ['ataque exterior', '≠', 'derrota moral'],
-    schemaLabels: ['ataque exterior', 'firmeza', 'virtud intacta'],
+    dependsOn: ['P06'],\n    schemaLabels: ['ataque exterior', 'firmeza', 'virtud intacta'],
   }),
   node({
     id: 'S02',
     x: 650,
-    y: 270,
+    y: 1590,
     phase: 'Fundamento',
-    title: 'Gobierno de sí',
+    title: 'Gobierno de sí',\n    visual: 'inner',
     excerpt:
       'La firmeza exige que el centro de la vida moral no quede entregado a la fortuna ni a la opinión ajena.',
     sourceText: 'todo lo ha basado en sí mismo',
@@ -127,9 +299,9 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S03',
     x: 230,
-    y: 540,
+    y: 1860,
     phase: 'Rama I',
-    title: 'Virtud',
+    title: 'Virtud',\n    visual: 'sun',
     excerpt:
       'La virtud es el verdadero bien: no procede de la fortuna y por eso no queda a merced de ella.',
     sourceText:
@@ -151,9 +323,9 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S04',
     x: 1070,
-    y: 540,
+    y: 1860,
     phase: 'Rama II',
-    title: 'Externos',
+    title: 'Externos',\n    visual: 'coins',
     excerpt:
       'Riqueza, fama, cuerpo, poder, opinión y fortuna pertenecen al ámbito de lo que puede cambiar o perderse.',
     sourceText:
@@ -175,9 +347,9 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S05',
     x: 230,
-    y: 820,
+    y: 2140,
     phase: 'Consecuencia',
-    title: 'No puede ser arrebatada',
+    title: 'No puede ser arrebatada',\n    visual: 'diamond',
     excerpt:
       'Si la virtud no viene de la fortuna, tampoco puede ser retirada por la fortuna.',
     sourceText:
@@ -199,9 +371,9 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S06',
     x: 1070,
-    y: 820,
+    y: 2140,
     phase: 'Consecuencia',
-    title: 'Pueden ser perdidos',
+    title: 'Pueden ser perdidos',\n    visual: 'falling',
     excerpt:
       'Los externos están sometidos a contingencia, poder ajeno y fortuna; por eso pueden desaparecer.',
     sourceText:
@@ -223,9 +395,9 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S07',
     x: 650,
-    y: 1110,
+    y: 2430,
     phase: 'Síntesis',
-    title: 'Pérdida externa ≠ mal moral',
+    title: 'Pérdida externa ≠ mal moral',\n    visual: 'balance',
     excerpt:
       'Perder algo externo no equivale a perder el bien moral que constituye al sabio.',
     sourceText:
@@ -247,9 +419,9 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S08',
     x: 650,
-    y: 1370,
+    y: 2690,
     phase: 'Distinción',
-    title: 'Ultraje intentado ≠ ultraje recibido',
+    title: 'Ultraje intentado ≠ ultraje recibido',\n    visual: 'arrows',
     excerpt:
       'El agresor puede intentar dañar sin lograr que ese intento se convierta en daño moral recibido.',
     sourceText: 'puede ocurrir que alguien me haga un ultraje y yo no lo reciba',
@@ -271,9 +443,9 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S09',
     x: 250,
-    y: 1640,
+    y: 2960,
     phase: 'Rama I',
-    title: 'Ultraje',
+    title: 'Ultraje',\n    visual: 'storm',
     excerpt:
       'El ultraje pretende causar daño, pero el dolor o la agresión no destruyen por sí mismos la virtud.',
     sourceText:
@@ -295,9 +467,9 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S10',
     x: 1050,
-    y: 1640,
+    y: 2960,
     phase: 'Rama II',
-    title: 'Ofensa',
+    title: 'Ofensa',\n    visual: 'mask',
     excerpt:
       'La ofensa pretende menospreciar y obtiene fuerza cuando el sujeto adopta como propia esa valoración ajena.',
     sourceText:
@@ -319,9 +491,9 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S11',
     x: 650,
-    y: 1920,
+    y: 3240,
     phase: 'Éthos',
-    title: 'Magnanimidad',
+    title: 'Magnanimidad',\n    visual: 'tree',
     excerpt:
       'La grandeza de ánimo permite atravesar ultrajes y ofensas sin reducir la vida moral a una reacción de orgullo herido.',
     sourceText:
@@ -343,9 +515,9 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S12',
     x: 650,
-    y: 2170,
+    y: 3490,
     phase: 'Respuesta',
-    title: 'Sin ira / sin venganza',
+    title: 'Sin ira / sin venganza',\n    visual: 'calm',
     excerpt:
       'El sabio no responde desde la necesidad de devolver el daño o reparar un orgullo herido.',
     sourceText: 'no se venga, sino que los enmienda',
@@ -367,9 +539,9 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S13',
     x: 650,
-    y: 2420,
+    y: 3740,
     phase: 'Práctica',
-    title: 'Corrección',
+    title: 'Corrección',\n    visual: 'doctor',
     excerpt:
       'Si el sabio interviene frente a una conducta mala, lo hace para corregirla, no para reproducir el daño.',
     sourceText: 'no se venga, sino que los enmienda',
@@ -391,9 +563,9 @@ export const senecaFirmnessNodes = [
   node({
     id: 'S14',
     x: 650,
-    y: 2670,
+    y: 3990,
     phase: 'Resultado',
-    title: 'Libertad',
+    title: 'Libertad',\n    visual: 'summit',
     excerpt:
       'La firmeza culmina en libertad interior: la opinión, el ultraje y la fortuna dejan de gobernar el ánimo.',
     sourceText: 'la libertad es sobreponer el ánimo a los ultrajes',
@@ -415,6 +587,12 @@ export const senecaFirmnessNodes = [
 ]
 
 export const senecaFirmnessEdges = [
+  { id: 'ep01-02', source: 'P01', target: 'P02', label: '' },
+  { id: 'ep02-03', source: 'P02', target: 'P03', label: 'disciplina' },
+  { id: 'ep03-04', source: 'P03', target: 'P04', label: 'ascenso' },
+  { id: 'ep04-05', source: 'P04', target: 'P05', label: 'ejemplo' },
+  { id: 'ep05-06', source: 'P05', target: 'P06', label: 'resistencia' },
+  { id: 'ep06-s01', source: 'P06', target: 'S01', label: 'tesis' },
   { id: 'e01-02', source: 'S01', target: 'S02', label: '' },
   { id: 'e02-03', source: 'S02', target: 'S03', label: '' },
   { id: 'e02-04', source: 'S02', target: 'S04', label: '' },
@@ -433,7 +611,7 @@ export const senecaFirmnessEdges = [
 ]
 
 export const senecaFirmnessOrder = [
-  'S01',
+  'P01',\n  'P02',\n  'P03',\n  'P04',\n  'P05',\n  'P06',\n  'S01',
   'S02',
   'S03',
   'S05',
