@@ -480,3 +480,7 @@
 }
 
 .seneca-svg-drift,.seneca-svg-bob,.seneca-svg-walk,.seneca-svg-wave,.seneca-svg-arrow,.seneca-svg-spin,.seneca-svg-breathe,.seneca-svg-fall{transform-box:fill-box;transform-origin:center}
+
+.seneca2d-text-scenes ul,.seneca2d-folio-scenes ul{margin:.65rem 0 0;padding-left:1.1rem}
+.seneca2d-text-scenes li,.seneca2d-folio-scenes li{margin:.45rem 0;color:#4f4a44;font-size:.77rem;line-height:1.48}
+.seneca2d-text-scenes li::marker,.seneca2d-folio-scenes li::marker{color:var(--ph2d-gold)}
