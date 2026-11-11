@@ -474,29 +474,70 @@
 .seneca-theater-fragments p{margin:.45rem 0 0;font-size:.7rem;line-height:1.38;color:rgba(255,255,255,.82)}
 
 .seneca-theater-bubble{
-  position:absolute;z-index:7;top:6%;left:4.5%;
-  width:min(590px,58%);max-width:58%;max-height:43%;
-  padding:1rem 1.2rem;
-  border:3px solid #17324d;border-radius:46% 54% 49% 51% / 48% 46% 54% 52%;
-  background:#fff;box-shadow:10px 12px 0 rgba(23,50,77,.18);
-  overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;
-  overflow-wrap:anywhere;word-break:normal;hyphens:auto;
+  position:absolute;
+  z-index:7;
+  top:5.5%;
+  left:4.5%;
+  width:min(650px,60%);
+  max-width:60%;
+  max-height:40%;
+  padding:.95rem 1.15rem;
+  border:3px solid #17324d;
+  border-radius:46% 54% 49% 51% / 48% 46% 54% 52%;
+  background:#fff;
+  box-shadow:10px 12px 0 rgba(23,50,77,.18);
+  overflow:auto;
+  overscroll-behavior:contain;
+  scrollbar-width:thin;
+  overflow-wrap:anywhere;
+  word-break:normal;
+  hyphens:auto;
 }
-.seneca-theater-bubble.is-long{width:min(640px,62%);max-width:62%;border-radius:34% 42% 36% 44% / 30% 36% 34% 40%}
-.seneca-theater-bubble.is-very-long{width:min(690px,66%);max-width:66%;border-radius:28px}
+.seneca-theater-bubble.is-long{
+  width:min(700px,64%);
+  max-width:64%;
+  max-height:42%;
+  border-radius:34% 42% 36% 44% / 30% 36% 34% 40%;
+}
+.seneca-theater-bubble.is-very-long{
+  width:min(760px,68%);
+  max-width:68%;
+  max-height:44%;
+  border-radius:28px;
+}
 .seneca-theater-bubble:after{
-  content:"";position:absolute;left:22%;bottom:-21px;width:30px;height:30px;
-  border-right:3px solid #17324d;border-bottom:3px solid #17324d;background:#fff;
-  transform:skew(-20deg) rotate(35deg)
+  content:"";
+  position:absolute;
+  left:22%;
+  bottom:-21px;
+  width:30px;
+  height:30px;
+  border-right:3px solid #17324d;
+  border-bottom:3px solid #17324d;
+  background:#fff;
+  transform:skew(-20deg) rotate(35deg);
 }
-.seneca-theater-bubble span{display:block;font-size:.52rem;letter-spacing:.12em;color:#315d83}
+.seneca-theater-bubble span{
+  display:block;
+  font-size:.5rem;
+  letter-spacing:.12em;
+  color:#315d83;
+}
 .seneca-theater-bubble blockquote{
-  margin:.45rem 0 0;
-  font:600 clamp(.84rem,1.45vw,1.25rem)/1.32 Georgia,serif;
-  overflow-wrap:anywhere;word-break:normal;hyphens:auto;
+  margin:.38rem 0 0;
+  font:600 clamp(.72rem,1.1vw,1.02rem)/1.22 Georgia,serif;
+  overflow-wrap:anywhere;
+  word-break:normal;
+  hyphens:auto;
 }
-.seneca-theater-bubble.is-long blockquote{font-size:clamp(.78rem,1.22vw,1.08rem);line-height:1.28}
-.seneca-theater-bubble.is-very-long blockquote{font-size:clamp(.72rem,1.05vw,.96rem);line-height:1.25}
+.seneca-theater-bubble.is-long blockquote{
+  font-size:clamp(.66rem,.98vw,.9rem);
+  line-height:1.18;
+}
+.seneca-theater-bubble.is-very-long blockquote{
+  font-size:clamp(.6rem,.9vw,.82rem);
+  line-height:1.15;
+}
 .seneca-theater-caption{
   position:absolute;z-index:8;left:3%;right:3%;bottom:3%;padding:.8rem 1rem;
   border-left:6px solid var(--scene-accent);background:rgba(247,241,230,.94);
@@ -570,11 +611,22 @@
   .seneca-theater{padding:.35rem}
   .seneca-theater-shell{width:99vw;height:96vh}
   .seneca-theater-stage{height:calc(100% - 170px)}
-  .seneca-theater-bubble,.seneca-theater-bubble.is-long,.seneca-theater-bubble.is-very-long{
-    top:3.5%;left:3.5%;width:93%;max-width:93%;max-height:37%;padding:.68rem .78rem;border-radius:22px
+  .seneca-theater-bubble,
+  .seneca-theater-bubble.is-long,
+  .seneca-theater-bubble.is-very-long{
+    top:3.5%;
+    left:3.5%;
+    width:93%;
+    max-width:93%;
+    max-height:34%;
+    padding:.62rem .72rem;
+    border-radius:22px;
   }
-  .seneca-theater-bubble blockquote,.seneca-theater-bubble.is-long blockquote,.seneca-theater-bubble.is-very-long blockquote{
-    font-size:clamp(.72rem,3.25vw,.9rem);line-height:1.25
+  .seneca-theater-bubble blockquote,
+  .seneca-theater-bubble.is-long blockquote,
+  .seneca-theater-bubble.is-very-long blockquote{
+    font-size:clamp(.62rem,2.55vw,.82rem);
+    line-height:1.14;
   }
   .seneca-theater-fragments{top:42%;right:3%;width:46%;max-height:22%;padding:.55rem .6rem}
   .seneca-theater-fragments p{font-size:.61rem}
