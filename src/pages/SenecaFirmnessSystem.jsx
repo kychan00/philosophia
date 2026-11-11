@@ -92,7 +92,7 @@ function relatedSet(id) {
 }
 
 function SenecaCanvas() {
-  const [selectedId, setSelectedId] = useState('S01')
+  const [selectedId, setSelectedId] = useState('P01')
   const [folioId, setFolioId] = useState(null)
   const [guided, setGuided] = useState(false)
   const [guidedIndex, setGuidedIndex] = useState(0)
