@@ -7,18 +7,37 @@ import {
   senecaFirmnessOrder,
   senecaFirmnessSource,
 } from '../src/data/senecaFirmnessSystem.js'
+import {
+  senecaStudyFormula,
+  senecaStudySections,
+  senecaStudySectionsByNode,
+} from '../src/data/senecaFirmnessStudy.js'
 
 const file = path => readFileSync(new URL('../' + path, import.meta.url), 'utf8')
 const app = file('src/App.jsx')
 const hub = file('src/pages/EthicsClassics.jsx')
 const page = file('src/pages/SenecaFirmnessSystem.jsx')
 const css = file('src/pages/SenecaFirmnessSystem.css')
+const theater = file('src/components/seneca/SenecaSvgTheater.jsx')
+const archive = file('src/components/seneca/SenecaStudyArchive.jsx')
 
-test('Séneca 2D conserva catorce estaciones y una lectura axial', () => {
-  assert.equal(senecaFirmnessNodes.length, 14)
-  assert.equal(senecaFirmnessOrder.length, 14)
-  assert.equal(new Set(senecaFirmnessOrder).size, 14)
+test('Séneca 2D conserva veinte estaciones y una lectura axial', () => {
+  assert.equal(senecaFirmnessNodes.length, 20)
+  assert.equal(senecaFirmnessOrder.length, 20)
+  assert.equal(new Set(senecaFirmnessOrder).size, 20)
+  assert.deepEqual(senecaFirmnessOrder.slice(0, 6), ['P01','P02','P03','P04','P05','P06'])
   assert.equal(senecaFirmnessSource.pages, '140–153')
+})
+
+test('la sistematización analítica conserva los 52 bloques y cubre las veinte estaciones', () => {
+  assert.equal(senecaStudySections.length, 52)
+  assert.deepEqual(senecaStudySections.map(section => section.number), Array.from({ length: 52 }, (_, i) => i + 1))
+  assert.equal(new Set(senecaStudySections.map(section => section.number)).size, 52)
+  assert.equal(Object.keys(senecaStudySectionsByNode).length, 20)
+  for (const id of senecaFirmnessOrder) {
+    assert.ok((senecaStudySectionsByNode[id] || []).length >= 1, id + ' debe enlazar sistematización')
+  }
+  assert.ok(senecaStudyFormula.length >= 7)
 })
 
 test('cada nodo separa texto explícito, reconstrucción, explicación, ejemplo y esquema', () => {
@@ -33,6 +52,8 @@ test('cada nodo separa texto explícito, reconstrucción, explicación, ejemplo 
     assert.ok(node.data.question.endsWith('?'))
     assert.ok(node.data.schema.nodes.length >= 2)
     assert.ok(node.data.schema.edges.length >= 1)
+    assert.ok(node.data.visual.length > 2, node.id + ' debe tener motivo SVG')
+    assert.ok(node.data.textExamples.length >= 2, node.id + ' debe conservar escenas del texto')
   }
 })
 
@@ -40,7 +61,7 @@ test('la geometría reproduce dos bifurcaciones y dos reconvergencias', () => {
   const byId = new Map(senecaFirmnessNodes.map(node => [node.id, node]))
   const center = id => byId.get(id).position.x
 
-  for (const id of ['S01', 'S02', 'S07', 'S08', 'S11', 'S12', 'S13', 'S14']) {
+  for (const id of ['P01','P02','P03','P04','P05','P06','S01', 'S02', 'S07', 'S08', 'S11', 'S12', 'S13', 'S14']) {
     assert.equal(center(id), 650, id + ' debe permanecer sobre el eje central')
   }
 
@@ -87,11 +108,36 @@ test('el sistema conserva ETHOS, lectura vertical y fidelidad editorial', () => 
   assert.match(page, /ReactFlowProvider/)
   assert.doesNotMatch(page, /MiniMap/)
   assert.match(css, /#1a365d/)
-  assert.match(css, /height:3020px/)
+  assert.match(css, /height:5880px/)
   assert.match(css, /grid-template-columns:minmax\(0,1fr\) 390px/)
   assert.match(css, /position:sticky/)
   assert.match(css, /seneca2d-inspector-nav/)
   assert.match(css, /seneca2d-explicit-text/)
+  assert.match(css, /seneca2d-animation-launch/)
+  assert.match(css, /seneca-theater-curtain/)
+  assert.match(theater, /SenecaNodeIllustration/)
+  assert.match(theater, /BaseScene/)
+  assert.match(theater, /Reproducir ▶/)
+  assert.match(theater, /clipPath/)
+  assert.match(theater, /moodFor/)
+  assert.match(theater, /seneca-theater-impact-word/)
+  assert.match(theater, /is-very-long/)
+  assert.match(page, /SenecaSvgTheater/)
+  assert.match(page, /animación ▶/)
+  assert.match(page, /Abrir telón ▶/)
+  assert.match(page, /ESCENAS DEL TEXTO/)
+  assert.match(page, /SenecaStudyArchive/)
+  assert.match(page, /Abrir 52 claves/)
+  assert.match(archive, /52 claves/)
+  assert.match(archive, /senecaStudySource\.kind/)
+  assert.match(page, /Veinte estaciones/)
+  assert.match(page, /setTheaterOpen/)
+  assert.match(css, /seneca-study-overlay/)
+  assert.match(css, /seneca-theater-bubble\.is-very-long/)
+  assert.match(css, /overflow:auto/)
+  assert.match(css, /seneca-theater-vignette/)
+  assert.match(css, /seneca-theater-speed-lines/)
+  assert.match(css, /seneca-theater-flash/)
   assert.match(css, /@media\(max-width:1180px\)/)
     assert.match(css, /prefers-reduced-motion/)
 })
