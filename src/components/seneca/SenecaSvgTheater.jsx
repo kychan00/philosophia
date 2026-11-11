@@ -12,6 +12,23 @@ const sand = '#dfcba7'
 const rose = '#a86f65'
 const green = '#627d62'
 
+const moodFor = motif => {
+  if (['forum', 'rock', 'shield', 'arrows', 'storm', 'mask'].includes(motif)) return 'conflict'
+  if (['mountain', 'trail', 'summit', 'figures', 'doctor'].includes(motif)) return 'ascent'
+  if (['coins', 'falling', 'balance'].includes(motif)) return 'fortune'
+  return 'inner'
+}
+
+const impactFor = motif => {
+  if (motif === 'forum') return '¡RESISTE!'
+  if (['rock', 'shield', 'arrows', 'storm'].includes(motif)) return 'IMPACTO'
+  if (['mountain', 'trail', 'summit'].includes(motif)) return 'ASCENSO'
+  if (['coins', 'falling', 'balance'].includes(motif)) return 'FORTUNA'
+  if (motif === 'mask') return 'OFENSA'
+  if (motif === 'doctor') return 'CORRECCIÓN'
+  return 'FIRMEZA'
+}
+
 function Sun({ x=0, y=0, r=18, className='' }) {
   return (
     <g className={className} transform={`translate(${x} ${y})`}>
@@ -156,6 +173,30 @@ function BaseScene({ motif, compact=false }) {
           <Sun x={785} y={80} r={34} className="seneca-svg-sun"/>
           <Cloud x={90} y={74} s={1.25} className="seneca-svg-drift"/>
           <Cloud x={510} y={118} s={.8} className="seneca-svg-drift is-slow"/>
+          {['forum','rock','shield','arrows','storm','mask'].includes(motif) && (
+            <g className="seneca-svg-storm" aria-hidden="true">
+              <path d="M110 18 L75 92 L112 82 L86 148" fill="none" stroke="#f0c766" strokeWidth="9" strokeLinejoin="round"/>
+              <path d="M705 28 L674 96 L708 87 L681 150" fill="none" stroke="#f0c766" strokeWidth="7" strokeLinejoin="round"/>
+              {Array.from({length:14}).map((_,i)=>(
+                <line key={i} x1={20+i*65} y1={100+(i%3)*16} x2={-10+i*65} y2={190+(i%3)*16}
+                  stroke="rgba(23,50,77,.34)" strokeWidth="3" className="seneca-svg-rain-line"/>
+              ))}
+            </g>
+          )}
+          {['mountain','trail','summit'].includes(motif) && (
+            <g className="seneca-svg-rays" aria-hidden="true">
+              {Array.from({length:9}).map((_,i)=>(
+                <line key={i} x1="785" y1="80" x2={530+i*48} y2={190+(i%2)*40}
+                  stroke="rgba(240,202,102,.55)" strokeWidth="7" strokeLinecap="round"/>
+              ))}
+            </g>
+          )}
+          {['inner','sun','calm','tree'].includes(motif) && (
+            <g className="seneca-svg-halo" aria-hidden="true">
+              <circle cx="430" cy="292" r="105" fill="none" stroke="rgba(184,138,59,.28)" strokeWidth="5"/>
+              <circle cx="430" cy="292" r="135" fill="none" stroke="rgba(184,138,59,.16)" strokeWidth="3"/>
+            </g>
+          )}
           {['figures','doctor'].includes(motif) && <>
             <Tree x={95} y={330} s={1.2}/>
             <Person x={285} y={328} s={1.5} robe="#728aa1" arm="up" className="seneca-svg-bob"/>
@@ -244,6 +285,12 @@ export default function SenecaSvgTheater({ open, startId='P01', onClose }) {
 
   if(!open || !node) return null
 
+  const mood=moodFor(node.data.visual)
+  const impact=impactFor(node.data.visual)
+  const quoteLength=node.data.explicitText?.length || 0
+  const bubbleClass=quoteLength>155?'is-very-long':quoteLength>95?'is-long':'is-short'
+  const sceneFragments=(node.data.textExamples || []).slice(0,2)
+
   return (
     <div className="seneca-theater" role="dialog" aria-modal="true" aria-labelledby="seneca-theater-title">
       <div className="seneca-theater-backdrop" onClick={onClose}/>
@@ -257,14 +304,30 @@ export default function SenecaSvgTheater({ open, startId='P01', onClose }) {
           <button type="button" onClick={onClose} aria-label="Cerrar animación">×</button>
         </header>
 
-        <div className="seneca-theater-stage">
+        <div key={id} className={'seneca-theater-stage mood-' + mood}>
           <BaseScene motif={node.data.visual}/>
+          <div className="seneca-theater-vignette" aria-hidden="true"/>
           <div className="seneca-theater-manga-lines" aria-hidden="true"/>
-          <div className="seneca-theater-bubble">
+          <div className="seneca-theater-speed-lines" aria-hidden="true"/>
+          <div className="seneca-theater-flash" aria-hidden="true"/>
+          <div className="seneca-theater-impact-word" aria-hidden="true">{impact}</div>
+
+          <div className={'seneca-theater-bubble ' + bubbleClass}>
             <span>SÉNECA · p. {node.data.explicitPage}</span>
             <blockquote>“{node.data.explicitText}”</blockquote>
           </div>
+
+          {sceneFragments.length > 0 && (
+            <aside className="seneca-theater-fragments">
+              <span>VIÑETA DE ESTUDIO</span>
+              {sceneFragments.map((fragment, fragmentIndex) => (
+                <p key={fragmentIndex}>{fragment}</p>
+              ))}
+            </aside>
+          )}
+
           <div className="seneca-theater-caption">
+            <small>ESCENA {index+1} · {node.data.phase}</small>
             <strong>{label}</strong>
             <p>{node.data.explanation}</p>
           </div>
