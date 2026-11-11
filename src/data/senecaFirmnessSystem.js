@@ -254,7 +254,8 @@ export const senecaFirmnessNodes = [
     x: 650,
     y: 1840,
     phase: 'Tesis',
-    title: 'Firmeza del sabio',\n    visual: 'shield',
+    title: 'Firmeza del sabio',
+    visual: 'shield',
     excerpt:
       'El ataque exterior puede ocurrir sin convertirse por ello en derrota moral.',
     sourceText: 'el sabio no puede recibir ningún ultraje ni ofensa',
@@ -270,14 +271,16 @@ export const senecaFirmnessNodes = [
       'Catón puede ser humillado públicamente sin que la multitud convierta esa agresión en pérdida de su carácter.',
     question: '¿Qué tendría que perder el sabio para quedar realmente dañado?',
     diagram: ['ataque exterior', '≠', 'derrota moral'],
-    dependsOn: ['P06'],\n    schemaLabels: ['ataque exterior', 'firmeza', 'virtud intacta'],
+    dependsOn: ['P06'],
+    schemaLabels: ['ataque exterior', 'firmeza', 'virtud intacta'],
   }),
   node({
     id: 'S02',
     x: 650,
     y: 2140,
     phase: 'Fundamento',
-    title: 'Gobierno de sí',\n    visual: 'inner',
+    title: 'Gobierno de sí',
+    visual: 'inner',
     excerpt:
       'La firmeza exige que el centro de la vida moral no quede entregado a la fortuna ni a la opinión ajena.',
     sourceText: 'todo lo ha basado en sí mismo',
@@ -301,7 +304,8 @@ export const senecaFirmnessNodes = [
     x: 230,
     y: 2460,
     phase: 'Rama I',
-    title: 'Virtud',\n    visual: 'sun',
+    title: 'Virtud',
+    visual: 'sun',
     excerpt:
       'La virtud es el verdadero bien: no procede de la fortuna y por eso no queda a merced de ella.',
     sourceText:
@@ -325,7 +329,8 @@ export const senecaFirmnessNodes = [
     x: 1070,
     y: 2460,
     phase: 'Rama II',
-    title: 'Externos',\n    visual: 'coins',
+    title: 'Externos',
+    visual: 'coins',
     excerpt:
       'Riqueza, fama, cuerpo, poder, opinión y fortuna pertenecen al ámbito de lo que puede cambiar o perderse.',
     sourceText:
@@ -349,7 +354,8 @@ export const senecaFirmnessNodes = [
     x: 230,
     y: 2790,
     phase: 'Consecuencia',
-    title: 'No puede ser arrebatada',\n    visual: 'diamond',
+    title: 'No puede ser arrebatada',
+    visual: 'diamond',
     excerpt:
       'Si la virtud no viene de la fortuna, tampoco puede ser retirada por la fortuna.',
     sourceText:
@@ -373,7 +379,8 @@ export const senecaFirmnessNodes = [
     x: 1070,
     y: 2790,
     phase: 'Consecuencia',
-    title: 'Pueden ser perdidos',\n    visual: 'falling',
+    title: 'Pueden ser perdidos',
+    visual: 'falling',
     excerpt:
       'Los externos están sometidos a contingencia, poder ajeno y fortuna; por eso pueden desaparecer.',
     sourceText:
@@ -397,7 +404,8 @@ export const senecaFirmnessNodes = [
     x: 650,
     y: 3120,
     phase: 'Síntesis',
-    title: 'Pérdida externa ≠ mal moral',\n    visual: 'balance',
+    title: 'Pérdida externa ≠ mal moral',
+    visual: 'balance',
     excerpt:
       'Perder algo externo no equivale a perder el bien moral que constituye al sabio.',
     sourceText:
@@ -421,7 +429,8 @@ export const senecaFirmnessNodes = [
     x: 650,
     y: 3430,
     phase: 'Distinción',
-    title: 'Ultraje intentado ≠ ultraje recibido',\n    visual: 'arrows',
+    title: 'Ultraje intentado ≠ ultraje recibido',
+    visual: 'arrows',
     excerpt:
       'El agresor puede intentar dañar sin lograr que ese intento se convierta en daño moral recibido.',
     sourceText: 'puede ocurrir que alguien me haga un ultraje y yo no lo reciba',
@@ -445,7 +454,8 @@ export const senecaFirmnessNodes = [
     x: 250,
     y: 3750,
     phase: 'Rama I',
-    title: 'Ultraje',\n    visual: 'storm',
+    title: 'Ultraje',
+    visual: 'storm',
     excerpt:
       'El ultraje pretende causar daño, pero el dolor o la agresión no destruyen por sí mismos la virtud.',
     sourceText:
@@ -469,7 +479,8 @@ export const senecaFirmnessNodes = [
     x: 1050,
     y: 3750,
     phase: 'Rama II',
-    title: 'Ofensa',\n    visual: 'mask',
+    title: 'Ofensa',
+    visual: 'mask',
     excerpt:
       'La ofensa pretende menospreciar y obtiene fuerza cuando el sujeto adopta como propia esa valoración ajena.',
     sourceText:
@@ -493,7 +504,8 @@ export const senecaFirmnessNodes = [
     x: 650,
     y: 4070,
     phase: 'Éthos',
-    title: 'Magnanimidad',\n    visual: 'tree',
+    title: 'Magnanimidad',
+    visual: 'tree',
     excerpt:
       'La grandeza de ánimo permite atravesar ultrajes y ofensas sin reducir la vida moral a una reacción de orgullo herido.',
     sourceText:
@@ -517,7 +529,8 @@ export const senecaFirmnessNodes = [
     x: 650,
     y: 4360,
     phase: 'Respuesta',
-    title: 'Sin ira / sin venganza',\n    visual: 'calm',
+    title: 'Sin ira / sin venganza',
+    visual: 'calm',
     excerpt:
       'El sabio no responde desde la necesidad de devolver el daño o reparar un orgullo herido.',
     sourceText: 'no se venga, sino que los enmienda',
@@ -541,7 +554,8 @@ export const senecaFirmnessNodes = [
     x: 650,
     y: 4650,
     phase: 'Práctica',
-    title: 'Corrección',\n    visual: 'doctor',
+    title: 'Corrección',
+    visual: 'doctor',
     excerpt:
       'Si el sabio interviene frente a una conducta mala, lo hace para corregirla, no para reproducir el daño.',
     sourceText: 'no se venga, sino que los enmienda',
@@ -565,7 +579,8 @@ export const senecaFirmnessNodes = [
     x: 650,
     y: 4940,
     phase: 'Resultado',
-    title: 'Libertad',\n    visual: 'summit',
+    title: 'Libertad',
+    visual: 'summit',
     excerpt:
       'La firmeza culmina en libertad interior: la opinión, el ultraje y la fortuna dejan de gobernar el ánimo.',
     sourceText: 'la libertad es sobreponer el ánimo a los ultrajes',
@@ -611,7 +626,13 @@ export const senecaFirmnessEdges = [
 ]
 
 export const senecaFirmnessOrder = [
-  'P01',\n  'P02',\n  'P03',\n  'P04',\n  'P05',\n  'P06',\n  'S01',
+  'P01',
+  'P02',
+  'P03',
+  'P04',
+  'P05',
+  'P06',
+  'S01',
   'S02',
   'S03',
   'S05',
