@@ -117,18 +117,18 @@ try{
       'hero público '+width,
     )
     await until(
-      ()=>evaluate("document.querySelectorAll('.seneca2d-canvas .react-flow__node').length===14"),
-      'catorce nodos públicos '+width,
+      ()=>evaluate("document.querySelectorAll('.seneca2d-canvas .react-flow__node').length===20"),
+      'veinte nodos públicos '+width,
     )
 
     const state=await evaluate(metrics)
-    assert.equal(state.count,14,JSON.stringify(state))
+    assert.equal(state.count,20,JSON.stringify(state))
     assert.ok(state.hero.includes('La firmeza'),JSON.stringify(state))
-    assert.ok(state.mapTitle.includes('gobierno de sí'),JSON.stringify(state))
-    assert.equal(state.inspector,'Firmeza del sabio',JSON.stringify(state))
+    assert.ok(state.mapTitle.includes('apertura'),JSON.stringify(state))
+    assert.equal(state.inspector,'Estoicos y demás sabios',JSON.stringify(state))
     assert.equal(state.presentationNav,true,JSON.stringify(state))
-    assert.equal(state.presentationStep.trim(),'1 / 14',JSON.stringify(state))
-    assert.ok(state.explicitText.includes('el sabio no puede recibir'),JSON.stringify(state))
+    assert.equal(state.presentationStep.trim(),'1 / 20',JSON.stringify(state))
+    assert.ok(state.explicitText.includes('hembras y los machos'),JSON.stringify(state))
     if(width>1180){
       assert.ok(state.inspectorRect.left>=state.flowRect.right-2,'inspector derecho ausente en producción '+JSON.stringify(state))
       assert.equal(state.inspectorPosition,'sticky','inspector de escritorio debe ser sticky')
@@ -139,7 +139,7 @@ try{
     assert.deepEqual(state.hits,[],'nodos encimados en producción '+JSON.stringify(state))
     assert.ok(state.positions.S03.x<state.positions.S04.x,'virtud/externos invertidos '+JSON.stringify(state))
     assert.ok(state.positions.S09.x<state.positions.S10.x,'ultraje/ofensa invertidos '+JSON.stringify(state))
-    assert.ok(state.positions.S01.y<state.positions.S14.y,'eje axial invertido '+JSON.stringify(state))
+    assert.ok(state.positions.P01.y<state.positions.S14.y,'eje axial invertido '+JSON.stringify(state))
     assert.ok(state.scroll<=state.w+3,'desbordamiento horizontal en producción '+JSON.stringify(state))
     assert.equal(state.minimap,false,'el sistema axial no debe montar minimapa')
     console.log('PRODUCTION SENECA OK',width+'x'+height,JSON.stringify(state))
