@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useId, useMemo, useState } from 'react'
 import {
   senecaFirmnessNodeById,
   senecaFirmnessOrder,
@@ -135,20 +135,22 @@ function Balance({x=0,y=0,s=1,className=''}) {
 function BaseScene({ motif, compact=false }) {
   const w=compact ? 180 : 900
   const h=compact ? 112 : 500
-  const sx=compact ? 0.2 : 1
   const transform=compact ? 'scale(.2)' : ''
+  const rawId=useId().replace(/:/g,'')
+  const clipId=`seneca-clip-${rawId}`
+  const skyId=`seneca-sky-${rawId}`
   return (
     <svg className={compact ? 'seneca-svg-mini' : 'seneca-svg-stage'} viewBox={`0 0 ${w} ${h}`} role="img" aria-label="Ilustración vectorial de la idea seleccionada">
       <defs>
-        <clipPath id={compact ? 'seneca-mini-clip' : 'seneca-stage-clip'}>
+        <clipPath id={clipId}>
           <rect x="0" y="0" width={w} height={h} rx={compact ? 10 : 24}/>
         </clipPath>
-        <linearGradient id={compact ? 'seneca-mini-sky' : 'seneca-stage-sky'} x1="0" x2="0" y1="0" y2="1">
+        <linearGradient id={skyId} x1="0" x2="0" y1="0" y2="1">
           <stop offset="0%" stopColor="#dce9ef"/><stop offset="100%" stopColor={paper}/>
         </linearGradient>
       </defs>
-      <g clipPath={`url(#${compact ? 'seneca-mini-clip' : 'seneca-stage-clip'})`}>
-        <rect width={w} height={h} fill={`url(#${compact ? 'seneca-mini-sky' : 'seneca-stage-sky'})`}/>
+      <g clipPath={`url(#${clipId})`}>
+        <rect width={w} height={h} fill={`url(#${skyId})`}/>
         <g transform={transform}>
           <rect x="0" y="390" width="900" height="110" fill={sand}/>
           <Sun x={785} y={80} r={34} className="seneca-svg-sun"/>
