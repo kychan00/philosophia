@@ -183,7 +183,7 @@
   cursor:pointer;
 }
 .seneca2d-canvas{
-  height:3020px;
+  height:5350px;
   background:
     linear-gradient(rgba(26,54,93,.035) 1px,transparent 1px),
     linear-gradient(90deg,rgba(26,54,93,.035) 1px,transparent 1px),
@@ -223,7 +223,10 @@
 .seneca2d-node-diagram{display:flex;flex-wrap:wrap;align-items:center;gap:.28rem;margin:.8rem 0 0}
 .seneca2d-node-diagram span{padding:.23rem .34rem;border:1px solid rgba(26,54,93,.14);background:#fff;font-size:.54rem}
 .seneca2d-node footer{display:flex;justify-content:space-between;gap:.5rem;align-items:center;margin-top:.8rem;padding-top:.55rem;border-top:1px solid rgba(26,54,93,.14);color:var(--ph2d-muted);font-size:.53rem}
+.seneca2d-node-actions{display:flex;gap:.45rem;align-items:center}
 .seneca2d-node footer button{border:0;border-bottom:1px solid rgba(26,54,93,.35);background:transparent;color:var(--ethos-blue);font-size:.52rem;cursor:pointer}
+.seneca-svg-mini{display:block;width:100%;height:76px;margin:.55rem 0 .65rem;border:1px solid rgba(26,54,93,.16);background:#f7f1e6}
+.seneca-svg-mini *{vector-effect:non-scaling-stroke}
 .seneca2d-handle{width:7px!important;height:7px!important;border:1px solid var(--ethos-blue)!important;background:var(--ethos-marble)!important}
 
 .seneca2d-inspector{
@@ -315,7 +318,7 @@
 @media(max-width:1180px){
   .seneca2d-workspace{grid-template-columns:1fr}
   .seneca2d-flow-panel{border-right:0;border-bottom:1px solid rgba(26,54,93,.18)}
-  .seneca2d-canvas{height:2920px}
+  .seneca2d-canvas{height:5280px}
   .seneca2d-inspector{
     position:static;
     width:min(900px,calc(100% - 2rem));
@@ -336,7 +339,7 @@
   .seneca2d-progress{grid-template-columns:1fr}
   .seneca2d-route{align-items:flex-start;flex-direction:column}
   .seneca2d-flow-caption{align-items:flex-start;flex-direction:column;padding:.85rem 1rem}
-  .seneca2d-canvas{height:2460px}
+  .seneca2d-canvas{height:5000px}
   .seneca2d-node{width:286px;min-height:172px}
   .seneca2d-node-title{font-size:1.16rem}
   .seneca2d-node>p{font-size:.7rem}
@@ -349,4 +352,129 @@
 }
 @media(prefers-reduced-motion:reduce){
   .seneca2d-node{transition:none}
+}
+
+
+/* --- TEATRO ESTOICO · SVG / manga vectorial --- */
+.seneca2d-animation-launch{
+  max-width:1500px;
+  margin:1px auto 0;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:1.5rem;
+  align-items:center;
+  padding:1.15rem 1.5rem;
+  border:1px solid rgba(26,54,93,.18);
+  background:
+    radial-gradient(circle at 12% 20%,rgba(184,138,59,.13),transparent 28%),
+    linear-gradient(120deg,#f8f2e8,#edf2f3);
+}
+.seneca2d-animation-launch span{font:700 .58rem/1.2 Arial,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:var(--ethos-blue)}
+.seneca2d-animation-launch strong{display:block;margin:.25rem 0;font:500 1.22rem Georgia,serif;color:var(--ethos-blue)}
+.seneca2d-animation-launch p{max-width:900px;margin:.25rem 0 0;color:var(--ph2d-muted);line-height:1.5}
+.seneca2d-animation-launch button{
+  min-height:46px;padding:.7rem 1rem;border:1px solid var(--ethos-blue);
+  background:var(--ethos-blue);color:#fff;font-weight:700;cursor:pointer
+}
+
+.seneca-theater{position:fixed;inset:0;z-index:5000;display:grid;place-items:center;padding:1rem}
+.seneca-theater-backdrop{position:absolute;inset:0;background:rgba(9,17,25,.84);backdrop-filter:blur(7px)}
+.seneca-theater-shell{
+  position:relative;width:min(1120px,96vw);height:min(820px,94vh);overflow:hidden;
+  border:1px solid rgba(255,255,255,.35);background:#0f1e2b;box-shadow:0 30px 90px rgba(0,0,0,.5)
+}
+.seneca-theater-header{
+  position:relative;z-index:8;display:flex;justify-content:space-between;align-items:flex-start;
+  gap:1rem;padding:1rem 1.2rem;background:#f7f1e6;border-bottom:1px solid rgba(26,54,93,.2)
+}
+.seneca-theater-header span{font-size:.56rem;letter-spacing:.13em;color:var(--ethos-blue)}
+.seneca-theater-header h2{margin:.2rem 0 0;font:500 clamp(1.45rem,3vw,2.7rem)/1 Georgia,serif;color:var(--ethos-blue)}
+.seneca-theater-header button{border:0;background:transparent;color:var(--ethos-blue);font-size:2rem;cursor:pointer}
+.seneca-theater-stage{position:relative;z-index:2;height:calc(100% - 150px);overflow:hidden;background:#dfe9ec}
+.seneca-svg-stage{display:block;width:100%;height:100%;overflow:hidden}
+.seneca-theater-manga-lines{
+  position:absolute;inset:0;pointer-events:none;opacity:.18;
+  background:repeating-radial-gradient(circle at 72% 35%,transparent 0 16px,rgba(23,50,77,.16) 17px 18px)
+}
+.seneca-theater-bubble{
+  position:absolute;top:7%;left:5%;width:min(460px,55%);padding:1rem 1.15rem;
+  border:3px solid #17324d;border-radius:52% 48% 47% 53% / 46% 54% 46% 54%;
+  background:#fff;box-shadow:8px 8px 0 rgba(23,50,77,.14)
+}
+.seneca-theater-bubble:after{
+  content:"";position:absolute;left:22%;bottom:-25px;width:34px;height:34px;
+  border-right:3px solid #17324d;border-bottom:3px solid #17324d;background:#fff;
+  transform:skew(-20deg) rotate(35deg)
+}
+.seneca-theater-bubble span{display:block;font-size:.52rem;letter-spacing:.12em;color:#315d83}
+.seneca-theater-bubble blockquote{margin:.45rem 0 0;font:600 clamp(.9rem,1.7vw,1.35rem)/1.35 Georgia,serif}
+.seneca-theater-caption{
+  position:absolute;left:4%;right:4%;bottom:4%;padding:.85rem 1rem;
+  border-left:5px solid #b88a3b;background:rgba(247,241,230,.92);box-shadow:0 12px 30px rgba(0,0,0,.12)
+}
+.seneca-theater-caption strong{display:block;font:600 1rem Georgia,serif;color:#17324d}
+.seneca-theater-caption p{margin:.35rem 0 0;font-size:.78rem;line-height:1.45;color:#4f4a44}
+.seneca-theater-controls{
+  position:absolute;z-index:9;left:0;right:0;bottom:6px;height:58px;display:grid;
+  grid-template-columns:1fr auto 1fr;align-items:center;gap:.6rem;padding:.5rem .8rem;background:#f7f1e6
+}
+.seneca-theater-controls button{min-height:40px;border:1px solid rgba(26,54,93,.3);background:transparent;color:#17324d;font-weight:700;cursor:pointer}
+.seneca-theater-controls button:last-child{background:#17324d;color:#fff}
+.seneca-theater-controls .is-play{min-width:130px;border-color:#b88a3b;background:#b88a3b;color:#fff}
+.seneca-theater-controls button:disabled{opacity:.35;cursor:default}
+.seneca-theater-progress{position:absolute;z-index:10;left:0;right:0;bottom:0;height:6px;background:#d8d4cd}
+.seneca-theater-progress i{display:block;height:100%;background:#b88a3b;transition:width .35s ease}
+
+.seneca-theater-curtain{
+  position:absolute;z-index:7;top:0;bottom:0;width:51%;display:flex;overflow:hidden;
+  background:linear-gradient(90deg,#5b1720,#8b2634 18%,#55131c 36%,#8b2634 56%,#4a1018 76%,#7f2130);
+  animation:seneca-curtain-open 1.15s cubic-bezier(.7,0,.2,1) .15s forwards;
+  transform-origin:left center;pointer-events:none
+}
+.seneca-theater-curtain.is-left{left:0}
+.seneca-theater-curtain.is-right{right:0;transform-origin:right center;animation-name:seneca-curtain-open-right}
+.seneca-theater-curtain i{flex:1;border-right:1px solid rgba(255,255,255,.08);box-shadow:inset -14px 0 20px rgba(0,0,0,.18)}
+@keyframes seneca-curtain-open{to{transform:translateX(-102%)}}
+@keyframes seneca-curtain-open-right{to{transform:translateX(102%)}}
+
+.seneca-svg-drift{animation:seneca-drift 8s ease-in-out infinite alternate}
+.seneca-svg-drift.is-slow{animation-duration:12s}
+.seneca-svg-bob{animation:seneca-bob 2.5s ease-in-out infinite}
+.seneca-svg-walk{animation:seneca-walk 4s ease-in-out infinite alternate}
+.seneca-svg-wave{animation:seneca-wave 2.2s ease-in-out infinite alternate;transform-origin:center}
+.seneca-svg-wave.is-delay{animation-delay:-1s}
+.seneca-svg-arrow{animation:seneca-arrow 3.1s ease-in infinite}
+.seneca-svg-arrow.is-delay{animation-delay:-1.2s}
+.seneca-svg-spit{animation:seneca-spit 1.9s linear infinite}
+.seneca-svg-spin{animation:seneca-spin 10s linear infinite;transform-origin:430px 280px}
+.seneca-svg-breathe{animation:seneca-breathe 3.5s ease-in-out infinite;transform-origin:center bottom}
+.seneca-svg-fall{animation:seneca-fall 3.2s ease-in-out infinite}
+.seneca-svg-dash{animation:seneca-dash 8s linear infinite}
+.seneca-svg-steady{filter:drop-shadow(0 10px 4px rgba(23,50,77,.12))}
+@keyframes seneca-drift{to{transform:translateX(35px)}}
+@keyframes seneca-bob{50%{transform:translateY(-7px)}}
+@keyframes seneca-walk{to{transform:translate(70px,-40px)}}
+@keyframes seneca-wave{to{transform:translateY(-9px) scale(1.04)}}
+@keyframes seneca-arrow{0%{transform:translateX(-30px);opacity:0}25%{opacity:1}80%{transform:translateX(110px);opacity:1}100%{transform:translateX(140px);opacity:0}}
+@keyframes seneca-spit{to{stroke-dashoffset:-28}}
+@keyframes seneca-spin{to{transform:rotate(360deg)}}
+@keyframes seneca-breathe{50%{transform:scale(1.035)}}
+@keyframes seneca-fall{50%{transform:translate(18px,24px) rotate(7deg)}}
+@keyframes seneca-dash{to{stroke-dashoffset:-128}}
+
+@media(max-width:760px){
+  .seneca2d-animation-launch{grid-template-columns:1fr;padding:1rem}
+  .seneca-theater{padding:.35rem}
+  .seneca-theater-shell{width:99vw;height:96vh}
+  .seneca-theater-stage{height:calc(100% - 170px)}
+  .seneca-theater-bubble{top:4%;left:4%;width:82%;padding:.7rem .8rem}
+  .seneca-theater-caption{left:3%;right:3%;bottom:3%;max-height:34%;overflow:auto}
+  .seneca-theater-controls{height:76px;grid-template-columns:1fr 1fr}
+  .seneca-theater-controls .is-play{grid-column:1/-1;grid-row:1;min-height:30px}
+}
+@media(prefers-reduced-motion:reduce){
+  .seneca-theater-curtain,.seneca-svg-drift,.seneca-svg-bob,.seneca-svg-walk,.seneca-svg-wave,
+  .seneca-svg-arrow,.seneca-svg-spit,.seneca-svg-spin,.seneca-svg-breathe,.seneca-svg-fall,.seneca-svg-dash{
+    animation:none!important
+  }
 }
