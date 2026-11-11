@@ -14,6 +14,7 @@ import '@xyflow/react/dist/style.css'
 import './SenecaFirmnessSystem.css'
 
 import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema'
+import SenecaSvgTheater, { SenecaNodeIllustration } from '../components/seneca/SenecaSvgTheater'
 import { resolveSystem2DEdgeColor } from '../components/philosophy/system2d/system2dTheme'
 import {
   senecaFirmnessEdges,
@@ -43,6 +44,7 @@ function SenecaFirmnessNode({ data, selected }) {
         <b>{data.code}</b>
       </div>
       <strong className="seneca2d-node-title">{data.title}</strong>
+      <SenecaNodeIllustration motif={data.visual} />
       <p>{data.excerpt}</p>
       <div className="seneca2d-node-diagram" aria-label="Esquema breve">
         {data.diagram.map((item, index) => (
@@ -51,16 +53,28 @@ function SenecaFirmnessNode({ data, selected }) {
       </div>
       <footer>
         <span>Gredos · p. {data.sourcePage}</span>
-        <button
-          type="button"
-          className="nodrag nopan"
-          onClick={(event) => {
-            event.stopPropagation()
-            data.onOpenFolio?.()
-          }}
-        >
-          abrir folio ↗
-        </button>
+        <div className="seneca2d-node-actions">
+          <button
+            type="button"
+            className="nodrag nopan"
+            onClick={(event) => {
+              event.stopPropagation()
+              data.onOpenAnimation?.()
+            }}
+          >
+            animación ▶
+          </button>
+          <button
+            type="button"
+            className="nodrag nopan"
+            onClick={(event) => {
+              event.stopPropagation()
+              data.onOpenFolio?.()
+            }}
+          >
+            folio ↗
+          </button>
+        </div>
       </footer>
       <Handle type="source" position={Position.Bottom} className="seneca2d-handle" />
     </article>
@@ -83,6 +97,8 @@ function SenecaCanvas() {
   const [guided, setGuided] = useState(false)
   const [guidedIndex, setGuidedIndex] = useState(0)
   const [workspaceFullscreen, setWorkspaceFullscreen] = useState(false)
+  const [theaterOpen, setTheaterOpen] = useState(false)
+  const [theaterStartId, setTheaterStartId] = useState('P01')
   const workspaceRef = useRef(null)
   const { fitView, getNodes, setCenter } = useReactFlow()
 
@@ -157,6 +173,10 @@ function SenecaCanvas() {
         guidedCurrent: node.id === currentGuideId,
         guidedNext: node.id === nextGuideId,
         onOpenFolio: () => setFolioId(node.id),
+        onOpenAnimation: () => {
+          setTheaterStartId(node.id)
+          setTheaterOpen(true)
+        },
       },
     })),
     [currentGuideId, nextGuideId, related, selectedId],
@@ -266,11 +286,31 @@ function SenecaCanvas() {
       <section className="seneca2d-guide-launch">
         <div>
           <span>RECORRIDO ÚNICO</span>
-          <strong>gobierno de sí → virtud / externos → ultraje / ofensa → libertad</strong>
-          <p>Catorce estaciones organizadas como un argumento vertical con dos bifurcaciones y dos reconvergencias.</p>
+          <strong>apertura de Séneca → Catón → invulnerabilidad → virtud / externos → ultraje / ofensa → libertad</strong>
+          <p>Veinte estaciones: seis escenas de apertura recuperadas del texto y catorce estaciones del argumento central.</p>
         </div>
         <button type="button" onClick={startGuide}>
           {guided ? 'Reiniciar guía' : 'Iniciar guía'}
+        </button>
+      </section>
+
+      <section className="seneca2d-animation-launch">
+        <div>
+          <span>ANIMACIÓN · TEATRO ESTOICO</span>
+          <strong>El tratado como manga vectorial animado</strong>
+          <p>
+            Abra el telón para recorrer el texto escena por escena: personajes, foro, montaña,
+            escollos, flechas y globos de Séneca, todo dibujado en SVG y ligado al nodo actual.
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={() => {
+            setTheaterStartId(selectedId)
+            setTheaterOpen(true)
+          }}
+        >
+          Abrir telón ▶
         </button>
       </section>
 
@@ -312,7 +352,7 @@ function SenecaCanvas() {
           <div className="seneca2d-flow-caption">
             <div>
               <span>MAPA ARGUMENTAL</span>
-              <strong>gobierno de sí → virtud / externos → ultraje / ofensa → libertad</strong>
+              <strong>apertura → firmeza → virtud / externos → ultraje / ofensa → libertad</strong>
             </div>
             <button type="button" onClick={toggleFullscreen}>
               {workspaceFullscreen ? 'Salir ⛶' : 'Pantalla completa ⛶'}
@@ -418,7 +458,13 @@ function SenecaCanvas() {
           )}
         </aside>
 
-        {folio && (
+        <SenecaSvgTheater
+        open={theaterOpen}
+        startId={theaterStartId}
+        onClose={() => setTheaterOpen(false)}
+      />
+
+      {folio && (
           <div className="seneca2d-folio-overlay" role="presentation" onMouseDown={() => setFolioId(null)}>
             <article
               className="seneca2d-folio"
