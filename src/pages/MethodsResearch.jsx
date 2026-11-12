@@ -84,6 +84,40 @@ export default function MethodsResearch() {
 
       <SubjectTasksPanel subjectCode="FI104" />
 
+      <section className="methods-classes" aria-labelledby="methods-resources-title">
+        <div className="methods-section-heading">
+          <span>EX</span>
+          <div><p>Instrumenta expositionis</p><h2 id="methods-resources-title">Exposiciones y recursos</h2></div>
+        </div>
+
+        <a href={`${import.meta.env.BASE_URL}estudio/dialectica-investigacion.html`} className="methods-class-card">
+          <div className="methods-date"><strong>Δ</strong><span>METHODUS</span></div>
+          <div className="methods-class-copy">
+            <span>Exposición visual · Dialéctica como método</span>
+            <h3>Dialéctica: oposición, examen y revisión</h3>
+            <p>
+              Recurso interactivo basado en Luis Enrique Ortiz Gutiérrez: Sócrates y Platón,
+              Aristóteles, Kant, Hegel y Marx, giro lingüístico y teoría contemporánea de la argumentación.
+              Incluye escenas SVG, modo Exponer, lentes semántico e inferencial y profundización histórica.
+            </p>
+          </div>
+          <div className="methods-enter"><span>Abrir exposición</span><b>↗</b></div>
+        </a>
+
+        <a href={`${import.meta.env.BASE_URL}estudio/dialectica-comparada.html`} className="methods-class-card">
+          <div className="methods-date"><strong>33</strong><span>LÁMINAS</span></div>
+          <div className="methods-class-copy">
+            <span>Exposición comparativa · Recurso previo</span>
+            <h3>Sócrates / Platón, Hegel y Marx</h3>
+            <p>
+              Presentación académica comparativa de 33 láminas. Se conserva como recurso independiente:
+              no es la misma pieza que la exposición histórica y metodológica ampliada.
+            </p>
+          </div>
+          <div className="methods-enter"><span>Abrir presentación</span><b>↗</b></div>
+        </a>
+      </section>
+
       <section className="methods-classes">
         <div className="methods-section-heading">
           <span>I</span>
