@@ -462,20 +462,19 @@ function StudyCanvas() {
           <span>RECONSTRUCCIÓN RECTORA</span>
           <strong>analizar = partir de algo dado y buscar su fundamento</strong>
           <b>concepto → componentes · proposición → principios</b>
-          <small>Glock, cap. II · pp. 40–45 + comienzo de 46</small>
+          <small>Glock, cap. II · pp. 40–58</small>
         </aside>
       </header>
 
       <section className="glock-study-intro">
         <div>
           <span>FRONTERA DE FUENTE</span>
-          <strong>{glockNodes.length} nodos · 7 rutas documentales</strong>
+          <strong>{glockNodes.length} nodos · {glockRoutes.length - 1} rutas documentales</strong>
         </div>
         <p>
           Se conservan separadas cuatro capas: texto de Glock, reconstrucción de
-          estudio, explicación de la clase del 19 de octubre y relaciones
-          editoriales rotuladas como tales. El resto de la p. 46 y las pp. 47–86
-          siguen pendientes.
+          estudio, explicaciones de clase documentadas y relaciones
+          editoriales rotuladas como tales. Las pp. 52–58 se incorporan como paráfrasis cotejadas, con citas breves donde se dispone del texto. Las pp. 59–86 siguen pendientes.
         </p>
       </section>
 
@@ -696,11 +695,12 @@ function StudyCanvas() {
 
               <details className="glock-source-details" open>
                 <summary>
-                  <span>TEXTO ORIGINAL DE GLOCK</span>
+                  <span>{selected.data.sourceMode === 'paraphrase' ? 'PARÁFRASIS COTEJADA DE GLOCK' : 'TEXTO ORIGINAL DE GLOCK'}</span>
                   <b>{selected.data.page}</b>
                 </summary>
                 <div>
                   <blockquote>{selected.data.sourcePassage}</blockquote>
+                  {selected.data.sourceMode === 'paraphrase' && selected.data.excerpt && <p><b>Cita breve cotejada:</b> «{selected.data.excerpt}»</p>}
                   <small>{selected.data.sourceRef}</small>
                 </div>
               </details>
@@ -836,7 +836,7 @@ function StudyCanvas() {
 
       <footer className="glock-study-footer">
         <Link to="/semestre/5/filosofia-analitica">← Filosofía Analítica</Link>
-        <span>Hans-Johann Glock · capítulo II · lectura documentada pp. 40–51, clase hasta p. 49</span>
+        <span>Hans-Johann Glock · capítulo II · lectura documentada pp. 40–58 · clase del 28 de octubre: extractos parciales</span>
         <Link to="/semestre/5/filosofia-analitica/clase/21-octubre">Clase 21 octubre ↗</Link>
       </footer>
     </main>
