@@ -1,4 +1,4 @@
-// Fuente primaria: Glock (Tecnos, 2012), cap. II, pp. 40–64; p. 65 no recibida.
+// Fuente primaria: Glock (Tecnos, 2012), cap. II, pp. 40–72; p. 73 no recibida.
 import { glockContinuationNodes, glockContinuationEdges } from './glockChapter2Continuation.js'
 import { SYSTEM_2D_THEME } from '../components/philosophy/system2d/system2dTheme.js'
 import { glockClass19Oct } from './glockClass19Oct.js'
@@ -37,7 +37,10 @@ export const glockRoutes = [
   { "id": "giro", "label": "14 · Giro lingüístico y Tractatus" },
   { "id": "viena", "label": "15 · Círculo de Viena y verificacionismo" },
   { "id": "construccion", "label": "16 · Construccionismo y análisis conceptual" },
-  { "id": "uso", "label": "17 · Segundo Wittgenstein y uso" }
+  { "id": "uso", "label": "17 · Segundo Wittgenstein y uso" },
+  { "id": "ordinario", "label": "18 · Filosofía del lenguaje ordinario" },
+  { "id": "colapso", "label": "19 · Colapso del positivismo lógico" },
+  { "id": "metafisica", "label": "20 · Rehabilitación de la metafísica" }
 ]
 
 const SOURCE_NODES = [
@@ -955,7 +958,7 @@ function buildGlockPassageSchema(item) {
   }
 }
 
-export const glockRouteTones = Object.freeze({ programa: 'gold', antiguos: 'blue', modernos: 'rust', kant: 'moss', juicios: 'violet', trascendental: 'bronze', reacciones: 'sage', matematicas: 'ochre', bolzano: 'moss', boole: 'rust', frege: 'blue', limites: 'violet', rebelion: 'plum', giro: 'blue', viena: 'sage', construccion: 'ochre', uso: 'moss' })
+export const glockRouteTones = Object.freeze({ programa: 'gold', antiguos: 'blue', modernos: 'rust', kant: 'moss', juicios: 'violet', trascendental: 'bronze', reacciones: 'sage', matematicas: 'ochre', bolzano: 'moss', boole: 'rust', frege: 'blue', limites: 'violet', rebelion: 'plum', giro: 'blue', viena: 'sage', construccion: 'ochre', uso: 'moss', ordinario: 'rust', colapso: 'violet', metafisica: 'bronze' })
 const TONES = glockRouteTones
 export const glockNodeOrder = SOURCE_NODES.map((node) => node.id)
 

@@ -16,7 +16,7 @@ test('Clase 19 oct: ruta, índice y lectura Glock enlazados', () => {
   assert.match(app, /filosofia-analitica\/clase\/19-octubre/)
   assert.match(course, /Decimosexta clase · Hans-Johann Glock/)
   assert.match(course, /Prehistoria del análisis y revolución copernicana/)
-  assert.match(course, /texto cotejado: 40–64; atlas 2D: 40–64; continuación pendiente: 65–86/)
+  assert.match(course, /texto cotejado: 40–72; atlas 2D: 40–72; continuación pendiente: 73–86/)
   assert.match(page, /lectura\/glock-capitulo-2/)
 })
 

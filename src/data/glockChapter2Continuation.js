@@ -1,4 +1,4 @@
-// Glock, Tecnos 2012, pp. 52–64. Paráfrasis cotejadas; citas breves separadas. Las pp. 52–53 proceden de la ficha anterior.
+// Glock, Tecnos 2012, pp. 52–72. Paráfrasis cotejadas; citas breves separadas. Las pp. 52–53 proceden de la ficha anterior.
 export const glockContinuationNodes = [
   {
     "id": "G39",
@@ -964,6 +964,610 @@ export const glockContinuationNodes = [
       "G82",
       "G62"
     ]
+  },
+  {
+    "id": "G84",
+    "section": "uso",
+    "page": "p. 65",
+    "title": "Forma de vida",
+    "kind": "Tesis",
+    "short": "lenguaje · práctica humana · forma de vida social",
+    "explanation": "El lenguaje deja de concebirse como un sistema abstracto autosuficiente y pasa a entenderse como práctica humana inserta en una forma de vida social. Esta afirmación completa el enunciado de p. 64: los juegos y las reglas lingüísticas no se comprenden al margen de las actividades de quienes los emplean.",
+    "excerpt": "forma de vida",
+    "sourcePassage": "El lenguaje deja de concebirse como un sistema abstracto autosuficiente y pasa a entenderse como práctica humana inserta en una forma de vida social. Esta afirmación completa el enunciado de p. 64: los juegos y las reglas lingüísticas no se comprenden al margen de las actividades de quienes los emplean.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué el lenguaje no es autosuficiente?",
+    "diagram": [
+      "lenguaje",
+      "práctica humana",
+      "forma de vida social"
+    ],
+    "dependsOn": [
+      "G83"
+    ]
+  },
+  {
+    "id": "G85",
+    "section": "uso",
+    "page": "p. 65",
+    "title": "Rechazo del análisis lógico reductivo",
+    "kind": "Método",
+    "short": "malentendido · rechazo del fundamento atómico · pluralidad de explicaciones",
+    "explanation": "Wittgenstein conserva la idea de que los problemas filosóficos nacen de malentendidos lingüísticos, pero rechaza análisis y construcción lógicos como medios generales de clarificación: no hay proposiciones elementales independientes ni nombres indefinibles que puedan servir de base universal. Tampoco todos los conceptos legítimos admiten una definición precisa por condiciones necesarias y suficientes.",
+    "excerpt": "definición analítica",
+    "sourcePassage": "Wittgenstein conserva la idea de que los problemas filosóficos nacen de malentendidos lingüísticos, pero rechaza análisis y construcción lógicos como medios generales de clarificación: no hay proposiciones elementales independientes ni nombres indefinibles que puedan servir de base universal. Tampoco todos los conceptos legítimos admiten una definición precisa por condiciones necesarias y suficientes.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué conserva y qué abandona del proyecto anterior?",
+    "diagram": [
+      "malentendido",
+      "rechazo del fundamento atómico",
+      "pluralidad de explicaciones"
+    ],
+    "dependsOn": [
+      "G84"
+    ]
+  },
+  {
+    "id": "G86",
+    "section": "uso",
+    "page": "p. 65",
+    "title": "Parecidos de familia",
+    "kind": "Tesis",
+    "short": "casos particulares · semejanzas parciales · sin esencia común",
+    "explanation": "La definición analítica es sólo una forma de explicación entre otras. Muchos conceptos se agrupan mediante semejanzas parciales superpuestas, no por una marca común a todos los casos. Glock aplica este planteamiento a las proposiciones: según el Wittgenstein tardío no comparten una esencia ni una única forma proposicional.",
+    "excerpt": "parecidos de familia",
+    "sourcePassage": "La definición analítica es sólo una forma de explicación entre otras. Muchos conceptos se agrupan mediante semejanzas parciales superpuestas, no por una marca común a todos los casos. Glock aplica este planteamiento a las proposiciones: según el Wittgenstein tardío no comparten una esencia ni una única forma proposicional.",
+    "sourceMode": "paraphrase",
+    "question": "¿Cómo puede haber unidad conceptual sin una propiedad común?",
+    "diagram": [
+      "casos particulares",
+      "semejanzas parciales",
+      "sin esencia común"
+    ],
+    "dependsOn": [
+      "G85",
+      "G83"
+    ]
+  },
+  {
+    "id": "G87",
+    "section": "uso",
+    "page": "p. 65",
+    "title": "Reglas públicas y clarificación",
+    "kind": "Método",
+    "short": "reglas reconocibles · aplicaciones normativas · descripción de prácticas",
+    "explanation": "Wittgenstein rechaza que el análisis descubra significados ordinarios ocultos: los hablantes competentes deben poder reconocer las reglas que proporcionan el patrón normativo de aplicación. Para combatir la confusión filosófica no requiere cálculos artificiales ni formas lógicas escondidas, sino describir las prácticas públicas que constituyen los diversos juegos de lenguaje.",
+    "excerpt": "prácticas lingüísticas públicas",
+    "sourcePassage": "Wittgenstein rechaza que el análisis descubra significados ordinarios ocultos: los hablantes competentes deben poder reconocer las reglas que proporcionan el patrón normativo de aplicación. Para combatir la confusión filosófica no requiere cálculos artificiales ni formas lógicas escondidas, sino describir las prácticas públicas que constituyen los diversos juegos de lenguaje.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué una regla lingüística no puede ser enteramente oculta?",
+    "diagram": [
+      "reglas reconocibles",
+      "aplicaciones normativas",
+      "descripción de prácticas"
+    ],
+    "dependsOn": [
+      "G86"
+    ]
+  },
+  {
+    "id": "G88",
+    "section": "ordinario",
+    "page": "pp. 65–66",
+    "title": "Oxford: análisis conceptual",
+    "kind": "Historia",
+    "short": "Wittgenstein y Moore · Ryle, Austin, Strawson · conceptos en el lenguaje",
+    "explanation": "Las ideas del segundo Wittgenstein y el sentido común de Moore influyen en un movimiento surgido hacia 1930 y dominante en Gran Bretaña hasta los sesenta. Ryle, Austin y Strawson prefieren análisis conceptual o filosofía lingüística frente a las etiquetas de sus críticos. La nota 2 atribuye a Gustav Bergmann el contraste ideal/ordinario. Poseer un concepto es conocer el significado de expresiones: los conceptos son abstracciones del uso, no episodios mentales ni entidades supratemporales.",
+    "excerpt": "análisis conceptual",
+    "sourcePassage": "Las ideas del segundo Wittgenstein y el sentido común de Moore influyen en un movimiento surgido hacia 1930 y dominante en Gran Bretaña hasta los sesenta. Ryle, Austin y Strawson prefieren análisis conceptual o filosofía lingüística frente a las etiquetas de sus críticos. La nota 2 atribuye a Gustav Bergmann el contraste ideal/ordinario. Poseer un concepto es conocer el significado de expresiones: los conceptos son abstracciones del uso, no episodios mentales ni entidades supratemporales.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué entienden estos filósofos por poseer un concepto?",
+    "diagram": [
+      "Wittgenstein y Moore",
+      "Ryle, Austin, Strawson",
+      "conceptos en el lenguaje"
+    ],
+    "dependsOn": [
+      "G87"
+    ]
+  },
+  {
+    "id": "G89",
+    "section": "ordinario",
+    "page": "p. 66",
+    "title": "Strawson: aclarar en vez de sustituir",
+    "kind": "Método",
+    "short": "uso ordinario · contraste con teoría · clarificación conceptual",
+    "explanation": "Los filósofos lingüísticos describen los usos ordinarios de términos oscuros y los comparan con los de la teoría filosófica. Strawson sostiene que sustituir un esquema por otro sin comprender sus relaciones con el anterior sólo desplaza el problema. Una vez aclarado el uso ordinario no es necesario recurrir a un lenguaje artificial: la dificultad surge de distorsiones y malas interpretaciones filosóficas.",
+    "excerpt": "la clarificación de los primeros",
+    "sourcePassage": "Los filósofos lingüísticos describen los usos ordinarios de términos oscuros y los comparan con los de la teoría filosófica. Strawson sostiene que sustituir un esquema por otro sin comprender sus relaciones con el anterior sólo desplaza el problema. Una vez aclarado el uso ordinario no es necesario recurrir a un lenguaje artificial: la dificultad surge de distorsiones y malas interpretaciones filosóficas.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué un esquema nuevo no basta para resolver una confusión antigua?",
+    "diagram": [
+      "uso ordinario",
+      "contraste con teoría",
+      "clarificación conceptual"
+    ],
+    "dependsOn": [
+      "G88",
+      "G79"
+    ]
+  },
+  {
+    "id": "G90",
+    "section": "ordinario",
+    "page": "p. 66",
+    "title": "Paráfrasis e inferencias",
+    "kind": "Método",
+    "short": "gramática superficial · función lingüística · implicaciones",
+    "explanation": "Al rechazo del análisis lógico y reductivo sobreviven el análisis conceptual y la paráfrasis lingüística. Se explican expresiones y se determina el estatuto y los poderes inferenciales de los enunciados. Glock presenta el contraste de Wittgenstein entre tener un dolor y tener un alfiler: una misma estructura gramatical no implica que ambos sean movimientos análogos en un juego de lenguaje.",
+    "excerpt": "poderes inferenciales",
+    "sourcePassage": "Al rechazo del análisis lógico y reductivo sobreviven el análisis conceptual y la paráfrasis lingüística. Se explican expresiones y se determina el estatuto y los poderes inferenciales de los enunciados. Glock presenta el contraste de Wittgenstein entre tener un dolor y tener un alfiler: una misma estructura gramatical no implica que ambos sean movimientos análogos en un juego de lenguaje.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué tener un dolor no funciona como tener un alfiler?",
+    "diagram": [
+      "gramática superficial",
+      "función lingüística",
+      "implicaciones"
+    ],
+    "dependsOn": [
+      "G89",
+      "G45"
+    ]
+  },
+  {
+    "id": "G91",
+    "section": "ordinario",
+    "page": "p. 66",
+    "title": "Ryle: geografía lógica y categorías",
+    "kind": "Crítica",
+    "short": "conceptos mentales · confusión de categorías · dualismo criticado",
+    "explanation": "Ryle propone cartografiar la geografía lógica de los conceptos. En El concepto de lo mental interpreta el dualismo cartesiano como resultado de errores categoriales: conceptos mentales que significan disposiciones comportamentales se tratan como si designaran procesos semejantes a los físicos pero más etéreos. Esta es la tesis de Ryle tal como Glock la expone, no una reducción de todo fenómeno mental.",
+    "excerpt": "errores categoriales",
+    "sourcePassage": "Ryle propone cartografiar la geografía lógica de los conceptos. En El concepto de lo mental interpreta el dualismo cartesiano como resultado de errores categoriales: conceptos mentales que significan disposiciones comportamentales se tratan como si designaran procesos semejantes a los físicos pero más etéreos. Esta es la tesis de Ryle tal como Glock la expone, no una reducción de todo fenómeno mental.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué error categorial detecta Ryle en el dualismo?",
+    "diagram": [
+      "conceptos mentales",
+      "confusión de categorías",
+      "dualismo criticado"
+    ],
+    "dependsOn": [
+      "G90"
+    ]
+  },
+  {
+    "id": "G92",
+    "section": "ordinario",
+    "page": "pp. 66–67",
+    "title": "Metadisciplina: del saber cómo al saber que",
+    "kind": "Método",
+    "short": "competencia práctica · explicitación de reglas · saber que",
+    "explanation": "Ryle rechaza la imagen terapéutica wittgensteiniana de la filosofía, pero acepta que sea una metadisciplina acerca de conceptos. La paradoja del análisis pierde fuerza: no se trata de informar sobre un dominio externo, sino de recordar reglas utilizadas y olvidadas en la reflexión. Ryle describe el tránsito del saber cómo usar palabras al saber explícito de las reglas que seguimos. La explicación contextual puede ser compleja y no trivial.",
+    "excerpt": "saber cómo",
+    "sourcePassage": "Ryle rechaza la imagen terapéutica wittgensteiniana de la filosofía, pero acepta que sea una metadisciplina acerca de conceptos. La paradoja del análisis pierde fuerza: no se trata de informar sobre un dominio externo, sino de recordar reglas utilizadas y olvidadas en la reflexión. Ryle describe el tránsito del saber cómo usar palabras al saber explícito de las reglas que seguimos. La explicación contextual puede ser compleja y no trivial.",
+    "sourceMode": "paraphrase",
+    "question": "¿Cómo puede la clarificación ser informativa sin descubrir hechos externos?",
+    "diagram": [
+      "competencia práctica",
+      "explicitación de reglas",
+      "saber que"
+    ],
+    "dependsOn": [
+      "G91",
+      "G76"
+    ]
+  },
+  {
+    "id": "G93",
+    "section": "ordinario",
+    "page": "p. 67",
+    "title": "Austin: observación del uso",
+    "kind": "Método",
+    "short": "expresiones próximas · situaciones de aplicación · distinciones lingüísticas",
+    "explanation": "Austin observa minuciosamente qué se dice en situaciones concretas y contrasta expresiones aparentemente equivalentes como aparecer, ser semejante y parecer. Su interés excede la eliminación de confusiones: considera la posibilidad de que el análisis lingüístico se convierta en una rama de la lingüística. A diferencia de algunos filósofos lingüísticos recelosos de teorías sistemáticas, desarrolla un enfoque sistemático.",
+    "excerpt": "lo que debiéramos decir cuando",
+    "sourcePassage": "Austin observa minuciosamente qué se dice en situaciones concretas y contrasta expresiones aparentemente equivalentes como aparecer, ser semejante y parecer. Su interés excede la eliminación de confusiones: considera la posibilidad de que el análisis lingüístico se convierta en una rama de la lingüística. A diferencia de algunos filósofos lingüísticos recelosos de teorías sistemáticas, desarrolla un enfoque sistemático.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué revela comparar expresiones aparentemente equivalentes?",
+    "diagram": [
+      "expresiones próximas",
+      "situaciones de aplicación",
+      "distinciones lingüísticas"
+    ],
+    "dependsOn": [
+      "G92"
+    ]
+  },
+  {
+    "id": "G94",
+    "section": "ordinario",
+    "page": "p. 67",
+    "title": "Actos de habla y falacia descriptiva",
+    "kind": "Tesis",
+    "short": "pluralidad funcional · actos de habla · crítica al descriptivismo",
+    "explanation": "Austin desarrolla la teoría de los actos de habla y, junto con Wittgenstein y Ryle, denuncia la falacia descriptiva: el dogma de que el lenguaje sólo sirve para describir o relatar hechos. El enfoque sistemático no exige uniformar las múltiples funciones del lenguaje, y Austin mantiene reservas frente al ideal de uniformidad positivista y tradicional.",
+    "excerpt": "falacia descriptiva",
+    "sourcePassage": "Austin desarrolla la teoría de los actos de habla y, junto con Wittgenstein y Ryle, denuncia la falacia descriptiva: el dogma de que el lenguaje sólo sirve para describir o relatar hechos. El enfoque sistemático no exige uniformar las múltiples funciones del lenguaje, y Austin mantiene reservas frente al ideal de uniformidad positivista y tradicional.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué hablar no equivale siempre a describir?",
+    "diagram": [
+      "pluralidad funcional",
+      "actos de habla",
+      "crítica al descriptivismo"
+    ],
+    "dependsOn": [
+      "G93",
+      "G69"
+    ]
+  },
+  {
+    "id": "G95",
+    "section": "ordinario",
+    "page": "p. 67",
+    "title": "Lenguaje ordinario como punto de partida",
+    "kind": "Tesis",
+    "short": "términos comprendidos · explicación de neologismos · uso cotidiano y especializado",
+    "explanation": "Austin no considera el lenguaje ordinario la última palabra, pero sí la primera. Todo neologismo, incluso científico, debe explicarse en última instancia con términos ya comprendidos. Para una filosofía consistente es necesario atender al uso habitual de sus nociones centrales, tanto en el lenguaje cotidiano como en el especializado de una disciplina científica.",
+    "excerpt": "sí es la primera",
+    "sourcePassage": "Austin no considera el lenguaje ordinario la última palabra, pero sí la primera. Todo neologismo, incluso científico, debe explicarse en última instancia con términos ya comprendidos. Para una filosofía consistente es necesario atender al uso habitual de sus nociones centrales, tanto en el lenguaje cotidiano como en el especializado de una disciplina científica.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué comenzar por el uso no impide innovar conceptualmente?",
+    "diagram": [
+      "términos comprendidos",
+      "explicación de neologismos",
+      "uso cotidiano y especializado"
+    ],
+    "dependsOn": [
+      "G94"
+    ]
+  },
+  {
+    "id": "G96",
+    "section": "colapso",
+    "page": "pp. 67–68",
+    "title": "Emigración y consolidación del movimiento",
+    "kind": "Historia",
+    "short": "emigración · consolidación · denominación común",
+    "explanation": "El triunfo del nazismo obliga a emigrar a la mayoría de los positivistas lógicos, principalmente a Estados Unidos, donde sus ideas alcanzan ortodoxia en los cuarenta. Glock observa que la etiqueta filosofía analítica se asentó tarde: Nagel (1936), Bergmann (1945) y quizá Pap (1949) son hitos. Urmson y Feigl/Sellars sugieren integrar Cambridge y Viena/Berlín con sus continuaciones en un enfoque común.",
+    "excerpt": "filosofía analítica",
+    "sourcePassage": "El triunfo del nazismo obliga a emigrar a la mayoría de los positivistas lógicos, principalmente a Estados Unidos, donde sus ideas alcanzan ortodoxia en los cuarenta. Glock observa que la etiqueta filosofía analítica se asentó tarde: Nagel (1936), Bergmann (1945) y quizá Pap (1949) son hitos. Urmson y Feigl/Sellars sugieren integrar Cambridge y Viena/Berlín con sus continuaciones en un enfoque común.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué la etiqueta es posterior a las prácticas que agrupa?",
+    "diagram": [
+      "emigración",
+      "consolidación",
+      "denominación común"
+    ],
+    "dependsOn": [
+      "G95"
+    ]
+  },
+  {
+    "id": "G97",
+    "section": "colapso",
+    "page": "p. 68",
+    "title": "Dos ramas y afinidades de Quine",
+    "kind": "Historia",
+    "short": "construccionismo · análisis conceptual · Quine: empirismo pragmatista",
+    "explanation": "Entre 1930 y 1950 se consolida un movimiento autoconsciente dividido en construccionismo lógico y análisis conceptual. Quine cuestiona presupuestos compartidos, aunque hereda de los positivistas la preferencia por lenguajes artificiales, la ciencia natural como paradigma, unidad científica, recelo ante abstracciones y evidencia sensorial como base de creencias y significado. Su empirismo es más pragmatista.",
+    "excerpt": "dos ramas distintas",
+    "sourcePassage": "Entre 1930 y 1950 se consolida un movimiento autoconsciente dividido en construccionismo lógico y análisis conceptual. Quine cuestiona presupuestos compartidos, aunque hereda de los positivistas la preferencia por lenguajes artificiales, la ciencia natural como paradigma, unidad científica, recelo ante abstracciones y evidencia sensorial como base de creencias y significado. Su empirismo es más pragmatista.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué hereda Quine de la tradición que critica?",
+    "diagram": [
+      "construccionismo",
+      "análisis conceptual",
+      "Quine: empirismo pragmatista"
+    ],
+    "dependsOn": [
+      "G96",
+      "G65"
+    ]
+  },
+  {
+    "id": "G98",
+    "section": "colapso",
+    "page": "pp. 68–69",
+    "title": "Dos dogmas del empirismo",
+    "kind": "Crítica",
+    "short": "analítico/sintético · reduccionismo · autonomía cuestionada",
+    "explanation": "En 1951 Quine ataca la distinción analítico/sintético y el proyecto de análisis reductivo. La separación prometía a la filosofía un papel propio: proposiciones analíticas sobre significados frente a proposiciones sintéticas empíricas de la ciencia, sin apelar a entidades platónicas, esencias aristotélicas ni razón pura kantiana. Quine cuestiona esta base compartida del giro lingüístico.",
+    "excerpt": "Dos dogmas del empirismo",
+    "sourcePassage": "En 1951 Quine ataca la distinción analítico/sintético y el proyecto de análisis reductivo. La separación prometía a la filosofía un papel propio: proposiciones analíticas sobre significados frente a proposiciones sintéticas empíricas de la ciencia, sin apelar a entidades platónicas, esencias aristotélicas ni razón pura kantiana. Quine cuestiona esta base compartida del giro lingüístico.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué dos pilares cuestiona Quine y por qué afectan a la filosofía?",
+    "diagram": [
+      "analítico/sintético",
+      "reduccionismo",
+      "autonomía cuestionada"
+    ],
+    "dependsOn": [
+      "G97",
+      "G61"
+    ]
+  },
+  {
+    "id": "G99",
+    "section": "colapso",
+    "page": "p. 69",
+    "title": "Continuidad entre filosofía y ciencia",
+    "kind": "Tesis",
+    "short": "cuestiones conceptuales · distinción cuestionada · continuidad empírica",
+    "explanation": "Quine niega una diferencia cualitativa entre matemática, lógica y filosofía aparentemente a priori y ciencia empírica. A diferencia de Mill, no se limita a identificar necesidad y generalización empírica: cuestiona las distinciones que separaban a esas disciplinas. Desafía la idea de proposiciones de conexiones conceptuales distintas de hechos y refuerza un empirismo radical según el cual también esas disciplinas se basan en experiencia.",
+    "excerpt": "",
+    "sourcePassage": "Quine niega una diferencia cualitativa entre matemática, lógica y filosofía aparentemente a priori y ciencia empírica. A diferencia de Mill, no se limita a identificar necesidad y generalización empírica: cuestiona las distinciones que separaban a esas disciplinas. Desafía la idea de proposiciones de conexiones conceptuales distintas de hechos y refuerza un empirismo radical según el cual también esas disciplinas se basan en experiencia.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué esta posición no es simplemente la de Mill?",
+    "diagram": [
+      "cuestiones conceptuales",
+      "distinción cuestionada",
+      "continuidad empírica"
+    ],
+    "dependsOn": [
+      "G98"
+    ]
+  },
+  {
+    "id": "G100",
+    "section": "colapso",
+    "page": "p. 69",
+    "title": "Reduccionismo y holismo confirmacional",
+    "kind": "Crítica",
+    "short": "enunciado aislado · red de creencias · revisión ante experiencia",
+    "explanation": "La línea epistemológica y metodológica del ataque conecta analiticidad con el supuesto de traducir todo enunciado significativo a experiencias inmediatas que lo confirmarían. Quine objeta que las creencias científicas forman un tejido interconectado que se vincula a la experiencia en conjunto. No cabe especificar evidencia confirmatoria aislada para cada enunciado; una creencia puede revisarse para conservar otras. Por tanto rechaza la inmunidad a la revisión empírica.",
+    "excerpt": "tejido",
+    "sourcePassage": "La línea epistemológica y metodológica del ataque conecta analiticidad con el supuesto de traducir todo enunciado significativo a experiencias inmediatas que lo confirmarían. Quine objeta que las creencias científicas forman un tejido interconectado que se vincula a la experiencia en conjunto. No cabe especificar evidencia confirmatoria aislada para cada enunciado; una creencia puede revisarse para conservar otras. Por tanto rechaza la inmunidad a la revisión empírica.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué el holismo impugna el reduccionismo?",
+    "diagram": [
+      "enunciado aislado",
+      "red de creencias",
+      "revisión ante experiencia"
+    ],
+    "dependsOn": [
+      "G99",
+      "G74"
+    ]
+  },
+  {
+    "id": "G101",
+    "section": "colapso",
+    "page": "p. 70",
+    "title": "Argumento semántico: intensión y extensión",
+    "kind": "Crítica",
+    "short": "analiticidad · círculo intensional · criterio de identidad cuestionado",
+    "explanation": "Quine considera la analiticidad parte de un círculo de nociones intensionales relativas al significado, irreducibles a las extensionales sobre referencia o aplicación. Objeta que no hay criterios de identidad para intensiones. La edición fotografiada presenta una frase aparentemente anómala al mencionar misma intensión tras negar ese criterio; no se reconstruye como cita ni se atribuye una tesis adicional a Quine.",
+    "excerpt": "",
+    "sourcePassage": "Quine considera la analiticidad parte de un círculo de nociones intensionales relativas al significado, irreducibles a las extensionales sobre referencia o aplicación. Objeta que no hay criterios de identidad para intensiones. La edición fotografiada presenta una frase aparentemente anómala al mencionar misma intensión tras negar ese criterio; no se reconstruye como cita ni se atribuye una tesis adicional a Quine.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué problema plantea la identidad de intensiones?",
+    "diagram": [
+      "analiticidad",
+      "círculo intensional",
+      "criterio de identidad cuestionado"
+    ],
+    "dependsOn": [
+      "G100",
+      "G33"
+    ]
+  },
+  {
+    "id": "G102",
+    "section": "colapso",
+    "page": "p. 70",
+    "title": "Traducción radical e indeterminación",
+    "kind": "Tesis",
+    "short": "lengua desconocida · indeterminación · crítica ontológica",
+    "explanation": "En Palabra y Objeto (1960), Quine defiende su crítica mediante la traducción radical, que parte de cero ante una lengua desconocida. Sostiene que no hay hechos que determinen unívocamente si dos expresiones son sinónimas y, por ello, no hay criterios de identidad para las intensiones. Concluye que una filosofía científica debería eliminarlas de su ontología. Es la posición de Quine en la reconstrucción de Glock.",
+    "excerpt": "traducción radical",
+    "sourcePassage": "En Palabra y Objeto (1960), Quine defiende su crítica mediante la traducción radical, que parte de cero ante una lengua desconocida. Sostiene que no hay hechos que determinen unívocamente si dos expresiones son sinónimas y, por ello, no hay criterios de identidad para las intensiones. Concluye que una filosofía científica debería eliminarlas de su ontología. Es la posición de Quine en la reconstrucción de Glock.",
+    "sourceMode": "paraphrase",
+    "question": "¿Cómo conecta Quine traducción y ontología?",
+    "diagram": [
+      "lengua desconocida",
+      "indeterminación",
+      "crítica ontológica"
+    ],
+    "dependsOn": [
+      "G101"
+    ]
+  },
+  {
+    "id": "G103",
+    "section": "colapso",
+    "page": "p. 70",
+    "title": "Tres naturalismos",
+    "kind": "Tesis",
+    "short": "filosofía / ciencia · conocimiento científico · estándar de realidad",
+    "explanation": "Glock distingue naturalismo metafilosófico, según el cual filosofía es rama o continuo de ciencia natural; epistemológico, según el cual no existe conocimiento genuino fuera de la ciencia natural; y ontológico, según el cual ésta proporciona el estándar para determinar lo real. Son tres consecuencias diferenciadas de la asimilación quineana de lo analítico y lo sintético, lo a priori y lo empírico.",
+    "excerpt": "naturalismo ontológico",
+    "sourcePassage": "Glock distingue naturalismo metafilosófico, según el cual filosofía es rama o continuo de ciencia natural; epistemológico, según el cual no existe conocimiento genuino fuera de la ciencia natural; y ontológico, según el cual ésta proporciona el estándar para determinar lo real. Son tres consecuencias diferenciadas de la asimilación quineana de lo analítico y lo sintético, lo a priori y lo empírico.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué pregunta responde cada tipo de naturalismo?",
+    "diagram": [
+      "filosofía / ciencia",
+      "conocimiento científico",
+      "estándar de realidad"
+    ],
+    "dependsOn": [
+      "G102",
+      "G67"
+    ]
+  },
+  {
+    "id": "G104",
+    "section": "colapso",
+    "page": "p. 70",
+    "title": "Epistemología naturalizada",
+    "kind": "Método",
+    "short": "evidencia y creencias · razones frente a causas · investigación empírica",
+    "explanation": "La epistemología naturalizada sigue investigando la relación entre creencias y evidencia empírica, pero sustituye la reconstrucción racional a priori de razones para aceptar teorías, asociada a Carnap, por investigación científica de causas que inducen a adoptarlas, mediante psicología conductista o neurofisiología. Glock señala que esta concepción alcanzó ortodoxia especialmente en Estados Unidos.",
+    "excerpt": "epistemología naturalizada",
+    "sourcePassage": "La epistemología naturalizada sigue investigando la relación entre creencias y evidencia empírica, pero sustituye la reconstrucción racional a priori de razones para aceptar teorías, asociada a Carnap, por investigación científica de causas que inducen a adoptarlas, mediante psicología conductista o neurofisiología. Glock señala que esta concepción alcanzó ortodoxia especialmente en Estados Unidos.",
+    "sourceMode": "paraphrase",
+    "question": "¿En qué cambia la tarea epistemológica respecto de Carnap?",
+    "diagram": [
+      "evidencia y creencias",
+      "razones frente a causas",
+      "investigación empírica"
+    ],
+    "dependsOn": [
+      "G103",
+      "G78"
+    ]
+  },
+  {
+    "id": "G105",
+    "section": "colapso",
+    "page": "pp. 70–71",
+    "title": "Popper: fallibilismo y demarcación",
+    "kind": "Crítica",
+    "short": "base empírica falible · metafísica estimulante · demarcación científica",
+    "explanation": "El fracaso de reducción y verificación socava el empirismo lógico. Popper rechaza sentencias protocolares infalibles y critica la separación positivista entre ciencia significativa y metafísica sin sentido: no sería factible ni deseable, pues la especulación metafísica puede estimular la ciencia. La demarcación requerida separa ciencia empírica de otras disciplinas, no sentido de sinsentido.",
+    "excerpt": "falibilismo",
+    "sourcePassage": "El fracaso de reducción y verificación socava el empirismo lógico. Popper rechaza sentencias protocolares infalibles y critica la separación positivista entre ciencia significativa y metafísica sin sentido: no sería factible ni deseable, pues la especulación metafísica puede estimular la ciencia. La demarcación requerida separa ciencia empírica de otras disciplinas, no sentido de sinsentido.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué demarcar ciencia no equivale a demarcar significado?",
+    "diagram": [
+      "base empírica falible",
+      "metafísica estimulante",
+      "demarcación científica"
+    ],
+    "dependsOn": [
+      "G104",
+      "G66"
+    ]
+  },
+  {
+    "id": "G106",
+    "section": "colapso",
+    "page": "p. 71",
+    "title": "Falsabilidad, conjeturas y refutación",
+    "kind": "Método",
+    "short": "conjetura · predicción deducida · prueba y posible refutación",
+    "explanation": "Las leyes universales abarcan infinitos casos y no pueden verificarse concluyentemente. Popper propone falsabilidad: una teoría científica permite deducir predicciones susceptibles de refutación por datos empíricos. La ciencia progresa mediante conjeturas audaces, deducción de predicciones y examen crítico a la luz de nuevos datos, no mediante generalizaciones inductivas acumuladas.",
+    "excerpt": "falsabilidad",
+    "sourcePassage": "Las leyes universales abarcan infinitos casos y no pueden verificarse concluyentemente. Popper propone falsabilidad: una teoría científica permite deducir predicciones susceptibles de refutación por datos empíricos. La ciencia progresa mediante conjeturas audaces, deducción de predicciones y examen crítico a la luz de nuevos datos, no mediante generalizaciones inductivas acumuladas.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué falsabilidad no significa falsedad?",
+    "diagram": [
+      "conjetura",
+      "predicción deducida",
+      "prueba y posible refutación"
+    ],
+    "dependsOn": [
+      "G105",
+      "G71"
+    ]
+  },
+  {
+    "id": "G107",
+    "section": "colapso",
+    "page": "p. 71",
+    "title": "Popper frente a Kuhn y Feyerabend",
+    "kind": "Historia",
+    "short": "marcos ahistóricos · progreso racional · cambios históricos de paradigma",
+    "explanation": "Glock contrapone el marco ahistórico positivista a Popper, que juzga teorías también por su capacidad de explicar observaciones que refutaron a sus predecesoras, pero conserva una imagen de progreso racional lineal. Kuhn (1962) y Feyerabend (1975) la cuestionan con cambios de paradigma parcialmente influidos por factores sociales y estéticos, y rechazan una racionalidad científica universal que aísle reconstrucción racional de orígenes fisiológicos y sociológicos.",
+    "excerpt": "cambios-de-paradigma",
+    "sourcePassage": "Glock contrapone el marco ahistórico positivista a Popper, que juzga teorías también por su capacidad de explicar observaciones que refutaron a sus predecesoras, pero conserva una imagen de progreso racional lineal. Kuhn (1962) y Feyerabend (1975) la cuestionan con cambios de paradigma parcialmente influidos por factores sociales y estéticos, y rechazan una racionalidad científica universal que aísle reconstrucción racional de orígenes fisiológicos y sociológicos.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué dimensión introducen Kuhn y Feyerabend frente a Popper?",
+    "diagram": [
+      "marcos ahistóricos",
+      "progreso racional",
+      "cambios históricos de paradigma"
+    ],
+    "dependsOn": [
+      "G106"
+    ]
+  },
+  {
+    "id": "G108",
+    "section": "colapso",
+    "page": "pp. 71–72",
+    "title": "Historia, sociología y realismo científico",
+    "kind": "Transición",
+    "short": "metodología · historia y sociología · realismo y metafísica",
+    "explanation": "Aunque pocos admitieron las conclusiones relativistas, Kuhn y Feyerabend reorientaron la filosofía de la ciencia hacia historia y, en menor medida, sociología. Desde los setenta la metodología también cede espacio a metafísica: filósofos de la ciencia afirman entidades teóricas inobservables y leyes naturales como rasgos independientes de la mente, no meros instrumentos lingüísticos para explicar o predecir experiencia.",
+    "excerpt": "",
+    "sourcePassage": "Aunque pocos admitieron las conclusiones relativistas, Kuhn y Feyerabend reorientaron la filosofía de la ciencia hacia historia y, en menor medida, sociología. Desde los setenta la metodología también cede espacio a metafísica: filósofos de la ciencia afirman entidades teóricas inobservables y leyes naturales como rasgos independientes de la mente, no meros instrumentos lingüísticos para explicar o predecir experiencia.",
+    "sourceMode": "paraphrase",
+    "question": "¿Cómo prepara la filosofía de la ciencia el retorno de la metafísica?",
+    "diagram": [
+      "metodología",
+      "historia y sociología",
+      "realismo y metafísica"
+    ],
+    "dependsOn": [
+      "G107"
+    ]
+  },
+  {
+    "id": "G109",
+    "section": "metafisica",
+    "page": "p. 72",
+    "title": "Rehabilitación de la metafísica",
+    "kind": "Transición",
+    "short": "criterio abandonado · metafísica rehabilitada · primera vía naturalista",
+    "explanation": "El abandono del criterio verificacionista de significatividad permite rehabilitar la metafísica dentro de la tradición analítica. Glock anuncia tres líneas de desarrollo, pero la p. 72 sólo comienza la primera: aplicar el naturalismo de Quine a la ontología. No se anticipan las otras dos líneas sin las páginas siguientes.",
+    "excerpt": "la rehabilitación de la metafísica",
+    "sourcePassage": "El abandono del criterio verificacionista de significatividad permite rehabilitar la metafísica dentro de la tradición analítica. Glock anuncia tres líneas de desarrollo, pero la p. 72 sólo comienza la primera: aplicar el naturalismo de Quine a la ontología. No se anticipan las otras dos líneas sin las páginas siguientes.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué condición histórica hace posible la rehabilitación?",
+    "diagram": [
+      "criterio abandonado",
+      "metafísica rehabilitada",
+      "primera vía naturalista"
+    ],
+    "dependsOn": [
+      "G108",
+      "G63"
+    ]
+  },
+  {
+    "id": "G110",
+    "section": "metafisica",
+    "page": "p. 72",
+    "title": "Carnap: existencia y marcos lingüísticos",
+    "kind": "Contraste",
+    "short": "pregunta interna · categoría entera · elección pragmática del marco",
+    "explanation": "Carnap admite preguntas genuinas sobre entidades particulares dentro de un marco lingüístico, como neutrinos o primos mayores que 10^10. Las cuestiones filosóficas sobre categorías enteras, como existencia de objetos materiales o números, son para él sinsentidos o cuestiones prácticas: decidir si conviene adoptar un marco para fines científicos. No confundir elección del marco con preguntas internas.",
+    "excerpt": "marco lingüístico",
+    "sourcePassage": "Carnap admite preguntas genuinas sobre entidades particulares dentro de un marco lingüístico, como neutrinos o primos mayores que 10^10. Las cuestiones filosóficas sobre categorías enteras, como existencia de objetos materiales o números, son para él sinsentidos o cuestiones prácticas: decidir si conviene adoptar un marco para fines científicos. No confundir elección del marco con preguntas internas.",
+    "sourceMode": "paraphrase",
+    "question": "¿Cómo distingue Carnap cuestiones internas y adopción del marco?",
+    "diagram": [
+      "pregunta interna",
+      "categoría entera",
+      "elección pragmática del marco"
+    ],
+    "dependsOn": [
+      "G109",
+      "G79"
+    ]
+  },
+  {
+    "id": "G111",
+    "section": "metafisica",
+    "page": "p. 72",
+    "title": "Quine: ontología naturalista",
+    "kind": "Tesis",
+    "short": "teorías científicas · formalización · inventario ontológico",
+    "explanation": "Quine difumina la frontera entre metafísica y ciencia natural: filosofía investiga rasgos generales de la realidad y difiere de la ciencia por amplitud, no cualitativamente. No rehabilita la metafísica racionalista a priori, sino que ayuda a la ciencia a inventariar el mundo mediante traducción de teorías a notación canónica. La explicación de esa operación continúa en p. 73 y queda abierta.",
+    "excerpt": "notación canónica",
+    "sourcePassage": "Quine difumina la frontera entre metafísica y ciencia natural: filosofía investiga rasgos generales de la realidad y difiere de la ciencia por amplitud, no cualitativamente. No rehabilita la metafísica racionalista a priori, sino que ayuda a la ciencia a inventariar el mundo mediante traducción de teorías a notación canónica. La explicación de esa operación continúa en p. 73 y queda abierta.",
+    "sourceMode": "paraphrase",
+    "question": "¿Cómo recupera Quine la ontología sin regresar al racionalismo?",
+    "diagram": [
+      "teorías científicas",
+      "formalización",
+      "inventario ontológico"
+    ],
+    "dependsOn": [
+      "G110",
+      "G103"
+    ]
   }
 ]
 
@@ -1292,5 +1896,225 @@ export const glockContinuationEdges = [
     "G62",
     "G83",
     "pluralidad frente a verificación"
+  ],
+  [
+    "G83",
+    "G84",
+    "continuidad argumental"
+  ],
+  [
+    "G84",
+    "G85",
+    "continuidad argumental"
+  ],
+  [
+    "G85",
+    "G86",
+    "continuidad argumental"
+  ],
+  [
+    "G86",
+    "G87",
+    "continuidad argumental"
+  ],
+  [
+    "G87",
+    "G88",
+    "continuidad argumental"
+  ],
+  [
+    "G88",
+    "G89",
+    "continuidad argumental"
+  ],
+  [
+    "G89",
+    "G90",
+    "continuidad argumental"
+  ],
+  [
+    "G90",
+    "G91",
+    "continuidad argumental"
+  ],
+  [
+    "G91",
+    "G92",
+    "continuidad argumental"
+  ],
+  [
+    "G92",
+    "G93",
+    "continuidad argumental"
+  ],
+  [
+    "G93",
+    "G94",
+    "continuidad argumental"
+  ],
+  [
+    "G94",
+    "G95",
+    "continuidad argumental"
+  ],
+  [
+    "G95",
+    "G96",
+    "continuidad argumental"
+  ],
+  [
+    "G96",
+    "G97",
+    "continuidad argumental"
+  ],
+  [
+    "G97",
+    "G98",
+    "continuidad argumental"
+  ],
+  [
+    "G98",
+    "G99",
+    "continuidad argumental"
+  ],
+  [
+    "G99",
+    "G100",
+    "continuidad argumental"
+  ],
+  [
+    "G100",
+    "G101",
+    "continuidad argumental"
+  ],
+  [
+    "G101",
+    "G102",
+    "continuidad argumental"
+  ],
+  [
+    "G102",
+    "G103",
+    "continuidad argumental"
+  ],
+  [
+    "G103",
+    "G104",
+    "continuidad argumental"
+  ],
+  [
+    "G104",
+    "G105",
+    "continuidad argumental"
+  ],
+  [
+    "G105",
+    "G106",
+    "continuidad argumental"
+  ],
+  [
+    "G106",
+    "G107",
+    "continuidad argumental"
+  ],
+  [
+    "G107",
+    "G108",
+    "continuidad argumental"
+  ],
+  [
+    "G108",
+    "G109",
+    "continuidad argumental"
+  ],
+  [
+    "G109",
+    "G110",
+    "continuidad argumental"
+  ],
+  [
+    "G110",
+    "G111",
+    "continuidad argumental"
+  ],
+  [
+    "G83",
+    "G86",
+    "pluralidad conceptual (reconstrucción)"
+  ],
+  [
+    "G76",
+    "G92",
+    "respuesta a paradoja del análisis"
+  ],
+  [
+    "G79",
+    "G89",
+    "contraste de métodos (reconstrucción)"
+  ],
+  [
+    "G45",
+    "G90",
+    "gramática y función (reconstrucción)"
+  ],
+  [
+    "G69",
+    "G94",
+    "pluralidad del significado"
+  ],
+  [
+    "G65",
+    "G97",
+    "herencia de ciencia unificada"
+  ],
+  [
+    "G61",
+    "G98",
+    "crítica de analiticidad"
+  ],
+  [
+    "G74",
+    "G100",
+    "crítica de reducción"
+  ],
+  [
+    "G33",
+    "G101",
+    "contraste semántico (reconstrucción)"
+  ],
+  [
+    "G67",
+    "G103",
+    "naturalismo (reconstrucción)"
+  ],
+  [
+    "G78",
+    "G104",
+    "contraste con Carnap"
+  ],
+  [
+    "G66",
+    "G105",
+    "falibilidad de protocolos"
+  ],
+  [
+    "G71",
+    "G106",
+    "demarcación y verificación"
+  ],
+  [
+    "G63",
+    "G109",
+    "abandono de proscripción"
+  ],
+  [
+    "G79",
+    "G110",
+    "elección de marcos (reconstrucción)"
+  ],
+  [
+    "G103",
+    "G111",
+    "naturalismo ontológico"
   ]
 ]
