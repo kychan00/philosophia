@@ -727,7 +727,7 @@ const SOURCE_NODES = [
   "kind": "Inicio de sección",
   "page": "p. 51",
   "short": "El nuevo apartado comienza vinculando el proyecto lógico de Russell con su formación idealista.",
-  "explanation": "La sección 3, «La rebelión contra el idealismo», se inicia en la página 51. Sólo alcanzamos el pasaje de presentación: Russell usa herramientas lógicas en epistemología y metafísica y aparece su relación inicial con el idealismo británico de Bradley y McTaggart. El desarrollo de esa rebelión en p. 52 y siguientes aún no se ha recibido.",
+  "explanation": "La sección 3, «La rebelión contra el idealismo», se inicia en la página 51. Sólo alcanzamos el pasaje de presentación: Russell usa herramientas lógicas en epistemología y metafísica y aparece su relación inicial con el idealismo británico de Bradley y McTaggart. El desarrollo de esa rebelión continúa en los nodos G39–G48 (pp. 52–55).",
   "dependsOn": [
     "G36",
     "G37"
@@ -737,7 +737,7 @@ const SOURCE_NODES = [
     "problemas de epistemología y metafísica",
     "idealismo británico · transición"
   ],
-  "question": "¿Por qué la formación idealista de Russell importa para la siguiente sección, todavía no leída?",
+  "question": "¿Por qué la formación idealista de Russell importa para la siguiente sección?",
   "x": 0,
   "y": 0
 },

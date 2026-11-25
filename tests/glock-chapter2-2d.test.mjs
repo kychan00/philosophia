@@ -143,7 +143,7 @@ test('La tercera entrega sigue pp. 46–51, con frontera documental estricta', (
   for (const id of ['matematicas','bolzano','boole','frege','limites','rebelion']) {
     assert.ok(glockRoutes.find(route => route.id === id), id)
   }
-  assert.match(byId.get('G38').data.explanation, /no se ha recibido/)
+  assert.match(byId.get('G38').data.explanation, /continúa en los nodos G39–G48/)
   assert.ok(glockLinks.find(edge => edge.source === 'G20' && edge.target === 'G21'))
 })
 
