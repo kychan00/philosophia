@@ -263,3 +263,48 @@ test('Cierre 83–86: 19 nodos y cobertura documental completa', () => {
   assert.equal(byId.get('G165').data.page,'p. 86')
   assert.match(page,/47 páginas/)
 })
+
+
+test('Guía integral de reporte cubre todos los nodos exactamente una vez y no sustituye la guía documental', async () => {
+  const { glockReportSteps, glockReportChecklist, glockReportNodes, glockReportReference } = await import('../src/data/glockReportGuide.js')
+  assert.equal(glockReportSteps.length, 11)
+  assert.equal(new Set(glockReportSteps.map(s=>s.id)).size, 11)
+  assert.deepEqual(glockReportSteps.flatMap(s=>glockReportNodes(s,glockNodes).map(n=>n.id)),glockNodeOrder)
+  for(const s of glockReportSteps) {
+    assert.ok(s.points.length>=4,s.id)
+    for(const k of ['question','thesis','example','write','critical','bridge']) assert.ok(s[k]?.length>25,s.id+': '+k)
+  }
+  assert.ok(glockReportChecklist.length>=10)
+  assert.match(glockReportReference,/40–86/)
+  assert.match(page,/<GlockReportGuide onOpenNode=\{openReportNode\}/)
+  const guide = readFileSync(new URL('../src/components/analytic/GlockReportGuide.jsx', import.meta.url),'utf8')
+  assert.match(guide,/data-report-node/)
+  assert.match(guide,/localStorage.setItem/)
+  assert.match(guide,/Exportar mis apuntes/)
+  assert.match(guide,/no sustituye el recorrido documental/)
+})
+
+
+test('166 explicaciones claras y ejemplos editoriales; 11 escenas ilustradas', async () => {
+  const { glockPlainLanguage, glockReportVisuals } = await import('../src/data/glockPlainLanguage.js')
+  const { glockReportSteps } = await import('../src/data/glockReportGuide.js')
+  assert.deepEqual(Object.keys(glockPlainLanguage),glockNodeOrder)
+  assert.equal(new Set(Object.values(glockPlainLanguage).map(x=>x.plain)).size,166)
+  assert.equal(new Set(Object.values(glockPlainLanguage).map(x=>x.example)).size,166)
+  for(const n of glockNodes) {
+    assert.equal(n.data.plainLanguage,glockPlainLanguage[n.id])
+    assert.ok(n.data.plainLanguage.plain.length>30,n.id)
+    assert.ok(n.data.plainLanguage.example.length>30,n.id)
+  }
+  assert.deepEqual(Object.keys(glockReportVisuals),glockReportSteps.map(s=>s.id))
+  for(const s of Object.values(glockReportVisuals)) {
+    assert.equal(s.icons.length,3)
+    assert.equal(s.labels.length,3)
+    for(const k of ['analogy','argument','paragraph','caution']) assert.ok(s[k].length>35,s.id+':'+k)
+  }
+  const scene=readFileSync(new URL('../src/components/analytic/GlockStudyScene.jsx',import.meta.url),'utf8')
+  for(const s of Object.values(glockReportVisuals)) for(const icon of s.icons) assert.ok(scene.includes("case '"+icon+"'"),icon)
+  assert.match(node,/En pocas palabras y entendible:/)
+  assert.match(page,/En pocas palabras y entendible:/)
+  assert.match(page,/Ejemplo sencillo · ilustración editorial/)
+})

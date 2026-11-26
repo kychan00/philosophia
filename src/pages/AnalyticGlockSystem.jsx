@@ -7,6 +7,7 @@ import {
 import '@xyflow/react/dist/style.css'
 
 import GlockNode from '../components/analytic/GlockNode.jsx'
+import GlockReportGuide from '../components/analytic/GlockReportGuide.jsx'
 import SectionPedagogy from '../components/philosophy/system2d/SectionPedagogy.jsx'
 import { initialSystem2DRoute, useSystem2DCompactViewport } from '../components/philosophy/system2d/mobilePerformance.js'
 import AnimatedConceptSchema from '../components/philosophy/schema/AnimatedConceptSchema.jsx'
@@ -362,6 +363,17 @@ function StudyCanvas() {
     selectNode(node)
   }, [route, supportIds, selectNode])
 
+  const openReportNode = useCallback((id) => {
+    const node = glockNodeById(id)
+    if (!node) return
+    setGuidedMode(false)
+    setGuidedScope(node.data.section)
+    setGuidedIndex(0)
+    setRoute(node.data.section)
+    selectNode(node)
+    window.requestAnimationFrame(() => workspaceRef.current?.scrollIntoView({ block: 'start' }))
+  }, [selectNode])
+
   const changeRoute = useCallback((id) => {
     setGuidedMode(false)
     setGuidedScope(id)
@@ -454,8 +466,8 @@ function StudyCanvas() {
           <p>HANS-JOHANN GLOCK · SISTEMA HISTÓRICO-CONCEPTUAL</p>
           <h1>Breve panorama <em>histórico</em></h1>
           <p className="glock-study-lead">
-            De dos sentidos antiguos del análisis a Kant, el idealismo y las
-            reacciones naturalista y neokantiana.
+            De los antecedentes del análisis al giro lingüístico, su inversión y las
+            discusiones contemporáneas sobre metafísica, mente y valores.
           </p>
         </div>
         <aside>
@@ -477,6 +489,8 @@ function StudyCanvas() {
           editoriales rotuladas como tales. Las pp. 52–86 se incorporan como paráfrasis cotejadas, con citas breves donde se dispone del texto. Cobertura documental del capítulo II completa: pp. 40–86 (47 páginas). El reporte formal es una tarea distinta.
         </p>
       </section>
+
+      <GlockReportGuide onOpenNode={openReportNode} />
 
       <section className="glock-guided-launch">
         <div>
@@ -668,6 +682,13 @@ function StudyCanvas() {
                 <p>{selected.data.explanation}</p>
               </section>
 
+              <section className="glock-inspector-plain">
+                <span>En pocas palabras y entendible:</span>
+                <p>{selected.data.plainLanguage.plain}</p>
+                <strong>Ejemplo sencillo · ilustración editorial</strong>
+                <p>{selected.data.plainLanguage.example}</p>
+              </section>
+
               {selected.data.class19Oct && (
                 <section className="glock-class-note">
                   <span>EXPLICACIÓN DOCENTE · 19 OCT 2026</span>
@@ -795,6 +816,8 @@ function StudyCanvas() {
           )}
         </aside>
       </section>
+
+      <button type="button" className="glock-report-return" onClick={() => document.getElementById('glock-report-guide')?.scrollIntoView({ block: 'start' })}>↑ Volver a la guía del reporte</button>
 
       <section className="glock-study-history">
         <span>Iter argumenti</span>

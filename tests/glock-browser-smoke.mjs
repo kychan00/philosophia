@@ -140,6 +140,31 @@ async function navigate(width,height){
   assert.deepEqual(state.hits,[],'Frege nodos superpuestos '+width+'×'+height)
 
   if(width<=1180) assert.ok(!state.workspaceCols.includes('410px'),'iPad conserva inspector lateral '+state.workspaceCols)
+  // Report guide: navigation and atlas focus use the same selected node and route.
+  await evalJS("(()=>{document.querySelector('.glock-report-toggle').click();return true})()")
+  await until(()=>evalJS("document.querySelectorAll('.glock-report-steps button').length===11"),'guía del reporte')
+  await evalJS("(()=>{document.querySelectorAll('.glock-report-steps button')[9].click();return true})()")
+  await until(()=>evalJS("document.querySelector('#glock-report-step-title')?.textContent.includes('Valores')"),'etapa valores')
+  await evalJS("(()=>{document.querySelector('.glock-report-nodes').open=true;document.querySelector('[data-report-node=G165]').click();return true})()")
+  await until(()=>evalJS("document.querySelector('.glock-flow-canvas .react-flow__node.selected')?.getAttribute('data-id')==='G165'"),'nodo final desde guía')
+  const report=await evalJS(`(()=>({title:document.querySelector('#glock-report-step-title')?.textContent,route:document.querySelector('.glock-study-routes button.is-active')?.textContent,selected:document.querySelector('.glock-flow-canvas .react-flow__node.selected')?.getAttribute('data-id'),width:innerWidth,scroll:document.documentElement.scrollWidth}))()`)
+  const clarity=await evalJS(`(()=>({
+    scene:document.querySelectorAll('.glock-study-scene-panel svg').length,
+    model:document.querySelector('.glock-report-model')?.textContent||'',
+    plain:document.querySelector('.glock-inspector-plain')?.textContent||'',
+    card:document.querySelector('.react-flow__node.selected .glock-node-plain')?.textContent||'',
+    footer:document.querySelector('.react-flow__node.selected .glock-flow-node-footer')?.getBoundingClientRect().bottom,
+    bottom:document.querySelector('.react-flow__node.selected .glock-flow-node')?.getBoundingClientRect().bottom
+  }))()`)
+  assert.equal(clarity.scene,3)
+  assert.match(clarity.model,/Modelo de párrafo/)
+  assert.match(clarity.plain,/En pocas palabras y entendible:/)
+  assert.match(clarity.plain,/Ejemplo sencillo/)
+  assert.match(clarity.card,/En pocas palabras y entendible:/)
+  assert.ok(clarity.footer<=clarity.bottom+2,JSON.stringify(clarity))
+  assert.equal(report.selected,'G165')
+  assert.match(report.route,/valores/i)
+  assert.ok(report.scroll<=report.width+3,JSON.stringify(report))
   console.log('OK Glock Hacker-style',width,height,state,documentary,guide)
 }
 

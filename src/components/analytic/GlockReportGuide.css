@@ -1,0 +1,46 @@
+.glock-report-guide{margin:14px 4vw;border:2px solid var(--ph2d-ink);color:var(--ph2d-ink);background:var(--ph2d-paper);overflow-wrap:anywhere;scroll-margin-top:16px}
+.glock-report-guide *{box-sizing:border-box;min-width:0}
+.glock-report-header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px}
+.glock-report-header span,.glock-report-step>small,.glock-report-steps small{font:800 10px Arial,sans-serif;color:var(--ph2d-topic-rust);letter-spacing:.04em}
+.glock-report-guide h2{font-size:clamp(21px,3vw,32px);margin:7px 0}
+.glock-report-guide h3{font-size:21px;margin:0 0 10px}.glock-report-guide h4{font:800 12px Arial,sans-serif;margin:20px 0 6px}
+.glock-report-guide p,.glock-report-guide li{font-size:14px;line-height:1.6;margin:6px 0}
+.glock-report-guide ul,.glock-report-guide ol{padding-left:22px;margin:8px 0}
+.glock-report-guide button,.glock-report-return{border:1px solid var(--ph2d-ink);background:var(--ph2d-paper);color:var(--ph2d-ink);padding:10px 13px;min-height:44px;font:800 12px Arial,sans-serif;cursor:pointer}
+.glock-report-guide button:focus-visible,.glock-report-return:focus-visible,.glock-report-guide textarea:focus-visible{outline:3px solid var(--ph2d-topic-gold);outline-offset:2px}
+.glock-report-guide button:disabled{opacity:.4;cursor:default}
+.glock-report-guide .glock-report-toggle,.glock-report-actions button:last-child{background:var(--ph2d-ink);color:var(--ph2d-paper)}
+.glock-report-overview{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;padding:20px;border-top:1px solid var(--ph2d-line)}
+.glock-report-progress{display:flex;align-items:center;flex-wrap:wrap;gap:12px;padding:14px 20px;background:var(--ph2d-paper2);font:800 12px Arial,sans-serif}
+.glock-report-progress progress{max-width:100%;width:200px;accent-color:var(--ph2d-green)}
+.glock-report-layout{display:grid;grid-template-columns:minmax(0,250px) minmax(0,1fr);border-top:1px solid var(--ph2d-line)}
+.glock-report-steps{display:flex;flex-direction:column;gap:5px;padding:14px;border-right:1px solid var(--ph2d-line)}
+.glock-report-steps button{text-align:left;display:grid;gap:5px;line-height:1.35}
+.glock-report-steps button[aria-current=step]{border:2px solid var(--ph2d-topic-gold);background:var(--ph2d-paper2)}
+.glock-report-steps button span{font-size:10px;color:var(--ph2d-green)}
+.glock-report-step,.glock-report-review{padding:22px}.glock-report-step h3{margin-top:8px}
+.glock-report-nodes{border:1px solid var(--ph2d-line);padding:12px;margin:18px 0}.glock-report-nodes summary{font-weight:bold;cursor:pointer;padding:6px 0}
+.glock-report-nodes>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin-top:10px}
+.glock-report-nodes button{display:grid;gap:4px;text-align:left;line-height:1.35}.glock-report-nodes small{color:var(--ph2d-muted)}
+.glock-report-draft{display:grid;gap:8px;margin-top:20px;font-weight:bold}.glock-report-draft textarea{width:100%;border:1px solid var(--ph2d-line);background:var(--ph2d-paper2);color:inherit;padding:12px;font:inherit;font-weight:400;line-height:1.5;resize:vertical}
+.glock-report-check{display:flex;align-items:flex-start;gap:10px;line-height:1.5;font-size:14px;margin:12px 0}.glock-report-check input{flex:none;width:18px;height:18px;margin-top:2px;accent-color:var(--ph2d-green)}
+.glock-report-actions{display:flex;justify-content:space-between;gap:10px;margin-top:16px}.glock-report-review{border-top:2px solid var(--ph2d-ink)}.glock-report-review h3:not(:first-child){margin-top:22px}.glock-report-storage{color:var(--ph2d-muted)}
+@media(max-width:760px){.glock-report-guide{margin-left:14px;margin-right:14px}.glock-report-header{align-items:stretch;flex-direction:column}.glock-report-overview,.glock-report-layout,.glock-report-nodes>div{grid-template-columns:minmax(0,1fr)}.glock-report-steps{border-right:0;border-bottom:1px solid var(--ph2d-line);display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.glock-report-step,.glock-report-review{padding:15px}.glock-report-header,.glock-report-overview{padding:15px}}
+
+/* Las escenas se montan sólo en la etapa abierta. No cambian la geometría del grafo. */
+.glock-study-scene{margin:16px 0 22px;padding:14px;border:1px solid var(--ph2d-line);background:var(--ph2d-paper2)}
+.glock-study-scene-panels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.glock-study-scene-panel{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:6px;padding:10px 6px;border:1px solid var(--ph2d-line);background:var(--ph2d-paper);text-align:center}
+.glock-study-scene-panel svg{display:block;width:100%;max-width:132px;height:auto;aspect-ratio:1}
+.glock-study-scene-panel strong{font:700 12px/1.35 Arial,sans-serif;overflow-wrap:anywhere}
+.glock-study-scene figcaption{font-size:14px;line-height:1.55;margin-top:12px}
+.glock-report-model,.glock-report-warning{padding:12px 15px;border-left:3px solid var(--ph2d-topic-gold);background:var(--ph2d-paper2);margin:15px 0}
+.glock-report-warning{border-left-color:var(--ph2d-topic-rust)}.glock-report-model h4,.glock-report-warning h4{margin-top:0}
+.glock-report-node-simple{font:400 12px/1.45 Arial,sans-serif;color:var(--ph2d-muted)}
+.glock-report-argument-template{border-left:3px solid var(--ph2d-topic-gold);padding:2px 14px}
+.glock-node-plain{margin:7px 0 8px;min-height:0}
+.glock-node-plain>span{display:block;font:800 9px/1.2 Arial,sans-serif;color:var(--ph2d-topic-rust)}
+.glock-node-plain>p{margin:3px 0 0;font:11px/1.28 Arial,sans-serif;max-height:30px;overflow-y:auto;overflow-wrap:anywhere}
+.glock-inspector .glock-inspector-plain{border-left:3px solid var(--ph2d-topic-gold);padding:13px;background:var(--ph2d-paper2)}
+.glock-inspector-plain strong{display:block;margin-top:10px;font:800 11px/1.4 Arial,sans-serif}
+@media(max-width:420px){.glock-study-scene{padding:8px}.glock-study-scene-panel{padding:7px 3px}.glock-study-scene-panels{gap:5px}.glock-study-scene-panel strong{font-size:11px}}
