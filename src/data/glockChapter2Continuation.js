@@ -1,4 +1,4 @@
-// Glock, Tecnos 2012, pp. 52–72. Paráfrasis cotejadas; citas breves separadas. Las pp. 52–53 proceden de la ficha anterior.
+// Glock, Tecnos 2012, pp. 52–82. Paráfrasis cotejadas; citas breves separadas. Las pp. 52–53 proceden de la ficha anterior.
 export const glockContinuationNodes = [
   {
     "id": "G39",
@@ -1568,6 +1568,760 @@ export const glockContinuationNodes = [
       "G110",
       "G103"
     ]
+  },
+  {
+    "id": "G112",
+    "section": "metafisica",
+    "page": "p. 73",
+    "title": "Compromisos ontológicos y notación canónica",
+    "kind": "Método",
+    "short": "teoría · notación canónica · compromiso mínimo",
+    "explanation": "Quine formaliza las teorías para exhibir los tipos de entidades cuya existencia presuponen y reducir esos compromisos mediante paráfrasis cuando sea posible. Glock reproduce el ejemplo El rojo es un color, reformulado como ∀x(R(x) → C(x)), con R: ser rojo y C: ser un color. Se conserva la formulación de la fuente sin asumir que toda paráfrasis de propiedades sea adecuada.",
+    "excerpt": "compromisos ontológicos",
+    "sourcePassage": "Quine formaliza las teorías para exhibir los tipos de entidades cuya existencia presuponen y reducir esos compromisos mediante paráfrasis cuando sea posible. Glock reproduce el ejemplo El rojo es un color, reformulado como ∀x(R(x) → C(x)), con R: ser rojo y C: ser un color. Se conserva la formulación de la fuente sin asumir que toda paráfrasis de propiedades sea adecuada.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué busca eliminar la paráfrasis?",
+    "diagram": [
+      "teoría",
+      "notación canónica",
+      "compromiso mínimo"
+    ],
+    "dependsOn": [
+      "G111",
+      "G46"
+    ]
+  },
+  {
+    "id": "G113",
+    "section": "metafisica",
+    "page": "p. 73",
+    "title": "Economía ontológica y eficacia sistemática",
+    "kind": "Tesis",
+    "short": "entidades no eliminables · poder explicativo · economía",
+    "explanation": "Cuando una entidad no puede eliminarse por paráfrasis, su admisión se decide compensando el poder explicativo que proporciona frente a la economía ontológica conseguida al excluirla. La parsimonia no es por tanto una prohibición absoluta de entidades abstractas, sino un criterio que se sopesa con la eficacia de la teoría.",
+    "excerpt": "economía ontológica",
+    "sourcePassage": "Cuando una entidad no puede eliminarse por paráfrasis, su admisión se decide compensando el poder explicativo que proporciona frente a la economía ontológica conseguida al excluirla. La parsimonia no es por tanto una prohibición absoluta de entidades abstractas, sino un criterio que se sopesa con la eficacia de la teoría.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué la parsimonia no es el único criterio?",
+    "diagram": [
+      "entidades no eliminables",
+      "poder explicativo",
+      "economía"
+    ],
+    "dependsOn": [
+      "G112"
+    ]
+  },
+  {
+    "id": "G114",
+    "section": "metafisica",
+    "page": "p. 73",
+    "title": "Quine: metafísica de la ciencia",
+    "kind": "Contraste",
+    "short": "explicación de nociones · mejores teorías · inventario de lo real",
+    "explanation": "Como Carnap, Quine sustituye nociones actuales por otras científicamente más respetables en vez de analizarlas en su uso efectivo. A diferencia del positivismo, su lenguaje ideal no intenta evitar la metafísica sino revelar la metafísica de la ciencia. Los naturalistas contemporáneos exploran lo que las mejores teorías científicas toman como existente para explicar lo que realmente existe.",
+    "excerpt": "la metafísica de la ciencia",
+    "sourcePassage": "Como Carnap, Quine sustituye nociones actuales por otras científicamente más respetables en vez de analizarlas en su uso efectivo. A diferencia del positivismo, su lenguaje ideal no intenta evitar la metafísica sino revelar la metafísica de la ciencia. Los naturalistas contemporáneos exploran lo que las mejores teorías científicas toman como existente para explicar lo que realmente existe.",
+    "sourceMode": "paraphrase",
+    "question": "¿En qué difiere la finalidad de Quine de la de Carnap?",
+    "diagram": [
+      "explicación de nociones",
+      "mejores teorías",
+      "inventario de lo real"
+    ],
+    "dependsOn": [
+      "G113",
+      "G78"
+    ]
+  },
+  {
+    "id": "G115",
+    "section": "metafisica",
+    "page": "pp. 73–74",
+    "title": "Strawson: metafísica descriptiva",
+    "kind": "Tesis",
+    "short": "referencia · predicación · estructura conceptual",
+    "explanation": "En Individuos, Strawson pasa de criticar las ortodoxias del análisis lógico por el uso ordinario a un proyecto kantiano de mayor generalidad: explicitar la estructura conceptual efectiva. Las funciones fundamentales del discurso, referencia (aislar un individuo) y predicación (decir algo de algo), permiten investigar estructuras que no se distinguen en el uso cotidiano disperso.",
+    "excerpt": "metafísica descriptiva",
+    "sourcePassage": "En Individuos, Strawson pasa de criticar las ortodoxias del análisis lógico por el uso ordinario a un proyecto kantiano de mayor generalidad: explicitar la estructura conceptual efectiva. Las funciones fundamentales del discurso, referencia (aislar un individuo) y predicación (decir algo de algo), permiten investigar estructuras que no se distinguen en el uso cotidiano disperso.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué Individuos amplía el análisis conceptual?",
+    "diagram": [
+      "referencia",
+      "predicación",
+      "estructura conceptual"
+    ],
+    "dependsOn": [
+      "G114",
+      "G89"
+    ]
+  },
+  {
+    "id": "G116",
+    "section": "metafisica",
+    "page": "pp. 73–74",
+    "title": "Descripción frente a revisión",
+    "kind": "Distinción",
+    "short": "estructura efectiva · descripción · contraste con revisión",
+    "explanation": "La metafísica descriptiva esclarece las precondiciones del pensamiento sobre el mundo, no directamente los rasgos más abstractos del mundo. La revisionista busca una estructura mejor, sea desde intuiciones a priori de la metafísica tradicional o desde exigencias científicas del naturalismo. El esquema conceptual de Strawson constituye así una alternativa a ambas vías revisionistas.",
+    "excerpt": "esquema conceptual",
+    "sourcePassage": "La metafísica descriptiva esclarece las precondiciones del pensamiento sobre el mundo, no directamente los rasgos más abstractos del mundo. La revisionista busca una estructura mejor, sea desde intuiciones a priori de la metafísica tradicional o desde exigencias científicas del naturalismo. El esquema conceptual de Strawson constituye así una alternativa a ambas vías revisionistas.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué diferencia hay entre describir el pensamiento y describir la realidad?",
+    "diagram": [
+      "estructura efectiva",
+      "descripción",
+      "contraste con revisión"
+    ],
+    "dependsOn": [
+      "G115"
+    ]
+  },
+  {
+    "id": "G117",
+    "section": "metafisica",
+    "page": "p. 74",
+    "title": "Argumentos trascendentales",
+    "kind": "Método",
+    "short": "duda escéptica · presupuestos del discurso · autorrefutación",
+    "explanation": "Strawson reactiva los argumentos trascendentales: buscan mostrar que la duda escéptica es incoherente o autorrefutadora porque cuestiona precondiciones de todo discurso significativo, incluido el propio. El escéptico emplea conceptos cuyo sentido presupone conexiones que rechaza explícitamente. No es una generalización inductiva, sino una indagación de presupuestos.",
+    "excerpt": "argumentos trascendentales",
+    "sourcePassage": "Strawson reactiva los argumentos trascendentales: buscan mostrar que la duda escéptica es incoherente o autorrefutadora porque cuestiona precondiciones de todo discurso significativo, incluido el propio. El escéptico emplea conceptos cuyo sentido presupone conexiones que rechaza explícitamente. No es una generalización inductiva, sino una indagación de presupuestos.",
+    "sourceMode": "paraphrase",
+    "question": "¿Cómo puede una duda presuponer aquello que niega?",
+    "diagram": [
+      "duda escéptica",
+      "presupuestos del discurso",
+      "autorrefutación"
+    ],
+    "dependsOn": [
+      "G116",
+      "G53"
+    ]
+  },
+  {
+    "id": "G118",
+    "section": "metafisica",
+    "page": "p. 74",
+    "title": "Stroud y el límite de la trascendencia",
+    "kind": "Objeción",
+    "short": "necesidad conceptual · objeción de Stroud · justificación normativa",
+    "explanation": "Stroud objeta que un argumento trascendental establece a lo sumo que debemos emplear ciertos conceptos, como objeto independiente de la mente, no que algo real los satisfaga. Glock señala que estos argumentos siguen inspirando a quienes quieren evitar escepticismo y epistemología naturalizada, que soslaya la cuestión normativa de la justificación. La metafísica descriptiva explicita nociones e implicaciones básicas del esquema conceptual; se menciona a Jackson.",
+    "excerpt": "",
+    "sourcePassage": "Stroud objeta que un argumento trascendental establece a lo sumo que debemos emplear ciertos conceptos, como objeto independiente de la mente, no que algo real los satisfaga. Glock señala que estos argumentos siguen inspirando a quienes quieren evitar escepticismo y epistemología naturalizada, que soslaya la cuestión normativa de la justificación. La metafísica descriptiva explicita nociones e implicaciones básicas del esquema conceptual; se menciona a Jackson.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué la necesidad de un concepto no prueba por sí sola su instancia real?",
+    "diagram": [
+      "necesidad conceptual",
+      "objeción de Stroud",
+      "justificación normativa"
+    ],
+    "dependsOn": [
+      "G117",
+      "G104"
+    ]
+  },
+  {
+    "id": "G119",
+    "section": "metafisica",
+    "page": "pp. 74–75",
+    "title": "Lógica modal y referencia directa",
+    "kind": "Contexto",
+    "short": "lógica modal · mundos posibles · referencia directa",
+    "explanation": "La tercera vía de rehabilitación tiene dos raíces: la lógica modal, que interpreta necesidad y posibilidad mediante la noción leibniziana de mundo posible, y las teorías de referencia directa, para las cuales nombres propios y términos de géneros naturales remiten a sus denotaciones sin mediación de sentidos fregeanos entendidos como modos de presentación. Glock presenta su conexión con el esencialismo contemporáneo.",
+    "excerpt": "referencia directa",
+    "sourcePassage": "La tercera vía de rehabilitación tiene dos raíces: la lógica modal, que interpreta necesidad y posibilidad mediante la noción leibniziana de mundo posible, y las teorías de referencia directa, para las cuales nombres propios y términos de géneros naturales remiten a sus denotaciones sin mediación de sentidos fregeanos entendidos como modos de presentación. Glock presenta su conexión con el esencialismo contemporáneo.",
+    "sourceMode": "paraphrase",
+    "question": "¿Cuáles son las dos raíces del esencialismo contemporáneo?",
+    "diagram": [
+      "lógica modal",
+      "mundos posibles",
+      "referencia directa"
+    ],
+    "dependsOn": [
+      "G118",
+      "G68"
+    ]
+  },
+  {
+    "id": "G120",
+    "section": "metafisica",
+    "page": "pp. 74–75",
+    "title": "A priori, necesario y analítico",
+    "kind": "Distinción",
+    "short": "a priori: conocimiento · necesario: modalidad · analítico: significado",
+    "explanation": "Kripke distingue tres categorías que el positivismo y Quine habían tratado como equivalentes: lo a priori es epistemológico (conocible independientemente de experiencia), lo necesario metafísico (verdadero en todos los mundos posibles), y lo analítico lógico (verdadero por significado). Para la semántica realista de Kripke y Putnam difieren tanto en intensión como en extensión.",
+    "excerpt": "",
+    "sourcePassage": "Kripke distingue tres categorías que el positivismo y Quine habían tratado como equivalentes: lo a priori es epistemológico (conocible independientemente de experiencia), lo necesario metafísico (verdadero en todos los mundos posibles), y lo analítico lógico (verdadero por significado). Para la semántica realista de Kripke y Putnam difieren tanto en intensión como en extensión.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué no se puede identificar necesidad con aprioridad?",
+    "diagram": [
+      "a priori: conocimiento",
+      "necesario: modalidad",
+      "analítico: significado"
+    ],
+    "dependsOn": [
+      "G119",
+      "G61"
+    ]
+  },
+  {
+    "id": "G121",
+    "section": "metafisica",
+    "page": "p. 75",
+    "title": "Necesidad a posteriori y designación rígida",
+    "kind": "Tesis",
+    "short": "descubrimiento empírico · designación rígida · esencia necesaria",
+    "explanation": "El agua es H₂O es el ejemplo de una identificación teórica descubierta científicamente y necesaria. Los términos de género natural y los nombres propios son designadores rígidos: designan la misma cosa en todos los mundos posibles donde designan algo. La microestructura H₂O constituye, en esta posición, la esencia del género natural agua. Se distingue de las propiedades superficiales contingentes.",
+    "excerpt": "designadores rígidos",
+    "sourcePassage": "El agua es H₂O es el ejemplo de una identificación teórica descubierta científicamente y necesaria. Los términos de género natural y los nombres propios son designadores rígidos: designan la misma cosa en todos los mundos posibles donde designan algo. La microestructura H₂O constituye, en esta posición, la esencia del género natural agua. Se distingue de las propiedades superficiales contingentes.",
+    "sourceMode": "paraphrase",
+    "question": "¿Cómo puede una verdad necesaria descubrirse a posteriori?",
+    "diagram": [
+      "descubrimiento empírico",
+      "designación rígida",
+      "esencia necesaria"
+    ],
+    "dependsOn": [
+      "G120"
+    ]
+  },
+  {
+    "id": "G122",
+    "section": "metafisica",
+    "page": "p. 75",
+    "title": "Esencialismo y continuidad científica",
+    "kind": "Contraste",
+    "short": "crítica de Quine · necesidad a posteriori · esencias investigadas científicamente",
+    "explanation": "Quine había anticipado y criticado las consecuencias esencialistas de la lógica modal, proponiendo abandonar necesidad y esencia por continuidad con la ciencia. Glock señala la ironía: la necesidad a posteriori permite a la filosofía seguir en continuidad con la ciencia precisamente porque la ciencia investiga las esencias. La rehabilitación depende de que las nociones modales tengan sentido.",
+    "excerpt": "",
+    "sourcePassage": "Quine había anticipado y criticado las consecuencias esencialistas de la lógica modal, proponiendo abandonar necesidad y esencia por continuidad con la ciencia. Glock señala la ironía: la necesidad a posteriori permite a la filosofía seguir en continuidad con la ciencia precisamente porque la ciencia investiga las esencias. La rehabilitación depende de que las nociones modales tengan sentido.",
+    "sourceMode": "paraphrase",
+    "question": "¿Cómo se vinculan esencialismo y naturalismo?",
+    "diagram": [
+      "crítica de Quine",
+      "necesidad a posteriori",
+      "esencias investigadas científicamente"
+    ],
+    "dependsOn": [
+      "G121"
+    ]
+  },
+  {
+    "id": "G123",
+    "section": "metafisica",
+    "page": "p. 75",
+    "title": "Identidad transmundana",
+    "kind": "Problema",
+    "short": "individuo · mundos posibles · criterio de identidad",
+    "explanation": "Quine objeta la ausencia de un criterio de identidad transmundana. Si las propiedades esenciales son las que un individuo posee en todos los mundos posibles en los que existe, surge la cuestión de cómo determinar quién es quién en mundos distintos. Glock separa este problema de otro diferente: el estatuto ontológico de los mundos posibles mismos.",
+    "excerpt": "identidad transmundana",
+    "sourcePassage": "Quine objeta la ausencia de un criterio de identidad transmundana. Si las propiedades esenciales son las que un individuo posee en todos los mundos posibles en los que existe, surge la cuestión de cómo determinar quién es quién en mundos distintos. Glock separa este problema de otro diferente: el estatuto ontológico de los mundos posibles mismos.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué la identidad transmundana y la realidad de los mundos son problemas distintos?",
+    "diagram": [
+      "individuo",
+      "mundos posibles",
+      "criterio de identidad"
+    ],
+    "dependsOn": [
+      "G122",
+      "G101"
+    ]
+  },
+  {
+    "id": "G124",
+    "section": "metafisica",
+    "page": "pp. 75–76",
+    "title": "Tres estatutos de los mundos posibles",
+    "kind": "Distinción",
+    "short": "hiperrealismo · realismo abstracto · ficcionalismo",
+    "explanation": "Para el hiperrealismo los mundos posibles son tan reales como el nuestro y constituyen totalidades espaciotemporales desconectadas. Para el realismo de Kripke son modos reales aunque abstractos en que este mundo podría haber sido. Para el ficcionalismo son totalidades de representaciones consistentes: la posibilidad de p equivale a una descripción consistente en que p. La realidad se relaciona con nuestras representaciones, no con posibilidades no actualizadas.",
+    "excerpt": "",
+    "sourcePassage": "Para el hiperrealismo los mundos posibles son tan reales como el nuestro y constituyen totalidades espaciotemporales desconectadas. Para el realismo de Kripke son modos reales aunque abstractos en que este mundo podría haber sido. Para el ficcionalismo son totalidades de representaciones consistentes: la posibilidad de p equivale a una descripción consistente en que p. La realidad se relaciona con nuestras representaciones, no con posibilidades no actualizadas.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué admite cada posición acerca de los mundos posibles?",
+    "diagram": [
+      "hiperrealismo",
+      "realismo abstracto",
+      "ficcionalismo"
+    ],
+    "dependsOn": [
+      "G123"
+    ]
+  },
+  {
+    "id": "G125",
+    "section": "metafisica",
+    "page": "p. 76",
+    "title": "Intuiciones modales y zombis filosóficos",
+    "kind": "Método",
+    "short": "condición física · posibilidad modal · problema mente-cuerpo",
+    "explanation": "El esencialismo desarrolla un género de investigación que responde cuestiones metafísicas apelando a intuiciones sobre mundos posibles que satisfacen condiciones. Glock menciona el problema mente-cuerpo y la pregunta de Chalmers acerca de un mundo de criaturas físicamente idénticas a nosotros pero sin vida mental. Es un experimento conceptual, no una afirmación de existencia efectiva de tales criaturas.",
+    "excerpt": "",
+    "sourcePassage": "El esencialismo desarrolla un género de investigación que responde cuestiones metafísicas apelando a intuiciones sobre mundos posibles que satisfacen condiciones. Glock menciona el problema mente-cuerpo y la pregunta de Chalmers acerca de un mundo de criaturas físicamente idénticas a nosotros pero sin vida mental. Es un experimento conceptual, no una afirmación de existencia efectiva de tales criaturas.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué pretende poner a prueba el ejemplo del zombi filosófico?",
+    "diagram": [
+      "condición física",
+      "posibilidad modal",
+      "problema mente-cuerpo"
+    ],
+    "dependsOn": [
+      "G124"
+    ]
+  },
+  {
+    "id": "G126",
+    "section": "metafisica",
+    "page": "p. 76",
+    "title": "Las tres vías y el giro lingüístico",
+    "kind": "Síntesis",
+    "short": "Quine: notación · Strawson: esquema · Kripke/Putnam: designación",
+    "explanation": "Quine utiliza notación canónica para formular teorías científicas parsimoniosas; Strawson investiga categorías del esquema conceptual inserto en el lenguaje; el esencialismo identifica necesidades reales por el funcionamiento de nombres y términos de género natural. Kripke y Putnam recurren a lo que diríamos ante situaciones contrafácticas como Tierra Gemela: una sustancia de propiedades superficiales iguales al agua pero distinta de H₂O. Los tres proyectos conservan reflexión lingüística.",
+    "excerpt": "Tierra Gemela",
+    "sourcePassage": "Quine utiliza notación canónica para formular teorías científicas parsimoniosas; Strawson investiga categorías del esquema conceptual inserto en el lenguaje; el esencialismo identifica necesidades reales por el funcionamiento de nombres y términos de género natural. Kripke y Putnam recurren a lo que diríamos ante situaciones contrafácticas como Tierra Gemela: una sustancia de propiedades superficiales iguales al agua pero distinta de H₂O. Los tres proyectos conservan reflexión lingüística.",
+    "sourceMode": "paraphrase",
+    "question": "¿En qué sentido siguen siendo proyectos del giro lingüístico?",
+    "diagram": [
+      "Quine: notación",
+      "Strawson: esquema",
+      "Kripke/Putnam: designación"
+    ],
+    "dependsOn": [
+      "G125"
+    ]
+  },
+  {
+    "id": "G127",
+    "section": "lenguaje",
+    "page": "pp. 76–77",
+    "title": "Filosofía lingüística y filosofía del lenguaje",
+    "kind": "Distinción",
+    "short": "método transversal · disciplina propia · explicación sistemática",
+    "explanation": "El lenguaje era instrumento para resolver problemas en positivismo, Wittgenstein y filosofía lingüística, y guía ontológica para atomismo, Quine y esencialismo. Desde 1960 se afirma también como tema propio. La filosofía lingüística es un método transversal que estudia expresiones particulares; la filosofía del lenguaje es una disciplina que busca una explicación sistemática. Algunos consideran esta teoría fundamento necesario incluso del método lingüístico.",
+    "excerpt": "",
+    "sourcePassage": "El lenguaje era instrumento para resolver problemas en positivismo, Wittgenstein y filosofía lingüística, y guía ontológica para atomismo, Quine y esencialismo. Desde 1960 se afirma también como tema propio. La filosofía lingüística es un método transversal que estudia expresiones particulares; la filosofía del lenguaje es una disciplina que busca una explicación sistemática. Algunos consideran esta teoría fundamento necesario incluso del método lingüístico.",
+    "sourceMode": "paraphrase",
+    "question": "¿Cómo distingue Glock ambas actividades?",
+    "diagram": [
+      "método transversal",
+      "disciplina propia",
+      "explicación sistemática"
+    ],
+    "dependsOn": [
+      "G126",
+      "G95"
+    ]
+  },
+  {
+    "id": "G128",
+    "section": "lenguaje",
+    "page": "p. 77",
+    "title": "Semántica formal y actividad humana",
+    "kind": "Controversia",
+    "short": "reglas formales · actividad social · combinación en Davidson",
+    "explanation": "La filosofía del lenguaje se interesa por lenguas naturales, sin que ello determine el papel de la lógica formal. Strawson describe la disputa entre quienes ven el lenguaje como sistema abstracto de reglas y quienes lo ven como actividad humana. Quine y Davidson rechazan la disyuntiva combinando semántica formal y énfasis pragmático en la conducta social, aunque Davidson se centra en lenguas naturales y Quine en las artificiales.",
+    "excerpt": "",
+    "sourcePassage": "La filosofía del lenguaje se interesa por lenguas naturales, sin que ello determine el papel de la lógica formal. Strawson describe la disputa entre quienes ven el lenguaje como sistema abstracto de reglas y quienes lo ven como actividad humana. Quine y Davidson rechazan la disyuntiva combinando semántica formal y énfasis pragmático en la conducta social, aunque Davidson se centra en lenguas naturales y Quine en las artificiales.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué la semántica formal no excluye una perspectiva pragmática?",
+    "diagram": [
+      "reglas formales",
+      "actividad social",
+      "combinación en Davidson"
+    ],
+    "dependsOn": [
+      "G127"
+    ]
+  },
+  {
+    "id": "G129",
+    "section": "lenguaje",
+    "page": "pp. 77–78",
+    "title": "Davidson: teoría constructiva y composicionalidad",
+    "kind": "Método",
+    "short": "léxico finito · reglas de composición · oraciones ilimitadas",
+    "explanation": "Davidson propone una teoría constructiva del significado, distinta de las teorías analíticas que explican el concepto general de significado. Para cada oración de una lengua natural debe generar un teorema que especifique su sentido. Su construcción es empírica y la filosofía determina los requisitos: la productividad semántica exige explicar infinitas oraciones por componentes de un léxico finito y sus modos de composición.",
+    "excerpt": "productividad semántica",
+    "sourcePassage": "Davidson propone una teoría constructiva del significado, distinta de las teorías analíticas que explican el concepto general de significado. Para cada oración de una lengua natural debe generar un teorema que especifique su sentido. Su construcción es empírica y la filosofía determina los requisitos: la productividad semántica exige explicar infinitas oraciones por componentes de un léxico finito y sus modos de composición.",
+    "sourceMode": "paraphrase",
+    "question": "¿Cómo explica la composicionalidad la productividad?",
+    "diagram": [
+      "léxico finito",
+      "reglas de composición",
+      "oraciones ilimitadas"
+    ],
+    "dependsOn": [
+      "G128"
+    ]
+  },
+  {
+    "id": "G130",
+    "section": "lenguaje",
+    "page": "p. 78",
+    "title": "Tarski y las oraciones T de Davidson",
+    "kind": "Método",
+    "short": "axiomas finitos · oraciones T · condiciones de verdad",
+    "explanation": "Una teoría tarskiana de verdad deriva con axiomas finitos una oración T por cada oración de la lengua L; Glock ejemplifica: «Schnee ist weiss» es verdadera si y sólo si la nieve es blanca. Tarski busca definir verdad; Davidson emplea las condiciones de verdad para establecer significado y confía en teorías para lenguas naturales, susceptibles de confirmación empírica.",
+    "excerpt": "",
+    "sourcePassage": "Una teoría tarskiana de verdad deriva con axiomas finitos una oración T por cada oración de la lengua L; Glock ejemplifica: «Schnee ist weiss» es verdadera si y sólo si la nieve es blanca. Tarski busca definir verdad; Davidson emplea las condiciones de verdad para establecer significado y confía en teorías para lenguas naturales, susceptibles de confirmación empírica.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué cambio de finalidad introduce Davidson respecto de Tarski?",
+    "diagram": [
+      "axiomas finitos",
+      "oraciones T",
+      "condiciones de verdad"
+    ],
+    "dependsOn": [
+      "G129",
+      "G68"
+    ]
+  },
+  {
+    "id": "G131",
+    "section": "lenguaje",
+    "page": "p. 78",
+    "title": "Interpretación radical y caridad",
+    "kind": "Tesis",
+    "short": "asentimiento · creencias mayormente correctas · interpretación posible",
+    "explanation": "La interpretación radical, variante de la traducción radical, estudia las condiciones en que hablantes de una lengua asienten a sus propias oraciones. Davidson considera precondición de interpretación que las creencias sean mayormente correctas: según el principio de caridad, los hablantes interpretables no pueden estar fundamentalmente equivocados. Glock también señala que las formas inferenciales ordinarias pueden comprometer la teoría con sucesos.",
+    "excerpt": "principio de caridad",
+    "sourcePassage": "La interpretación radical, variante de la traducción radical, estudia las condiciones en que hablantes de una lengua asienten a sus propias oraciones. Davidson considera precondición de interpretación que las creencias sean mayormente correctas: según el principio de caridad, los hablantes interpretables no pueden estar fundamentalmente equivocados. Glock también señala que las formas inferenciales ordinarias pueden comprometer la teoría con sucesos.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué la caridad es condición de interpretación?",
+    "diagram": [
+      "asentimiento",
+      "creencias mayormente correctas",
+      "interpretación posible"
+    ],
+    "dependsOn": [
+      "G130",
+      "G102"
+    ]
+  },
+  {
+    "id": "G132",
+    "section": "lenguaje",
+    "page": "pp. 78–79",
+    "title": "Davidson y Dummett",
+    "kind": "Contraste",
+    "short": "condiciones de verdad · condiciones de aserción · perspectiva pública común",
+    "explanation": "El antirrealismo de Dummett también usa teorías de significado como guía metafísica, pero sustituye las condiciones de verdad independientes de nuestra capacidad de decidir por condiciones que garantizan la aserción. La nota 3 distingue además sus respuestas a las oraciones no declarativas. Pese a ello ambos comparten perspectiva de tercera persona y prioridad del lenguaje, vinculando significado al comportamiento observable.",
+    "excerpt": "",
+    "sourcePassage": "El antirrealismo de Dummett también usa teorías de significado como guía metafísica, pero sustituye las condiciones de verdad independientes de nuestra capacidad de decidir por condiciones que garantizan la aserción. La nota 3 distingue además sus respuestas a las oraciones no declarativas. Pese a ello ambos comparten perspectiva de tercera persona y prioridad del lenguaje, vinculando significado al comportamiento observable.",
+    "sourceMode": "paraphrase",
+    "question": "¿En qué discrepan Davidson y Dummett y qué comparten?",
+    "diagram": [
+      "condiciones de verdad",
+      "condiciones de aserción",
+      "perspectiva pública común"
+    ],
+    "dependsOn": [
+      "G131"
+    ]
+  },
+  {
+    "id": "G133",
+    "section": "lenguaje",
+    "page": "p. 79",
+    "title": "Grice: implicaturas y pragmática",
+    "kind": "Crítica",
+    "short": "significado lingüístico · principios pragmáticos · implicaturas",
+    "explanation": "Grice sostiene que muchos patrones de uso destacados por analistas conceptuales no son semánticamente relevantes: proceden de principios pragmáticos generales del discurso y no del significado específico de las expresiones. La teoría de las implicaturas conversacionales cuestiona identificar sin más significado y uso, aunque Grice conserva la idea de que el significado deriva del uso de los hablantes.",
+    "excerpt": "implicaturas conversacionales",
+    "sourcePassage": "Grice sostiene que muchos patrones de uso destacados por analistas conceptuales no son semánticamente relevantes: proceden de principios pragmáticos generales del discurso y no del significado específico de las expresiones. La teoría de las implicaturas conversacionales cuestiona identificar sin más significado y uso, aunque Grice conserva la idea de que el significado deriva del uso de los hablantes.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué lo comunicado puede exceder el significado convencional?",
+    "diagram": [
+      "significado lingüístico",
+      "principios pragmáticos",
+      "implicaturas"
+    ],
+    "dependsOn": [
+      "G132",
+      "G82"
+    ]
+  },
+  {
+    "id": "G134",
+    "section": "mente",
+    "page": "p. 79",
+    "title": "Del lenguaje a la acción y la intención",
+    "kind": "Transición",
+    "short": "conducta intencional · acción · nociones psicológicas",
+    "explanation": "El lenguaje como comportamiento intencional lleva a Austin a situar su filosofía dentro de la filosofía de la acción. Grice y Searle avanzan hacia la filosofía de la mente al intentar reducir nociones semánticas a nociones psicológicas como intención. La transición invierte la prioridad del lenguaje sobre el pensamiento sostenida por otros analíticos.",
+    "excerpt": "",
+    "sourcePassage": "El lenguaje como comportamiento intencional lleva a Austin a situar su filosofía dentro de la filosofía de la acción. Grice y Searle avanzan hacia la filosofía de la mente al intentar reducir nociones semánticas a nociones psicológicas como intención. La transición invierte la prioridad del lenguaje sobre el pensamiento sostenida por otros analíticos.",
+    "sourceMode": "paraphrase",
+    "question": "¿Cómo se produce el paso de filosofía del lenguaje a filosofía de la mente?",
+    "diagram": [
+      "conducta intencional",
+      "acción",
+      "nociones psicológicas"
+    ],
+    "dependsOn": [
+      "G133",
+      "G94"
+    ]
+  },
+  {
+    "id": "G135",
+    "section": "mente",
+    "page": "pp. 79–80",
+    "title": "Fodor: lenguaje del pensamiento",
+    "kind": "Tesis",
+    "short": "símbolos internos · cálculo mental · lenguaje público derivado",
+    "explanation": "Los enfoques influidos por Chomsky desplazan la comunicación como fundamento del significado. Fodor (1975) explica el significado público y la intencionalidad mediante símbolos internos o representaciones cerebrales: pensar sería calcular sobre oraciones internas. Prioriza la mente privada sobre el lenguaje público, conservando instrumentos lógico-lingüísticos. Glock caracteriza este movimiento como inversión del giro lingüístico.",
+    "excerpt": "lenguaje del pensamiento",
+    "sourcePassage": "Los enfoques influidos por Chomsky desplazan la comunicación como fundamento del significado. Fodor (1975) explica el significado público y la intencionalidad mediante símbolos internos o representaciones cerebrales: pensar sería calcular sobre oraciones internas. Prioriza la mente privada sobre el lenguaje público, conservando instrumentos lógico-lingüísticos. Glock caracteriza este movimiento como inversión del giro lingüístico.",
+    "sourceMode": "paraphrase",
+    "question": "¿Cómo invierte Fodor la prioridad entre pensamiento y lenguaje?",
+    "diagram": [
+      "símbolos internos",
+      "cálculo mental",
+      "lenguaje público derivado"
+    ],
+    "dependsOn": [
+      "G134"
+    ]
+  },
+  {
+    "id": "G136",
+    "section": "mente",
+    "page": "p. 80",
+    "title": "Lenguaje privado y fantasma en la máquina",
+    "kind": "Crítica",
+    "short": "experiencia privada · criterios de corrección · crítica cartesiana",
+    "explanation": "Desde Descartes al fenomenalismo se atribuyen a experiencias privadas fundamentos del conocimiento y el lenguaje. El argumento del lenguaje privado de Wittgenstein cuestiona que asociar palabras a experiencias exclusivamente propias fije criterios de corrección: nombrar requiere estándares explicables y comprensibles. Ryle critica la imagen del alma inmaterial que interactúa con el cuerpo; la nota 4 menciona a Broad (1925) como antecedente del debate.",
+    "excerpt": "fantasma en la máquina",
+    "sourcePassage": "Desde Descartes al fenomenalismo se atribuyen a experiencias privadas fundamentos del conocimiento y el lenguaje. El argumento del lenguaje privado de Wittgenstein cuestiona que asociar palabras a experiencias exclusivamente propias fije criterios de corrección: nombrar requiere estándares explicables y comprensibles. Ryle critica la imagen del alma inmaterial que interactúa con el cuerpo; la nota 4 menciona a Broad (1925) como antecedente del debate.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué una asociación privada no basta para fijar significado?",
+    "diagram": [
+      "experiencia privada",
+      "criterios de corrección",
+      "crítica cartesiana"
+    ],
+    "dependsOn": [
+      "G135",
+      "G87",
+      "G91"
+    ]
+  },
+  {
+    "id": "G137",
+    "section": "mente",
+    "page": "p. 80",
+    "title": "Causas y constitución de lo mental",
+    "kind": "Distinción",
+    "short": "precondiciones causales · conceptos constitutivos · naturalización",
+    "explanation": "Wittgenstein y Ryle distinguen precondiciones causales de fenómenos mentales, como descargas neuronales, del análisis de conceptos mentales que especifica aspectos constitutivos. El naturalismo quineano, en contraste, integra la filosofía de la mente en psicología, biología o neurociencia y propone explicar los fenómenos mentales en términos de ciencia física.",
+    "excerpt": "",
+    "sourcePassage": "Wittgenstein y Ryle distinguen precondiciones causales de fenómenos mentales, como descargas neuronales, del análisis de conceptos mentales que especifica aspectos constitutivos. El naturalismo quineano, en contraste, integra la filosofía de la mente en psicología, biología o neurociencia y propone explicar los fenómenos mentales en términos de ciencia física.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué explicación causal y análisis conceptual no son lo mismo?",
+    "diagram": [
+      "precondiciones causales",
+      "conceptos constitutivos",
+      "naturalización"
+    ],
+    "dependsOn": [
+      "G136",
+      "G103"
+    ]
+  },
+  {
+    "id": "G138",
+    "section": "mente",
+    "page": "pp. 80–81",
+    "title": "Identidad mente-cerebro",
+    "kind": "Tesis",
+    "short": "estado mental · papel causal · identidad neurofisiológica",
+    "explanation": "Place, Smart y Armstrong rechazan que los términos mentales no refieran a estados internos causantes de conducta y los identifican con estados físicos. La teoría propone identidad entre propiedades mentales y neurofisiológicas, no sinonimia: reducción científica sintética a posteriori, análoga al agua y H₂O. Combina una tesis conceptual sobre estados causales con una tesis científica sobre su realización neural.",
+    "excerpt": "teoría de la identidad mente-cerebro",
+    "sourcePassage": "Place, Smart y Armstrong rechazan que los términos mentales no refieran a estados internos causantes de conducta y los identifican con estados físicos. La teoría propone identidad entre propiedades mentales y neurofisiológicas, no sinonimia: reducción científica sintética a posteriori, análoga al agua y H₂O. Combina una tesis conceptual sobre estados causales con una tesis científica sobre su realización neural.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué la identidad no es una reducción semántica?",
+    "diagram": [
+      "estado mental",
+      "papel causal",
+      "identidad neurofisiológica"
+    ],
+    "dependsOn": [
+      "G137",
+      "G121"
+    ]
+  },
+  {
+    "id": "G139",
+    "section": "mente",
+    "page": "p. 81",
+    "title": "Realizabilidad múltiple",
+    "kind": "Objeción",
+    "short": "mismo tipo mental · realizaciones físicas distintas · crítica de identidad de tipos",
+    "explanation": "Putnam y Fodor objetan la identidad de tipos: fenómenos mentales pueden realizarse mediante distintos fenómenos fisicoquímicos, tanto en principio (humano, marciano, computadora) como entre personas que resuelven un mismo problema con activaciones cerebrales diferentes. Glock presenta esta dificultad como impulso al funcionalismo.",
+    "excerpt": "realizabilidad múltiple",
+    "sourcePassage": "Putnam y Fodor objetan la identidad de tipos: fenómenos mentales pueden realizarse mediante distintos fenómenos fisicoquímicos, tanto en principio (humano, marciano, computadora) como entre personas que resuelven un mismo problema con activaciones cerebrales diferentes. Glock presenta esta dificultad como impulso al funcionalismo.",
+    "sourceMode": "paraphrase",
+    "question": "¿Cómo cuestiona la realizabilidad múltiple la identidad tipo-tipo?",
+    "diagram": [
+      "mismo tipo mental",
+      "realizaciones físicas distintas",
+      "crítica de identidad de tipos"
+    ],
+    "dependsOn": [
+      "G138"
+    ]
+  },
+  {
+    "id": "G140",
+    "section": "mente",
+    "page": "p. 81",
+    "title": "Funcionalismo",
+    "kind": "Tesis",
+    "short": "entrada · estado funcional · respuesta",
+    "explanation": "Los estados mentales se identifican por su función o papel causal y no por un proceso físico particular. Diferentes estados físicos pueden implementar ese papel. Glock ejemplifica el dolor mediante la función que relaciona una estimulación, como un daño, con una respuesta comportamental, como gritar; la ilustración no pretende que toda experiencia de dolor produzca necesariamente un grito.",
+    "excerpt": "papel causal o función",
+    "sourcePassage": "Los estados mentales se identifican por su función o papel causal y no por un proceso físico particular. Diferentes estados físicos pueden implementar ese papel. Glock ejemplifica el dolor mediante la función que relaciona una estimulación, como un daño, con una respuesta comportamental, como gritar; la ilustración no pretende que toda experiencia de dolor produzca necesariamente un grito.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué identifica un estado mental en el funcionalismo?",
+    "diagram": [
+      "entrada",
+      "estado funcional",
+      "respuesta"
+    ],
+    "dependsOn": [
+      "G139"
+    ]
+  },
+  {
+    "id": "G141",
+    "section": "mente",
+    "page": "p. 81",
+    "title": "Monismo anómalo y superveniencia",
+    "kind": "Tesis",
+    "short": "identidad de instancias · no identidad tipo-tipo · superveniencia",
+    "explanation": "Davidson abandona la identidad tipo-tipo pero mantiene identidad de cada instancia mental con un evento físico particular. Comparte con el funcionalismo la superveniencia: puede haber diferencias físicas sin diferencias mentales, pero no diferencias mentales sin diferencias físicas. Se distingue identidad de instancias de identidad de tipos y de superveniencia.",
+    "excerpt": "monismo anómalo",
+    "sourcePassage": "Davidson abandona la identidad tipo-tipo pero mantiene identidad de cada instancia mental con un evento físico particular. Comparte con el funcionalismo la superveniencia: puede haber diferencias físicas sin diferencias mentales, pero no diferencias mentales sin diferencias físicas. Se distingue identidad de instancias de identidad de tipos y de superveniencia.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué permite y qué excluye la superveniencia?",
+    "diagram": [
+      "identidad de instancias",
+      "no identidad tipo-tipo",
+      "superveniencia"
+    ],
+    "dependsOn": [
+      "G140"
+    ]
+  },
+  {
+    "id": "G142",
+    "section": "mente",
+    "page": "pp. 81–82",
+    "title": "Qualia e intencionalidad",
+    "kind": "Objeción",
+    "short": "función causal · experiencia subjetiva · contenido intencional",
+    "explanation": "Glock presenta dos frentes de crítica al funcionalismo. Nagel y Jackson objetan que no explica el aspecto subjetivo y privado de los fenómenos mentales, los qualia. Otras críticas sostienen que el funcionalismo no puede explicar intencionalidad ni contenido del pensamiento. Son objeciones diferentes: experiencia subjetiva frente a contenido representacional.",
+    "excerpt": "qualia",
+    "sourcePassage": "Glock presenta dos frentes de crítica al funcionalismo. Nagel y Jackson objetan que no explica el aspecto subjetivo y privado de los fenómenos mentales, los qualia. Otras críticas sostienen que el funcionalismo no puede explicar intencionalidad ni contenido del pensamiento. Son objeciones diferentes: experiencia subjetiva frente a contenido representacional.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué los qualia y la intencionalidad plantean problemas distintos?",
+    "diagram": [
+      "función causal",
+      "experiencia subjetiva",
+      "contenido intencional"
+    ],
+    "dependsOn": [
+      "G141"
+    ]
+  },
+  {
+    "id": "G143",
+    "section": "mente",
+    "page": "pp. 81–82",
+    "title": "Searle: habitación china",
+    "kind": "Objeción",
+    "short": "entrada de símbolos · manipulación sintáctica · comprensión cuestionada",
+    "explanation": "El experimento mental de Searle cuestiona que producir símbolos sintácticamente adecuados en respuesta a entradas equivalga a comprensión genuina. Una simulación puede exhibir esa capacidad sin que por ello se haya establecido comprensión del mundo. Glock lo presenta como análisis conceptual contra la suficiencia de la manipulación sintáctica.",
+    "excerpt": "habitación china",
+    "sourcePassage": "El experimento mental de Searle cuestiona que producir símbolos sintácticamente adecuados en respuesta a entradas equivalga a comprensión genuina. Una simulación puede exhibir esa capacidad sin que por ello se haya establecido comprensión del mundo. Glock lo presenta como análisis conceptual contra la suficiencia de la manipulación sintáctica.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué diferencia hay entre manipular símbolos y comprenderlos?",
+    "diagram": [
+      "entrada de símbolos",
+      "manipulación sintáctica",
+      "comprensión cuestionada"
+    ],
+    "dependsOn": [
+      "G142"
+    ]
+  },
+  {
+    "id": "G144",
+    "section": "mente",
+    "page": "p. 82",
+    "title": "Externalismo del contenido",
+    "kind": "Tesis",
+    "short": "propiedades intrínsecas · entorno físico/social · contenido diferenciado",
+    "explanation": "Putnam y Burge niegan que el contenido de los pensamientos dependa exclusivamente de propiedades intrínsecas mentales o físicas: cuentan hechos del entorno físico o social, incluso desconocidos por el sujeto. Glock concluye que duplicados físicos pueden tener pensamientos distintos y recurre a Tierra Gemela y XYZ. La última frase de la edición fotografiada dice que el duplicado piensa en el agua pese a XYZ; se marca esa tensión con la tesis previa sin corregirla como cita.",
+    "excerpt": "",
+    "sourcePassage": "Putnam y Burge niegan que el contenido de los pensamientos dependa exclusivamente de propiedades intrínsecas mentales o físicas: cuentan hechos del entorno físico o social, incluso desconocidos por el sujeto. Glock concluye que duplicados físicos pueden tener pensamientos distintos y recurre a Tierra Gemela y XYZ. La última frase de la edición fotografiada dice que el duplicado piensa en el agua pese a XYZ; se marca esa tensión con la tesis previa sin corregirla como cita.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué el externalismo cuestiona la suficiencia de propiedades internas?",
+    "diagram": [
+      "propiedades intrínsecas",
+      "entorno físico/social",
+      "contenido diferenciado"
+    ],
+    "dependsOn": [
+      "G143",
+      "G126"
+    ]
+  },
+  {
+    "id": "G145",
+    "section": "mente",
+    "page": "p. 82",
+    "title": "Materialismo eliminativo",
+    "kind": "Tesis",
+    "short": "psicología popular · rechazo de reducción · reemplazo neurológico",
+    "explanation": "Churchland trata las creencias psicológicas y conceptos ordinarios como una teoría errónea, la psicología popular, que no refiere a fenómenos reales y debería reemplazarse por una teoría neurológica. Glock lo vincula al naturalismo eliminativo y a Quine sobre significado: no analiza ni reduce científicamente los conceptos que no encajan en ciencia natural, sino que los sustituye por otros aceptables.",
+    "excerpt": "materialismo eliminativo",
+    "sourcePassage": "Churchland trata las creencias psicológicas y conceptos ordinarios como una teoría errónea, la psicología popular, que no refiere a fenómenos reales y debería reemplazarse por una teoría neurológica. Glock lo vincula al naturalismo eliminativo y a Quine sobre significado: no analiza ni reduce científicamente los conceptos que no encajan en ciencia natural, sino que los sustituye por otros aceptables.",
+    "sourceMode": "paraphrase",
+    "question": "¿En qué difiere eliminar de reducir?",
+    "diagram": [
+      "psicología popular",
+      "rechazo de reducción",
+      "reemplazo neurológico"
+    ],
+    "dependsOn": [
+      "G144",
+      "G102"
+    ]
+  },
+  {
+    "id": "G146",
+    "section": "valores",
+    "page": "p. 82",
+    "title": "Moore: umbral de la cuestión abierta",
+    "kind": "Transición",
+    "short": "definición de bien · cualidad simple · indefinibilidad",
+    "explanation": "Para Moore la definición de bien constituye el problema fundamental de la ética. Su argumento de la cuestión abierta conduce a considerar indefinible el bien porque la bondad es una cualidad simple sin partes. Glock comienza a presentar una definición, pero su formulación y el desarrollo argumental continúan en p. 83; no se anticipan aquí.",
+    "excerpt": "cuestión abierta",
+    "sourcePassage": "Para Moore la definición de bien constituye el problema fundamental de la ética. Su argumento de la cuestión abierta conduce a considerar indefinible el bien porque la bondad es una cualidad simple sin partes. Glock comienza a presentar una definición, pero su formulación y el desarrollo argumental continúan en p. 83; no se anticipan aquí.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué problema abre Moore al comienzo de la sección sobre valores?",
+    "diagram": [
+      "definición de bien",
+      "cualidad simple",
+      "indefinibilidad"
+    ],
+    "dependsOn": [
+      "G145"
+    ]
   }
 ]
 
@@ -2116,5 +2870,275 @@ export const glockContinuationEdges = [
     "G103",
     "G111",
     "naturalismo ontológico"
+  ],
+  [
+    "G111",
+    "G112",
+    "continuidad argumental"
+  ],
+  [
+    "G112",
+    "G113",
+    "continuidad argumental"
+  ],
+  [
+    "G113",
+    "G114",
+    "continuidad argumental"
+  ],
+  [
+    "G114",
+    "G115",
+    "continuidad argumental"
+  ],
+  [
+    "G115",
+    "G116",
+    "continuidad argumental"
+  ],
+  [
+    "G116",
+    "G117",
+    "continuidad argumental"
+  ],
+  [
+    "G117",
+    "G118",
+    "continuidad argumental"
+  ],
+  [
+    "G118",
+    "G119",
+    "continuidad argumental"
+  ],
+  [
+    "G119",
+    "G120",
+    "continuidad argumental"
+  ],
+  [
+    "G120",
+    "G121",
+    "continuidad argumental"
+  ],
+  [
+    "G121",
+    "G122",
+    "continuidad argumental"
+  ],
+  [
+    "G122",
+    "G123",
+    "continuidad argumental"
+  ],
+  [
+    "G123",
+    "G124",
+    "continuidad argumental"
+  ],
+  [
+    "G124",
+    "G125",
+    "continuidad argumental"
+  ],
+  [
+    "G125",
+    "G126",
+    "continuidad argumental"
+  ],
+  [
+    "G126",
+    "G127",
+    "continuidad argumental"
+  ],
+  [
+    "G127",
+    "G128",
+    "continuidad argumental"
+  ],
+  [
+    "G128",
+    "G129",
+    "continuidad argumental"
+  ],
+  [
+    "G129",
+    "G130",
+    "continuidad argumental"
+  ],
+  [
+    "G130",
+    "G131",
+    "continuidad argumental"
+  ],
+  [
+    "G131",
+    "G132",
+    "continuidad argumental"
+  ],
+  [
+    "G132",
+    "G133",
+    "continuidad argumental"
+  ],
+  [
+    "G133",
+    "G134",
+    "continuidad argumental"
+  ],
+  [
+    "G134",
+    "G135",
+    "continuidad argumental"
+  ],
+  [
+    "G135",
+    "G136",
+    "continuidad argumental"
+  ],
+  [
+    "G136",
+    "G137",
+    "continuidad argumental"
+  ],
+  [
+    "G137",
+    "G138",
+    "continuidad argumental"
+  ],
+  [
+    "G138",
+    "G139",
+    "continuidad argumental"
+  ],
+  [
+    "G139",
+    "G140",
+    "continuidad argumental"
+  ],
+  [
+    "G140",
+    "G141",
+    "continuidad argumental"
+  ],
+  [
+    "G141",
+    "G142",
+    "continuidad argumental"
+  ],
+  [
+    "G142",
+    "G143",
+    "continuidad argumental"
+  ],
+  [
+    "G143",
+    "G144",
+    "continuidad argumental"
+  ],
+  [
+    "G144",
+    "G145",
+    "continuidad argumental"
+  ],
+  [
+    "G145",
+    "G146",
+    "continuidad argumental"
+  ],
+  [
+    "G46",
+    "G112",
+    "paráfrasis y ontología (reconstrucción)"
+  ],
+  [
+    "G78",
+    "G114",
+    "contraste de explicación lógica"
+  ],
+  [
+    "G89",
+    "G115",
+    "ampliación del análisis conceptual"
+  ],
+  [
+    "G53",
+    "G117",
+    "afinidad kantiana (reconstrucción)"
+  ],
+  [
+    "G104",
+    "G118",
+    "contraste de epistemologías"
+  ],
+  [
+    "G68",
+    "G119",
+    "antecedente de mundos posibles"
+  ],
+  [
+    "G61",
+    "G120",
+    "distinciones positivistas cuestionadas"
+  ],
+  [
+    "G101",
+    "G123",
+    "crítica de intensiones"
+  ],
+  [
+    "G95",
+    "G127",
+    "uso ordinario y método"
+  ],
+  [
+    "G68",
+    "G130",
+    "teoría de verdad"
+  ],
+  [
+    "G102",
+    "G131",
+    "variante de traducción radical"
+  ],
+  [
+    "G82",
+    "G133",
+    "significado y uso"
+  ],
+  [
+    "G94",
+    "G134",
+    "actos de habla"
+  ],
+  [
+    "G87",
+    "G136",
+    "reglas y criterios públicos"
+  ],
+  [
+    "G91",
+    "G136",
+    "crítica al dualismo"
+  ],
+  [
+    "G103",
+    "G137",
+    "naturalismo quineano"
+  ],
+  [
+    "G121",
+    "G138",
+    "analogía de identidad científica"
+  ],
+  [
+    "G126",
+    "G144",
+    "Tierra Gemela"
+  ],
+  [
+    "G102",
+    "G145",
+    "afinidad eliminativa (reconstrucción)"
   ]
 ]
