@@ -16,7 +16,7 @@ test('Clase 19 oct: ruta, índice y lectura Glock enlazados', () => {
   assert.match(app, /filosofia-analitica\/clase\/19-octubre/)
   assert.match(course, /Decimosexta clase · Hans-Johann Glock/)
   assert.match(course, /Prehistoria del análisis y revolución copernicana/)
-  assert.match(course, /texto cotejado: 40–53; atlas 2D: 40–51; continuación pendiente: 54–86/)
+  assert.match(course, /texto cotejado: 40–86; atlas 2D: 40–86; capítulo completo \(47 páginas\)/)
   assert.match(page, /lectura\/glock-capitulo-2/)
 })
 
@@ -43,7 +43,8 @@ test('Glock 2D: los 21 nodos de la clase del 19 tienen su capa docente independi
   const later = glockNodes.filter(n => !n.data.class19Oct)
   assert.equal(Object.keys(glockClass19Oct).length, 21)
   assert.equal(taught.length, 21)
-  assert.equal(later.length, 18)
+  assert.equal(later.length, glockNodes.length - 21)
+  assert.deepEqual(taught.map(n=>n.id), Array.from({length:21},(_,i)=>'G'+String(i).padStart(2,'0')))
   for (const node of taught) {
     assert.ok(node.data.class19Oct, node.id)
     assert.ok(node.data.class19Oct.note.length > 45, node.id)

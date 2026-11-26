@@ -1,4 +1,5 @@
-// Fuente primaria: Glock (Tecnos, 2012), cap. II, pp. 40–51. No extrapolar p. 52.
+// Fuente primaria: Glock (Tecnos, 2012), cap. II, pp. 40–86; cobertura documental del capítulo completa.
+import { glockContinuationNodes, glockContinuationEdges } from './glockChapter2Continuation.js'
 import { SYSTEM_2D_THEME } from '../components/philosophy/system2d/system2dTheme.js'
 import { glockClass19Oct } from './glockClass19Oct.js'
 import { glockClass21Oct } from './glockClass21Oct.js'
@@ -32,7 +33,17 @@ export const glockRoutes = [
   { "id": "boole", "label": "10 · Boole y álgebra lógica" },
   { "id": "frege", "label": "11 · Frege y lógica formal" },
   { "id": "limites", "label": "12 · Límites del logicismo" },
-  { "id": "rebelion", "label": "13 · Rebelión contra el idealismo" }
+  { "id": "rebelion", "label": "13 · Rebelión contra el idealismo" },
+  { "id": "giro", "label": "14 · Giro lingüístico y Tractatus" },
+  { "id": "viena", "label": "15 · Círculo de Viena y verificacionismo" },
+  { "id": "construccion", "label": "16 · Construccionismo y análisis conceptual" },
+  { "id": "uso", "label": "17 · Segundo Wittgenstein y uso" },
+  { "id": "ordinario", "label": "18 · Filosofía del lenguaje ordinario" },
+  { "id": "colapso", "label": "19 · Colapso del positivismo lógico" },
+  { "id": "metafisica", "label": "20 · Rehabilitación de la metafísica" },
+  { "id": "lenguaje", "label": "21 · Filosofía del lenguaje" },
+  { "id": "mente", "label": "22 · Filosofía de la mente" },
+  { "id": "valores", "label": "23 · Asuntos relacionados con los valores" }
 ]
 
 const SOURCE_NODES = [
@@ -724,7 +735,7 @@ const SOURCE_NODES = [
   "kind": "Inicio de sección",
   "page": "p. 51",
   "short": "El nuevo apartado comienza vinculando el proyecto lógico de Russell con su formación idealista.",
-  "explanation": "La sección 3, «La rebelión contra el idealismo», se inicia en la página 51. Sólo alcanzamos el pasaje de presentación: Russell usa herramientas lógicas en epistemología y metafísica y aparece su relación inicial con el idealismo británico de Bradley y McTaggart. El desarrollo de esa rebelión en p. 52 y siguientes aún no se ha recibido.",
+  "explanation": "La sección 3, «La rebelión contra el idealismo», se inicia en la página 51. Sólo alcanzamos el pasaje de presentación: Russell usa herramientas lógicas en epistemología y metafísica y aparece su relación inicial con el idealismo británico de Bradley y McTaggart. El desarrollo de esa rebelión continúa en los nodos G39–G48 (pp. 52–55).",
   "dependsOn": [
     "G36",
     "G37"
@@ -734,10 +745,11 @@ const SOURCE_NODES = [
     "problemas de epistemología y metafísica",
     "idealismo británico · transición"
   ],
-  "question": "¿Por qué la formación idealista de Russell importa para la siguiente sección, todavía no leída?",
+  "question": "¿Por qué la formación idealista de Russell importa para la siguiente sección?",
   "x": 0,
   "y": 0
-}
+},
+  ...glockContinuationNodes
 ]
 
 const SOURCE_PASSAGES = Object.freeze({
@@ -783,6 +795,7 @@ const SOURCE_PASSAGES = Object.freeze({
 })
 
 const NODE_DIAGRAMS = Object.freeze({
+  ...Object.fromEntries(glockContinuationNodes.map(n => [n.id, n.diagram])),
   G00: ['antecedentes del análisis', 'lógica y análisis conceptual', 'giro lingüístico', 'inversión del giro'],
   G01: ['analysis', 'desatar / disolver', 'dos nociones'],
   G02: ['ser humano', 'animal + racionalidad', 'animal racional'],
@@ -920,7 +933,8 @@ const SOURCE_EDGES = [
 ["G35","G36","desencadena teoría de tipos"],
 ["G36","G37","alcanza límites"],
 ["G37","G38","transición histórica"],
-["G26","G34","afinidad antipsicologista (reconstrucción)"]
+["G26","G34","afinidad antipsicologista (reconstrucción)"],
+  ...glockContinuationEdges
 ]
 
 function buildGlockPassageSchema(item) {
@@ -947,7 +961,7 @@ function buildGlockPassageSchema(item) {
   }
 }
 
-export const glockRouteTones = Object.freeze({ programa: 'gold', antiguos: 'blue', modernos: 'rust', kant: 'moss', juicios: 'violet', trascendental: 'bronze', reacciones: 'sage', matematicas: 'ochre', bolzano: 'moss', boole: 'rust', frege: 'blue', limites: 'violet', rebelion: 'plum' })
+export const glockRouteTones = Object.freeze({ programa: 'gold', antiguos: 'blue', modernos: 'rust', kant: 'moss', juicios: 'violet', trascendental: 'bronze', reacciones: 'sage', matematicas: 'ochre', bolzano: 'moss', boole: 'rust', frege: 'blue', limites: 'violet', rebelion: 'plum', giro: 'blue', viena: 'sage', construccion: 'ochre', uso: 'moss', ordinario: 'rust', colapso: 'violet', metafisica: 'bronze', lenguaje: 'blue', mente: 'plum', valores: 'gold' })
 const TONES = glockRouteTones
 export const glockNodeOrder = SOURCE_NODES.map((node) => node.id)
 
@@ -982,7 +996,8 @@ export const glockNodes = SOURCE_NODES.map((item, index) => ({
     short: item.short,
     explanation: item.explanation,
     excerpt: item.excerpt,
-    sourcePassage: SOURCE_PASSAGES[item.id] || item.excerpt,
+    sourcePassage: item.sourcePassage || SOURCE_PASSAGES[item.id] || item.excerpt,
+    sourceMode: item.sourceMode || 'literal',
     diagram: NODE_DIAGRAMS[item.id] || [item.title],
     schema: buildGlockPassageSchema(item),
     class19Oct: glockClass19Oct[item.id] || null,

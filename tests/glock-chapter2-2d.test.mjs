@@ -13,8 +13,8 @@ const page = readFileSync(new URL('../src/pages/AnalyticGlockSystem.jsx', import
 const css = readFileSync(new URL('../src/pages/AnalyticGlockSystem.css', import.meta.url), 'utf8')
 const node = readFileSync(new URL('../src/components/analytic/GlockNode.jsx', import.meta.url), 'utf8')
 
-test('Glock conserva 39 nodos, fuentes y capas docentes por fecha', () => {
-  assert.equal(glockNodes.length, 39)
+test('Glock conserva 166 nodos, fuentes y capas docentes por fecha', () => {
+  assert.equal(glockNodes.length, 166)
   assert.deepEqual(glockNodeOrder, glockNodes.map((n) => n.id))
   for (const n of glockNodes) {
     assert.ok(n.data.sourcePassage?.length > 180, n.id)
@@ -44,7 +44,7 @@ test('Glock conserva 39 nodos, fuentes y capas docentes por fecha', () => {
 })
 
 test('Glock mantiene relaciones resolubles y saca sus rótulos del canvas', () => {
-  assert.equal(glockLinks.length, 44)
+  assert.equal(glockLinks.length, 241)
   for (const edge of glockLinks) {
     assert.ok(byId.has(edge.source) && byId.has(edge.target), edge.id)
     assert.ok(edge.label.trim().length >= 8, edge.id)
@@ -53,9 +53,9 @@ test('Glock mantiene relaciones resolubles y saca sus rótulos del canvas', () =
   assert.match(page, /Relaciones documentadas/)
 })
 
-test('Trece rutas, guía global y pedagogía por sección cubren todos los nodos', () => {
+test('Veintitrés rutas, guía global y pedagogía por sección cubren todos los nodos', () => {
   const sections = buildSectionPedagogy(glockNodes, glockRoutes, glockNodeOrder)
-  assert.equal(sections.length, 13)
+  assert.equal(sections.length, 23)
   assert.equal(glockGuidedRoute.length, glockNodes.length)
   assert.deepEqual(glockGuidedRoute.map((step) => step.id), glockNodeOrder)
   sections.forEach((section) => {
@@ -128,7 +128,7 @@ test('iPad apila mapa e inspector; el esquema general sigue vertical', () => {
 
 
 test('La tercera entrega sigue pp. 46–51, con frontera documental estricta', () => {
-  const newNodes = glockNodes.filter(n => Number(n.id.slice(1)) >= 21)
+  const newNodes = glockNodes.filter(n => Number(n.id.slice(1)) >= 21 && Number(n.id.slice(1)) <= 38)
   assert.equal(newNodes.length, 18)
   assert.deepEqual(newNodes.map(n => n.id),
     Array.from({ length: 18 }, (_, i) => 'G' + String(i + 21)))
@@ -143,7 +143,7 @@ test('La tercera entrega sigue pp. 46–51, con frontera documental estricta', (
   for (const id of ['matematicas','bolzano','boole','frege','limites','rebelion']) {
     assert.ok(glockRoutes.find(route => route.id === id), id)
   }
-  assert.match(byId.get('G38').data.explanation, /no se ha recibido/)
+  assert.match(byId.get('G38').data.explanation, /continúa en los nodos G39–G48/)
   assert.ok(glockLinks.find(edge => edge.source === 'G20' && edge.target === 'G21'))
 })
 
@@ -177,4 +177,89 @@ test('El checkpoint del 26 de octubre pide seguir leyendo a Glock hoy sin borrar
 
   const nextClass = tasks.find(task => task.id === 'analitica-2026-10-21-glock-pp46-51-2d')
   assert.equal(nextClass?.dueDate, '2026-10-28')
+})
+
+
+test('Continuidad 52–58: paráfrasis identificadas, 21 nodos y límites de fuente', () => {
+  const continuation = glockNodes.filter(n => Number(n.id.slice(1)) >= 39 && Number(n.id.slice(1)) <= 59)
+  assert.equal(continuation.length, 21)
+  assert.deepEqual(continuation.map(n=>n.id), Array.from({length:21},(_,i)=>'G'+(39+i)))
+  for (const n of continuation) {
+    assert.equal(n.data.sourceMode, 'paraphrase', n.id)
+    assert.equal(n.data.classSeen, false, n.id)
+    assert.match(n.data.page, /5[2-8]/)
+    assert.ok(n.data.dependsOn.every(id=>byId.has(id)), n.id)
+    assert.ok(n.data.schema.nodes.length >= 3, n.id)
+  }
+  assert.equal(byId.get('G59').data.page, 'p. 58')
+  assert.match(byId.get('G59').data.explanation, /p. 59, a partir del nodo G60/)
+  assert.match(byId.get('G46').data.explanation, /∃x/)
+  assert.match(page, /PARÁFRASIS COTEJADA DE GLOCK/)
+  assert.match(page, /Cobertura documental del capítulo II completa/)
+})
+
+
+test('Continuidad 59–64: 24 nodos, citas delimitadas y guía completa', () => {
+  const added = glockNodes.filter(n=>Number(n.id.slice(1))>=60 && Number(n.id.slice(1))<=83)
+  assert.deepEqual(added.map(n=>n.id), Array.from({length:24},(_,i)=>'G'+(60+i)))
+  for (const n of added) {
+    assert.equal(n.data.sourceMode,'paraphrase',n.id)
+    assert.equal(n.data.classSeen,false,n.id)
+    assert.match(n.data.page, /59|6[0-4]/)
+    assert.ok(n.data.dependsOn.every(id=>byId.has(id)),n.id)
+  }
+  assert.match(byId.get('G76').data.explanation,/anomalía/)
+  assert.match(byId.get('G83').data.explanation,/p. 65/)
+  assert.equal(byId.get('G83').data.page,'p. 64')
+})
+
+
+test('Continuidad 65–72: 28 nodos, cobertura y frontera', () => {
+  const added = glockNodes.filter(n=>Number(n.id.slice(1))>=84 && Number(n.id.slice(1))<=111)
+  assert.deepEqual(added.map(n=>n.id), Array.from({length:28},(_,i)=>'G'+(84+i)))
+  for (const n of added) {
+    assert.equal(n.data.sourceMode,'paraphrase',n.id)
+    assert.equal(n.data.classSeen,false,n.id)
+    assert.match(n.data.page, /6[5-9]|7[0-2]/)
+    assert.ok(n.data.dependsOn.every(id=>byId.has(id)),n.id)
+  }
+  assert.match(byId.get('G101').data.explanation,/anómala/)
+  assert.match(byId.get('G111').data.explanation,/p. 73/)
+  assert.equal(byId.get('G111').data.page,'p. 72')
+})
+
+
+test('Continuidad 73–82: 35 nodos, cobertura y frontera', () => {
+  const added = glockNodes.filter(n=>Number(n.id.slice(1))>=112 && Number(n.id.slice(1))<=146)
+  assert.deepEqual(added.map(n=>n.id), Array.from({length:35},(_,i)=>'G'+(112+i)))
+  for (const n of added) {
+    assert.equal(n.data.sourceMode,'paraphrase',n.id)
+    assert.equal(n.data.classSeen,false,n.id)
+    assert.match(n.data.page, /7[3-9]|8[0-2]/)
+    assert.ok(n.data.dependsOn.every(id=>byId.has(id)),n.id)
+  }
+  assert.match(byId.get('G144').data.explanation,/tensión/)
+  assert.match(byId.get('G146').data.explanation,/p. 83/)
+  assert.equal(byId.get('G146').data.page,'p. 82')
+})
+
+
+test('Cierre 83–86: 19 nodos y cobertura documental completa', () => {
+  const added = glockNodes.filter(n=>Number(n.id.slice(1))>=147)
+  assert.deepEqual(added.map(n=>n.id), Array.from({length:19},(_,i)=>'G'+(147+i)))
+  for (const n of added) {
+    assert.equal(n.data.sourceMode,'paraphrase',n.id)
+    assert.equal(n.data.classSeen,false,n.id)
+    assert.equal(n.data.section,'valores',n.id)
+    assert.match(n.data.page, /8[3-6]/)
+    assert.ok(n.data.dependsOn.every(id=>byId.has(id)),n.id)
+  }
+  const covered = new Set()
+  for (const n of glockNodes) {
+    const nums = n.data.page.match(/\d+/g)?.map(Number) || []
+    if(nums.length) for(let i=nums[0];i<=(nums[1]||nums[0]);i++) covered.add(i)
+  }
+  for(let i=40;i<=86;i++) assert.ok(covered.has(i),'p. '+i)
+  assert.equal(byId.get('G165').data.page,'p. 86')
+  assert.match(page,/47 páginas/)
 })
