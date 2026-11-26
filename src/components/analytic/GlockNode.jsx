@@ -19,13 +19,10 @@ export default function GlockNode({ data, selected }) {
         data.classSeen ? 'has-class-chip' : '',
       ].filter(Boolean).join(' ')}
     >
-      {data.conceptNumber && (
-        <span className="glock-concept-number">{data.conceptNumber}</span>
-      )}
-
-      {data.classSeen && (
-        <span className="glock-class-chip">VISTO EN CLASE</span>
-      )}
+      <div className="glock-flow-node-badges">
+        {data.classSeen && <span className="glock-class-chip">VISTO EN CLASE</span>}
+        {data.conceptNumber && <span className="glock-concept-number" aria-label={`Número de concepto ${data.conceptNumber}`}>{data.conceptNumber}</span>}
+      </div>
 
       <Handle type="target" position={Position.Left} className="glock-flow-handle" />
 
@@ -43,16 +40,17 @@ export default function GlockNode({ data, selected }) {
       <section className="glock-node-source-card" aria-label="Texto explícito del nodo">
         <span>{data.sourceMode === 'paraphrase' ? 'PARÁFRASIS COTEJADA' : 'TEXTO EXPLÍCITO'} · {data.page}</span>
         <blockquote>{data.sourcePassage}</blockquote>
+        <small className="glock-source-preview-note">Vista previa · Pasaje completo en el inspector.</small>
       </section>
 
-      <div className="glock-node-mini-schema" aria-label="Esquema breve del nodo">
+      <ol className="glock-node-mini-schema" aria-label="Esquema breve del nodo, en orden de lectura">
         {data.diagram.map((part, index) => (
-          <span key={`${data.code}-diagram-${index}`}>
+          <li key={`${data.code}-diagram-${index}`}>
+            <span aria-hidden="true" className="glock-schema-step">{index + 1}</span>
             <b>{part}</b>
-            {index < data.diagram.length - 1 && <i aria-hidden="true">→</i>}
-          </span>
+          </li>
         ))}
-      </div>
+      </ol>
 
       <div className="glock-flow-node-footer">
         <span>{data.page}</span>

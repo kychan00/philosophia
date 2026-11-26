@@ -969,7 +969,7 @@ export const glockNodeOrder = SOURCE_NODES.map((node) => node.id)
 // Una geometría estable para tarjetas documentales: altura declarada y separación
 // proporcional al texto real; nunca confiar en un ajuste automático de React Flow.
 export const GLOCK_GEOMETRY = Object.freeze({
-  width: 310, height: 360, gapX: 110, gapY: 120, columns: 3,
+  width: 350, height: 500, gapX: 110, gapY: 120, columns: 3,
 })
 const sectionOrder = glockRoutes.filter(r => r.id !== 'all').map(r => r.id)
 const nodePositions = new Map()

@@ -21,6 +21,16 @@ import './AnalyticGlockSystem.css'
 
 const nodeTypes = { glock: GlockNode }
 
+// Keep the entire card visible when selecting on narrow or short canvases.
+function glockCardZoom(workspace, preferred) {
+  const rect = workspace?.querySelector('.glock-flow-canvas')?.getBoundingClientRect()
+  if (!rect?.width || !rect?.height) return preferred
+  return Math.max(0.08, Math.min(preferred,
+    (rect.width - 28) / GLOCK_GEOMETRY.width,
+    (rect.height - 28) / GLOCK_GEOMETRY.height,
+  ))
+}
+
 function orderIndex(id) {
   const index = glockNodeOrder.indexOf(id)
   return index === -1 ? 999 : index
@@ -125,7 +135,7 @@ function StudyCanvas() {
       const col = Math.floor(index / rows)
       const row = index % rows
       layout.set(node.id, {
-        x: 390 + col * (GLOCK_GEOMETRY.width + 130),
+        x: 35 + GLOCK_GEOMETRY.width + GLOCK_GEOMETRY.gapX + col * (GLOCK_GEOMETRY.width + 130),
         y: 90 + row * (GLOCK_GEOMETRY.height + 95),
       })
     })
@@ -275,7 +285,7 @@ function StudyCanvas() {
         setCenter(
           point.x + GLOCK_GEOMETRY.width / 2,
           point.y + GLOCK_GEOMETRY.height / 2,
-          { zoom: 1.02, duration: 380 },
+          { zoom: glockCardZoom(workspaceRef.current, 1.02), duration: 380 },
         )
       })
     })
@@ -301,7 +311,7 @@ function StudyCanvas() {
         setCenter(
           point.x + GLOCK_GEOMETRY.width / 2,
           point.y + GLOCK_GEOMETRY.height / 2,
-          { zoom: 0.94, duration: 420 },
+          { zoom: glockCardZoom(workspaceRef.current, 0.94), duration: 420 },
         )
         return
       }
