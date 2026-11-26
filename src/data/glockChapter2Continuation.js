@@ -1,4 +1,4 @@
-// Glock, Tecnos 2012, pp. 52–82. Paráfrasis cotejadas; citas breves separadas. Las pp. 52–53 proceden de la ficha anterior.
+// Glock, Tecnos 2012, pp. 52–86. Paráfrasis cotejadas; citas breves separadas. Las pp. 52–53 proceden de la ficha anterior.
 export const glockContinuationNodes = [
   {
     "id": "G39",
@@ -2322,6 +2322,420 @@ export const glockContinuationNodes = [
     "dependsOn": [
       "G145"
     ]
+  },
+  {
+    "id": "G147",
+    "section": "valores",
+    "page": "p. 83",
+    "title": "Moore: argumento de la cuestión abierta",
+    "kind": "Argumento",
+    "short": "definición propuesta · pregunta abierta · no sinonimia",
+    "explanation": "Para toda definición de la forma El bien es X, con X distinto del bien mismo, Moore sostiene que sigue siendo inteligible preguntar si X es bueno. Aunque las cosas que son X sean de hecho buenas, X no puede significar lo mismo que bien y por tanto no lo define. Glock ofrece como candidato aquello que causa placer.",
+    "excerpt": "hay siempre una pregunta inteligible",
+    "sourcePassage": "Para toda definición de la forma El bien es X, con X distinto del bien mismo, Moore sostiene que sigue siendo inteligible preguntar si X es bueno. Aunque las cosas que son X sean de hecho buenas, X no puede significar lo mismo que bien y por tanto no lo define. Glock ofrece como candidato aquello que causa placer.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué la coincidencia de propiedades no basta para definir el bien?",
+    "diagram": [
+      "definición propuesta",
+      "pregunta abierta",
+      "no sinonimia"
+    ],
+    "dependsOn": [
+      "G146"
+    ]
+  },
+  {
+    "id": "G148",
+    "section": "valores",
+    "page": "p. 83",
+    "title": "Falacia naturalista, intuición y superveniencia",
+    "kind": "Tesis",
+    "short": "propiedad no natural · intuición racional · superveniencia moral",
+    "explanation": "Moore denomina falacia naturalista a la pretensión de definir bien mediante propiedades naturales. Considera la bondad una propiedad simple no natural accesible por intuición racional. Sin embargo, acepta que sobreviene a las propiedades naturales: dos cosas con idénticas propiedades naturales son igualmente buenas. No confundir dependencia con identidad o definición.",
+    "excerpt": "falacia naturalista",
+    "sourcePassage": "Moore denomina falacia naturalista a la pretensión de definir bien mediante propiedades naturales. Considera la bondad una propiedad simple no natural accesible por intuición racional. Sin embargo, acepta que sobreviene a las propiedades naturales: dos cosas con idénticas propiedades naturales son igualmente buenas. No confundir dependencia con identidad o definición.",
+    "sourceMode": "paraphrase",
+    "question": "¿Cómo puede la bondad sobrevenir sin ser definible naturalmente?",
+    "diagram": [
+      "propiedad no natural",
+      "intuición racional",
+      "superveniencia moral"
+    ],
+    "dependsOn": [
+      "G147",
+      "G146",
+      "G140"
+    ]
+  },
+  {
+    "id": "G149",
+    "section": "valores",
+    "page": "p. 83",
+    "title": "Del intuicionismo al no-cognitivismo",
+    "kind": "Transición",
+    "short": "indefinibilidad · rechazo del intuicionismo · no-cognitivismo",
+    "explanation": "Muchos analíticos posteriores aceptan la imposibilidad de definir analíticamente lo moral en términos naturales, pero rechazan la intuición racional de Moore. Concluyen que los juicios morales no describen hechos ni son aptos para expresar verdad en sentido estricto. Glock reconstruye esta transición histórica, no una consecuencia lógicamente necesaria de Moore.",
+    "excerpt": "no son descriptivos o fácticos",
+    "sourcePassage": "Muchos analíticos posteriores aceptan la imposibilidad de definir analíticamente lo moral en términos naturales, pero rechazan la intuición racional de Moore. Concluyen que los juicios morales no describen hechos ni son aptos para expresar verdad en sentido estricto. Glock reconstruye esta transición histórica, no una consecuencia lógicamente necesaria de Moore.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué se conserva de Moore y qué se rechaza?",
+    "diagram": [
+      "indefinibilidad",
+      "rechazo del intuicionismo",
+      "no-cognitivismo"
+    ],
+    "dependsOn": [
+      "G148"
+    ]
+  },
+  {
+    "id": "G150",
+    "section": "valores",
+    "page": "p. 83",
+    "title": "Ayer y Stevenson: emotivismo",
+    "kind": "Tesis",
+    "short": "criterio positivista · aprobación y rechazo · orientación de la acción",
+    "explanation": "Para los positivistas, las afirmaciones morales no son analíticas ni a posteriori y por eso carecen de significado cognitivo; Ayer las interpreta como expresión de emociones de aprobación o rechazo. Stevenson explica con ello su carácter de guía para la acción, frente a la aparente neutralidad motivacional de las descripciones fácticas. El ejemplo de actuar correctamente sin aprobarlo ilustra esa tensión.",
+    "excerpt": "expresar nuestras emociones",
+    "sourcePassage": "Para los positivistas, las afirmaciones morales no son analíticas ni a posteriori y por eso carecen de significado cognitivo; Ayer las interpreta como expresión de emociones de aprobación o rechazo. Stevenson explica con ello su carácter de guía para la acción, frente a la aparente neutralidad motivacional de las descripciones fácticas. El ejemplo de actuar correctamente sin aprobarlo ilustra esa tensión.",
+    "sourceMode": "paraphrase",
+    "question": "¿Cómo explica el emotivismo la motivación moral?",
+    "diagram": [
+      "criterio positivista",
+      "aprobación y rechazo",
+      "orientación de la acción"
+    ],
+    "dependsOn": [
+      "G149",
+      "G63"
+    ]
+  },
+  {
+    "id": "G151",
+    "section": "valores",
+    "page": "pp. 83–84",
+    "title": "Hare: prescriptivismo universal",
+    "kind": "Tesis",
+    "short": "prescripción · universalización · consistencia práctica",
+    "explanation": "El emotivismo corre el riesgo de reducir el juicio moral a interjecciones e ignorar la razón. Hare considera los juicios morales más próximos a imperativos que a expresiones emotivas: orientan la acción, pero a diferencia del imperativo particular son universalizables. Condenar moralmente una mentira obliga a condenar otras semejantes; examinar si se desea consistentemente universalizar permite argumentar incluso sin hechos morales.",
+    "excerpt": "prescriptivismo universal",
+    "sourcePassage": "El emotivismo corre el riesgo de reducir el juicio moral a interjecciones e ignorar la razón. Hare considera los juicios morales más próximos a imperativos que a expresiones emotivas: orientan la acción, pero a diferencia del imperativo particular son universalizables. Condenar moralmente una mentira obliga a condenar otras semejantes; examinar si se desea consistentemente universalizar permite argumentar incluso sin hechos morales.",
+    "sourceMode": "paraphrase",
+    "question": "¿Cómo incorpora Hare la razón al juicio moral?",
+    "diagram": [
+      "prescripción",
+      "universalización",
+      "consistencia práctica"
+    ],
+    "dependsOn": [
+      "G150",
+      "G82"
+    ]
+  },
+  {
+    "id": "G152",
+    "section": "valores",
+    "page": "p. 84",
+    "title": "Metaética y giro lingüístico",
+    "kind": "Método",
+    "short": "conceptos morales · estatuto del juicio · estructura del argumento",
+    "explanation": "Pese a su origen kantiano, el prescriptivismo de Hare se agrupa con el subjetivismo bajo no-cognitivismo por no requerir hechos morales. Inicialmente limita la filosofía moral a la metaética, disciplina de segundo orden que analiza conceptos morales, el estatuto de los juicios y la estructura del argumento moral, sin introducir nuevos conceptos morales.",
+    "excerpt": "una disciplina de segundo orden",
+    "sourcePassage": "Pese a su origen kantiano, el prescriptivismo de Hare se agrupa con el subjetivismo bajo no-cognitivismo por no requerir hechos morales. Inicialmente limita la filosofía moral a la metaética, disciplina de segundo orden que analiza conceptos morales, el estatuto de los juicios y la estructura del argumento moral, sin introducir nuevos conceptos morales.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué diferencia la metaética de una ética normativa?",
+    "diagram": [
+      "conceptos morales",
+      "estatuto del juicio",
+      "estructura del argumento"
+    ],
+    "dependsOn": [
+      "G151",
+      "G64"
+    ]
+  },
+  {
+    "id": "G153",
+    "section": "valores",
+    "page": "p. 84",
+    "title": "Hart: clarificación de conceptos jurídicos",
+    "kind": "Método",
+    "short": "derechos y obligaciones · contexto jurídico · función conceptual",
+    "explanation": "H. L. Hart proporciona un impulso análogo a la teoría jurídica y política: analiza conceptos legales para evitar disputas metafísicas improductivas sobre derechos y obligaciones. Bajo influencia wittgensteiniana abandona la búsqueda de definiciones analíticas en favor de esclarecer contextualmente el papel de dichos conceptos en el discurso jurídico.",
+    "excerpt": "una clarificación más contextual",
+    "sourcePassage": "H. L. Hart proporciona un impulso análogo a la teoría jurídica y política: analiza conceptos legales para evitar disputas metafísicas improductivas sobre derechos y obligaciones. Bajo influencia wittgensteiniana abandona la búsqueda de definiciones analíticas en favor de esclarecer contextualmente el papel de dichos conceptos en el discurso jurídico.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué Hart prefiere clarificar usos a buscar definiciones?",
+    "diagram": [
+      "derechos y obligaciones",
+      "contexto jurídico",
+      "función conceptual"
+    ],
+    "dependsOn": [
+      "G152",
+      "G89"
+    ]
+  },
+  {
+    "id": "G154",
+    "section": "valores",
+    "page": "p. 84",
+    "title": "Geach y el desafío inferencial",
+    "kind": "Objeción",
+    "short": "enunciado moral · inferencia · aptitud para verdad",
+    "explanation": "Los analistas conceptuales cuestionan la imagen no-cognitivista del discurso moral. Geach objeta que no se explica adecuadamente la presencia de enunciados morales en inferencias, que requieren proposiciones aptas para verdad. Los cognitivistas posteriores invocan que ordinariamente calificamos de verdaderos o falsos los juicios morales y usamos la gramática y lógica de las aserciones.",
+    "excerpt": "valor veritativo",
+    "sourcePassage": "Los analistas conceptuales cuestionan la imagen no-cognitivista del discurso moral. Geach objeta que no se explica adecuadamente la presencia de enunciados morales en inferencias, que requieren proposiciones aptas para verdad. Los cognitivistas posteriores invocan que ordinariamente calificamos de verdaderos o falsos los juicios morales y usamos la gramática y lógica de las aserciones.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué problema plantean las inferencias al no-cognitivismo?",
+    "diagram": [
+      "enunciado moral",
+      "inferencia",
+      "aptitud para verdad"
+    ],
+    "dependsOn": [
+      "G153",
+      "G90"
+    ]
+  },
+  {
+    "id": "G155",
+    "section": "valores",
+    "page": "p. 84",
+    "title": "Conceptos gruesos y hechos institucionales",
+    "kind": "Objeción",
+    "short": "descripción · evaluación y prescripción · hechos institucionales",
+    "explanation": "Foot y Warnock consideran insostenible separar tajantemente los usos descriptivo y prescriptivo. Conceptos gruesos como rudeza o violencia integran ambos elementos. Searle sostiene que, recurriendo a hechos institucionales, pueden derivarse prescripciones de descripciones, un debe de un es. Glock registra esta tesis como posición de Searle, no como una deducción irrestricta a partir de cualquier hecho.",
+    "excerpt": "conceptos gruesos",
+    "sourcePassage": "Foot y Warnock consideran insostenible separar tajantemente los usos descriptivo y prescriptivo. Conceptos gruesos como rudeza o violencia integran ambos elementos. Searle sostiene que, recurriendo a hechos institucionales, pueden derivarse prescripciones de descripciones, un debe de un es. Glock registra esta tesis como posición de Searle, no como una deducción irrestricta a partir de cualquier hecho.",
+    "sourceMode": "paraphrase",
+    "question": "¿Cómo cuestionan los conceptos gruesos la separación hecho-valor?",
+    "diagram": [
+      "descripción",
+      "evaluación y prescripción",
+      "hechos institucionales"
+    ],
+    "dependsOn": [
+      "G154",
+      "G94"
+    ]
+  },
+  {
+    "id": "G156",
+    "section": "valores",
+    "page": "pp. 84–85",
+    "title": "Putnam, valores y cualidades secundarias",
+    "kind": "Desarrollo",
+    "short": "normas científicas · analogía perceptiva · particularismo",
+    "explanation": "Putnam cuestiona que la filosofía de la ciencia respalde una distinción tajante entre hechos y valores, puesto que la investigación científica se basa en normas. McDowell y Wiggins replantean la dicotomía subjetivo/objetivo por analogía con cualidades secundarias como colores. La reanimación del intuicionismo, en particular el particularismo de Dancy, explora similitudes entre juicios morales y perceptivos.",
+    "excerpt": "cualidades secundarias como los colores",
+    "sourcePassage": "Putnam cuestiona que la filosofía de la ciencia respalde una distinción tajante entre hechos y valores, puesto que la investigación científica se basa en normas. McDowell y Wiggins replantean la dicotomía subjetivo/objetivo por analogía con cualidades secundarias como colores. La reanimación del intuicionismo, en particular el particularismo de Dancy, explora similitudes entre juicios morales y perceptivos.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué la dimensión normativa de la ciencia importa al debate?",
+    "diagram": [
+      "normas científicas",
+      "analogía perceptiva",
+      "particularismo"
+    ],
+    "dependsOn": [
+      "G155"
+    ]
+  },
+  {
+    "id": "G157",
+    "section": "valores",
+    "page": "p. 85",
+    "title": "Desafío metodológico de la metaética",
+    "kind": "Problema",
+    "short": "neutralidad metaética · conclusiones sustantivas · separación cuestionada",
+    "explanation": "Glock pregunta si la lógica del discurso moral puede separarse de las cuestiones éticas sustantivas. El propio Hare oscila entre neutralidad metaética y conclusiones éticas de tendencia utilitarista extraídas de conceptos morales. A esto se añade la crítica quineana de la división entre análisis conceptual y cuestiones de hecho, así como la presión de los problemas sociales contemporáneos.",
+    "excerpt": "el desafío metodológico",
+    "sourcePassage": "Glock pregunta si la lógica del discurso moral puede separarse de las cuestiones éticas sustantivas. El propio Hare oscila entre neutralidad metaética y conclusiones éticas de tendencia utilitarista extraídas de conceptos morales. A esto se añade la crítica quineana de la división entre análisis conceptual y cuestiones de hecho, así como la presión de los problemas sociales contemporáneos.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué pone en duda la neutralidad de la metaética?",
+    "diagram": [
+      "neutralidad metaética",
+      "conclusiones sustantivas",
+      "separación cuestionada"
+    ],
+    "dependsOn": [
+      "G156",
+      "G100",
+      "G151"
+    ]
+  },
+  {
+    "id": "G158",
+    "section": "valores",
+    "page": "p. 85",
+    "title": "Renacimiento de la ética aplicada",
+    "kind": "Historia",
+    "short": "problemas históricos · cuestiones morales concretas · deliberación racional",
+    "explanation": "En los sesenta y setenta la guerra, amenaza nuclear, aborto, desobediencia civil y destrucción ambiental movilizan al estudiantado e influyen en universidades e investigación. Filósofos reconocen problemas morales sustantivos que no deben abandonarse al dogma religioso o ideologías políticas. Glock llama ética aplicada al abordaje riguroso y racional de cuestiones morales específicas.",
+    "excerpt": "Ética aplicada",
+    "sourcePassage": "En los sesenta y setenta la guerra, amenaza nuclear, aborto, desobediencia civil y destrucción ambiental movilizan al estudiantado e influyen en universidades e investigación. Filósofos reconocen problemas morales sustantivos que no deben abandonarse al dogma religioso o ideologías políticas. Glock llama ética aplicada al abordaje riguroso y racional de cuestiones morales específicas.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué factores favorecen el renacimiento de la ética aplicada?",
+    "diagram": [
+      "problemas históricos",
+      "cuestiones morales concretas",
+      "deliberación racional"
+    ],
+    "dependsOn": [
+      "G157"
+    ]
+  },
+  {
+    "id": "G159",
+    "section": "valores",
+    "page": "p. 85",
+    "title": "Rawls: teoría normativa y justicia distributiva",
+    "kind": "Tesis",
+    "short": "ignorancia de posición futura · elección racional · principios de justicia",
+    "explanation": "Una teoría de la justicia de Rawls, fechada 1972 en la edición leída, muestra la posibilidad de una gran teoría normativa y el resurgimiento de la filosofía política analítica. Busca justificar justicia distributiva mediante reglas que agentes ignorantes de su futura posición social adoptarían racionalmente. La fecha se conserva como dato de esta edición, sin confundirla con verificación bibliográfica externa.",
+    "excerpt": "justicia distributiva",
+    "sourcePassage": "Una teoría de la justicia de Rawls, fechada 1972 en la edición leída, muestra la posibilidad de una gran teoría normativa y el resurgimiento de la filosofía política analítica. Busca justificar justicia distributiva mediante reglas que agentes ignorantes de su futura posición social adoptarían racionalmente. La fecha se conserva como dato de esta edición, sin confundirla con verificación bibliográfica externa.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué función cumple ignorar la posición social futura?",
+    "diagram": [
+      "ignorancia de posición futura",
+      "elección racional",
+      "principios de justicia"
+    ],
+    "dependsOn": [
+      "G158"
+    ]
+  },
+  {
+    "id": "G160",
+    "section": "valores",
+    "page": "p. 85",
+    "title": "Razón práctica objetiva",
+    "kind": "Tesis",
+    "short": "medios y fines · razón práctica · justificación normativa",
+    "explanation": "Rawls inspira una recuperación de la idea kantiana de razón práctica objetiva. Esta razón para la acción no se agota en la racionalidad instrumental de medios y fines estudiada por la teoría de la decisión y se presenta como independiente de una ontología controvertida de hechos morales. La recuperación normativa no supone por sí sola adoptar el intuicionismo de Moore.",
+    "excerpt": "razón práctica objetiva",
+    "sourcePassage": "Rawls inspira una recuperación de la idea kantiana de razón práctica objetiva. Esta razón para la acción no se agota en la racionalidad instrumental de medios y fines estudiada por la teoría de la decisión y se presenta como independiente de una ontología controvertida de hechos morales. La recuperación normativa no supone por sí sola adoptar el intuicionismo de Moore.",
+    "sourceMode": "paraphrase",
+    "question": "¿En qué se distingue la razón práctica de la racionalidad instrumental?",
+    "diagram": [
+      "medios y fines",
+      "razón práctica",
+      "justificación normativa"
+    ],
+    "dependsOn": [
+      "G159",
+      "G17"
+    ]
+  },
+  {
+    "id": "G161",
+    "section": "valores",
+    "page": "pp. 85–86",
+    "title": "Cruce de ética y metaética",
+    "kind": "Transición",
+    "short": "ética normativa · metaética · justificación y estatuto de valores",
+    "explanation": "El resurgimiento normativo no acaba con la metaética: intensifica el cruce entre discusiones de ambos niveles. El centro de interés se desplaza desde conceptos morales específicos hacia la naturaleza de la justificación moral y el estatuto metafísico de los valores. Glock introduce así la reafirmación del naturalismo también en el ámbito moral.",
+    "excerpt": "la naturaleza de la justificación moral",
+    "sourcePassage": "El resurgimiento normativo no acaba con la metaética: intensifica el cruce entre discusiones de ambos niveles. El centro de interés se desplaza desde conceptos morales específicos hacia la naturaleza de la justificación moral y el estatuto metafísico de los valores. Glock introduce así la reafirmación del naturalismo también en el ámbito moral.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué el renacimiento normativo no elimina la metaética?",
+    "diagram": [
+      "ética normativa",
+      "metaética",
+      "justificación y estatuto de valores"
+    ],
+    "dependsOn": [
+      "G160"
+    ]
+  },
+  {
+    "id": "G162",
+    "section": "valores",
+    "page": "p. 86",
+    "title": "Naturalismo moral no reductivo semánticamente",
+    "kind": "Tesis",
+    "short": "renuncia al análisis · papel explicativo · acomodación naturalista",
+    "explanation": "Una variante naturalista considera que los conceptos morales pueden integrarse en el naturalismo si se renuncia a la ambición de analizarlos. Los predicados morales satisfacen exigencias naturalistas porque las propiedades atribuidas, como contribuir al florecimiento humano, intervienen en mejores teorías explicativas empíricas (Boyd, Sturgeon), o porque idealizan propiedades fisiológicas (Lewis, Harman).",
+    "excerpt": "florecimiento humano",
+    "sourcePassage": "Una variante naturalista considera que los conceptos morales pueden integrarse en el naturalismo si se renuncia a la ambición de analizarlos. Los predicados morales satisfacen exigencias naturalistas porque las propiedades atribuidas, como contribuir al florecimiento humano, intervienen en mejores teorías explicativas empíricas (Boyd, Sturgeon), o porque idealizan propiedades fisiológicas (Lewis, Harman).",
+    "sourceMode": "paraphrase",
+    "question": "¿Cómo puede un naturalismo moral evitar la definición analítica?",
+    "diagram": [
+      "renuncia al análisis",
+      "papel explicativo",
+      "acomodación naturalista"
+    ],
+    "dependsOn": [
+      "G161",
+      "G103"
+    ]
+  },
+  {
+    "id": "G163",
+    "section": "valores",
+    "page": "p. 86",
+    "title": "Mackie: teoría del error",
+    "kind": "Tesis",
+    "short": "juicios descriptivos · ausencia de hechos morales · error sistemático",
+    "explanation": "Mackie acepta que conceptos y juicios morales son descriptivos o fácticos, a diferencia del no-cognitivismo, pero afirma que en una realidad puramente física nada corresponde a los conceptos morales. Concluye que nuestros juicios morales son sistemáticamente erróneos. La edición presenta una formulación ambigua al introducir la variante eliminativa; se conserva la tesis explícita de Mackie sin enmendar la transición.",
+    "excerpt": "teoría del error",
+    "sourcePassage": "Mackie acepta que conceptos y juicios morales son descriptivos o fácticos, a diferencia del no-cognitivismo, pero afirma que en una realidad puramente física nada corresponde a los conceptos morales. Concluye que nuestros juicios morales son sistemáticamente erróneos. La edición presenta una formulación ambigua al introducir la variante eliminativa; se conserva la tesis explícita de Mackie sin enmendar la transición.",
+    "sourceMode": "paraphrase",
+    "question": "¿Por qué la teoría del error no equivale al emotivismo?",
+    "diagram": [
+      "juicios descriptivos",
+      "ausencia de hechos morales",
+      "error sistemático"
+    ],
+    "dependsOn": [
+      "G162",
+      "G145",
+      "G150"
+    ]
+  },
+  {
+    "id": "G164",
+    "section": "valores",
+    "page": "p. 86",
+    "title": "MacIntyre y Williams: crítica neo-nietzscheana",
+    "kind": "Crítica",
+    "short": "declive religioso · pretensión de validación · crítica del proyecto ético",
+    "explanation": "Glock agrupa a MacIntyre y Williams como críticos neo-nietzscheanos de los términos del debate moral: la filosofía sería incapaz de llenar el vacío dejado por el declive religioso. Cuestionan la exigencia de una validación objetiva, racional e impersonal que comparten posiciones normativas importantes, por su origen dudoso, inviabilidad y falta de credibilidad. Se conserva esta caracterización como lectura histórica de Glock.",
+    "excerpt": "validación objetiva, racional e impersonal",
+    "sourcePassage": "Glock agrupa a MacIntyre y Williams como críticos neo-nietzscheanos de los términos del debate moral: la filosofía sería incapaz de llenar el vacío dejado por el declive religioso. Cuestionan la exigencia de una validación objetiva, racional e impersonal que comparten posiciones normativas importantes, por su origen dudoso, inviabilidad y falta de credibilidad. Se conserva esta caracterización como lectura histórica de Glock.",
+    "sourceMode": "paraphrase",
+    "question": "¿Qué cuestionan respecto de la ética filosófica?",
+    "diagram": [
+      "declive religioso",
+      "pretensión de validación",
+      "crítica del proyecto ético"
+    ],
+    "dependsOn": [
+      "G163"
+    ]
+  },
+  {
+    "id": "G165",
+    "section": "valores",
+    "page": "p. 86",
+    "title": "Autonomía filosófica: cierre del capítulo",
+    "kind": "Síntesis",
+    "short": "crítica naturalista · crítica neo-nietzscheana · pluralidad de discursos",
+    "explanation": "Aunque los neo-nietzscheanos no conceden a la ciencia el mismo privilegio que los naturalistas, Glock identifica una convergencia: incluso respecto de los valores se cuestiona la autonomía de la filosofía y se sostiene que necesita complementarse con otros discursos, como ciencias naturales, sociales e históricas, arte o religión. Este cierre registra una tendencia debatida, no una declaración de que toda filosofía carezca necesariamente de autonomía.",
+    "excerpt": "la filosofía no es una disciplina autónoma",
+    "sourcePassage": "Aunque los neo-nietzscheanos no conceden a la ciencia el mismo privilegio que los naturalistas, Glock identifica una convergencia: incluso respecto de los valores se cuestiona la autonomía de la filosofía y se sostiene que necesita complementarse con otros discursos, como ciencias naturales, sociales e históricas, arte o religión. Este cierre registra una tendencia debatida, no una declaración de que toda filosofía carezca necesariamente de autonomía.",
+    "sourceMode": "paraphrase",
+    "question": "¿En qué coinciden y en qué difieren ambas críticas a la autonomía?",
+    "diagram": [
+      "crítica naturalista",
+      "crítica neo-nietzscheana",
+      "pluralidad de discursos"
+    ],
+    "dependsOn": [
+      "G164",
+      "G104"
+    ]
   }
 ]
 
@@ -3140,5 +3554,175 @@ export const glockContinuationEdges = [
     "G102",
     "G145",
     "afinidad eliminativa (reconstrucción)"
+  ],
+  [
+    "G146",
+    "G147",
+    "continuidad argumental"
+  ],
+  [
+    "G147",
+    "G148",
+    "continuidad argumental"
+  ],
+  [
+    "G148",
+    "G149",
+    "continuidad argumental"
+  ],
+  [
+    "G149",
+    "G150",
+    "continuidad argumental"
+  ],
+  [
+    "G150",
+    "G151",
+    "continuidad argumental"
+  ],
+  [
+    "G151",
+    "G152",
+    "continuidad argumental"
+  ],
+  [
+    "G152",
+    "G153",
+    "continuidad argumental"
+  ],
+  [
+    "G153",
+    "G154",
+    "continuidad argumental"
+  ],
+  [
+    "G154",
+    "G155",
+    "continuidad argumental"
+  ],
+  [
+    "G155",
+    "G156",
+    "continuidad argumental"
+  ],
+  [
+    "G156",
+    "G157",
+    "continuidad argumental"
+  ],
+  [
+    "G157",
+    "G158",
+    "continuidad argumental"
+  ],
+  [
+    "G158",
+    "G159",
+    "continuidad argumental"
+  ],
+  [
+    "G159",
+    "G160",
+    "continuidad argumental"
+  ],
+  [
+    "G160",
+    "G161",
+    "continuidad argumental"
+  ],
+  [
+    "G161",
+    "G162",
+    "continuidad argumental"
+  ],
+  [
+    "G162",
+    "G163",
+    "continuidad argumental"
+  ],
+  [
+    "G163",
+    "G164",
+    "continuidad argumental"
+  ],
+  [
+    "G164",
+    "G165",
+    "continuidad argumental"
+  ],
+  [
+    "G146",
+    "G148",
+    "indefinibilidad y bondad"
+  ],
+  [
+    "G140",
+    "G148",
+    "analogía de superveniencia (reconstrucción)"
+  ],
+  [
+    "G63",
+    "G150",
+    "criterio de significatividad"
+  ],
+  [
+    "G82",
+    "G151",
+    "uso no descriptivo (reconstrucción)"
+  ],
+  [
+    "G64",
+    "G152",
+    "filosofía de segundo orden"
+  ],
+  [
+    "G89",
+    "G153",
+    "clarificación contextual (reconstrucción)"
+  ],
+  [
+    "G90",
+    "G154",
+    "poderes inferenciales (reconstrucción)"
+  ],
+  [
+    "G94",
+    "G155",
+    "pluralidad de funciones lingüísticas"
+  ],
+  [
+    "G100",
+    "G157",
+    "crítica quineana"
+  ],
+  [
+    "G17",
+    "G160",
+    "recuperación kantiana (reconstrucción)"
+  ],
+  [
+    "G103",
+    "G162",
+    "naturalismo epistemológico y ontológico"
+  ],
+  [
+    "G145",
+    "G163",
+    "contraste eliminativo (reconstrucción)"
+  ],
+  [
+    "G104",
+    "G165",
+    "autonomía cuestionada (reconstrucción)"
+  ],
+  [
+    "G151",
+    "G157",
+    "neutralidad y ética sustantiva"
+  ],
+  [
+    "G150",
+    "G163",
+    "contraste cognitivo y ontológico"
   ]
 ]

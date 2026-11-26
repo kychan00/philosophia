@@ -13,8 +13,8 @@ const page = readFileSync(new URL('../src/pages/AnalyticGlockSystem.jsx', import
 const css = readFileSync(new URL('../src/pages/AnalyticGlockSystem.css', import.meta.url), 'utf8')
 const node = readFileSync(new URL('../src/components/analytic/GlockNode.jsx', import.meta.url), 'utf8')
 
-test('Glock conserva 147 nodos, fuentes y capas docentes por fecha', () => {
-  assert.equal(glockNodes.length, 147)
+test('Glock conserva 166 nodos, fuentes y capas docentes por fecha', () => {
+  assert.equal(glockNodes.length, 166)
   assert.deepEqual(glockNodeOrder, glockNodes.map((n) => n.id))
   for (const n of glockNodes) {
     assert.ok(n.data.sourcePassage?.length > 180, n.id)
@@ -44,7 +44,7 @@ test('Glock conserva 147 nodos, fuentes y capas docentes por fecha', () => {
 })
 
 test('Glock mantiene relaciones resolubles y saca sus rótulos del canvas', () => {
-  assert.equal(glockLinks.length, 207)
+  assert.equal(glockLinks.length, 241)
   for (const edge of glockLinks) {
     assert.ok(byId.has(edge.source) && byId.has(edge.target), edge.id)
     assert.ok(edge.label.trim().length >= 8, edge.id)
@@ -195,7 +195,7 @@ test('Continuidad 52–58: paráfrasis identificadas, 21 nodos y límites de fue
   assert.match(byId.get('G59').data.explanation, /p. 59, a partir del nodo G60/)
   assert.match(byId.get('G46').data.explanation, /∃x/)
   assert.match(page, /PARÁFRASIS COTEJADA DE GLOCK/)
-  assert.match(page, /83–86 siguen pendientes/)
+  assert.match(page, /Cobertura documental del capítulo II completa/)
 })
 
 
@@ -241,4 +241,25 @@ test('Continuidad 73–82: 35 nodos, cobertura y frontera', () => {
   assert.match(byId.get('G144').data.explanation,/tensión/)
   assert.match(byId.get('G146').data.explanation,/p. 83/)
   assert.equal(byId.get('G146').data.page,'p. 82')
+})
+
+
+test('Cierre 83–86: 19 nodos y cobertura documental completa', () => {
+  const added = glockNodes.filter(n=>Number(n.id.slice(1))>=147)
+  assert.deepEqual(added.map(n=>n.id), Array.from({length:19},(_,i)=>'G'+(147+i)))
+  for (const n of added) {
+    assert.equal(n.data.sourceMode,'paraphrase',n.id)
+    assert.equal(n.data.classSeen,false,n.id)
+    assert.equal(n.data.section,'valores',n.id)
+    assert.match(n.data.page, /8[3-6]/)
+    assert.ok(n.data.dependsOn.every(id=>byId.has(id)),n.id)
+  }
+  const covered = new Set()
+  for (const n of glockNodes) {
+    const nums = n.data.page.match(/\d+/g)?.map(Number) || []
+    if(nums.length) for(let i=nums[0];i<=(nums[1]||nums[0]);i++) covered.add(i)
+  }
+  for(let i=40;i<=86;i++) assert.ok(covered.has(i),'p. '+i)
+  assert.equal(byId.get('G165').data.page,'p. 86')
+  assert.match(page,/47 páginas/)
 })

@@ -1,4 +1,4 @@
-// Fuente primaria: Glock (Tecnos, 2012), cap. II, pp. 40–82; p. 83 no recibida.
+// Fuente primaria: Glock (Tecnos, 2012), cap. II, pp. 40–86; cobertura documental del capítulo completa.
 import { glockContinuationNodes, glockContinuationEdges } from './glockChapter2Continuation.js'
 import { SYSTEM_2D_THEME } from '../components/philosophy/system2d/system2dTheme.js'
 import { glockClass19Oct } from './glockClass19Oct.js'

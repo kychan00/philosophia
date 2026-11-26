@@ -462,7 +462,7 @@ function StudyCanvas() {
           <span>RECONSTRUCCIÓN RECTORA</span>
           <strong>analizar = partir de algo dado y buscar su fundamento</strong>
           <b>concepto → componentes · proposición → principios</b>
-          <small>Glock, cap. II · pp. 40–82</small>
+          <small>Glock, cap. II · pp. 40–86</small>
         </aside>
       </header>
 
@@ -474,7 +474,7 @@ function StudyCanvas() {
         <p>
           Se conservan separadas cuatro capas: texto de Glock, reconstrucción de
           estudio, explicaciones de clase documentadas y relaciones
-          editoriales rotuladas como tales. Las pp. 52–82 se incorporan como paráfrasis cotejadas, con citas breves donde se dispone del texto. Las pp. 83–86 siguen pendientes.
+          editoriales rotuladas como tales. Las pp. 52–86 se incorporan como paráfrasis cotejadas, con citas breves donde se dispone del texto. Cobertura documental del capítulo II completa: pp. 40–86 (47 páginas). El reporte formal es una tarea distinta.
         </p>
       </section>
 
@@ -836,7 +836,7 @@ function StudyCanvas() {
 
       <footer className="glock-study-footer">
         <Link to="/semestre/5/filosofia-analitica">← Filosofía Analítica</Link>
-        <span>Hans-Johann Glock · capítulo II · lectura documentada pp. 40–82 · clase del 28 de octubre: extractos parciales</span>
+        <span>Hans-Johann Glock · capítulo II · lectura documentada pp. 40–86 · clase del 28 de octubre: extractos parciales</span>
         <Link to="/semestre/5/filosofia-analitica/clase/21-octubre">Clase 21 octubre ↗</Link>
       </footer>
     </main>
