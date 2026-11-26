@@ -71,7 +71,7 @@ test('Veintitrés rutas, guía global y pedagogía por sección cubren todos los
 test('Geometría compacta conserva pasaje y mini-esquema', () => {
   assert.deepEqual(
     { width: GLOCK_GEOMETRY.width, height: GLOCK_GEOMETRY.height },
-    { width: 310, height: 360 },
+    { width: 350, height: 500 },
   )
   assert.ok(GLOCK_GEOMETRY.gapX >= 90 && GLOCK_GEOMETRY.gapY >= 90)
   glockNodes.forEach((a, i) => glockNodes.slice(i + 1).forEach((b) => {
@@ -81,8 +81,14 @@ test('Geometría compacta conserva pasaje y mini-esquema', () => {
       b.position.y < a.position.y + GLOCK_GEOMETRY.height + 20
     assert.ok(!(overlapX && overlapY), a.id + ' y ' + b.id)
   }))
-  assert.match(css, /width:310px;height:360px/)
-  assert.match(css, /glock-node-source-card blockquote\{height:74px;overflow-y:auto/)
+  assert.match(css, /width:350px;height:500px/)
+  assert.match(css, /glock-node-source-card blockquote\{[^}]*-webkit-line-clamp:4/)
+  assert.match(node, /Vista previa · Pasaje completo en el inspector/)
+  assert.match(node, /<ol className="glock-node-mini-schema"/)
+  assert.match(css, /glock-flow-node-badges\{display:flex/)
+  assert.match(css, /glock-node-mini-schema\{display:grid;grid-template-columns:minmax\(0,1fr\)/)
+  assert.match(page, /glockCardZoom\(workspaceRef.current, 1.02\)/)
+  assert.doesNotMatch(css, /glock-class-chip\{[^}]*top:-/)
   assert.match(node, /data\.sourcePassage/)
   assert.match(node, /data\.diagram\.map/)
 })

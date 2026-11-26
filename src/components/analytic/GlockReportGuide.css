@@ -38,9 +38,6 @@
 .glock-report-warning{border-left-color:var(--ph2d-topic-rust)}.glock-report-model h4,.glock-report-warning h4{margin-top:0}
 .glock-report-node-simple{font:400 12px/1.45 Arial,sans-serif;color:var(--ph2d-muted)}
 .glock-report-argument-template{border-left:3px solid var(--ph2d-topic-gold);padding:2px 14px}
-.glock-node-plain{margin:7px 0 8px;min-height:0}
-.glock-node-plain>span{display:block;font:800 9px/1.2 Arial,sans-serif;color:var(--ph2d-topic-rust)}
-.glock-node-plain>p{margin:3px 0 0;font:11px/1.28 Arial,sans-serif;max-height:30px;overflow-y:auto;overflow-wrap:anywhere}
 .glock-inspector .glock-inspector-plain{border-left:3px solid var(--ph2d-topic-gold);padding:13px;background:var(--ph2d-paper2)}
 .glock-inspector-plain strong{display:block;margin-top:10px;font:800 11px/1.4 Arial,sans-serif}
 @media(max-width:420px){.glock-study-scene{padding:8px}.glock-study-scene-panel{padding:7px 3px}.glock-study-scene-panels{gap:5px}.glock-study-scene-panel strong{font-size:11px}}

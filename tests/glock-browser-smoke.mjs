@@ -55,6 +55,42 @@ const metrics=`(()=>{
   }
 })()`
 
+
+// Test the contents, not merely the outer node rectangles. Source preview is
+// intentionally line-clamped; every other displayed card section must fit.
+const cardLayout = `(()=>{
+  const issues=[]
+  const cards=[...document.querySelectorAll('.glock-flow-canvas .react-flow__node:not([style*="display: none"]) .glock-flow-node')]
+    .filter(el=>el.getBoundingClientRect().width>1 && getComputedStyle(el.closest('.react-flow__node')).visibility!=='hidden')
+  for(const card of cards){
+    const id=card.closest('.react-flow__node')?.getAttribute('data-id')
+    const r=card.getBoundingClientRect()
+    const parts=[...card.querySelectorAll('.glock-flow-node-badges,.glock-class-chip,.glock-concept-number,.glock-flow-node-meta,.glock-flow-node-title,.glock-node-plain,.glock-node-source-card,.glock-source-preview-note,.glock-node-mini-schema,.glock-node-mini-schema li,.glock-node-mini-schema b,.glock-flow-node-footer')]
+    for(const el of parts){
+      const b=el.getBoundingClientRect()
+      if(b.width===0||b.height===0) continue
+      if(b.left<r.left-1||b.right>r.right+1||b.top<r.top-1||b.bottom>r.bottom+1)issues.push(id+' fuera: '+el.className)
+      if(el.scrollWidth>el.clientWidth+1)issues.push(id+' desborde horizontal: '+el.className)
+    }
+    const plain=card.querySelector('.glock-node-plain p')
+    if(plain&&plain.scrollHeight>plain.clientHeight+1)issues.push(id+' explicación recortada')
+    const quote=card.querySelector('.glock-node-source-card blockquote')
+    if(!quote||getComputedStyle(quote).webkitLineClamp!=='4')issues.push(id+' vista previa incorrecta')
+    if(!card.querySelector('.glock-source-preview-note')?.textContent.includes('inspector'))issues.push(id+' sin aviso de vista previa')
+    const meta=card.querySelector('.glock-flow-node-meta')?.getBoundingClientRect()
+    const badge=card.querySelector('.glock-flow-node-badges')?.getBoundingClientRect()
+    if(meta&&badge&&badge.bottom>meta.top+1)issues.push(id+' insignias solapadas')
+    if(card.offsetWidth!==350||card.offsetHeight!==500)issues.push(id+' dimensión CSS inesperada')
+  }
+  return {count:cards.length,issues}
+})()`
+
+async function assertCardLayout(label){
+  const result=await evalJS(cardLayout)
+  assert.ok(result.count>0,label+' sin tarjetas')
+  assert.deepEqual(result.issues,[],label+': '+result.issues.join('; '))
+}
+
 async function navigate(width,height){
   await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:2,mobile:width<=768})
   await send('Page.navigate',{url:'about:blank'})
@@ -73,6 +109,7 @@ async function navigate(width,height){
   }
   assert.ok(state.scroll<=state.width+3,'overflow global '+JSON.stringify(state))
   assert.ok(state.schemaHeight>500,'esquema general comprimido')
+  await assertCardLayout('Apertura '+width+'×'+height)
 
   const documentary=await evalJS(`(()=>{
     const selected=document.querySelector('.glock-flow-canvas .react-flow__node.selected')
@@ -138,6 +175,7 @@ async function navigate(width,height){
   assert.ok(frege.scroll<=frege.width+3,JSON.stringify(frege))
   state=await evalJS(metrics)
   assert.deepEqual(state.hits,[],'Frege nodos superpuestos '+width+'×'+height)
+  await assertCardLayout('Frege '+width+'×'+height)
 
   if(width<=1180) assert.ok(!state.workspaceCols.includes('410px'),'iPad conserva inspector lateral '+state.workspaceCols)
   // Report guide: navigation and atlas focus use the same selected node and route.
@@ -162,6 +200,7 @@ async function navigate(width,height){
   assert.match(clarity.plain,/Ejemplo sencillo/)
   assert.match(clarity.card,/En pocas palabras y entendible:/)
   assert.ok(clarity.footer<=clarity.bottom+2,JSON.stringify(clarity))
+  await assertCardLayout('Valores '+width+'×'+height)
   assert.equal(report.selected,'G165')
   assert.match(report.route,/valores/i)
   assert.ok(report.scroll<=report.width+3,JSON.stringify(report))
