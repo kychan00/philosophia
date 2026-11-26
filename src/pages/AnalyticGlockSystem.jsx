@@ -682,6 +682,13 @@ function StudyCanvas() {
                 <p>{selected.data.explanation}</p>
               </section>
 
+              <section className="glock-inspector-plain">
+                <span>En pocas palabras y entendible:</span>
+                <p>{selected.data.plainLanguage.plain}</p>
+                <strong>Ejemplo sencillo · ilustración editorial</strong>
+                <p>{selected.data.plainLanguage.example}</p>
+              </section>
+
               {selected.data.class19Oct && (
                 <section className="glock-class-note">
                   <span>EXPLICACIÓN DOCENTE · 19 OCT 2026</span>

@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import GlockStudyScene from './GlockStudyScene.jsx'
+import { glockReportVisuals } from '../../data/glockPlainLanguage.js'
 import { glockReportSteps, glockReportChecklist, glockReportWorkflow, glockReportReference, glockReportNodes } from '../../data/glockReportGuide.js'
 import { glockNodes } from '../../data/glockAnalyticChapter2.js'
 import './GlockReportGuide.css'
@@ -15,6 +17,7 @@ export default function GlockReportGuide({ onOpenNode }) {
   const [notice, setNotice] = useState('')
   const step = glockReportSteps[index]
   const members = glockReportNodes(step, glockNodes)
+  const visual = glockReportVisuals[step.id]
   const completed = glockReportSteps.filter(s => draft['done:'+s.id] === true).length
   const checked = glockReportChecklist.filter((_, i) => draft['check:'+i] === true).length
   function update(key, value) {
@@ -53,14 +56,18 @@ export default function GlockReportGuide({ onOpenNode }) {
         <article className="glock-report-step" aria-labelledby="glock-report-step-title">
           <small>ETAPA {index+1} DE {glockReportSteps.length} · PP. {step.pages}</small>
           <h3 id="glock-report-step-title">{step.title}</h3>
+          <GlockStudyScene scene={visual}/>
           <h4>Problema que debe responder</h4><p>{step.question}</p>
           <h4>Tesis de trabajo · paráfrasis / síntesis editorial</h4><p>{step.thesis}</p>
           <h4>Argumentos que no debe omitir</h4><ul>{step.points.map(p=><li key={p}>{p}</li>)}</ul>
           <h4>Ejemplos y evidencia del capítulo</h4><p>{step.example}</p>
+          <h4>Cómo funciona el argumento · paso a paso</h4><p>{visual.argument}</p>
           <h4>Cómo convertirlo en un párrafo del reporte</h4><p>{step.write}</p>
+          <aside className="glock-report-model"><h4>Modelo de párrafo · ejemplo de redacción, no cita</h4><p>{visual.paragraph}</p><small>Úselo para aprender la estructura; redacte su propia versión y coteje las páginas.</small></aside>
+          <aside className="glock-report-warning"><h4>Error frecuente que debe evitar</h4><p>{visual.caution}</p></aside>
           <h4>Pregunta de evaluación crítica</h4><p>{step.critical}</p>
           <h4>Transición argumental</h4><p>{step.bridge}</p>
-          {members.length>0 && <details className="glock-report-nodes"><summary>Consultar los {members.length} nodos de esta etapa en el atlas</summary><p>Seleccione una ficha para abrir su ruta y su inspector. Regrese a esta guía para seguir redactando.</p><div>{members.map(n=><button type="button" key={n.id} data-report-node={n.id} onClick={()=>onOpenNode(n.id)}><small>{n.id} · {n.data.page}</small>{n.data.title}</button>)}</div></details>}
+          {members.length>0 && <details className="glock-report-nodes"><summary>Consultar los {members.length} nodos de esta etapa en el atlas</summary><p>Seleccione una ficha para abrir su ruta y su inspector. Regrese a esta guía para seguir redactando.</p><div>{members.map(n=><button type="button" key={n.id} data-report-node={n.id} onClick={()=>onOpenNode(n.id)}><small>{n.id} · {n.data.page}</small>{n.data.title}<span className="glock-report-node-simple">{n.data.plainLanguage.plain}</span></button>)}</div></details>}
           <label className="glock-report-draft">Mis apuntes para esta etapa<textarea rows={7} value={typeof draft['note:'+step.id] === 'string' ? draft['note:'+step.id] : ''} onChange={e=>update('note:'+step.id,e.target.value)} placeholder="Problema, tesis, argumento, ejemplo con página, evaluación propia…"/></label>
           <label className="glock-report-check"><input type="checkbox" checked={draft['done:'+step.id]===true} onChange={e=>update('done:'+step.id,e.target.checked)}/> He revisado esta etapa y sus fuentes.</label>
           <div className="glock-report-actions"><button type="button" disabled={index===0} onClick={()=>setIndex(index-1)}>← Anterior</button><button type="button" disabled={index===glockReportSteps.length-1} onClick={()=>setIndex(index+1)}>Siguiente →</button></div>
@@ -70,6 +77,7 @@ export default function GlockReportGuide({ onOpenNode }) {
         <h3>Control final de calidad · autoevaluación</h3>
         <p>No es una rúbrica oficial ni sustituye indicaciones del profesor. Marcar una casilla no verifica automáticamente la calidad del argumento.</p>
         {glockReportChecklist.map((c,i)=><label key={c} className="glock-report-check"><input type="checkbox" checked={draft['check:'+i]===true} onChange={e=>update('check:'+i,e.target.checked)}/>{c}</label>)}
+        <h3>Plantilla para reconstruir un argumento</h3><div className="glock-report-argument-template">{['1 · Problema: ¿qué intenta resolver?','2 · Tesis: ¿qué sostiene y quién lo sostiene?','3 · Razones: ¿por qué lo sostiene?','4 · Ejemplo: ¿cómo se aplica y en qué página?','5 · Objeción: ¿qué dificultad encuentra?','6 · Evaluación: ¿qué respuesta considero más convincente y por qué?'].map(x=><p key={x}>{x}</p>)}</div>
         <h3>Referencia y citas</h3><p>{glockReportReference}</p><p>Paráfrasis: (Glock, 2012, pp. 54–55). Cita literal: entrecomille sólo tras cotejar la edición y añada la página. Si se cita a un autor conocido sólo por Glock, indique que lo presenta Glock; no finja haber consultado el original. Algunas fichas contienen paráfrasis, no pasajes literales completos.</p>
         <button type="button" onClick={exportDraft}>Exportar mis apuntes en Markdown</button>
         <p className="glock-report-storage">Los apuntes se guardan únicamente en este navegador, cuando el almacenamiento local está disponible. No se envían al repositorio ni se publican. Exporte una copia si desea conservarlos.</p>

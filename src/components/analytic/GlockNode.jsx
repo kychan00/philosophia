@@ -35,7 +35,10 @@ export default function GlockNode({ data, selected }) {
       </div>
 
       <strong className="glock-flow-node-title">{data.title}</strong>
-      <p className="glock-flow-node-summary">{data.short}</p>
+      <section className="glock-node-plain" aria-label="En pocas palabras y entendible:">
+        <span>En pocas palabras y entendible:</span>
+        <p>{data.plainLanguage.plain}</p>
+      </section>
 
       <section className="glock-node-source-card" aria-label="Texto explícito del nodo">
         <span>{data.sourceMode === 'paraphrase' ? 'PARÁFRASIS COTEJADA' : 'TEXTO EXPLÍCITO'} · {data.page}</span>
