@@ -85,10 +85,36 @@ const cardLayout = `(()=>{
   return {count:cards.length,issues}
 })()`
 
-async function assertCardLayout(label){
+// A selected React Flow wrapper can exist before its dimensions/visibility
+// and camera settle. Require the actual expected card to be painted, fully
+// framed and stable across consecutive samples; never retry layout failures.
+async function assertCardLayout(label, expectedId){
+  let previous=null
+  let stable=0
+  await until(async()=>{
+    const sample=await evalJS(`(()=>{
+      const canvas=document.querySelector('.glock-flow-canvas')
+      const wrapper=canvas?.querySelector('.react-flow__node.selected')
+      const card=wrapper?.querySelector('.glock-flow-node')
+      if(!canvas||!wrapper||!card||wrapper.getAttribute('data-id')!==${JSON.stringify(expectedId)})return null
+      const style=getComputedStyle(wrapper)
+      const r=card.getBoundingClientRect(),c=canvas.getBoundingClientRect()
+      if(style.display==='none'||style.visibility==='hidden'||r.width<10||r.height<10)return null
+      if(r.left<c.left-2||r.top<c.top-2||r.right>c.right+2||r.bottom>c.bottom+2)return null
+      return [r.left,r.top,r.width,r.height]
+    })()`)
+    if(!sample){previous=null;stable=0;return false}
+    stable=previous&&sample.every((x,i)=>Math.abs(x-previous[i])<0.5)?stable+1:0
+    previous=sample
+    return stable>=2
+  },label+' nodo '+expectedId+' visible, encuadrado y estable')
   const result=await evalJS(cardLayout)
   assert.ok(result.count>0,label+' sin tarjetas')
   assert.deepEqual(result.issues,[],label+': '+result.issues.join('; '))
+  const state=await evalJS(metrics)
+  assert.equal(state.selected,expectedId,label+' selección')
+  assert.deepEqual(state.hits,[],label+' colisiones tras encuadre')
+  assert.ok(state.scroll<=state.width+3,label+' desborde global')
 }
 
 async function navigate(width,height){
@@ -109,7 +135,7 @@ async function navigate(width,height){
   }
   assert.ok(state.scroll<=state.width+3,'overflow global '+JSON.stringify(state))
   assert.ok(state.schemaHeight>500,'esquema general comprimido')
-  await assertCardLayout('Apertura '+width+'×'+height)
+  await assertCardLayout('Apertura '+width+'×'+height,'G00')
 
   const documentary=await evalJS(`(()=>{
     const selected=document.querySelector('.glock-flow-canvas .react-flow__node.selected')
@@ -159,6 +185,7 @@ async function navigate(width,height){
   await until(()=>evalJS("document.querySelector('.glock-topic-guide-rail')?.textContent.includes('G28')"),'riel Frege')
   await evalJS("(()=>{document.querySelector('.glock-topic-guide-rail button').click();return true})()")
   await until(()=>evalJS("document.querySelector('.glock-flow-canvas .react-flow__node.selected')?.getAttribute('data-id')==='G28'"),'nodo G28')
+  await assertCardLayout('Frege '+width+'×'+height,'G28')
   const frege=await evalJS(`(()=>({
     selected:document.querySelector('.glock-flow-canvas .react-flow__node.selected')?.getAttribute('data-id'),
     source:document.querySelector('.glock-source-details blockquote')?.textContent.length||0,
@@ -175,7 +202,6 @@ async function navigate(width,height){
   assert.ok(frege.scroll<=frege.width+3,JSON.stringify(frege))
   state=await evalJS(metrics)
   assert.deepEqual(state.hits,[],'Frege nodos superpuestos '+width+'×'+height)
-  await assertCardLayout('Frege '+width+'×'+height)
 
   if(width<=1180) assert.ok(!state.workspaceCols.includes('410px'),'iPad conserva inspector lateral '+state.workspaceCols)
   // Report guide: navigation and atlas focus use the same selected node and route.
@@ -185,6 +211,7 @@ async function navigate(width,height){
   await until(()=>evalJS("document.querySelector('#glock-report-step-title')?.textContent.includes('Valores')"),'etapa valores')
   await evalJS("(()=>{document.querySelector('.glock-report-nodes').open=true;document.querySelector('[data-report-node=G165]').click();return true})()")
   await until(()=>evalJS("document.querySelector('.glock-flow-canvas .react-flow__node.selected')?.getAttribute('data-id')==='G165'"),'nodo final desde guía')
+  await assertCardLayout('Valores '+width+'×'+height,'G165')
   const report=await evalJS(`(()=>({title:document.querySelector('#glock-report-step-title')?.textContent,route:document.querySelector('.glock-study-routes button.is-active')?.textContent,selected:document.querySelector('.glock-flow-canvas .react-flow__node.selected')?.getAttribute('data-id'),width:innerWidth,scroll:document.documentElement.scrollWidth}))()`)
   const clarity=await evalJS(`(()=>({
     scene:document.querySelectorAll('.glock-study-scene-panel svg').length,
@@ -200,7 +227,6 @@ async function navigate(width,height){
   assert.match(clarity.plain,/Ejemplo sencillo/)
   assert.match(clarity.card,/En pocas palabras y entendible:/)
   assert.ok(clarity.footer<=clarity.bottom+2,JSON.stringify(clarity))
-  await assertCardLayout('Valores '+width+'×'+height)
   assert.equal(report.selected,'G165')
   assert.match(report.route,/valores/i)
   assert.ok(report.scroll<=report.width+3,JSON.stringify(report))

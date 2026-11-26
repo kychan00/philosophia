@@ -285,7 +285,11 @@ function StudyCanvas() {
         setCenter(
           point.x + GLOCK_GEOMETRY.width / 2,
           point.y + GLOCK_GEOMETRY.height / 2,
-          { zoom: glockCardZoom(workspaceRef.current, 1.02), duration: 380 },
+          {
+            zoom: glockCardZoom(workspaceRef.current, 1.02),
+            // Narrow canvases should not pan through empty space between distant routes.
+            duration: workspaceRef.current?.querySelector('.glock-flow-canvas')?.clientWidth < 600 ? 0 : 380,
+          },
         )
       })
     })
@@ -311,7 +315,7 @@ function StudyCanvas() {
         setCenter(
           point.x + GLOCK_GEOMETRY.width / 2,
           point.y + GLOCK_GEOMETRY.height / 2,
-          { zoom: glockCardZoom(workspaceRef.current, 0.94), duration: 420 },
+          { zoom: glockCardZoom(workspaceRef.current, 0.94), duration: canvasWidth < 600 ? 0 : 420 },
         )
         return
       }
