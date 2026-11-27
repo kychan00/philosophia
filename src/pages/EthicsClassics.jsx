@@ -378,6 +378,12 @@ export default function EthicsClassics() {
           <div className="ethicsx-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
         </Link>
 
+        <Link to="/semestre/5/etica/clase/10-noviembre" className="ethicsx-class-card">
+          <div className="ethicsx-class-card-date"><strong>X</strong><span>XI · MMXXVI</span></div>
+          <div className="ethicsx-class-card-copy"><span>Clase · Exposición y debate · Séneca</span><h3>La firmeza del sabio: vulnerabilidad y justicia social</h3><p>Desigualdad, virtud, bienes externos, dolor, crítica del estoicismo, denuncia y libertad interior.</p></div>
+          <div className="ethicsx-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
+        </Link>
+
         <Link to="/semestre/5/etica/seneca/firmeza-del-sabio/sistema-2d" className="ethicsx-class-card">
           <div className="ethicsx-class-card-date"><strong>2D</strong><span>SÉNECA · CONSTANTIA</span></div>
           <div className="ethicsx-class-card-copy">

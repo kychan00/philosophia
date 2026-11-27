@@ -172,6 +172,7 @@ const EthicsClass20Oct = lazy(() => import('./pages/EthicsClass20Oct'))
 const EthicsClass27Oct = lazy(() => import('./pages/EthicsClass27Oct'))
 const EthicsClass29Oct = lazy(() => import('./pages/EthicsClass29Oct'))
 const EthicsClass03Nov = lazy(() => import('./pages/EthicsClass03Nov'))
+const EthicsClass10Nov = lazy(() => import('./pages/EthicsClass10Nov'))
 const SenecaFirmnessSystem = lazy(() => import('./pages/SenecaFirmnessSystem'))
 const TasksBoard = lazy(() => import('./pages/TasksBoard'))
 const SpinozaEthicsStudy = lazy(() => import('./pages/SpinozaEthicsStudy'))
@@ -776,6 +777,7 @@ function App() {
         <Route path="/semestre/5/etica/clase/27-octubre" element={<EthicsClass27Oct />} />
         <Route path="/semestre/5/etica/clase/29-octubre" element={<EthicsClass29Oct />} />
         <Route path="/semestre/5/etica/clase/3-noviembre" element={<EthicsClass03Nov />} />
+        <Route path="/semestre/5/etica/clase/10-noviembre" element={<EthicsClass10Nov />} />
         <Route path="/semestre/5/etica/seneca/firmeza-del-sabio/sistema-2d" element={<SenecaFirmnessSystem />} />
         <Route
           path="/tareas/ontologia-ii/spinoza-etica-parte-i"
