@@ -1,0 +1,49 @@
+/* ETHOS · 03 nov 2026. Extensión local; no modifica las clases anteriores. */
+.eth03-page{--ira-ink:#1a365d;--ira-muted:#405873;--ira-line:#c8d4e1;--ira-paper:#faf8f5;--ira-gold:#b89758;--ira-sage:#567967;--ira-red:#a74d3c}
+.eth03-page .eth03-hero{min-height:0}
+.eth03-page .eth03-hero .eth10-hero-inner{padding-block:clamp(3rem,7vw,6rem)}
+.eth03-page .eth03-hero h1{font-size:clamp(2.8rem,7vw,6rem)}
+.eth03-page .eth03-hero h1 em{max-width:24ch}
+.eth03-page .eth03-cover{max-width:820px;margin:2rem auto 0;text-align:left}
+.eth03-page .eth03-cover .eth03-scenes{margin:0}
+.eth03-page .eth03-cover .eth03-scene{box-shadow:0 14px 36px rgba(26,54,93,.09)}
+.eth03-page .eth03-article,.eth03-page .eth03-article section,.eth03-page .eth03-article figure{min-width:0}
+.eth03-page .eth03-index{overflow-y:auto;overscroll-behavior:contain}
+.eth03-page .eth03-index button{min-width:0;white-space:normal;text-align:left;overflow-wrap:anywhere}
+.eth03-page .eth03-index button b{font-size:.82rem;line-height:1.4}
+.eth03-page .eth03-article section{scroll-margin-top:24px}
+.eth03-page .eth03-chapter{margin:0 0 1.5rem;display:flex;align-items:center;gap:.65rem;font:700 .76rem/1.4 system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--ira-muted)}
+.eth03-page .eth03-chapter::before{content:"";display:block;width:2rem;height:2px;background:var(--ira-gold);flex:none}
+.eth03-page .eth03-scenes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1.65rem 0 2rem}
+.eth03-page .eth03-scene{margin:0;min-width:0;border:1px solid var(--ira-line);background:#fff;padding:.65rem;box-shadow:0 6px 24px rgba(26,54,93,.05)}
+.eth03-page .eth03-scene-svg{display:block;width:100%;height:auto;border-radius:4px}
+.eth03-page .eth03-scene figcaption{padding:.9rem .5rem .5rem;text-align:left;color:var(--ira-muted);font:400 .88rem/1.55 system-ui,sans-serif}
+.eth03-page .eth03-scene figcaption strong{display:block;color:var(--ira-ink);font:700 .85rem/1.4 system-ui,sans-serif;margin-bottom:.35rem}
+.eth03-page .eth03-source{margin:0 0 .75rem;color:var(--ira-ink);font:700 .75rem/1.5 system-ui,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+.eth03-page .eth03-paras{max-width:76ch}
+.eth03-page .eth03-interpret{border-left:3px solid var(--ira-gold);padding:.35rem 0 .35rem 1rem;margin:1.6rem 0}
+.eth03-page .eth03-interpret p{margin:.5rem 0}
+.eth03-page .eth03-teaching{display:grid;grid-template-columns:1fr;gap:.85rem;margin:1.6rem 0}
+.eth03-page .eth03-example,.eth03-page .eth03-simple{padding:1.25rem 1.4rem;border:1px solid var(--ira-line)}
+.eth03-page .eth03-example{background:#f0f4f8}
+.eth03-page .eth03-simple{background:var(--ira-ink);color:#fff;border-color:var(--ira-ink)}
+.eth03-page .eth03-label{display:block;font:750 .73rem/1.45 system-ui,sans-serif;letter-spacing:.09em;text-transform:uppercase;margin:0 0 .55rem}
+.eth03-page .eth03-example .eth03-label{color:#405873}
+.eth03-page .eth03-simple .eth03-label{color:#f0dcae}
+.eth03-page .eth03-example p,.eth03-page .eth03-simple p{font:400 1.04rem/1.65 Georgia,serif;margin:0;color:inherit}
+.eth03-page .eth03-simple p{font-size:1.18rem}
+.eth03-page .eth03-review{border-block:1px solid var(--ira-line);margin:1.4rem 0;padding:1rem 0;color:var(--ira-ink)}
+.eth03-page .eth03-review summary{cursor:pointer;font:700 .92rem/1.6 system-ui,sans-serif;overflow-wrap:anywhere}
+.eth03-page .eth03-review p{margin:.8rem 0 0;color:var(--ira-muted);line-height:1.65}
+.eth03-page .eth03-review summary:focus-visible,.eth03-page .eth03-index button:focus-visible{outline:2px solid var(--ira-ink);outline-offset:4px}
+.eth03-page .eth03-glossary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin:1.5rem 0}
+.eth03-page .eth03-glossary div{background:#fff;border-top:3px solid var(--ira-ink);padding:1rem;border-inline:1px solid var(--ira-line);border-bottom:1px solid var(--ira-line)}
+.eth03-page .eth03-glossary dt{font:700 1.15rem/1.4 Georgia,serif;margin:0 0 .4rem}
+.eth03-page .eth03-glossary dd{margin:0;font:.92rem/1.6 system-ui,sans-serif;color:var(--ira-muted)}
+.eth03-page .eth03-map{max-width:480px;margin-inline:auto}
+.eth03-page .eth03-image-credit{color:var(--ira-muted);font:.82rem/1.6 system-ui,sans-serif;margin:.8rem 0}
+.eth03-page .eth03-task-list{padding-left:1.25rem;line-height:1.75;margin:1rem 0}
+.eth03-page .eth03-task-list li{padding-left:.2rem;margin:.3rem 0}
+@media(max-width:900px){.eth03-page .eth03-index{overflow:visible;overscroll-behavior:auto}.eth03-page .eth03-index button{flex:1 1 42%}.eth03-page .eth03-cover{max-width:100%}}
+@media(max-width:560px){.eth03-page .eth03-scenes,.eth03-page .eth03-glossary{grid-template-columns:1fr}.eth03-page .eth03-scene{padding:.5rem}.eth03-page .eth03-example,.eth03-page .eth03-simple{padding:1rem}.eth03-page .eth03-interpret{padding-left:.85rem}.eth03-page .eth03-hero .eth10-hero-inner{padding-block:2.8rem}.eth03-page .eth03-hero h1 em{overflow-wrap:break-word}.eth03-page .eth03-index button{flex-basis:100%}}
+@media(prefers-reduced-motion:reduce){.eth03-page *{scroll-behavior:auto!important}}

@@ -372,6 +372,12 @@ export default function EthicsClassics() {
           <div className="ethicsx-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
         </Link>
 
+        <Link to="/semestre/5/etica/clase/3-noviembre" className="ethicsx-class-card">
+          <div className="ethicsx-class-card-date"><strong>III</strong><span>XI · MMXXVI</span></div>
+          <div className="ethicsx-class-card-copy"><span>Clase · Séneca · De ira I</span><h3>Séneca: ira, venganza y dominio de sí</h3><p>Confianza, ultraje, deseo de castigo, examen de los afectos, responsabilidad, cultura e iracundia.</p></div>
+          <div className="ethicsx-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
+        </Link>
+
         <Link to="/semestre/5/etica/seneca/firmeza-del-sabio/sistema-2d" className="ethicsx-class-card">
           <div className="ethicsx-class-card-date"><strong>2D</strong><span>SÉNECA · CONSTANTIA</span></div>
           <div className="ethicsx-class-card-copy">
