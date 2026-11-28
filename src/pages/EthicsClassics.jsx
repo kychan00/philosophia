@@ -384,6 +384,12 @@ export default function EthicsClassics() {
           <div className="ethicsx-class-card-enter"><span>Abrir clase</span><b>↗</b></div>
         </Link>
 
+        <Link to="/semestre/5/etica/clase/ultima-clase" className="ethicsx-class-card">
+          <div className="ethicsx-class-card-date"><strong>FIN</strong><span>2026-B · ETHOS</span></div>
+          <div className="ethicsx-class-card-copy"><span>Última clase · Epicuro y Lucrecio</span><h3>El placer, la naturaleza y el cuidado de la vida</h3><p>El Jardín, solidaridad, causalidad natural, trabajo, bienestar y examen final de casos.</p></div>
+          <div className="ethicsx-class-card-enter"><span>Abrir clase y repasar</span><b>↗</b></div>
+        </Link>
+
         <Link to="/semestre/5/etica/seneca/firmeza-del-sabio/sistema-2d" className="ethicsx-class-card">
           <div className="ethicsx-class-card-date"><strong>2D</strong><span>SÉNECA · CONSTANTIA</span></div>
           <div className="ethicsx-class-card-copy">

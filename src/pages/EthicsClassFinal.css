@@ -1,0 +1,74 @@
+/* ETHOS · última clase · composición editorial de escritorio y lectura adaptable */
+.ethepi-page{--nov-blue:#1a365d;--nov-muted:#405873;--nov-line:#c8d4e1;--nov-gold:#b89758;--nov-paper:#faf8f5;color:var(--nov-blue);background:var(--nov-paper)}
+.ethepi-page .ethepi-hero{min-height:0;padding:clamp(2.2rem,5vw,5rem) 0}
+.ethepi-page .ethepi-cover,.ethepi-page .ethepi-meta,.ethepi-page .ethepi-layout{width:min(1540px,calc(100% - 5rem));margin-inline:auto;min-width:0}
+.ethepi-page .ethepi-cover{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:clamp(2rem,5vw,5rem);align-items:center}
+.ethepi-page .ethepi-cover-copy,.ethepi-page .ethepi-cover-art{min-width:0}
+.ethepi-page .ethepi-cover h1{font:500 clamp(3.4rem,6.3vw,6.7rem)/.99 Georgia,serif;letter-spacing:-.045em;margin:1rem 0;color:var(--nov-blue);overflow-wrap:break-word}
+.ethepi-page .ethepi-cover-copy>p:not(.ethicsx-kicker){max-width:48ch;line-height:1.65;color:var(--nov-muted);font-size:1.1rem}
+.ethepi-page .ethepi-cover-copy>.ethepi-deck{font:500 clamp(1.4rem,2.3vw,2rem)/1.3 Georgia,serif;color:var(--nov-blue)}
+.ethepi-page .ethepi-seal{display:inline-grid;place-items:center;border:1px solid var(--nov-gold);width:48px;height:48px;border-radius:50%;font:1.8rem Georgia,serif}
+.ethepi-page .ethepi-cover-quote{background:var(--nov-blue);color:white;padding:1.3rem 1.5rem;margin-top:1rem}
+.ethepi-page .ethepi-cover-quote small,.ethepi-page .ethepi-meta small,.ethepi-page .ethepi-map small{display:block;font:700 .74rem/1.4 system-ui,sans-serif;text-transform:uppercase;letter-spacing:.09em;margin-bottom:.45rem}
+.ethepi-page .ethepi-cover-quote small{color:#eedba8}
+.ethepi-page .ethepi-cover-quote strong{font:500 clamp(1.2rem,2vw,1.8rem)/1.35 Georgia,serif}
+.ethepi-page .ethepi-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;padding-top:1.6rem;margin-top:2rem;border-top:1px solid var(--nov-line)}
+.ethepi-page .ethepi-meta div{min-width:0;overflow-wrap:anywhere}
+.ethepi-page .ethepi-meta small{color:var(--nov-muted)}
+.ethepi-page .ethepi-system-link{display:inline-flex;align-items:center;gap:.5rem;color:var(--nov-blue);border:1px solid var(--nov-blue);padding:.75rem 1rem;text-decoration:none;font:700 .9rem/1.4 system-ui,sans-serif;margin-top:1rem;max-width:100%;overflow-wrap:anywhere}
+.ethepi-page .ethepi-system-link:hover{background:#e6eef7}
+.ethepi-page .ethepi-layout{display:grid;grid-template-columns:minmax(180px,225px) minmax(0,1fr);gap:clamp(1.8rem,3.5vw,4rem);align-items:start}
+.ethepi-page .ethepi-index{position:sticky;top:24px;max-height:calc(100vh - 48px);overflow:auto;padding:2rem 0;overscroll-behavior:contain}
+.ethepi-page .ethepi-index>p{font:italic 1.15rem Georgia,serif;margin:0 0 1rem}
+.ethepi-page .ethepi-index button{display:grid;width:100%;grid-template-columns:1.7rem minmax(0,1fr);gap:.4rem;text-align:left;background:none;border:0;border-top:1px solid var(--nov-line);color:var(--nov-muted);padding:.7rem .15rem;font:.8rem/1.4 system-ui,sans-serif;cursor:pointer;white-space:normal;overflow-wrap:anywhere}
+.ethepi-page .ethepi-index button span{color:#526a86}
+.ethepi-page .ethepi-index button:hover{background:#e8eef6}
+.ethepi-page .ethepi-article,.ethepi-page .ethepi-spread>*,.ethepi-page .ethepi-article section{min-width:0}
+.ethepi-page .ethepi-article>section{padding:clamp(2.2rem,4.5vw,4.5rem) 0;border-bottom:1px solid var(--nov-line);scroll-margin-top:24px}
+.ethepi-page .ethepi-heading{display:grid;grid-template-columns:clamp(42px,5vw,70px) minmax(0,1fr);gap:1rem;align-items:start;margin-bottom:1.75rem}
+.ethepi-page .ethepi-heading>span{font:500 clamp(2.5rem,4vw,4rem)/1 Georgia,serif;color:#718aa6}
+.ethepi-page .ethepi-heading p,.ethepi-page .ethepi-label{font:750 .74rem/1.5 system-ui,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:var(--nov-muted);margin:0 0 .5rem;display:block}
+.ethepi-page .ethepi-heading h2{font:500 clamp(1.9rem,3vw,3.25rem)/1.1 Georgia,serif;color:var(--nov-blue);margin:0;overflow-wrap:break-word}
+.ethepi-page .ethepi-spread{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(1.25rem,2.5vw,2.5rem);align-items:start}
+.ethepi-page .ethepi-reading p:not(.ethepi-label),.ethepi-page .ethepi-body{font:400 clamp(1.04rem,1.3vw,1.17rem)/1.75 Georgia,serif;color:#293e55;margin:0 0 1.2rem;max-width:78ch;overflow-wrap:break-word}
+.ethepi-page .ethepi-explain{border-left:3px solid var(--nov-gold);padding-left:1rem;margin-top:1.6rem}
+.ethepi-page .ethepi-scene{margin:0;min-width:0;background:#fff;border:1px solid var(--nov-line);padding:.65rem;box-shadow:0 8px 24px #1a365d0b}
+.ethepi-page .ethepi-scene-svg{display:block;width:100%;height:auto}
+.ethepi-page .ethepi-scene figcaption{font:.85rem/1.55 system-ui,sans-serif;color:var(--nov-muted);padding:.8rem .35rem .3rem;overflow-wrap:break-word}
+.ethepi-page .ethepi-example{border:1px solid var(--nov-line);background:#edf3f8;padding:1rem 1.1rem;margin-top:1rem}
+.ethepi-page .ethepi-example p,.ethepi-page .ethepi-simple p{font:400 1.08rem/1.6 Georgia,serif;margin:0;overflow-wrap:break-word}
+.ethepi-page .ethepi-simple{margin:1.7rem 0 1.25rem;background:var(--nov-blue);color:white;padding:1.2rem 1.5rem}
+.ethepi-page .ethepi-simple .ethepi-label{color:#f0dcac}
+.ethepi-page .ethepi-simple p{font-size:1.22rem}
+.ethepi-page .ethepi-review{border-block:1px solid var(--nov-line);padding:1rem 0}
+.ethepi-page .ethepi-review summary{font:700 .94rem/1.55 system-ui,sans-serif;cursor:pointer;overflow-wrap:anywhere}
+.ethepi-page .ethepi-review p{color:var(--nov-muted);line-height:1.65;margin:.75rem 0 0}
+.ethepi-page .ethepi-map{max-width:850px;margin:0 auto 1.5rem;text-align:center}
+.ethepi-page .ethepi-map-root,.ethepi-page .ethepi-map-branches>div{border:1px solid var(--nov-line);border-top:4px solid var(--nov-blue);background:#edf3f8;padding:1.25rem;min-width:0;overflow-wrap:break-word}
+.ethepi-page .ethepi-map-root strong,.ethepi-page .ethepi-map-branches strong{display:block;font:600 1.35rem/1.3 Georgia,serif}
+.ethepi-page .ethepi-map-root p,.ethepi-page .ethepi-map-branches p{margin:.6rem 0 0;font:.95rem/1.6 system-ui,sans-serif}
+.ethepi-page .ethepi-map-branches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.ethepi-page .ethepi-map-arrow{font-size:1.6rem;line-height:1.5}
+.ethepi-page .ethepi-glossary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:0 0 2rem}
+.ethepi-page .ethepi-glossary div{border:1px solid var(--nov-line);border-top:3px solid var(--nov-blue);background:white;padding:1rem;min-width:0}
+.ethepi-page .ethepi-glossary dt{font:700 1.13rem/1.4 Georgia,serif;overflow-wrap:anywhere}
+.ethepi-page .ethepi-glossary dd{font:.9rem/1.55 system-ui,sans-serif;margin:.4rem 0 0;color:var(--nov-muted)}
+.ethepi-page .ethepi-footer{padding:2rem 0 3rem;font:.9rem/1.7 system-ui,sans-serif;color:var(--nov-muted)}
+.ethepi-page .ethepi-footer a{color:var(--nov-blue);font-weight:700}
+.ethepi-page :is(button,summary,a):focus-visible{outline:2px solid var(--nov-blue);outline-offset:3px}
+@media(max-width:1199px){.ethepi-page .ethepi-layout,.ethepi-page .ethepi-cover,.ethepi-page .ethepi-meta{width:calc(100% - 3rem)}.ethepi-page .ethepi-layout{grid-template-columns:180px minmax(0,1fr);gap:1.5rem}.ethepi-page .ethepi-spread{grid-template-columns:1fr}.ethepi-page .ethepi-visual{display:grid;grid-template-columns:1.05fr 1fr;gap:1rem;align-items:start}.ethepi-page .ethepi-example{margin:0}.ethepi-page .ethepi-glossary{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:850px){.ethepi-page .ethepi-layout,.ethepi-page .ethepi-cover,.ethepi-page .ethepi-meta{width:calc(100% - 2rem)}.ethepi-page .ethepi-cover,.ethepi-page .ethepi-layout{grid-template-columns:1fr}.ethepi-page .ethepi-index{position:static;max-height:none;overflow:visible;padding:1.5rem 0 0}.ethepi-page .ethepi-index-items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.3rem .8rem}.ethepi-page .ethepi-meta{grid-template-columns:repeat(2,minmax(0,1fr))}.ethepi-page .ethepi-cover h1{font-size:clamp(3rem,9vw,5.4rem)}}
+@media(max-width:520px){.ethepi-page .ethepi-visual,.ethepi-page .ethepi-map-branches,.ethepi-page .ethepi-glossary,.ethepi-page .ethepi-index-items{grid-template-columns:1fr}.ethepi-page .ethepi-heading{gap:.6rem}.ethepi-page .ethepi-heading h2{font-size:1.85rem}.ethepi-page .ethepi-cover h1{font-size:clamp(2.7rem,10vw,3.8rem)}.ethepi-page .ethepi-simple{padding:1rem}.ethepi-page .ethepi-meta{gap:.8rem}.ethepi-page .ethepi-cover-copy .ethicsx-kicker{overflow-wrap:anywhere}}
+@media(prefers-reduced-motion:reduce){.ethepi-page *{scroll-behavior:auto!important}}
+
+.ethepi-page .ethepi-exam-notice{padding:1.3rem 1.5rem;border:1px solid var(--nov-line);border-left:4px solid var(--nov-gold);background:#f6f9ff;margin-bottom:1.6rem;overflow-wrap:break-word}
+.ethepi-page .ethepi-exam-notice p,.ethepi-page .ethepi-exam-case p:not(.ethepi-label){font:400 1.08rem/1.65 Georgia,serif;margin:.65rem 0}
+.ethepi-page .ethepi-exam{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.5rem;align-items:start}
+.ethepi-page .ethepi-exam-case,.ethepi-page .ethepi-exam-schools{min-width:0}
+.ethepi-page .ethepi-exam-case h3{font:500 1.6rem/1.25 Georgia,serif;margin:.5rem 0 1rem}
+.ethepi-page .ethepi-exam-case ol{padding-left:1.5rem;line-height:1.65}
+.ethepi-page .ethepi-exam-case li{margin-bottom:.65rem}
+.ethepi-page .ethepi-exam-schools details{border:1px solid var(--nov-line);background:white;padding:1rem;margin-bottom:.6rem}
+.ethepi-page .ethepi-exam-schools summary{font:700 1rem/1.4 system-ui,sans-serif;cursor:pointer;overflow-wrap:anywhere}
+.ethepi-page .ethepi-exam-schools p:not(.ethepi-label){font:.95rem/1.6 system-ui,sans-serif;color:var(--nov-muted);margin:.8rem 0 0}
+@media(max-width:850px){.ethepi-page .ethepi-exam{grid-template-columns:1fr}}
